@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: migration-hub-refactor-spaces
+paths:
+  /environments/{EnvironmentIdentifier}/applications:
+    GET:
+      summary: 'List Applications '
+      description: >-
+        <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces
+        applications within an environment. </p>
+      tags:
+        - Applications
+        - Environments
+  /environments:
+    GET:
+      summary: 'List Environments '
+      description: >-
+        <p>Lists Amazon Web Services Migration Hub Refactor Spaces environments
+        owned by a caller account or shared with the caller account. </p>
+      tags:
+        - Environments
+  /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes:
+    GET:
+      summary: 'List Routes '
+      description: >-
+        <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces
+        routes within an application. </p>
+      tags:
+        - Applications
+        - Environments
+        - Routes
+  /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services:
+    GET:
+      summary: 'List Services '
+      description: >-
+        <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces
+        services within an application. </p>
+      tags:
+        - Applications
+        - Environments
+        - Services
+  /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}:
+    GET:
+      summary: 'Get Application '
+      description: >-
+        <p>Gets an Amazon Web Services Migration Hub Refactor Spaces
+        application.</p>
+      tags:
+        - Applications
+        - Environments
+  /environments/{EnvironmentIdentifier}:
+    GET:
+      summary: 'Get Environment '
+      description: >-
+        <p>Gets an Amazon Web Services Migration Hub Refactor Spaces
+        environment.</p>
+      tags:
+        - Environments
+  /resourcepolicy/{Identifier}:
+    GET:
+      summary: 'Get Resource Policy '
+      description: >-
+        <p>Gets the resource-based permission policy that is set for the given
+        environment. </p>
+      tags:
+        - Policies
+        - Resource Policies
+        - Resources
+  /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}:
+    PATCH:
+      summary: 'Update Route '
+      description: >-
+        <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route.
+        </p>
+      tags:
+        - Applications
+        - Environments
+        - Routes
+  /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}:
+    GET:
+      summary: 'Get Service '
+      description: >-
+        <p>Gets an Amazon Web Services Migration Hub Refactor Spaces service.
+        </p>
+      tags:
+        - Applications
+        - Environments
+        - Services
+  /environments/{EnvironmentIdentifier}/vpcs:
+    GET:
+      summary: 'List Environment Vpcs '
+      description: >-
+        <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service
+        virtual private clouds (VPCs) that are part of the environment. </p>
+      tags:
+        - Environments
+        - VPC
+  /tags/{ResourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: >-
+        <p>Adds to or modifies the tags of the given resource. Tags are metadata
+        which can be used to manage a resource. To untag a resource, the caller
+        account must be the same as the resource’s <code>OwnerAccountId</code>.
+        Untagging resources across accounts is not supported. </p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /resourcepolicy:
+    PUT:
+      summary: 'Put Resource Policy '
+      description: >-
+        <p>Attaches a resource-based permission policy to the Amazon Web
+        Services Migration Hub Refactor Spaces environment. The policy must
+        contain the same actions and condition statements as the
+        <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
+        permission in Resource Access Manager. The policy must not contain new
+        lines or blank l
+      tags:
+        - Policies
+        - Resource Policies
+        - Resources

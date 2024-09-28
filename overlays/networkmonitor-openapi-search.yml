@@ -1,0 +1,52 @@
+openapi: 3.1.0
+info:
+  title: networkmonitor
+paths:
+  /monitors:
+    GET:
+      summary: 'List Monitors '
+      description: <p>Returns a list of all of your monitors.</p>
+      tags:
+        - Monitors
+  /monitors/{monitorName}/probes:
+    POST:
+      summary: 'Create Probe '
+      description: >-
+        <p>Create a probe within a monitor. Once you create a probe, and it
+        begins monitoring your network traffic, you'll incur billing charges for
+        that probe. </p>
+      tags:
+        - Monitors
+        - Names
+        - Probes
+  /monitors/{monitorName}:
+    PATCH:
+      summary: 'Update Monitor '
+      description: >-
+        <p>Updates the <code>aggregationPeriod</code> for a monitor. Monitors
+        support an <code>aggregationPeriod</code> of either <code>30</code> or
+        <code>60</code> seconds.</p>
+      tags:
+        - Monitors
+        - Names
+  /monitors/{monitorName}/probes/{probeId}:
+    PATCH:
+      summary: 'Update Probe '
+      description: >-
+        <p>Updates a monitor probe. This action requires both the
+        <code>monitorName</code> and <code>probeId</code> parameters. Run
+        <code>ListMonitors</code> to get a list of monitor names. Run
+        <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
+      tags:
+        - Monitors
+        - Names
+        - Probes
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes a key-value pair from a monitor or
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag

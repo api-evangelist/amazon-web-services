@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  title: amplify
+paths:
+  /apps:
+    GET:
+      summary: 'List Apps '
+      description: >-
+        This API retrieves a collection of all currently active Amplify
+        applications.
+      tags:
+        - Applications
+        - Lists
+  /apps/{appId}/backendenvironments:
+    GET:
+      summary: 'List Backend Environments '
+      description: >-
+        This API provides a list of backend environments available for an
+        Amplify app.
+      tags:
+        - Applications
+        - Backend Environments
+        - Backends
+        - Environments
+        - Identifiers
+        - Lists
+  /apps/{appId}/branches:
+    GET:
+      summary: 'List Branches '
+      description: <p> Lists the branches of an Amplify app. </p>
+      tags:
+        - Applications
+        - Branches
+        - Identifiers
+        - Lists
+  /apps/{appId}/branches/{branchName}/deployments:
+    POST:
+      summary: 'Create Deployment '
+      description: >-
+        This API is used to create a deployment for a manually deployed Amplify
+        app that is not linked to a repository. It is important to note that the
+        time interval between the CreateDeployment call and the StartDeployment
+        call should not exceed 8 hours. If this time limit is exceeded, the
+        StartDeployment call and the corresponding Job will not be successful.
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Create
+        - Deployments
+        - Identifiers
+        - Names
+  /apps/{appId}/domains:
+    GET:
+      summary: 'List Domain Associations '
+      description: <p> Returns the domain associations for an Amplify app. </p>
+      tags:
+        - Applications
+        - Associations
+        - Domains
+        - Identifiers
+        - Lists
+  /apps/{appId}/webhooks:
+    GET:
+      summary: 'List Webhooks '
+      description: <p>Returns a list of webhooks for an Amplify app. </p>
+      tags:
+        - Applications
+        - Identifiers
+        - Lists
+        - Webhooks
+  /apps/{appId}:
+    POST:
+      summary: 'Update App '
+      description: >-
+        Sure, please provide me with the description of your API so that I can
+        rewrite it for you.
+      tags:
+        - Applications
+        - Identifiers
+  /apps/{appId}/backendenvironments/{environmentName}:
+    GET:
+      summary: 'Get Backend Environment '
+      description: <p>Returns a backend environment for an Amplify app. </p>
+      tags:
+        - Applications
+        - Backend Environments
+        - Backends
+        - Environments
+        - Identifiers
+        - Names
+  /apps/{appId}/branches/{branchName}:
+    POST:
+      summary: 'Update Branch '
+      description: <p> Updates a branch for an Amplify app. </p>
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Identifiers
+        - Names
+  /apps/{appId}/domains/{domainName}:
+    POST:
+      summary: 'Update Domain Association '
+      description: <p> Creates a new domain association for an Amplify app.</p>
+      tags:
+        - Applications
+        - Associations
+        - Domains
+        - Identifiers
+        - Names
+  /apps/{appId}/branches/{branchName}/jobs/{jobId}:
+    GET:
+      summary: 'Get Job '
+      description: <p> Returns a job for a branch of an Amplify app. </p>
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Identifiers
+        - Jobs
+        - Names
+  /webhooks/{webhookId}:
+    POST:
+      summary: 'Update Webhook '
+      description: ''
+      tags:
+        - Identifiers
+        - Webhooks
+  /apps/{appId}/accesslogs:
+    POST:
+      summary: 'Generate Access Logs '
+      description: >-
+        <p>Returns the website access logs for a specific time range using a
+        presigned URL. </p>
+      tags:
+        - Access
+        - Access Logs
+        - Applications
+        - Generate
+        - Identifiers
+        - Logs
+  /artifacts/{artifactId}:
+    GET:
+      summary: 'Get Artifact Url '
+      description: <p>Returns the artifact info that corresponds to an artifact id. </p>
+      tags:
+        - Artifacts
+        - Identifiers
+        - URL
+  /apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts:
+    GET:
+      summary: 'List Artifacts '
+      description: >-
+        <p>Returns a list of artifacts for a specified app, branch, and job.
+        </p>
+      tags:
+        - Applications
+        - Artifacts
+        - Branch
+        - Branches
+        - Identifiers
+        - Jobs
+        - Lists
+        - Names
+  /apps/{appId}/branches/{branchName}/jobs:
+    POST:
+      summary: 'Start Job '
+      description: <p> Starts a new job for a branch of an Amplify app. </p>
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Identifiers
+        - Jobs
+        - Names
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Untags a resource with a specified Amazon Resource Name (ARN).</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /apps/{appId}/branches/{branchName}/deployments/start:
+    POST:
+      summary: 'Start Deployment '
+      description: >-
+        This API initiates the deployment process for a manually deployed
+        application that is not linked to a repository. It enforces a maximum
+        time limit of 8 hours between the creation of the deployment and the
+        actual start of the deployment. If this time limit is exceeded, both the
+        StartDeployment call and the related Job will fail.
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Deployments
+        - Identifiers
+        - Names
+  /apps/{appId}/branches/{branchName}/jobs/{jobId}/stop:
+    DELETE:
+      summary: 'Stop Job  '
+      description: <p> Stops a job that is in progress for a branch of an Ampli
+      tags:
+        - Applications
+        - Branch
+        - Branches
+        - Identifiers
+        - Jobs
+        - Names
+        - Stop

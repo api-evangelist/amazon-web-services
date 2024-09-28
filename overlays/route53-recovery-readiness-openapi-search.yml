@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: route53-recovery-readiness
+paths:
+  /cells:
+    GET:
+      summary: 'List Cells '
+      description: <p>Lists the cells for an account.</p>
+      tags:
+        - Cells
+  /crossaccountauthorizations:
+    GET:
+      summary: 'List Cross Account Authorizations '
+      description: >-
+        <p>Lists the cross-account readiness authorizations that are in place
+        for an account.</p>
+      tags:
+        - Accounts
+        - Authorization
+        - Cross Account Authorizations
+  /readinesschecks:
+    GET:
+      summary: 'List Readiness Checks '
+      description: <p>Lists the readiness checks for an account.</p>
+      tags:
+        - Checks
+        - Readiness
+        - Readiness Checks
+  /recoverygroups:
+    GET:
+      summary: 'List Recovery Groups '
+      description: <p>Lists the recovery groups in an account.</p>
+      tags:
+        - Groups
+        - Recovery
+        - Recovery Groups
+  /resourcesets:
+    GET:
+      summary: 'List Resource Sets '
+      description: <p>Lists the resource sets in an account.</p>
+      tags:
+        - Resource Sets
+        - Resources
+        - Sets
+  /cells/{cellName}:
+    PUT:
+      summary: 'Update Cell '
+      description: >-
+        <p>Updates a cell to replace the list of nested cells with a new list of
+        nested cells.</p>
+      tags:
+        - Cell
+        - Cells
+        - Names
+  /crossaccountauthorizations/{crossAccountAuthorization}:
+    DELETE:
+      summary: 'Delete Cross Account Authorization '
+      description: <p>Deletes cross account readiness authorization.</p>
+      tags:
+        - Accounts
+        - Authorization
+        - Cross Account Authorizations
+  /readinesschecks/{readinessCheckName}:
+    PUT:
+      summary: 'Update Readiness Check '
+      description: <p>Updates a readiness check.</p>
+      tags:
+        - Checks
+        - Names
+        - Readiness
+        - Readiness Checks
+  /recoverygroups/{recoveryGroupName}:
+    PUT:
+      summary: 'Update Recovery Group '
+      description: <p>Updates a recovery group.</p>
+      tags:
+        - Groups
+        - Names
+        - Recovery
+        - Recovery Groups
+  /resourcesets/{resourceSetName}:
+    PUT:
+      summary: 'Update Resource Set '
+      description: <p>Updates a resource set.</p>
+      tags:
+        - Names
+        - Resource Sets
+        - Resources
+        - Sets
+  /recoverygroups/{recoveryGroupName}/architectureRecommendations:
+    GET:
+      summary: 'Get Architecture Recommendations '
+      description: >-
+        <p>Gets recommendations about architecture designs for improving
+        resiliency for an application, based on a recovery group.</p>
+      tags:
+        - Architecture
+        - Groups
+        - Names
+        - Recommendations
+        - Recovery
+        - Recovery Groups
+  /cellreadiness/{cellName}:
+    GET:
+      summary: 'Get Cell Readiness Summary '
+      description: >-
+        <p>Gets readiness for a cell. Aggregates the readiness of all the
+        resources that are associated with the cell into a single value.</p>
+      tags:
+        - Cell
+        - Cellreadiness
+        - Names
+        - Readiness
+        - Summaries
+  /readinesschecks/{readinessCheckName}/resource/{resourceIdentifier}/status:
+    GET:
+      summary: 'Get Readiness Check Resource Status '
+      description: >-
+        <p>Gets individual readiness status for a readiness check. To see the
+        overall readiness status for a recovery group, that considers the
+        readiness status for all the readiness checks in the recovery group, use
+        GetRecoveryGroupReadinessSummary.</p>
+      tags:
+        - Checks
+        - Names
+        - Readiness
+        - Readiness Checks
+        - Resources
+        - Status
+  /readinesschecks/{readinessCheckName}/status:
+    GET:
+      summary: 'Get Readiness Check Status '
+      description: >-
+        <p>Gets the readiness status for an individual readiness check. To see
+        the overall readiness status for a recovery group, that considers the
+        readiness status for all the readiness checks in a recovery group, use
+        GetRecoveryGroupReadinessSummary.</p>
+      tags:
+        - Checks
+        - Names
+        - Readiness
+        - Readiness Checks
+        - Status
+  /recoverygroupreadiness/{recoveryGroupName}:
+    GET:
+      summary: 'Get Recovery Group Readiness Summary '
+      description: >-
+        <p>Displays a summary of information about a recovery group's readiness
+        status. Includes the readiness checks for resources in the recovery
+        group and the readiness status of each one.</p>
+      tags:
+        - Groups
+        - Names
+        - Readiness
+        - Recovery
+        - Recoverygroupreadiness
+        - Summaries
+  /rules:
+    GET:
+      summary: 'List Rules '
+      description: >-
+        <p>Lists all readiness rules, or lists the readiness rules for a
+        specific resource type.</p>
+      tags:
+        - Rules
+  /tags/{resource-arn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes a tag from a res
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag

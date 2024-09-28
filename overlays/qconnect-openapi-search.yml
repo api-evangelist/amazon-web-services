@@ -1,0 +1,267 @@
+openapi: 3.1.0
+info:
+  title: qconnect
+paths:
+  /assistants:
+    GET:
+      summary: 'List Assistants '
+      description: <p>Lists information about assistants.</p>
+      tags:
+        - Assistants
+  /assistants/{assistantId}/associations:
+    GET:
+      summary: 'List Assistant Associations '
+      description: <p>Lists information about assistant associations.</p>
+      tags:
+        - Assistants
+        - Associations
+  /knowledgeBases/{knowledgeBaseId}/contents:
+    GET:
+      summary: 'List Contents '
+      description: <p>Lists the content.</p>
+      tags:
+        - Base
+        - Bases
+        - Contents
+        - Knowledge
+  /knowledgeBases:
+    GET:
+      summary: 'List Knowledge Bases '
+      description: <p>Lists the knowledge bases.</p>
+      tags:
+        - Bases
+        - Knowledge
+  /knowledgeBases/{knowledgeBaseId}/quickResponses:
+    GET:
+      summary: 'List Quick Responses '
+      description: <p>Lists information about quick response.</p>
+      tags:
+        - Base
+        - Bases
+        - Knowledge
+        - Responses
+  /assistants/{assistantId}/sessions:
+    POST:
+      summary: 'Create Session '
+      description: >-
+        <p>Creates a session. A session is a contextual container used for
+        generating recommendations. Amazon Connect creates a new Amazon Q
+        session for each contact on which Amazon Q is enabled.</p>
+      tags:
+        - Assistants
+        - Sessions
+  /assistants/{assistantId}:
+    GET:
+      summary: 'Get Assistant '
+      description: <p>Retrieves information about an assistant.</p>
+      tags:
+        - Assistants
+  /assistants/{assistantId}/associations/{assistantAssociationId}:
+    GET:
+      summary: 'Get Assistant Association '
+      description: <p>Retrieves information about an assistant association.</p>
+      tags:
+        - Assistants
+        - Associations
+  /knowledgeBases/{knowledgeBaseId}/contents/{contentId}:
+    POST:
+      summary: 'Update Content '
+      description: <p>Updates information about the content.</p>
+      tags:
+        - Base
+        - Bases
+        - Content
+        - Contents
+        - Knowledge
+  /knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}:
+    GET:
+      summary: 'Get Import Job '
+      description: <p>Retrieves the started import job.</p>
+      tags:
+        - Base
+        - Bases
+        - Import
+        - Jobs
+        - Knowledge
+  /knowledgeBases/{knowledgeBaseId}:
+    GET:
+      summary: 'Get Knowledge Base '
+      description: <p>Retrieves information about the knowledge base.</p>
+      tags:
+        - Base
+        - Bases
+        - Knowledge
+  /knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}:
+    POST:
+      summary: 'Update Quick Response '
+      description: <p>Updates an existing Amazon Q quick response.</p>
+      tags:
+        - Base
+        - Bases
+        - Knowledge
+        - Responses
+  /knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary:
+    GET:
+      summary: 'Get Content Summary '
+      description: <p>Retrieves summary information about the content.</p>
+      tags:
+        - Base
+        - Bases
+        - Content
+        - Contents
+        - Knowledge
+        - Summaries
+  /assistants/{assistantId}/sessions/{sessionId}/recommendations:
+    GET:
+      summary: 'Get Recommendations '
+      description: >-
+        <p>Retrieves recommendations for the specified session. To avoid
+        retrieving the same recommendations in subsequent calls, use <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>.
+        This API supports long-polling behavior with the
+        <code>waitTimeSeconds</code> parameter. Short poll is the default
+        behavior and only returns recommendations already available. To perform
+        a manual query against an assistant, use <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html">QueryAssistant</a>.</p>
+      tags:
+        - Assistants
+        - Recommendations
+        - Sessions
+  /assistants/{assistantId}/sessions/{sessionId}:
+    GET:
+      summary: 'Get Session '
+      description: <p>Retrieves information for a specified session.</p>
+      tags:
+        - Assistants
+        - Sessions
+  /knowledgeBases/{knowledgeBaseId}/importJobs:
+    POST:
+      summary: 'Start Import Job '
+      description: >-
+        <p>Start an asynchronous job to import Amazon Q resources from an
+        uploaded source file. Before calling this API, use <a
+        href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>
+        to upload an asset that contains the resource data.</p> <ul> <li> <p>For
+        importing Amazon Q quick responses, you need to upload a csv file
+        including the quick responses. For information about how to format the
+        csv file for importing quick responses, see <a
+        href="https://docs.aws.amazon.com/console/connect/quick-responses/add-data">Import
+        quick responses</a>.</p> </li> </ul>
+      tags:
+        - Base
+        - Bases
+        - Import
+        - Jobs
+        - Knowledge
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes the specified tags from the specified resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /assistants/{assistantId}/sessions/{sessionId}/recommendations/notify:
+    POST:
+      summary: 'Notify Recommendations Received '
+      description: >-
+        <p>Removes the specified recommendations from the specified assistant's
+        queue of newly available recommendations. You can use this API in
+        conjunction with <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>
+        and a <code>waitTimeSeconds</code> input for long-polling behavior and
+        avoiding duplicate recommendations.</p>
+      tags:
+        - Assistants
+        - Notify
+        - Received
+        - Recommendations
+        - Sessions
+  /assistants/{assistantId}/feedback:
+    PUT:
+      summary: 'Put Feedback '
+      description: >-
+        <p>Provides feedback against the specified assistant for the specified
+        target. This API only supports generative targets.</p>
+      tags:
+        - Assistants
+        - Feedback
+  /assistants/{assistantId}/query:
+    POST:
+      summary: 'Query Assistant '
+      description: >-
+        <p>Performs a manual search against the specified assistant. To retrieve
+        recommendations for an assistant, use <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
+        </p>
+      tags:
+        - Assistants
+        - Queries
+  /knowledgeBases/{knowledgeBaseId}/templateUri:
+    POST:
+      summary: 'Update Knowledge Base Template Uri '
+      description: >-
+        <p>Updates the template URI of a knowledge base. This is only supported
+        for knowledge bases of type EXTERNAL. Include a single variable in
+        <code>${variable}</code> format; this interpolated by Amazon Q using
+        ingested content. For example, if you ingest a Salesforce article, it
+        has an <code>Id</code> value, and you can set the template URI to
+        <code>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</code>.
+        </p>
+      tags:
+        - Base
+        - Bases
+        - Knowledge
+        - Templates
+        - URI
+  /knowledgeBases/{knowledgeBaseId}/search:
+    POST:
+      summary: 'Search Content '
+      description: >-
+        <p>Searches for content in a specified knowledge base. Can be used to
+        get a specific content resource by its name.</p>
+      tags:
+        - Base
+        - Bases
+        - Content
+        - Knowledge
+        - Search
+  /knowledgeBases/{knowledgeBaseId}/search/quickResponses:
+    POST:
+      summary: 'Search Quick Responses '
+      description: >-
+        <p>Searches existing Amazon Q quick responses in an Amazon Q knowledge
+        base.</p>
+      tags:
+        - Base
+        - Bases
+        - Knowledge
+        - Responses
+        - Search
+  /assistants/{assistantId}/searchSessions:
+    POST:
+      summary: 'Search Sessions '
+      description: <p>Searches for sessions.</p>
+      tags:
+        - Assistants
+        - Search
+        - Sessions
+  /knowledgeBases/{knowledgeBaseId}/upload:
+    POST:
+      summary: 'Start Content Upload '
+      description: >-
+        <p>Get a URL to upload content to a knowledge base. To upload content,
+        first make a PUT request to the returned URL with your file, making sure
+        to include the required headers. Then use <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_CreateContent.html">CreateContent</a>
+        to finalize the content creation process or <a
+        href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_UpdateContent.html">UpdateContent</a>
+        to modify an existing resource. You can only upload content to a
+        knowledge base of type C
+      tags:
+        - Base
+        - Bases
+        - Content
+        - Knowledge
+        - Uploads

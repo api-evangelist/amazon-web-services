@@ -1,0 +1,513 @@
+openapi: 3.1.0
+info:
+  title: es
+paths:
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/accept:
+    PUT:
+      summary: 'Update 2015 01 01 Es Ccs Inbound Connection Connection Id Accept '
+      description: >-
+        <p>Allows the destination domain owner to accept an inbound
+        cross-cluster search connection request.</p>
+      tags:
+        - Accept
+        - Ccs
+        - Connections
+        - Inbound
+  /2015-01-01/tags:
+    POST:
+      summary: 'Add Tags '
+      description: >-
+        <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of
+        case-sensitive key value pairs. An Elasticsearch domain may have up to
+        10 tags. See <a
+        href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging"
+        target="_blank"> Tagging Amazon Elasticsearch Service Domains for more
+        information.</a></p>
+      tags:
+        - Tags
+  /2015-01-01/packages/associate/{PackageID}/{DomainName}:
+    POST:
+      summary: 'Associate Package '
+      description: <p>Associates a package with an Amazon ES domain.</p>
+      tags:
+        - Associate
+        - Domains
+        - Names
+        - Packages
+  /2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess:
+    POST:
+      summary: 'Authorize Vpc Endpoint Access '
+      description: >-
+        <p>Provides access to an Amazon OpenSearch Service domain through the
+        use of an interface VPC endpoint.</p>
+      tags:
+        - Access
+        - Authorize
+        - Domains
+        - Endpoints
+        - Names
+        - VPC
+  /2015-01-01/es/domain/{DomainName}/config/cancel:
+    POST:
+      summary: 'Cancel Domain Config Change '
+      description: >-
+        <p>Cancels a pending configuration change on an Amazon OpenSearch
+        Service domain.</p>
+      tags:
+        - Cancel
+        - Change
+        - Configurations
+        - Domains
+        - Names
+  /2015-01-01/es/serviceSoftwareUpdate/cancel:
+    POST:
+      summary: 'Cancel Elasticsearch Service Software Update '
+      description: >-
+        <p>Cancels a scheduled service software update for an Amazon ES domain.
+        You can only perform this operation before the
+        <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code>
+        is in the <code>PENDING_UPDATE</code> state.</p>
+      tags:
+        - Cancel
+        - Elasticsearch
+        - Services
+        - Software
+  /2015-01-01/es/domain:
+    POST:
+      summary: 'Create Elasticsearch Domain '
+      description: >-
+        <p>Creates a new Elasticsearch domain. For more information, see <a
+        href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains"
+        target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon
+        Elasticsearch Service Developer Guide</i>.</p>
+      tags:
+        - Domains
+        - Elasticsearch
+  /2015-01-01/es/ccs/outboundConnection:
+    POST:
+      summary: 'Create Outbound Cross Cluster Search Connection '
+      description: >-
+        <p>Creates a new cross-cluster search connection from a source domain to
+        a destination domain.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Outbound
+        - Search
+  /2015-01-01/packages:
+    POST:
+      summary: 'Create Package '
+      description: <p>Create a package for use with Amazon ES domains.</p>
+      tags:
+        - Packages
+  /2015-01-01/es/vpcEndpoints:
+    GET:
+      summary: 'List Vpc Endpoints '
+      description: >-
+        <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the
+        current account and Region.</p>
+      tags:
+        - Endpoints
+        - VPC
+  /2015-01-01/es/domain/{DomainName}:
+    GET:
+      summary: 'Describe Elasticsearch Domain '
+      description: >-
+        <p>Returns domain configuration information about the specified
+        Elasticsearch domain, including the domain ID, domain endpoint, and
+        domain ARN.</p>
+      tags:
+        - Describe
+        - Domains
+        - Elasticsearch
+        - Names
+  /2015-01-01/es/role:
+    DELETE:
+      summary: 'Delete Elasticsearch Service Role '
+      description: >-
+        <p>Deletes the service-linked role that Elasticsearch Service uses to
+        manage and maintain VPC domains. Role deletion will fail if any existing
+        VPC domains use the role. You must delete any such Elasticsearch domains
+        before deleting the role. See <a
+        href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr"
+        target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC
+        Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
+      tags:
+        - Elasticsearch
+        - Roles
+        - Services
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}:
+    DELETE:
+      summary: 'Delete Inbound Cross Cluster Search Connection '
+      description: >-
+        <p>Allows the destination domain owner to delete an existing inbound
+        cross-cluster search connection.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Inbound
+        - Search
+  /2015-01-01/es/ccs/outboundConnection/{ConnectionId}:
+    DELETE:
+      summary: 'Delete Outbound Cross Cluster Search Connection '
+      description: >-
+        <p>Allows the source domain owner to delete an existing outbound
+        cross-cluster search connection.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Outbound
+        - Search
+  /2015-01-01/packages/{PackageID}:
+    DELETE:
+      summary: 'Delete Package '
+      description: <p>Delete the package.</p>
+      tags:
+        - Packages
+  /2015-01-01/es/vpcEndpoints/{VpcEndpointId}:
+    DELETE:
+      summary: 'Delete Vpc Endpoint '
+      description: >-
+        <p>Deletes an Amazon OpenSearch Service-managed interface VPC
+        endpoint.</p>
+      tags:
+        - Endpoints
+        - VPC
+  /2015-01-01/es/domain/{DomainName}/autoTunes:
+    GET:
+      summary: 'Describe Domain Auto Tunes '
+      description: >-
+        <p>Provides scheduled Auto-Tune action details for the Elasticsearch
+        domain, such as Auto-Tune action type, description, severity, and
+        scheduled date.</p>
+      tags:
+        - Auto
+        - Describe
+        - Domains
+        - Names
+        - Tunes
+  /2015-01-01/es/domain/{DomainName}/progress:
+    GET:
+      summary: 'Describe Domain Change Progress '
+      description: >-
+        <p>Returns information about the current blue/green deployment happening
+        on a domain, including a change ID, status, and progress stages.</p>
+      tags:
+        - Change
+        - Describe
+        - Domains
+        - Names
+        - Progress
+  /2015-01-01/es/domain/{DomainName}/config:
+    POST:
+      summary: 'Update Elasticsearch Domain Config '
+      description: >-
+        <p>Modifies the cluster configuration of the specified Elasticsearch
+        domain, setting as setting the instance type and the number of
+        instances. </p>
+      tags:
+        - Configurations
+        - Domains
+        - Elasticsearch
+        - Names
+  /2015-01-01/es/domain-info:
+    POST:
+      summary: 'Describe Elasticsearch Domains '
+      description: >-
+        <p>Returns domain configuration information about the specified
+        Elasticsearch domains, including the domain ID, domain endpoint, and
+        domain ARN.</p>
+      tags:
+        - Describe
+        - Domains
+        - Elasticsearch
+        - Info
+  /2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}:
+    GET:
+      summary: 'Describe Elasticsearch Instance Type Limits '
+      description: >-
+        <p> Describe Elasticsearch Limits for a given InstanceType and
+        ElasticsearchVersion. When modifying existing Domain, specify the <code>
+        <a>DomainName</a> </code> to know what Limits are supported for
+        modifying. </p>
+      tags:
+        - Describe
+        - Elasticsearch
+        - Instances
+        - Limits
+        - Types
+        - Versions
+  /2015-01-01/es/ccs/inboundConnection/search:
+    POST:
+      summary: 'Describe Inbound Cross Cluster Search Connections '
+      description: >-
+        <p>Lists all the inbound cross-cluster search connections for a
+        destination domain.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Describe
+        - Inbound
+        - Search
+  /2015-01-01/es/ccs/outboundConnection/search:
+    POST:
+      summary: 'Describe Outbound Cross Cluster Search Connections '
+      description: >-
+        <p>Lists all the outbound cross-cluster search connections for a source
+        domain.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Describe
+        - Outbound
+        - Search
+  /2015-01-01/packages/describe:
+    POST:
+      summary: 'Describe Packages '
+      description: >-
+        <p>Describes all packages available to Amazon ES. Includes options for
+        filtering, limiting the number of results, and pagination.</p>
+      tags:
+        - Describe
+        - Packages
+  /2015-01-01/es/reservedInstanceOfferings:
+    GET:
+      summary: 'Describe Reserved Elasticsearch Instance Offerings '
+      description: <p>Lists available reserved Elasticsearch instance offerings.</p>
+      tags:
+        - Describe
+        - Elasticsearch
+        - Instances
+        - Offerings
+        - Reserved
+  /2015-01-01/es/reservedInstances:
+    GET:
+      summary: 'Describe Reserved Elasticsearch Instances '
+      description: >-
+        <p>Returns information about reserved Elasticsearch instances for this
+        account.</p>
+      tags:
+        - Describe
+        - Elasticsearch
+        - Instances
+        - Reserved
+  /2015-01-01/es/vpcEndpoints/describe:
+    POST:
+      summary: 'Describe Vpc Endpoints '
+      description: >-
+        <p>Describes one or more Amazon OpenSearch Service-managed VPC
+        endpoints.</p>
+      tags:
+        - Describe
+        - Endpoints
+        - VPC
+  /2015-01-01/packages/dissociate/{PackageID}/{DomainName}:
+    POST:
+      summary: 'Dissociate Package '
+      description: <p>Dissociates a package from the Amazon ES domain.</p>
+      tags:
+        - Dissociate
+        - Domains
+        - Names
+        - Packages
+  /2015-01-01/es/compatibleVersions:
+    GET:
+      summary: 'Get Compatible Elasticsearch Versions '
+      description: >-
+        <p> Returns a list of upgrade compatible Elastisearch versions. You can
+        optionally pass a <code> <a>DomainName</a> </code> to get all upgrade
+        compatible Elasticsearch versions for that specific domain. </p>
+      tags:
+        - Compatible
+        - Elasticsearch
+        - Versions
+  /2015-01-01/packages/{PackageID}/history:
+    GET:
+      summary: 'Get Package Version History '
+      description: >-
+        <p>Returns a list of versions of the package, along with their creation
+        time and commit message.</p>
+      tags:
+        - History
+        - Packages
+        - Versions
+  /2015-01-01/es/upgradeDomain/{DomainName}/history:
+    GET:
+      summary: 'Get Upgrade History '
+      description: >-
+        <p>Retrieves the complete history of the last 10 upgrades that were
+        performed on the domain.</p>
+      tags:
+        - Domains
+        - History
+        - Names
+        - Upgrade
+  /2015-01-01/es/upgradeDomain/{DomainName}/status:
+    GET:
+      summary: 'Get Upgrade Status '
+      description: >-
+        <p>Retrieves the latest status of the last upgrade or upgrade
+        eligibility check that was performed on the domain.</p>
+      tags:
+        - Domains
+        - Names
+        - Status
+        - Upgrade
+  /2015-01-01/domain:
+    GET:
+      summary: 'List Domain Names '
+      description: >-
+        <p>Returns the name of all Elasticsearch domains owned by the current
+        user's account. </p>
+      tags:
+        - Domains
+        - Names
+  /2015-01-01/packages/{PackageID}/domains:
+    GET:
+      summary: 'List Domains For Package '
+      description: <p>Lists all Amazon ES domains associated with the package.</p>
+      tags:
+        - Domains
+        - Identifiers
+        - Lists
+        - Packages
+  /2015-01-01/es/instanceTypes/{ElasticsearchVersion}:
+    GET:
+      summary: 'List Elasticsearch Instance Types '
+      description: >-
+        <p>List all Elasticsearch instance types that are supported for given
+        ElasticsearchVersion</p>
+      tags:
+        - Elasticsearch
+        - Instances
+        - Types
+        - Versions
+  /2015-01-01/es/versions:
+    GET:
+      summary: 'List Elasticsearch Versions '
+      description: <p>List all supported Elasticsearch versions</p>
+      tags:
+        - Elasticsearch
+        - Versions
+  /2015-01-01/domain/{DomainName}/packages:
+    GET:
+      summary: 'List Packages For Domain '
+      description: <p>Lists all packages associated with the Amazon ES domain.</p>
+      tags:
+        - Domains
+        - Names
+        - Packages
+  /2015-01-01/tags/:
+    GET:
+      summary: 'List Tags '
+      description: <p>Returns all tags for the given Elasticsearch domain.</p>
+      tags:
+        - Tags
+  /2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess:
+    GET:
+      summary: 'List Vpc Endpoint Access '
+      description: >-
+        <p>Retrieves information about each principal that is allowed to access
+        a given Amazon OpenSearch Service domain through the use of an interface
+        VPC endpoint.</p>
+      tags:
+        - Access
+        - Domains
+        - Endpoints
+        - Names
+        - VPC
+  /2015-01-01/es/domain/{DomainName}/vpcEndpoints:
+    GET:
+      summary: 'List Vpc Endpoints For Domain '
+      description: >-
+        <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints
+        associated with a particular domain.</p>
+      tags:
+        - Domains
+        - Endpoints
+        - Names
+        - VPC
+  /2015-01-01/es/purchaseReservedInstanceOffering:
+    POST:
+      summary: 'Purchase Reserved Elasticsearch Instance Offering '
+      description: <p>Allows you to purchase reserved Elasticsearch instances.</p>
+      tags:
+        - Elasticsearch
+        - Instances
+        - Offerings
+        - Purchase
+        - Reserved
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/reject:
+    PUT:
+      summary: 'Reject Inbound Cross Cluster Search Connection '
+      description: >-
+        <p>Allows the destination domain owner to reject an inbound
+        cross-cluster search connection request.</p>
+      tags:
+        - Ccs
+        - Clusters
+        - Connections
+        - Inbound
+        - Reject
+        - Search
+  /2015-01-01/tags-removal:
+    POST:
+      summary: 'Remove Tags '
+      description: >-
+        <p>Removes the specified set of tags from the specified Elasticsearch
+        domain.</p>
+      tags:
+        - Removal
+        - Removes
+        - Tags
+  /2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess:
+    POST:
+      summary: 'Revoke Vpc Endpoint Access '
+      description: >-
+        <p>Revokes access to an Amazon OpenSearch Service domain that was
+        provided through an interface VPC endpoint.</p>
+      tags:
+        - Access
+        - Domains
+        - Endpoints
+        - Names
+        - Revoke
+        - VPC
+  /2015-01-01/es/serviceSoftwareUpdate/start:
+    POST:
+      summary: 'Start Elasticsearch Service Software Update '
+      description: <p>Schedules a service software update for an Amazon ES domain.</p>
+      tags:
+        - Elasticsearch
+        - Services
+        - Software
+  /2015-01-01/packages/update:
+    POST:
+      summary: 'Update Package '
+      description: <p>Updates a package for use with Amazon ES domains.</p>
+      tags:
+        - Packages
+  /2015-01-01/es/vpcEndpoints/update:
+    POST:
+      summary: 'Update Vpc Endpoint '
+      description: >-
+        <p>Modifies an Amazon OpenSearch Service-managed interface VPC
+        endpoint.</p>
+      tags:
+        - Endpoints
+        - VPC
+  /2015-01-01/es/upgradeDomain:
+    POST:
+      summary: 'Upgrade Elasticsearch Domain '
+      description: >-
+        <p>Allows you to either upgrade your domain or perform an Upgrade
+        eligibility check to a compatible Elasticsearch ve
+      tags:
+        - Domains
+        - Elasticsearch
+        - Upgrade

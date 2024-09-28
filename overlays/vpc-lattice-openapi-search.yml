@@ -1,0 +1,231 @@
+openapi: 3.1.0
+info:
+  title: vpc-lattice
+paths:
+  /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules:
+    GET:
+      summary: 'List Rules '
+      description: <p>Lists the rules for the listener.</p>
+      tags:
+        - Listeners
+        - Rules
+        - Services
+  /accesslogsubscriptions:
+    GET:
+      summary: 'List Access Log Subscriptions '
+      description: >-
+        <p>Lists all access log subscriptions for the specified service network
+        or service.</p>
+      tags:
+        - Access
+        - Access Log Subscriptions
+        - Logs
+        - Subscriptions
+  /services/{serviceIdentifier}/listeners:
+    GET:
+      summary: 'List Listeners '
+      description: <p>Lists the listeners for the specified service.</p>
+      tags:
+        - Listeners
+        - Services
+  /services:
+    GET:
+      summary: 'List Services '
+      description: >-
+        <p>Lists the services owned by the caller account or shared with the
+        caller account.</p>
+      tags:
+        - Services
+  /servicenetworks:
+    GET:
+      summary: 'List Service Networks '
+      description: >-
+        <p>Lists the service networks owned by the caller account or shared with
+        the caller account. Also includes the account ID in the ARN to show
+        which account owns the service network.</p>
+      tags:
+        - Networks
+        - Service Networks
+        - Services
+  /servicenetworkserviceassociations:
+    GET:
+      summary: 'List Service Network Service Associations '
+      description: >-
+        <p>Lists the associations between the service network and the service.
+        You can filter the list either by service or service network. You must
+        provide either the service network identifier or the service
+        identifier.</p> <p>Every association in Amazon VPC Lattice is given a
+        unique Amazon Resource Name (ARN), such as when a service network is
+        associated with a VPC or when a service is associated with a service
+        network. If the association is for a resource that is shared with
+        another account, the association will include the local account ID as
+        the prefix in the ARN for each account the resource is shared with.</p>
+      tags:
+        - Associations
+        - Networks
+        - Service Network Service Associations
+        - Services
+  /servicenetworkvpcassociations:
+    GET:
+      summary: 'List Service Network Vpc Associations '
+      description: >-
+        <p>Lists the service network and VPC associations. You can filter the
+        list either by VPC or service network. You must provide either the
+        service network identifier or the VPC identifier.</p>
+      tags:
+        - Associations
+        - Networks
+        - Service Network VPC Associations
+        - Services
+        - VPC
+  /targetgroups:
+    GET:
+      summary: 'List Target Groups '
+      description: >-
+        <p>Lists your target groups. You can narrow your search by using the
+        filters below in your request.</p>
+      tags:
+        - Groups
+        - Target
+        - Target Groups
+  /accesslogsubscriptions/{accessLogSubscriptionIdentifier}:
+    PATCH:
+      summary: 'Update Access Log Subscription '
+      description: <p>Updates the specified access log subscription.</p>
+      tags:
+        - Access
+        - Access Log Subscriptions
+        - Logs
+        - Subscriptions
+  /authpolicy/{resourceIdentifier}:
+    PUT:
+      summary: 'Put Auth Policy '
+      description: <p>Creates or updates the auth policy.</p>
+      tags:
+        - Authentication
+        - Authpolicy
+        - Policies
+        - Resources
+  /services/{serviceIdentifier}/listeners/{listenerIdentifier}:
+    PATCH:
+      summary: 'Update Listener '
+      description: <p>Updates the specified listener for the specified service.</p>
+      tags:
+        - Listeners
+        - Services
+  /resourcepolicy/{resourceArn}:
+    PUT:
+      summary: 'Put Resource Policy '
+      description: >-
+        <p>Attaches a resource-based permission policy to a service or service
+        network. The policy must contain the same actions and condition
+        statements as the Amazon Web Services Resource Access Manager permission
+        for sharing services and service networks.</p>
+      tags:
+        - ARN
+        - Policies
+        - Resource Policies
+        - Resources
+  /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}:
+    PATCH:
+      summary: 'Update Rule '
+      description: >-
+        <p>Updates a rule for the listener. You can't modify a default listener
+        rule. To modify a default listener rule, use
+        <code>UpdateListener</code>.</p>
+      tags:
+        - Listeners
+        - Rules
+        - Services
+  /services/{serviceIdentifier}:
+    PATCH:
+      summary: 'Update Service '
+      description: <p>Updates the specified service.</p>
+      tags:
+        - Services
+  /servicenetworks/{serviceNetworkIdentifier}:
+    PATCH:
+      summary: 'Update Service Network '
+      description: <p>Updates the specified service network.</p>
+      tags:
+        - Networks
+        - Service Networks
+        - Services
+  /servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}:
+    GET:
+      summary: 'Get Service Network Service Association '
+      description: >-
+        <p>Retrieves information about the specified association between a
+        service network and a service.</p>
+      tags:
+        - Associations
+        - Networks
+        - Service Network Service Associations
+        - Services
+  /servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}:
+    PATCH:
+      summary: 'Update Service Network Vpc Association '
+      description: >-
+        <p>Updates the service network and VPC association. Once you add a
+        security group, it cannot be removed.</p>
+      tags:
+        - Associations
+        - Networks
+        - Service Network VPC Associations
+        - Services
+        - VPC
+  /targetgroups/{targetGroupIdentifier}:
+    PATCH:
+      summary: 'Update Target Group '
+      description: <p>Updates the specified target group.</p>
+      tags:
+        - Groups
+        - Target
+        - Target Groups
+  /targetgroups/{targetGroupIdentifier}/deregistertargets:
+    POST:
+      summary: 'Deregister Targets '
+      description: >-
+        <p>Deregisters the specified targets from the specified target
+        group.</p>
+      tags:
+        - Deregister
+        - Deregister Targets
+        - Groups
+        - Target
+        - Target Groups
+        - Targets
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes the specified tags from the specified resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /targetgroups/{targetGroupIdentifier}/listtargets:
+    POST:
+      summary: 'List Targets '
+      description: >-
+        <p>Lists the targets for the target group. By default, all targets are
+        included. You can use this API to check the health status of targets.
+        You can also ﬁlter the results by target. </p>
+      tags:
+        - Groups
+        - Target
+        - Target Groups
+        - Targets
+  /targetgroups/{targetGroupIdentifier}/registertargets:
+    POST:
+      summary: 'Register Targets '
+      description: >-
+        <p>Registers the targets with the target group. If it's a Lambda target,
+        you can only have one target in a target 
+      tags:
+        - Groups
+        - Register
+        - Registertargets
+        - Target
+        - Target Groups
+        - Targets

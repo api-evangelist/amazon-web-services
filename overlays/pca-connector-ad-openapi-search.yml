@@ -1,0 +1,122 @@
+openapi: 3.1.0
+info:
+  title: pca-connector-ad
+paths:
+  /connectors:
+    GET:
+      summary: 'List Connectors '
+      description: >-
+        <p>Lists the connectors that you created by using the <a
+        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a>
+        action.</p>
+      tags:
+        - Connectors
+  /directoryRegistrations:
+    GET:
+      summary: 'List Directory Registrations '
+      description: >-
+        <p>Lists the directory registrations that you created by using the <a
+        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a>
+        action.</p>
+      tags:
+        - Directory
+        - Registrations
+  /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}:
+    GET:
+      summary: 'Get Service Principal Name '
+      description: >-
+        <p>Lists the service principal name that the connector uses to
+        authenticate with Active Directory.</p>
+      tags:
+        - ARN
+        - Connectors
+        - Directory
+        - Names
+        - Principals
+        - Registrations
+        - Services
+  /templates:
+    GET:
+      summary: 'List Templates '
+      description: >-
+        <p>Lists the templates, if any, that are associated with a
+        connector.</p>
+      tags:
+        - Templates
+  /templates/{TemplateArn}/accessControlEntries:
+    GET:
+      summary: 'List Template Group Access Control Entries '
+      description: <p>Lists group access control entries you created. </p>
+      tags:
+        - ARN
+        - Access
+        - Controls
+        - Entries
+        - Groups
+        - Templates
+  /connectors/{ConnectorArn}:
+    GET:
+      summary: 'Get Connector '
+      description: >-
+        <p>Lists information about your connector. You specify the connector on
+        input by its ARN (Amazon Resource Name). </p>
+      tags:
+        - ARN
+        - Connectors
+  /directoryRegistrations/{DirectoryRegistrationArn}:
+    GET:
+      summary: 'Get Directory Registration '
+      description: >-
+        <p>A structure that contains information about your directory
+        registration.</p>
+      tags:
+        - ARN
+        - Directory
+        - Registrations
+  /templates/{TemplateArn}:
+    PATCH:
+      summary: 'Update Template '
+      description: >-
+        <p>Update template configuration to define the information included in
+        certificates.</p>
+      tags:
+        - ARN
+        - Templates
+  /templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}:
+    PATCH:
+      summary: 'Update Template Group Access Control Entry '
+      description: >-
+        <p>Update a group access control entry you created using <a
+        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html">CreateTemplateGroupAccessControlEntry</a>.
+        </p>
+      tags:
+        - ARN
+        - Access
+        - Controls
+        - Entries
+        - Entry
+        - Groups
+        - Security
+        - Templates
+  /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames:
+    GET:
+      summary: 'List Service Principal Names '
+      description: >-
+        <p>Lists the service principal names that the connector uses to
+        authenticate with Active Directory.</p>
+      tags:
+        - ARN
+        - Directory
+        - Names
+        - Principals
+        - Registrations
+        - Services
+  /tags/{ResourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes one or more tags from your res
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag

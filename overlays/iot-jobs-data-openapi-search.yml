@@ -1,0 +1,39 @@
+openapi: 3.1.0
+info:
+  title: iot-jobs-data
+paths:
+  /things/{thingName}/jobs/{jobId}:
+    POST:
+      summary: 'Update Job Execution '
+      description: <p>Updates the status of a job execution.</p>
+      tags:
+        - Execution
+        - Jobs
+        - Names
+        - Things
+  /things/{thingName}/jobs:
+    GET:
+      summary: 'Get Pending Job Executions '
+      description: >-
+        <p>Gets the list of all jobs for a thing that are not in a terminal
+        status.</p>
+      tags:
+        - Executions
+        - Jobs
+        - Names
+        - Pending
+        - Things
+  /things/{thingName}/jobs/$next:
+    PUT:
+      summary: 'Start Next Pending Job Execution '
+      description: >-
+        <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
+        execution for a 
+      tags:
+        - $Next
+        - Execution
+        - Jobs
+        - Names
+        - Next
+        - Pending
+        - Things

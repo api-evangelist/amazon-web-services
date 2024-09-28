@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  title: entityresolution
+paths:
+  /idmappingworkflows:
+    GET:
+      summary: 'List Id Mapping Workflows '
+      description: >-
+        <p>Returns a list of all the <code>IdMappingWorkflows</code> that have
+        been created for an Amazon Web Services account.</p>
+      tags:
+        - Identifiers
+        - Lists
+        - Mapping
+        - Mappingworkflows
+        - Workflows
+  /matchingworkflows:
+    GET:
+      summary: 'List Matching Workflows '
+      description: >-
+        <p>Returns a list of all the <code>MatchingWorkflows</code> that have
+        been created for an Amazon Web Services account.</p>
+      tags:
+        - Matching
+        - Matching Workflows
+        - Workflows
+  /schemas:
+    GET:
+      summary: 'List Schema Mappings '
+      description: >-
+        <p>Returns a list of all the <code>SchemaMappings</code> that have been
+        created for an Amazon Web Services account.</p>
+      tags:
+        - Mapping
+        - Schemas
+  /idmappingworkflows/{workflowName}:
+    PUT:
+      summary: 'Update Id Mapping Workflow '
+      description: >-
+        <p>Updates an existing <code>IdMappingWorkflow</code>. This method is
+        identical to <code>CreateIdMappingWorkflow</code>, except it uses an
+        HTTP <code>PUT</code> request instead of a <code>POST</code> request,
+        and the <code>IdMappingWorkflow</code> must already exist for the method
+        to succeed.</p>
+      tags:
+        - Mapping
+        - Mappingworkflows
+        - Names
+        - Workflows
+  /matchingworkflows/{workflowName}:
+    PUT:
+      summary: 'Update Matching Workflow '
+      description: >-
+        <p>Updates an existing <code>MatchingWorkflow</code>. This method is
+        identical to <code>CreateMatchingWorkflow</code>, except it uses an HTTP
+        <code>PUT</code> request instead of a <code>POST</code> request, and the
+        <code>MatchingWorkflow</code> must already exist for the method to
+        succeed.</p>
+      tags:
+        - Matching
+        - Matching Workflows
+        - Names
+        - Workflows
+  /schemas/{schemaName}:
+    PUT:
+      summary: 'Update Schema Mapping '
+      description: >-
+        <p>Updates a schema mapping.</p> <note> <p>A schema is immutable if it
+        is being used by a workflow. Therefore, you can't update a schema
+        mapping if it's associated with a workflow. </p> </note>
+      tags:
+        - Mapping
+        - Names
+        - Schemas
+  /idmappingworkflows/{workflowName}/jobs/{jobId}:
+    GET:
+      summary: 'Get Id Mapping Job '
+      description: >-
+        <p>Gets the status, metrics, and errors (if there are any) that are
+        associated with a job.</p>
+      tags:
+        - Jobs
+        - Mapping
+        - Mappingworkflows
+        - Names
+        - Workflows
+  /matchingworkflows/{workflowName}/matches:
+    POST:
+      summary: 'Get Match Id '
+      description: >-
+        <p>Returns the corresponding Match ID of a customer record if the record
+        has been processed.</p>
+      tags:
+        - Match
+        - Matches
+        - Matching Workflows
+        - Names
+        - Workflows
+  /matchingworkflows/{workflowName}/jobs/{jobId}:
+    GET:
+      summary: 'Get Matching Job '
+      description: >-
+        <p>Gets the status, metrics, and errors (if there are any) that are
+        associated with a job.</p>
+      tags:
+        - Jobs
+        - Matching
+        - Matching Workflows
+        - Names
+        - Workflows
+  /providerservices/{providerName}/{providerServiceName}:
+    GET:
+      summary: 'Get Provider Service '
+      description: <p>Returns the <code>ProviderService</code> of a given name.</p>
+      tags:
+        - Er
+        - Erservices
+        - Names
+        - Prov
+        - Providers
+        - Services
+  /idmappingworkflows/{workflowName}/jobs:
+    POST:
+      summary: 'Start Id Mapping Job '
+      description: >-
+        <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must
+        have previously been created using the
+        <code>CreateIdMappingWorkflow</code> endpoint.</p>
+      tags:
+        - Jobs
+        - Mapping
+        - Names
+        - Workflows
+  /matchingworkflows/{workflowName}/jobs:
+    POST:
+      summary: 'Start Matching Job '
+      description: >-
+        <p>Starts the <code>MatchingJob</code> of a workflow. The workflow must
+        have previously been created using the
+        <code>CreateMatchingWorkflow</code> endpoint.</p>
+      tags:
+        - Jobs
+        - Matching
+        - Matching Workflows
+        - Names
+        - Workflows
+  /providerservices:
+    GET:
+      summary: 'List Provider Services '
+      description: >-
+        <p>Returns a list of all the <code>ProviderServices</code> that are
+        available in this Amazon Web Services Region.</p>
+      tags:
+        - Erservices
+        - Prov
+        - Providers
+        - Services
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: >-
+        <p>Removes one or more tags from the specified Entity Resolution
+        resource. In Entity Resolution, <code>SchemaMapping</code>, and
+        <code>MatchingWorkflow</code> can be t
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag

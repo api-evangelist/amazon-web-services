@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: codeguru-reviewer
+paths:
+  /associations:
+    GET:
+      summary: 'List Repository Associations '
+      description: >-
+        <p>Returns a list of <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a>
+        objects that contain summary information about a repository association.
+        You can filter the returned list by <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>,
+        <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>,
+        <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>,
+        and <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.</p>
+      tags:
+        - Associations
+        - Repositories
+  /codereviews:
+    GET:
+      summary: 'List Code Reviews '
+      description: >-
+        <p>Lists all the code reviews that the customer has created in the past
+        90 days.</p>
+      tags:
+        - Code
+        - Code Reviews
+        - Reviews
+  /codereviews/{CodeReviewArn}:
+    GET:
+      summary: 'Describe Code Review '
+      description: >-
+        The API provides information on the code review, including its metadata
+        and current status.
+      tags:
+        - ARN
+        - Code
+        - Code Reviews
+        - Describe
+        - Reviews
+  /feedback/{CodeReviewArn}:
+    GET:
+      summary: 'Describe Recommendation Feedback '
+      description: >-
+        <p>Describes the customer feedback for a CodeGuru Reviewer
+        recommendation.</p>
+      tags:
+        - ARN
+        - Code
+        - Describe
+        - Feedback
+        - Recommendations
+        - Reviews
+  /associations/{AssociationArn}:
+    DELETE:
+      summary: 'Disassociate Repository '
+      description: >-
+        <p>Removes the association between Amazon CodeGuru Reviewer and a
+        repository.</p>
+      tags:
+        - ARN
+        - Associations
+        - Disassociate
+        - Repositories
+  /feedback/{CodeReviewArn}/RecommendationFeedback:
+    GET:
+      summary: 'List Recommendation Feedback '
+      description: >-
+        <p>Returns a list of <a
+        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a>
+        objects that contain customer recommendation feedback for all CodeGuru
+        Reviewer users.</p>
+      tags:
+        - ARN
+        - Code
+        - Feedback
+        - Recommendations
+        - Reviews
+  /codereviews/{CodeReviewArn}/Recommendations:
+    GET:
+      summary: 'List Recommendations '
+      description: >-
+        <p>Returns the list of all recommendations for a completed code
+        review.</p>
+      tags:
+        - ARN
+        - Code
+        - Code Reviews
+        - Recommendations
+        - Reviews
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: Untags a resource using its ARN.
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /feedback:
+    PUT:
+      summary: 'Put Recommendation Feedback '
+      description: >-
+        <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When
+        this API is called again with different reactions the previous feedback
+        is overwr
+      tags:
+        - Feedback
+        - Recommendations

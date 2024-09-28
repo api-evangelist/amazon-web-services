@@ -1,0 +1,597 @@
+openapi: 3.1.0
+info:
+  title: resiliencehub
+paths:
+  /add-draft-app-version-resource-mappings:
+    POST:
+      summary: 'Add Draft App Version Resource Mappings '
+      description: >-
+        <p>Adds the source of resource-maps to the draft version of an
+        application. During assessment, Resilience Hub will use these
+        resource-maps to resolve the latest physical ID for each resource in the
+        application template. For more information about different types of
+        resources suported by Resilience Hub and how to add them in your
+        application, see <a
+        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step
+        2: How is your application managed?</a> in the Resilience Hub User
+        Guide.</p>
+      tags:
+        - Applications
+        - Draft
+        - Mapping
+        - Resources
+        - Versions
+  /batch-update-recommendation-status:
+    POST:
+      summary: 'Batch Update Recommendation Status '
+      description: >-
+        <p>Enables you to include or exclude one or more operational
+        recommendations.</p>
+      tags:
+        - Batches
+        - Recommendations
+        - Status
+  /create-app:
+    POST:
+      summary: 'Create App '
+      description: >-
+        <p>Creates an Resilience Hub application. An Resilience Hub application
+        is a collection of Amazon Web Services resources structured to prevent
+        and recover Amazon Web Services application disruptions. To describe a
+        Resilience Hub application, you provide an application name, resources
+        from one or more CloudFormation stacks, Resource Groups, Terraform state
+        files, AppRegistry applications, and an appropriate resiliency policy.
+        In addition, you can also add resources that are located on Amazon
+        Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
+        For more information about the number of resources supported per
+        application, see <a
+        href="https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub">Service
+        quotas</a>.</p> <p>After you create an Resilience Hub application, you
+        publish it so that you can run a resiliency assessment on it. You can
+        then use recommendations from the assessment to improve resiliency by
+        running another assessment, comparing results, and then iterating the
+        process until you achieve your goals for recovery time objective (RTO)
+        and recovery point objective (RPO).</p>
+      tags:
+        - Applications
+  /create-app-version-app-component:
+    POST:
+      summary: 'Create App Version App Component '
+      description: >-
+        <p>Creates a new Application Component in the Resilience Hub
+        application.</p> <note> <p>This API updates the Resilience Hub
+        application draft version. To use this Application Component for running
+        assessments, you must publish the Resilience Hub application using the
+        <code>PublishAppVersion</code> API.</p> </note>
+      tags:
+        - Applications
+        - Components
+        - Versions
+  /create-app-version-resource:
+    POST:
+      summary: 'Create App Version Resource '
+      description: >-
+        <p>Adds a resource to the Resilience Hub application and assigns it to
+        the specified Application Components. If you specify a new Application
+        Component, Resilience Hub will automatically create the Application
+        Component.</p> <note> <ul> <li> <p>This action has no effect outside
+        Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub
+        application draft version. To use this resource for running resiliency
+        assessments, you must publish the Resilience Hub application using the
+        <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update
+        application version with new <code>physicalResourceID</code>, you must
+        call <code>ResolveAppVersionResources</code> API.</p> </li> </ul>
+        </note>
+      tags:
+        - Applications
+        - Resources
+        - Versions
+  /create-recommendation-template:
+    POST:
+      summary: 'Create Recommendation Template '
+      description: >-
+        <p>Creates a new recommendation template for the Resilience Hub
+        application.</p>
+      tags:
+        - Recommendations
+        - Templates
+  /create-resiliency-policy:
+    POST:
+      summary: 'Create Resiliency Policy '
+      description: >-
+        <p>Creates a resiliency policy for an application.</p> <note>
+        <p>Resilience Hub allows you to provide a value of zero for
+        <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency
+        policy. But, while assessing your application, the lowest possible
+        assessment result is near zero. Hence, if you provide value zero for
+        <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated
+        workload RTO and estimated workload RPO result will be near zero and the
+        <b>Compliance status</b> for your application will be set to <b>Policy
+        breached</b>.</p> </note>
+      tags:
+        - Policies
+        - Resiliency
+  /delete-app:
+    POST:
+      summary: 'Delete App '
+      description: >-
+        <p>Deletes an Resilience Hub application. This is a destructive action
+        that can't be undone.</p>
+      tags:
+        - Applications
+  /delete-app-assessment:
+    POST:
+      summary: 'Delete App Assessment '
+      description: >-
+        <p>Deletes an Resilience Hub application assessment. This is a
+        destructive action that can't be undone.</p>
+      tags:
+        - Applications
+        - Assessments
+  /delete-app-input-source:
+    POST:
+      summary: 'Delete App Input Source '
+      description: >-
+        <p>Deletes the input source and all of its imported resources from the
+        Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Inputs
+        - Sources
+  /delete-app-version-app-component:
+    POST:
+      summary: 'Delete App Version App Component '
+      description: >-
+        <p>Deletes an Application Component from the Resilience Hub
+        application.</p> <note> <ul> <li> <p>This API updates the Resilience Hub
+        application draft version. To use this Application Component for running
+        assessments, you must publish the Resilience Hub application using the
+        <code>PublishAppVersion</code> API.</p> </li> <li> <p>You will not be
+        able to delete an Application Component if it has resources associated
+        with it.</p> </li> </ul> </note>
+      tags:
+        - Applications
+        - Components
+        - Versions
+  /delete-app-version-resource:
+    POST:
+      summary: 'Delete App Version Resource '
+      description: >-
+        <p>Deletes a resource from the Resilience Hub application.</p> <note>
+        <ul> <li> <p>You can only delete a manually added resource. To exclude
+        non-manually added resources, use the
+        <code>UpdateAppVersionResource</code> API.</p> </li> <li> <p>This action
+        has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates
+        the Resilience Hub application draft version. To use this resource for
+        running resiliency assessments, you must publish the Resilience Hub
+        application using the <code>PublishAppVersion</code> API.</p> </li>
+        </ul> </note>
+      tags:
+        - Applications
+        - Resources
+        - Versions
+  /delete-recommendation-template:
+    POST:
+      summary: 'Delete Recommendation Template '
+      description: >-
+        <p>Deletes a recommendation template. This is a destructive action that
+        can't be undone.</p>
+      tags:
+        - Recommendations
+        - Templates
+  /delete-resiliency-policy:
+    POST:
+      summary: 'Delete Resiliency Policy '
+      description: >-
+        <p>Deletes a resiliency policy. This is a destructive action that can't
+        be undone.</p>
+      tags:
+        - Policies
+        - Resiliency
+  /describe-app:
+    POST:
+      summary: 'Describe App '
+      description: <p>Describes an Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Describe
+  /describe-app-assessment:
+    POST:
+      summary: 'Describe App Assessment '
+      description: <p>Describes an assessment for an Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Assessments
+        - Describe
+  /describe-app-version:
+    POST:
+      summary: 'Describe App Version '
+      description: <p>Describes the Resilience Hub application version.</p>
+      tags:
+        - Applications
+        - Describe
+        - Versions
+  /describe-app-version-app-component:
+    POST:
+      summary: 'Describe App Version App Component '
+      description: >-
+        <p>Describes an Application Component in the Resilience Hub
+        application.</p>
+      tags:
+        - Applications
+        - Components
+        - Describe
+        - Versions
+  /describe-app-version-resource:
+    POST:
+      summary: 'Describe App Version Resource '
+      description: >-
+        <p>Describes a resource of the Resilience Hub application.</p> <note>
+        <p>This API accepts only one of the following parameters to descibe the
+        resource:</p> <ul> <li> <p> <code>resourceName</code> </p> </li> <li>
+        <p> <code>logicalResourceId</code> </p> </li> <li> <p>
+        <code>physicalResourceId</code> (Along with
+        <code>physicalResourceId</code>, you can also provide
+        <code>awsAccountId</code>, and <code>awsRegion</code>)</p> </li> </ul>
+        </note>
+      tags:
+        - Applications
+        - Describe
+        - Resources
+        - Versions
+  /describe-app-version-resources-resolution-status:
+    POST:
+      summary: 'Describe App Version Resources Resolution Status '
+      description: >-
+        <p>Returns the resolution status for the specified resolution identifier
+        for an application version. If <code>resolutionId</code> is not
+        specified, the current resolution status is returned.</p>
+      tags:
+        - Applications
+        - Describe
+        - Resolutions
+        - Resources
+        - Status
+        - Versions
+  /describe-app-version-template:
+    POST:
+      summary: 'Describe App Version Template '
+      description: <p>Describes details about an Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Describe
+        - Templates
+        - Versions
+  /describe-draft-app-version-resources-import-status:
+    POST:
+      summary: 'Describe Draft App Version Resources Import Status '
+      description: >-
+        <p>Describes the status of importing resources to an application
+        version.</p> <note> <p>If you get a 404 error with
+        <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must
+        call <code>importResourcesToDraftAppVersion</code> after creating the
+        application and before calling
+        <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
+        status.</p> </note>
+      tags:
+        - Applications
+        - Describe
+        - Draft
+        - Import
+        - Resources
+        - Status
+        - Versions
+  /describe-resiliency-policy:
+    POST:
+      summary: 'Describe Resiliency Policy '
+      description: >-
+        <p>Describes a specified resiliency policy for an Resilience Hub
+        application. The returned policy object includes creation time, data
+        location constraints, the Amazon Resource Name (ARN) for the policy,
+        tags, tier, and more.</p>
+      tags:
+        - Describe
+        - Policies
+        - Resiliency
+  /import-resources-to-draft-app-version:
+    POST:
+      summary: 'Import Resources To Draft App Version '
+      description: >-
+        <p>Imports resources to Resilience Hub application draft version from
+        different input sources. For more information about the input sources
+        supported by Resilience Hub, see <a
+        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+        the structure and describe your Resilience Hub application</a>.</p>
+      tags:
+        - Applications
+        - Draft
+        - Import
+        - Resources
+        - Versions
+  /list-alarm-recommendations:
+    POST:
+      summary: 'List Alarm Recommendations '
+      description: >-
+        <p>Lists the alarm recommendations for an Resilience Hub
+        application.</p>
+      tags:
+        - Alarm
+        - Recommendations
+  /list-app-assessment-compliance-drifts:
+    POST:
+      summary: 'List App Assessment Compliance Drifts '
+      description: >-
+        <p>List of compliance drifts that were detected while running an
+        assessment.</p>
+      tags:
+        - Applications
+        - Assessments
+        - Compliance
+        - Drifts
+  /list-app-assessments:
+    GET:
+      summary: 'List App Assessments '
+      description: >-
+        <p>Lists the assessments for an Resilience Hub application. You can use
+        request parameters to refine the results for the response object.</p>
+      tags:
+        - Applications
+        - Assessments
+  /list-app-component-compliances:
+    POST:
+      summary: 'List App Component Compliances '
+      description: >-
+        <p>Lists the compliances for an Resilience Hub Application
+        Component.</p>
+      tags:
+        - Applications
+        - Compliance
+        - Components
+  /list-app-component-recommendations:
+    POST:
+      summary: 'List App Component Recommendations '
+      description: >-
+        <p>Lists the recommendations for an Resilience Hub Application
+        Component.</p>
+      tags:
+        - Applications
+        - Components
+        - Recommendations
+  /list-app-input-sources:
+    POST:
+      summary: 'List App Input Sources '
+      description: >-
+        <p>Lists all the input sources of the Resilience Hub application. For
+        more information about the input sources supported by Resilience Hub,
+        see <a
+        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+        the structure and describe your Resilience Hub application</a>.</p>
+      tags:
+        - Applications
+        - Inputs
+        - Sources
+  /list-app-version-app-components:
+    POST:
+      summary: 'List App Version App Components '
+      description: >-
+        <p>Lists all the Application Components in the Resilience Hub
+        application.</p>
+      tags:
+        - Applications
+        - Components
+        - Versions
+  /list-app-version-resource-mappings:
+    POST:
+      summary: 'List App Version Resource Mappings '
+      description: >-
+        <p>Lists how the resources in an application version are mapped/sourced
+        from. Mappings can be physical resource identifiers, CloudFormation
+        stacks, resource-groups, or an application registry app.</p>
+      tags:
+        - Applications
+        - Mapping
+        - Resources
+        - Versions
+  /list-app-version-resources:
+    POST:
+      summary: 'List App Version Resources '
+      description: <p>Lists all the resources in an Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Resources
+        - Versions
+  /list-app-versions:
+    POST:
+      summary: 'List App Versions '
+      description: <p>Lists the different versions for the Resilience Hub applications.</p>
+      tags:
+        - Applications
+        - Versions
+  /list-apps:
+    GET:
+      summary: 'List Apps '
+      description: >-
+        <p>Lists your Resilience Hub applications.</p> <note> <p>You can filter
+        applications using only one filter at a time or without using any
+        filter. If you try to filter applications using multiple filters, you
+        will get the following error:</p> <p> <code>An error occurred
+        (ValidationException) when calling the ListApps operation: Only one
+        filter is supported for this operation.</code> </p> </note>
+      tags:
+        - Applications
+  /list-recommendation-templates:
+    GET:
+      summary: 'List Recommendation Templates '
+      description: >-
+        <p>Lists the recommendation templates for the Resilience Hub
+        applications.</p>
+      tags:
+        - Recommendations
+        - Templates
+  /list-resiliency-policies:
+    GET:
+      summary: 'List Resiliency Policies '
+      description: >-
+        <p>Lists the resiliency policies for the Resilience Hub
+        applications.</p>
+      tags:
+        - Policies
+        - Resiliency
+  /list-sop-recommendations:
+    POST:
+      summary: 'List Sop Recommendations '
+      description: >-
+        <p>Lists the standard operating procedure (SOP) recommendations for the
+        Resilience Hub applications.</p>
+      tags:
+        - Recommendations
+  /list-suggested-resiliency-policies:
+    GET:
+      summary: 'List Suggested Resiliency Policies '
+      description: >-
+        <p>Lists the suggested resiliency policies for the Resilience Hub
+        applications.</p>
+      tags:
+        - Policies
+        - Resiliency
+        - Suggested
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes one or more tags from a resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /list-test-recommendations:
+    POST:
+      summary: 'List Test Recommendations '
+      description: >-
+        <p>Lists the test recommendations for the Resilience Hub
+        application.</p>
+      tags:
+        - Recommendations
+        - Tests
+  /list-unsupported-app-version-resources:
+    POST:
+      summary: 'List Unsupported App Version Resources '
+      description: >-
+        <p>Lists the resources that are not currently supported in Resilience
+        Hub. An unsupported resource is a resource that exists in the object
+        that was used to create an app, but is not supported by Resilience
+        Hub.</p>
+      tags:
+        - Applications
+        - Resources
+        - Unsupported
+        - Versions
+  /publish-app-version:
+    POST:
+      summary: 'Publish App Version '
+      description: <p>Publishes a new version of a specific Resilience Hub application.</p>
+      tags:
+        - Applications
+        - Publish
+        - Versions
+  /put-draft-app-version-template:
+    POST:
+      summary: 'Put Draft App Version Template '
+      description: >-
+        <p>Adds or updates the app template for an Resilience Hub application
+        draft version.</p>
+      tags:
+        - Applications
+        - Draft
+        - Templates
+        - Versions
+  /remove-draft-app-version-resource-mappings:
+    POST:
+      summary: 'Remove Draft App Version Resource Mappings '
+      description: <p>Removes resource mappings from a draft application version.</p>
+      tags:
+        - Applications
+        - Draft
+        - Mapping
+        - Removes
+        - Resources
+        - Versions
+  /resolve-app-version-resources:
+    POST:
+      summary: 'Resolve App Version Resources '
+      description: <p>Resolves the resources for an application version.</p>
+      tags:
+        - Applications
+        - Resolve
+        - Resources
+        - Versions
+  /start-app-assessment:
+    POST:
+      summary: 'Start App Assessment '
+      description: <p>Creates a new application assessment for an application.</p>
+      tags:
+        - Applications
+        - Assessments
+  /update-app:
+    POST:
+      summary: 'Update App '
+      description: <p>Updates an application.</p>
+      tags:
+        - Applications
+  /update-app-version:
+    POST:
+      summary: 'Update App Version '
+      description: >-
+        <p>Updates the Resilience Hub application version.</p> <note> <p>This
+        API updates the Resilience Hub application draft version. To use this
+        information for running resiliency assessments, you must publish the
+        Resilience Hub application using the <code>PublishAppVersion</code>
+        API.</p> </note>
+      tags:
+        - Applications
+        - Versions
+  /update-app-version-app-component:
+    POST:
+      summary: 'Update App Version App Component '
+      description: >-
+        <p>Updates an existing Application Component in the Resilience Hub
+        application.</p> <note> <p>This API updates the Resilience Hub
+        application draft version. To use this Application Component for running
+        assessments, you must publish the Resilience Hub application using the
+        <code>PublishAppVersion</code> API.</p> </note>
+      tags:
+        - Applications
+        - Components
+        - Versions
+  /update-app-version-resource:
+    POST:
+      summary: 'Update App Version Resource '
+      description: >-
+        <p>Updates the resource details in the Resilience Hub application.</p>
+        <note> <ul> <li> <p>This action has no effect outside Resilience
+        Hub.</p> </li> <li> <p>This API updates the Resilience Hub application
+        draft version. To use this resource for running resiliency assessments,
+        you must publish the Resilience Hub application using the
+        <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update
+        application version with new <code>physicalResourceID</code>, you must
+        call <code>ResolveAppVersionResources</code> API.</p> </li> </ul>
+        </note>
+      tags:
+        - Applications
+        - Resources
+        - Versions
+  /update-resiliency-policy:
+    POST:
+      summary: 'Update Resiliency Policy '
+      description: >-
+        <p>Updates a resiliency policy.</p> <note> <p>Resilience Hub allows you
+        to provide a value of zero for <code>rtoInSecs</code> and
+        <code>rpoInSecs</code> of your resiliency policy. But, while assessing
+        your application, the lowest possible assessment result is near zero.
+        Hence, if you provide value zero for <code>rtoInSecs</code> and
+        <code>rpoInSecs</code>, the estimated workload RTO and estimated
+        workload RPO result will be near zero and the <b>Compliance status</b>
+        for your application will be set to <b>Policy breached</b>.</
+      tags:
+        - Policies
+        - Resiliency

@@ -1,0 +1,233 @@
+openapi: 3.1.0
+info:
+  title: iottwinmaker
+paths:
+  /workspaces/{workspaceId}/entity-properties:
+    POST:
+      summary: 'Batch Put Property Values '
+      description: <p>Sets values for multiple time series properties.</p>
+      tags:
+        - Batches
+        - Entities
+        - Properties
+        - Values
+        - Workspaces
+  /metadata-transfer-jobs/{metadataTransferJobId}/cancel:
+    PUT:
+      summary: 'Cancel Metadata Transfer Job '
+      description: <p>Cancels the metadata transfer job.</p>
+      tags:
+        - Cancel
+        - Jobs
+        - Metadata
+        - Transfers
+  /workspaces/{workspaceId}/component-types/{componentTypeId}:
+    PUT:
+      summary: 'Update Component Type '
+      description: <p>Updates information in a component type.</p>
+      tags:
+        - Components
+        - Types
+        - Workspaces
+  /workspaces/{workspaceId}/entities:
+    POST:
+      summary: 'Create Entity '
+      description: <p>Creates an entity.</p>
+      tags:
+        - Entities
+        - Workspaces
+  /metadata-transfer-jobs:
+    POST:
+      summary: 'Create Metadata Transfer Job '
+      description: <p>Creates a new metadata transfer job.</p>
+      tags:
+        - Jobs
+        - Metadata
+        - Transfers
+  /workspaces/{workspaceId}/scenes:
+    POST:
+      summary: 'Create Scene '
+      description: <p>Creates a scene.</p>
+      tags:
+        - Scenes
+        - Workspaces
+  /workspaces/{workspaceId}/sync-jobs/{syncSource}:
+    DELETE:
+      summary: 'Delete Sync Job '
+      description: <p>Delete the SyncJob.</p>
+      tags:
+        - Jobs
+        - Sources
+        - Sync
+        - Workspaces
+  /workspaces/{workspaceId}:
+    PUT:
+      summary: 'Update Workspace '
+      description: <p>Updates a workspace.</p>
+      tags:
+        - Workspaces
+  /workspaces/{workspaceId}/entities/{entityId}:
+    PUT:
+      summary: 'Update Entity '
+      description: <p>Updates an entity.</p>
+      tags:
+        - Entities
+        - Workspaces
+  /workspaces/{workspaceId}/scenes/{sceneId}:
+    PUT:
+      summary: 'Update Scene '
+      description: <p>Updates a scene.</p>
+      tags:
+        - Scenes
+        - Workspaces
+  /queries/execution:
+    POST:
+      summary: 'Execute Query '
+      description: >-
+        <p>Run queries to access information from your knowledge graph of
+        entities within individual workspaces.</p> <note> <p>The ExecuteQuery
+        action only works with <a
+        href="https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html">Amazon
+        Web Services Java SDK2</a>. ExecuteQuery will not work with any Amazon
+        Web Services Java SDK version &lt; 2.x.</p> </note>
+      tags:
+        - Execute
+        - Execution
+        - Queries
+  /metadata-transfer-jobs/{metadataTransferJobId}:
+    GET:
+      summary: 'Get Metadata Transfer Job '
+      description: <p>Gets a nmetadata transfer job.</p>
+      tags:
+        - Jobs
+        - Metadata
+        - Transfers
+  /pricingplan:
+    POST:
+      summary: 'Update Pricing Plan '
+      description: <p>Update the pricing plan.</p>
+      tags:
+        - Plan
+        - Pricing
+        - Pricing Plans
+  /workspaces/{workspaceId}/entity-properties/value:
+    POST:
+      summary: 'Get Property Value '
+      description: >-
+        <p>Gets the property values for a component, component type, entity, or
+        workspace.</p> <p>You must specify a value for either
+        <code>componentName</code>, <code>componentTypeId</code>,
+        <code>entityId</code>, or <code>workspaceId</code>.</p>
+      tags:
+        - Entities
+        - Properties
+        - Value
+        - Workspaces
+  /workspaces/{workspaceId}/entity-properties/history:
+    POST:
+      summary: 'Get Property Value History '
+      description: >-
+        <p>Retrieves information about the history of a time series property
+        value for a component, component type, entity, or workspace.</p> <p>You
+        must specify a value for <code>workspaceId</code>. For entity-specific
+        queries, specify values for <code>componentName</code> and
+        <code>entityId</code>. For cross-entity quries, specify a value for
+        <code>componentTypeId</code>.</p>
+      tags:
+        - Entities
+        - History
+        - Properties
+        - Value
+        - Workspaces
+  /sync-jobs/{syncSource}:
+    GET:
+      summary: 'Get Sync Job '
+      description: <p>Gets the SyncJob.</p>
+      tags:
+        - Jobs
+        - Sources
+        - Sync
+  /workspaces/{workspaceId}/component-types-list:
+    POST:
+      summary: 'List Component Types '
+      description: <p>Lists all component types in a workspace.</p>
+      tags:
+        - Components
+        - Types
+        - Workspaces
+  /workspaces/{workspaceId}/entities/{entityId}/components-list:
+    POST:
+      summary: 'List Components '
+      description: <p>This API lists the components of an entity.</p>
+      tags:
+        - Components
+        - Entities
+        - Workspaces
+  /workspaces/{workspaceId}/entities-list:
+    POST:
+      summary: 'List Entities '
+      description: <p>Lists all entities in a workspace.</p>
+      tags:
+        - Entities
+        - Workspaces
+  /metadata-transfer-jobs-list:
+    POST:
+      summary: 'List Metadata Transfer Jobs '
+      description: <p>Lists the metadata transfer jobs.</p>
+      tags:
+        - Jobs
+        - Metadata
+        - Transfers
+  /workspaces/{workspaceId}/properties-list:
+    POST:
+      summary: 'List Properties '
+      description: <p>This API lists the properties of a component.</p>
+      tags:
+        - Properties
+        - Workspaces
+  /workspaces/{workspaceId}/scenes-list:
+    POST:
+      summary: 'List Scenes '
+      description: <p>Lists all scenes in a workspace.</p>
+      tags:
+        - Scenes
+        - Workspaces
+  /workspaces/{workspaceId}/sync-jobs-list:
+    POST:
+      summary: 'List Sync Jobs '
+      description: <p>List all SyncJobs.</p>
+      tags:
+        - Jobs
+        - Sync
+        - Workspaces
+  /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list:
+    POST:
+      summary: 'List Sync Resources '
+      description: <p>Lists the sync resources.</p>
+      tags:
+        - Jobs
+        - Resources
+        - Sources
+        - Sync
+        - Workspaces
+  /tags-list:
+    POST:
+      summary: 'List Tags For Resource '
+      description: <p>Lists all tags associated with a resource.</p>
+      tags:
+        - Resources
+        - Tags
+  /workspaces-list:
+    POST:
+      summary: 'List Workspaces '
+      description: <p>Retrieves information about workspaces in the current account.</p>
+      tags:
+        - Workspaces
+  /tags:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes tags from a res
+      tags:
+        - Resources
+        - Tags
+        - Untag

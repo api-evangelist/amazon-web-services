@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: dataexchange
+paths:
+  /v1/jobs/{JobId}:
+    PATCH:
+      summary: 'Start Job '
+      description: <p>This operation starts a job.</p>
+      tags:
+        - Jobs
+  /v1/data-sets:
+    GET:
+      summary: 'List Data Sets '
+      description: >-
+        <p>This operation lists your data sets. When listing by origin OWNED,
+        results are sorted by CreatedAt in descending order. When listing by
+        origin ENTITLED, there is no order and the maxResults parameter is
+        ignored.</p>
+      tags:
+        - Data
+        - Sets
+  /v1/event-actions:
+    GET:
+      summary: 'List Event Actions '
+      description: <p>This operation lists your event actions.</p>
+      tags:
+        - Actions
+        - Events
+  /v1/jobs:
+    GET:
+      summary: 'List Jobs '
+      description: >-
+        <p>This operation lists your jobs sorted by CreatedAt in descending
+        order.</p>
+      tags:
+        - Jobs
+  /v1/data-sets/{DataSetId}/revisions:
+    GET:
+      summary: 'List Data Set Revisions '
+      description: >-
+        <p>This operation lists a data set's revisions sorted by CreatedAt in
+        descending order.</p>
+      tags:
+        - Data
+        - Revisions
+        - Sets
+  /v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}:
+    PATCH:
+      summary: 'Update Asset '
+      description: <p>This operation updates an asset.</p>
+      tags:
+        - Assets
+        - Data
+        - Revisions
+        - Sets
+  /v1/data-sets/{DataSetId}:
+    PATCH:
+      summary: 'Update Data Set '
+      description: <p>This operation updates a data set.</p>
+      tags:
+        - Data
+        - Sets
+  /v1/event-actions/{EventActionId}:
+    PATCH:
+      summary: 'Update Event Action '
+      description: <p>This operation updates the event action.</p>
+      tags:
+        - Actions
+        - Events
+  /v1/data-sets/{DataSetId}/revisions/{RevisionId}:
+    PATCH:
+      summary: 'Update Revision '
+      description: <p>This operation updates a revision.</p>
+      tags:
+        - Data
+        - Revisions
+        - Sets
+  /v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets:
+    GET:
+      summary: 'List Revision Assets '
+      description: >-
+        <p>This operation lists a revision's assets sorted alphabetically in
+        descending order.</p>
+      tags:
+        - Assets
+        - Data
+        - Revisions
+        - Sets
+  /tags/{ResourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>This operation removes one or more tags from a resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke:
+    POST:
+      summary: 'Revoke Revision '
+      description: <p>This operation revokes subscribers' access to a revision.</p>
+      tags:
+        - Data
+        - Revisions
+        - Revoke
+        - Sets
+  /v1:
+    POST:
+      summary: 'Send Api Asset '
+      description: >-
+        <p>This operation invokes an API Gateway API asset. The request is
+        proxied to the provider’s API Gateway API.</p>
+      tags:
+        - Assets
+        - Send
+  /v1/data-sets/{DataSetId}/notification:
+    POST:
+      summary: 'Send Data Set Notification  '
+      description: <p>The type of event associated with the da
+      tags:
+        - Data
+        - Notifications
+        - Send
+        - Sets

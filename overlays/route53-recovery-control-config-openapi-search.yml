@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: route53-recovery-control-config
+paths:
+  /cluster:
+    GET:
+      summary: 'List Clusters '
+      description: <p>Returns an array of all the clusters in an account.</p>
+      tags:
+        - Clusters
+  /controlpanel:
+    PUT:
+      summary: 'Update Control Panel '
+      description: >-
+        <p>Updates a control panel. The only update you can make to a control
+        panel is to change the name of the control panel.</p>
+      tags:
+        - Control Panels
+        - Controls
+        - Panels
+  /routingcontrol:
+    PUT:
+      summary: 'Update Routing Control '
+      description: >-
+        <p>Updates a routing control. You can only update the name of the
+        routing control. To get or update the routing control state, see the
+        Recovery Cluster (data plane) API actions for Amazon Route 53
+        Application Recovery Controller.</p>
+      tags:
+        - Controls
+        - Routing
+        - Routing Controls
+  /safetyrule:
+    PUT:
+      summary: 'Update Safety Rule '
+      description: >-
+        <p>Update a safety rule (an assertion rule or gating rule). You can only
+        update the name and the waiting period for a safety rule. To make other
+        updates, delete the safety rule and create a new one.</p>
+      tags:
+        - Rules
+        - Safety
+        - Safety Rules
+  /cluster/{ClusterArn}:
+    GET:
+      summary: 'Describe Cluster '
+      description: >-
+        <p>Display the details about a cluster. The response includes the
+        cluster name, endpoints, status, and Amazon Resource Name (ARN).</p>
+      tags:
+        - ARN
+        - Clusters
+        - Describe
+  /controlpanel/{ControlPanelArn}:
+    GET:
+      summary: 'Describe Control Panel '
+      description: <p>Displays details about a control panel.</p>
+      tags:
+        - ARN
+        - Control Panels
+        - Controls
+        - Describe
+        - Panels
+  /routingcontrol/{RoutingControlArn}:
+    GET:
+      summary: 'Describe Routing Control '
+      description: >-
+        <p>Displays details about a routing control. A routing control has one
+        of two states: ON and OFF. You can map the routing control state to the
+        state of an Amazon Route 53 health check, which can be used to control
+        routing.</p> <p>To get or update the routing control state, see the
+        Recovery Cluster (data plane) API actions for Amazon Route 53
+        Application Recovery Controller.</p>
+      tags:
+        - ARN
+        - Controls
+        - Describe
+        - Routing
+        - Routing Controls
+  /safetyrule/{SafetyRuleArn}:
+    GET:
+      summary: 'Describe Safety Rule '
+      description: <p>Returns information about a safety rule.</p>
+      tags:
+        - ARN
+        - Describe
+        - Rules
+        - Safety
+        - Safety Rules
+  /resourcePolicy/{ResourceArn}:
+    GET:
+      summary: 'Get Resource Policy '
+      description: <p>Get information about the resource policy for a cluster.</p>
+      tags:
+        - ARN
+        - Policies
+        - Resources
+  /routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks:
+    GET:
+      summary: 'List Associated Route53Health Checks '
+      description: >-
+        <p>Returns an array of all Amazon Route 53 health checks associated with
+        a specific routing control.</p>
+      tags:
+        - ARN
+        - Associated
+        - Checks
+        - Controls
+        - Route53Health
+        - Route53health
+        - Routing
+        - Routing Controls
+  /controlpanels:
+    GET:
+      summary: 'List Control Panels '
+      description: <p>Returns an array of control panels in an account or in a cluster.</p>
+      tags:
+        - Control Panels
+        - Controls
+        - Panels
+  /controlpanel/{ControlPanelArn}/routingcontrols:
+    GET:
+      summary: 'List Routing Controls '
+      description: >-
+        <p>Returns an array of routing controls for a control panel. A routing
+        control is an Amazon Route 53 Application Recovery Controller construct
+        that has one of two states: ON and OFF. You can map the routing control
+        state to the state of an Amazon Route 53 health check, which can be used
+        to control routing.</p>
+      tags:
+        - ARN
+        - Control Panels
+        - Controls
+        - Panels
+        - Routing
+        - Routing Controls
+  /controlpanel/{ControlPanelArn}/safetyrules:
+    GET:
+      summary: 'List Safety Rules '
+      description: >-
+        <p>List the safety rules (the assertion rules and gating rules) that
+        you've defined for the routing controls in a control panel.</p>
+      tags:
+        - ARN
+        - Control Panels
+        - Controls
+        - Panels
+        - Rules
+        - Safety
+        - Safety Rules
+  /tags/{ResourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes a tag from a res
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag

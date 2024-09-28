@@ -1,0 +1,527 @@
+openapi: 3.1.0
+info:
+  title: iotwireless
+paths:
+  /partner-accounts:
+    GET:
+      summary: 'List Partner Accounts '
+      description: <p>Lists the partner accounts associated with your AWS account.</p>
+      tags:
+        - Accounts
+        - Partners
+  /fuota-tasks/{Id}/multicast-group:
+    PUT:
+      summary: 'Associate Multicast Group With Fuota Task '
+      description: <p>Associate a multicast group with a FUOTA task.</p>
+      tags:
+        - Associate
+        - Groups
+        - Multicast
+        - Tasks
+  /fuota-tasks/{Id}/wireless-device:
+    PUT:
+      summary: 'Associate Wireless Device With Fuota Task '
+      description: <p>Associate a wireless device with a FUOTA task.</p>
+      tags:
+        - Associate
+        - Device
+        - Tasks
+        - Wireless
+  /multicast-groups/{Id}/wireless-device:
+    PUT:
+      summary: 'Associate Wireless Device With Multicast Group '
+      description: <p>Associates a wireless device with a multicast group.</p>
+      tags:
+        - Associate
+        - Device
+        - Groups
+        - Multicast
+        - Wireless
+  /wireless-devices/{Id}/thing:
+    DELETE:
+      summary: 'Disassociate Wireless Device From Thing '
+      description: >-
+        <p>Disassociates a wireless device from its currently associated
+        thing.</p>
+      tags:
+        - Device
+        - Devices
+        - Disassociate
+        - Things
+        - Wireless
+  /wireless-gateways/{Id}/certificate:
+    GET:
+      summary: 'Get Wireless Gateway Certificate '
+      description: >-
+        <p>Gets the ID of the certificate that is currently associated with a
+        wireless gateway.</p>
+      tags:
+        - Certificates
+        - Gateways
+        - Wireless
+  /wireless-gateways/{Id}/thing:
+    DELETE:
+      summary: 'Disassociate Wireless Gateway From Thing '
+      description: >-
+        <p>Disassociates a wireless gateway from its currently associated
+        thing.</p>
+      tags:
+        - Disassociate
+        - Gateways
+        - Things
+        - Wireless
+  /multicast-groups/{Id}/session:
+    PUT:
+      summary: 'Start Multicast Group Session '
+      description: <p>Starts a multicast group session.</p>
+      tags:
+        - Groups
+        - Multicast
+        - Sessions
+  /destinations:
+    GET:
+      summary: 'List Destinations '
+      description: <p>Lists the destinations registered to your AWS account.</p>
+      tags:
+        - Destinations
+  /device-profiles:
+    GET:
+      summary: 'List Device Profiles '
+      description: <p>Lists the device profiles registered to your AWS account.</p>
+      tags:
+        - Device
+        - Profiles
+  /fuota-tasks:
+    GET:
+      summary: 'List Fuota Tasks '
+      description: <p>Lists the FUOTA tasks registered to your AWS account.</p>
+      tags:
+        - Tasks
+  /multicast-groups:
+    GET:
+      summary: 'List Multicast Groups '
+      description: <p>Lists the multicast groups registered to your AWS account.</p>
+      tags:
+        - Groups
+        - Multicast
+  /network-analyzer-configurations:
+    GET:
+      summary: 'List Network Analyzer Configurations '
+      description: <p>Lists the network analyzer configurations.</p>
+      tags:
+        - Analyzer
+        - Configurations
+        - Networks
+  /service-profiles:
+    GET:
+      summary: 'List Service Profiles '
+      description: <p>Lists the service profiles registered to your AWS account.</p>
+      tags:
+        - Profiles
+        - Services
+  /wireless-devices:
+    GET:
+      summary: 'List Wireless Devices '
+      description: <p>Lists the wireless devices registered to your AWS account.</p>
+      tags:
+        - Devices
+        - Wireless
+  /wireless-gateways:
+    GET:
+      summary: 'List Wireless Gateways '
+      description: <p>Lists the wireless gateways registered to your AWS account.</p>
+      tags:
+        - Gateways
+        - Wireless
+  /wireless-gateways/{Id}/tasks:
+    GET:
+      summary: 'Get Wireless Gateway Task '
+      description: <p>Gets information about a wireless gateway task.</p>
+      tags:
+        - Gateways
+        - Tasks
+        - Wireless
+  /wireless-gateway-task-definitions:
+    GET:
+      summary: 'List Wireless Gateway Task Definitions '
+      description: >-
+        <p>List the wireless gateway tasks definitions registered to your AWS
+        account.</p>
+      tags:
+        - Definitions
+        - Gateways
+        - Tasks
+        - Wireless
+  /destinations/{Name}:
+    PATCH:
+      summary: 'Update Destination '
+      description: <p>Updates properties of a destination.</p>
+      tags:
+        - Destinations
+        - Names
+  /device-profiles/{Id}:
+    GET:
+      summary: 'Get Device Profile '
+      description: <p>Gets information about a device profile.</p>
+      tags:
+        - Device
+        - Profiles
+  /fuota-tasks/{Id}:
+    PATCH:
+      summary: 'Update Fuota Task '
+      description: <p>Updates properties of a FUOTA task.</p>
+      tags:
+        - Tasks
+  /multicast-groups/{Id}:
+    PATCH:
+      summary: 'Update Multicast Group '
+      description: <p>Updates properties of a multicast group session.</p>
+      tags:
+        - Groups
+        - Multicast
+  /network-analyzer-configurations/{ConfigurationName}:
+    PATCH:
+      summary: 'Update Network Analyzer Configuration '
+      description: <p>Update network analyzer configuration.</p>
+      tags:
+        - Analyzer
+        - Configurations
+        - Names
+        - Networks
+  /wireless-devices/{Id}/data:
+    POST:
+      summary: 'Send Data To Wireless Device '
+      description: <p>Sends a decrypted application data frame to a device.</p>
+      tags:
+        - Data
+        - Device
+        - Devices
+        - Send
+        - Wireless
+  /service-profiles/{Id}:
+    GET:
+      summary: 'Get Service Profile '
+      description: <p>Gets information about a service profile.</p>
+      tags:
+        - Profiles
+        - Services
+  /wireless-devices/{Id}:
+    PATCH:
+      summary: 'Update Wireless Device '
+      description: <p>Updates properties of a wireless device.</p>
+      tags:
+        - Device
+        - Devices
+        - Wireless
+  /wireless_device_import_task/{Id}:
+    PATCH:
+      summary: 'Update Wireless Device Import Task '
+      description: <p>Update an import task to add more devices to the task.</p>
+      tags:
+        - Device
+        - Import
+        - Tasks
+        - Wireless
+  /wireless-gateways/{Id}:
+    PATCH:
+      summary: 'Update Wireless Gateway '
+      description: <p>Updates properties of a wireless gateway.</p>
+      tags:
+        - Gateways
+        - Wireless
+  /wireless-gateway-task-definitions/{Id}:
+    GET:
+      summary: 'Get Wireless Gateway Task Definition '
+      description: <p>Gets information about a wireless gateway task definition.</p>
+      tags:
+        - Definitions
+        - Gateways
+        - Tasks
+        - Wireless
+  /wireless-devices/{Identifier}/deregister:
+    PATCH:
+      summary: 'Deregister Wireless Device '
+      description: <p>Deregister a wireless device from AWS IoT Wireless.</p>
+      tags:
+        - Deregister
+        - Device
+        - Devices
+        - Wireless
+  /partner-accounts/{PartnerAccountId}:
+    PATCH:
+      summary: 'Update Partner Account '
+      description: <p>Updates properties of a partner account.</p>
+      tags:
+        - Accounts
+        - Partners
+  /fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}:
+    DELETE:
+      summary: 'Disassociate Multicast Group From Fuota Task '
+      description: <p>Disassociates a multicast group from a fuota task.</p>
+      tags:
+        - Disassociate
+        - Groups
+        - Multicast
+        - Tasks
+  /fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}:
+    DELETE:
+      summary: 'Disassociate Wireless Device From Fuota Task '
+      description: <p>Disassociates a wireless device from a FUOTA task.</p>
+      tags:
+        - Device
+        - Devices
+        - Disassociate
+        - Tasks
+        - Wireless
+  /multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}:
+    DELETE:
+      summary: 'Disassociate Wireless Device From Multicast Group '
+      description: <p>Disassociates a wireless device from a multicast group.</p>
+      tags:
+        - Device
+        - Devices
+        - Disassociate
+        - Groups
+        - Multicast
+        - Wireless
+  /event-configurations-resource-types:
+    PATCH:
+      summary: 'Update Event Configuration By Resource Types '
+      description: <p>Update the event configuration based on resource types.</p>
+      tags:
+        - Configurations
+        - Events
+        - Resources
+        - Types
+  /log-levels:
+    POST:
+      summary: 'Update Log Levels By Resource Types '
+      description: >-
+        <p>Set default log level, or log levels by resource types. This can be
+        for wireless device log options or wireless gateways log options and is
+        used to control the log messages that'll be displayed in CloudWatch.</p>
+      tags:
+        - Levels
+        - Logs
+        - Resources
+        - Types
+  /positions/{ResourceIdentifier}:
+    PATCH:
+      summary: 'Update Position '
+      description: >-
+        <p>Update the position information of a resource.</p> <important>
+        <p>This action is no longer supported. Calls to update the position
+        information should use the <a
+        href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a>
+        API operation instead.</p> </important>
+      tags:
+        - Positions
+        - Resources
+  /position-configurations/{ResourceIdentifier}:
+    PUT:
+      summary: 'Put Position Configuration '
+      description: >-
+        <p>Put position configuration for a given resource.</p> <important>
+        <p>This action is no longer supported. Calls to update the position
+        configuration should use the <a
+        href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a>
+        API operation instead.</p> </important>
+      tags:
+        - Configurations
+        - Positions
+        - Resources
+  /position-estimate:
+    POST:
+      summary: 'Get Position Estimate '
+      description: >-
+        <p>Get estimated position information as a payload in GeoJSON format.
+        The payload measurement data is resolved using solvers that are provided
+        by third-party vendors.</p>
+      tags:
+        - Estimates
+        - Positions
+  /event-configurations/{Identifier}:
+    PATCH:
+      summary: 'Update Resource Event Configuration '
+      description: >-
+        <p>Update the event configuration for a particular resource
+        identifier.</p>
+      tags:
+        - Configurations
+        - Events
+        - Resources
+  /log-levels/{ResourceIdentifier}:
+    DELETE:
+      summary: 'Reset Resource Log Level '
+      description: >-
+        <p>Removes the log-level override, if any, for a specific resource-ID
+        and resource-type. It can be used for a wireless device or a wireless
+        gateway.</p>
+      tags:
+        - Levels
+        - Logs
+        - Reset
+        - Resources
+  /resource-positions/{ResourceIdentifier}:
+    PATCH:
+      summary: 'Update Resource Position '
+      description: >-
+        <p>Update the position information of a given wireless device or a
+        wireless gateway resource. The position coordinates are based on the <a
+        href="https://gisgeography.com/wgs84-world-geodetic-system/"> World
+        Geodetic System (WGS84)</a>.</p>
+      tags:
+        - Positions
+        - Resources
+  /service-endpoint:
+    GET:
+      summary: 'Get Service Endpoint '
+      description: >-
+        <p>Gets the account-specific endpoint for Configuration and Update
+        Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
+      tags:
+        - Endpoints
+        - Services
+  /wireless-devices/{Identifier}:
+    GET:
+      summary: 'Get Wireless Device '
+      description: <p>Gets information about a wireless device.</p>
+      tags:
+        - Device
+        - Devices
+        - Wireless
+  /wireless-devices/{Id}/statistics:
+    GET:
+      summary: 'Get Wireless Device Statistics '
+      description: <p>Gets operating information about a wireless device.</p>
+      tags:
+        - Device
+        - Devices
+        - Statistics
+        - Wireless
+  /wireless-gateways/{Identifier}:
+    GET:
+      summary: 'Get Wireless Gateway '
+      description: <p>Gets information about a wireless gateway.</p>
+      tags:
+        - Gateways
+        - Wireless
+  /wireless-gateways/{Id}/firmware-information:
+    GET:
+      summary: 'Get Wireless Gateway Firmware Information '
+      description: >-
+        <p>Gets the firmware version and other information about a wireless
+        gateway.</p>
+      tags:
+        - Firmware
+        - Gateways
+        - Information
+        - Wireless
+  /wireless-gateways/{Id}/statistics:
+    GET:
+      summary: 'Get Wireless Gateway Statistics '
+      description: <p>Gets operating information about a wireless gateway.</p>
+      tags:
+        - Gateways
+        - Statistics
+        - Wireless
+  /wireless_device_import_task:
+    POST:
+      summary: 'Start Wireless Device Import Task '
+      description: >-
+        <p>Start import task for provisioning Sidewalk devices in bulk using an
+        S3 CSV file.</p>
+      tags:
+        - Device
+        - Import
+        - Tasks
+        - Wireless
+  /event-configurations:
+    GET:
+      summary: 'List Event Configurations '
+      description: >-
+        <p>List event configurations where at least one event topic has been
+        enabled.</p>
+      tags:
+        - Configurations
+        - Events
+  /fuota-tasks/{Id}/multicast-groups:
+    GET:
+      summary: 'List Multicast Groups By Fuota Task '
+      description: <p>List all multicast groups associated with a fuota task.</p>
+      tags:
+        - Groups
+        - Multicast
+        - Tasks
+  /position-configurations:
+    GET:
+      summary: 'List Position Configurations '
+      description: >-
+        <p>List position configurations for a given resource, such as
+        positioning solvers.</p> <important> <p>This action is no longer
+        supported. Calls to retrieve position information should use the <a
+        href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
+        API operation instead.</p> </important>
+      tags:
+        - Configurations
+        - Positions
+  /tags:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes one or more tags from a resource.</p>
+      tags:
+        - Resources
+        - Tags
+        - Untag
+  /wireless_device_import_tasks:
+    GET:
+      summary: 'List Wireless Device Import Tasks '
+      description: <p>List wireless devices that have been added to an import task.</p>
+      tags:
+        - Device
+        - Import
+        - Tasks
+        - Wireless
+  /multicast-groups/{Id}/data:
+    POST:
+      summary: 'Send Data To Multicast Group '
+      description: <p>Sends the specified data to a multicast group.</p>
+      tags:
+        - Data
+        - Groups
+        - Multicast
+        - Send
+  /multicast-groups/{Id}/bulk:
+    POST:
+      summary: 'Start Bulk Disassociate Wireless Device From Multicast Group '
+      description: >-
+        <p>Starts a bulk disassociatin of all qualifying wireless devices from a
+        multicast group.</p>
+      tags:
+        - Bulk
+        - Device
+        - Disassociate
+        - Groups
+        - Multicast
+        - Wireless
+  /wireless_single_device_import_task:
+    POST:
+      summary: 'Start Single Wireless Device Import Task '
+      description: <p>Start import task for a single wireless device.</p>
+      tags:
+        - Device
+        - Import
+        - Single
+        - Tasks
+        - Wireless
+  /wireless-devices/{Id}/test:
+    POST:
+      summary: 'Test Wireless Device '
+      description: >-
+        <p>Simulates a provisioned device by sending an uplink data payload of
+        <code>Hello</
+      tags:
+        - Device
+        - Devices
+        - Tests
+        - Wireless

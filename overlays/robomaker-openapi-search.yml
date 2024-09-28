@@ -1,0 +1,492 @@
+openapi: 3.1.0
+info:
+  title: robomaker
+paths:
+  /batchDeleteWorlds:
+    POST:
+      summary: 'Batch Delete Worlds '
+      description: <p>Deletes one or more worlds in a batch operation.</p>
+      tags:
+        - Batches
+        - Worlds
+  /batchDescribeSimulationJob:
+    POST:
+      summary: 'Batch Describe Simulation Job '
+      description: <p>Describes one or more simulation jobs.</p>
+      tags:
+        - Batches
+        - Describe
+        - Jobs
+        - Simulations
+  /cancelDeploymentJob:
+    POST:
+      summary: 'Cancel Deployment Job '
+      description: >-
+        <p>Cancels the specified deployment job.</p> <important> <p>This API
+        will no longer be supported as of May 2, 2022. Use it to remove
+        resources that were created for Deployment Service.</p> </important>
+      tags:
+        - Cancel
+        - Deployments
+        - Jobs
+  /cancelSimulationJob:
+    POST:
+      summary: 'Cancel Simulation Job '
+      description: <p>Cancels the specified simulation job.</p>
+      tags:
+        - Cancel
+        - Jobs
+        - Simulations
+  /cancelSimulationJobBatch:
+    POST:
+      summary: 'Cancel Simulation Job Batch '
+      description: >-
+        <p>Cancels a simulation job batch. When you cancel a simulation job
+        batch, you are also cancelling all of the active simulation jobs created
+        as part of the batch. </p>
+      tags:
+        - Batches
+        - Cancel
+        - Jobs
+        - Simulations
+  /cancelWorldExportJob:
+    POST:
+      summary: 'Cancel World Export Job '
+      description: <p>Cancels the specified export job.</p>
+      tags:
+        - Cancel
+        - Exports
+        - Jobs
+        - Worlds
+  /cancelWorldGenerationJob:
+    POST:
+      summary: 'Cancel World Generation Job '
+      description: <p>Cancels the specified world generator job.</p>
+      tags:
+        - Cancel
+        - Generation
+        - Jobs
+        - Worlds
+  /createDeploymentJob:
+    POST:
+      summary: 'Create Deployment Job '
+      description: >-
+        <p>Deploys a specific version of a robot application to robots in a
+        fleet.</p> <important> <p>This API is no longer supported and will throw
+        an error if used.</p> </important> <p>The robot application must have a
+        numbered <code>applicationVersion</code> for consistency reasons. To
+        create a new version, use <code>CreateRobotApplicationVersion</code> or
+        see <a
+        href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating
+        a Robot Application Version</a>. </p> <note> <p>After 90 days,
+        deployment jobs expire and will be deleted. They will no longer be
+        accessible. </p> </note>
+      tags:
+        - Deployments
+        - Jobs
+  /createFleet:
+    POST:
+      summary: 'Create Fleet '
+      description: >-
+        <p>Creates a fleet, a logical group of robots running the same robot
+        application.</p> <important> <p>This API is no longer supported and will
+        throw an error if used.</p> </important>
+      tags:
+        - Fleets
+  /createRobot:
+    POST:
+      summary: 'Create Robot '
+      description: >-
+        <p>Creates a robot.</p> <important> <p>This API is no longer supported
+        and will throw an error if used.</p> </important>
+      tags:
+        - Robots
+  /createRobotApplication:
+    POST:
+      summary: 'Create Robot Application '
+      description: <p>Creates a robot application. </p>
+      tags:
+        - Applications
+        - Robots
+  /createRobotApplicationVersion:
+    POST:
+      summary: 'Create Robot Application Version '
+      description: <p>Creates a version of a robot application.</p>
+      tags:
+        - Applications
+        - Robots
+        - Versions
+  /createSimulationApplication:
+    POST:
+      summary: 'Create Simulation Application '
+      description: <p>Creates a simulation application.</p>
+      tags:
+        - Applications
+        - Simulations
+  /createSimulationApplicationVersion:
+    POST:
+      summary: 'Create Simulation Application Version '
+      description: <p>Creates a simulation application with a specific revision id.</p>
+      tags:
+        - Applications
+        - Simulations
+        - Versions
+  /createSimulationJob:
+    POST:
+      summary: 'Create Simulation Job '
+      description: >-
+        <p>Creates a simulation job.</p> <note> <p>After 90 days, simulation
+        jobs expire and will be deleted. They will no longer be accessible. </p>
+        </note>
+      tags:
+        - Jobs
+        - Simulations
+  /createWorldExportJob:
+    POST:
+      summary: 'Create World Export Job '
+      description: <p>Creates a world export job.</p>
+      tags:
+        - Exports
+        - Jobs
+        - Worlds
+  /createWorldGenerationJob:
+    POST:
+      summary: 'Create World Generation Job '
+      description: <p>Creates worlds using the specified template.</p>
+      tags:
+        - Generation
+        - Jobs
+        - Worlds
+  /createWorldTemplate:
+    POST:
+      summary: 'Create World Template '
+      description: <p>Creates a world template.</p>
+      tags:
+        - Templates
+        - Worlds
+  /deleteFleet:
+    POST:
+      summary: 'Delete Fleet '
+      description: >-
+        <p>Deletes a fleet.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Fleets
+  /deleteRobot:
+    POST:
+      summary: 'Delete Robot '
+      description: >-
+        <p>Deletes a robot.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Robots
+  /deleteRobotApplication:
+    POST:
+      summary: 'Delete Robot Application '
+      description: <p>Deletes a robot application.</p>
+      tags:
+        - Applications
+        - Robots
+  /deleteSimulationApplication:
+    POST:
+      summary: 'Delete Simulation Application '
+      description: <p>Deletes a simulation application.</p>
+      tags:
+        - Applications
+        - Simulations
+  /deleteWorldTemplate:
+    POST:
+      summary: 'Delete World Template '
+      description: <p>Deletes a world template.</p>
+      tags:
+        - Templates
+        - Worlds
+  /deregisterRobot:
+    POST:
+      summary: 'Deregister Robot '
+      description: >-
+        <p>Deregisters a robot.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Deregister
+        - Robots
+  /describeDeploymentJob:
+    POST:
+      summary: 'Describe Deployment Job '
+      description: >-
+        <p>Describes a deployment job.</p> <important> <p>This API will no
+        longer be supported as of May 2, 2022. Use it to remove resources that
+        were created for Deployment Service.</p> </important>
+      tags:
+        - Deployments
+        - Describe
+        - Jobs
+  /describeFleet:
+    POST:
+      summary: 'Describe Fleet '
+      description: >-
+        <p>Describes a fleet.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Describe
+        - Fleets
+  /describeRobot:
+    POST:
+      summary: 'Describe Robot '
+      description: >-
+        <p>Describes a robot.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Describe
+        - Robots
+  /describeRobotApplication:
+    POST:
+      summary: 'Describe Robot Application '
+      description: <p>Describes a robot application.</p>
+      tags:
+        - Applications
+        - Describe
+        - Robots
+  /describeSimulationApplication:
+    POST:
+      summary: 'Describe Simulation Application '
+      description: <p>Describes a simulation application.</p>
+      tags:
+        - Applications
+        - Describe
+        - Simulations
+  /describeSimulationJob:
+    POST:
+      summary: 'Describe Simulation Job '
+      description: <p>Describes a simulation job.</p>
+      tags:
+        - Describe
+        - Jobs
+        - Simulations
+  /describeSimulationJobBatch:
+    POST:
+      summary: 'Describe Simulation Job Batch '
+      description: <p>Describes a simulation job batch.</p>
+      tags:
+        - Batches
+        - Describe
+        - Jobs
+        - Simulations
+  /describeWorld:
+    POST:
+      summary: 'Describe World '
+      description: <p>Describes a world.</p>
+      tags:
+        - Describe
+        - Worlds
+  /describeWorldExportJob:
+    POST:
+      summary: 'Describe World Export Job '
+      description: <p>Describes a world export job.</p>
+      tags:
+        - Describe
+        - Exports
+        - Jobs
+        - Worlds
+  /describeWorldGenerationJob:
+    POST:
+      summary: 'Describe World Generation Job '
+      description: <p>Describes a world generation job.</p>
+      tags:
+        - Describe
+        - Generation
+        - Jobs
+        - Worlds
+  /describeWorldTemplate:
+    POST:
+      summary: 'Describe World Template '
+      description: <p>Describes a world template.</p>
+      tags:
+        - Describe
+        - Templates
+        - Worlds
+  /getWorldTemplateBody:
+    POST:
+      summary: 'Get World Template Body '
+      description: <p>Gets the world template body.</p>
+      tags:
+        - Body
+        - Templates
+        - Worlds
+  /listDeploymentJobs:
+    POST:
+      summary: 'List Deployment Jobs '
+      description: >-
+        <p>Returns a list of deployment jobs for a fleet. You can optionally
+        provide filters to retrieve specific deployment jobs.</p> <important>
+        <p>This API will no longer be supported as of May 2, 2022. Use it to
+        remove resources that were created for Deployment Service.</p>
+        </important>
+      tags:
+        - Deployments
+        - Jobs
+  /listFleets:
+    POST:
+      summary: 'List Fleets '
+      description: >-
+        <p>Returns a list of fleets. You can optionally provide filters to
+        retrieve specific fleets.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Fleets
+  /listRobotApplications:
+    POST:
+      summary: 'List Robot Applications '
+      description: >-
+        <p>Returns a list of robot application. You can optionally provide
+        filters to retrieve specific robot applications.</p>
+      tags:
+        - Applications
+        - Robots
+  /listRobots:
+    POST:
+      summary: 'List Robots '
+      description: >-
+        <p>Returns a list of robots. You can optionally provide filters to
+        retrieve specific robots.</p> <important> <p>This API will no longer be
+        supported as of May 2, 2022. Use it to remove resources that were
+        created for Deployment Service.</p> </important>
+      tags:
+        - Robots
+  /listSimulationApplications:
+    POST:
+      summary: 'List Simulation Applications '
+      description: >-
+        <p>Returns a list of simulation applications. You can optionally provide
+        filters to retrieve specific simulation applications. </p>
+      tags:
+        - Applications
+        - Simulations
+  /listSimulationJobBatches:
+    POST:
+      summary: 'List Simulation Job Batches '
+      description: >-
+        <p>Returns a list simulation job batches. You can optionally provide
+        filters to retrieve specific simulation batch jobs. </p>
+      tags:
+        - Batches
+        - Jobs
+        - Simulations
+  /listSimulationJobs:
+    POST:
+      summary: 'List Simulation Jobs '
+      description: >-
+        <p>Returns a list of simulation jobs. You can optionally provide filters
+        to retrieve specific simulation jobs. </p>
+      tags:
+        - Jobs
+        - Simulations
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: >-
+        <p>Removes the specified tags from the specified AWS RoboMaker
+        resource.</p> <p>To remove a tag, specify the tag key. To change the tag
+        value of an existing tag key, use <a
+        href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html">
+        <code>TagResource</code> </a>. </p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /listWorldExportJobs:
+    POST:
+      summary: 'List World Export Jobs '
+      description: <p>Lists world export jobs.</p>
+      tags:
+        - Exports
+        - Jobs
+        - Worlds
+  /listWorldGenerationJobs:
+    POST:
+      summary: 'List World Generation Jobs '
+      description: <p>Lists world generator jobs.</p>
+      tags:
+        - Generation
+        - Jobs
+        - Worlds
+  /listWorldTemplates:
+    POST:
+      summary: 'List World Templates '
+      description: <p>Lists world templates.</p>
+      tags:
+        - Templates
+        - Worlds
+  /listWorlds:
+    POST:
+      summary: 'List Worlds '
+      description: <p>Lists worlds.</p>
+      tags:
+        - Worlds
+  /registerRobot:
+    POST:
+      summary: 'Register Robot '
+      description: >-
+        <p>Registers a robot with a fleet.</p> <important> <p>This API is no
+        longer supported and will throw an error if used.</p> </important>
+      tags:
+        - Register
+        - Robots
+  /restartSimulationJob:
+    POST:
+      summary: 'Restart Simulation Job '
+      description: <p>Restarts a running simulation job.</p>
+      tags:
+        - Jobs
+        - Restart
+        - Simulations
+  /startSimulationJobBatch:
+    POST:
+      summary: 'Start Simulation Job Batch '
+      description: >-
+        <p>Starts a new simulation job batch. The batch is defined using one or
+        more <code>SimulationJobRequest</code> objects. </p>
+      tags:
+        - Batches
+        - Jobs
+        - Simulations
+  /syncDeploymentJob:
+    POST:
+      summary: 'Sync Deployment Job '
+      description: >-
+        <p>Syncrhonizes robots in a fleet to the latest deployment. This is
+        helpful if robots were added after a deployment.</p> <important> <p>This
+        API will no longer be supported as of May 2, 2022. Use it to remove
+        resources that were created for Deployment Service.</p> </important>
+      tags:
+        - Deployments
+        - Jobs
+        - Sync
+  /updateRobotApplication:
+    POST:
+      summary: 'Update Robot Application '
+      description: <p>Updates a robot application.</p>
+      tags:
+        - Applications
+        - Robots
+  /updateSimulationApplication:
+    POST:
+      summary: 'Update Simulation Application '
+      description: <p>Updates a simulation application.</p>
+      tags:
+        - Applications
+        - Simulations
+  /updateWorldTemplate:
+    POST:
+      summary: 'Update World Template '
+      description: <p>Updates a world tem
+      tags:
+        - Templates
+        - Worlds

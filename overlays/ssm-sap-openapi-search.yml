@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: ssm-sap
+paths:
+  /delete-resource-permission:
+    POST:
+      summary: 'Delete Resource Permission '
+      description: <p>Removes permissions associated with the target database.</p>
+      tags:
+        - Permission
+        - Resources
+  /deregister-application:
+    POST:
+      summary: 'Deregister Application '
+      description: >-
+        <p>Deregister an SAP application with AWS Systems Manager for SAP. This
+        action does not aﬀect the existing setup of your SAP workloads on Amazon
+        EC2.</p>
+      tags:
+        - Applications
+        - Deregister
+  /get-application:
+    POST:
+      summary: 'Get Application '
+      description: >-
+        <p>Gets an application registered with AWS Systems Manager for SAP. It
+        also returns the components of the application.</p>
+      tags:
+        - Applications
+  /get-component:
+    POST:
+      summary: 'Get Component '
+      description: >-
+        <p>Gets the component of an application registered with AWS Systems
+        Manager for SAP.</p>
+      tags:
+        - Components
+  /get-database:
+    POST:
+      summary: 'Get Database '
+      description: >-
+        <p>Gets the SAP HANA database of an application registered with AWS
+        Systems Manager for SAP.</p>
+      tags:
+        - Databases
+  /get-operation:
+    POST:
+      summary: 'Get Operation '
+      description: <p>Gets the details of an operation by specifying the operation ID.</p>
+      tags:
+        - Operation
+  /get-resource-permission:
+    POST:
+      summary: 'Get Resource Permission '
+      description: <p>Gets permissions associated with the target database.</p>
+      tags:
+        - Permission
+        - Resources
+  /list-applications:
+    POST:
+      summary: 'List Applications '
+      description: >-
+        <p>Lists all the applications registered with AWS Systems Manager for
+        SAP.</p>
+      tags:
+        - Applications
+  /list-components:
+    POST:
+      summary: 'List Components '
+      description: >-
+        <p>Lists all the components registered with AWS Systems Manager for
+        SAP.</p>
+      tags:
+        - Components
+  /list-databases:
+    POST:
+      summary: 'List Databases '
+      description: >-
+        <p>Lists the SAP HANA databases of an application registered with AWS
+        Systems Manager for SAP.</p>
+      tags:
+        - Databases
+  /list-operations:
+    POST:
+      summary: 'List Operations '
+      description: <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
+      tags:
+        - Operations
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Delete the tags for a resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /put-resource-permission:
+    POST:
+      summary: 'Put Resource Permission '
+      description: <p>Adds permissions to the target database.</p>
+      tags:
+        - Permission
+        - Resources
+  /register-application:
+    POST:
+      summary: 'Register Application '
+      description: >-
+        <p>Register an SAP application with AWS Systems Manager for SAP. You
+        must meet the following requirements before registering. </p> <p>The SAP
+        application you want to register with AWS Systems Manager for SAP is
+        running on Amazon EC2.</p> <p>AWS Systems Manager Agent must be setup on
+        an Amazon EC2 instance along with the required IAM permissions.</p>
+        <p>Amazon EC2 instance(s) must have access to the secrets created in AWS
+        Secrets Manager to manage SAP applications and components.</p>
+      tags:
+        - Applications
+        - Register
+  /start-application-refresh:
+    POST:
+      summary: 'Start Application Refresh '
+      description: <p>Refreshes a registered application.</p>
+      tags:
+        - Applications
+        - Refresh
+  /update-application-settings:
+    POST:
+      summary: 'Update Application Settings '
+      description: >-
+        <p>Updates the settings of an application registered with AWS Systems
+        Manager fo
+      tags:
+        - Applications
+        - Settings

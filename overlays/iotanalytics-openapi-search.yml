@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: iotanalytics
+paths:
+  /messages/batch:
+    POST:
+      summary: 'Batch Put Message '
+      description: <p>Sends messages to a channel.</p>
+      tags:
+        - Batches
+        - Messages
+  /pipelines/{pipelineName}/reprocessing/{reprocessingId}:
+    DELETE:
+      summary: 'Cancel Pipeline Reprocessing '
+      description: <p>Cancels the reprocessing of data through the pipeline.</p>
+      tags:
+        - Cancel
+        - Names
+        - Pipelines
+        - Reprocessing
+  /channels:
+    GET:
+      summary: 'List Channels '
+      description: <p>Retrieves a list of channels.</p>
+      tags:
+        - Channels
+  /datasets:
+    GET:
+      summary: 'List Datasets '
+      description: <p>Retrieves information about datasets.</p>
+      tags:
+        - Datasets
+  /datasets/{datasetName}/content:
+    GET:
+      summary: 'Get Dataset Content '
+      description: <p>Retrieves the contents of a dataset as presigned URIs.</p>
+      tags:
+        - Content
+        - Datasets
+        - Names
+  /datastores:
+    GET:
+      summary: 'List Datastores '
+      description: <p>Retrieves a list of data stores.</p>
+      tags:
+        - Data Store
+  /pipelines:
+    GET:
+      summary: 'List Pipelines '
+      description: <p>Retrieves a list of pipelines.</p>
+      tags:
+        - Pipelines
+  /channels/{channelName}:
+    PUT:
+      summary: 'Update Channel '
+      description: <p>Used to update the settings of a channel.</p>
+      tags:
+        - Channels
+        - Names
+  /datasets/{datasetName}:
+    PUT:
+      summary: 'Update Dataset '
+      description: <p>Updates the settings of a dataset.</p>
+      tags:
+        - Datasets
+        - Names
+  /datastores/{datastoreName}:
+    PUT:
+      summary: 'Update Datastore '
+      description: <p>Used to update the settings of a data store.</p>
+      tags:
+        - Data Store
+        - Names
+  /pipelines/{pipelineName}:
+    PUT:
+      summary: 'Update Pipeline '
+      description: >-
+        <p>Updates the settings of a pipeline. You must specify both a
+        <code>channel</code> and a <code>datastore</code> activity and,
+        optionally, as many as 23 additional activities in the
+        <code>pipelineActivities</code> array.</p>
+      tags:
+        - Names
+        - Pipelines
+  /logging:
+    PUT:
+      summary: 'Put Logging Options '
+      description: >-
+        <p>Sets or updates the IoT Analytics logging options.</p> <p>If you
+        update the value of any <code>loggingOptions</code> field, it takes up
+        to one minute for the change to take effect. Also, if you change the
+        policy attached to the role you specified in the <code>roleArn</code>
+        field (for example, to correct an invalid policy), it takes up to five
+        minutes for that change to take effect. </p>
+      tags:
+        - Logging
+        - Options
+  /datasets/{datasetName}/contents:
+    GET:
+      summary: 'List Dataset Contents '
+      description: <p>Lists information about dataset contents that have been created.</p>
+      tags:
+        - Contents
+        - Datasets
+        - Names
+  /tags:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes the given tags (metadata) from the resource.</p>
+      tags:
+        - Resources
+        - Tags
+        - Untag
+  /pipelineactivities/run:
+    POST:
+      summary: 'Run Pipeline Activity '
+      description: >-
+        <p>Simulates the results of running a pipeline activity on a message
+        payload.</p>
+      tags:
+        - Activity
+        - Pipeline Activities
+        - Pipelines
+        - Runs
+  /channels/{channelName}/sample:
+    GET:
+      summary: 'Sample Channel Data '
+      description: >-
+        <p>Retrieves a sample of messages from the specified channel ingested
+        during the specified timeframe. Up to 10 messages can be retrieved.</p>
+      tags:
+        - Channels
+        - Data
+        - Names
+        - Samples
+  /pipelines/{pipelineName}/reprocessing:
+    POST:
+      summary: 'Start Pipeline Reprocessing '
+      description: <p>Starts the reprocessing of raw message data through the pip
+      tags:
+        - Names
+        - Pipelines
+        - Reprocessing

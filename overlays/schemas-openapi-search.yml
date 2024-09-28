@@ -1,0 +1,145 @@
+openapi: 3.1.0
+info:
+  title: schemas
+paths:
+  /v1/discoverers:
+    GET:
+      summary: 'List Discoverers '
+      description: <p>List the discoverers.</p>
+      tags:
+        - Discoverers
+  /v1/registries/name/{registryName}:
+    PUT:
+      summary: 'Update Registry '
+      description: <p>Updates a registry.</p>
+      tags:
+        - Names
+        - Registries
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}:
+    PUT:
+      summary: 'Update Schema '
+      description: >-
+        <p>Updates the schema definition</p> <note><p>Inactive schemas will be
+        deleted after two years.</p></note>
+      tags:
+        - Names
+        - Registries
+        - Schemas
+  /v1/discoverers/id/{discovererId}:
+    PUT:
+      summary: 'Update Discoverer '
+      description: <p>Updates the discoverer</p>
+      tags:
+        - Discoverers
+  /v1/policy:
+    PUT:
+      summary: 'Put Resource Policy '
+      description: <p>The name of the policy.</p>
+      tags:
+        - Policies
+        - Resources
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}/version/{schemaVersion}:
+    DELETE:
+      summary: 'Delete Schema Version '
+      description: <p>Delete the schema version definition</p>
+      tags:
+        - Names
+        - Registries
+        - Schemas
+        - Versions
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}/language/{language}:
+    POST:
+      summary: 'Put Code Binding '
+      description: <p>Put code binding URI</p>
+      tags:
+        - Binding
+        - Code
+        - Languages
+        - Names
+        - Registries
+        - Schemas
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}/language/{language}/source:
+    GET:
+      summary: 'Get Code Binding Source '
+      description: <p>Get the code binding source URI.</p>
+      tags:
+        - Binding
+        - Code
+        - Languages
+        - Names
+        - Registries
+        - Schemas
+        - Sources
+  /v1/discover:
+    POST:
+      summary: 'Get Discovered Schema '
+      description: >-
+        <p>Get the discovered schema that was generated based on sampled
+        events.</p>
+      tags:
+        - Discover
+        - Discovered
+        - Schemas
+  /v1/registries:
+    GET:
+      summary: 'List Registries '
+      description: <p>List the registries.</p>
+      tags:
+        - Registries
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}/versions:
+    GET:
+      summary: 'List Schema Versions '
+      description: <p>Provides a list of the schema versions and related information.</p>
+      tags:
+        - Names
+        - Registries
+        - Schemas
+        - Versions
+  /v1/registries/name/{registryName}/schemas:
+    GET:
+      summary: 'List Schemas '
+      description: <p>List the schemas.</p>
+      tags:
+        - Names
+        - Registries
+        - Schemas
+  /tags/{resource-arn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes tags from a resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /v1/registries/name/{registryName}/schemas/search:
+    GET:
+      summary: 'Search Schemas '
+      description: <p>Search the schemas</p>
+      tags:
+        - Names
+        - Registries
+        - Schemas
+        - Search
+  /v1/discoverers/id/{discovererId}/start:
+    POST:
+      summary: 'Start Discoverer '
+      description: <p>Starts the discoverer</p>
+      tags:
+        - Discoverers
+  /v1/discoverers/id/{discovererId}/stop:
+    POST:
+      summary: 'Stop Discoverer '
+      description: <p>Stops the discoverer</p>
+      tags:
+        - Discoverers
+        - Stop
+  /v1/registries/name/{registryName}/schemas/name/{schemaName}/export:
+    GET:
+      summary: 'Export Schema '
+      description: <p>Exports a schema to a different specific
+      tags:
+        - Exports
+        - Names
+        - Registries
+        - Schemas

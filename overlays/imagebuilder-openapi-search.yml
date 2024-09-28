@@ -1,0 +1,665 @@
+openapi: 3.1.0
+info:
+  title: imagebuilder
+paths:
+  /CancelImageCreation:
+    PUT:
+      summary: 'Cancel Image Creation '
+      description: >-
+        <p>CancelImageCreation cancels the creation of Image. This operation can
+        only be used on images in a non-terminal state.</p>
+      tags:
+        - Cancel
+        - Creation
+        - Images
+  /CancelLifecycleExecution:
+    PUT:
+      summary: 'Cancel Lifecycle Execution '
+      description: <p>Cancel a specific image lifecycle policy runtime instance.</p>
+      tags:
+        - Cancel
+        - Execution
+        - Lifecycle
+  /CreateComponent:
+    PUT:
+      summary: 'Create Component '
+      description: >-
+        <p>Creates a new component that can be used to build, validate, test,
+        and assess your image. The component is based on a YAML document that
+        you specify using exactly one of the following methods:</p> <ul> <li>
+        <p>Inline, using the <code>data</code> property in the request body.</p>
+        </li> <li> <p>A URL that points to a YAML document file stored in Amazon
+        S3, using the <code>uri</code> property in the request body.</p> </li>
+        </ul>
+      tags:
+        - Components
+  /CreateContainerRecipe:
+    PUT:
+      summary: 'Create Container Recipe '
+      description: >-
+        <p>Creates a new container recipe. Container recipes define how images
+        are configured, tested, and assessed.</p>
+      tags:
+        - Container
+        - Recipes
+  /CreateDistributionConfiguration:
+    PUT:
+      summary: 'Create Distribution Configuration '
+      description: >-
+        <p>Creates a new distribution configuration. Distribution configurations
+        define and configure the outputs of your pipeline.</p>
+      tags:
+        - Configurations
+        - Distributions
+  /CreateImage:
+    PUT:
+      summary: 'Create Image '
+      description: >-
+        <p>Creates a new image. This request will create a new image along with
+        all of the configured output resources defined in the distribution
+        configuration. You must specify exactly one recipe for your image, using
+        either a ContainerRecipeArn or an ImageRecipeArn.</p>
+      tags:
+        - Images
+  /CreateImagePipeline:
+    PUT:
+      summary: 'Create Image Pipeline '
+      description: >-
+        <p>Creates a new image pipeline. Image pipelines enable you to automate
+        the creation and distribution of images.</p>
+      tags:
+        - Images
+        - Pipelines
+  /CreateImageRecipe:
+    PUT:
+      summary: 'Create Image Recipe '
+      description: >-
+        <p>Creates a new image recipe. Image recipes define how images are
+        configured, tested, and assessed.</p>
+      tags:
+        - Images
+        - Recipes
+  /CreateInfrastructureConfiguration:
+    PUT:
+      summary: 'Create Infrastructure Configuration '
+      description: >-
+        <p>Creates a new infrastructure configuration. An infrastructure
+        configuration defines the environment in which your image will be built
+        and tested.</p>
+      tags:
+        - Configurations
+        - Infrastructure
+  /CreateLifecyclePolicy:
+    PUT:
+      summary: 'Create Lifecycle Policy '
+      description: <p>Create a lifecycle policy resource.</p>
+      tags:
+        - Lifecycle
+        - Policies
+  /CreateWorkflow:
+    PUT:
+      summary: 'Create Workflow '
+      description: <p>Create a new workflow or a new version of an existing workflow.</p>
+      tags:
+        - Workflows
+  /DeleteComponent:
+    DELETE:
+      summary: 'Delete Component '
+      description: <p>Deletes a component build version.</p>
+      tags:
+        - Components
+  /DeleteContainerRecipe:
+    DELETE:
+      summary: 'Delete Container Recipe '
+      description: <p>Deletes a container recipe.</p>
+      tags:
+        - Container
+        - Recipes
+  /DeleteDistributionConfiguration:
+    DELETE:
+      summary: 'Delete Distribution Configuration '
+      description: <p>Deletes a distribution configuration.</p>
+      tags:
+        - Configurations
+        - Distributions
+  /DeleteImage:
+    DELETE:
+      summary: 'Delete Image '
+      description: >-
+        <p>Deletes an Image Builder image resource. This does not delete any EC2
+        AMIs or ECR container images that are created during the image build
+        process. You must clean those up separately, using the appropriate
+        Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
+        <ul> <li> <p>To deregister an EC2 Linux AMI, see <a
+        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
+        your Linux AMI</a> in the <i> <i>Amazon EC2 User Guide</i> </i>.</p>
+        </li> <li> <p>To deregister an EC2 Windows AMI, see <a
+        href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
+        your Windows AMI</a> in the <i> <i>Amazon EC2 Windows Guide</i>
+        </i>.</p> </li> <li> <p>To delete a container image from Amazon ECR, see
+        <a
+        href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
+        an image</a> in the <i>Amazon ECR User Guide</i>.</p> </li> </ul>
+      tags:
+        - Images
+  /DeleteImagePipeline:
+    DELETE:
+      summary: 'Delete Image Pipeline '
+      description: <p>Deletes an image pipeline.</p>
+      tags:
+        - Images
+        - Pipelines
+  /DeleteImageRecipe:
+    DELETE:
+      summary: 'Delete Image Recipe '
+      description: <p>Deletes an image recipe.</p>
+      tags:
+        - Images
+        - Recipes
+  /DeleteInfrastructureConfiguration:
+    DELETE:
+      summary: 'Delete Infrastructure Configuration '
+      description: <p>Deletes an infrastructure configuration.</p>
+      tags:
+        - Configurations
+        - Infrastructure
+  /DeleteLifecyclePolicy:
+    DELETE:
+      summary: 'Delete Lifecycle Policy '
+      description: <p>Delete the specified lifecycle policy resource.</p>
+      tags:
+        - Lifecycle
+        - Policies
+  /DeleteWorkflow:
+    DELETE:
+      summary: 'Delete Workflow '
+      description: <p>Deletes a specific workflow resource.</p>
+      tags:
+        - Workflows
+  /GetComponent:
+    GET:
+      summary: 'Get Component '
+      description: <p>Gets a component object.</p>
+      tags:
+        - Components
+  /GetComponentPolicy:
+    GET:
+      summary: 'Get Component Policy '
+      description: <p>Gets a component policy.</p>
+      tags:
+        - Components
+        - Policies
+  /GetContainerRecipe:
+    GET:
+      summary: 'Get Container Recipe '
+      description: <p>Retrieves a container recipe.</p>
+      tags:
+        - Container
+        - Recipes
+  /GetContainerRecipePolicy:
+    GET:
+      summary: 'Get Container Recipe Policy '
+      description: <p>Retrieves the policy for a container recipe.</p>
+      tags:
+        - Container
+        - Policies
+        - Recipes
+  /GetDistributionConfiguration:
+    GET:
+      summary: 'Get Distribution Configuration '
+      description: <p>Gets a distribution configuration.</p>
+      tags:
+        - Configurations
+        - Distributions
+  /GetImage:
+    GET:
+      summary: 'Get Image '
+      description: <p>Gets an image.</p>
+      tags:
+        - Images
+  /GetImagePipeline:
+    GET:
+      summary: 'Get Image Pipeline '
+      description: <p>Gets an image pipeline.</p>
+      tags:
+        - Images
+        - Pipelines
+  /GetImagePolicy:
+    GET:
+      summary: 'Get Image Policy '
+      description: <p>Gets an image policy.</p>
+      tags:
+        - Images
+        - Policies
+  /GetImageRecipe:
+    GET:
+      summary: 'Get Image Recipe '
+      description: <p>Gets an image recipe.</p>
+      tags:
+        - Images
+        - Recipes
+  /GetImageRecipePolicy:
+    GET:
+      summary: 'Get Image Recipe Policy '
+      description: <p>Gets an image recipe policy.</p>
+      tags:
+        - Images
+        - Policies
+        - Recipes
+  /GetInfrastructureConfiguration:
+    GET:
+      summary: 'Get Infrastructure Configuration '
+      description: <p>Gets an infrastructure configuration.</p>
+      tags:
+        - Configurations
+        - Infrastructure
+  /GetLifecycleExecution:
+    GET:
+      summary: 'Get Lifecycle Execution '
+      description: >-
+        <p>Get the runtime information that was logged for a specific runtime
+        instance of the lifecycle policy.</p>
+      tags:
+        - Execution
+        - Lifecycle
+  /GetLifecyclePolicy:
+    GET:
+      summary: 'Get Lifecycle Policy '
+      description: <p>Get details for the specified image lifecycle policy.</p>
+      tags:
+        - Lifecycle
+        - Policies
+  /GetWorkflow:
+    GET:
+      summary: 'Get Workflow '
+      description: <p>Get a workflow resource object.</p>
+      tags:
+        - Workflows
+  /GetWorkflowExecution:
+    GET:
+      summary: 'Get Workflow Execution '
+      description: >-
+        <p>Get the runtime information that was logged for a specific runtime
+        instance of the workflow.</p>
+      tags:
+        - Execution
+        - Workflows
+  /GetWorkflowStepExecution:
+    GET:
+      summary: 'Get Workflow Step Execution '
+      description: >-
+        <p>Get the runtime information that was logged for a specific runtime
+        instance of the workflow step.</p>
+      tags:
+        - Execution
+        - Steps
+        - Workflows
+  /ImportComponent:
+    PUT:
+      summary: 'Import Component '
+      description: >-
+        <p>Imports a component and transforms its data into a component
+        document.</p>
+      tags:
+        - Components
+        - Import
+  /ImportVmImage:
+    PUT:
+      summary: 'Import Vm Image '
+      description: >-
+        <p>When you export your virtual machine (VM) from its virtualization
+        environment, that process creates a set of one or more disk container
+        files that act as snapshots of your VM’s environment, settings, and
+        data. The Amazon EC2 API <a
+        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
+        action uses those files to import your VM and create an AMI. To import
+        using the CLI command, see <a
+        href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
+        </p> <p>You can reference the task ID from the VM import to pull in the
+        AMI that the import created as the base image for your Image Builder
+        recipe.</p>
+      tags:
+        - Images
+        - Import
+  /ListComponentBuildVersions:
+    POST:
+      summary: 'List Component Build Versions '
+      description: >-
+        <p>Returns the list of component build versions for the specified
+        semantic version.</p> <note> <p>The semantic version has four nodes:
+        &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
+        values for the first three, and can filter on all of them.</p> <p>
+        <b>Filtering:</b> With semantic versioning, you have the flexibility to
+        use wildcards (x) to specify the most recent versions or nodes when
+        selecting the base image or components for your recipe. When you use a
+        wildcard in any node, all nodes to the right of the first wildcard must
+        also be wildcards.</p> </note>
+      tags:
+        - Build
+        - Components
+        - Versions
+  /ListComponents:
+    POST:
+      summary: 'List Components '
+      description: >-
+        <p>Returns the list of components that can be filtered by name, or by
+        using the listed <code>filters</code> to streamline results. Newly
+        created components can take up to two minutes to appear in the
+        ListComponents API Results.</p> <note> <p>The semantic version has four
+        nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can
+        assign values for the first three, and can filter on all of them.</p>
+        <p> <b>Filtering:</b> With semantic versioning, you have the flexibility
+        to use wildcards (x) to specify the most recent versions or nodes when
+        selecting the base image or components for your recipe. When you use a
+        wildcard in any node, all nodes to the right of the first wildcard must
+        also be wildcards.</p> </note>
+      tags:
+        - Components
+  /ListContainerRecipes:
+    POST:
+      summary: 'List Container Recipes '
+      description: <p>Returns a list of container recipes.</p>
+      tags:
+        - Container
+        - Recipes
+  /ListDistributionConfigurations:
+    POST:
+      summary: 'List Distribution Configurations '
+      description: <p>Returns a list of distribution configurations.</p>
+      tags:
+        - Configurations
+        - Distributions
+  /ListImageBuildVersions:
+    POST:
+      summary: 'List Image Build Versions '
+      description: <p>Returns a list of image build versions.</p>
+      tags:
+        - Build
+        - Images
+        - Versions
+  /ListImagePackages:
+    POST:
+      summary: 'List Image Packages '
+      description: >-
+        <p>List the Packages that are associated with an Image Build Version, as
+        determined by Amazon Web Services Systems Manager Inventory at build
+        time.</p>
+      tags:
+        - Images
+        - Packages
+  /ListImagePipelineImages:
+    POST:
+      summary: 'List Image Pipeline Images '
+      description: <p>Returns a list of images created by the specified pipeline.</p>
+      tags:
+        - Images
+        - Pipelines
+  /ListImagePipelines:
+    POST:
+      summary: 'List Image Pipelines '
+      description: <p>Returns a list of image pipelines.</p>
+      tags:
+        - Images
+        - Pipelines
+  /ListImageRecipes:
+    POST:
+      summary: 'List Image Recipes '
+      description: <p>Returns a list of image recipes.</p>
+      tags:
+        - Images
+        - Recipes
+  /ListImageScanFindingAggregations:
+    POST:
+      summary: 'List Image Scan Finding Aggregations '
+      description: >-
+        <p>Returns a list of image scan aggregations for your account. You can
+        filter by the type of key that Image Builder uses to group results. For
+        example, if you want to get a list of findings by severity level for one
+        of your pipelines, you might specify your pipeline with the
+        <code>imagePipelineArn</code> filter. If you don't specify a filter,
+        Image Builder returns an aggregation for your account.</p> <p>To
+        streamline results, you can use the following filters in your
+        request:</p> <ul> <li> <p> <code>accountId</code> </p> </li> <li> <p>
+        <code>imageBuildVersionArn</code> </p> </li> <li> <p>
+        <code>imagePipelineArn</code> </p> </li> <li> <p>
+        <code>vulnerabilityId</code> </p> </li> </ul>
+      tags:
+        - Aggregations
+        - Findings
+        - Images
+        - Scans
+  /ListImageScanFindings:
+    POST:
+      summary: 'List Image Scan Findings '
+      description: <p>Returns a list of image scan findings for your account.</p>
+      tags:
+        - Findings
+        - Images
+        - Scans
+  /ListImages:
+    POST:
+      summary: 'List Images '
+      description: >-
+        <p>Returns the list of images that you have access to. Newly created
+        images can take up to two minutes to appear in the ListImages API
+        Results.</p>
+      tags:
+        - Images
+  /ListInfrastructureConfigurations:
+    POST:
+      summary: 'List Infrastructure Configurations '
+      description: <p>Returns a list of infrastructure configurations.</p>
+      tags:
+        - Configurations
+        - Infrastructure
+  /ListLifecycleExecutionResources:
+    POST:
+      summary: 'List Lifecycle Execution Resources '
+      description: >-
+        <p>List resources that the runtime instance of the image lifecycle
+        identified for lifecycle actions.</p>
+      tags:
+        - Execution
+        - Lifecycle
+        - Resources
+  /ListLifecycleExecutions:
+    POST:
+      summary: 'List Lifecycle Executions '
+      description: <p>Get the lifecycle runtime history for the specified resource.</p>
+      tags:
+        - Executions
+        - Lifecycle
+  /ListLifecyclePolicies:
+    POST:
+      summary: 'List Lifecycle Policies '
+      description: >-
+        <p>Get a list of lifecycle policies in your Amazon Web Services
+        account.</p>
+      tags:
+        - Lifecycle
+        - Policies
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes a tag from a resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /ListWaitingWorkflowSteps:
+    POST:
+      summary: 'List Waiting Workflow Steps '
+      description: >-
+        <p>Get a list of workflow steps that are waiting for action for
+        workflows in your Amazon Web Services account.</p>
+      tags:
+        - Steps
+        - Waiting
+        - Workflows
+  /ListWorkflowBuildVersions:
+    POST:
+      summary: 'List Workflow Build Versions '
+      description: >-
+        <p>Returns a list of build versions for a specific workflow
+        resource.</p>
+      tags:
+        - Build
+        - Versions
+        - Workflows
+  /ListWorkflowExecutions:
+    POST:
+      summary: 'List Workflow Executions '
+      description: >-
+        <p>Returns a list of workflow runtime instance metadata objects for a
+        specific image build version.</p>
+      tags:
+        - Executions
+        - Workflows
+  /ListWorkflowStepExecutions:
+    POST:
+      summary: 'List Workflow Step Executions '
+      description: >-
+        <p>Returns runtime data for each step in a runtime instance of the
+        workflow that you specify in the request.</p>
+      tags:
+        - Executions
+        - Steps
+        - Workflows
+  /ListWorkflows:
+    POST:
+      summary: 'List Workflows '
+      description: <p>Lists workflow build versions based on filtering parameters.</p>
+      tags:
+        - Workflows
+  /PutComponentPolicy:
+    PUT:
+      summary: 'Put Component Policy '
+      description: >-
+        <p>Applies a policy to a component. We recommend that you call the RAM
+        API <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
+        to share resources. If you call the Image Builder API
+        <code>PutComponentPolicy</code>, you must also call the RAM API <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
+        in order for the resource to be visible to all principals with whom the
+        resource is shared.</p>
+      tags:
+        - Components
+        - Policies
+  /PutContainerRecipePolicy:
+    PUT:
+      summary: 'Put Container Recipe Policy '
+      description: >-
+        <p>Applies a policy to a container image. We recommend that you call the
+        RAM API CreateResourceShare
+        (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
+        to share resources. If you call the Image Builder API
+        <code>PutContainerImagePolicy</code>, you must also call the RAM API
+        PromoteResourceShareCreatedFromPolicy
+        (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
+        in order for the resource to be visible to all principals with whom the
+        resource is shared.</p>
+      tags:
+        - Container
+        - Policies
+        - Recipes
+  /PutImagePolicy:
+    PUT:
+      summary: 'Put Image Policy '
+      description: >-
+        <p>Applies a policy to an image. We recommend that you call the RAM API
+        <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
+        to share resources. If you call the Image Builder API
+        <code>PutImagePolicy</code>, you must also call the RAM API <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
+        in order for the resource to be visible to all principals with whom the
+        resource is shared.</p>
+      tags:
+        - Images
+        - Policies
+  /PutImageRecipePolicy:
+    PUT:
+      summary: 'Put Image Recipe Policy '
+      description: >-
+        <p>Applies a policy to an image recipe. We recommend that you call the
+        RAM API <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
+        to share resources. If you call the Image Builder API
+        <code>PutImageRecipePolicy</code>, you must also call the RAM API <a
+        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
+        in order for the resource to be visible to all principals with whom the
+        resource is shared.</p>
+      tags:
+        - Images
+        - Policies
+        - Recipes
+  /SendWorkflowStepAction:
+    PUT:
+      summary: 'Send Workflow Step Action '
+      description: >-
+        <p>Pauses or resumes image creation when the associated workflow runs a
+        <code>WaitForAction</code> step.</p>
+      tags:
+        - Actions
+        - Send
+        - Steps
+        - Workflows
+  /StartImagePipelineExecution:
+    PUT:
+      summary: 'Start Image Pipeline Execution '
+      description: <p>Manually triggers a pipeline to create an image.</p>
+      tags:
+        - Execution
+        - Images
+        - Pipelines
+  /StartResourceStateUpdate:
+    PUT:
+      summary: 'Start Resource State Update '
+      description: >-
+        <p>Begin asynchronous resource state update for lifecycle changes to the
+        specified image resources.</p>
+      tags:
+        - Resources
+        - States
+  /UpdateDistributionConfiguration:
+    PUT:
+      summary: 'Update Distribution Configuration '
+      description: >-
+        <p>Updates a new distribution configuration. Distribution configurations
+        define and configure the outputs of your pipeline.</p>
+      tags:
+        - Configurations
+        - Distributions
+  /UpdateImagePipeline:
+    PUT:
+      summary: 'Update Image Pipeline '
+      description: >-
+        <p>Updates an image pipeline. Image pipelines enable you to automate the
+        creation and distribution of images. You must specify exactly one recipe
+        for your image, using either a <code>containerRecipeArn</code> or an
+        <code>imageRecipeArn</code>.</p> <note> <p>UpdateImagePipeline does not
+        support selective updates for the pipeline. You must specify all of the
+        required properties in the update request, not just the properties that
+        have changed.</p> </note>
+      tags:
+        - Images
+        - Pipelines
+  /UpdateInfrastructureConfiguration:
+    PUT:
+      summary: 'Update Infrastructure Configuration '
+      description: >-
+        <p>Updates a new infrastructure configuration. An infrastructure
+        configuration defines the environment in which your image will be built
+        and tested.</p>
+      tags:
+        - Configurations
+        - Infrastructure
+  /UpdateLifecyclePolicy:
+    PUT:
+      summary: 'Update Lifecycle Policy '
+      description: <p>Update the specified lifecycle p
+      tags:
+        - Lifecycle
+        - Policies

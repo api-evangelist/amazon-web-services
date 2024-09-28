@@ -1,0 +1,122 @@
+openapi: 3.1.0
+info:
+  title: servicecatalog-appregistry
+paths:
+  /applications/{application}/attribute-groups/{attributeGroup}:
+    DELETE:
+      summary: 'Disassociate Attribute Group '
+      description: >-
+        <p>Disassociates an attribute group from an application to remove the
+        extra attributes contained in the attribute group from the application's
+        metadata. This operation reverts
+        <code>AssociateAttributeGroup</code>.</p>
+      tags:
+        - Applications
+        - Attributes
+        - Disassociate
+        - Groups
+  /applications/{application}/resources/{resourceType}/{resource}:
+    GET:
+      summary: 'Get Associated Resource '
+      description: <p>Gets the resource associated with the application.</p>
+      tags:
+        - Applications
+        - Associated
+        - Resources
+        - Types
+  /applications:
+    GET:
+      summary: 'List Applications '
+      description: >-
+        <p>Retrieves a list of all of your applications. Results are
+        paginated.</p>
+      tags:
+        - Applications
+  /attribute-groups:
+    GET:
+      summary: 'List Attribute Groups '
+      description: >-
+        <p>Lists all attribute groups which you have access to. Results are
+        paginated.</p>
+      tags:
+        - Attributes
+        - Groups
+  /applications/{application}:
+    PATCH:
+      summary: 'Update Application '
+      description: <p>Updates an existing application with new attributes.</p>
+      tags:
+        - Applications
+  /attribute-groups/{attributeGroup}:
+    PATCH:
+      summary: 'Update Attribute Group '
+      description: <p>Updates an existing attribute group with new details. </p>
+      tags:
+        - Attributes
+        - Groups
+  /configuration:
+    PUT:
+      summary: 'Put Configuration '
+      description: <p> Associates a <code>TagKey</code> configuration to an account. </p>
+      tags:
+        - Configurations
+  /applications/{application}/attribute-groups:
+    GET:
+      summary: 'List Associated Attribute Groups '
+      description: >-
+        <p>Lists all attribute groups that are associated with specified
+        application. Results are paginated.</p>
+      tags:
+        - Applications
+        - Associated
+        - Attributes
+        - Groups
+  /applications/{application}/resources:
+    GET:
+      summary: 'List Associated Resources '
+      description: >-
+        <p> Lists all of the resources that are associated with the specified
+        application. Results are paginated. </p> <note> <p> If you share an
+        application, and a consumer account associates a tag query to the
+        application, all of the users who can access the application can also
+        view the tag values in all accounts that are associated with it using
+        this API. </p> </note>
+      tags:
+        - Applications
+        - Associated
+        - Resources
+  /applications/{application}/attribute-group-details:
+    GET:
+      summary: 'List Attribute Groups For Application '
+      description: >-
+        <p>Lists the details of all attribute groups associated with a specific
+        application. The results display in pages.</p>
+      tags:
+        - Applications
+        - Attributes
+        - Details
+        - Groups
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: >-
+        <p>Removes tags from a resource.</p> <p>This operation returns an empty
+        response if the call was successful.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /sync/{resourceType}/{resource}:
+    POST:
+      summary: 'Sync Resource '
+      description: >-
+        <p>Syncs the resource with current AppRegistry records.</p>
+        <p>Specifically, the resource’s AppRegistry system tags sync with its
+        associated application. We remove the resource's AppRegistry system tags
+        if it does not associate with the application. The caller must have
+        permissions to read and update the res
+      tags:
+        - Resources
+        - Sync
+        - Types

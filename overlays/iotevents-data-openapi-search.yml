@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: iotevents-data
+paths:
+  /alarms/acknowledge:
+    POST:
+      summary: 'Batch Acknowledge Alarm '
+      description: >-
+        <p>Acknowledges one or more alarms. The alarms change to the
+        <code>ACKNOWLEDGED</code> state after you acknowledge them.</p>
+      tags:
+        - Acknowledge
+        - Alarm
+        - Alarms
+        - Batches
+  /detectors/delete:
+    POST:
+      summary: 'Batch Delete Detector '
+      description: >-
+        <p>Deletes one or more detectors that were created. When a detector is
+        deleted, its state will be cleared and the detector will be removed from
+        the list of detectors. The deleted detector will no longer appear if
+        referenced in the <a
+        href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html">ListDetectors</a>
+        API call.</p>
+      tags:
+        - Batches
+        - Detectors
+  /alarms/disable:
+    POST:
+      summary: 'Batch Disable Alarm '
+      description: >-
+        <p>Disables one or more alarms. The alarms change to the
+        <code>DISABLED</code> state after you disable them.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Batches
+        - Disable
+  /alarms/enable:
+    POST:
+      summary: 'Batch Enable Alarm '
+      description: >-
+        <p>Enables one or more alarms. The alarms change to the
+        <code>NORMAL</code> state after you enable them.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Batches
+        - Enable
+  /inputs/messages:
+    POST:
+      summary: 'Batch Put Message '
+      description: >-
+        <p>Sends a set of messages to the IoT Events system. Each message
+        payload is transformed into the input you specify
+        (<code>"inputName"</code>) and ingested into any detectors that monitor
+        that input. If multiple messages are sent, the order in which the
+        messages are processed isn't guaranteed. To guarantee ordering, you must
+        send messages one at a time and wait for a successful response.</p>
+      tags:
+        - Batches
+        - Inputs
+        - Messages
+  /alarms/reset:
+    POST:
+      summary: 'Batch Reset Alarm '
+      description: >-
+        <p>Resets one or more alarms. The alarms return to the
+        <code>NORMAL</code> state after you reset them.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Batches
+        - Reset
+  /alarms/snooze:
+    POST:
+      summary: 'Batch Snooze Alarm '
+      description: >-
+        <p>Changes one or more alarms to the snooze mode. The alarms change to
+        the <code>SNOOZE_DISABLED</code> state after you set them to the snooze
+        mode.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Batches
+        - Snooze
+  /detectors:
+    POST:
+      summary: 'Batch Update Detector '
+      description: >-
+        <p>Updates the state, variable values, and timer settings of one or more
+        detectors (instances) of a specified detector model.</p>
+      tags:
+        - Batches
+        - Detectors
+  /alarms/{alarmModelName}/keyValues/:
+    GET:
+      summary: 'Describe Alarm '
+      description: <p>Retrieves information about an alarm.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Describe
+        - Keys
+        - Models
+        - Names
+        - Values
+  /detectors/{detectorModelName}/keyValues/:
+    GET:
+      summary: 'Describe Detector '
+      description: <p>Returns information about the specified detector (instance).</p>
+      tags:
+        - Describe
+        - Detectors
+        - Keys
+        - Models
+        - Names
+        - Values
+  /alarms/{alarmModelName}:
+    GET:
+      summary: 'List Alarms '
+      description: >-
+        <p>Lists one or more alarms. The operation returns only the metadata
+        associated with each alarm.</p>
+      tags:
+        - Alarm
+        - Alarms
+        - Models
+        - Names
+  /detectors/{detectorModelName}:
+    GET:
+      summary: 'List Detectors '
+      description: <p>Lists detectors (the instances of a detector m
+      tags:
+        - Detectors
+        - Models
+        - Names

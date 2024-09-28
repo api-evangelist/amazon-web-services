@@ -1,0 +1,293 @@
+openapi: 3.1.0
+info:
+  title: evidently
+paths:
+  /projects/{project}/evaluations:
+    POST:
+      summary: 'Batch Evaluate Feature '
+      description: >-
+        <p>This operation assigns feature variation to user sessions. For each
+        user session, you pass in an <code>entityID</code> that represents the
+        user. Evidently then checks the evaluation rules and assigns the
+        variation.</p> <p>The first rules that are evaluated are the override
+        rules. If the user's <code>entityID</code> matches an override rule, the
+        user is served the variation specified by that rule.</p> <p>Next, if
+        there is a launch of the feature, the user might be assigned to a
+        variation in the launch. The chance of this depends on the percentage of
+        users that are allocated to that launch. If the user is enrolled in the
+        launch, the variation they are served depends on the allocation of the
+        various feature variations used for the launch.</p> <p>If the user is
+        not assigned to a launch, and there is an ongoing experiment for this
+        feature, the user might be assigned to a variation in the experiment.
+        The chance of this depends on the percentage of users that are allocated
+        to that experiment. If the user is enrolled in the experiment, the
+        variation they are served depends on the allocation of the various
+        feature variations used for the experiment. </p> <p>If the user is not
+        assigned to a launch or experiment, they are served the default
+        variation.</p>
+      tags:
+        - Batches
+        - Evaluate
+        - Evaluations
+        - Feature
+        - Projects
+  /projects/{project}/experiments:
+    GET:
+      summary: 'List Experiments '
+      description: >-
+        <p>Returns configuration details about all the experiments in the
+        specified project.</p>
+      tags:
+        - Experiments
+        - Projects
+  /projects/{project}/features:
+    GET:
+      summary: 'List Features '
+      description: >-
+        <p>Returns configuration details about all the features in the specified
+        project.</p>
+      tags:
+        - Features
+        - Projects
+  /projects/{project}/launches:
+    GET:
+      summary: 'List Launches '
+      description: >-
+        <p>Returns configuration details about all the launches in the specified
+        project.</p>
+      tags:
+        - Launches
+        - Projects
+  /projects:
+    GET:
+      summary: 'List Projects '
+      description: >-
+        <p>Returns configuration details about all the projects in the current
+        Region in your account.</p>
+      tags:
+        - Projects
+  /segments:
+    GET:
+      summary: 'List Segments '
+      description: >-
+        <p>Returns a list of audience segments that you have created in your
+        account in this Region.</p>
+      tags:
+        - Segments
+  /projects/{project}/experiments/{experiment}:
+    PATCH:
+      summary: 'Update Experiment '
+      description: >-
+        <p>Updates an Evidently experiment. </p> <p>Don't use this operation to
+        update an experiment's tag. Instead, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
+        </p>
+      tags:
+        - Experiment
+        - Experiments
+        - Projects
+  /projects/{project}/features/{feature}:
+    PATCH:
+      summary: 'Update Feature '
+      description: >-
+        <p>Updates an existing feature.</p> <p>You can't use this operation to
+        update the tags of an existing feature. Instead, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
+        </p>
+      tags:
+        - Feature
+        - Features
+        - Projects
+  /projects/{project}/launches/{launch}:
+    PATCH:
+      summary: 'Update Launch '
+      description: >-
+        <p>Updates a launch of a given feature. </p> <p>Don't use this operation
+        to update the tags of an existing launch. Instead, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
+        </p>
+      tags:
+        - Launch
+        - Launches
+        - Projects
+  /projects/{project}:
+    PATCH:
+      summary: 'Update Project '
+      description: >-
+        <p>Updates the description of an existing project.</p> <p>To create a
+        new project, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
+        <p>Don't use this operation to update the data storage options of a
+        project. Instead, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProjectDataDelivery.html">UpdateProjectDataDelivery</a>.
+        </p> <p>Don't use this operation to update the tags of a project.
+        Instead, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>.
+        </p>
+      tags:
+        - Projects
+  /segments/{segment}:
+    GET:
+      summary: 'Get Segment '
+      description: >-
+        <p>Returns information about the specified segment. Specify the segment
+        you want to view by specifying its ARN.</p>
+      tags:
+        - Segments
+  /projects/{project}/evaluations/{feature}:
+    POST:
+      summary: 'Evaluate Feature '
+      description: >-
+        <p>This operation assigns a feature variation to one given user session.
+        You pass in an <code>entityID</code> that represents the user. Evidently
+        then checks the evaluation rules and assigns the variation.</p> <p>The
+        first rules that are evaluated are the override rules. If the user's
+        <code>entityID</code> matches an override rule, the user is served the
+        variation specified by that rule.</p> <p>If there is a current launch
+        with this feature that uses segment overrides, and if the user session's
+        <code>evaluationContext</code> matches a segment rule defined in a
+        segment override, the configuration in the segment overrides is used.
+        For more information about segments, see <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>
+        and <a
+        href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use
+        segments to focus your audience</a>.</p> <p>If there is a launch with no
+        segment overrides, the user might be assigned to a variation in the
+        launch. The chance of this depends on the percentage of users that are
+        allocated to that launch. If the user is enrolled in the launch, the
+        variation they are served depends on the allocation of the various
+        feature variations used for the launch.</p> <p>If the user is not
+        assigned to a launch, and there is an ongoing experiment for this
+        feature, the user might be assigned to a variation in the experiment.
+        The chance of this depends on the percentage of users that are allocated
+        to that experiment.</p> <p>If the experiment uses a segment, then only
+        user sessions with <code>evaluationContext</code> values that match the
+        segment rule are used in the experiment.</p> <p>If the user is enrolled
+        in the experiment, the variation they are served depends on the
+        allocation of the various feature variations used for the experiment.
+        </p> <p>If the user is not assigned to a launch or experiment, they are
+        served the default variation.</p>
+      tags:
+        - Evaluate
+        - Evaluations
+        - Feature
+        - Projects
+  /projects/{project}/experiments/{experiment}/results:
+    POST:
+      summary: 'Get Experiment Results '
+      description: >-
+        <p>Retrieves the results of a running or completed experiment. No
+        results are available until there have been 100 events for each
+        variation and at least 10 minutes have passed since the start of the
+        experiment. To increase the statistical power, Evidently performs an
+        additional offline p-value analysis at the end of the experiment.
+        Offline p-value analysis can detect statistical significance in some
+        cases where the anytime p-values used during the experiment do not find
+        statistical significance.</p> <p>Experiment results are available up to
+        63 days after the start of the experiment. They are not available after
+        that because of CloudWatch data retention policies.</p>
+      tags:
+        - Experiment
+        - Experiments
+        - Projects
+        - Results
+  /segments/{segment}/references:
+    GET:
+      summary: 'List Segment References  '
+      description: >-
+        <p>Use this operation to find which experiments or launches are using a
+        specified segment.</p>
+      tags:
+        - References
+        - Segments
+  /tags/{resourceArn}:
+    DELETE:
+      summary: 'Untag Resource '
+      description: <p>Removes one or more tags from the specified resource.</p>
+      tags:
+        - ARN
+        - Resources
+        - Tags
+        - Untag
+  /events/projects/{project}:
+    POST:
+      summary: 'Put Project Events '
+      description: >-
+        <p>Sends performance events to Evidently. These events can be used to
+        evaluate a launch or an experiment.</p>
+      tags:
+        - Events
+        - Projects
+  /projects/{project}/experiments/{experiment}/start:
+    POST:
+      summary: 'Start Experiment '
+      description: >-
+        <p>Starts an existing experiment. To create an experiment, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.</p>
+      tags:
+        - Experiment
+        - Experiments
+        - Projects
+  /projects/{project}/launches/{launch}/start:
+    POST:
+      summary: 'Start Launch '
+      description: >-
+        <p>Starts an existing launch. To create a launch, use <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
+      tags:
+        - Launch
+        - Launches
+        - Projects
+  /projects/{project}/experiments/{experiment}/cancel:
+    POST:
+      summary: 'Stop Experiment '
+      description: >-
+        <p>Stops an experiment that is currently running. If you stop an
+        experiment, you can't resume it or restart it.</p>
+      tags:
+        - Cancel
+        - Experiment
+        - Experiments
+        - Projects
+        - Stop
+  /projects/{project}/launches/{launch}/cancel:
+    POST:
+      summary: 'Stop Launch '
+      description: >-
+        <p>Stops a launch that is currently running. After you stop a launch,
+        you will not be able to resume it or restart it. Also, it will not be
+        evaluated as a rule for traffic allocation, and the traffic that was
+        allocated to the launch will instead be available to the feature's
+        experiment, if there is one. Otherwise, all traffic will be served the
+        default variation after the launch is stopped.</p>
+      tags:
+        - Cancel
+        - Launch
+        - Launches
+        - Projects
+        - Stop
+  /test-segment-pattern:
+    POST:
+      summary: 'Test Segment Pattern '
+      description: >-
+        <p>Use this operation to test a rules pattern that you plan to use to
+        create an audience segment. For more information about segments, see <a
+        href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
+      tags:
+        - Patterns
+        - Segments
+        - Tests
+  /projects/{project}/data-delivery:
+    PATCH:
+      summary: 'Update Project Data Delivery '
+      description: >-
+        <p>Updates the data storage options for this project. If you store
+        evaluation events, you an keep them and analyze them on your own. If you
+        choose not to store evaluation events, Evidently deletes them after
+        using them to produce metrics and other experiment results that you can
+        view.</p> <p>You can't specify both <code>cloudWatchLogs</code> and
+        <code>s3Destination</code> in the same oper
+      tags:
+        - Data
+        - Deliveries
+        - Projects
