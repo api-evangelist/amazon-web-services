@@ -5,7 +5,9 @@ Amazon Web Services, Inc. is a subsidiary of Amazon that provides on-demand clou
 
 ## Scope
 
-- **Type:** Overlay 
+- **Type:** Contract 
+- **Position:** Consuming 
+- **Access:** 3rd-Party 
 
 ## Tags
 
@@ -14,7 +16,7 @@ Amazon Web Services, Inc. is a subsidiary of Amazon that provides on-demand clou
 ## Timestamps
 
 - **Created:** 2023/11/06 
-- **Modified:** 2024-07-03 
+- **Modified:** 2024-12-12 
 
 ## APIs
 
