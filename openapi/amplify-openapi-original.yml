@@ -13,94 +13,109 @@ info:
 paths:
   /apps:
     GET:
-      summary: ListApps
-      description: <p>Returns a list of the existing Amplify apps. </p>
+      summary: Listapps
+      description: 'Returns a list of the existing Amplify apps. '
+      operationId: amazonWebServicesListApps
   /apps/{appId}/backendenvironments:
     GET:
-      summary: ListBackendEnvironments
-      description: <p>Lists the backend environments for an Amplify app. </p>
+      summary: Listbackendenvironments
+      description: 'Lists the backend environments for an Amplify app. '
+      operationId: amazonWebServicesListBackendEnvironments
   /apps/{appId}/branches:
     GET:
-      summary: ListBranches
-      description: <p> Lists the branches of an Amplify app. </p>
+      summary: Listbranches
+      description: ' Lists the branches of an Amplify app. '
+      operationId: amazonWebServicesListBranches
   /apps/{appId}/branches/{branchName}/deployments:
     POST:
-      summary: CreateDeployment
+      summary: Createdeployment
       description: >-
-        <p>Creates a deployment for a manually deployed Amplify app. Manually
-        deployed apps are not connected to a repository. </p> <p>The maximum
-        duration between the <code>CreateDeployment</code> call and the
-        <code>StartDeployment</code> call cannot exceed 8 hours. If the duration
-        exceeds 8 hours, the <code>StartDeployment</code> call and the
-        associated <code>Job</code> will fail.</p>
+        Creates a deployment for a manually deployed Amplify app. Manually
+        deployed apps are not connected to a repository.  The maximum duration
+        between the CreateDeployment call and the StartDeployment call cannot
+        exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment
+        call and the associated Job will fail.
+      operationId: amazonWebServicesCreateDeployment
   /apps/{appId}/domains:
     GET:
-      summary: ListDomainAssociations
-      description: <p> Returns the domain associations for an Amplify app. </p>
+      summary: Listdomainassociations
+      description: ' Returns the domain associations for an Amplify app. '
+      operationId: amazonWebServicesListDomainAssociations
   /apps/{appId}/webhooks:
     GET:
-      summary: ListWebhooks
-      description: <p>Returns a list of webhooks for an Amplify app. </p>
+      summary: Listwebhooks
+      description: 'Returns a list of webhooks for an Amplify app. '
+      operationId: amazonWebServicesListWebhooks
   /apps/{appId}:
     POST:
-      summary: UpdateApp
-      description: <p>Updates an existing Amplify app. </p>
+      summary: Updateapp
+      description: 'Updates an existing Amplify app. '
+      operationId: amazonWebServicesUpdateApp
   /apps/{appId}/backendenvironments/{environmentName}:
     GET:
-      summary: GetBackendEnvironment
-      description: <p>Returns a backend environment for an Amplify app. </p>
+      summary: Getbackendenvironment
+      description: 'Returns a backend environment for an Amplify app. '
+      operationId: amazonWebServicesGetBackendEnvironment
   /apps/{appId}/branches/{branchName}:
     POST:
-      summary: UpdateBranch
-      description: <p> Updates a branch for an Amplify app. </p>
+      summary: Updatebranch
+      description: ' Updates a branch for an Amplify app. '
+      operationId: amazonWebServicesUpdateBranch
   /apps/{appId}/domains/{domainName}:
     POST:
-      summary: UpdateDomainAssociation
-      description: <p> Creates a new domain association for an Amplify app.</p>
+      summary: Updatedomainassociation
+      description: ' Creates a new domain association for an Amplify app.'
+      operationId: amazonWebServicesUpdateDomainAssociation
   /apps/{appId}/branches/{branchName}/jobs/{jobId}:
     GET:
-      summary: GetJob
-      description: <p> Returns a job for a branch of an Amplify app. </p>
+      summary: Getjob
+      description: ' Returns a job for a branch of an Amplify app. '
+      operationId: amazonWebServicesGetJob
   /webhooks/{webhookId}:
     POST:
-      summary: UpdateWebhook
-      description: <p>Updates a webhook. </p>
+      summary: Updatewebhook
+      description: 'Updates a webhook. '
+      operationId: amazonWebServicesUpdateWebhook
   /apps/{appId}/accesslogs:
     POST:
-      summary: GenerateAccessLogs
+      summary: Generateaccesslogs
       description: >-
-        <p>Returns the website access logs for a specific time range using a
-        presigned URL. </p>
+        Returns the website access logs for a specific time range using a
+        presigned URL. 
+      operationId: amazonWebServicesGenerateAccessLogs
   /artifacts/{artifactId}:
     GET:
-      summary: GetArtifactUrl
-      description: <p>Returns the artifact info that corresponds to an artifact id. </p>
+      summary: Getartifacturl
+      description: 'Returns the artifact info that corresponds to an artifact id. '
+      operationId: amazonWebServicesGetArtifactUrl
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts:
     GET:
-      summary: ListArtifacts
-      description: >-
-        <p>Returns a list of artifacts for a specified app, branch, and job.
-        </p>
+      summary: Listartifacts
+      description: 'Returns a list of artifacts for a specified app, branch, and job. '
+      operationId: amazonWebServicesListArtifacts
   /apps/{appId}/branches/{branchName}/jobs:
     POST:
-      summary: StartJob
-      description: <p> Starts a new job for a branch of an Amplify app. </p>
+      summary: Startjob
+      description: ' Starts a new job for a branch of an Amplify app. '
+      operationId: amazonWebServicesStartJob
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Untags a resource with a specified Amazon Resource Name (ARN).</p>
+      summary: Untagresource
+      description: Untags a resource with a specified Amazon Resource Name (ARN).
+      operationId: amazonWebServicesUntagResource
   /apps/{appId}/branches/{branchName}/deployments/start:
     POST:
-      summary: StartDeployment
+      summary: Startdeployment
       description: >-
-        <p>Starts a deployment for a manually deployed app. Manually deployed
-        apps are not connected to a repository. </p> <p>The maximum duration
-        between the <code>CreateDeployment</code> call and the
-        <code>StartDeployment</code> call cannot exceed 8 hours. If the duration
-        exceeds 8 hours, the <code>StartDeployment</code> call and the
-        associated <code>Job</code> will fail.</p>
+        Starts a deployment for a manually deployed app. Manually deployed apps
+        are not connected to a repository.  The maximum duration between the
+        CreateDeployment call and the StartDeployment call cannot exceed 8
+        hours. If the duration exceeds 8 hours, the StartDeployment call and the
+        associated Job will fail.
+      operationId: amazonWebServicesStartDeployment
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/stop:
     DELETE:
-      summary: StopJob
-      description: <p> Stops a job that is in progress for a branch of an Amplify app. </p>
+      summary: Stopjob
+      description: ' Stops a job that is in progress for a branch of an Amplify app. '
+      operationId: amazonWebServicesStopJob
 tags: []

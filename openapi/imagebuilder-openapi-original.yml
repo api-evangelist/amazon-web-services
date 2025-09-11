@@ -10,441 +10,483 @@ info:
 paths:
   /CancelImageCreation:
     PUT:
-      summary: CancelImageCreation
+      summary: Cancelimagecreation
       description: >-
-        <p>CancelImageCreation cancels the creation of Image. This operation can
-        only be used on images in a non-terminal state.</p>
+        CancelImageCreation cancels the creation of Image. This operation can
+        only be used on images in a non-terminal state.
+      operationId: amazonWebServicesCancelImageCreation
   /CancelLifecycleExecution:
     PUT:
-      summary: CancelLifecycleExecution
-      description: <p>Cancel a specific image lifecycle policy runtime instance.</p>
+      summary: Cancellifecycleexecution
+      description: Cancel a specific image lifecycle policy runtime instance.
+      operationId: amazonWebServicesCancelLifecycleExecution
   /CreateComponent:
     PUT:
-      summary: CreateComponent
+      summary: Createcomponent
       description: >-
-        <p>Creates a new component that can be used to build, validate, test,
-        and assess your image. The component is based on a YAML document that
-        you specify using exactly one of the following methods:</p> <ul> <li>
-        <p>Inline, using the <code>data</code> property in the request body.</p>
-        </li> <li> <p>A URL that points to a YAML document file stored in Amazon
-        S3, using the <code>uri</code> property in the request body.</p> </li>
-        </ul>
+        Creates a new component that can be used to build, validate, test, and
+        assess your image. The component is based on a YAML document that you
+        specify using exactly one of the following methods:   Inline, using the
+        data property in the request body.   A URL that points to a YAML
+        document file stored in Amazon S3, using the uri property in the request
+        body.  
+      operationId: amazonWebServicesCreateComponent
   /CreateContainerRecipe:
     PUT:
-      summary: CreateContainerRecipe
+      summary: Createcontainerrecipe
       description: >-
-        <p>Creates a new container recipe. Container recipes define how images
-        are configured, tested, and assessed.</p>
+        Creates a new container recipe. Container recipes define how images are
+        configured, tested, and assessed.
+      operationId: amazonWebServicesCreateContainerRecipe
   /CreateDistributionConfiguration:
     PUT:
-      summary: CreateDistributionConfiguration
+      summary: Createdistributionconfiguration
       description: >-
-        <p>Creates a new distribution configuration. Distribution configurations
-        define and configure the outputs of your pipeline.</p>
+        Creates a new distribution configuration. Distribution configurations
+        define and configure the outputs of your pipeline.
+      operationId: amazonWebServicesCreateDistributionConfiguration
   /CreateImage:
     PUT:
-      summary: CreateImage
+      summary: Createimage
       description: >-
-        <p>Creates a new image. This request will create a new image along with
-        all of the configured output resources defined in the distribution
+        Creates a new image. This request will create a new image along with all
+        of the configured output resources defined in the distribution
         configuration. You must specify exactly one recipe for your image, using
-        either a ContainerRecipeArn or an ImageRecipeArn.</p>
+        either a ContainerRecipeArn or an ImageRecipeArn.
+      operationId: amazonWebServicesCreateImage
   /CreateImagePipeline:
     PUT:
-      summary: CreateImagePipeline
+      summary: Createimagepipeline
       description: >-
-        <p>Creates a new image pipeline. Image pipelines enable you to automate
-        the creation and distribution of images.</p>
+        Creates a new image pipeline. Image pipelines enable you to automate the
+        creation and distribution of images.
+      operationId: amazonWebServicesCreateImagePipeline
   /CreateImageRecipe:
     PUT:
-      summary: CreateImageRecipe
+      summary: Createimagerecipe
       description: >-
-        <p>Creates a new image recipe. Image recipes define how images are
-        configured, tested, and assessed.</p>
+        Creates a new image recipe. Image recipes define how images are
+        configured, tested, and assessed.
+      operationId: amazonWebServicesCreateImageRecipe
   /CreateInfrastructureConfiguration:
     PUT:
-      summary: CreateInfrastructureConfiguration
+      summary: Createinfrastructureconfiguration
       description: >-
-        <p>Creates a new infrastructure configuration. An infrastructure
+        Creates a new infrastructure configuration. An infrastructure
         configuration defines the environment in which your image will be built
-        and tested.</p>
+        and tested.
+      operationId: amazonWebServicesCreateInfrastructureConfiguration
   /CreateLifecyclePolicy:
     PUT:
-      summary: CreateLifecyclePolicy
-      description: <p>Create a lifecycle policy resource.</p>
+      summary: Createlifecyclepolicy
+      description: Create a lifecycle policy resource.
+      operationId: amazonWebServicesCreateLifecyclePolicy
   /CreateWorkflow:
     PUT:
-      summary: CreateWorkflow
-      description: <p>Create a new workflow or a new version of an existing workflow.</p>
+      summary: Createworkflow
+      description: Create a new workflow or a new version of an existing workflow.
+      operationId: amazonWebServicesCreateWorkflow
   /DeleteComponent:
     DELETE:
-      summary: DeleteComponent
-      description: <p>Deletes a component build version.</p>
+      summary: Deletecomponent
+      description: Deletes a component build version.
+      operationId: amazonWebServicesDeleteComponent
   /DeleteContainerRecipe:
     DELETE:
-      summary: DeleteContainerRecipe
-      description: <p>Deletes a container recipe.</p>
+      summary: Deletecontainerrecipe
+      description: Deletes a container recipe.
+      operationId: amazonWebServicesDeleteContainerRecipe
   /DeleteDistributionConfiguration:
     DELETE:
-      summary: DeleteDistributionConfiguration
-      description: <p>Deletes a distribution configuration.</p>
+      summary: Deletedistributionconfiguration
+      description: Deletes a distribution configuration.
+      operationId: amazonWebServicesDeleteDistributionConfiguration
   /DeleteImage:
     DELETE:
-      summary: DeleteImage
+      summary: Deleteimage
       description: >-
-        <p>Deletes an Image Builder image resource. This does not delete any EC2
+        Deletes an Image Builder image resource. This does not delete any EC2
         AMIs or ECR container images that are created during the image build
         process. You must clean those up separately, using the appropriate
-        Amazon EC2 or Amazon ECR console actions, or API or CLI commands.</p>
-        <ul> <li> <p>To deregister an EC2 Linux AMI, see <a
-        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister
-        your Linux AMI</a> in the <i> <i>Amazon EC2 User Guide</i> </i>.</p>
-        </li> <li> <p>To deregister an EC2 Windows AMI, see <a
-        href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister
-        your Windows AMI</a> in the <i> <i>Amazon EC2 Windows Guide</i>
-        </i>.</p> </li> <li> <p>To delete a container image from Amazon ECR, see
-        <a
-        href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
-        an image</a> in the <i>Amazon ECR User Guide</i>.</p> </li> </ul>
+        Amazon EC2 or Amazon ECR console actions, or API or CLI commands.   To
+        deregister an EC2 Linux AMI, see Deregister your Linux AMI in the 
+        Amazon EC2 User Guide .   To deregister an EC2 Windows AMI, see
+        Deregister your Windows AMI in the  Amazon EC2 Windows Guide .   To
+        delete a container image from Amazon ECR, see Deleting an image in the
+        Amazon ECR User Guide.  
+      operationId: amazonWebServicesDeleteImage
   /DeleteImagePipeline:
     DELETE:
-      summary: DeleteImagePipeline
-      description: <p>Deletes an image pipeline.</p>
+      summary: Deleteimagepipeline
+      description: Deletes an image pipeline.
+      operationId: amazonWebServicesDeleteImagePipeline
   /DeleteImageRecipe:
     DELETE:
-      summary: DeleteImageRecipe
-      description: <p>Deletes an image recipe.</p>
+      summary: Deleteimagerecipe
+      description: Deletes an image recipe.
+      operationId: amazonWebServicesDeleteImageRecipe
   /DeleteInfrastructureConfiguration:
     DELETE:
-      summary: DeleteInfrastructureConfiguration
-      description: <p>Deletes an infrastructure configuration.</p>
+      summary: Deleteinfrastructureconfiguration
+      description: Deletes an infrastructure configuration.
+      operationId: amazonWebServicesDeleteInfrastructureConfiguration
   /DeleteLifecyclePolicy:
     DELETE:
-      summary: DeleteLifecyclePolicy
-      description: <p>Delete the specified lifecycle policy resource.</p>
+      summary: Deletelifecyclepolicy
+      description: Delete the specified lifecycle policy resource.
+      operationId: amazonWebServicesDeleteLifecyclePolicy
   /DeleteWorkflow:
     DELETE:
-      summary: DeleteWorkflow
-      description: <p>Deletes a specific workflow resource.</p>
+      summary: Deleteworkflow
+      description: Deletes a specific workflow resource.
+      operationId: amazonWebServicesDeleteWorkflow
   /GetComponent:
     GET:
-      summary: GetComponent
-      description: <p>Gets a component object.</p>
+      summary: Getcomponent
+      description: Gets a component object.
+      operationId: amazonWebServicesGetComponent
   /GetComponentPolicy:
     GET:
-      summary: GetComponentPolicy
-      description: <p>Gets a component policy.</p>
+      summary: Getcomponentpolicy
+      description: Gets a component policy.
+      operationId: amazonWebServicesGetComponentPolicy
   /GetContainerRecipe:
     GET:
-      summary: GetContainerRecipe
-      description: <p>Retrieves a container recipe.</p>
+      summary: Getcontainerrecipe
+      description: Retrieves a container recipe.
+      operationId: amazonWebServicesGetContainerRecipe
   /GetContainerRecipePolicy:
     GET:
-      summary: GetContainerRecipePolicy
-      description: <p>Retrieves the policy for a container recipe.</p>
+      summary: Getcontainerrecipepolicy
+      description: Retrieves the policy for a container recipe.
+      operationId: amazonWebServicesGetContainerRecipePolicy
   /GetDistributionConfiguration:
     GET:
-      summary: GetDistributionConfiguration
-      description: <p>Gets a distribution configuration.</p>
+      summary: Getdistributionconfiguration
+      description: Gets a distribution configuration.
+      operationId: amazonWebServicesGetDistributionConfiguration
   /GetImage:
     GET:
-      summary: GetImage
-      description: <p>Gets an image.</p>
+      summary: Getimage
+      description: Gets an image.
+      operationId: amazonWebServicesGetImage
   /GetImagePipeline:
     GET:
-      summary: GetImagePipeline
-      description: <p>Gets an image pipeline.</p>
+      summary: Getimagepipeline
+      description: Gets an image pipeline.
+      operationId: amazonWebServicesGetImagePipeline
   /GetImagePolicy:
     GET:
-      summary: GetImagePolicy
-      description: <p>Gets an image policy.</p>
+      summary: Getimagepolicy
+      description: Gets an image policy.
+      operationId: amazonWebServicesGetImagePolicy
   /GetImageRecipe:
     GET:
-      summary: GetImageRecipe
-      description: <p>Gets an image recipe.</p>
+      summary: Getimagerecipe
+      description: Gets an image recipe.
+      operationId: amazonWebServicesGetImageRecipe
   /GetImageRecipePolicy:
     GET:
-      summary: GetImageRecipePolicy
-      description: <p>Gets an image recipe policy.</p>
+      summary: Getimagerecipepolicy
+      description: Gets an image recipe policy.
+      operationId: amazonWebServicesGetImageRecipePolicy
   /GetInfrastructureConfiguration:
     GET:
-      summary: GetInfrastructureConfiguration
-      description: <p>Gets an infrastructure configuration.</p>
+      summary: Getinfrastructureconfiguration
+      description: Gets an infrastructure configuration.
+      operationId: amazonWebServicesGetInfrastructureConfiguration
   /GetLifecycleExecution:
     GET:
-      summary: GetLifecycleExecution
+      summary: Getlifecycleexecution
       description: >-
-        <p>Get the runtime information that was logged for a specific runtime
-        instance of the lifecycle policy.</p>
+        Get the runtime information that was logged for a specific runtime
+        instance of the lifecycle policy.
+      operationId: amazonWebServicesGetLifecycleExecution
   /GetLifecyclePolicy:
     GET:
-      summary: GetLifecyclePolicy
-      description: <p>Get details for the specified image lifecycle policy.</p>
+      summary: Getlifecyclepolicy
+      description: Get details for the specified image lifecycle policy.
+      operationId: amazonWebServicesGetLifecyclePolicy
   /GetWorkflow:
     GET:
-      summary: GetWorkflow
-      description: <p>Get a workflow resource object.</p>
+      summary: Getworkflow
+      description: Get a workflow resource object.
+      operationId: amazonWebServicesGetWorkflow
   /GetWorkflowExecution:
     GET:
-      summary: GetWorkflowExecution
+      summary: Getworkflowexecution
       description: >-
-        <p>Get the runtime information that was logged for a specific runtime
-        instance of the workflow.</p>
+        Get the runtime information that was logged for a specific runtime
+        instance of the workflow.
+      operationId: amazonWebServicesGetWorkflowExecution
   /GetWorkflowStepExecution:
     GET:
-      summary: GetWorkflowStepExecution
+      summary: Getworkflowstepexecution
       description: >-
-        <p>Get the runtime information that was logged for a specific runtime
-        instance of the workflow step.</p>
+        Get the runtime information that was logged for a specific runtime
+        instance of the workflow step.
+      operationId: amazonWebServicesGetWorkflowStepExecution
   /ImportComponent:
     PUT:
-      summary: ImportComponent
-      description: >-
-        <p>Imports a component and transforms its data into a component
-        document.</p>
+      summary: Importcomponent
+      description: Imports a component and transforms its data into a component document.
+      operationId: amazonWebServicesImportComponent
   /ImportVmImage:
     PUT:
-      summary: ImportVmImage
+      summary: Importvmimage
       description: >-
-        <p>When you export your virtual machine (VM) from its virtualization
+        When you export your virtual machine (VM) from its virtualization
         environment, that process creates a set of one or more disk container
         files that act as snapshots of your VM’s environment, settings, and
-        data. The Amazon EC2 API <a
-        href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
-        action uses those files to import your VM and create an AMI. To import
-        using the CLI command, see <a
-        href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
-        </p> <p>You can reference the task ID from the VM import to pull in the
-        AMI that the import created as the base image for your Image Builder
-        recipe.</p>
+        data. The Amazon EC2 API ImportImage action uses those files to import
+        your VM and create an AMI. To import using the CLI command, see
+        import-image  You can reference the task ID from the VM import to pull
+        in the AMI that the import created as the base image for your Image
+        Builder recipe.
+      operationId: amazonWebServicesImportVmImage
   /ListComponentBuildVersions:
     POST:
-      summary: ListComponentBuildVersions
+      summary: Listcomponentbuildversions
       description: >-
-        <p>Returns the list of component build versions for the specified
-        semantic version.</p> <note> <p>The semantic version has four nodes:
+        Returns the list of component build versions for the specified semantic
+        version.  The semantic version has four nodes:
         &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
-        values for the first three, and can filter on all of them.</p> <p>
-        <b>Filtering:</b> With semantic versioning, you have the flexibility to
-        use wildcards (x) to specify the most recent versions or nodes when
-        selecting the base image or components for your recipe. When you use a
-        wildcard in any node, all nodes to the right of the first wildcard must
-        also be wildcards.</p> </note>
+        values for the first three, and can filter on all of them.  Filtering:
+        With semantic versioning, you have the flexibility to use wildcards (x)
+        to specify the most recent versions or nodes when selecting the base
+        image or components for your recipe. When you use a wildcard in any
+        node, all nodes to the right of the first wildcard must also be
+        wildcards. 
+      operationId: amazonWebServicesListComponentBuildVersions
   /ListComponents:
     POST:
-      summary: ListComponents
+      summary: Listcomponents
       description: >-
-        <p>Returns the list of components that can be filtered by name, or by
-        using the listed <code>filters</code> to streamline results. Newly
-        created components can take up to two minutes to appear in the
-        ListComponents API Results.</p> <note> <p>The semantic version has four
-        nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can
-        assign values for the first three, and can filter on all of them.</p>
-        <p> <b>Filtering:</b> With semantic versioning, you have the flexibility
-        to use wildcards (x) to specify the most recent versions or nodes when
-        selecting the base image or components for your recipe. When you use a
-        wildcard in any node, all nodes to the right of the first wildcard must
-        also be wildcards.</p> </note>
+        Returns the list of components that can be filtered by name, or by using
+        the listed filters to streamline results. Newly created components can
+        take up to two minutes to appear in the ListComponents API Results.  The
+        semantic version has four nodes:
+        &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;. You can assign
+        values for the first three, and can filter on all of them.  Filtering:
+        With semantic versioning, you have the flexibility to use wildcards (x)
+        to specify the most recent versions or nodes when selecting the base
+        image or components for your recipe. When you use a wildcard in any
+        node, all nodes to the right of the first wildcard must also be
+        wildcards. 
+      operationId: amazonWebServicesListComponents
   /ListContainerRecipes:
     POST:
-      summary: ListContainerRecipes
-      description: <p>Returns a list of container recipes.</p>
+      summary: Listcontainerrecipes
+      description: Returns a list of container recipes.
+      operationId: amazonWebServicesListContainerRecipes
   /ListDistributionConfigurations:
     POST:
-      summary: ListDistributionConfigurations
-      description: <p>Returns a list of distribution configurations.</p>
+      summary: Listdistributionconfigurations
+      description: Returns a list of distribution configurations.
+      operationId: amazonWebServicesListDistributionConfigurations
   /ListImageBuildVersions:
     POST:
-      summary: ListImageBuildVersions
-      description: <p>Returns a list of image build versions.</p>
+      summary: Listimagebuildversions
+      description: Returns a list of image build versions.
+      operationId: amazonWebServicesListImageBuildVersions
   /ListImagePackages:
     POST:
-      summary: ListImagePackages
+      summary: Listimagepackages
       description: >-
-        <p>List the Packages that are associated with an Image Build Version, as
+        List the Packages that are associated with an Image Build Version, as
         determined by Amazon Web Services Systems Manager Inventory at build
-        time.</p>
+        time.
+      operationId: amazonWebServicesListImagePackages
   /ListImagePipelineImages:
     POST:
-      summary: ListImagePipelineImages
-      description: <p>Returns a list of images created by the specified pipeline.</p>
+      summary: Listimagepipelineimages
+      description: Returns a list of images created by the specified pipeline.
+      operationId: amazonWebServicesListImagePipelineImages
   /ListImagePipelines:
     POST:
-      summary: ListImagePipelines
-      description: <p>Returns a list of image pipelines.</p>
+      summary: Listimagepipelines
+      description: Returns a list of image pipelines.
+      operationId: amazonWebServicesListImagePipelines
   /ListImageRecipes:
     POST:
-      summary: ListImageRecipes
-      description: <p>Returns a list of image recipes.</p>
+      summary: Listimagerecipes
+      description: Returns a list of image recipes.
+      operationId: amazonWebServicesListImageRecipes
   /ListImageScanFindingAggregations:
     POST:
-      summary: ListImageScanFindingAggregations
+      summary: Listimagescanfindingaggregations
       description: >-
-        <p>Returns a list of image scan aggregations for your account. You can
+        Returns a list of image scan aggregations for your account. You can
         filter by the type of key that Image Builder uses to group results. For
         example, if you want to get a list of findings by severity level for one
         of your pipelines, you might specify your pipeline with the
-        <code>imagePipelineArn</code> filter. If you don't specify a filter,
-        Image Builder returns an aggregation for your account.</p> <p>To
-        streamline results, you can use the following filters in your
-        request:</p> <ul> <li> <p> <code>accountId</code> </p> </li> <li> <p>
-        <code>imageBuildVersionArn</code> </p> </li> <li> <p>
-        <code>imagePipelineArn</code> </p> </li> <li> <p>
-        <code>vulnerabilityId</code> </p> </li> </ul>
+        imagePipelineArn filter. If you don't specify a filter, Image Builder
+        returns an aggregation for your account. To streamline results, you can
+        use the following filters in your request:    accountId    
+        imageBuildVersionArn     imagePipelineArn     vulnerabilityId   
+      operationId: amazonWebServicesListImageScanFindingAggregations
   /ListImageScanFindings:
     POST:
-      summary: ListImageScanFindings
-      description: <p>Returns a list of image scan findings for your account.</p>
+      summary: Listimagescanfindings
+      description: Returns a list of image scan findings for your account.
+      operationId: amazonWebServicesListImageScanFindings
   /ListImages:
     POST:
-      summary: ListImages
+      summary: Listimages
       description: >-
-        <p>Returns the list of images that you have access to. Newly created
-        images can take up to two minutes to appear in the ListImages API
-        Results.</p>
+        Returns the list of images that you have access to. Newly created images
+        can take up to two minutes to appear in the ListImages API Results.
+      operationId: amazonWebServicesListImages
   /ListInfrastructureConfigurations:
     POST:
-      summary: ListInfrastructureConfigurations
-      description: <p>Returns a list of infrastructure configurations.</p>
+      summary: Listinfrastructureconfigurations
+      description: Returns a list of infrastructure configurations.
+      operationId: amazonWebServicesListInfrastructureConfigurations
   /ListLifecycleExecutionResources:
     POST:
-      summary: ListLifecycleExecutionResources
+      summary: Listlifecycleexecutionresources
       description: >-
-        <p>List resources that the runtime instance of the image lifecycle
-        identified for lifecycle actions.</p>
+        List resources that the runtime instance of the image lifecycle
+        identified for lifecycle actions.
+      operationId: amazonWebServicesListLifecycleExecutionResources
   /ListLifecycleExecutions:
     POST:
-      summary: ListLifecycleExecutions
-      description: <p>Get the lifecycle runtime history for the specified resource.</p>
+      summary: Listlifecycleexecutions
+      description: Get the lifecycle runtime history for the specified resource.
+      operationId: amazonWebServicesListLifecycleExecutions
   /ListLifecyclePolicies:
     POST:
-      summary: ListLifecyclePolicies
-      description: >-
-        <p>Get a list of lifecycle policies in your Amazon Web Services
-        account.</p>
+      summary: Listlifecyclepolicies
+      description: Get a list of lifecycle policies in your Amazon Web Services account.
+      operationId: amazonWebServicesListLifecyclePolicies
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a tag from a resource.</p>
+      summary: Untagresource
+      description: Removes a tag from a resource.
+      operationId: amazonWebServicesUntagResource
   /ListWaitingWorkflowSteps:
     POST:
-      summary: ListWaitingWorkflowSteps
+      summary: Listwaitingworkflowsteps
       description: >-
-        <p>Get a list of workflow steps that are waiting for action for
-        workflows in your Amazon Web Services account.</p>
+        Get a list of workflow steps that are waiting for action for workflows
+        in your Amazon Web Services account.
+      operationId: amazonWebServicesListWaitingWorkflowSteps
   /ListWorkflowBuildVersions:
     POST:
-      summary: ListWorkflowBuildVersions
-      description: >-
-        <p>Returns a list of build versions for a specific workflow
-        resource.</p>
+      summary: Listworkflowbuildversions
+      description: Returns a list of build versions for a specific workflow resource.
+      operationId: amazonWebServicesListWorkflowBuildVersions
   /ListWorkflowExecutions:
     POST:
-      summary: ListWorkflowExecutions
+      summary: Listworkflowexecutions
       description: >-
-        <p>Returns a list of workflow runtime instance metadata objects for a
-        specific image build version.</p>
+        Returns a list of workflow runtime instance metadata objects for a
+        specific image build version.
+      operationId: amazonWebServicesListWorkflowExecutions
   /ListWorkflowStepExecutions:
     POST:
-      summary: ListWorkflowStepExecutions
+      summary: Listworkflowstepexecutions
       description: >-
-        <p>Returns runtime data for each step in a runtime instance of the
-        workflow that you specify in the request.</p>
+        Returns runtime data for each step in a runtime instance of the workflow
+        that you specify in the request.
+      operationId: amazonWebServicesListWorkflowStepExecutions
   /ListWorkflows:
     POST:
-      summary: ListWorkflows
-      description: <p>Lists workflow build versions based on filtering parameters.</p>
+      summary: Listworkflows
+      description: Lists workflow build versions based on filtering parameters.
+      operationId: amazonWebServicesListWorkflows
   /PutComponentPolicy:
     PUT:
-      summary: PutComponentPolicy
+      summary: Putcomponentpolicy
       description: >-
-        <p>Applies a policy to a component. We recommend that you call the RAM
-        API <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
-        to share resources. If you call the Image Builder API
-        <code>PutComponentPolicy</code>, you must also call the RAM API <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
-        in order for the resource to be visible to all principals with whom the
-        resource is shared.</p>
+        Applies a policy to a component. We recommend that you call the RAM API
+        CreateResourceShare to share resources. If you call the Image Builder
+        API PutComponentPolicy, you must also call the RAM API
+        PromoteResourceShareCreatedFromPolicy in order for the resource to be
+        visible to all principals with whom the resource is shared.
+      operationId: amazonWebServicesPutComponentPolicy
   /PutContainerRecipePolicy:
     PUT:
-      summary: PutContainerRecipePolicy
+      summary: Putcontainerrecipepolicy
       description: >-
-        <p>Applies a policy to a container image. We recommend that you call the
+        Applies a policy to a container image. We recommend that you call the
         RAM API CreateResourceShare
         (https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html)
         to share resources. If you call the Image Builder API
-        <code>PutContainerImagePolicy</code>, you must also call the RAM API
+        PutContainerImagePolicy, you must also call the RAM API
         PromoteResourceShareCreatedFromPolicy
         (https://docs.aws.amazon.com//ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)
         in order for the resource to be visible to all principals with whom the
-        resource is shared.</p>
+        resource is shared.
+      operationId: amazonWebServicesPutContainerRecipePolicy
   /PutImagePolicy:
     PUT:
-      summary: PutImagePolicy
+      summary: Putimagepolicy
       description: >-
-        <p>Applies a policy to an image. We recommend that you call the RAM API
-        <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
-        to share resources. If you call the Image Builder API
-        <code>PutImagePolicy</code>, you must also call the RAM API <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
-        in order for the resource to be visible to all principals with whom the
-        resource is shared.</p>
+        Applies a policy to an image. We recommend that you call the RAM API
+        CreateResourceShare to share resources. If you call the Image Builder
+        API PutImagePolicy, you must also call the RAM API
+        PromoteResourceShareCreatedFromPolicy in order for the resource to be
+        visible to all principals with whom the resource is shared.
+      operationId: amazonWebServicesPutImagePolicy
   /PutImageRecipePolicy:
     PUT:
-      summary: PutImageRecipePolicy
+      summary: Putimagerecipepolicy
       description: >-
-        <p>Applies a policy to an image recipe. We recommend that you call the
-        RAM API <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>
-        to share resources. If you call the Image Builder API
-        <code>PutImageRecipePolicy</code>, you must also call the RAM API <a
-        href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
-        in order for the resource to be visible to all principals with whom the
-        resource is shared.</p>
+        Applies a policy to an image recipe. We recommend that you call the RAM
+        API CreateResourceShare to share resources. If you call the Image
+        Builder API PutImageRecipePolicy, you must also call the RAM API
+        PromoteResourceShareCreatedFromPolicy in order for the resource to be
+        visible to all principals with whom the resource is shared.
+      operationId: amazonWebServicesPutImageRecipePolicy
   /SendWorkflowStepAction:
     PUT:
-      summary: SendWorkflowStepAction
+      summary: Sendworkflowstepaction
       description: >-
-        <p>Pauses or resumes image creation when the associated workflow runs a
-        <code>WaitForAction</code> step.</p>
+        Pauses or resumes image creation when the associated workflow runs a
+        WaitForAction step.
+      operationId: amazonWebServicesSendWorkflowStepAction
   /StartImagePipelineExecution:
     PUT:
-      summary: StartImagePipelineExecution
-      description: <p>Manually triggers a pipeline to create an image.</p>
+      summary: Startimagepipelineexecution
+      description: Manually triggers a pipeline to create an image.
+      operationId: amazonWebServicesStartImagePipelineExecution
   /StartResourceStateUpdate:
     PUT:
-      summary: StartResourceStateUpdate
+      summary: Startresourcestateupdate
       description: >-
-        <p>Begin asynchronous resource state update for lifecycle changes to the
-        specified image resources.</p>
+        Begin asynchronous resource state update for lifecycle changes to the
+        specified image resources.
+      operationId: amazonWebServicesStartResourceStateUpdate
   /UpdateDistributionConfiguration:
     PUT:
-      summary: UpdateDistributionConfiguration
+      summary: Updatedistributionconfiguration
       description: >-
-        <p>Updates a new distribution configuration. Distribution configurations
-        define and configure the outputs of your pipeline.</p>
+        Updates a new distribution configuration. Distribution configurations
+        define and configure the outputs of your pipeline.
+      operationId: amazonWebServicesUpdateDistributionConfiguration
   /UpdateImagePipeline:
     PUT:
-      summary: UpdateImagePipeline
+      summary: Updateimagepipeline
       description: >-
-        <p>Updates an image pipeline. Image pipelines enable you to automate the
+        Updates an image pipeline. Image pipelines enable you to automate the
         creation and distribution of images. You must specify exactly one recipe
-        for your image, using either a <code>containerRecipeArn</code> or an
-        <code>imageRecipeArn</code>.</p> <note> <p>UpdateImagePipeline does not
-        support selective updates for the pipeline. You must specify all of the
-        required properties in the update request, not just the properties that
-        have changed.</p> </note>
+        for your image, using either a containerRecipeArn or an imageRecipeArn. 
+        UpdateImagePipeline does not support selective updates for the pipeline.
+        You must specify all of the required properties in the update request,
+        not just the properties that have changed. 
+      operationId: amazonWebServicesUpdateImagePipeline
   /UpdateInfrastructureConfiguration:
     PUT:
-      summary: UpdateInfrastructureConfiguration
+      summary: Updateinfrastructureconfiguration
       description: >-
-        <p>Updates a new infrastructure configuration. An infrastructure
+        Updates a new infrastructure configuration. An infrastructure
         configuration defines the environment in which your image will be built
-        and tested.</p>
+        and tested.
+      operationId: amazonWebServicesUpdateInfrastructureConfiguration
   /UpdateLifecyclePolicy:
     PUT:
-      summary: UpdateLifecyclePolicy
-      description: <p>Update the specified lifecycle policy.</p>
+      summary: Updatelifecyclepolicy
+      description: Update the specified lifecycle policy.
+      operationId: amazonWebServicesUpdateLifecyclePolicy
 tags: []

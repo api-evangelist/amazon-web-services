@@ -7,84 +7,98 @@ info:
 paths:
   /cluster:
     GET:
-      summary: ListClusters
-      description: <p>Returns an array of all the clusters in an account.</p>
+      summary: Listclusters
+      description: Returns an array of all the clusters in an account.
+      operationId: amazonWebServicesListClusters
   /controlpanel:
     PUT:
-      summary: UpdateControlPanel
+      summary: Updatecontrolpanel
       description: >-
-        <p>Updates a control panel. The only update you can make to a control
-        panel is to change the name of the control panel.</p>
+        Updates a control panel. The only update you can make to a control panel
+        is to change the name of the control panel.
+      operationId: amazonWebServicesUpdateControlPanel
   /routingcontrol:
     PUT:
-      summary: UpdateRoutingControl
+      summary: Updateroutingcontrol
       description: >-
-        <p>Updates a routing control. You can only update the name of the
-        routing control. To get or update the routing control state, see the
-        Recovery Cluster (data plane) API actions for Amazon Route 53
-        Application Recovery Controller.</p>
+        Updates a routing control. You can only update the name of the routing
+        control. To get or update the routing control state, see the Recovery
+        Cluster (data plane) API actions for Amazon Route 53 Application
+        Recovery Controller.
+      operationId: amazonWebServicesUpdateRoutingControl
   /safetyrule:
     PUT:
-      summary: UpdateSafetyRule
+      summary: Updatesafetyrule
       description: >-
-        <p>Update a safety rule (an assertion rule or gating rule). You can only
+        Update a safety rule (an assertion rule or gating rule). You can only
         update the name and the waiting period for a safety rule. To make other
-        updates, delete the safety rule and create a new one.</p>
+        updates, delete the safety rule and create a new one.
+      operationId: amazonWebServicesUpdateSafetyRule
   /cluster/{ClusterArn}:
     GET:
-      summary: DescribeCluster
+      summary: Describecluster
       description: >-
-        <p>Display the details about a cluster. The response includes the
-        cluster name, endpoints, status, and Amazon Resource Name (ARN).</p>
+        Display the details about a cluster. The response includes the cluster
+        name, endpoints, status, and Amazon Resource Name (ARN).
+      operationId: amazonWebServicesDescribeCluster
   /controlpanel/{ControlPanelArn}:
     GET:
-      summary: DescribeControlPanel
-      description: <p>Displays details about a control panel.</p>
+      summary: Describecontrolpanel
+      description: Displays details about a control panel.
+      operationId: amazonWebServicesDescribeControlPanel
   /routingcontrol/{RoutingControlArn}:
     GET:
-      summary: DescribeRoutingControl
+      summary: Describeroutingcontrol
       description: >-
-        <p>Displays details about a routing control. A routing control has one
-        of two states: ON and OFF. You can map the routing control state to the
+        Displays details about a routing control. A routing control has one of
+        two states: ON and OFF. You can map the routing control state to the
         state of an Amazon Route 53 health check, which can be used to control
-        routing.</p> <p>To get or update the routing control state, see the
-        Recovery Cluster (data plane) API actions for Amazon Route 53
-        Application Recovery Controller.</p>
+        routing. To get or update the routing control state, see the Recovery
+        Cluster (data plane) API actions for Amazon Route 53 Application
+        Recovery Controller.
+      operationId: amazonWebServicesDescribeRoutingControl
   /safetyrule/{SafetyRuleArn}:
     GET:
-      summary: DescribeSafetyRule
-      description: <p>Returns information about a safety rule.</p>
+      summary: Describesafetyrule
+      description: Returns information about a safety rule.
+      operationId: amazonWebServicesDescribeSafetyRule
   /resourcePolicy/{ResourceArn}:
     GET:
-      summary: GetResourcePolicy
-      description: <p>Get information about the resource policy for a cluster.</p>
+      summary: Getresourcepolicy
+      description: Get information about the resource policy for a cluster.
+      operationId: amazonWebServicesGetResourcePolicy
   /routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks:
     GET:
-      summary: ListAssociatedRoute53HealthChecks
+      summary: Listassociatedroute53healthchecks
       description: >-
-        <p>Returns an array of all Amazon Route 53 health checks associated with
-        a specific routing control.</p>
+        Returns an array of all Amazon Route 53 health checks associated with a
+        specific routing control.
+      operationId: amazonWebServicesListAssociatedRoute53HealthChecks
   /controlpanels:
     GET:
-      summary: ListControlPanels
-      description: <p>Returns an array of control panels in an account or in a cluster.</p>
+      summary: Listcontrolpanels
+      description: Returns an array of control panels in an account or in a cluster.
+      operationId: amazonWebServicesListControlPanels
   /controlpanel/{ControlPanelArn}/routingcontrols:
     GET:
-      summary: ListRoutingControls
+      summary: Listroutingcontrols
       description: >-
-        <p>Returns an array of routing controls for a control panel. A routing
+        Returns an array of routing controls for a control panel. A routing
         control is an Amazon Route 53 Application Recovery Controller construct
         that has one of two states: ON and OFF. You can map the routing control
         state to the state of an Amazon Route 53 health check, which can be used
-        to control routing.</p>
+        to control routing.
+      operationId: amazonWebServicesListRoutingControls
   /controlpanel/{ControlPanelArn}/safetyrules:
     GET:
-      summary: ListSafetyRules
+      summary: Listsafetyrules
       description: >-
-        <p>List the safety rules (the assertion rules and gating rules) that
-        you've defined for the routing controls in a control panel.</p>
+        List the safety rules (the assertion rules and gating rules) that you've
+        defined for the routing controls in a control panel.
+      operationId: amazonWebServicesListSafetyRules
   /tags/{ResourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a tag from a resource.</p>
+      summary: Untagresource
+      description: Removes a tag from a resource.
+      operationId: amazonWebServicesUntagResource
 tags: []

@@ -15,73 +15,78 @@ info:
 paths:
   /workspaces/{workspaceId}/licenses/{licenseType}:
     DELETE:
-      summary: DisassociateLicense
-      description: <p>Removes the Grafana Enterprise license from a workspace.</p>
+      summary: Disassociatelicense
+      description: Removes the Grafana Enterprise license from a workspace.
+      operationId: amazonWebServicesDisassociateLicense
   /workspaces:
     GET:
-      summary: ListWorkspaces
+      summary: Listworkspaces
       description: >-
-        <p>Returns a list of Amazon Managed Grafana workspaces in the account,
-        with some information about each workspace. For more complete
-        information about one workspace, use <a
-        href="https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.</p>
+        Returns a list of Amazon Managed Grafana workspaces in the account, with
+        some information about each workspace. For more complete information
+        about one workspace, use DescribeWorkspace.
+      operationId: amazonWebServicesListWorkspaces
   /workspaces/{workspaceId}/apikeys:
     POST:
-      summary: CreateWorkspaceApiKey
+      summary: Createworkspaceapikey
       description: >-
-        <p>Creates a Grafana API key for the workspace. This key can be used to
-        authenticate requests sent to the workspace's HTTP API. See <a
-        href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
-        for available APIs and example requests.</p>
+        Creates a Grafana API key for the workspace. This key can be used to
+        authenticate requests sent to the workspace's HTTP API. See
+        https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html
+        for available APIs and example requests.
+      operationId: amazonWebServicesCreateWorkspaceApiKey
   /workspaces/{workspaceId}:
     PUT:
-      summary: UpdateWorkspace
+      summary: Updateworkspace
       description: >-
-        <p>Modifies an existing Amazon Managed Grafana workspace. If you use
-        this operation and omit any optional parameters, the existing values of
-        those parameters are not changed.</p> <p>To modify the user
-        authentication methods that the workspace uses, such as SAML or IAM
-        Identity Center, use <a
-        href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.</p>
-        <p>To modify which users in the workspace have the <code>Admin</code>
-        and <code>Editor</code> Grafana roles, use <a
-        href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.</p>
+        Modifies an existing Amazon Managed Grafana workspace. If you use this
+        operation and omit any optional parameters, the existing values of those
+        parameters are not changed. To modify the user authentication methods
+        that the workspace uses, such as SAML or IAM Identity Center, use
+        UpdateWorkspaceAuthentication. To modify which users in the workspace
+        have the Admin and Editor Grafana roles, use UpdatePermissions.
+      operationId: amazonWebServicesUpdateWorkspace
   /workspaces/{workspaceId}/apikeys/{keyName}:
     DELETE:
-      summary: DeleteWorkspaceApiKey
-      description: <p>Deletes a Grafana API key for the workspace.</p>
+      summary: Deleteworkspaceapikey
+      description: Deletes a Grafana API key for the workspace.
+      operationId: amazonWebServicesDeleteWorkspaceApiKey
   /workspaces/{workspaceId}/authentication:
     POST:
-      summary: UpdateWorkspaceAuthentication
+      summary: Updateworkspaceauthentication
       description: >-
-        <p>Use this operation to define the identity provider (IdP) that this
+        Use this operation to define the identity provider (IdP) that this
         workspace authenticates users from, using SAML. You can also map SAML
         assertion attributes to workspace user information and define which
-        groups in the assertion attribute are to have the <code>Admin</code> and
-        <code>Editor</code> roles in the workspace.</p> <note> <p>Changes to the
-        authentication method for a workspace may take a few minutes to take
-        effect.</p> </note>
+        groups in the assertion attribute are to have the Admin and Editor roles
+        in the workspace.  Changes to the authentication method for a workspace
+        may take a few minutes to take effect. 
+      operationId: amazonWebServicesUpdateWorkspaceAuthentication
   /workspaces/{workspaceId}/configuration:
     PUT:
-      summary: UpdateWorkspaceConfiguration
-      description: <p>Updates the configuration string for the given workspace</p>
+      summary: Updateworkspaceconfiguration
+      description: Updates the configuration string for the given workspace
+      operationId: amazonWebServicesUpdateWorkspaceConfiguration
   /workspaces/{workspaceId}/permissions:
     PATCH:
-      summary: UpdatePermissions
+      summary: Updatepermissions
       description: >-
-        <p>Updates which users in a workspace have the Grafana
-        <code>Admin</code> or <code>Editor</code> roles.</p>
+        Updates which users in a workspace have the Grafana Admin or Editor
+        roles.
+      operationId: amazonWebServicesUpdatePermissions
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>The <code>UntagResource</code> operation removes the association of
-        the tag with the Amazon Managed Grafana resource. </p>
+        The UntagResource operation removes the association of the tag with the
+        Amazon Managed Grafana resource. 
+      operationId: amazonWebServicesUntagResource
   /versions:
     GET:
-      summary: ListVersions
+      summary: Listversions
       description: >-
-        <p>Lists available versions of Grafana. These are available when calling
-        <code>CreateWorkspace</code>. Optionally, include a workspace to list
-        the versions to which it can be upgraded.</p>
+        Lists available versions of Grafana. These are available when calling
+        CreateWorkspace. Optionally, include a workspace to list the versions to
+        which it can be upgraded.
+      operationId: amazonWebServicesListVersions
 tags: []

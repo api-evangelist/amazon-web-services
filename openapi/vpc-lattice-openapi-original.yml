@@ -12,129 +12,148 @@ info:
 paths:
   /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules:
     GET:
-      summary: ListRules
-      description: <p>Lists the rules for the listener.</p>
+      summary: Listrules
+      description: Lists the rules for the listener.
+      operationId: amazonWebServicesListRules
   /accesslogsubscriptions:
     GET:
-      summary: ListAccessLogSubscriptions
+      summary: Listaccesslogsubscriptions
       description: >-
-        <p>Lists all access log subscriptions for the specified service network
-        or service.</p>
+        Lists all access log subscriptions for the specified service network or
+        service.
+      operationId: amazonWebServicesListAccessLogSubscriptions
   /services/{serviceIdentifier}/listeners:
     GET:
-      summary: ListListeners
-      description: <p>Lists the listeners for the specified service.</p>
+      summary: Listlisteners
+      description: Lists the listeners for the specified service.
+      operationId: amazonWebServicesListListeners
   /services:
     GET:
-      summary: ListServices
+      summary: Listservices
       description: >-
-        <p>Lists the services owned by the caller account or shared with the
-        caller account.</p>
+        Lists the services owned by the caller account or shared with the caller
+        account.
+      operationId: amazonWebServicesListServices
   /servicenetworks:
     GET:
-      summary: ListServiceNetworks
+      summary: Listservicenetworks
       description: >-
-        <p>Lists the service networks owned by the caller account or shared with
+        Lists the service networks owned by the caller account or shared with
         the caller account. Also includes the account ID in the ARN to show
-        which account owns the service network.</p>
+        which account owns the service network.
+      operationId: amazonWebServicesListServiceNetworks
   /servicenetworkserviceassociations:
     GET:
-      summary: ListServiceNetworkServiceAssociations
+      summary: Listservicenetworkserviceassociations
       description: >-
-        <p>Lists the associations between the service network and the service.
-        You can filter the list either by service or service network. You must
-        provide either the service network identifier or the service
-        identifier.</p> <p>Every association in Amazon VPC Lattice is given a
-        unique Amazon Resource Name (ARN), such as when a service network is
-        associated with a VPC or when a service is associated with a service
-        network. If the association is for a resource that is shared with
-        another account, the association will include the local account ID as
-        the prefix in the ARN for each account the resource is shared with.</p>
+        Lists the associations between the service network and the service. You
+        can filter the list either by service or service network. You must
+        provide either the service network identifier or the service identifier.
+        Every association in Amazon VPC Lattice is given a unique Amazon
+        Resource Name (ARN), such as when a service network is associated with a
+        VPC or when a service is associated with a service network. If the
+        association is for a resource that is shared with another account, the
+        association will include the local account ID as the prefix in the ARN
+        for each account the resource is shared with.
+      operationId: amazonWebServicesListServiceNetworkServiceAssociations
   /servicenetworkvpcassociations:
     GET:
-      summary: ListServiceNetworkVpcAssociations
+      summary: Listservicenetworkvpcassociations
       description: >-
-        <p>Lists the service network and VPC associations. You can filter the
-        list either by VPC or service network. You must provide either the
-        service network identifier or the VPC identifier.</p>
+        Lists the service network and VPC associations. You can filter the list
+        either by VPC or service network. You must provide either the service
+        network identifier or the VPC identifier.
+      operationId: amazonWebServicesListServiceNetworkVpcAssociations
   /targetgroups:
     GET:
-      summary: ListTargetGroups
+      summary: Listtargetgroups
       description: >-
-        <p>Lists your target groups. You can narrow your search by using the
-        filters below in your request.</p>
+        Lists your target groups. You can narrow your search by using the
+        filters below in your request.
+      operationId: amazonWebServicesListTargetGroups
   /accesslogsubscriptions/{accessLogSubscriptionIdentifier}:
     PATCH:
-      summary: UpdateAccessLogSubscription
-      description: <p>Updates the specified access log subscription.</p>
+      summary: Updateaccesslogsubscription
+      description: Updates the specified access log subscription.
+      operationId: amazonWebServicesUpdateAccessLogSubscription
   /authpolicy/{resourceIdentifier}:
     PUT:
-      summary: PutAuthPolicy
-      description: <p>Creates or updates the auth policy.</p>
+      summary: Putauthpolicy
+      description: Creates or updates the auth policy.
+      operationId: amazonWebServicesPutAuthPolicy
   /services/{serviceIdentifier}/listeners/{listenerIdentifier}:
     PATCH:
-      summary: UpdateListener
-      description: <p>Updates the specified listener for the specified service.</p>
+      summary: Updatelistener
+      description: Updates the specified listener for the specified service.
+      operationId: amazonWebServicesUpdateListener
   /resourcepolicy/{resourceArn}:
     PUT:
-      summary: PutResourcePolicy
+      summary: Putresourcepolicy
       description: >-
-        <p>Attaches a resource-based permission policy to a service or service
+        Attaches a resource-based permission policy to a service or service
         network. The policy must contain the same actions and condition
         statements as the Amazon Web Services Resource Access Manager permission
-        for sharing services and service networks.</p>
+        for sharing services and service networks.
+      operationId: amazonWebServicesPutResourcePolicy
   /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}:
     PATCH:
-      summary: UpdateRule
+      summary: Updaterule
       description: >-
-        <p>Updates a rule for the listener. You can't modify a default listener
-        rule. To modify a default listener rule, use
-        <code>UpdateListener</code>.</p>
+        Updates a rule for the listener. You can't modify a default listener
+        rule. To modify a default listener rule, use UpdateListener.
+      operationId: amazonWebServicesUpdateRule
   /services/{serviceIdentifier}:
     PATCH:
-      summary: UpdateService
-      description: <p>Updates the specified service.</p>
+      summary: Updateservice
+      description: Updates the specified service.
+      operationId: amazonWebServicesUpdateService
   /servicenetworks/{serviceNetworkIdentifier}:
     PATCH:
-      summary: UpdateServiceNetwork
-      description: <p>Updates the specified service network.</p>
+      summary: Updateservicenetwork
+      description: Updates the specified service network.
+      operationId: amazonWebServicesUpdateServiceNetwork
   /servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}:
     GET:
-      summary: GetServiceNetworkServiceAssociation
+      summary: Getservicenetworkserviceassociation
       description: >-
-        <p>Retrieves information about the specified association between a
-        service network and a service.</p>
+        Retrieves information about the specified association between a service
+        network and a service.
+      operationId: amazonWebServicesGetServiceNetworkServiceAssociation
   /servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}:
     PATCH:
-      summary: UpdateServiceNetworkVpcAssociation
+      summary: Updateservicenetworkvpcassociation
       description: >-
-        <p>Updates the service network and VPC association. Once you add a
-        security group, it cannot be removed.</p>
+        Updates the service network and VPC association. Once you add a security
+        group, it cannot be removed.
+      operationId: amazonWebServicesUpdateServiceNetworkVpcAssociation
   /targetgroups/{targetGroupIdentifier}:
     PATCH:
-      summary: UpdateTargetGroup
-      description: <p>Updates the specified target group.</p>
+      summary: Updatetargetgroup
+      description: Updates the specified target group.
+      operationId: amazonWebServicesUpdateTargetGroup
   /targetgroups/{targetGroupIdentifier}/deregistertargets:
     POST:
-      summary: DeregisterTargets
-      description: >-
-        <p>Deregisters the specified targets from the specified target
-        group.</p>
+      summary: Deregistertargets
+      description: Deregisters the specified targets from the specified target group.
+      operationId: amazonWebServicesDeregisterTargets
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes the specified tags from the specified resource.</p>
+      summary: Untagresource
+      description: Removes the specified tags from the specified resource.
+      operationId: amazonWebServicesUntagResource
   /targetgroups/{targetGroupIdentifier}/listtargets:
     POST:
-      summary: ListTargets
+      summary: Listtargets
       description: >-
-        <p>Lists the targets for the target group. By default, all targets are
+        Lists the targets for the target group. By default, all targets are
         included. You can use this API to check the health status of targets.
-        You can also ﬁlter the results by target. </p>
+        You can also ﬁlter the results by target. 
+      operationId: amazonWebServicesListTargets
   /targetgroups/{targetGroupIdentifier}/registertargets:
     POST:
-      summary: RegisterTargets
+      summary: Registertargets
       description: >-
-        <p>Registers the targets with the target group. If it's a Lambda target,
-        you can only have one target in a target group.</p>
+        Registers the targets with the target group. If it's a Lambda target,
+        you can only have one target in a target group.
+      operationId: amazonWebServicesRegisterTargets
 tags: []

@@ -121,97 +121,107 @@ info:
 paths:
   /CreateChatToken:
     POST:
-      summary: CreateChatToken
+      summary: Createchattoken
       description: >-
-        <p>Creates an encrypted token that is used by a chat participant to
+        Creates an encrypted token that is used by a chat participant to
         establish an individual WebSocket chat connection to a room. When the
         token is used to connect to chat, the connection is valid for the
         session duration specified in the request. The token becomes invalid at
-        the token-expiration timestamp included in the response.</p> <p>Use the
-        <code>capabilities</code> field to permit an end user to send messages
-        or moderate a room.</p> <p>The <code>attributes</code> field securely
-        attaches structured data to the chat session; the data is included
-        within each message sent by the end user and received by other
-        participants in the room. Common use cases for attributes include
-        passing end-user profile data like an icon, display name, colors,
-        badges, and other display features.</p> <p>Encryption keys are owned by
-        Amazon IVS Chat and never used directly by your application.</p>
+        the token-expiration timestamp included in the response. Use the
+        capabilities field to permit an end user to send messages or moderate a
+        room. The attributes field securely attaches structured data to the chat
+        session; the data is included within each message sent by the end user
+        and received by other participants in the room. Common use cases for
+        attributes include passing end-user profile data like an icon, display
+        name, colors, badges, and other display features. Encryption keys are
+        owned by Amazon IVS Chat and never used directly by your application.
+      operationId: amazonWebServicesCreateChatToken
   /CreateLoggingConfiguration:
     POST:
-      summary: CreateLoggingConfiguration
+      summary: Createloggingconfiguration
       description: >-
-        <p>Creates a logging configuration that allows clients to store and
-        record sent messages.</p>
+        Creates a logging configuration that allows clients to store and record
+        sent messages.
+      operationId: amazonWebServicesCreateLoggingConfiguration
   /CreateRoom:
     POST:
-      summary: CreateRoom
-      description: <p>Creates a room that allows clients to connect and pass messages.</p>
+      summary: Createroom
+      description: Creates a room that allows clients to connect and pass messages.
+      operationId: amazonWebServicesCreateRoom
   /DeleteLoggingConfiguration:
     POST:
-      summary: DeleteLoggingConfiguration
-      description: <p>Deletes the specified logging configuration.</p>
+      summary: Deleteloggingconfiguration
+      description: Deletes the specified logging configuration.
+      operationId: amazonWebServicesDeleteLoggingConfiguration
   /DeleteMessage:
     POST:
-      summary: DeleteMessage
+      summary: Deletemessage
       description: >-
-        <p>Sends an event to a specific room which directs clients to delete a
+        Sends an event to a specific room which directs clients to delete a
         specific message; that is, unrender it from view and delete it from the
-        client’s chat history. This event’s <code>EventName</code> is
-        <code>aws:DELETE_MESSAGE</code>. This replicates the <a
-        href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
-        DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging
-        API.</p>
+        client’s chat history. This event’s EventName is aws:DELETE_MESSAGE.
+        This replicates the  DeleteMessage WebSocket operation in the Amazon IVS
+        Chat Messaging API.
+      operationId: amazonWebServicesDeleteMessage
   /DeleteRoom:
     POST:
-      summary: DeleteRoom
-      description: <p>Deletes the specified room.</p>
+      summary: Deleteroom
+      description: Deletes the specified room.
+      operationId: amazonWebServicesDeleteRoom
   /DisconnectUser:
     POST:
-      summary: DisconnectUser
+      summary: Disconnectuser
       description: >-
-        <p>Disconnects all connections using a specified user ID from a room.
-        This replicates the <a
-        href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
-        DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging
-        API.</p>
+        Disconnects all connections using a specified user ID from a room. This
+        replicates the  DisconnectUser WebSocket operation in the Amazon IVS
+        Chat Messaging API.
+      operationId: amazonWebServicesDisconnectUser
   /GetLoggingConfiguration:
     POST:
-      summary: GetLoggingConfiguration
-      description: <p>Gets the specified logging configuration.</p>
+      summary: Getloggingconfiguration
+      description: Gets the specified logging configuration.
+      operationId: amazonWebServicesGetLoggingConfiguration
   /GetRoom:
     POST:
-      summary: GetRoom
-      description: <p>Gets the specified room.</p>
+      summary: Getroom
+      description: Gets the specified room.
+      operationId: amazonWebServicesGetRoom
   /ListLoggingConfigurations:
     POST:
-      summary: ListLoggingConfigurations
+      summary: Listloggingconfigurations
       description: >-
-        <p>Gets summary information about all your logging configurations in the
-        AWS region where the API request is processed.</p>
+        Gets summary information about all your logging configurations in the
+        AWS region where the API request is processed.
+      operationId: amazonWebServicesListLoggingConfigurations
   /ListRooms:
     POST:
-      summary: ListRooms
+      summary: Listrooms
       description: >-
-        <p>Gets summary information about all your rooms in the AWS region where
+        Gets summary information about all your rooms in the AWS region where
         the API request is processed. Results are sorted in descending order of
-        <code>updateTime</code>.</p>
+        updateTime.
+      operationId: amazonWebServicesListRooms
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes tags from the resource with the specified ARN.</p>
+      summary: Untagresource
+      description: Removes tags from the resource with the specified ARN.
+      operationId: amazonWebServicesUntagResource
   /SendEvent:
     POST:
-      summary: SendEvent
+      summary: Sendevent
       description: >-
-        <p>Sends an event to a room. Use this within your application’s business
+        Sends an event to a room. Use this within your application’s business
         logic to send events to clients of a room; e.g., to notify clients to
-        change the way the chat UI is rendered.</p>
+        change the way the chat UI is rendered.
+      operationId: amazonWebServicesSendEvent
   /UpdateLoggingConfiguration:
     POST:
-      summary: UpdateLoggingConfiguration
-      description: <p>Updates a specified logging configuration.</p>
+      summary: Updateloggingconfiguration
+      description: Updates a specified logging configuration.
+      operationId: amazonWebServicesUpdateLoggingConfiguration
   /UpdateRoom:
     POST:
-      summary: UpdateRoom
-      description: <p>Updates a room’s configuration.</p>
+      summary: Updateroom
+      description: Updates a room’s configuration.
+      operationId: amazonWebServicesUpdateRoom
 tags: []

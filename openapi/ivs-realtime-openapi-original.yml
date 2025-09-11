@@ -95,147 +95,168 @@ info:
 paths:
   /CreateEncoderConfiguration:
     POST:
-      summary: CreateEncoderConfiguration
-      description: <p>Creates an EncoderConfiguration object.</p>
+      summary: Createencoderconfiguration
+      description: Creates an EncoderConfiguration object.
+      operationId: amazonWebServicesCreateEncoderConfiguration
   /CreateParticipantToken:
     POST:
-      summary: CreateParticipantToken
+      summary: Createparticipanttoken
       description: >-
-        <p>Creates an additional token for a specified stage. This can be done
+        Creates an additional token for a specified stage. This can be done
         after stage creation or when tokens expire. Tokens always are scoped to
-        the stage for which they are created.</p> <p>Encryption keys are owned
-        by Amazon IVS and never used directly by your application.</p>
+        the stage for which they are created. Encryption keys are owned by
+        Amazon IVS and never used directly by your application.
+      operationId: amazonWebServicesCreateParticipantToken
   /CreateStage:
     POST:
-      summary: CreateStage
-      description: <p>Creates a new stage (and optionally participant tokens).</p>
+      summary: Createstage
+      description: Creates a new stage (and optionally participant tokens).
+      operationId: amazonWebServicesCreateStage
   /CreateStorageConfiguration:
     POST:
-      summary: CreateStorageConfiguration
+      summary: Createstorageconfiguration
       description: >-
-        <p>Creates a new storage configuration, used to enable recording to
-        Amazon S3. When a StorageConfiguration is created, IVS will modify the
-        S3 bucketPolicy of the provided bucket. This will ensure that IVS has
-        sufficient permissions to write content to the provided bucket.</p>
+        Creates a new storage configuration, used to enable recording to Amazon
+        S3. When a StorageConfiguration is created, IVS will modify the S3
+        bucketPolicy of the provided bucket. This will ensure that IVS has
+        sufficient permissions to write content to the provided bucket.
+      operationId: amazonWebServicesCreateStorageConfiguration
   /DeleteEncoderConfiguration:
     POST:
-      summary: DeleteEncoderConfiguration
+      summary: Deleteencoderconfiguration
       description: >-
-        <p>Deletes an EncoderConfiguration resource. Ensures that no
-        Compositions are using this template; otherwise, returns an error.</p>
+        Deletes an EncoderConfiguration resource. Ensures that no Compositions
+        are using this template; otherwise, returns an error.
+      operationId: amazonWebServicesDeleteEncoderConfiguration
   /DeleteStage:
     POST:
-      summary: DeleteStage
+      summary: Deletestage
       description: >-
-        <p>Shuts down and deletes the specified stage (disconnecting all
-        participants).</p>
+        Shuts down and deletes the specified stage (disconnecting all
+        participants).
+      operationId: amazonWebServicesDeleteStage
   /DeleteStorageConfiguration:
     POST:
-      summary: DeleteStorageConfiguration
+      summary: Deletestorageconfiguration
       description: >-
-        <p>Deletes the storage configuration for the specified ARN.</p> <p>If
-        you try to delete a storage configuration that is used by a Composition,
-        you will get an error (409 ConflictException). To avoid this, for all
+        Deletes the storage configuration for the specified ARN. If you try to
+        delete a storage configuration that is used by a Composition, you will
+        get an error (409 ConflictException). To avoid this, for all
         Compositions that reference the storage configuration, first use
-        <a>StopComposition</a> and wait for it to complete, then use
-        DeleteStorageConfiguration.</p>
+        StopComposition and wait for it to complete, then use
+        DeleteStorageConfiguration.
+      operationId: amazonWebServicesDeleteStorageConfiguration
   /DisconnectParticipant:
     POST:
-      summary: DisconnectParticipant
+      summary: Disconnectparticipant
       description: >-
-        <p>Disconnects a specified participant and revokes the participant
-        permanently from a specified stage.</p>
+        Disconnects a specified participant and revokes the participant
+        permanently from a specified stage.
+      operationId: amazonWebServicesDisconnectParticipant
   /GetComposition:
     POST:
-      summary: GetComposition
-      description: <p>Get information about the specified Composition resource.</p>
+      summary: Getcomposition
+      description: Get information about the specified Composition resource.
+      operationId: amazonWebServicesGetComposition
   /GetEncoderConfiguration:
     POST:
-      summary: GetEncoderConfiguration
-      description: >-
-        <p>Gets information about the specified EncoderConfiguration resource.
-        </p>
+      summary: Getencoderconfiguration
+      description: 'Gets information about the specified EncoderConfiguration resource. '
+      operationId: amazonWebServicesGetEncoderConfiguration
   /GetParticipant:
     POST:
-      summary: GetParticipant
-      description: <p>Gets information about the specified participant token.</p>
+      summary: Getparticipant
+      description: Gets information about the specified participant token.
+      operationId: amazonWebServicesGetParticipant
   /GetStage:
     POST:
-      summary: GetStage
-      description: <p>Gets information for the specified stage.</p>
+      summary: Getstage
+      description: Gets information for the specified stage.
+      operationId: amazonWebServicesGetStage
   /GetStageSession:
     POST:
-      summary: GetStageSession
-      description: <p>Gets information for the specified stage session.</p>
+      summary: Getstagesession
+      description: Gets information for the specified stage session.
+      operationId: amazonWebServicesGetStageSession
   /GetStorageConfiguration:
     POST:
-      summary: GetStorageConfiguration
-      description: <p>Gets the storage configuration for the specified ARN.</p>
+      summary: Getstorageconfiguration
+      description: Gets the storage configuration for the specified ARN.
+      operationId: amazonWebServicesGetStorageConfiguration
   /ListCompositions:
     POST:
-      summary: ListCompositions
+      summary: Listcompositions
       description: >-
-        <p>Gets summary information about all Compositions in your account, in
-        the AWS region where the API request is processed. </p>
+        Gets summary information about all Compositions in your account, in the
+        AWS region where the API request is processed. 
+      operationId: amazonWebServicesListCompositions
   /ListEncoderConfigurations:
     POST:
-      summary: ListEncoderConfigurations
+      summary: Listencoderconfigurations
       description: >-
-        <p>Gets summary information about all EncoderConfigurations in your
-        account, in the AWS region where the API request is processed.</p>
+        Gets summary information about all EncoderConfigurations in your
+        account, in the AWS region where the API request is processed.
+      operationId: amazonWebServicesListEncoderConfigurations
   /ListParticipantEvents:
     POST:
-      summary: ListParticipantEvents
+      summary: Listparticipantevents
       description: >-
-        <p>Lists events for a specified participant that occurred during a
-        specified stage session.</p>
+        Lists events for a specified participant that occurred during a
+        specified stage session.
+      operationId: amazonWebServicesListParticipantEvents
   /ListParticipants:
     POST:
-      summary: ListParticipants
-      description: <p>Lists all participants in a specified stage session.</p>
+      summary: Listparticipants
+      description: Lists all participants in a specified stage session.
+      operationId: amazonWebServicesListParticipants
   /ListStageSessions:
     POST:
-      summary: ListStageSessions
-      description: <p>Gets all sessions for a specified stage.</p>
+      summary: Liststagesessions
+      description: Gets all sessions for a specified stage.
+      operationId: amazonWebServicesListStageSessions
   /ListStages:
     POST:
-      summary: ListStages
+      summary: Liststages
       description: >-
-        <p>Gets summary information about all stages in your account, in the AWS
-        region where the API request is processed.</p>
+        Gets summary information about all stages in your account, in the AWS
+        region where the API request is processed.
+      operationId: amazonWebServicesListStages
   /ListStorageConfigurations:
     POST:
-      summary: ListStorageConfigurations
+      summary: Liststorageconfigurations
       description: >-
-        <p>Gets summary information about all storage configurations in your
-        account, in the AWS region where the API request is processed.</p>
+        Gets summary information about all storage configurations in your
+        account, in the AWS region where the API request is processed.
+      operationId: amazonWebServicesListStorageConfigurations
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes tags from the resource with the specified ARN.</p>
+      summary: Untagresource
+      description: Removes tags from the resource with the specified ARN.
+      operationId: amazonWebServicesUntagResource
   /StartComposition:
     POST:
-      summary: StartComposition
+      summary: Startcomposition
       description: >-
-        <p>Starts a Composition from a stage based on the configuration provided
-        in the request.</p> <p>A Composition is an ephemeral resource that
-        exists after this endpoint returns successfully. Composition stops and
-        the resource is deleted:</p> <ul> <li> <p>When <a>StopComposition</a> is
-        called.</p> </li> <li> <p>After a 1-minute timeout, when all
-        participants are disconnected from the stage.</p> </li> <li> <p>After a
-        1-minute timeout, if there are no participants in the stage when
-        StartComposition is called.</p> </li> <li> <p>When broadcasting to the
-        IVS channel fails and all retries are exhausted.</p> </li> <li> <p>When
-        broadcasting is disconnected and all attempts to reconnect are
-        exhausted.</p> </li> </ul>
+        Starts a Composition from a stage based on the configuration provided in
+        the request. A Composition is an ephemeral resource that exists after
+        this endpoint returns successfully. Composition stops and the resource
+        is deleted:   When StopComposition is called.   After a 1-minute
+        timeout, when all participants are disconnected from the stage.   After
+        a 1-minute timeout, if there are no participants in the stage when
+        StartComposition is called.   When broadcasting to the IVS channel fails
+        and all retries are exhausted.   When broadcasting is disconnected and
+        all attempts to reconnect are exhausted.  
+      operationId: amazonWebServicesStartComposition
   /StopComposition:
     POST:
-      summary: StopComposition
+      summary: Stopcomposition
       description: >-
-        <p>Stops and deletes a Composition resource. Any broadcast from the
-        Composition resource is stopped.</p>
+        Stops and deletes a Composition resource. Any broadcast from the
+        Composition resource is stopped.
+      operationId: amazonWebServicesStopComposition
   /UpdateStage:
     POST:
-      summary: UpdateStage
-      description: <p>Updates a stage’s configuration.</p>
+      summary: Updatestage
+      description: Updates a stage’s configuration.
+      operationId: amazonWebServicesUpdateStage
 tags: []

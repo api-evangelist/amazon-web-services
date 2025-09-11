@@ -37,118 +37,127 @@ info:
 paths:
   /applications:
     GET:
-      summary: ListApplications
-      description: <p>Lists all applications in your Amazon Web Services account.</p>
+      summary: Listapplications
+      description: Lists all applications in your Amazon Web Services account.
+      operationId: amazonWebServicesListApplications
   /applications/{ApplicationId}/configurationprofiles:
     GET:
-      summary: ListConfigurationProfiles
-      description: <p>Lists the configuration profiles for an application.</p>
+      summary: Listconfigurationprofiles
+      description: Lists the configuration profiles for an application.
+      operationId: amazonWebServicesListConfigurationProfiles
   /deploymentstrategies:
     GET:
-      summary: ListDeploymentStrategies
-      description: <p>Lists deployment strategies.</p>
+      summary: Listdeploymentstrategies
+      description: Lists deployment strategies.
+      operationId: amazonWebServicesListDeploymentStrategies
   /applications/{ApplicationId}/environments:
     GET:
-      summary: ListEnvironments
-      description: <p>Lists the environments for an application.</p>
+      summary: Listenvironments
+      description: Lists the environments for an application.
+      operationId: amazonWebServicesListEnvironments
   /extensions:
     GET:
-      summary: ListExtensions
+      summary: Listextensions
       description: >-
-        <p>Lists all custom and Amazon Web Services authored AppConfig
-        extensions in the account. For more information about extensions, see <a
-        href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-        with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.</p>
+        Lists all custom and Amazon Web Services authored AppConfig extensions
+        in the account. For more information about extensions, see Working with
+        AppConfig extensions in the AppConfig User Guide.
+      operationId: amazonWebServicesListExtensions
   /extensionassociations:
     GET:
-      summary: ListExtensionAssociations
+      summary: Listextensionassociations
       description: >-
-        <p>Lists all AppConfig extension associations in the account. For more
-        information about extensions and associations, see <a
-        href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-        with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.</p>
+        Lists all AppConfig extension associations in the account. For more
+        information about extensions and associations, see Working with
+        AppConfig extensions in the AppConfig User Guide.
+      operationId: amazonWebServicesListExtensionAssociations
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions:
     GET:
-      summary: ListHostedConfigurationVersions
+      summary: Listhostedconfigurationversions
       description: >-
-        <p>Lists configurations stored in the AppConfig hosted configuration
-        store by version.</p>
+        Lists configurations stored in the AppConfig hosted configuration store
+        by version.
+      operationId: amazonWebServicesListHostedConfigurationVersions
   /applications/{ApplicationId}:
     PATCH:
-      summary: UpdateApplication
-      description: <p>Updates an application.</p>
+      summary: Updateapplication
+      description: Updates an application.
+      operationId: amazonWebServicesUpdateApplication
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}:
     PATCH:
-      summary: UpdateConfigurationProfile
-      description: <p>Updates a configuration profile.</p>
+      summary: Updateconfigurationprofile
+      description: Updates a configuration profile.
+      operationId: amazonWebServicesUpdateConfigurationProfile
   /deployementstrategies/{DeploymentStrategyId}:
     DELETE:
-      summary: DeleteDeploymentStrategy
+      summary: Deletedeploymentstrategy
       description: >-
-        <p>Deletes a deployment strategy. Deleting a deployment strategy does
-        not delete a configuration from a host.</p>
+        Deletes a deployment strategy. Deleting a deployment strategy does not
+        delete a configuration from a host.
+      operationId: amazonWebServicesDeleteDeploymentStrategy
   /applications/{ApplicationId}/environments/{EnvironmentId}:
     PATCH:
-      summary: UpdateEnvironment
-      description: <p>Updates an environment.</p>
+      summary: Updateenvironment
+      description: Updates an environment.
+      operationId: amazonWebServicesUpdateEnvironment
   /extensions/{ExtensionIdentifier}:
     PATCH:
-      summary: UpdateExtension
+      summary: Updateextension
       description: >-
-        <p>Updates an AppConfig extension. For more information about
-        extensions, see <a
-        href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-        with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.</p>
+        Updates an AppConfig extension. For more information about extensions,
+        see Working with AppConfig extensions in the AppConfig User Guide.
+      operationId: amazonWebServicesUpdateExtension
   /extensionassociations/{ExtensionAssociationId}:
     PATCH:
-      summary: UpdateExtensionAssociation
+      summary: Updateextensionassociation
       description: >-
-        <p>Updates an association. For more information about extensions and
-        associations, see <a
-        href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-        with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.</p>
+        Updates an association. For more information about extensions and
+        associations, see Working with AppConfig extensions in the AppConfig
+        User Guide.
+      operationId: amazonWebServicesUpdateExtensionAssociation
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}:
     GET:
-      summary: GetHostedConfigurationVersion
-      description: <p>Retrieves information about a specific configuration version.</p>
+      summary: Gethostedconfigurationversion
+      description: Retrieves information about a specific configuration version.
+      operationId: amazonWebServicesGetHostedConfigurationVersion
   /applications/{Application}/environments/{Environment}/configurations/{Configuration}:
     GET:
-      summary: GetConfiguration
+      summary: Getconfiguration
       description: >-
-        <p>(Deprecated) Retrieves the latest deployed configuration.</p>
-        <important> <p>Note the following important information.</p> <ul> <li>
-        <p>This API action is deprecated. Calls to receive configuration data
-        should use the <a
-        href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a>
-        and <a
-        href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a>
-        APIs instead. </p> </li> <li> <p> <code>GetConfiguration</code> is a
-        priced call. For more information, see <a
-        href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
-        </li> </ul> </important>
+        (Deprecated) Retrieves the latest deployed configuration.  Note the
+        following important information.   This API action is deprecated. Calls
+        to receive configuration data should use the StartConfigurationSession
+        and GetLatestConfiguration APIs instead.     GetConfiguration is a
+        priced call. For more information, see Pricing.   
+      operationId: amazonWebServicesGetConfiguration
   /applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}:
     DELETE:
-      summary: StopDeployment
+      summary: Stopdeployment
       description: >-
-        <p>Stops a deployment. This API action works only on deployments that
-        have a status of <code>DEPLOYING</code>. This action moves the
-        deployment to a status of <code>ROLLED_BACK</code>.</p>
+        Stops a deployment. This API action works only on deployments that have
+        a status of DEPLOYING. This action moves the deployment to a status of
+        ROLLED_BACK.
+      operationId: amazonWebServicesStopDeployment
   /deploymentstrategies/{DeploymentStrategyId}:
     PATCH:
-      summary: UpdateDeploymentStrategy
-      description: <p>Updates a deployment strategy.</p>
+      summary: Updatedeploymentstrategy
+      description: Updates a deployment strategy.
+      operationId: amazonWebServicesUpdateDeploymentStrategy
   /applications/{ApplicationId}/environments/{EnvironmentId}/deployments:
     POST:
-      summary: StartDeployment
-      description: <p>Starts a deployment.</p>
+      summary: Startdeployment
+      description: Starts a deployment.
+      operationId: amazonWebServicesStartDeployment
   /tags/{ResourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Deletes a tag key and value from an AppConfig resource.</p>
+      summary: Untagresource
+      description: Deletes a tag key and value from an AppConfig resource.
+      operationId: amazonWebServicesUntagResource
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators:
     POST:
-      summary: ValidateConfiguration
+      summary: Validateconfiguration
       description: >-
-        <p>Uses the validators in a configuration profile to validate a
-        configuration.</p>
+        Uses the validators in a configuration profile to validate a
+        configuration.
+      operationId: amazonWebServicesValidateConfiguration
 tags: []

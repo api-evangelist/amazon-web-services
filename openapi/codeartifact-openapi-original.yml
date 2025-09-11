@@ -142,275 +142,164 @@ info:
 paths:
   /v1/repository/external-connection:
     DELETE:
-      summary: DisassociateExternalConnection
-      description: <p> Removes an existing external connection from a repository. </p>
+      summary: Disassociateexternalconnection
+      description: ' Removes an existing external connection from a repository. '
+      operationId: amazonWebServicesDisassociateExternalConnection
   /v1/package/versions/copy:
     POST:
-      summary: CopyPackageVersions
-      description: >-
-        <p> Copies package versions from one repository to another repository in
-        the same domain. </p> <note> <p> You must specify <code>versions</code>
-        or <code>versionRevisions</code>. You cannot specify both. </p> </note>
+      summary: Copypackageversions
+      description: ' Copies package versions from one repository to another repository in the same domain.    You must specify versions or versionRevisions. You cannot specify both.  '
+      operationId: amazonWebServicesCopyPackageVersions
   /v1/domain:
     GET:
-      summary: DescribeDomain
-      description: >-
-        <p> Returns a <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
-        object that contains information about the requested domain. </p>
+      summary: Describedomain
+      description: ' Returns a DomainDescription object that contains information about the requested domain. '
+      operationId: amazonWebServicesDescribeDomain
   /v1/repository:
     PUT:
-      summary: UpdateRepository
-      description: <p> Update the properties of a repository. </p>
+      summary: Updaterepository
+      description: ' Update the properties of a repository. '
+      operationId: amazonWebServicesUpdateRepository
   /v1/domain/permissions/policy:
     PUT:
-      summary: PutDomainPermissionsPolicy
-      description: >-
-        <p> Sets a resource policy on a domain that specifies permissions to
-        access it. </p> <p> When you call
-        <code>PutDomainPermissionsPolicy</code>, the resource policy on the
-        domain is ignored when evaluting permissions. This ensures that the
-        owner of a domain cannot lock themselves out of the domain, which would
-        prevent them from being able to update the resource policy. </p>
+      summary: Putdomainpermissionspolicy
+      description: ' Sets a resource policy on a domain that specifies permissions to access it.   When you call PutDomainPermissionsPolicy, the resource policy on the domain is ignored when evaluting permissions. This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being able to update the resource policy. '
+      operationId: amazonWebServicesPutDomainPermissionsPolicy
   /v1/package:
     POST:
-      summary: PutPackageOriginConfiguration
+      summary: Putpackageoriginconfiguration
       description: >-
-        <p>Sets the package origin configuration for a package.</p> <p>The
-        package origin configuration determines how new versions of a package
-        can be added to a repository. You can allow or block direct publishing
-        of new package versions, or ingestion and retaining of new package
-        versions from an external connection or upstream source. For more
-        information about package origin controls and configuration, see <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-origin-controls.html">Editing
-        package origin controls</a> in the <i>CodeArtifact User Guide</i>.</p>
-        <p> <code>PutPackageOriginConfiguration</code> can be called on a
-        package that doesn't yet exist in the repository. When called on a
-        package that does not exist, a package is created in the repository with
-        no versions and the requested restrictions are set on the package. This
-        can be used to preemptively block ingesting or retaining any versions
-        from external connections or upstream repositories, or to block
-        publishing any versions of the package into the repository before
-        connecting any package managers or publishers to the repository.</p>
+        Sets the package origin configuration for a package. The package origin
+        configuration determines how new versions of a package can be added to a
+        repository. You can allow or block direct publishing of new package
+        versions, or ingestion and retaining of new package versions from an
+        external connection or upstream source. For more information about
+        package origin controls and configuration, see Editing package origin
+        controls in the CodeArtifact User Guide.  PutPackageOriginConfiguration
+        can be called on a package that doesn't yet exist in the repository.
+        When called on a package that does not exist, a package is created in
+        the repository with no versions and the requested restrictions are set
+        on the package. This can be used to preemptively block ingesting or
+        retaining any versions from external connections or upstream
+        repositories, or to block publishing any versions of the package into
+        the repository before connecting any package managers or publishers to
+        the repository.
+      operationId: amazonWebServicesPutPackageOriginConfiguration
   /v1/package/versions/delete:
     POST:
-      summary: DeletePackageVersions
-      description: >-
-        <p> Deletes one or more versions of a package. A deleted package version
-        cannot be restored in your repository. If you want to remove a package
-        version from your repository and be able to restore it later, set its
-        status to <code>Archived</code>. Archived packages cannot be downloaded
-        from a repository and don't show up with list package APIs (for example,
-        <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>),
-        but you can restore them using <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>.
-        </p>
+      summary: Deletepackageversions
+      description: ' Deletes one or more versions of a package. A deleted package version cannot be restored in your repository. If you want to remove a package version from your repository and be able to restore it later, set its status to Archived. Archived packages cannot be downloaded from a repository and don''t show up with list package APIs (for example, ListPackageVersions), but you can restore them using UpdatePackageVersionsStatus. '
+      operationId: amazonWebServicesDeletePackageVersions
   /v1/repository/permissions/policies:
     DELETE:
-      summary: DeleteRepositoryPermissionsPolicy
-      description: >-
-        <p> Deletes the resource policy that is set on a repository. After a
-        resource policy is deleted, the permissions allowed and denied by the
-        deleted policy are removed. The effect of deleting a resource policy
-        might not be immediate. </p> <important> <p> Use
-        <code>DeleteRepositoryPermissionsPolicy</code> with caution. After a
-        policy is deleted, Amazon Web Services users, roles, and accounts lose
-        permissions to perform the repository actions granted by the deleted
-        policy. </p> </important>
+      summary: Deleterepositorypermissionspolicy
+      description: ' Deletes the resource policy that is set on a repository. After a resource policy is deleted, the permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.    Use DeleteRepositoryPermissionsPolicy with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform the repository actions granted by the deleted policy.  '
+      operationId: amazonWebServicesDeleteRepositoryPermissionsPolicy
   /v1/package/version:
     GET:
-      summary: DescribePackageVersion
-      description: >-
-        <p> Returns a <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
-        object that contains information about the requested package version.
-        </p>
+      summary: Describepackageversion
+      description: ' Returns a PackageVersionDescription object that contains information about the requested package version. '
+      operationId: amazonWebServicesDescribePackageVersion
   /v1/package/versions/dispose:
     POST:
-      summary: DisposePackageVersions
-      description: >-
-        <p> Deletes the assets in package versions and sets the package
-        versions' status to <code>Disposed</code>. A disposed package version
-        cannot be restored in your repository because its assets are deleted.
-        </p> <p> To view all disposed package versions in a repository, use <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
-        and set the <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a>
-        parameter to <code>Disposed</code>. </p> <p> To view information about a
-        disposed package version, use <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
-        </p>
+      summary: Disposepackageversions
+      description: ' Deletes the assets in package versions and sets the package versions'' status to Disposed. A disposed package version cannot be restored in your repository because its assets are deleted.   To view all disposed package versions in a repository, use ListPackageVersions and set the status parameter to Disposed.   To view information about a disposed package version, use DescribePackageVersion. '
+      operationId: amazonWebServicesDisposePackageVersions
   /v1/authorization-token:
     POST:
-      summary: GetAuthorizationToken
-      description: >-
-        <p> Generates a temporary authorization token for accessing repositories
-        in the domain. This API requires the
-        <code>codeartifact:GetAuthorizationToken</code> and
-        <code>sts:GetServiceBearerToken</code> permissions. For more information
-        about authorization tokens, see <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">CodeArtifact
-        authentication and tokens</a>. </p> <note> <p>CodeArtifact authorization
-        tokens are valid for a period of 12 hours when created with the
-        <code>login</code> command. You can call <code>login</code> periodically
-        to refresh the token. When you create an authorization token with the
-        <code>GetAuthorizationToken</code> API, you can set a custom
-        authorization period, up to a maximum of 12 hours, with the
-        <code>durationSeconds</code> parameter.</p> <p>The authorization period
-        begins after <code>login</code> or <code>GetAuthorizationToken</code> is
-        called. If <code>login</code> or <code>GetAuthorizationToken</code> is
-        called while assuming a role, the token lifetime is independent of the
-        maximum session duration of the role. For example, if you call <code>sts
-        assume-role</code> and specify a session duration of 15 minutes, then
-        generate a CodeArtifact authorization token, the token will be valid for
-        the full authorization period even though this is longer than the
-        15-minute session duration.</p> <p>See <a
-        href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using
-        IAM Roles</a> for more information on controlling session duration. </p>
-        </note>
+      summary: Getauthorizationtoken
+      description: ' Generates a temporary authorization token for accessing repositories in the domain. This API requires the codeartifact:GetAuthorizationToken and sts:GetServiceBearerToken permissions. For more information about authorization tokens, see CodeArtifact authentication and tokens.   CodeArtifact authorization tokens are valid for a period of 12 hours when created with the login command. You can call login periodically to refresh the token. When you create an authorization token with the GetAuthorizationToken API, you can set a custom authorization period, up to a maximum of 12 hours, with the durationSeconds parameter. The authorization period begins after login or GetAuthorizationToken is called. If login or GetAuthorizationToken is called while assuming a role, the token lifetime is independent of the maximum session duration of the role. For example, if you call sts assume-role and specify a session duration of 15 minutes, then generate a CodeArtifact authorization token, the token will be valid for the full authorization period even though this is longer than the 15-minute session duration. See Using IAM Roles for more information on controlling session duration.  '
+      operationId: amazonWebServicesGetAuthorizationToken
   /v1/package/version/asset:
     GET:
-      summary: GetPackageVersionAsset
-      description: >-
-        <p> Returns an asset (or file) that is in a package. For example, for a
-        Maven package version, use <code>GetPackageVersionAsset</code> to
-        download a <code>JAR</code> file, a <code>POM</code> file, or any other
-        assets in the package version. </p>
+      summary: Getpackageversionasset
+      description: ' Returns an asset (or file) that is in a package. For example, for a Maven package version, use GetPackageVersionAsset to download a JAR file, a POM file, or any other assets in the package version. '
+      operationId: amazonWebServicesGetPackageVersionAsset
   /v1/package/version/readme:
     GET:
-      summary: GetPackageVersionReadme
-      description: >-
-        <p> Gets the readme file or descriptive text for a package version. </p>
-        <p> The returned text might contain formatting. For example, it might
-        contain formatting for Markdown or reStructuredText. </p>
+      summary: Getpackageversionreadme
+      description: ' Gets the readme file or descriptive text for a package version.   The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText. '
+      operationId: amazonWebServicesGetPackageVersionReadme
   /v1/repository/endpoint:
     GET:
-      summary: GetRepositoryEndpoint
-      description: >-
-        <p> Returns the endpoint of a repository for a specific package format.
-        A repository has one endpoint for each package format: </p> <ul> <li>
-        <p> <code>maven</code> </p> </li> <li> <p> <code>npm</code> </p> </li>
-        <li> <p> <code>nuget</code> </p> </li> <li> <p> <code>pypi</code> </p>
-        </li> </ul>
+      summary: Getrepositoryendpoint
+      description: ' Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each package format:     maven     npm     nuget     pypi   '
+      operationId: amazonWebServicesGetRepositoryEndpoint
   /v1/repository/permissions/policy:
     PUT:
-      summary: PutRepositoryPermissionsPolicy
-      description: >-
-        <p> Sets the resource policy on a repository that specifies permissions
-        to access it. </p> <p> When you call
-        <code>PutRepositoryPermissionsPolicy</code>, the resource policy on the
-        repository is ignored when evaluting permissions. This ensures that the
-        owner of a repository cannot lock themselves out of the repository,
-        which would prevent them from being able to update the resource policy.
-        </p>
+      summary: Putrepositorypermissionspolicy
+      description: ' Sets the resource policy on a repository that specifies permissions to access it.   When you call PutRepositoryPermissionsPolicy, the resource policy on the repository is ignored when evaluting permissions. This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being able to update the resource policy. '
+      operationId: amazonWebServicesPutRepositoryPermissionsPolicy
   /v1/domains:
     POST:
-      summary: ListDomains
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a>
-        objects for all domains owned by the Amazon Web Services account that
-        makes this call. Each returned <code>DomainSummary</code> object
-        contains information about a domain. </p>
+      summary: Listdomains
+      description: ' Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes this call. Each returned DomainSummary object contains information about a domain. '
+      operationId: amazonWebServicesListDomains
   /v1/package/version/assets:
     POST:
-      summary: ListPackageVersionAssets
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
-        objects for assets in a package version. </p>
+      summary: Listpackageversionassets
+      description: ' Returns a list of AssetSummary objects for assets in a package version. '
+      operationId: amazonWebServicesListPackageVersionAssets
   /v1/package/version/dependencies:
     POST:
-      summary: ListPackageVersionDependencies
-      description: >-
-        <p> Returns the direct dependencies for a package version. The
-        dependencies are returned as <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
-        objects. CodeArtifact extracts the dependencies for a package version
-        from the metadata file for the package format (for example, the
-        <code>package.json</code> file for npm packages and the
-        <code>pom.xml</code> file for Maven). Any package version dependencies
-        that are not listed in the configuration file are not returned. </p>
+      summary: Listpackageversiondependencies
+      description: ' Returns the direct dependencies for a package version. The dependencies are returned as PackageDependency objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package format (for example, the package.json file for npm packages and the pom.xml file for Maven). Any package version dependencies that are not listed in the configuration file are not returned. '
+      operationId: amazonWebServicesListPackageVersionDependencies
   /v1/package/versions:
     POST:
-      summary: ListPackageVersions
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
-        objects for package versions in a repository that match the request
-        parameters. Package versions of all statuses will be returned by default
-        when calling <code>list-package-versions</code> with no
-        <code>--status</code> parameter. </p>
+      summary: Listpackageversions
+      description: ' Returns a list of PackageVersionSummary objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling list-package-versions with no --status parameter. '
+      operationId: amazonWebServicesListPackageVersions
   /v1/packages:
     POST:
-      summary: ListPackages
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
-        objects for packages in a repository that match the request parameters.
-        </p>
+      summary: Listpackages
+      description: ' Returns a list of PackageSummary objects for packages in a repository that match the request parameters. '
+      operationId: amazonWebServicesListPackages
   /v1/repositories:
     POST:
-      summary: ListRepositories
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
-        objects. Each <code>RepositorySummary</code> contains information about
-        a repository in the specified Amazon Web Services account and that
-        matches the input parameters. </p>
+      summary: Listrepositories
+      description: ' Returns a list of RepositorySummary objects. Each RepositorySummary contains information about a repository in the specified Amazon Web Services account and that matches the input parameters. '
+      operationId: amazonWebServicesListRepositories
   /v1/domain/repositories:
     POST:
-      summary: ListRepositoriesInDomain
-      description: >-
-        <p> Returns a list of <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
-        objects. Each <code>RepositorySummary</code> contains information about
-        a repository in the specified domain and that matches the input
-        parameters. </p>
+      summary: Listrepositoriesindomain
+      description: ' Returns a list of RepositorySummary objects. Each RepositorySummary contains information about a repository in the specified domain and that matches the input parameters. '
+      operationId: amazonWebServicesListRepositoriesInDomain
   /v1/tags:
     POST:
-      summary: ListTagsForResource
+      summary: Listtagsforresource
       description: >-
-        <p>Gets information about Amazon Web Services tags for a specified
-        Amazon Resource Name (ARN) in CodeArtifact.</p>
+        Gets information about Amazon Web Services tags for a specified Amazon
+        Resource Name (ARN) in CodeArtifact.
+      operationId: amazonWebServicesListTagsForResource
   /v1/package/version/publish:
     POST:
-      summary: PublishPackageVersion
+      summary: Publishpackageversion
       description: >-
-        <p>Creates a new package version containing one or more assets (or
-        files).</p> <p>The <code>unfinished</code> flag can be used to keep the
-        package version in the <code>Unfinished</code> state until all of its
-        assets have been uploaded (see <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package
-        version status</a> in the <i>CodeArtifact user guide</i>). To set the
-        package version’s status to <code>Published</code>, omit the
-        <code>unfinished</code> flag when uploading the final asset, or set the
-        status using <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionStatus</a>.
-        Once a package version’s status is set to <code>Published</code>, it
-        cannot change back to <code>Unfinished</code>.</p> <note> <p>Only
-        generic packages can be published using this API. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html">Using
-        generic packages</a> in the <i>CodeArtifact User Guide</i>.</p> </note>
+        Creates a new package version containing one or more assets (or files).
+        The unfinished flag can be used to keep the package version in the
+        Unfinished state until all of its assets have been uploaded (see Package
+        version status in the CodeArtifact user guide). To set the package
+        version’s status to Published, omit the unfinished flag when uploading
+        the final asset, or set the status using UpdatePackageVersionStatus.
+        Once a package version’s status is set to Published, it cannot change
+        back to Unfinished.  Only generic packages can be published using this
+        API. For more information, see Using generic packages in the
+        CodeArtifact User Guide. 
+      operationId: amazonWebServicesPublishPackageVersion
   /v1/tag:
     POST:
-      summary: TagResource
-      description: <p>Adds or updates tags for a resource in CodeArtifact.</p>
+      summary: Tagresource
+      description: Adds or updates tags for a resource in CodeArtifact.
+      operationId: amazonWebServicesTagResource
   /v1/untag:
     POST:
-      summary: UntagResource
-      description: <p>Removes tags from a resource in CodeArtifact.</p>
+      summary: Untagresource
+      description: Removes tags from a resource in CodeArtifact.
+      operationId: amazonWebServicesUntagResource
   /v1/package/versions/update_status:
     POST:
-      summary: UpdatePackageVersionsStatus
-      description: >-
-        <p> Updates the status of one or more versions of a package. Using
-        <code>UpdatePackageVersionsStatus</code>, you can update the status of
-        package versions to <code>Archived</code>, <code>Published</code>, or
-        <code>Unlisted</code>. To set the status of a package version to
-        <code>Disposed</code>, use <a
-        href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DisposePackageVersions.html">DisposePackageVersions</a>.
-        </p>
+      summary: Updatepackageversionsstatus
+      description: ' Updates the status of one or more versions of a package. Using UpdatePackageVersionsStatus, you can update the status of package versions to Archived, Published, or Unlisted. To set the status of a package version to Disposed, use DisposePackageVersions. '
+      operationId: amazonWebServicesUpdatePackageVersionsStatus
 tags: []

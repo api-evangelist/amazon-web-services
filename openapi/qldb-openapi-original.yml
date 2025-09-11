@@ -5,118 +5,117 @@ info:
 paths:
   /ledgers/{name}/journal-kinesis-streams/{streamId}:
     GET:
-      summary: DescribeJournalKinesisStream
+      summary: Describejournalkinesisstream
       description: >-
-        <p>Returns detailed information about a given Amazon QLDB journal
-        stream. The output includes the Amazon Resource Name (ARN), stream name,
-        current status, creation time, and the parameters of the original stream
-        creation request.</p> <p>This action does not return any expired journal
-        streams. For more information, see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration
-        for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+        Returns detailed information about a given Amazon QLDB journal stream.
+        The output includes the Amazon Resource Name (ARN), stream name, current
+        status, creation time, and the parameters of the original stream
+        creation request. This action does not return any expired journal
+        streams. For more information, see Expiration for terminal streams in
+        the Amazon QLDB Developer Guide.
+      operationId: amazonWebServicesDescribeJournalKinesisStream
   /ledgers:
     GET:
-      summary: ListLedgers
+      summary: Listledgers
       description: >-
-        <p>Returns all ledgers that are associated with the current Amazon Web
-        Services account and Region.</p> <p>This action returns a maximum of
-        <code>MaxResults</code> items and is paginated so that you can retrieve
-        all the items by calling <code>ListLedgers</code> multiple times.</p>
+        Returns all ledgers that are associated with the current Amazon Web
+        Services account and Region. This action returns a maximum of MaxResults
+        items and is paginated so that you can retrieve all the items by calling
+        ListLedgers multiple times.
+      operationId: amazonWebServicesListLedgers
   /ledgers/{name}:
     PATCH:
-      summary: UpdateLedger
-      description: <p>Updates properties on a ledger.</p>
+      summary: Updateledger
+      description: Updates properties on a ledger.
+      operationId: amazonWebServicesUpdateLedger
   /ledgers/{name}/journal-s3-exports/{exportId}:
     GET:
-      summary: DescribeJournalS3Export
+      summary: Describejournals3export
       description: >-
-        <p>Returns information about a journal export job, including the ledger
+        Returns information about a journal export job, including the ledger
         name, export ID, creation time, current status, and the parameters of
-        the original export creation request.</p> <p>This action does not return
-        any expired export jobs. For more information, see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>If
-        the export job with the given <code>ExportId</code> doesn't exist, then
-        throws <code>ResourceNotFoundException</code>.</p> <p>If the ledger with
-        the given <code>Name</code> doesn't exist, then throws
-        <code>ResourceNotFoundException</code>.</p>
+        the original export creation request. This action does not return any
+        expired export jobs. For more information, see Export job expiration in
+        the Amazon QLDB Developer Guide. If the export job with the given
+        ExportId doesn't exist, then throws ResourceNotFoundException. If the
+        ledger with the given Name doesn't exist, then throws
+        ResourceNotFoundException.
+      operationId: amazonWebServicesDescribeJournalS3Export
   /ledgers/{name}/journal-s3-exports:
     GET:
-      summary: ListJournalS3ExportsForLedger
+      summary: Listjournals3exportsforledger
       description: >-
-        <p>Returns all journal export jobs for a specified ledger.</p> <p>This
-        action returns a maximum of <code>MaxResults</code> items, and is
-        paginated so that you can retrieve all the items by calling
-        <code>ListJournalS3ExportsForLedger</code> multiple times.</p> <p>This
-        action does not return any expired export jobs. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+        Returns all journal export jobs for a specified ledger. This action
+        returns a maximum of MaxResults items, and is paginated so that you can
+        retrieve all the items by calling ListJournalS3ExportsForLedger multiple
+        times. This action does not return any expired export jobs. For more
+        information, see Export job expiration in the Amazon QLDB Developer
+        Guide.
+      operationId: amazonWebServicesListJournalS3ExportsForLedger
   /ledgers/{name}/block:
     POST:
-      summary: GetBlock
+      summary: Getblock
       description: >-
-        <p>Returns a block object at a specified address in a journal. Also
-        returns a proof of the specified block for verification if
-        <code>DigestTipAddress</code> is provided.</p> <p>For information about
-        the data contents in a block, see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal
-        contents</a> in the <i>Amazon QLDB Developer Guide</i>.</p> <p>If the
-        specified ledger doesn't exist or is in <code>DELETING</code> status,
-        then throws <code>ResourceNotFoundException</code>.</p> <p>If the
-        specified ledger is in <code>CREATING</code> status, then throws
-        <code>ResourcePreconditionNotMetException</code>.</p> <p>If no block
+        Returns a block object at a specified address in a journal. Also returns
+        a proof of the specified block for verification if DigestTipAddress is
+        provided. For information about the data contents in a block, see
+        Journal contents in the Amazon QLDB Developer Guide. If the specified
+        ledger doesn't exist or is in DELETING status, then throws
+        ResourceNotFoundException. If the specified ledger is in CREATING
+        status, then throws ResourcePreconditionNotMetException. If no block
         exists with the specified address, then throws
-        <code>InvalidParameterException</code>.</p>
+        InvalidParameterException.
+      operationId: amazonWebServicesGetBlock
   /ledgers/{name}/digest:
     POST:
-      summary: GetDigest
+      summary: Getdigest
       description: >-
-        <p>Returns the digest of a ledger at the latest committed block in the
-        journal. The response includes a 256-bit hash value and a block
-        address.</p>
+        Returns the digest of a ledger at the latest committed block in the
+        journal. The response includes a 256-bit hash value and a block address.
+      operationId: amazonWebServicesGetDigest
   /ledgers/{name}/revision:
     POST:
-      summary: GetRevision
+      summary: Getrevision
       description: >-
-        <p>Returns a revision data object for a specified document ID and block
+        Returns a revision data object for a specified document ID and block
         address. Also returns a proof of the specified revision for verification
-        if <code>DigestTipAddress</code> is provided.</p>
+        if DigestTipAddress is provided.
+      operationId: amazonWebServicesGetRevision
   /ledgers/{name}/journal-kinesis-streams:
     POST:
-      summary: StreamJournalToKinesis
+      summary: Streamjournaltokinesis
       description: >-
-        <p>Creates a journal stream for a given Amazon QLDB ledger. The stream
+        Creates a journal stream for a given Amazon QLDB ledger. The stream
         captures every document revision that is committed to the ledger's
         journal and delivers the data to a specified Amazon Kinesis Data Streams
-        resource.</p>
+        resource.
+      operationId: amazonWebServicesStreamJournalToKinesis
   /journal-s3-exports:
     GET:
-      summary: ListJournalS3Exports
+      summary: Listjournals3exports
       description: >-
-        <p>Returns all journal export jobs for all ledgers that are associated
-        with the current Amazon Web Services account and Region.</p> <p>This
-        action returns a maximum of <code>MaxResults</code> items, and is
-        paginated so that you can retrieve all the items by calling
-        <code>ListJournalS3Exports</code> multiple times.</p> <p>This action
-        does not return any expired export jobs. For more information, see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
-        job expiration</a> in the <i>Amazon QLDB Developer Guide</i>.</p>
+        Returns all journal export jobs for all ledgers that are associated with
+        the current Amazon Web Services account and Region. This action returns
+        a maximum of MaxResults items, and is paginated so that you can retrieve
+        all the items by calling ListJournalS3Exports multiple times. This
+        action does not return any expired export jobs. For more information,
+        see Export job expiration in the Amazon QLDB Developer Guide.
+      operationId: amazonWebServicesListJournalS3Exports
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>Removes one or more tags from a specified Amazon QLDB resource. You
-        can specify up to 50 tag keys to remove.</p>
+        Removes one or more tags from a specified Amazon QLDB resource. You can
+        specify up to 50 tag keys to remove.
+      operationId: amazonWebServicesUntagResource
   /ledgers/{name}/permissions-mode:
     PATCH:
-      summary: UpdateLedgerPermissionsMode
+      summary: Updateledgerpermissionsmode
       description: >-
-        <p>Updates the permissions mode of a ledger.</p> <important> <p>Before
-        you switch to the <code>STANDARD</code> permissions mode, you must first
-        create all required IAM policies and table tags to avoid disruption to
-        your users. To learn more, see <a
-        href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating
-        to the standard permissions mode</a> in the <i>Amazon QLDB Developer
-        Guide</i>.</p> </important>
+        Updates the permissions mode of a ledger.  Before you switch to the
+        STANDARD permissions mode, you must first create all required IAM
+        policies and table tags to avoid disruption to your users. To learn
+        more, see Migrating to the standard permissions mode in the Amazon QLDB
+        Developer Guide. 
+      operationId: amazonWebServicesUpdateLedgerPermissionsMode
 tags: []

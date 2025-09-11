@@ -13,485 +13,520 @@ info:
 paths:
   /v2/email/metrics/batch:
     POST:
-      summary: BatchGetMetricData
+      summary: Batchgetmetricdata
       description: >-
-        <p>Retrieves batches of metric data collected based on your sending
-        activity.</p> <p>You can execute this operation no more than 16 times
-        per second, and with at most 160 queries from the batches per second
-        (cumulative).</p>
+        Retrieves batches of metric data collected based on your sending
+        activity. You can execute this operation no more than 16 times per
+        second, and with at most 160 queries from the batches per second
+        (cumulative).
+      operationId: amazonWebServicesBatchGetMetricData
   /v2/email/export-jobs/{JobId}/cancel:
     PUT:
-      summary: CancelExportJob
-      description: <p>Cancels an export job.</p>
+      summary: Cancelexportjob
+      description: Cancels an export job.
+      operationId: amazonWebServicesCancelExportJob
   /v2/email/configuration-sets:
     GET:
-      summary: ListConfigurationSets
+      summary: Listconfigurationsets
       description: >-
-        <p>List all of the configuration sets associated with your account in
-        the current region.</p> <p> <i>Configuration sets</i> are groups of
-        rules that you can apply to the emails you send. You apply a
-        configuration set to an email by including a reference to the
-        configuration set in the headers of the email. When you apply a
-        configuration set to an email, all of the rules in that configuration
-        set are applied to the email.</p>
+        List all of the configuration sets associated with your account in the
+        current region.  Configuration sets are groups of rules that you can
+        apply to the emails you send. You apply a configuration set to an email
+        by including a reference to the configuration set in the headers of the
+        email. When you apply a configuration set to an email, all of the rules
+        in that configuration set are applied to the email.
+      operationId: amazonWebServicesListConfigurationSets
   /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations:
     GET:
-      summary: GetConfigurationSetEventDestinations
+      summary: Getconfigurationseteventdestinations
       description: >-
-        <p>Retrieve a list of event destinations that are associated with a
-        configuration set.</p> <p> <i>Events</i> include message sends,
-        deliveries, opens, clicks, bounces, and complaints. <i>Event
-        destinations</i> are places that you can send information about these
-        events to. For example, you can send event data to Amazon SNS to receive
-        notifications when you receive bounces or complaints, or you can use
-        Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
-        storage.</p>
+        Retrieve a list of event destinations that are associated with a
+        configuration set.  Events include message sends, deliveries, opens,
+        clicks, bounces, and complaints. Event destinations are places that you
+        can send information about these events to. For example, you can send
+        event data to Amazon SNS to receive notifications when you receive
+        bounces or complaints, or you can use Amazon Kinesis Data Firehose to
+        stream data to Amazon S3 for long-term storage.
+      operationId: amazonWebServicesGetConfigurationSetEventDestinations
   /v2/email/contact-lists/{ContactListName}/contacts:
     GET:
-      summary: ListContacts
-      description: <p>Lists the contacts present in a specific contact list.</p>
+      summary: Listcontacts
+      description: Lists the contacts present in a specific contact list.
+      operationId: amazonWebServicesListContacts
   /v2/email/contact-lists:
     GET:
-      summary: ListContactLists
-      description: <p>Lists all of the contact lists available.</p>
+      summary: Listcontactlists
+      description: Lists all of the contact lists available.
+      operationId: amazonWebServicesListContactLists
   /v2/email/custom-verification-email-templates:
     GET:
-      summary: ListCustomVerificationEmailTemplates
+      summary: Listcustomverificationemailtemplates
       description: >-
-        <p>Lists the existing custom verification email templates for your
-        account in the current Amazon Web Services Region.</p> <p>For more
-        information about custom verification email templates, see <a
-        href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
-        custom verification email templates</a> in the <i>Amazon SES Developer
-        Guide</i>.</p> <p>You can execute this operation no more than once per
-        second.</p>
+        Lists the existing custom verification email templates for your account
+        in the current Amazon Web Services Region. For more information about
+        custom verification email templates, see Using custom verification email
+        templates in the Amazon SES Developer Guide. You can execute this
+        operation no more than once per second.
+      operationId: amazonWebServicesListCustomVerificationEmailTemplates
   /v2/email/dedicated-ip-pools:
     GET:
-      summary: ListDedicatedIpPools
+      summary: Listdedicatedippools
       description: >-
-        <p>List all of the dedicated IP pools that exist in your Amazon Web
-        Services account in the current Region.</p>
+        List all of the dedicated IP pools that exist in your Amazon Web
+        Services account in the current Region.
+      operationId: amazonWebServicesListDedicatedIpPools
   /v2/email/deliverability-dashboard/test:
     POST:
-      summary: CreateDeliverabilityTestReport
+      summary: Createdeliverabilitytestreport
       description: >-
-        <p>Create a new predictive inbox placement test. Predictive inbox
-        placement tests can help you predict how your messages will be handled
-        by various email providers around the world. When you perform a
-        predictive inbox placement test, you provide a sample message that
-        contains the content that you plan to send to your customers. Amazon SES
-        then sends that message to special email addresses spread across several
-        major email providers. After about 24 hours, the test is complete, and
-        you can use the <code>GetDeliverabilityTestReport</code> operation to
-        view the results of the test.</p>
+        Create a new predictive inbox placement test. Predictive inbox placement
+        tests can help you predict how your messages will be handled by various
+        email providers around the world. When you perform a predictive inbox
+        placement test, you provide a sample message that contains the content
+        that you plan to send to your customers. Amazon SES then sends that
+        message to special email addresses spread across several major email
+        providers. After about 24 hours, the test is complete, and you can use
+        the GetDeliverabilityTestReport operation to view the results of the
+        test.
+      operationId: amazonWebServicesCreateDeliverabilityTestReport
   /v2/email/identities:
     GET:
-      summary: ListEmailIdentities
+      summary: Listemailidentities
       description: >-
-        <p>Returns a list of all of the email identities that are associated
-        with your Amazon Web Services account. An identity can be either an
-        email address or a domain. This operation returns identities that are
-        verified as well as those that aren't. This operation returns identities
-        that are associated with Amazon SES and Amazon Pinpoint.</p>
+        Returns a list of all of the email identities that are associated with
+        your Amazon Web Services account. An identity can be either an email
+        address or a domain. This operation returns identities that are verified
+        as well as those that aren't. This operation returns identities that are
+        associated with Amazon SES and Amazon Pinpoint.
+      operationId: amazonWebServicesListEmailIdentities
   /v2/email/identities/{EmailIdentity}/policies/{PolicyName}:
     PUT:
-      summary: UpdateEmailIdentityPolicy
+      summary: Updateemailidentitypolicy
       description: >-
-        <p>Updates the specified sending authorization policy for the given
+        Updates the specified sending authorization policy for the given
         identity (an email address or a domain). This API returns successfully
-        even if a policy with the specified name does not exist.</p> <note>
-        <p>This API is for the identity owner only. If you have not verified the
-        identity, this API will return an error.</p> </note> <p>Sending
-        authorization is a feature that enables an identity owner to authorize
-        other senders to use its identities. For information about using sending
-        authorization, see the <a
-        href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-        SES Developer Guide</a>.</p> <p>You can execute this operation no more
-        than once per second.</p>
+        even if a policy with the specified name does not exist.  This API is
+        for the identity owner only. If you have not verified the identity, this
+        API will return an error.  Sending authorization is a feature that
+        enables an identity owner to authorize other senders to use its
+        identities. For information about using sending authorization, see the
+        Amazon SES Developer Guide. You can execute this operation no more than
+        once per second.
+      operationId: amazonWebServicesUpdateEmailIdentityPolicy
   /v2/email/templates:
     GET:
-      summary: ListEmailTemplates
+      summary: Listemailtemplates
       description: >-
-        <p>Lists the email templates present in your Amazon SES account in the
-        current Amazon Web Services Region.</p> <p>You can execute this
-        operation no more than once per second.</p>
+        Lists the email templates present in your Amazon SES account in the
+        current Amazon Web Services Region. You can execute this operation no
+        more than once per second.
+      operationId: amazonWebServicesListEmailTemplates
   /v2/email/export-jobs:
     POST:
-      summary: CreateExportJob
+      summary: Createexportjob
       description: >-
-        <p>Creates an export job for a data source and destination.</p> <p>You
-        can execute this operation no more than once per second.</p>
+        Creates an export job for a data source and destination. You can execute
+        this operation no more than once per second.
+      operationId: amazonWebServicesCreateExportJob
   /v2/email/import-jobs:
     GET:
-      summary: ListImportJobs
-      description: <p>Lists all of the import jobs.</p>
+      summary: Listimportjobs
+      description: Lists all of the import jobs.
+      operationId: amazonWebServicesListImportJobs
   /v2/email/configuration-sets/{ConfigurationSetName}:
     GET:
-      summary: GetConfigurationSet
+      summary: Getconfigurationset
       description: >-
-        <p>Get information about an existing configuration set, including the
+        Get information about an existing configuration set, including the
         dedicated IP pool that it's associated with, whether or not it's enabled
-        for sending email, and more.</p> <p> <i>Configuration sets</i> are
-        groups of rules that you can apply to the emails you send. You apply a
-        configuration set to an email by including a reference to the
-        configuration set in the headers of the email. When you apply a
-        configuration set to an email, all of the rules in that configuration
-        set are applied to the email.</p>
+        for sending email, and more.  Configuration sets are groups of rules
+        that you can apply to the emails you send. You apply a configuration set
+        to an email by including a reference to the configuration set in the
+        headers of the email. When you apply a configuration set to an email,
+        all of the rules in that configuration set are applied to the email.
+      operationId: amazonWebServicesGetConfigurationSet
   /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}:
     PUT:
-      summary: UpdateConfigurationSetEventDestination
+      summary: Updateconfigurationseteventdestination
       description: >-
-        <p>Update the configuration of an event destination for a configuration
-        set.</p> <p> <i>Events</i> include message sends, deliveries, opens,
-        clicks, bounces, and complaints. <i>Event destinations</i> are places
-        that you can send information about these events to. For example, you
-        can send event data to Amazon SNS to receive notifications when you
-        receive bounces or complaints, or you can use Amazon Kinesis Data
-        Firehose to stream data to Amazon S3 for long-term storage.</p>
+        Update the configuration of an event destination for a configuration
+        set.  Events include message sends, deliveries, opens, clicks, bounces,
+        and complaints. Event destinations are places that you can send
+        information about these events to. For example, you can send event data
+        to Amazon SNS to receive notifications when you receive bounces or
+        complaints, or you can use Amazon Kinesis Data Firehose to stream data
+        to Amazon S3 for long-term storage.
+      operationId: amazonWebServicesUpdateConfigurationSetEventDestination
   /v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}:
     PUT:
-      summary: UpdateContact
+      summary: Updatecontact
       description: >-
-        <p>Updates a contact's preferences for a list. It is not necessary to
+        Updates a contact's preferences for a list. It is not necessary to
         specify all existing topic preferences in the TopicPreferences object,
-        just the ones that need updating.</p>
+        just the ones that need updating.
+      operationId: amazonWebServicesUpdateContact
   /v2/email/contact-lists/{ContactListName}:
     PUT:
-      summary: UpdateContactList
+      summary: Updatecontactlist
       description: >-
-        <p>Updates contact list metadata. This operation does a complete
-        replacement.</p>
+        Updates contact list metadata. This operation does a complete
+        replacement.
+      operationId: amazonWebServicesUpdateContactList
   /v2/email/custom-verification-email-templates/{TemplateName}:
     PUT:
-      summary: UpdateCustomVerificationEmailTemplate
+      summary: Updatecustomverificationemailtemplate
       description: >-
-        <p>Updates an existing custom verification email template.</p> <p>For
-        more information about custom verification email templates, see <a
-        href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
-        custom verification email templates</a> in the <i>Amazon SES Developer
-        Guide</i>.</p> <p>You can execute this operation no more than once per
-        second.</p>
+        Updates an existing custom verification email template. For more
+        information about custom verification email templates, see Using custom
+        verification email templates in the Amazon SES Developer Guide. You can
+        execute this operation no more than once per second.
+      operationId: amazonWebServicesUpdateCustomVerificationEmailTemplate
   /v2/email/dedicated-ip-pools/{PoolName}:
     GET:
-      summary: GetDedicatedIpPool
-      description: <p>Retrieve information about the dedicated pool.</p>
+      summary: Getdedicatedippool
+      description: Retrieve information about the dedicated pool.
+      operationId: amazonWebServicesGetDedicatedIpPool
   /v2/email/identities/{EmailIdentity}:
     GET:
-      summary: GetEmailIdentity
+      summary: Getemailidentity
       description: >-
-        <p>Provides information about a specific identity, including the
-        identity's verification status, sending authorization policies, its DKIM
-        authentication status, and its custom Mail-From settings.</p>
+        Provides information about a specific identity, including the identity's
+        verification status, sending authorization policies, its DKIM
+        authentication status, and its custom Mail-From settings.
+      operationId: amazonWebServicesGetEmailIdentity
   /v2/email/templates/{TemplateName}:
     PUT:
-      summary: UpdateEmailTemplate
+      summary: Updateemailtemplate
       description: >-
-        <p>Updates an email template. Email templates enable you to send
+        Updates an email template. Email templates enable you to send
         personalized email to one or more destinations in a single API
-        operation. For more information, see the <a
-        href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon
-        SES Developer Guide</a>.</p> <p>You can execute this operation no more
-        than once per second.</p>
+        operation. For more information, see the Amazon SES Developer Guide. You
+        can execute this operation no more than once per second.
+      operationId: amazonWebServicesUpdateEmailTemplate
   /v2/email/suppression/addresses/{EmailAddress}:
     GET:
-      summary: GetSuppressedDestination
+      summary: Getsuppresseddestination
       description: >-
-        <p>Retrieves information about a specific email address that's on the
-        suppression list for your account.</p>
+        Retrieves information about a specific email address that's on the
+        suppression list for your account.
+      operationId: amazonWebServicesGetSuppressedDestination
   /v2/email/account:
     GET:
-      summary: GetAccount
+      summary: Getaccount
       description: >-
-        <p>Obtain information about the email-sending status and capabilities of
-        your Amazon SES account in the current Amazon Web Services Region.</p>
+        Obtain information about the email-sending status and capabilities of
+        your Amazon SES account in the current Amazon Web Services Region.
+      operationId: amazonWebServicesGetAccount
   /v2/email/deliverability-dashboard/blacklist-report:
     GET:
-      summary: GetBlacklistReports
+      summary: Getblacklistreports
       description: >-
-        <p>Retrieve a list of the blacklists that your dedicated IP addresses
-        appear on.</p>
+        Retrieve a list of the blacklists that your dedicated IP addresses
+        appear on.
+      operationId: amazonWebServicesGetBlacklistReports
   /v2/email/dedicated-ips/{IP}:
     GET:
-      summary: GetDedicatedIp
+      summary: Getdedicatedip
       description: >-
-        <p>Get information about a dedicated IP address, including the name of
-        the dedicated IP pool that it's associated with, as well information
-        about the automatic warm-up process for the address.</p>
+        Get information about a dedicated IP address, including the name of the
+        dedicated IP pool that it's associated with, as well information about
+        the automatic warm-up process for the address.
+      operationId: amazonWebServicesGetDedicatedIp
   /v2/email/dedicated-ips:
     GET:
-      summary: GetDedicatedIps
+      summary: Getdedicatedips
       description: >-
-        <p>List the dedicated IP addresses that are associated with your Amazon
-        Web Services account.</p>
+        List the dedicated IP addresses that are associated with your Amazon Web
+        Services account.
+      operationId: amazonWebServicesGetDedicatedIps
   /v2/email/deliverability-dashboard:
     PUT:
-      summary: PutDeliverabilityDashboardOption
+      summary: Putdeliverabilitydashboardoption
       description: >-
-        <p>Enable or disable the Deliverability dashboard. When you enable the
+        Enable or disable the Deliverability dashboard. When you enable the
         Deliverability dashboard, you gain access to reputation, deliverability,
         and other metrics for the domains that you use to send email. You also
-        gain the ability to perform predictive inbox placement tests.</p>
-        <p>When you use the Deliverability dashboard, you pay a monthly
-        subscription charge, in addition to any other fees that you accrue by
-        using Amazon SES and other Amazon Web Services services. For more
-        information about the features and cost of a Deliverability dashboard
-        subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon
-        SES Pricing</a>.</p>
+        gain the ability to perform predictive inbox placement tests. When you
+        use the Deliverability dashboard, you pay a monthly subscription charge,
+        in addition to any other fees that you accrue by using Amazon SES and
+        other Amazon Web Services services. For more information about the
+        features and cost of a Deliverability dashboard subscription, see Amazon
+        SES Pricing.
+      operationId: amazonWebServicesPutDeliverabilityDashboardOption
   /v2/email/deliverability-dashboard/test-reports/{ReportId}:
     GET:
-      summary: GetDeliverabilityTestReport
-      description: <p>Retrieve the results of a predictive inbox placement test.</p>
+      summary: Getdeliverabilitytestreport
+      description: Retrieve the results of a predictive inbox placement test.
+      operationId: amazonWebServicesGetDeliverabilityTestReport
   /v2/email/deliverability-dashboard/campaigns/{CampaignId}:
     GET:
-      summary: GetDomainDeliverabilityCampaign
+      summary: Getdomaindeliverabilitycampaign
       description: >-
-        <p>Retrieve all the deliverability data for a specific campaign. This
-        data is available for a campaign only if the campaign sent email by
-        using a domain that the Deliverability dashboard is enabled for.</p>
+        Retrieve all the deliverability data for a specific campaign. This data
+        is available for a campaign only if the campaign sent email by using a
+        domain that the Deliverability dashboard is enabled for.
+      operationId: amazonWebServicesGetDomainDeliverabilityCampaign
   /v2/email/deliverability-dashboard/statistics-report/{Domain}:
     GET:
-      summary: GetDomainStatisticsReport
+      summary: Getdomainstatisticsreport
       description: >-
-        <p>Retrieve inbox placement and engagement rates for the domains that
-        you use to send email.</p>
+        Retrieve inbox placement and engagement rates for the domains that you
+        use to send email.
+      operationId: amazonWebServicesGetDomainStatisticsReport
   /v2/email/identities/{EmailIdentity}/policies:
     GET:
-      summary: GetEmailIdentityPolicies
+      summary: Getemailidentitypolicies
       description: >-
-        <p>Returns the requested sending authorization policies for the given
+        Returns the requested sending authorization policies for the given
         identity (an email address or a domain). The policies are returned as a
         map of policy names to policy contents. You can retrieve a maximum of 20
-        policies at a time.</p> <note> <p>This API is for the identity owner
-        only. If you have not verified the identity, this API will return an
-        error.</p> </note> <p>Sending authorization is a feature that enables an
-        identity owner to authorize other senders to use its identities. For
-        information about using sending authorization, see the <a
-        href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-        SES Developer Guide</a>.</p> <p>You can execute this operation no more
-        than once per second.</p>
+        policies at a time.  This API is for the identity owner only. If you
+        have not verified the identity, this API will return an error.  Sending
+        authorization is a feature that enables an identity owner to authorize
+        other senders to use its identities. For information about using sending
+        authorization, see the Amazon SES Developer Guide. You can execute this
+        operation no more than once per second.
+      operationId: amazonWebServicesGetEmailIdentityPolicies
   /v2/email/export-jobs/{JobId}:
     GET:
-      summary: GetExportJob
-      description: <p>Provides information about an export job.</p>
+      summary: Getexportjob
+      description: Provides information about an export job.
+      operationId: amazonWebServicesGetExportJob
   /v2/email/import-jobs/{JobId}:
     GET:
-      summary: GetImportJob
-      description: <p>Provides information about an import job.</p>
+      summary: Getimportjob
+      description: Provides information about an import job.
+      operationId: amazonWebServicesGetImportJob
   /v2/email/insights/{MessageId}/:
     GET:
-      summary: GetMessageInsights
+      summary: Getmessageinsights
       description: >-
-        <p>Provides information about a specific message, including the from
+        Provides information about a specific message, including the from
         address, the subject, the recipient address, email tags, as well as
-        events associated with the message.</p> <p>You can execute this
-        operation no more than once per second.</p>
+        events associated with the message. You can execute this operation no
+        more than once per second.
+      operationId: amazonWebServicesGetMessageInsights
   /v2/email/deliverability-dashboard/test-reports:
     GET:
-      summary: ListDeliverabilityTestReports
+      summary: Listdeliverabilitytestreports
       description: >-
-        <p>Show a list of the predictive inbox placement tests that you've
+        Show a list of the predictive inbox placement tests that you've
         performed, regardless of their statuses. For predictive inbox placement
-        tests that are complete, you can use the
-        <code>GetDeliverabilityTestReport</code> operation to view the
-        results.</p>
+        tests that are complete, you can use the GetDeliverabilityTestReport
+        operation to view the results.
+      operationId: amazonWebServicesListDeliverabilityTestReports
   /v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns:
     GET:
-      summary: ListDomainDeliverabilityCampaigns
+      summary: Listdomaindeliverabilitycampaigns
       description: >-
-        <p>Retrieve deliverability data for all the campaigns that used a
-        specific domain to send email during a specified time range. This data
-        is available for a domain only if you enabled the Deliverability
-        dashboard for the domain.</p>
+        Retrieve deliverability data for all the campaigns that used a specific
+        domain to send email during a specified time range. This data is
+        available for a domain only if you enabled the Deliverability dashboard
+        for the domain.
+      operationId: amazonWebServicesListDomainDeliverabilityCampaigns
   /v2/email/list-export-jobs:
     POST:
-      summary: ListExportJobs
-      description: <p>Lists all of the export jobs.</p>
+      summary: Listexportjobs
+      description: Lists all of the export jobs.
+      operationId: amazonWebServicesListExportJobs
   /v2/email/vdm/recommendations:
     POST:
-      summary: ListRecommendations
+      summary: Listrecommendations
       description: >-
-        <p>Lists the recommendations present in your Amazon SES account in the
-        current Amazon Web Services Region.</p> <p>You can execute this
-        operation no more than once per second.</p>
+        Lists the recommendations present in your Amazon SES account in the
+        current Amazon Web Services Region. You can execute this operation no
+        more than once per second.
+      operationId: amazonWebServicesListRecommendations
   /v2/email/suppression/addresses:
     PUT:
-      summary: PutSuppressedDestination
-      description: <p>Adds an email address to the suppression list for your account.</p>
+      summary: Putsuppresseddestination
+      description: Adds an email address to the suppression list for your account.
+      operationId: amazonWebServicesPutSuppressedDestination
   /v2/email/tags:
     DELETE:
-      summary: UntagResource
-      description: >-
-        <p>Remove one or more tags (keys and values) from a specified
-        resource.</p>
+      summary: Untagresource
+      description: Remove one or more tags (keys and values) from a specified resource.
+      operationId: amazonWebServicesUntagResource
   /v2/email/account/dedicated-ips/warmup:
     PUT:
-      summary: PutAccountDedicatedIpWarmupAttributes
+      summary: Putaccountdedicatedipwarmupattributes
       description: >-
-        <p>Enable or disable the automatic warm-up feature for dedicated IP
-        addresses.</p>
+        Enable or disable the automatic warm-up feature for dedicated IP
+        addresses.
+      operationId: amazonWebServicesPutAccountDedicatedIpWarmupAttributes
   /v2/email/account/details:
     POST:
-      summary: PutAccountDetails
-      description: <p>Update your Amazon SES account details.</p>
+      summary: Putaccountdetails
+      description: Update your Amazon SES account details.
+      operationId: amazonWebServicesPutAccountDetails
   /v2/email/account/sending:
     PUT:
-      summary: PutAccountSendingAttributes
-      description: <p>Enable or disable the ability of your account to send email.</p>
+      summary: Putaccountsendingattributes
+      description: Enable or disable the ability of your account to send email.
+      operationId: amazonWebServicesPutAccountSendingAttributes
   /v2/email/account/suppression:
     PUT:
-      summary: PutAccountSuppressionAttributes
-      description: <p>Change the settings for the account-level suppression list.</p>
+      summary: Putaccountsuppressionattributes
+      description: Change the settings for the account-level suppression list.
+      operationId: amazonWebServicesPutAccountSuppressionAttributes
   /v2/email/account/vdm:
     PUT:
-      summary: PutAccountVdmAttributes
+      summary: Putaccountvdmattributes
       description: >-
-        <p>Update your Amazon SES account VDM attributes.</p> <p>You can execute
-        this operation no more than once per second.</p>
+        Update your Amazon SES account VDM attributes. You can execute this
+        operation no more than once per second.
+      operationId: amazonWebServicesPutAccountVdmAttributes
   /v2/email/configuration-sets/{ConfigurationSetName}/delivery-options:
     PUT:
-      summary: PutConfigurationSetDeliveryOptions
+      summary: Putconfigurationsetdeliveryoptions
       description: >-
-        <p>Associate a configuration set with a dedicated IP pool. You can use
+        Associate a configuration set with a dedicated IP pool. You can use
         dedicated IP pools to create groups of dedicated IP addresses for
-        sending specific types of email.</p>
+        sending specific types of email.
+      operationId: amazonWebServicesPutConfigurationSetDeliveryOptions
   /v2/email/configuration-sets/{ConfigurationSetName}/reputation-options:
     PUT:
-      summary: PutConfigurationSetReputationOptions
+      summary: Putconfigurationsetreputationoptions
       description: >-
-        <p>Enable or disable collection of reputation metrics for emails that
-        you send using a particular configuration set in a specific Amazon Web
-        Services Region.</p>
+        Enable or disable collection of reputation metrics for emails that you
+        send using a particular configuration set in a specific Amazon Web
+        Services Region.
+      operationId: amazonWebServicesPutConfigurationSetReputationOptions
   /v2/email/configuration-sets/{ConfigurationSetName}/sending:
     PUT:
-      summary: PutConfigurationSetSendingOptions
+      summary: Putconfigurationsetsendingoptions
       description: >-
-        <p>Enable or disable email sending for messages that use a particular
-        configuration set in a specific Amazon Web Services Region.</p>
+        Enable or disable email sending for messages that use a particular
+        configuration set in a specific Amazon Web Services Region.
+      operationId: amazonWebServicesPutConfigurationSetSendingOptions
   /v2/email/configuration-sets/{ConfigurationSetName}/suppression-options:
     PUT:
-      summary: PutConfigurationSetSuppressionOptions
+      summary: Putconfigurationsetsuppressionoptions
       description: >-
-        <p>Specify the account suppression list preferences for a configuration
-        set.</p>
+        Specify the account suppression list preferences for a configuration
+        set.
+      operationId: amazonWebServicesPutConfigurationSetSuppressionOptions
   /v2/email/configuration-sets/{ConfigurationSetName}/tracking-options:
     PUT:
-      summary: PutConfigurationSetTrackingOptions
+      summary: Putconfigurationsettrackingoptions
       description: >-
-        <p>Specify a custom domain to use for open and click tracking elements
-        in email that you send.</p>
+        Specify a custom domain to use for open and click tracking elements in
+        email that you send.
+      operationId: amazonWebServicesPutConfigurationSetTrackingOptions
   /v2/email/configuration-sets/{ConfigurationSetName}/vdm-options:
     PUT:
-      summary: PutConfigurationSetVdmOptions
+      summary: Putconfigurationsetvdmoptions
       description: >-
-        <p>Specify VDM preferences for email that you send using the
-        configuration set.</p> <p>You can execute this operation no more than
-        once per second.</p>
+        Specify VDM preferences for email that you send using the configuration
+        set. You can execute this operation no more than once per second.
+      operationId: amazonWebServicesPutConfigurationSetVdmOptions
   /v2/email/dedicated-ips/{IP}/pool:
     PUT:
-      summary: PutDedicatedIpInPool
+      summary: Putdedicatedipinpool
       description: >-
-        <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
-        <note> <p>The dedicated IP address that you specify must already exist,
-        and must be associated with your Amazon Web Services account. </p>
-        <p>The dedicated IP pool you specify must already exist. You can create
-        a new pool by using the <code>CreateDedicatedIpPool</code>
-        operation.</p> </note>
+        Move a dedicated IP address to an existing dedicated IP pool.  The
+        dedicated IP address that you specify must already exist, and must be
+        associated with your Amazon Web Services account.  The dedicated IP pool
+        you specify must already exist. You can create a new pool by using the
+        CreateDedicatedIpPool operation. 
+      operationId: amazonWebServicesPutDedicatedIpInPool
   /v2/email/dedicated-ip-pools/{PoolName}/scaling:
     PUT:
-      summary: PutDedicatedIpPoolScalingAttributes
+      summary: Putdedicatedippoolscalingattributes
       description: >-
-        <p>Used to convert a dedicated IP pool to a different scaling mode.</p>
-        <note> <p> <code>MANAGED</code> pools cannot be converted to
-        <code>STANDARD</code> scaling mode.</p> </note>
+        Used to convert a dedicated IP pool to a different scaling mode.  
+        MANAGED pools cannot be converted to STANDARD scaling mode. 
+      operationId: amazonWebServicesPutDedicatedIpPoolScalingAttributes
   /v2/email/dedicated-ips/{IP}/warmup:
     PUT:
-      summary: PutDedicatedIpWarmupAttributes
-      description: <p/>
+      summary: Putdedicatedipwarmupattributes
+      description: ''
+      operationId: amazonWebServicesPutDedicatedIpWarmupAttributes
   /v2/email/identities/{EmailIdentity}/configuration-set:
     PUT:
-      summary: PutEmailIdentityConfigurationSetAttributes
-      description: <p>Used to associate a configuration set with an email identity.</p>
+      summary: Putemailidentityconfigurationsetattributes
+      description: Used to associate a configuration set with an email identity.
+      operationId: amazonWebServicesPutEmailIdentityConfigurationSetAttributes
   /v2/email/identities/{EmailIdentity}/dkim:
     PUT:
-      summary: PutEmailIdentityDkimAttributes
-      description: >-
-        <p>Used to enable or disable DKIM authentication for an email
-        identity.</p>
+      summary: Putemailidentitydkimattributes
+      description: Used to enable or disable DKIM authentication for an email identity.
+      operationId: amazonWebServicesPutEmailIdentityDkimAttributes
   /v1/email/identities/{EmailIdentity}/dkim/signing:
     PUT:
-      summary: PutEmailIdentityDkimSigningAttributes
+      summary: Putemailidentitydkimsigningattributes
       description: >-
-        <p>Used to configure or change the DKIM authentication settings for an
+        Used to configure or change the DKIM authentication settings for an
         email domain identity. You can use this operation to do any of the
-        following:</p> <ul> <li> <p>Update the signing attributes for an
-        identity that uses Bring Your Own DKIM (BYODKIM).</p> </li> <li>
-        <p>Update the key length that should be used for Easy DKIM.</p> </li>
-        <li> <p>Change from using no DKIM authentication to using Easy DKIM.</p>
-        </li> <li> <p>Change from using no DKIM authentication to using
-        BYODKIM.</p> </li> <li> <p>Change from using Easy DKIM to using
-        BYODKIM.</p> </li> <li> <p>Change from using BYODKIM to using Easy
-        DKIM.</p> </li> </ul>
+        following:   Update the signing attributes for an identity that uses
+        Bring Your Own DKIM (BYODKIM).   Update the key length that should be
+        used for Easy DKIM.   Change from using no DKIM authentication to using
+        Easy DKIM.   Change from using no DKIM authentication to using
+        BYODKIM.   Change from using Easy DKIM to using BYODKIM.   Change from
+        using BYODKIM to using Easy DKIM.  
+      operationId: amazonWebServicesPutEmailIdentityDkimSigningAttributes
   /v2/email/identities/{EmailIdentity}/feedback:
     PUT:
-      summary: PutEmailIdentityFeedbackAttributes
+      summary: Putemailidentityfeedbackattributes
       description: >-
-        <p>Used to enable or disable feedback forwarding for an identity. This
+        Used to enable or disable feedback forwarding for an identity. This
         setting determines what happens when an identity is used to send an
-        email that results in a bounce or complaint event.</p> <p>If the value
-        is <code>true</code>, you receive email notifications when bounce or
-        complaint events occur. These notifications are sent to the address that
-        you specified in the <code>Return-Path</code> header of the original
-        email.</p> <p>You're required to have a method of tracking bounces and
-        complaints. If you haven't set up another mechanism for receiving bounce
-        or complaint notifications (for example, by setting up an event
-        destination), you receive an email notification when these events occur
-        (even if this setting is disabled).</p>
+        email that results in a bounce or complaint event. If the value is true,
+        you receive email notifications when bounce or complaint events occur.
+        These notifications are sent to the address that you specified in the
+        Return-Path header of the original email. You're required to have a
+        method of tracking bounces and complaints. If you haven't set up another
+        mechanism for receiving bounce or complaint notifications (for example,
+        by setting up an event destination), you receive an email notification
+        when these events occur (even if this setting is disabled).
+      operationId: amazonWebServicesPutEmailIdentityFeedbackAttributes
   /v2/email/identities/{EmailIdentity}/mail-from:
     PUT:
-      summary: PutEmailIdentityMailFromAttributes
+      summary: Putemailidentitymailfromattributes
       description: >-
-        <p>Used to enable or disable the custom Mail-From domain configuration
-        for an email identity.</p>
+        Used to enable or disable the custom Mail-From domain configuration for
+        an email identity.
+      operationId: amazonWebServicesPutEmailIdentityMailFromAttributes
   /v2/email/outbound-bulk-emails:
     POST:
-      summary: SendBulkEmail
-      description: <p>Composes an email message to multiple destinations.</p>
+      summary: Sendbulkemail
+      description: Composes an email message to multiple destinations.
+      operationId: amazonWebServicesSendBulkEmail
   /v2/email/outbound-custom-verification-emails:
     POST:
-      summary: SendCustomVerificationEmail
+      summary: Sendcustomverificationemail
       description: >-
-        <p>Adds an email address to the list of identities for your Amazon SES
+        Adds an email address to the list of identities for your Amazon SES
         account in the current Amazon Web Services Region and attempts to verify
         it. As a result of executing this operation, a customized verification
-        email is sent to the specified address.</p> <p>To use this operation,
-        you must first create a custom verification email template. For more
-        information about creating and using custom verification email
-        templates, see <a
-        href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
-        custom verification email templates</a> in the <i>Amazon SES Developer
-        Guide</i>.</p> <p>You can execute this operation no more than once per
-        second.</p>
+        email is sent to the specified address. To use this operation, you must
+        first create a custom verification email template. For more information
+        about creating and using custom verification email templates, see Using
+        custom verification email templates in the Amazon SES Developer Guide.
+        You can execute this operation no more than once per second.
+      operationId: amazonWebServicesSendCustomVerificationEmail
   /v2/email/outbound-emails:
     POST:
-      summary: SendEmail
+      summary: Sendemail
       description: >-
-        <p>Sends an email message. You can use the Amazon SES API v2 to send the
-        following types of messages:</p> <ul> <li> <p> <b>Simple</b> – A
-        standard email message. When you create this type of message, you
-        specify the sender, the recipient, and the message body, and Amazon SES
-        assembles the message for you.</p> </li> <li> <p> <b>Raw</b> – A raw,
-        MIME-formatted email message. When you send this type of email, you have
-        to specify all of the message headers, as well as the message body. You
-        can use this message type to send messages that contain attachments. The
-        message that you specify has to be a valid MIME message.</p> </li> <li>
-        <p> <b>Templated</b> – A message that contains personalization tags.
+        Sends an email message. You can use the Amazon SES API v2 to send the
+        following types of messages:    Simple – A standard email message. When
+        you create this type of message, you specify the sender, the recipient,
+        and the message body, and Amazon SES assembles the message for you.   
+        Raw – A raw, MIME-formatted email message. When you send this type of
+        email, you have to specify all of the message headers, as well as the
+        message body. You can use this message type to send messages that
+        contain attachments. The message that you specify has to be a valid MIME
+        message.    Templated – A message that contains personalization tags.
         When you send this type of email, Amazon SES API v2 automatically
-        replaces the tags with values that you specify.</p> </li> </ul>
+        replaces the tags with values that you specify.  
+      operationId: amazonWebServicesSendEmail
   /v2/email/templates/{TemplateName}/render:
     POST:
-      summary: TestRenderEmailTemplate
+      summary: Testrenderemailtemplate
       description: >-
-        <p>Creates a preview of the MIME content of an email when provided with
-        a template and a set of replacement data.</p> <p>You can execute this
-        operation no more than once per second.</p>
+        Creates a preview of the MIME content of an email when provided with a
+        template and a set of replacement data. You can execute this operation
+        no more than once per second.
+      operationId: amazonWebServicesTestRenderEmailTemplate
 tags: []

@@ -21,66 +21,61 @@ info:
 paths:
   /associations:
     GET:
-      summary: ListRepositoryAssociations
+      summary: Listrepositoryassociations
       description: >-
-        <p>Returns a list of <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html">RepositoryAssociationSummary</a>
-        objects that contain summary information about a repository association.
-        You can filter the returned list by <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-ProviderType">ProviderType</a>,
-        <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Name">Name</a>,
-        <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-State">State</a>,
-        and <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociationSummary.html#reviewer-Type-RepositoryAssociationSummary-Owner">Owner</a>.</p>
+        Returns a list of RepositoryAssociationSummary objects that contain
+        summary information about a repository association. You can filter the
+        returned list by ProviderType, Name, State, and Owner.
+      operationId: amazonWebServicesListRepositoryAssociations
   /codereviews:
     GET:
-      summary: ListCodeReviews
+      summary: Listcodereviews
       description: >-
-        <p>Lists all the code reviews that the customer has created in the past
-        90 days.</p>
+        Lists all the code reviews that the customer has created in the past 90
+        days.
+      operationId: amazonWebServicesListCodeReviews
   /codereviews/{CodeReviewArn}:
     GET:
-      summary: DescribeCodeReview
+      summary: Describecodereview
       description: >-
-        <p>Returns the metadata associated with the code review along with its
-        status.</p>
+        Returns the metadata associated with the code review along with its
+        status.
+      operationId: amazonWebServicesDescribeCodeReview
   /feedback/{CodeReviewArn}:
     GET:
-      summary: DescribeRecommendationFeedback
-      description: >-
-        <p>Describes the customer feedback for a CodeGuru Reviewer
-        recommendation.</p>
+      summary: Describerecommendationfeedback
+      description: Describes the customer feedback for a CodeGuru Reviewer recommendation.
+      operationId: amazonWebServicesDescribeRecommendationFeedback
   /associations/{AssociationArn}:
     DELETE:
-      summary: DisassociateRepository
+      summary: Disassociaterepository
       description: >-
-        <p>Removes the association between Amazon CodeGuru Reviewer and a
-        repository.</p>
+        Removes the association between Amazon CodeGuru Reviewer and a
+        repository.
+      operationId: amazonWebServicesDisassociateRepository
   /feedback/{CodeReviewArn}/RecommendationFeedback:
     GET:
-      summary: ListRecommendationFeedback
+      summary: Listrecommendationfeedback
       description: >-
-        <p>Returns a list of <a
-        href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a>
-        objects that contain customer recommendation feedback for all CodeGuru
-        Reviewer users.</p>
+        Returns a list of RecommendationFeedbackSummary objects that contain
+        customer recommendation feedback for all CodeGuru Reviewer users.
+      operationId: amazonWebServicesListRecommendationFeedback
   /codereviews/{CodeReviewArn}/Recommendations:
     GET:
-      summary: ListRecommendations
-      description: >-
-        <p>Returns the list of all recommendations for a completed code
-        review.</p>
+      summary: Listrecommendations
+      description: Returns the list of all recommendations for a completed code review.
+      operationId: amazonWebServicesListRecommendations
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a tag from an associated repository.</p>
+      summary: Untagresource
+      description: Removes a tag from an associated repository.
+      operationId: amazonWebServicesUntagResource
   /feedback:
     PUT:
-      summary: PutRecommendationFeedback
+      summary: Putrecommendationfeedback
       description: >-
-        <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When
+        Stores customer feedback for a CodeGuru Reviewer recommendation. When
         this API is called again with different reactions the previous feedback
-        is overwritten.</p>
+        is overwritten.
+      operationId: amazonWebServicesPutRecommendationFeedback
 tags: []

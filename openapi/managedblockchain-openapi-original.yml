@@ -18,99 +18,109 @@ info:
 paths:
   /accessors:
     GET:
-      summary: ListAccessors
+      summary: Listaccessors
       description: >-
-        <p>Returns a list of the accessors and their properties. Accessor
-        objects are containers that have the information required for token
-        based access to your Ethereum nodes.</p>
+        Returns a list of the accessors and their properties. Accessor objects
+        are containers that have the information required for token based access
+        to your Ethereum nodes.
+      operationId: amazonWebServicesListAccessors
   /networks/{networkId}/members:
     GET:
-      summary: ListMembers
+      summary: Listmembers
       description: >-
-        <p>Returns a list of the members in a network and properties of their
-        configurations.</p> <p>Applies only to Hyperledger Fabric.</p>
+        Returns a list of the members in a network and properties of their
+        configurations. Applies only to Hyperledger Fabric.
+      operationId: amazonWebServicesListMembers
   /networks:
     GET:
-      summary: ListNetworks
+      summary: Listnetworks
       description: >-
-        <p>Returns information about the networks in which the current Amazon
-        Web Services account participates.</p> <p>Applies to Hyperledger Fabric
-        and Ethereum.</p>
+        Returns information about the networks in which the current Amazon Web
+        Services account participates. Applies to Hyperledger Fabric and
+        Ethereum.
+      operationId: amazonWebServicesListNetworks
   /networks/{networkId}/nodes:
     GET:
-      summary: ListNodes
+      summary: Listnodes
       description: >-
-        <p>Returns information about the nodes within a network.</p> <p>Applies
-        to Hyperledger Fabric and Ethereum.</p>
+        Returns information about the nodes within a network. Applies to
+        Hyperledger Fabric and Ethereum.
+      operationId: amazonWebServicesListNodes
   /networks/{networkId}/proposals:
     GET:
-      summary: ListProposals
+      summary: Listproposals
       description: >-
-        <p>Returns a list of proposals for the network.</p> <p>Applies only to
-        Hyperledger Fabric.</p>
+        Returns a list of proposals for the network. Applies only to Hyperledger
+        Fabric.
+      operationId: amazonWebServicesListProposals
   /accessors/{AccessorId}:
     GET:
-      summary: GetAccessor
+      summary: Getaccessor
       description: >-
-        <p>Returns detailed information about an accessor. An accessor object is
-        a container that has the information required for token based access to
-        your Ethereum nodes.</p>
+        Returns detailed information about an accessor. An accessor object is a
+        container that has the information required for token based access to
+        your Ethereum nodes.
+      operationId: amazonWebServicesGetAccessor
   /networks/{networkId}/members/{memberId}:
     PATCH:
-      summary: UpdateMember
+      summary: Updatemember
       description: >-
-        <p>Updates a member configuration with new parameters.</p> <p>Applies
-        only to Hyperledger Fabric.</p>
+        Updates a member configuration with new parameters. Applies only to
+        Hyperledger Fabric.
+      operationId: amazonWebServicesUpdateMember
   /networks/{networkId}/nodes/{nodeId}:
     PATCH:
-      summary: UpdateNode
+      summary: Updatenode
       description: >-
-        <p>Updates a node configuration with new parameters.</p> <p>Applies only
-        to Hyperledger Fabric.</p>
+        Updates a node configuration with new parameters. Applies only to
+        Hyperledger Fabric.
+      operationId: amazonWebServicesUpdateNode
   /networks/{networkId}:
     GET:
-      summary: GetNetwork
+      summary: Getnetwork
       description: >-
-        <p>Returns detailed information about a network.</p> <p>Applies to
-        Hyperledger Fabric and Ethereum.</p>
+        Returns detailed information about a network. Applies to Hyperledger
+        Fabric and Ethereum.
+      operationId: amazonWebServicesGetNetwork
   /networks/{networkId}/proposals/{proposalId}:
     GET:
-      summary: GetProposal
+      summary: Getproposal
       description: >-
-        <p>Returns detailed information about a proposal.</p> <p>Applies only to
-        Hyperledger Fabric.</p>
+        Returns detailed information about a proposal. Applies only to
+        Hyperledger Fabric.
+      operationId: amazonWebServicesGetProposal
   /invitations:
     GET:
-      summary: ListInvitations
+      summary: Listinvitations
       description: >-
-        <p>Returns a list of all invitations for the current Amazon Web Services
-        account.</p> <p>Applies only to Hyperledger Fabric.</p>
+        Returns a list of all invitations for the current Amazon Web Services
+        account. Applies only to Hyperledger Fabric.
+      operationId: amazonWebServicesListInvitations
   /networks/{networkId}/proposals/{proposalId}/votes:
     POST:
-      summary: VoteOnProposal
+      summary: Voteonproposal
       description: >-
-        <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a
-        member. The member to vote as, specified by <code>VoterMemberId</code>,
-        must be in the same Amazon Web Services account as the principal that
-        calls the action.</p> <p>Applies only to Hyperledger Fabric.</p>
+        Casts a vote for a specified ProposalId on behalf of a member. The
+        member to vote as, specified by VoterMemberId, must be in the same
+        Amazon Web Services account as the principal that calls the action.
+        Applies only to Hyperledger Fabric.
+      operationId: amazonWebServicesVoteOnProposal
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>Removes the specified tags from the Amazon Managed Blockchain
-        resource.</p> <p>For more information about tags, see <a
-        href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
-        Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer
-        Guide</i>, or <a
-        href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
-        Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric
-        Developer Guide</i>.</p>
+        Removes the specified tags from the Amazon Managed Blockchain resource.
+        For more information about tags, see Tagging Resources in the Amazon
+        Managed Blockchain Ethereum Developer Guide, or Tagging Resources in the
+        Amazon Managed Blockchain Hyperledger Fabric Developer Guide.
+      operationId: amazonWebServicesUntagResource
   /invitations/{invitationId}:
     DELETE:
-      summary: RejectInvitation
+      summary: Rejectinvitation
       description: >-
-        <p>Rejects an invitation to join a network. This action can be called by
-        a principal in an Amazon Web Services account that has received an
-        invitation to create a member and join a network.</p> <p>Applies only to
-        Hyperledger Fabric.</p>
+        Rejects an invitation to join a network. This action can be called by a
+        principal in an Amazon Web Services account that has received an
+        invitation to create a member and join a network. Applies only to
+        Hyperledger Fabric.
+      operationId: amazonWebServicesRejectInvitation
 tags: []

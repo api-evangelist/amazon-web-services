@@ -9,88 +9,97 @@ info:
 paths:
   /alarm-models:
     GET:
-      summary: ListAlarmModels
+      summary: Listalarmmodels
       description: >-
-        <p>Lists the alarm models that you created. The operation returns only
-        the metadata associated with each alarm model.</p>
+        Lists the alarm models that you created. The operation returns only the
+        metadata associated with each alarm model.
+      operationId: amazonWebServicesListAlarmModels
   /detector-models:
     GET:
-      summary: ListDetectorModels
+      summary: Listdetectormodels
       description: >-
-        <p>Lists the detector models you have created. Only the metadata
-        associated with each detector model is returned.</p>
+        Lists the detector models you have created. Only the metadata associated
+        with each detector model is returned.
+      operationId: amazonWebServicesListDetectorModels
   /inputs:
     GET:
-      summary: ListInputs
-      description: <p>Lists the inputs you have created.</p>
+      summary: Listinputs
+      description: Lists the inputs you have created.
+      operationId: amazonWebServicesListInputs
   /alarm-models/{alarmModelName}:
     POST:
-      summary: UpdateAlarmModel
+      summary: Updatealarmmodel
       description: >-
-        <p>Updates an alarm model. Any alarms that were created based on the
-        previous version are deleted and then created again as new data
-        arrives.</p>
+        Updates an alarm model. Any alarms that were created based on the
+        previous version are deleted and then created again as new data arrives.
+      operationId: amazonWebServicesUpdateAlarmModel
   /detector-models/{detectorModelName}:
     POST:
-      summary: UpdateDetectorModel
+      summary: Updatedetectormodel
       description: >-
-        <p>Updates a detector model. Detectors (instances) spawned by the
-        previous version are deleted and then re-created as new inputs
-        arrive.</p>
+        Updates a detector model. Detectors (instances) spawned by the previous
+        version are deleted and then re-created as new inputs arrive.
+      operationId: amazonWebServicesUpdateDetectorModel
   /inputs/{inputName}:
     PUT:
-      summary: UpdateInput
-      description: <p>Updates an input.</p>
+      summary: Updateinput
+      description: Updates an input.
+      operationId: amazonWebServicesUpdateInput
   /analysis/detector-models/{analysisId}:
     GET:
-      summary: DescribeDetectorModelAnalysis
+      summary: Describedetectormodelanalysis
       description: >-
-        <p>Retrieves runtime information about a detector model analysis.</p>
-        <note> <p>After AWS IoT Events starts analyzing your detector model, you
-        have up to 24 hours to retrieve the analysis results.</p> </note>
+        Retrieves runtime information about a detector model analysis.  After
+        AWS IoT Events starts analyzing your detector model, you have up to 24
+        hours to retrieve the analysis results. 
+      operationId: amazonWebServicesDescribeDetectorModelAnalysis
   /logging:
     PUT:
-      summary: PutLoggingOptions
+      summary: Putloggingoptions
       description: >-
-        <p>Sets or updates the AWS IoT Events logging options.</p> <p>If you
-        update the value of any <code>loggingOptions</code> field, it takes up
-        to one minute for the change to take effect. If you change the policy
-        attached to the role you specified in the <code>roleArn</code> field
-        (for example, to correct an invalid policy), it takes up to five minutes
-        for that change to take effect.</p>
+        Sets or updates the AWS IoT Events logging options. If you update the
+        value of any loggingOptions field, it takes up to one minute for the
+        change to take effect. If you change the policy attached to the role you
+        specified in the roleArn field (for example, to correct an invalid
+        policy), it takes up to five minutes for that change to take effect.
+      operationId: amazonWebServicesPutLoggingOptions
   /analysis/detector-models/{analysisId}/results:
     GET:
-      summary: GetDetectorModelAnalysisResults
+      summary: Getdetectormodelanalysisresults
       description: >-
-        <p>Retrieves one or more analysis results of the detector model.</p>
-        <note> <p>After AWS IoT Events starts analyzing your detector model, you
-        have up to 24 hours to retrieve the analysis results.</p> </note>
+        Retrieves one or more analysis results of the detector model.  After AWS
+        IoT Events starts analyzing your detector model, you have up to 24 hours
+        to retrieve the analysis results. 
+      operationId: amazonWebServicesGetDetectorModelAnalysisResults
   /alarm-models/{alarmModelName}/versions:
     GET:
-      summary: ListAlarmModelVersions
+      summary: Listalarmmodelversions
       description: >-
-        <p>Lists all the versions of an alarm model. The operation returns only
-        the metadata associated with each alarm model version.</p>
+        Lists all the versions of an alarm model. The operation returns only the
+        metadata associated with each alarm model version.
+      operationId: amazonWebServicesListAlarmModelVersions
   /detector-models/{detectorModelName}/versions:
     GET:
-      summary: ListDetectorModelVersions
+      summary: Listdetectormodelversions
       description: >-
-        <p>Lists all the versions of a detector model. Only the metadata
-        associated with each detector model version is returned.</p>
+        Lists all the versions of a detector model. Only the metadata associated
+        with each detector model version is returned.
+      operationId: amazonWebServicesListDetectorModelVersions
   /input-routings:
     POST:
-      summary: ListInputRoutings
-      description: <p> Lists one or more input routings. </p>
+      summary: Listinputroutings
+      description: ' Lists one or more input routings. '
+      operationId: amazonWebServicesListInputRoutings
   /tags:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes the given tags (metadata) from the resource.</p>
+      summary: Untagresource
+      description: Removes the given tags (metadata) from the resource.
+      operationId: amazonWebServicesUntagResource
   /analysis/detector-models/:
     POST:
-      summary: StartDetectorModelAnalysis
+      summary: Startdetectormodelanalysis
       description: >-
-        <p>Performs an analysis of your detector model. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting
-        a detector model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+        Performs an analysis of your detector model. For more information, see
+        Troubleshooting a detector model in the AWS IoT Events Developer Guide.
+      operationId: amazonWebServicesStartDetectorModelAnalysis
 tags: []

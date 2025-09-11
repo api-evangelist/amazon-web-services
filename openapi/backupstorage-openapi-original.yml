@@ -5,36 +5,44 @@ info:
 paths:
   /backup-jobs/{jobId}/object/{objectName}:
     PUT:
-      summary: StartObject
+      summary: Startobject
       description: Start upload containing one or many chunks.
+      operationId: amazonWebServicesStartObject
   /restore-jobs/{jobId}/chunk/{chunkToken}:
     GET:
-      summary: GetChunk
+      summary: Getchunk
       description: Gets the specified object's chunk.
+      operationId: amazonWebServicesGetChunk
   /restore-jobs/{jobId}/object/{objectToken}/metadata:
     GET:
-      summary: GetObjectMetadata
+      summary: Getobjectmetadata
       description: Get metadata associated with an Object.
+      operationId: amazonWebServicesGetObjectMetadata
   /restore-jobs/{jobId}/chunks/{objectToken}/list:
     GET:
-      summary: ListChunks
+      summary: Listchunks
       description: List chunks in a given Object
+      operationId: amazonWebServicesListChunks
   /restore-jobs/{jobId}/objects/list:
     GET:
-      summary: ListObjects
+      summary: Listobjects
       description: List all Objects in a given Backup.
+      operationId: amazonWebServicesListObjects
   /backup-jobs/{jobId}/object/{uploadId}/complete:
     PUT:
-      summary: NotifyObjectComplete
+      summary: Notifyobjectcomplete
       description: Complete upload
+      operationId: amazonWebServicesNotifyObjectComplete
   /backup-jobs/{jobId}/chunk/{uploadId}/{chunkIndex}:
     PUT:
-      summary: PutChunk
+      summary: Putchunk
       description: Upload chunk.
+      operationId: amazonWebServicesPutChunk
   /backup-jobs/{jobId}/object/{objectName}/put-object:
     PUT:
-      summary: PutObject
+      summary: Putobject
       description: >-
         Upload object that can store object metadata String and data blob in
         single API call using inline chunk field.
+      operationId: amazonWebServicesPutObject
 tags: []

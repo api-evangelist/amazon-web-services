@@ -42,149 +42,170 @@ info:
 paths:
   /applications/{applicationId}/indices/{indexId}/documents/delete:
     POST:
-      summary: BatchDeleteDocument
+      summary: Batchdeletedocument
       description: >-
-        <p>Asynchronously deletes one or more documents added using the
-        <code>BatchPutDocument</code> API from an Amazon Q index.</p> <p>You can
-        see the progress of the deletion, and any error messages related to the
-        process, by using CloudWatch.</p>
+        Asynchronously deletes one or more documents added using the
+        BatchPutDocument API from an Amazon Q index. You can see the progress of
+        the deletion, and any error messages related to the process, by using
+        CloudWatch.
+      operationId: amazonWebServicesBatchDeleteDocument
   /applications/{applicationId}/indices/{indexId}/documents:
     POST:
-      summary: BatchPutDocument
+      summary: Batchputdocument
       description: >-
-        <p>Adds one or more documents to an Amazon Q index.</p> <p>You use this
-        API to:</p> <ul> <li> <p>ingest your structured and unstructured
-        documents and documents stored in an Amazon S3 bucket into an Amazon Q
-        index.</p> </li> <li> <p>add custom attributes to documents in an Amazon
-        Q index.</p> </li> <li> <p>attach an access control list to the
-        documents added to an Amazon Q index.</p> </li> </ul> <p>You can see the
-        progress of the deletion, and any error messages related to the process,
-        by using CloudWatch.</p>
+        Adds one or more documents to an Amazon Q index. You use this API to:  
+        ingest your structured and unstructured documents and documents stored
+        in an Amazon S3 bucket into an Amazon Q index.   add custom attributes
+        to documents in an Amazon Q index.   attach an access control list to
+        the documents added to an Amazon Q index.   You can see the progress of
+        the deletion, and any error messages related to the process, by using
+        CloudWatch.
+      operationId: amazonWebServicesBatchPutDocument
   /applications/{applicationId}/conversations?sync:
     POST:
-      summary: ChatSync
-      description: <p>Starts or continues a non-streaming Amazon Q conversation.</p>
+      summary: Chatsync
+      description: Starts or continues a non-streaming Amazon Q conversation.
+      operationId: amazonWebServicesChatSync
   /applications:
     GET:
-      summary: ListApplications
-      description: <p>Lists Amazon Q applications.</p>
+      summary: Listapplications
+      description: Lists Amazon Q applications.
+      operationId: amazonWebServicesListApplications
   /applications/{applicationId}/indices/{indexId}/datasources:
     GET:
-      summary: ListDataSources
-      description: <p>Lists the Amazon Q data source connectors that you have created.</p>
+      summary: Listdatasources
+      description: Lists the Amazon Q data source connectors that you have created.
+      operationId: amazonWebServicesListDataSources
   /applications/{applicationId}/indices:
     GET:
-      summary: ListIndices
-      description: <p>Lists the Amazon Q indices you have created.</p>
+      summary: Listindices
+      description: Lists the Amazon Q indices you have created.
+      operationId: amazonWebServicesListIndices
   /applications/{applicationId}/plugins:
     GET:
-      summary: ListPlugins
-      description: <p>Lists configured Amazon Q plugins.</p>
+      summary: Listplugins
+      description: Lists configured Amazon Q plugins.
+      operationId: amazonWebServicesListPlugins
   /applications/{applicationId}/retrievers:
     GET:
-      summary: ListRetrievers
-      description: <p>Lists the retriever used by an Amazon Q application.</p>
+      summary: Listretrievers
+      description: Lists the retriever used by an Amazon Q application.
+      operationId: amazonWebServicesListRetrievers
   /applications/{applicationId}/users:
     POST:
-      summary: CreateUser
+      summary: Createuser
       description: >-
-        <p>Creates a universally unique identifier (UUID) mapped to a list of
-        local user ids within an application.</p>
+        Creates a universally unique identifier (UUID) mapped to a list of local
+        user ids within an application.
+      operationId: amazonWebServicesCreateUser
   /applications/{applicationId}/experiences:
     GET:
-      summary: ListWebExperiences
-      description: <p>Lists one or more Amazon Q Web Experiences.</p>
+      summary: Listwebexperiences
+      description: Lists one or more Amazon Q Web Experiences.
+      operationId: amazonWebServicesListWebExperiences
   /applications/{applicationId}:
     PUT:
-      summary: UpdateApplication
-      description: <p>Updates an existing Amazon Q application.</p>
+      summary: Updateapplication
+      description: Updates an existing Amazon Q application.
+      operationId: amazonWebServicesUpdateApplication
   /applications/{applicationId}/chatcontrols:
     PATCH:
-      summary: UpdateChatControlsConfiguration
+      summary: Updatechatcontrolsconfiguration
       description: >-
-        <p>Updates an set of chat controls configured for an existing Amazon Q
-        application.</p>
+        Updates an set of chat controls configured for an existing Amazon Q
+        application.
+      operationId: amazonWebServicesUpdateChatControlsConfiguration
   /applications/{applicationId}/conversations/{conversationId}:
     GET:
-      summary: ListMessages
-      description: >-
-        <p>Gets a list of messages associated with an Amazon Q web
-        experience.</p>
+      summary: Listmessages
+      description: Gets a list of messages associated with an Amazon Q web experience.
+      operationId: amazonWebServicesListMessages
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}:
     PUT:
-      summary: UpdateDataSource
-      description: <p>Updates an existing Amazon Q data source connector.</p>
+      summary: Updatedatasource
+      description: Updates an existing Amazon Q data source connector.
+      operationId: amazonWebServicesUpdateDataSource
   /applications/{applicationId}/indices/{indexId}/groups/{groupName}:
     GET:
-      summary: GetGroup
-      description: <p>Describes a group by group name.</p>
+      summary: Getgroup
+      description: Describes a group by group name.
+      operationId: amazonWebServicesGetGroup
   /applications/{applicationId}/indices/{indexId}:
     PUT:
-      summary: UpdateIndex
-      description: <p>Updates an Amazon Q index.</p>
+      summary: Updateindex
+      description: Updates an Amazon Q index.
+      operationId: amazonWebServicesUpdateIndex
   /applications/{applicationId}/plugins/{pluginId}:
     PUT:
-      summary: UpdatePlugin
-      description: <p>Updates an Amazon Q plugin.</p>
+      summary: Updateplugin
+      description: Updates an Amazon Q plugin.
+      operationId: amazonWebServicesUpdatePlugin
   /applications/{applicationId}/retrievers/{retrieverId}:
     PUT:
-      summary: UpdateRetriever
-      description: <p>Updates the retriever used for your Amazon Q application.</p>
+      summary: Updateretriever
+      description: Updates the retriever used for your Amazon Q application.
+      operationId: amazonWebServicesUpdateRetriever
   /applications/{applicationId}/users/{userId}:
     PUT:
-      summary: UpdateUser
-      description: <p>Updates a information associated with a user id.</p>
+      summary: Updateuser
+      description: Updates a information associated with a user id.
+      operationId: amazonWebServicesUpdateUser
   /applications/{applicationId}/experiences/{webExperienceId}:
     PUT:
-      summary: UpdateWebExperience
-      description: <p>Updates an Amazon Q web experience. </p>
+      summary: Updatewebexperience
+      description: 'Updates an Amazon Q web experience. '
+      operationId: amazonWebServicesUpdateWebExperience
   /applications/{applicationId}/conversations:
     GET:
-      summary: ListConversations
-      description: <p>Lists one or more Amazon Q conversations.</p>
+      summary: Listconversations
+      description: Lists one or more Amazon Q conversations.
+      operationId: amazonWebServicesListConversations
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs:
     GET:
-      summary: ListDataSourceSyncJobs
-      description: >-
-        <p>Get information about an Amazon Q data source connector
-        synchronization.</p>
+      summary: Listdatasourcesyncjobs
+      description: Get information about an Amazon Q data source connector synchronization.
+      operationId: amazonWebServicesListDataSourceSyncJobs
   /applications/{applicationId}/index/{indexId}/documents:
     GET:
-      summary: ListDocuments
-      description: <p>A list of documents attached to an index.</p>
+      summary: Listdocuments
+      description: A list of documents attached to an index.
+      operationId: amazonWebServicesListDocuments
   /applications/{applicationId}/indices/{indexId}/groups:
     PUT:
-      summary: PutGroup
+      summary: Putgroup
       description: >-
-        <p>Create, or updates, a mapping of users—who have access to a
-        document—to groups.</p> <p>You can also map sub groups to groups. For
-        example, the group "Company Intellectual Property Teams" includes sub
-        groups "Research" and "Engineering". These sub groups include their own
-        list of users or people who work in these teams. Only users who work in
-        research and engineering, and therefore belong in the intellectual
-        property group, can see top-secret company documents in their Amazon Q
-        chat results.</p>
+        Create, or updates, a mapping of users—who have access to a document—to
+        groups. You can also map sub groups to groups. For example, the group
+        "Company Intellectual Property Teams" includes sub groups "Research" and
+        "Engineering". These sub groups include their own list of users or
+        people who work in these teams. Only users who work in research and
+        engineering, and therefore belong in the intellectual property group,
+        can see top-secret company documents in their Amazon Q chat results.
+      operationId: amazonWebServicesPutGroup
   /v1/tags/{resourceARN}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a tag from an Amazon Q application or a data source.</p>
+      summary: Untagresource
+      description: Removes a tag from an Amazon Q application or a data source.
+      operationId: amazonWebServicesUntagResource
   /applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/feedback:
     POST:
-      summary: PutFeedback
+      summary: Putfeedback
       description: >-
-        <p>Enables your end user to to provide feedback on their Amazon Q
-        generated chat responses.</p>
+        Enables your end user to to provide feedback on their Amazon Q generated
+        chat responses.
+      operationId: amazonWebServicesPutFeedback
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync:
     POST:
-      summary: StartDataSourceSyncJob
+      summary: Startdatasourcesyncjob
       description: >-
-        <p>Starts a data source connector synchronization job. If a
-        synchronization job is already in progress, Amazon Q returns a
-        <code>ConflictException</code>.</p>
+        Starts a data source connector synchronization job. If a synchronization
+        job is already in progress, Amazon Q returns a ConflictException.
+      operationId: amazonWebServicesStartDataSourceSyncJob
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync:
     POST:
-      summary: StopDataSourceSyncJob
+      summary: Stopdatasourcesyncjob
       description: >-
-        <p>Stops an Amazon Q data source connector synchronization job already
-        in progress.</p>
+        Stops an Amazon Q data source connector synchronization job already in
+        progress.
+      operationId: amazonWebServicesStopDataSourceSyncJob
 tags: []

@@ -14,442 +14,434 @@ info:
 paths:
   /assets/{assetId}/associate:
     POST:
-      summary: AssociateAssets
+      summary: Associateassets
       description: >-
-        <p>Associates a child asset with the given parent asset through a
-        hierarchy defined in the parent asset's model. For more information, see
-        <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating
-        assets</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Associates a child asset with the given parent asset through a hierarchy
+        defined in the parent asset's model. For more information, see
+        Associating assets in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesAssociateAssets
   /timeseries/associate/:
     POST:
-      summary: AssociateTimeSeriesToAssetProperty
-      description: <p>Associates a time series (data stream) with an asset property.</p>
+      summary: Associatetimeseriestoassetproperty
+      description: Associates a time series (data stream) with an asset property.
+      operationId: amazonWebServicesAssociateTimeSeriesToAssetProperty
   /projects/{projectId}/assets/associate:
     POST:
-      summary: BatchAssociateProjectAssets
+      summary: Batchassociateprojectassets
       description: >-
-        <p>Associates a group (batch) of assets with an IoT SiteWise Monitor
-        project.</p>
+        Associates a group (batch) of assets with an IoT SiteWise Monitor
+        project.
+      operationId: amazonWebServicesBatchAssociateProjectAssets
   /projects/{projectId}/assets/disassociate:
     POST:
-      summary: BatchDisassociateProjectAssets
+      summary: Batchdisassociateprojectassets
       description: >-
-        <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor
-        project.</p>
+        Disassociates a group (batch) of assets from an IoT SiteWise Monitor
+        project.
+      operationId: amazonWebServicesBatchDisassociateProjectAssets
   /properties/batch/aggregates:
     POST:
-      summary: BatchGetAssetPropertyAggregates
+      summary: Batchgetassetpropertyaggregates
       description: >-
-        <p>Gets aggregated values (for example, average, minimum, and maximum)
-        for one or more asset properties. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-        aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Gets aggregated values (for example, average, minimum, and maximum) for
+        one or more asset properties. For more information, see Querying
+        aggregates in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesBatchGetAssetPropertyAggregates
   /properties/batch/latest:
     POST:
-      summary: BatchGetAssetPropertyValue
+      summary: Batchgetassetpropertyvalue
       description: >-
-        <p>Gets the current value for one or more asset properties. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-        current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Gets the current value for one or more asset properties. For more
+        information, see Querying current values in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesBatchGetAssetPropertyValue
   /properties/batch/history:
     POST:
-      summary: BatchGetAssetPropertyValueHistory
+      summary: Batchgetassetpropertyvaluehistory
       description: >-
-        <p>Gets the historical values for one or more asset properties. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
-        historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Gets the historical values for one or more asset properties. For more
+        information, see Querying historical values in the IoT SiteWise User
+        Guide.
+      operationId: amazonWebServicesBatchGetAssetPropertyValueHistory
   /properties:
     POST:
-      summary: BatchPutAssetPropertyValue
+      summary: Batchputassetpropertyvalue
       description: >-
-        <p>Sends a list of asset property values to IoT SiteWise. Each value is
-        a timestamp-quality-value (TQV) data point. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting
-        data using the API</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To
-        identify an asset property, you must specify one of the following:</p>
-        <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an
-        asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is
-        a data stream alias (for example,
-        <code>/company/windfarm/3/turbine/7/temperature</code>). To define an
-        asset property's alias, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-        </li> </ul> <important> <p>With respect to Unix epoch time, IoT SiteWise
-        accepts only TQVs that have a timestamp of no more than 7 days in the
-        past and no more than 10 minutes in the future. IoT SiteWise rejects
-        timestamps outside of the inclusive range of [-7 days, +10 minutes] and
-        returns a <code>TimestampOutOfRangeException</code> error.</p> <p>For
-        each asset property, IoT SiteWise overwrites TQVs with duplicate
-        timestamps unless the newer TQV has a different quality. For example, if
-        you store a TQV <code>{T1, GOOD, V1}</code>, then storing <code>{T1,
-        GOOD, V2}</code> replaces the existing TQV.</p> </important> <p>IoT
-        SiteWise authorizes access to each
-        <code>BatchPutAssetPropertyValue</code> entry individually. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue
-        authorization</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Sends a list of asset property values to IoT SiteWise. Each value is a
+        timestamp-quality-value (TQV) data point. For more information, see
+        Ingesting data using the API in the IoT SiteWise User Guide. To identify
+        an asset property, you must specify one of the following:   The assetId
+        and propertyId of an asset property.   A propertyAlias, which is a data
+        stream alias (for example, /company/windfarm/3/turbine/7/temperature).
+        To define an asset property's alias, see UpdateAssetProperty.    With
+        respect to Unix epoch time, IoT SiteWise accepts only TQVs that have a
+        timestamp of no more than 7 days in the past and no more than 10 minutes
+        in the future. IoT SiteWise rejects timestamps outside of the inclusive
+        range of [-7 days, +10 minutes] and returns a
+        TimestampOutOfRangeException error. For each asset property, IoT
+        SiteWise overwrites TQVs with duplicate timestamps unless the newer TQV
+        has a different quality. For example, if you store a TQV {T1, GOOD, V1},
+        then storing {T1, GOOD, V2} replaces the existing TQV.  IoT SiteWise
+        authorizes access to each BatchPutAssetPropertyValue entry individually.
+        For more information, see BatchPutAssetPropertyValue authorization in
+        the IoT SiteWise User Guide.
+      operationId: amazonWebServicesBatchPutAssetPropertyValue
   /access-policies:
     GET:
-      summary: ListAccessPolicies
+      summary: Listaccesspolicies
       description: >-
-        <p>Retrieves a paginated list of access policies for an identity (an IAM
+        Retrieves a paginated list of access policies for an identity (an IAM
         Identity Center user, an IAM Identity Center group, or an IAM user) or
-        an IoT SiteWise Monitor resource (a portal or project).</p>
+        an IoT SiteWise Monitor resource (a portal or project).
+      operationId: amazonWebServicesListAccessPolicies
   /assets:
     GET:
-      summary: ListAssets
+      summary: Listassets
       description: >-
-        <p>Retrieves a paginated list of asset summaries.</p> <p>You can use
-        this operation to do the following:</p> <ul> <li> <p>List assets based
-        on a specific asset model.</p> </li> <li> <p>List top-level assets.</p>
-        </li> </ul> <p>You can't use this operation to list all assets. To
-        retrieve summaries for all of your assets, use <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a>
-        to get all of your asset model IDs. Then, use ListAssets to get all
-        assets for each asset model.</p>
+        Retrieves a paginated list of asset summaries. You can use this
+        operation to do the following:   List assets based on a specific asset
+        model.   List top-level assets.   You can't use this operation to list
+        all assets. To retrieve summaries for all of your assets, use
+        ListAssetModels to get all of your asset model IDs. Then, use ListAssets
+        to get all assets for each asset model.
+      operationId: amazonWebServicesListAssets
   /asset-models:
     GET:
-      summary: ListAssetModels
-      description: <p>Retrieves a paginated list of summaries of all asset models.</p>
+      summary: Listassetmodels
+      description: Retrieves a paginated list of summaries of all asset models.
+      operationId: amazonWebServicesListAssetModels
   /asset-models/{assetModelId}/composite-models:
     GET:
-      summary: ListAssetModelCompositeModels
+      summary: Listassetmodelcompositemodels
       description: >-
-        <p>Retrieves a paginated list of composite models associated with the
-        asset model</p>
+        Retrieves a paginated list of composite models associated with the asset
+        model
+      operationId: amazonWebServicesListAssetModelCompositeModels
   /jobs:
     GET:
-      summary: ListBulkImportJobs
+      summary: Listbulkimportjobs
       description: >-
-        <p>Retrieves a paginated list of bulk import job requests. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List
-        bulk import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Retrieves a paginated list of bulk import job requests. For more
+        information, see List bulk import jobs (CLI) in the IoT SiteWise User
+        Guide.
+      operationId: amazonWebServicesListBulkImportJobs
   /dashboards:
     GET:
-      summary: ListDashboards
+      summary: Listdashboards
       description: >-
-        <p>Retrieves a paginated list of dashboards for an IoT SiteWise Monitor
-        project.</p>
+        Retrieves a paginated list of dashboards for an IoT SiteWise Monitor
+        project.
+      operationId: amazonWebServicesListDashboards
   /20200301/gateways:
     GET:
-      summary: ListGateways
-      description: <p>Retrieves a paginated list of gateways.</p>
+      summary: Listgateways
+      description: Retrieves a paginated list of gateways.
+      operationId: amazonWebServicesListGateways
   /portals:
     GET:
-      summary: ListPortals
-      description: <p>Retrieves a paginated list of IoT SiteWise Monitor portals.</p>
+      summary: Listportals
+      description: Retrieves a paginated list of IoT SiteWise Monitor portals.
+      operationId: amazonWebServicesListPortals
   /projects:
     GET:
-      summary: ListProjects
+      summary: Listprojects
       description: >-
-        <p>Retrieves a paginated list of projects for an IoT SiteWise Monitor
-        portal.</p>
+        Retrieves a paginated list of projects for an IoT SiteWise Monitor
+        portal.
+      operationId: amazonWebServicesListProjects
   /access-policies/{accessPolicyId}:
     PUT:
-      summary: UpdateAccessPolicy
+      summary: Updateaccesspolicy
       description: >-
-        <p>Updates an existing access policy that specifies an identity's access
-        to an IoT SiteWise Monitor portal or project resource.</p>
+        Updates an existing access policy that specifies an identity's access to
+        an IoT SiteWise Monitor portal or project resource.
+      operationId: amazonWebServicesUpdateAccessPolicy
   /assets/{assetId}:
     PUT:
-      summary: UpdateAsset
+      summary: Updateasset
       description: >-
-        <p>Updates an asset's name. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating
-        assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Updates an asset's name. For more information, see Updating assets and
+        models in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesUpdateAsset
   /asset-models/{assetModelId}:
     PUT:
-      summary: UpdateAssetModel
+      summary: Updateassetmodel
       description: >-
-        <p>Updates an asset model and all of the assets that were created from
-        the model. Each asset created from the model inherits the updated asset
-        model's property and hierarchy definitions. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating
-        assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
-        <important> <p>This operation overwrites the existing model with the
-        provided model. To avoid deleting your asset model's properties or
-        hierarchies, you must include their IDs and definitions in the updated
-        asset model payload. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.</p>
-        <p>If you remove a property from an asset model, IoT SiteWise deletes
-        all previous data for that property. If you remove a hierarchy
-        definition from an asset model, IoT SiteWise disassociates every asset
-        associated with that hierarchy. You can't change the type or data type
-        of an existing property.</p> </important>
+        Updates an asset model and all of the assets that were created from the
+        model. Each asset created from the model inherits the updated asset
+        model's property and hierarchy definitions. For more information, see
+        Updating assets and models in the IoT SiteWise User Guide.  This
+        operation overwrites the existing model with the provided model. To
+        avoid deleting your asset model's properties or hierarchies, you must
+        include their IDs and definitions in the updated asset model payload.
+        For more information, see DescribeAssetModel. If you remove a property
+        from an asset model, IoT SiteWise deletes all previous data for that
+        property. If you remove a hierarchy definition from an asset model, IoT
+        SiteWise disassociates every asset associated with that hierarchy. You
+        can't change the type or data type of an existing property. 
+      operationId: amazonWebServicesUpdateAssetModel
   /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}:
     PUT:
-      summary: UpdateAssetModelCompositeModel
+      summary: Updateassetmodelcompositemodel
       description: >-
-        <p>Updates a composite model and all of the assets that were created
-        from the model. Each asset created from the model inherits the updated
-        asset model's property and hierarchy definitions. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating
-        assets and models</a> in the <i>IoT SiteWise User Guide</i>.</p>
-        <important> <p>If you remove a property from a composite asset model,
-        IoT SiteWise deletes all previous data for that property. You can’t
-        change the type or data type of an existing property.</p> <p>To replace
-        an existing composite asset model property with a new one with the same
-        <code>name</code>, do the following:</p> <ol> <li> <p>Submit an
-        <code>UpdateAssetModelCompositeModel</code> request with the entire
-        existing property removed.</p> </li> <li> <p>Submit a second
-        <code>UpdateAssetModelCompositeModel</code> request that includes the
-        new property. The new asset property will have the same
-        <code>name</code> as the previous one and IoT SiteWise will generate a
-        new unique <code>id</code>.</p> </li> </ol> </important>
+        Updates a composite model and all of the assets that were created from
+        the model. Each asset created from the model inherits the updated asset
+        model's property and hierarchy definitions. For more information, see
+        Updating assets and models in the IoT SiteWise User Guide.  If you
+        remove a property from a composite asset model, IoT SiteWise deletes all
+        previous data for that property. You can’t change the type or data type
+        of an existing property. To replace an existing composite asset model
+        property with a new one with the same name, do the following:   Submit
+        an UpdateAssetModelCompositeModel request with the entire existing
+        property removed.   Submit a second UpdateAssetModelCompositeModel
+        request that includes the new property. The new asset property will have
+        the same name as the previous one and IoT SiteWise will generate a new
+        unique id.   
+      operationId: amazonWebServicesUpdateAssetModelCompositeModel
   /dashboards/{dashboardId}:
     PUT:
-      summary: UpdateDashboard
-      description: <p>Updates an IoT SiteWise Monitor dashboard.</p>
+      summary: Updatedashboard
+      description: Updates an IoT SiteWise Monitor dashboard.
+      operationId: amazonWebServicesUpdateDashboard
   /20200301/gateways/{gatewayId}:
     PUT:
-      summary: UpdateGateway
-      description: <p>Updates a gateway's name.</p>
+      summary: Updategateway
+      description: Updates a gateway's name.
+      operationId: amazonWebServicesUpdateGateway
   /portals/{portalId}:
     PUT:
-      summary: UpdatePortal
-      description: <p>Updates an IoT SiteWise Monitor portal.</p>
+      summary: Updateportal
+      description: Updates an IoT SiteWise Monitor portal.
+      operationId: amazonWebServicesUpdatePortal
   /projects/{projectId}:
     PUT:
-      summary: UpdateProject
-      description: <p>Updates an IoT SiteWise Monitor project.</p>
+      summary: Updateproject
+      description: Updates an IoT SiteWise Monitor project.
+      operationId: amazonWebServicesUpdateProject
   /timeseries/delete/:
     POST:
-      summary: DeleteTimeSeries
+      summary: Deletetimeseries
       description: >-
-        <p>Deletes a time series (data stream). If you delete a time series
-        that's associated with an asset property, the asset property still
-        exists, but the time series will no longer be associated with this asset
-        property.</p> <p>To identify a time series, do one of the following:</p>
-        <ul> <li> <p>If the time series isn't associated with an asset property,
-        specify the <code>alias</code> of the time series.</p> </li> <li> <p>If
-        the time series is associated with an asset property, specify one of the
-        following: </p> <ul> <li> <p>The <code>alias</code> of the time
-        series.</p> </li> <li> <p>The <code>assetId</code> and
-        <code>propertyId</code> that identifies the asset property.</p> </li>
-        </ul> </li> </ul>
+        Deletes a time series (data stream). If you delete a time series that's
+        associated with an asset property, the asset property still exists, but
+        the time series will no longer be associated with this asset property.
+        To identify a time series, do one of the following:   If the time series
+        isn't associated with an asset property, specify the alias of the time
+        series.   If the time series is associated with an asset property,
+        specify one of the following:    The alias of the time series.   The
+        assetId and propertyId that identifies the asset property.    
+      operationId: amazonWebServicesDeleteTimeSeries
   /actions/{actionId}:
     GET:
-      summary: DescribeAction
-      description: <p>Retrieves information about an action.</p>
+      summary: Describeaction
+      description: Retrieves information about an action.
+      operationId: amazonWebServicesDescribeAction
   /assets/{assetId}/composite-models/{assetCompositeModelId}:
     GET:
-      summary: DescribeAssetCompositeModel
+      summary: Describeassetcompositemodel
       description: >-
-        <p>Retrieves information about an asset composite model (also known as
-        an asset component). An <code>AssetCompositeModel</code> is an instance
-        of an <code>AssetModelCompositeModel</code>. If you want to see
-        information about the model this is based on, call <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html">DescribeAssetModelCompositeModel</a>.</p>
+        Retrieves information about an asset composite model (also known as an
+        asset component). An AssetCompositeModel is an instance of an
+        AssetModelCompositeModel. If you want to see information about the model
+        this is based on, call DescribeAssetModelCompositeModel.
+      operationId: amazonWebServicesDescribeAssetCompositeModel
   /assets/{assetId}/properties/{propertyId}:
     PUT:
-      summary: UpdateAssetProperty
+      summary: Updateassetproperty
       description: >-
-        <p>Updates an asset property's alias and notification state.</p>
-        <important> <p>This operation overwrites the property's existing alias
-        and notification state. To keep your existing property's alias or
-        notification state, you must include the existing values in the
-        UpdateAssetProperty request. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html">DescribeAssetProperty</a>.</p>
-        </important>
+        Updates an asset property's alias and notification state.  This
+        operation overwrites the property's existing alias and notification
+        state. To keep your existing property's alias or notification state, you
+        must include the existing values in the UpdateAssetProperty request. For
+        more information, see DescribeAssetProperty. 
+      operationId: amazonWebServicesUpdateAssetProperty
   /jobs/{jobId}:
     GET:
-      summary: DescribeBulkImportJob
+      summary: Describebulkimportjob
       description: >-
-        <p>Retrieves information about a bulk import job request. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
-        a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User
-        Guide</i>.</p>
+        Retrieves information about a bulk import job request. For more
+        information, see Describe a bulk import job (CLI) in the Amazon Simple
+        Storage Service User Guide.
+      operationId: amazonWebServicesDescribeBulkImportJob
   /configuration/account/encryption:
     POST:
-      summary: PutDefaultEncryptionConfiguration
+      summary: Putdefaultencryptionconfiguration
       description: >-
-        <p>Sets the default encryption configuration for the Amazon Web Services
-        account. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key
-        management</a> in the <i>IoT SiteWise User Guide</i>.</p>
+        Sets the default encryption configuration for the Amazon Web Services
+        account. For more information, see Key management in the IoT SiteWise
+        User Guide.
+      operationId: amazonWebServicesPutDefaultEncryptionConfiguration
   /20200301/gateways/{gatewayId}/capability/{capabilityNamespace}:
     GET:
-      summary: DescribeGatewayCapabilityConfiguration
+      summary: Describegatewaycapabilityconfiguration
       description: >-
-        <p>Retrieves information about a gateway capability configuration. Each
+        Retrieves information about a gateway capability configuration. Each
         gateway capability defines data sources for a gateway. A capability
         configuration can contain multiple data source configurations. If you
         define OPC-UA sources for a gateway in the IoT SiteWise console, all of
         your OPC-UA sources are stored in one capability configuration. To list
-        all capability configurations for a gateway, use <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
+        all capability configurations for a gateway, use DescribeGateway.
+      operationId: amazonWebServicesDescribeGatewayCapabilityConfiguration
   /logging:
     PUT:
-      summary: PutLoggingOptions
-      description: <p>Sets logging options for IoT SiteWise.</p>
+      summary: Putloggingoptions
+      description: Sets logging options for IoT SiteWise.
+      operationId: amazonWebServicesPutLoggingOptions
   /configuration/account/storage:
     POST:
-      summary: PutStorageConfiguration
-      description: <p>Configures storage settings for IoT SiteWise.</p>
+      summary: Putstorageconfiguration
+      description: Configures storage settings for IoT SiteWise.
+      operationId: amazonWebServicesPutStorageConfiguration
   /timeseries/describe/:
     GET:
-      summary: DescribeTimeSeries
+      summary: Describetimeseries
       description: >-
-        <p>Retrieves information about a time series (data stream).</p> <p>To
-        identify a time series, do one of the following:</p> <ul> <li> <p>If the
-        time series isn't associated with an asset property, specify the
-        <code>alias</code> of the time series.</p> </li> <li> <p>If the time
-        series is associated with an asset property, specify one of the
-        following: </p> <ul> <li> <p>The <code>alias</code> of the time
-        series.</p> </li> <li> <p>The <code>assetId</code> and
-        <code>propertyId</code> that identifies the asset property.</p> </li>
-        </ul> </li> </ul>
+        Retrieves information about a time series (data stream). To identify a
+        time series, do one of the following:   If the time series isn't
+        associated with an asset property, specify the alias of the time
+        series.   If the time series is associated with an asset property,
+        specify one of the following:    The alias of the time series.   The
+        assetId and propertyId that identifies the asset property.    
+      operationId: amazonWebServicesDescribeTimeSeries
   /assets/{assetId}/disassociate:
     POST:
-      summary: DisassociateAssets
+      summary: Disassociateassets
       description: >-
-        <p>Disassociates a child asset from the given parent asset through a
-        hierarchy defined in the parent asset's model.</p>
+        Disassociates a child asset from the given parent asset through a
+        hierarchy defined in the parent asset's model.
+      operationId: amazonWebServicesDisassociateAssets
   /timeseries/disassociate/:
     POST:
-      summary: DisassociateTimeSeriesFromAssetProperty
-      description: <p>Disassociates a time series (data stream) from an asset property.</p>
+      summary: Disassociatetimeseriesfromassetproperty
+      description: Disassociates a time series (data stream) from an asset property.
+      operationId: amazonWebServicesDisassociateTimeSeriesFromAssetProperty
   /actions:
     GET:
-      summary: ListActions
-      description: >-
-        <p>Retrieves a paginated list of actions for a specific target
-        resource.</p>
+      summary: Listactions
+      description: Retrieves a paginated list of actions for a specific target resource.
+      operationId: amazonWebServicesListActions
   /queries/execution:
     POST:
-      summary: ExecuteQuery
+      summary: Executequery
       description: >-
-        <p>Run SQL queries to retrieve metadata and time-series data from asset
-        models, assets, measurements, metrics, transforms, and aggregates.</p>
+        Run SQL queries to retrieve metadata and time-series data from asset
+        models, assets, measurements, metrics, transforms, and aggregates.
+      operationId: amazonWebServicesExecuteQuery
   /properties/aggregates:
     GET:
-      summary: GetAssetPropertyAggregates
+      summary: Getassetpropertyaggregates
       description: >-
-        <p>Gets aggregated values for an asset property. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-        aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To identify
-        an asset property, you must specify one of the following:</p> <ul> <li>
-        <p>The <code>assetId</code> and <code>propertyId</code> of an asset
-        property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a
-        data stream alias (for example,
-        <code>/company/windfarm/3/turbine/7/temperature</code>). To define an
-        asset property's alias, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-        </li> </ul>
+        Gets aggregated values for an asset property. For more information, see
+        Querying aggregates in the IoT SiteWise User Guide. To identify an asset
+        property, you must specify one of the following:   The assetId and
+        propertyId of an asset property.   A propertyAlias, which is a data
+        stream alias (for example, /company/windfarm/3/turbine/7/temperature).
+        To define an asset property's alias, see UpdateAssetProperty.  
+      operationId: amazonWebServicesGetAssetPropertyAggregates
   /properties/latest:
     GET:
-      summary: GetAssetPropertyValue
+      summary: Getassetpropertyvalue
       description: >-
-        <p>Gets an asset property's current value. For more information, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
-        current values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To
-        identify an asset property, you must specify one of the following:</p>
-        <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an
-        asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is
-        a data stream alias (for example,
-        <code>/company/windfarm/3/turbine/7/temperature</code>). To define an
-        asset property's alias, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-        </li> </ul>
+        Gets an asset property's current value. For more information, see
+        Querying current values in the IoT SiteWise User Guide. To identify an
+        asset property, you must specify one of the following:   The assetId and
+        propertyId of an asset property.   A propertyAlias, which is a data
+        stream alias (for example, /company/windfarm/3/turbine/7/temperature).
+        To define an asset property's alias, see UpdateAssetProperty.  
+      operationId: amazonWebServicesGetAssetPropertyValue
   /properties/history:
     GET:
-      summary: GetAssetPropertyValueHistory
+      summary: Getassetpropertyvaluehistory
       description: >-
-        <p>Gets the history of an asset property's values. For more information,
-        see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
-        historical values</a> in the <i>IoT SiteWise User Guide</i>.</p> <p>To
-        identify an asset property, you must specify one of the following:</p>
-        <ul> <li> <p>The <code>assetId</code> and <code>propertyId</code> of an
-        asset property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is
+        Gets the history of an asset property's values. For more information,
+        see Querying historical values in the IoT SiteWise User Guide. To
+        identify an asset property, you must specify one of the following:   The
+        assetId and propertyId of an asset property.   A propertyAlias, which is
         a data stream alias (for example,
-        <code>/company/windfarm/3/turbine/7/temperature</code>). To define an
-        asset property's alias, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-        </li> </ul>
+        /company/windfarm/3/turbine/7/temperature). To define an asset
+        property's alias, see UpdateAssetProperty.  
+      operationId: amazonWebServicesGetAssetPropertyValueHistory
   /properties/interpolated:
     GET:
-      summary: GetInterpolatedAssetPropertyValues
+      summary: Getinterpolatedassetpropertyvalues
       description: >-
-        <p>Get interpolated values for an asset property for a specified time
+        Get interpolated values for an asset property for a specified time
         interval, during a period of time. If your time series is missing data
         points during the specified time interval, you can use interpolation to
-        estimate the missing data.</p> <p>For example, you can use this
-        operation to return the interpolated temperature values for a wind
-        turbine every 24 hours over a duration of 7 days.</p> <p>To identify an
-        asset property, you must specify one of the following:</p> <ul> <li>
-        <p>The <code>assetId</code> and <code>propertyId</code> of an asset
-        property.</p> </li> <li> <p>A <code>propertyAlias</code>, which is a
-        data stream alias (for example,
-        <code>/company/windfarm/3/turbine/7/temperature</code>). To define an
-        asset property's alias, see <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-        </li> </ul>
+        estimate the missing data. For example, you can use this operation to
+        return the interpolated temperature values for a wind turbine every 24
+        hours over a duration of 7 days. To identify an asset property, you must
+        specify one of the following:   The assetId and propertyId of an asset
+        property.   A propertyAlias, which is a data stream alias (for example,
+        /company/windfarm/3/turbine/7/temperature). To define an asset
+        property's alias, see UpdateAssetProperty.  
+      operationId: amazonWebServicesGetInterpolatedAssetPropertyValues
   /asset-models/{assetModelId}/properties:
     GET:
-      summary: ListAssetModelProperties
+      summary: Listassetmodelproperties
       description: >-
-        <p>Retrieves a paginated list of properties associated with an asset
-        model. If you update properties associated with the model before you
-        finish listing all the properties, you need to start all over again.</p>
+        Retrieves a paginated list of properties associated with an asset model.
+        If you update properties associated with the model before you finish
+        listing all the properties, you need to start all over again.
+      operationId: amazonWebServicesListAssetModelProperties
   /assets/{assetId}/properties:
     GET:
-      summary: ListAssetProperties
+      summary: Listassetproperties
       description: >-
-        <p>Retrieves a paginated list of properties associated with an asset. If
+        Retrieves a paginated list of properties associated with an asset. If
         you update properties associated with the model before you finish
-        listing all the properties, you need to start all over again.</p>
+        listing all the properties, you need to start all over again.
+      operationId: amazonWebServicesListAssetProperties
   /assets/{assetId}/assetRelationships:
     GET:
-      summary: ListAssetRelationships
+      summary: Listassetrelationships
       description: >-
-        <p>Retrieves a paginated list of asset relationships for an asset. You
-        can use this operation to identify an asset's root asset and all
-        associated assets between that asset and its root.</p>
+        Retrieves a paginated list of asset relationships for an asset. You can
+        use this operation to identify an asset's root asset and all associated
+        assets between that asset and its root.
+      operationId: amazonWebServicesListAssetRelationships
   /assets/{assetId}/hierarchies:
     GET:
-      summary: ListAssociatedAssets
+      summary: Listassociatedassets
       description: >-
-        <p>Retrieves a paginated list of associated assets.</p> <p>You can use
-        this operation to do the following:</p> <ul> <li> <p>List child assets
-        associated to a parent asset by a hierarchy that you specify.</p> </li>
-        <li> <p>List an asset's parent asset.</p> </li> </ul>
+        Retrieves a paginated list of associated assets. You can use this
+        operation to do the following:   List child assets associated to a
+        parent asset by a hierarchy that you specify.   List an asset's parent
+        asset.  
+      operationId: amazonWebServicesListAssociatedAssets
   /asset-models/{assetModelId}/composition-relationships:
     GET:
-      summary: ListCompositionRelationships
+      summary: Listcompositionrelationships
       description: >-
-        <p>Retrieves a paginated list of composition relationships for an asset
-        model of type <code>COMPONENT_MODEL</code>.</p>
+        Retrieves a paginated list of composition relationships for an asset
+        model of type COMPONENT_MODEL.
+      operationId: amazonWebServicesListCompositionRelationships
   /projects/{projectId}/assets:
     GET:
-      summary: ListProjectAssets
+      summary: Listprojectassets
       description: >-
-        <p>Retrieves a paginated list of assets associated with an IoT SiteWise
-        Monitor project.</p>
+        Retrieves a paginated list of assets associated with an IoT SiteWise
+        Monitor project.
+      operationId: amazonWebServicesListProjectAssets
   /tags:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a tag from an IoT SiteWise resource.</p>
+      summary: Untagresource
+      description: Removes a tag from an IoT SiteWise resource.
+      operationId: amazonWebServicesUntagResource
   /timeseries/:
     GET:
-      summary: ListTimeSeries
-      description: <p>Retrieves a paginated list of time series (data streams).</p>
+      summary: Listtimeseries
+      description: Retrieves a paginated list of time series (data streams).
+      operationId: amazonWebServicesListTimeSeries
   /20200301/gateways/{gatewayId}/capability:
     POST:
-      summary: UpdateGatewayCapabilityConfiguration
+      summary: Updategatewaycapabilityconfiguration
       description: >-
-        <p>Updates a gateway capability configuration or defines a new
-        capability configuration. Each gateway capability defines data sources
-        for a gateway. A capability configuration can contain multiple data
-        source configurations. If you define OPC-UA sources for a gateway in the
-        IoT SiteWise console, all of your OPC-UA sources are stored in one
+        Updates a gateway capability configuration or defines a new capability
+        configuration. Each gateway capability defines data sources for a
+        gateway. A capability configuration can contain multiple data source
+        configurations. If you define OPC-UA sources for a gateway in the IoT
+        SiteWise console, all of your OPC-UA sources are stored in one
         capability configuration. To list all capability configurations for a
-        gateway, use <a
-        href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
+        gateway, use DescribeGateway.
+      operationId: amazonWebServicesUpdateGatewayCapabilityConfiguration
 tags: []

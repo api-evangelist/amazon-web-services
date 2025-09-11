@@ -19,32 +19,35 @@ info:
 paths:
   /monitors:
     GET:
-      summary: ListMonitors
-      description: <p>Returns a list of all of your monitors.</p>
+      summary: Listmonitors
+      description: Returns a list of all of your monitors.
+      operationId: amazonWebServicesListMonitors
   /monitors/{monitorName}/probes:
     POST:
-      summary: CreateProbe
+      summary: Createprobe
       description: >-
-        <p>Create a probe within a monitor. Once you create a probe, and it
-        begins monitoring your network traffic, you'll incur billing charges for
-        that probe. </p>
+        Create a probe within a monitor. Once you create a probe, and it begins
+        monitoring your network traffic, you'll incur billing charges for that
+        probe. 
+      operationId: amazonWebServicesCreateProbe
   /monitors/{monitorName}:
     PATCH:
-      summary: UpdateMonitor
+      summary: Updatemonitor
       description: >-
-        <p>Updates the <code>aggregationPeriod</code> for a monitor. Monitors
-        support an <code>aggregationPeriod</code> of either <code>30</code> or
-        <code>60</code> seconds.</p>
+        Updates the aggregationPeriod for a monitor. Monitors support an
+        aggregationPeriod of either 30 or 60 seconds.
+      operationId: amazonWebServicesUpdateMonitor
   /monitors/{monitorName}/probes/{probeId}:
     PATCH:
-      summary: UpdateProbe
+      summary: Updateprobe
       description: >-
-        <p>Updates a monitor probe. This action requires both the
-        <code>monitorName</code> and <code>probeId</code> parameters. Run
-        <code>ListMonitors</code> to get a list of monitor names. Run
-        <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
+        Updates a monitor probe. This action requires both the monitorName and
+        probeId parameters. Run ListMonitors to get a list of monitor names. Run
+        GetMonitor to get a list of probes and probe IDs. 
+      operationId: amazonWebServicesUpdateProbe
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes a key-value pair from a monitor or probe.</p>
+      summary: Untagresource
+      description: Removes a key-value pair from a monitor or probe.
+      operationId: amazonWebServicesUntagResource
 tags: []

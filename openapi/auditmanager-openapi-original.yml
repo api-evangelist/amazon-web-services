@@ -33,424 +33,349 @@ info:
 paths:
   /assessments/{assessmentId}/associateToAssessmentReport:
     PUT:
-      summary: AssociateAssessmentReportEvidenceFolder
-      description: >-
-        <p> Associates an evidence folder to an assessment report in an Audit
-        Manager assessment. </p>
+      summary: Associateassessmentreportevidencefolder
+      description: ' Associates an evidence folder to an assessment report in an Audit Manager assessment. '
+      operationId: amazonWebServicesAssociateAssessmentReportEvidenceFolder
   /assessments/{assessmentId}/batchAssociateToAssessmentReport:
     PUT:
-      summary: BatchAssociateAssessmentReportEvidence
-      description: >-
-        <p> Associates a list of evidence to an assessment report in an Audit
-        Manager assessment. </p>
+      summary: Batchassociateassessmentreportevidence
+      description: ' Associates a list of evidence to an assessment report in an Audit Manager assessment. '
+      operationId: amazonWebServicesBatchAssociateAssessmentReportEvidence
   /assessments/{assessmentId}/delegations:
     PUT:
-      summary: BatchDeleteDelegationByAssessment
-      description: >-
-        <p> Deletes a batch of delegations for an assessment in Audit Manager.
-        </p>
+      summary: Batchdeletedelegationbyassessment
+      description: ' Deletes a batch of delegations for an assessment in Audit Manager. '
+      operationId: amazonWebServicesBatchDeleteDelegationByAssessment
   /assessments/{assessmentId}/batchDisassociateFromAssessmentReport:
     PUT:
-      summary: BatchDisassociateAssessmentReportEvidence
-      description: >-
-        <p> Disassociates a list of evidence from an assessment report in Audit
-        Manager. </p>
+      summary: Batchdisassociateassessmentreportevidence
+      description: ' Disassociates a list of evidence from an assessment report in Audit Manager. '
+      operationId: amazonWebServicesBatchDisassociateAssessmentReportEvidence
   /assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence:
     POST:
-      summary: BatchImportEvidenceToAssessmentControl
+      summary: Batchimportevidencetoassessmentcontrol
       description: >-
-        <p>Adds one or more pieces of evidence to a control in an Audit Manager
-        assessment. </p> <p>You can import manual evidence from any S3 bucket by
+        Adds one or more pieces of evidence to a control in an Audit Manager
+        assessment.  You can import manual evidence from any S3 bucket by
         specifying the S3 URI of the object. You can also upload a file from
         your browser, or enter plain text in response to a risk assessment
-        question. </p> <p>The following restrictions apply to this action:</p>
-        <ul> <li> <p> <code>manualEvidence</code> can be only one of the
-        following: <code>evidenceFileName</code>, <code>s3ResourcePath</code>,
-        or <code>textResponse</code> </p> </li> <li> <p>Maximum size of an
-        individual evidence file: 100 MB</p> </li> <li> <p>Number of daily
-        manual evidence uploads per control: 100</p> </li> <li> <p>Supported
-        file formats: See <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported
-        file types for manual evidence</a> in the <i>Audit Manager User
-        Guide</i> </p> </li> </ul> <p>For more information about Audit Manager
-        service restrictions, see <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas
-        and restrictions for Audit Manager</a>.</p>
+        question.  The following restrictions apply to this action:   
+        manualEvidence can be only one of the following: evidenceFileName,
+        s3ResourcePath, or textResponse    Maximum size of an individual
+        evidence file: 100 MB   Number of daily manual evidence uploads per
+        control: 100   Supported file formats: See Supported file types for
+        manual evidence in the Audit Manager User Guide    For more information
+        about Audit Manager service restrictions, see Quotas and restrictions
+        for Audit Manager.
+      operationId: amazonWebServicesBatchImportEvidenceToAssessmentControl
   /assessments:
     GET:
-      summary: ListAssessments
-      description: >-
-        <p> Returns a list of current and past assessments from Audit Manager.
-        </p>
+      summary: Listassessments
+      description: ' Returns a list of current and past assessments from Audit Manager. '
+      operationId: amazonWebServicesListAssessments
   /assessmentFrameworks:
     GET:
-      summary: ListAssessmentFrameworks
-      description: >-
-        <p> Returns a list of the frameworks that are available in the Audit
-        Manager framework library. </p>
+      summary: Listassessmentframeworks
+      description: ' Returns a list of the frameworks that are available in the Audit Manager framework library. '
+      operationId: amazonWebServicesListAssessmentFrameworks
   /assessments/{assessmentId}/reports:
     POST:
-      summary: CreateAssessmentReport
-      description: <p> Creates an assessment report for the specified assessment. </p>
+      summary: Createassessmentreport
+      description: ' Creates an assessment report for the specified assessment. '
+      operationId: amazonWebServicesCreateAssessmentReport
   /controls:
     GET:
-      summary: ListControls
-      description: <p> Returns a list of controls from Audit Manager. </p>
+      summary: Listcontrols
+      description: ' Returns a list of controls from Audit Manager. '
+      operationId: amazonWebServicesListControls
   /assessments/{assessmentId}:
     PUT:
-      summary: UpdateAssessment
-      description: <p> Edits an Audit Manager assessment. </p>
+      summary: Updateassessment
+      description: ' Edits an Audit Manager assessment. '
+      operationId: amazonWebServicesUpdateAssessment
   /assessmentFrameworks/{frameworkId}:
     PUT:
-      summary: UpdateAssessmentFramework
-      description: <p> Updates a custom framework in Audit Manager. </p>
+      summary: Updateassessmentframework
+      description: ' Updates a custom framework in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentFramework
   /assessmentFrameworkShareRequests/{requestId}:
     PUT:
-      summary: UpdateAssessmentFrameworkShare
-      description: >-
-        <p> Updates a share request for a custom framework in Audit Manager.
-        </p>
+      summary: Updateassessmentframeworkshare
+      description: ' Updates a share request for a custom framework in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentFrameworkShare
   /assessments/{assessmentId}/reports/{assessmentReportId}:
     DELETE:
-      summary: DeleteAssessmentReport
+      summary: Deleteassessmentreport
       description: >-
-        <p>Deletes an assessment report in Audit Manager. </p> <p>When you run
-        the <code>DeleteAssessmentReport</code> operation, Audit Manager
-        attempts to delete the following data:</p> <ol> <li> <p>The specified
-        assessment report that’s stored in your S3 bucket</p> </li> <li> <p>The
-        associated metadata that’s stored in Audit Manager</p> </li> </ol> <p>If
+        Deletes an assessment report in Audit Manager.  When you run the
+        DeleteAssessmentReport operation, Audit Manager attempts to delete the
+        following data:   The specified assessment report that’s stored in your
+        S3 bucket   The associated metadata that’s stored in Audit Manager   If
         Audit Manager can’t access the assessment report in your S3 bucket, the
-        report isn’t deleted. In this event, the
-        <code>DeleteAssessmentReport</code> operation doesn’t fail. Instead, it
-        proceeds to delete the associated metadata only. You must then delete
-        the assessment report from the S3 bucket yourself. </p> <p>This scenario
-        happens when Audit Manager receives a <code>403 (Forbidden)</code> or
-        <code>404 (Not Found)</code> error from Amazon S3. To avoid this, make
-        sure that your S3 bucket is available, and that you configured the
+        report isn’t deleted. In this event, the DeleteAssessmentReport
+        operation doesn’t fail. Instead, it proceeds to delete the associated
+        metadata only. You must then delete the assessment report from the S3
+        bucket yourself.  This scenario happens when Audit Manager receives a
+        403 (Forbidden) or 404 (Not Found) error from Amazon S3. To avoid this,
+        make sure that your S3 bucket is available, and that you configured the
         correct permissions for Audit Manager to delete resources in your S3
-        bucket. For an example permissions policy that you can use, see <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html#full-administrator-access-assessment-report-destination">Assessment
-        report destination permissions</a> in the <i>Audit Manager User
-        Guide</i>. For information about the issues that could cause a <code>403
-        (Forbidden)</code> or <code>404 (Not Found</code>) error from Amazon S3,
-        see <a
-        href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
-        of Error Codes</a> in the <i>Amazon Simple Storage Service API
-        Reference</i>. </p>
+        bucket. For an example permissions policy that you can use, see
+        Assessment report destination permissions in the Audit Manager User
+        Guide. For information about the issues that could cause a 403
+        (Forbidden) or 404 (Not Found) error from Amazon S3, see List of Error
+        Codes in the Amazon Simple Storage Service API Reference. 
+      operationId: amazonWebServicesDeleteAssessmentReport
   /controls/{controlId}:
     PUT:
-      summary: UpdateControl
-      description: <p> Updates a custom control in Audit Manager. </p>
+      summary: Updatecontrol
+      description: ' Updates a custom control in Audit Manager. '
+      operationId: amazonWebServicesUpdateControl
   /account/deregisterAccount:
     POST:
-      summary: DeregisterAccount
-      description: >-
-        <p> Deregisters an account in Audit Manager. </p> <note> <p>Before you
-        deregister, you can use the <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a>
-        API operation to set your preferred data retention policy. By default,
-        Audit Manager retains your data. If you want to delete your data, you
-        can use the <code>DeregistrationPolicy</code> attribute to request the
-        deletion of your data. </p> <p>For more information about data
-        retention, see <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/data-protection.html">Data
-        Protection</a> in the <i>Audit Manager User Guide</i>. </p> </note>
+      summary: Deregisteraccount
+      description: ' Deregisters an account in Audit Manager.   Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the DeregistrationPolicy attribute to request the deletion of your data.  For more information about data retention, see Data Protection in the Audit Manager User Guide.  '
+      operationId: amazonWebServicesDeregisterAccount
   /account/deregisterOrganizationAdminAccount:
     POST:
-      summary: DeregisterOrganizationAdminAccount
+      summary: Deregisterorganizationadminaccount
       description: >-
-        <p>Removes the specified Amazon Web Services account as a delegated
-        administrator for Audit Manager. </p> <p>When you remove a delegated
+        Removes the specified Amazon Web Services account as a delegated
+        administrator for Audit Manager.  When you remove a delegated
         administrator from your Audit Manager settings, you continue to have
         access to the evidence that you previously collected under that account.
         This is also the case when you deregister a delegated administrator from
         Organizations. However, Audit Manager stops collecting and attaching
-        evidence to that delegated administrator account moving forward.</p>
-        <important> <p>Keep in mind the following cleanup task if you use
-        evidence finder:</p> <p>Before you use your management account to remove
-        a delegated administrator, make sure that the current delegated
-        administrator account signs in to Audit Manager and disables evidence
-        finder first. Disabling evidence finder automatically deletes the event
-        data store that was created in their account when they enabled evidence
-        finder. If this task isn’t completed, the event data store remains in
-        their account. In this case, we recommend that the original delegated
-        administrator goes to CloudTrail Lake and manually <a
-        href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html">deletes
-        the event data store</a>.</p> <p>This cleanup task is necessary to
-        ensure that you don't end up with multiple event data stores. Audit
-        Manager ignores an unused event data store after you remove or change a
-        delegated administrator account. However, the unused event data store
-        continues to incur storage costs from CloudTrail Lake if you don't
-        delete it.</p> </important> <p>When you deregister a delegated
-        administrator account for Audit Manager, the data for that account isn’t
-        deleted. If you want to delete resource data for a delegated
-        administrator account, you must perform that task separately before you
-        deregister the account. Either, you can do this in the Audit Manager
-        console. Or, you can use one of the delete API operations that are
-        provided by Audit Manager. </p> <p>To delete your Audit Manager resource
-        data, see the following instructions: </p> <ul> <li> <p> <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html">DeleteAssessment</a>
-        (see also: <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html">Deleting
-        an assessment</a> in the <i>Audit Manager User Guide</i>)</p> </li> <li>
-        <p> <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html">DeleteAssessmentFramework</a>
-        (see also: <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html">Deleting
-        a custom framework</a> in the <i>Audit Manager User Guide</i>)</p> </li>
-        <li> <p> <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html">DeleteAssessmentFrameworkShare</a>
-        (see also: <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html">Deleting
-        a share request</a> in the <i>Audit Manager User Guide</i>)</p> </li>
-        <li> <p> <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html">DeleteAssessmentReport</a>
-        (see also: <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps">Deleting
-        an assessment report</a> in the <i>Audit Manager User Guide</i>)</p>
-        </li> <li> <p> <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html">DeleteControl</a>
-        (see also: <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html">Deleting
-        a custom control</a> in the <i>Audit Manager User Guide</i>)</p> </li>
-        </ul> <p>At this time, Audit Manager doesn't provide an option to delete
-        evidence for a specific delegated administrator. Instead, when your
-        management account deregisters Audit Manager, we perform a cleanup for
-        the current delegated administrator account at the time of
-        deregistration.</p>
+        evidence to that delegated administrator account moving forward.  Keep
+        in mind the following cleanup task if you use evidence finder: Before
+        you use your management account to remove a delegated administrator,
+        make sure that the current delegated administrator account signs in to
+        Audit Manager and disables evidence finder first. Disabling evidence
+        finder automatically deletes the event data store that was created in
+        their account when they enabled evidence finder. If this task isn’t
+        completed, the event data store remains in their account. In this case,
+        we recommend that the original delegated administrator goes to
+        CloudTrail Lake and manually deletes the event data store. This cleanup
+        task is necessary to ensure that you don't end up with multiple event
+        data stores. Audit Manager ignores an unused event data store after you
+        remove or change a delegated administrator account. However, the unused
+        event data store continues to incur storage costs from CloudTrail Lake
+        if you don't delete it.  When you deregister a delegated administrator
+        account for Audit Manager, the data for that account isn’t deleted. If
+        you want to delete resource data for a delegated administrator account,
+        you must perform that task separately before you deregister the account.
+        Either, you can do this in the Audit Manager console. Or, you can use
+        one of the delete API operations that are provided by Audit Manager.  To
+        delete your Audit Manager resource data, see the following
+        instructions:     DeleteAssessment (see also: Deleting an assessment in
+        the Audit Manager User Guide)    DeleteAssessmentFramework (see also:
+        Deleting a custom framework in the Audit Manager User Guide)   
+        DeleteAssessmentFrameworkShare (see also: Deleting a share request in
+        the Audit Manager User Guide)    DeleteAssessmentReport (see also:
+        Deleting an assessment report in the Audit Manager User Guide)   
+        DeleteControl (see also: Deleting a custom control in the Audit Manager
+        User Guide)   At this time, Audit Manager doesn't provide an option to
+        delete evidence for a specific delegated administrator. Instead, when
+        your management account deregisters Audit Manager, we perform a cleanup
+        for the current delegated administrator account at the time of
+        deregistration.
+      operationId: amazonWebServicesDeregisterOrganizationAdminAccount
   /assessments/{assessmentId}/disassociateFromAssessmentReport:
     PUT:
-      summary: DisassociateAssessmentReportEvidenceFolder
-      description: >-
-        <p> Disassociates an evidence folder from the specified assessment
-        report in Audit Manager. </p>
+      summary: Disassociateassessmentreportevidencefolder
+      description: ' Disassociates an evidence folder from the specified assessment report in Audit Manager. '
+      operationId: amazonWebServicesDisassociateAssessmentReportEvidenceFolder
   /account/status:
     GET:
-      summary: GetAccountStatus
-      description: <p> Gets the registration status of an account in Audit Manager. </p>
+      summary: Getaccountstatus
+      description: ' Gets the registration status of an account in Audit Manager. '
+      operationId: amazonWebServicesGetAccountStatus
   /assessments/{assessmentId}/reports/{assessmentReportId}/url:
     GET:
-      summary: GetAssessmentReportUrl
-      description: <p> Gets the URL of an assessment report in Audit Manager. </p>
+      summary: Getassessmentreporturl
+      description: ' Gets the URL of an assessment report in Audit Manager. '
+      operationId: amazonWebServicesGetAssessmentReportUrl
   /assessments/{assessmentId}/changelogs:
     GET:
-      summary: GetChangeLogs
-      description: <p> Gets a list of changelogs from Audit Manager. </p>
+      summary: Getchangelogs
+      description: ' Gets a list of changelogs from Audit Manager. '
+      operationId: amazonWebServicesGetChangeLogs
   /delegations:
     GET:
-      summary: GetDelegations
-      description: <p> Gets a list of delegations from an audit owner to a delegate. </p>
+      summary: Getdelegations
+      description: ' Gets a list of delegations from an audit owner to a delegate. '
+      operationId: amazonWebServicesGetDelegations
   /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}/evidence/{evidenceId}:
     GET:
-      summary: GetEvidence
-      description: <p> Gets information about a specified evidence item.</p>
+      summary: Getevidence
+      description: ' Gets information about a specified evidence item.'
+      operationId: amazonWebServicesGetEvidence
   /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}/evidence:
     GET:
-      summary: GetEvidenceByEvidenceFolder
-      description: >-
-        <p> Gets all evidence from a specified evidence folder in Audit Manager.
-        </p>
+      summary: Getevidencebyevidencefolder
+      description: ' Gets all evidence from a specified evidence folder in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceByEvidenceFolder
   /evidenceFileUploadUrl:
     GET:
-      summary: GetEvidenceFileUploadUrl
+      summary: Getevidencefileuploadurl
       description: >-
-        <p>Creates a presigned Amazon S3 URL that can be used to upload a file
-        as manual evidence. For instructions on how to use this operation, see
-        <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files">Upload
-        a file from your browser </a> in the <i>Audit Manager User
-        Guide</i>.</p> <p>The following restrictions apply to this
-        operation:</p> <ul> <li> <p>Maximum size of an individual evidence file:
-        100 MB</p> </li> <li> <p>Number of daily manual evidence uploads per
-        control: 100</p> </li> <li> <p>Supported file formats: See <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported
-        file types for manual evidence</a> in the <i>Audit Manager User
-        Guide</i> </p> </li> </ul> <p>For more information about Audit Manager
-        service restrictions, see <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas
-        and restrictions for Audit Manager</a>.</p>
+        Creates a presigned Amazon S3 URL that can be used to upload a file as
+        manual evidence. For instructions on how to use this operation, see
+        Upload a file from your browser  in the Audit Manager User Guide. The
+        following restrictions apply to this operation:   Maximum size of an
+        individual evidence file: 100 MB   Number of daily manual evidence
+        uploads per control: 100   Supported file formats: See Supported file
+        types for manual evidence in the Audit Manager User Guide    For more
+        information about Audit Manager service restrictions, see Quotas and
+        restrictions for Audit Manager.
+      operationId: amazonWebServicesGetEvidenceFileUploadUrl
   /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}:
     GET:
-      summary: GetEvidenceFolder
-      description: >-
-        <p> Gets an evidence folder from a specified assessment in Audit
-        Manager. </p>
+      summary: Getevidencefolder
+      description: ' Gets an evidence folder from a specified assessment in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceFolder
   /assessments/{assessmentId}/evidenceFolders:
     GET:
-      summary: GetEvidenceFoldersByAssessment
-      description: >-
-        <p> Gets the evidence folders from a specified assessment in Audit
-        Manager. </p>
+      summary: Getevidencefoldersbyassessment
+      description: ' Gets the evidence folders from a specified assessment in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceFoldersByAssessment
   /assessments/{assessmentId}/evidenceFolders-by-assessment-control/{controlSetId}/{controlId}:
     GET:
-      summary: GetEvidenceFoldersByAssessmentControl
-      description: >-
-        <p> Gets a list of evidence folders that are associated with a specified
-        control in an Audit Manager assessment. </p>
+      summary: Getevidencefoldersbyassessmentcontrol
+      description: ' Gets a list of evidence folders that are associated with a specified control in an Audit Manager assessment. '
+      operationId: amazonWebServicesGetEvidenceFoldersByAssessmentControl
   /insights:
     GET:
-      summary: GetInsights
-      description: >-
-        <p>Gets the latest analytics data for all your current active
-        assessments. </p>
+      summary: Getinsights
+      description: 'Gets the latest analytics data for all your current active assessments. '
+      operationId: amazonWebServicesGetInsights
   /insights/assessments/{assessmentId}:
     GET:
-      summary: GetInsightsByAssessment
-      description: <p>Gets the latest analytics data for a specific active assessment. </p>
+      summary: Getinsightsbyassessment
+      description: 'Gets the latest analytics data for a specific active assessment. '
+      operationId: amazonWebServicesGetInsightsByAssessment
   /account/organizationAdminAccount:
     GET:
-      summary: GetOrganizationAdminAccount
-      description: >-
-        <p> Gets the name of the delegated Amazon Web Services administrator
-        account for a specified organization. </p>
+      summary: Getorganizationadminaccount
+      description: ' Gets the name of the delegated Amazon Web Services administrator account for a specified organization. '
+      operationId: amazonWebServicesGetOrganizationAdminAccount
   /services:
     GET:
-      summary: GetServicesInScope
+      summary: Getservicesinscope
       description: >-
-        <p>Gets a list of all of the Amazon Web Services that you can choose to
-        include in your assessment. When you <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create
-        an assessment</a>, specify which of these services you want to include
-        to narrow the assessment's <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
+        Gets a list of all of the Amazon Web Services that you can choose to
+        include in your assessment. When you create an assessment, specify which
+        of these services you want to include to narrow the assessment's scope.
+      operationId: amazonWebServicesGetServicesInScope
   /settings/{attribute}:
     GET:
-      summary: GetSettings
-      description: <p> Gets the settings for a specified Amazon Web Services account. </p>
+      summary: Getsettings
+      description: ' Gets the settings for a specified Amazon Web Services account. '
+      operationId: amazonWebServicesGetSettings
   /insights/controls-by-assessment:
     GET:
-      summary: ListAssessmentControlInsightsByControlDomain
+      summary: Listassessmentcontrolinsightsbycontroldomain
       description: >-
-        <p>Lists the latest analytics data for controls within a specific
-        control domain and a specific active assessment.</p> <note> <p>Control
-        insights are listed only if the control belongs to the control domain
-        and assessment that was specified. Moreover, the control must have
-        collected evidence on the <code>lastUpdated</code> date of
-        <code>controlInsightsByAssessment</code>. If neither of these conditions
-        are met, no data is listed for that control. </p> </note>
+        Lists the latest analytics data for controls within a specific control
+        domain and a specific active assessment.  Control insights are listed
+        only if the control belongs to the control domain and assessment that
+        was specified. Moreover, the control must have collected evidence on the
+        lastUpdated date of controlInsightsByAssessment. If neither of these
+        conditions are met, no data is listed for that control.  
+      operationId: amazonWebServicesListAssessmentControlInsightsByControlDomain
   /assessmentFrameworkShareRequests:
     GET:
-      summary: ListAssessmentFrameworkShareRequests
-      description: >-
-        <p> Returns a list of sent or received share requests for custom
-        frameworks in Audit Manager. </p>
+      summary: Listassessmentframeworksharerequests
+      description: ' Returns a list of sent or received share requests for custom frameworks in Audit Manager. '
+      operationId: amazonWebServicesListAssessmentFrameworkShareRequests
   /assessmentReports:
     GET:
-      summary: ListAssessmentReports
-      description: <p> Returns a list of assessment reports created in Audit Manager. </p>
+      summary: Listassessmentreports
+      description: ' Returns a list of assessment reports created in Audit Manager. '
+      operationId: amazonWebServicesListAssessmentReports
   /insights/control-domains:
     GET:
-      summary: ListControlDomainInsights
+      summary: Listcontroldomaininsights
       description: >-
-        <p>Lists the latest analytics data for control domains across all of
-        your active assessments. </p> <note> <p>A control domain is listed only
-        if at least one of the controls within that domain collected evidence on
-        the <code>lastUpdated</code> date of <code>controlDomainInsights</code>.
-        If this condition isn’t met, no data is listed for that control
-        domain.</p> </note>
+        Lists the latest analytics data for control domains across all of your
+        active assessments.   A control domain is listed only if at least one of
+        the controls within that domain collected evidence on the lastUpdated
+        date of controlDomainInsights. If this condition isn’t met, no data is
+        listed for that control domain. 
+      operationId: amazonWebServicesListControlDomainInsights
   /insights/control-domains-by-assessment:
     GET:
-      summary: ListControlDomainInsightsByAssessment
+      summary: Listcontroldomaininsightsbyassessment
       description: >-
-        <p>Lists analytics data for control domains within a specified active
-        assessment.</p> <note> <p>A control domain is listed only if at least
-        one of the controls within that domain collected evidence on the
-        <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
-        this condition isn’t met, no data is listed for that domain.</p> </note>
+        Lists analytics data for control domains within a specified active
+        assessment.  A control domain is listed only if at least one of the
+        controls within that domain collected evidence on the lastUpdated date
+        of controlDomainInsights. If this condition isn’t met, no data is listed
+        for that domain. 
+      operationId: amazonWebServicesListControlDomainInsightsByAssessment
   /insights/controls:
     GET:
-      summary: ListControlInsightsByControlDomain
+      summary: Listcontrolinsightsbycontroldomain
       description: >-
-        <p>Lists the latest analytics data for controls within a specific
-        control domain across all active assessments.</p> <note> <p>Control
-        insights are listed only if the control belongs to the control domain
-        that was specified and the control collected evidence on the
-        <code>lastUpdated</code> date of <code>controlInsightsMetadata</code>.
-        If neither of these conditions are met, no data is listed for that
-        control. </p> </note>
+        Lists the latest analytics data for controls within a specific control
+        domain across all active assessments.  Control insights are listed only
+        if the control belongs to the control domain that was specified and the
+        control collected evidence on the lastUpdated date of
+        controlInsightsMetadata. If neither of these conditions are met, no data
+        is listed for that control.  
+      operationId: amazonWebServicesListControlInsightsByControlDomain
   /dataSourceKeywords:
     GET:
-      summary: ListKeywordsForDataSource
-      description: >-
-        <p> Returns a list of keywords that are pre-mapped to the specified
-        control data source. </p>
+      summary: Listkeywordsfordatasource
+      description: ' Returns a list of keywords that are pre-mapped to the specified control data source. '
+      operationId: amazonWebServicesListKeywordsForDataSource
   /notifications:
     GET:
-      summary: ListNotifications
-      description: <p> Returns a list of all Audit Manager notifications. </p>
+      summary: Listnotifications
+      description: ' Returns a list of all Audit Manager notifications. '
+      operationId: amazonWebServicesListNotifications
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p> Removes a tag from a resource in Audit Manager. </p>
+      summary: Untagresource
+      description: ' Removes a tag from a resource in Audit Manager. '
+      operationId: amazonWebServicesUntagResource
   /account/registerAccount:
     POST:
-      summary: RegisterAccount
-      description: >-
-        <p> Enables Audit Manager for the specified Amazon Web Services account.
-        </p>
+      summary: Registeraccount
+      description: ' Enables Audit Manager for the specified Amazon Web Services account. '
+      operationId: amazonWebServicesRegisterAccount
   /account/registerOrganizationAdminAccount:
     POST:
-      summary: RegisterOrganizationAdminAccount
-      description: >-
-        <p> Enables an Amazon Web Services account within the organization as
-        the delegated administrator for Audit Manager. </p>
+      summary: Registerorganizationadminaccount
+      description: ' Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. '
+      operationId: amazonWebServicesRegisterOrganizationAdminAccount
   /assessmentFrameworks/{frameworkId}/shareRequests:
     POST:
-      summary: StartAssessmentFrameworkShare
-      description: >-
-        <p> Creates a share request for a custom framework in Audit Manager.
-        </p> <p>The share request specifies a recipient and notifies them that a
-        custom framework is available. Recipients have 120 days to accept or
-        decline the request. If no action is taken, the share request
-        expires.</p> <p>When you create a share request, Audit Manager stores a
-        snapshot of your custom framework in the US East (N. Virginia) Amazon
-        Web Services Region. Audit Manager also stores a backup of the same
-        snapshot in the US West (Oregon) Amazon Web Services Region.</p>
-        <p>Audit Manager deletes the snapshot and the backup snapshot when one
-        of the following events occurs:</p> <ul> <li> <p>The sender revokes the
-        share request.</p> </li> <li> <p>The recipient declines the share
-        request.</p> </li> <li> <p>The recipient encounters an error and doesn't
-        successfully accept the share request.</p> </li> <li> <p>The share
-        request expires before the recipient responds to the request.</p> </li>
-        </ul> <p>When a sender <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend">resends
-        a share request</a>, the snapshot is replaced with an updated version
-        that corresponds with the latest version of the custom framework. </p>
-        <p>When a recipient accepts a share request, the snapshot is replicated
-        into their Amazon Web Services account under the Amazon Web Services
-        Region that was specified in the share request. </p> <important> <p>When
-        you invoke the <code>StartAssessmentFrameworkShare</code> API, you are
-        about to share a custom framework with another Amazon Web Services
-        account. You may not share a custom framework that is derived from a
-        standard framework if the standard framework is designated as not
-        eligible for sharing by Amazon Web Services, unless you have obtained
-        permission to do so from the owner of the standard framework. To learn
-        more about which standard frameworks are eligible for sharing, see <a
-        href="https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility">Framework
-        sharing eligibility</a> in the <i>Audit Manager User Guide</i>.</p>
-        </important>
+      summary: Startassessmentframeworkshare
+      description: ' Creates a share request for a custom framework in Audit Manager.  The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires. When you create a share request, Audit Manager stores a snapshot of your custom framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region. Audit Manager deletes the snapshot and the backup snapshot when one of the following events occurs:   The sender revokes the share request.   The recipient declines the share request.   The recipient encounters an error and doesn''t successfully accept the share request.   The share request expires before the recipient responds to the request.   When a sender resends a share request, the snapshot is replaced with an updated version that corresponds with the latest version of the custom framework.  When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share request.   When you invoke the StartAssessmentFrameworkShare API, you are about to share a custom framework with another Amazon Web Services account. You may not share a custom framework that is derived from a standard framework if the standard framework is designated as not eligible for sharing by Amazon Web Services, unless you have obtained permission to do so from the owner of the standard framework. To learn more about which standard frameworks are eligible for sharing, see Framework sharing eligibility in the Audit Manager User Guide. '
+      operationId: amazonWebServicesStartAssessmentFrameworkShare
   /assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}:
     PUT:
-      summary: UpdateAssessmentControl
-      description: <p> Updates a control within an assessment in Audit Manager. </p>
+      summary: Updateassessmentcontrol
+      description: ' Updates a control within an assessment in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentControl
   /assessments/{assessmentId}/controlSets/{controlSetId}/status:
     PUT:
-      summary: UpdateAssessmentControlSetStatus
-      description: >-
-        <p> Updates the status of a control set in an Audit Manager assessment.
-        </p>
+      summary: Updateassessmentcontrolsetstatus
+      description: ' Updates the status of a control set in an Audit Manager assessment. '
+      operationId: amazonWebServicesUpdateAssessmentControlSetStatus
   /assessments/{assessmentId}/status:
     PUT:
-      summary: UpdateAssessmentStatus
-      description: <p> Updates the status of an assessment in Audit Manager. </p>
+      summary: Updateassessmentstatus
+      description: ' Updates the status of an assessment in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentStatus
   /settings:
     PUT:
-      summary: UpdateSettings
-      description: <p> Updates Audit Manager settings for the current account. </p>
+      summary: Updatesettings
+      description: ' Updates Audit Manager settings for the current account. '
+      operationId: amazonWebServicesUpdateSettings
   /assessmentReports/integrity:
     POST:
-      summary: ValidateAssessmentReportIntegrity
-      description: >-
-        <p> Validates the integrity of an assessment report in Audit Manager.
-        </p>
+      summary: Validateassessmentreportintegrity
+      description: ' Validates the integrity of an assessment report in Audit Manager. '
+      operationId: amazonWebServicesValidateAssessmentReportIntegrity
 tags: []

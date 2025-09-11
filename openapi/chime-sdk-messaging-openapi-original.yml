@@ -11,306 +11,295 @@ info:
 paths:
   /channels/{channelArn}/channel-flow:
     PUT:
-      summary: AssociateChannelFlow
+      summary: Associatechannelflow
       description: >-
-        <p>Associates a channel flow with a channel. Once associated, all
-        messages to that channel go through channel flow processors. To stop
-        processing, use the <code>DisassociateChannelFlow</code> API.</p> <note>
-        <p>Only administrators or channel moderators can associate a channel
-        flow. The <code>x-amz-chime-bearer</code> request header is mandatory.
-        Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        Associates a channel flow with a channel. Once associated, all messages
+        to that channel go through channel flow processors. To stop processing,
+        use the DisassociateChannelFlow API.  Only administrators or channel
+        moderators can associate a channel flow. The x-amz-chime-bearer request
+        header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header. 
+      operationId: amazonWebServicesAssociateChannelFlow
   /channels/{channelArn}/memberships?operation=batch-create:
     POST:
-      summary: BatchCreateChannelMembership
-      description: <p>Adds a specified number of users and bots to a channel. </p>
+      summary: Batchcreatechannelmembership
+      description: 'Adds a specified number of users and bots to a channel. '
+      operationId: amazonWebServicesBatchCreateChannelMembership
   /channels/{channelArn}?operation=channel-flow-callback:
     POST:
-      summary: ChannelFlowCallback
+      summary: Channelflowcallback
       description: >-
-        <p>Calls back Amazon Chime SDK messaging with a processing response
+        Calls back Amazon Chime SDK messaging with a processing response
         message. This should be invoked from the processor Lambda. This is a
-        developer API.</p> <p>You can return one of the following processing
-        responses:</p> <ul> <li> <p>Update message content or metadata</p> </li>
-        <li> <p>Deny a message</p> </li> <li> <p>Make no changes to the
-        message</p> </li> </ul>
+        developer API. You can return one of the following processing
+        responses:   Update message content or metadata   Deny a message   Make
+        no changes to the message  
+      operationId: amazonWebServicesChannelFlowCallback
   /channels:
     GET:
-      summary: ListChannels
+      summary: Listchannels
       description: >-
-        <p>Lists all Channels created under a single Chime App as a paginated
-        list. You can specify filters to narrow results.</p> <p class="title">
-        <b>Functionality &amp; restrictions</b> </p> <ul> <li> <p>Use privacy =
-        <code>PUBLIC</code> to retrieve all public channels in the account.</p>
-        </li> <li> <p>Only an <code>AppInstanceAdmin</code> can set privacy =
-        <code>PRIVATE</code> to list the private channels in an account.</p>
-        </li> </ul> <note> <p>The <code>x-amz-chime-bearer</code> request header
-        is mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        Lists all Channels created under a single Chime App as a paginated list.
+        You can specify filters to narrow results.  Functionality &amp;
+        restrictions    Use privacy = PUBLIC to retrieve all public channels in
+        the account.   Only an AppInstanceAdmin can set privacy = PRIVATE to
+        list the private channels in an account.    The x-amz-chime-bearer
+        request header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header. 
+      operationId: amazonWebServicesListChannels
   /channels/{channelArn}/bans:
     GET:
-      summary: ListChannelBans
+      summary: Listchannelbans
       description: >-
-        <p>Lists all the users and bots banned from a particular channel.</p>
-        <note> <p>The <code>x-amz-chime-bearer</code> request header is
-        mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        Lists all the users and bots banned from a particular channel.  The
+        x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. 
+      operationId: amazonWebServicesListChannelBans
   /channel-flows:
     GET:
-      summary: ListChannelFlows
+      summary: Listchannelflows
       description: >-
-        <p>Returns a paginated lists of all the channel flows created under a
-        single Chime. This is a developer API.</p>
+        Returns a paginated lists of all the channel flows created under a
+        single Chime. This is a developer API.
+      operationId: amazonWebServicesListChannelFlows
   /channels/{channelArn}/memberships:
     GET:
-      summary: ListChannelMemberships
+      summary: Listchannelmemberships
       description: >-
-        <p>Lists all channel memberships in a channel.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note> <p>If you
-        want to list the channels to which a specific app instance user belongs,
-        see the <a
-        href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a>
-        API.</p>
+        Lists all channel memberships in a channel.  The x-amz-chime-bearer
+        request header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header.  If
+        you want to list the channels to which a specific app instance user
+        belongs, see the ListChannelMembershipsForAppInstanceUser API.
+      operationId: amazonWebServicesListChannelMemberships
   /channels/{channelArn}/moderators:
     GET:
-      summary: ListChannelModerators
+      summary: Listchannelmoderators
       description: >-
-        <p>Lists all the moderators for a channel.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        Lists all the moderators for a channel.  The x-amz-chime-bearer request
+        header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header. 
+      operationId: amazonWebServicesListChannelModerators
   /channels/{channelArn}:
     PUT:
-      summary: UpdateChannel
+      summary: Updatechannel
       description: >-
-        <p>Update a channel's attributes.</p> <p> <b>Restriction</b>: You can't
-        change a channel's privacy. </p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        Update a channel's attributes.  Restriction: You can't change a
+        channel's privacy.   The x-amz-chime-bearer request header is mandatory.
+        Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API
+        call as the value in the header. 
+      operationId: amazonWebServicesUpdateChannel
   /channels/{channelArn}/bans/{memberArn}:
     GET:
-      summary: DescribeChannelBan
+      summary: Describechannelban
       description: >-
-        <p>Returns the full details of a channel ban.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        Returns the full details of a channel ban.  The x-amz-chime-bearer
+        request header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header. 
+      operationId: amazonWebServicesDescribeChannelBan
   /channel-flows/{channelFlowArn}:
     PUT:
-      summary: UpdateChannelFlow
-      description: <p>Updates channel flow attributes. This is a developer API.</p>
+      summary: Updatechannelflow
+      description: Updates channel flow attributes. This is a developer API.
+      operationId: amazonWebServicesUpdateChannelFlow
   /channels/{channelArn}/memberships/{memberArn}:
     GET:
-      summary: DescribeChannelMembership
+      summary: Describechannelmembership
       description: >-
-        <p>Returns the full details of a user's channel membership.</p> <note>
-        <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use
-        the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        Returns the full details of a user's channel membership.  The
+        x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. 
+      operationId: amazonWebServicesDescribeChannelMembership
   /channels/{channelArn}/messages/{messageId}:
     PUT:
-      summary: UpdateChannelMessage
+      summary: Updatechannelmessage
       description: >-
-        <p>Updates the content of a message.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        Updates the content of a message.  The x-amz-chime-bearer request header
+        is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that
+        makes the API call as the value in the header. 
+      operationId: amazonWebServicesUpdateChannelMessage
   /channels/{channelArn}/moderators/{channelModeratorArn}:
     GET:
-      summary: DescribeChannelModerator
+      summary: Describechannelmoderator
       description: >-
-        <p>Returns the full details of a single ChannelModerator.</p> <note>
-        <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use
-        the <code>AppInstanceUserArn</code> of the user that makes the API call
-        as the value in the header.</p> </note>
+        Returns the full details of a single ChannelModerator.  The
+        x-amz-chime-bearer request header is mandatory. Use the
+        AppInstanceUserArn of the user that makes the API call as the value in
+        the header. 
+      operationId: amazonWebServicesDescribeChannelModerator
   /app-instances/{appInstanceArn}/streaming-configurations:
     PUT:
-      summary: PutMessagingStreamingConfigurations
+      summary: Putmessagingstreamingconfigurations
       description: >-
-        <p>Sets the data streaming configuration for an
-        <code>AppInstance</code>. For more information, see <a
-        href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming
-        messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+        Sets the data streaming configuration for an AppInstance. For more
+        information, see Streaming messaging data in the Amazon Chime SDK
+        Developer Guide.
+      operationId: amazonWebServicesPutMessagingStreamingConfigurations
   /channels/{channelArn}?scope=app-instance-user-membership:
     GET:
-      summary: DescribeChannelMembershipForAppInstanceUser
-      description: >-
-        <p> Returns the details of a channel based on the membership of the
-        specified <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code>.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+      summary: Describechannelmembershipforappinstanceuser
+      description: ' Returns the details of a channel based on the membership of the specified AppInstanceUser or AppInstanceBot.  The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header. '
+      operationId: amazonWebServicesDescribeChannelMembershipForAppInstanceUser
   /channels/{channelArn}?scope=app-instance-user-moderated-channel:
     GET:
-      summary: DescribeChannelModeratedByAppInstanceUser
+      summary: Describechannelmoderatedbyappinstanceuser
       description: >-
-        <p>Returns the full details of a channel moderated by the specified
-        <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p> <note>
-        <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use
-        the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        Returns the full details of a channel moderated by the specified
+        AppInstanceUser or AppInstanceBot.  The x-amz-chime-bearer request
+        header is mandatory. Use the ARN of the AppInstanceUser or
+        AppInstanceBot that makes the API call as the value in the header. 
+      operationId: amazonWebServicesDescribeChannelModeratedByAppInstanceUser
   /channels/{channelArn}/channel-flow/{channelFlowArn}:
     DELETE:
-      summary: DisassociateChannelFlow
+      summary: Disassociatechannelflow
       description: >-
-        <p>Disassociates a channel flow from all its channels. Once
-        disassociated, all messages to that channel stop going through the
-        channel flow processor.</p> <note> <p>Only administrators or channel
-        moderators can disassociate a channel flow.</p> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        Disassociates a channel flow from all its channels. Once disassociated,
+        all messages to that channel stop going through the channel flow
+        processor.  Only administrators or channel moderators can disassociate a
+        channel flow. The x-amz-chime-bearer request header is mandatory. Use
+        the ARN of the AppInstanceUser or AppInstanceBot that makes the API call
+        as the value in the header. 
+      operationId: amazonWebServicesDisassociateChannelFlow
   /channels/{channelArn}/memberships/{memberArn}/preferences:
     PUT:
-      summary: PutChannelMembershipPreferences
+      summary: Putchannelmembershippreferences
       description: >-
-        <p>Sets the membership preferences of an <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> for the specified channel. The user or bot
-        must be a member of the channel. Only the user or bot who owns the
-        membership can set preferences. Users or bots in the
-        <code>AppInstanceAdmin</code> and channel moderator roles can't set
-        preferences for other users. Banned users or bots can't set membership
-        preferences for the channel from which they are banned.</p> <note>
-        <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an
-        <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        the API call as the value in the header.</p> </note>
+        Sets the membership preferences of an AppInstanceUser or AppInstanceBot
+        for the specified channel. The user or bot must be a member of the
+        channel. Only the user or bot who owns the membership can set
+        preferences. Users or bots in the AppInstanceAdmin and channel moderator
+        roles can't set preferences for other users. Banned users or bots can't
+        set membership preferences for the channel from which they are banned. 
+        The x-amz-chime-bearer request header is mandatory. Use the ARN of an
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. 
+      operationId: amazonWebServicesPutChannelMembershipPreferences
   /channels/{channelArn}/messages/{messageId}?scope=message-status:
     GET:
-      summary: GetChannelMessageStatus
+      summary: Getchannelmessagestatus
       description: >-
-        <p>Gets message status for a specified <code>messageId</code>. Use this
-        API to determine the intermediate status of messages going through
-        channel flow processing. The API provides an alternative to retrieving
-        message status if the event was not received because a client wasn't
-        connected to a websocket. </p> <p>Messages can have any one of these
-        statuses.</p> <dl> <dt>SENT</dt> <dd> <p>Message processed
-        successfully</p> </dd> <dt>PENDING</dt> <dd> <p>Ongoing processing</p>
-        </dd> <dt>FAILED</dt> <dd> <p>Processing failed</p> </dd>
-        <dt>DENIED</dt> <dd> <p>Message denied by the processor</p> </dd> </dl>
-        <note> <ul> <li> <p>This API does not return statuses for denied
-        messages, because we don't store them once the processor denies them.
-        </p> </li> <li> <p>Only the message sender can invoke this API.</p>
-        </li> <li> <p>The <code>x-amz-chime-bearer</code> request header is
-        mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </li> </ul> </note>
+        Gets message status for a specified messageId. Use this API to determine
+        the intermediate status of messages going through channel flow
+        processing. The API provides an alternative to retrieving message status
+        if the event was not received because a client wasn't connected to a
+        websocket.  Messages can have any one of these statuses.  SENT  Message
+        processed successfully  PENDING  Ongoing processing  FAILED  Processing
+        failed  DENIED  Message denied by the processor      This API does not
+        return statuses for denied messages, because we don't store them once
+        the processor denies them.    Only the message sender can invoke this
+        API.   The x-amz-chime-bearer request header is mandatory. Use the ARN
+        of the AppInstanceUser or AppInstanceBot that makes the API call as the
+        value in the header.   
+      operationId: amazonWebServicesGetChannelMessageStatus
   /endpoints/messaging-session:
     GET:
-      summary: GetMessagingSessionEndpoint
-      description: <p>The details of the endpoint for the messaging session.</p>
+      summary: Getmessagingsessionendpoint
+      description: The details of the endpoint for the messaging session.
+      operationId: amazonWebServicesGetMessagingSessionEndpoint
   /channels?scope=app-instance-user-memberships:
     GET:
-      summary: ListChannelMembershipsForAppInstanceUser
-      description: >-
-        <p> Lists all channels that an <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> is a part of. Only an
-        <code>AppInstanceAdmin</code> can call the API with a user ARN that is
-        not their own. </p> <note> <p>The <code>x-amz-chime-bearer</code>
-        request header is mandatory. Use the ARN of the
-        <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        the API call as the value in the header.</p> </note>
+      summary: Listchannelmembershipsforappinstanceuser
+      description: ' Lists all channels that an AppInstanceUser or AppInstanceBot is a part of. Only an AppInstanceAdmin can call the API with a user ARN that is not their own.   The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header. '
+      operationId: amazonWebServicesListChannelMembershipsForAppInstanceUser
   /channels/{channelArn}/messages:
     POST:
-      summary: SendChannelMessage
+      summary: Sendchannelmessage
       description: >-
-        <p>Sends a message to a particular channel that the member is a part
-        of.</p> <note> <p>The <code>x-amz-chime-bearer</code> request header is
-        mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> <p>Also, <code>STANDARD</code> messages can be up to 4KB in
-        size and contain metadata. Metadata is arbitrary, and you can use it in
-        a variety of ways, such as containing a link to an attachment.</p> <p>
-        <code>CONTROL</code> messages are limited to 30 bytes and do not contain
-        metadata.</p> </note>
+        Sends a message to a particular channel that the member is a part of. 
+        The x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. Also, STANDARD messages can be up to 4KB in size and
+        contain metadata. Metadata is arbitrary, and you can use it in a variety
+        of ways, such as containing a link to an attachment.  CONTROL messages
+        are limited to 30 bytes and do not contain metadata. 
+      operationId: amazonWebServicesSendChannelMessage
   /channels?scope=channel-flow-associations:
     GET:
-      summary: ListChannelsAssociatedWithChannelFlow
+      summary: Listchannelsassociatedwithchannelflow
       description: >-
-        <p>Lists all channels associated with a specified channel flow. You can
+        Lists all channels associated with a specified channel flow. You can
         associate a channel flow with multiple channels, but you can only
-        associate a channel with one channel flow. This is a developer API.</p>
+        associate a channel with one channel flow. This is a developer API.
+      operationId: amazonWebServicesListChannelsAssociatedWithChannelFlow
   /channels?scope=app-instance-user-moderated-channels:
     GET:
-      summary: ListChannelsModeratedByAppInstanceUser
+      summary: Listchannelsmoderatedbyappinstanceuser
       description: >-
-        <p>A list of the channels moderated by an
-        <code>AppInstanceUser</code>.</p> <note> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </note>
+        A list of the channels moderated by an AppInstanceUser.  The
+        x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. 
+      operationId: amazonWebServicesListChannelsModeratedByAppInstanceUser
   /channels/{channelArn}/subchannels:
     GET:
-      summary: ListSubChannels
+      summary: Listsubchannels
       description: >-
-        <p>Lists all the SubChannels in an elastic channel when given a channel
-        ID. Available only to the app instance admins and channel moderators of
-        elastic channels.</p>
+        Lists all the SubChannels in an elastic channel when given a channel ID.
+        Available only to the app instance admins and channel moderators of
+        elastic channels.
+      operationId: amazonWebServicesListSubChannels
   /tags:
     GET:
-      summary: ListTagsForResource
-      description: <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
+      summary: Listtagsforresource
+      description: Lists the tags applied to an Amazon Chime SDK messaging resource.
+      operationId: amazonWebServicesListTagsForResource
   /channels/{channelArn}/expiration-settings:
     PUT:
-      summary: PutChannelExpirationSettings
+      summary: Putchannelexpirationsettings
       description: >-
-        <p>Sets the number of days before the channel is automatically
-        deleted.</p> <note> <ul> <li> <p>A background process deletes expired
-        channels within 6 hours of expiration. Actual deletion times may
-        vary.</p> </li> <li> <p>Expired channels that have not yet been deleted
-        appear as active, and you can update their expiration settings. The
-        system honors the new settings.</p> </li> <li> <p>The
-        <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
-        of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that
-        makes the API call as the value in the header.</p> </li> </ul> </note>
+        Sets the number of days before the channel is automatically deleted.   
+        A background process deletes expired channels within 6 hours of
+        expiration. Actual deletion times may vary.   Expired channels that have
+        not yet been deleted appear as active, and you can update their
+        expiration settings. The system honors the new settings.   The
+        x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header.   
+      operationId: amazonWebServicesPutChannelExpirationSettings
   /channels/{channelArn}/messages/{messageId}?operation=redact:
     POST:
-      summary: RedactChannelMessage
+      summary: Redactchannelmessage
       description: >-
-        <p>Redacts message content, but not metadata. The message exists in the
+        Redacts message content, but not metadata. The message exists in the
         back end, but the action returns null content, and the state shows as
-        redacted.</p> <note> <p>The <code>x-amz-chime-bearer</code> request
-        header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        redacted.  The x-amz-chime-bearer request header is mandatory. Use the
+        ARN of the AppInstanceUser or AppInstanceBot that makes the API call as
+        the value in the header. 
+      operationId: amazonWebServicesRedactChannelMessage
   /channels?operation=search:
     POST:
-      summary: SearchChannels
+      summary: Searchchannels
       description: >-
-        <p>Allows the <code>ChimeBearer</code> to search channels by channel
-        members. Users or bots can search across the channels that they belong
-        to. Users in the <code>AppInstanceAdmin</code> role can search across
-        all channels.</p> <p>The <code>x-amz-chime-bearer</code> request header
-        is mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p>
+        Allows the ChimeBearer to search channels by channel members. Users or
+        bots can search across the channels that they belong to. Users in the
+        AppInstanceAdmin role can search across all channels. The
+        x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header.
+      operationId: amazonWebServicesSearchChannels
   /tags?operation=tag-resource:
     POST:
-      summary: TagResource
+      summary: Tagresource
       description: >-
-        <p>Applies the specified tags to the specified Amazon Chime SDK
-        messaging resource.</p>
+        Applies the specified tags to the specified Amazon Chime SDK messaging
+        resource.
+      operationId: amazonWebServicesTagResource
   /tags?operation=untag-resource:
     POST:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>Removes the specified tags from the specified Amazon Chime SDK
-        messaging resource.</p>
+        Removes the specified tags from the specified Amazon Chime SDK messaging
+        resource.
+      operationId: amazonWebServicesUntagResource
   /channels/{channelArn}/readMarker:
     PUT:
-      summary: UpdateChannelReadMarker
+      summary: Updatechannelreadmarker
       description: >-
-        <p>The details of the time when a user last read messages in a
-        channel.</p> <note> <p>The <code>x-amz-chime-bearer</code> request
-        header is mandatory. Use the ARN of the <code>AppInstanceUser</code> or
-        <code>AppInstanceBot</code> that makes the API call as the value in the
-        header.</p> </note>
+        The details of the time when a user last read messages in a channel. 
+        The x-amz-chime-bearer request header is mandatory. Use the ARN of the
+        AppInstanceUser or AppInstanceBot that makes the API call as the value
+        in the header. 
+      operationId: amazonWebServicesUpdateChannelReadMarker
 tags: []

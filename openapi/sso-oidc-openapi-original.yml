@@ -39,32 +39,35 @@ info:
 paths:
   /token:
     POST:
-      summary: CreateToken
+      summary: Createtoken
       description: >-
-        <p>Creates and returns access and refresh tokens for clients that are
+        Creates and returns access and refresh tokens for clients that are
         authenticated using client secrets. The access token can be used to
         fetch short-term credentials for the assigned AWS accounts or to access
-        application APIs using <code>bearer</code> authentication.</p>
+        application APIs using bearer authentication.
+      operationId: amazonWebServicesCreateToken
   /token?aws_iam=t:
     POST:
-      summary: CreateTokenWithIAM
+      summary: Createtokenwithiam
       description: >-
-        <p>Creates and returns access and refresh tokens for clients and
+        Creates and returns access and refresh tokens for clients and
         applications that are authenticated using IAM entities. The access token
         can be used to fetch short-term credentials for the assigned AWS
-        accounts or to access application APIs using <code>bearer</code>
-        authentication.</p>
+        accounts or to access application APIs using bearer authentication.
+      operationId: amazonWebServicesCreateTokenWithIAM
   /client/register:
     POST:
-      summary: RegisterClient
+      summary: Registerclient
       description: >-
-        <p>Registers a client with IAM Identity Center. This allows clients to
+        Registers a client with IAM Identity Center. This allows clients to
         initiate device authorization. The output should be persisted for reuse
-        through many authentication requests.</p>
+        through many authentication requests.
+      operationId: amazonWebServicesRegisterClient
   /device_authorization:
     POST:
-      summary: StartDeviceAuthorization
+      summary: Startdeviceauthorization
       description: >-
-        <p>Initiates device authorization by requesting a pair of verification
-        codes from the authorization service.</p>
+        Initiates device authorization by requesting a pair of verification
+        codes from the authorization service.
+      operationId: amazonWebServicesStartDeviceAuthorization
 tags: []

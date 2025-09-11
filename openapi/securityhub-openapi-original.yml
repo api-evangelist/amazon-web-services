@@ -74,526 +74,495 @@ info:
 paths:
   /administrator:
     GET:
-      summary: GetAdministratorAccount
+      summary: Getadministratoraccount
       description: >-
-        <p>Provides the details for the Security Hub administrator account for
-        the current member account.</p> <p>Can be used by both member accounts
-        that are managed using Organizations and accounts that were invited
-        manually.</p>
+        Provides the details for the Security Hub administrator account for the
+        current member account. Can be used by both member accounts that are
+        managed using Organizations and accounts that were invited manually.
+      operationId: amazonWebServicesGetAdministratorAccount
   /master:
     GET:
-      summary: GetMasterAccount
+      summary: Getmasteraccount
       description: >-
-        <p>This method is deprecated. Instead, use
-        <code>GetAdministratorAccount</code>.</p> <p>The Security Hub console
-        continues to use <code>GetMasterAccount</code>. It will eventually
-        change to use <code>GetAdministratorAccount</code>. Any IAM policies
-        that specifically control access to this function must continue to use
-        <code>GetMasterAccount</code>. You should also add
-        <code>GetAdministratorAccount</code> to your policies to ensure that the
-        correct permissions are in place after the console begins to use
-        <code>GetAdministratorAccount</code>.</p> <p>Provides the details for
-        the Security Hub administrator account for the current member
-        account.</p> <p>Can be used by both member accounts that are managed
-        using Organizations and accounts that were invited manually.</p>
+        This method is deprecated. Instead, use GetAdministratorAccount. The
+        Security Hub console continues to use GetMasterAccount. It will
+        eventually change to use GetAdministratorAccount. Any IAM policies that
+        specifically control access to this function must continue to use
+        GetMasterAccount. You should also add GetAdministratorAccount to your
+        policies to ensure that the correct permissions are in place after the
+        console begins to use GetAdministratorAccount. Provides the details for
+        the Security Hub administrator account for the current member account.
+        Can be used by both member accounts that are managed using Organizations
+        and accounts that were invited manually.
+      operationId: amazonWebServicesGetMasterAccount
   /automationrules/delete:
     POST:
-      summary: BatchDeleteAutomationRules
-      description: <p> Deletes one or more automation rules. </p>
+      summary: Batchdeleteautomationrules
+      description: ' Deletes one or more automation rules. '
+      operationId: amazonWebServicesBatchDeleteAutomationRules
   /standards/deregister:
     POST:
-      summary: BatchDisableStandards
+      summary: Batchdisablestandards
       description: >-
-        <p>Disables the standards specified by the provided
-        <code>StandardsSubscriptionArns</code>.</p> <p>For more information, see
-        <a
-        href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
-        Standards</a> section of the <i>Security Hub User Guide</i>.</p>
+        Disables the standards specified by the provided
+        StandardsSubscriptionArns. For more information, see Security Standards
+        section of the Security Hub User Guide.
+      operationId: amazonWebServicesBatchDisableStandards
   /standards/register:
     POST:
-      summary: BatchEnableStandards
+      summary: Batchenablestandards
       description: >-
-        <p>Enables the standards specified by the provided
-        <code>StandardsArn</code>. To obtain the ARN for a standard, use the
-        <code>DescribeStandards</code> operation.</p> <p>For more information,
-        see the <a
-        href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
-        Standards</a> section of the <i>Security Hub User Guide</i>.</p>
+        Enables the standards specified by the provided StandardsArn. To obtain
+        the ARN for a standard, use the DescribeStandards operation. For more
+        information, see the Security Standards section of the Security Hub User
+        Guide.
+      operationId: amazonWebServicesBatchEnableStandards
   /automationrules/get:
     POST:
-      summary: BatchGetAutomationRules
-      description: >-
-        <p> Retrieves a list of details for automation rules based on rule
-        Amazon Resource Names (ARNs). </p>
+      summary: Batchgetautomationrules
+      description: ' Retrieves a list of details for automation rules based on rule Amazon Resource Names (ARNs). '
+      operationId: amazonWebServicesBatchGetAutomationRules
   /configurationPolicyAssociation/batchget:
     POST:
-      summary: BatchGetConfigurationPolicyAssociations
-      description: >-
-        <p> Returns associations between an Security Hub configuration and a
-        batch of target accounts, organizational units, or the root. Only the
-        Security Hub delegated administrator can invoke this operation from the
-        home Region. A configuration can refer to a configuration policy or to a
-        self-managed configuration. </p>
+      summary: Batchgetconfigurationpolicyassociations
+      description: ' Returns associations between an Security Hub configuration and a batch of target accounts, organizational units, or the root. Only the Security Hub delegated administrator can invoke this operation from the home Region. A configuration can refer to a configuration policy or to a self-managed configuration. '
+      operationId: amazonWebServicesBatchGetConfigurationPolicyAssociations
   /securityControls/batchGet:
     POST:
-      summary: BatchGetSecurityControls
-      description: >-
-        <p> Provides details about a batch of security controls for the current
-        Amazon Web Services account and Amazon Web Services Region. </p>
+      summary: Batchgetsecuritycontrols
+      description: ' Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region. '
+      operationId: amazonWebServicesBatchGetSecurityControls
   /associations/batchGet:
     POST:
-      summary: BatchGetStandardsControlAssociations
-      description: >-
-        <p> For a batch of security controls and standards, identifies whether
-        each control is currently enabled or disabled in a standard. </p>
+      summary: Batchgetstandardscontrolassociations
+      description: ' For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard. '
+      operationId: amazonWebServicesBatchGetStandardsControlAssociations
   /findings/import:
     POST:
-      summary: BatchImportFindings
+      summary: Batchimportfindings
       description: >-
-        <p>Imports security findings generated by a finding provider into
-        Security Hub. This action is requested by the finding provider to import
-        its findings into Security Hub.</p> <p> <code>BatchImportFindings</code>
-        must be called by one of the following:</p> <ul> <li> <p>The Amazon Web
-        Services account that is associated with a finding if you are using the
-        <a
-        href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-providers.html#securityhub-custom-providers-bfi-reqs">default
-        product ARN</a> or are a partner sending findings from within a
-        customer's Amazon Web Services account. In these cases, the identifier
-        of the account that you are calling <code>BatchImportFindings</code>
-        from needs to be the same as the <code>AwsAccountId</code> attribute for
-        the finding.</p> </li> <li> <p>An Amazon Web Services account that
+        Imports security findings generated by a finding provider into Security
+        Hub. This action is requested by the finding provider to import its
+        findings into Security Hub.  BatchImportFindings must be called by one
+        of the following:   The Amazon Web Services account that is associated
+        with a finding if you are using the default product ARN or are a partner
+        sending findings from within a customer's Amazon Web Services account.
+        In these cases, the identifier of the account that you are calling
+        BatchImportFindings from needs to be the same as the AwsAccountId
+        attribute for the finding.   An Amazon Web Services account that
         Security Hub has allow-listed for an official partner integration. In
-        this case, you can call <code>BatchImportFindings</code> from the
-        allow-listed account and send findings from different customer accounts
-        in the same batch.</p> </li> </ul> <p>The maximum allowed size for a
-        finding is 240 Kb. An error is returned for any finding larger than 240
-        Kb.</p> <p>After a finding is created, <code>BatchImportFindings</code>
-        cannot be used to update the following finding fields and objects, which
-        Security Hub customers use to manage their investigation workflow.</p>
-        <ul> <li> <p> <code>Note</code> </p> </li> <li> <p>
-        <code>UserDefinedFields</code> </p> </li> <li> <p>
-        <code>VerificationState</code> </p> </li> <li> <p> <code>Workflow</code>
-        </p> </li> </ul> <p>Finding providers also should not use
-        <code>BatchImportFindings</code> to update the following attributes.</p>
-        <ul> <li> <p> <code>Confidence</code> </p> </li> <li> <p>
-        <code>Criticality</code> </p> </li> <li> <p>
-        <code>RelatedFindings</code> </p> </li> <li> <p> <code>Severity</code>
-        </p> </li> <li> <p> <code>Types</code> </p> </li> </ul> <p>Instead,
-        finding providers use <code>FindingProviderFields</code> to provide
-        values for these attributes.</p>
+        this case, you can call BatchImportFindings from the allow-listed
+        account and send findings from different customer accounts in the same
+        batch.   The maximum allowed size for a finding is 240 Kb. An error is
+        returned for any finding larger than 240 Kb. After a finding is created,
+        BatchImportFindings cannot be used to update the following finding
+        fields and objects, which Security Hub customers use to manage their
+        investigation workflow.    Note     UserDefinedFields    
+        VerificationState     Workflow    Finding providers also should not use
+        BatchImportFindings to update the following attributes.   
+        Confidence     Criticality     RelatedFindings     Severity     Types   
+        Instead, finding providers use FindingProviderFields to provide values
+        for these attributes.
+      operationId: amazonWebServicesBatchImportFindings
   /automationrules/update:
     PATCH:
-      summary: BatchUpdateAutomationRules
-      description: >-
-        <p> Updates one or more automation rules based on rule Amazon Resource
-        Names (ARNs) and input parameters. </p>
+      summary: Batchupdateautomationrules
+      description: ' Updates one or more automation rules based on rule Amazon Resource Names (ARNs) and input parameters. '
+      operationId: amazonWebServicesBatchUpdateAutomationRules
   /findings/batchupdate:
     PATCH:
-      summary: BatchUpdateFindings
+      summary: Batchupdatefindings
       description: >-
-        <p>Used by Security Hub customers to update information about their
+        Used by Security Hub customers to update information about their
         investigation into a finding. Requested by administrator accounts or
         member accounts. Administrator accounts can update findings for their
         account and their member accounts. Member accounts can update findings
-        for their account.</p> <p>Updates from <code>BatchUpdateFindings</code>
-        do not affect the value of <code>UpdatedAt</code> for a finding.</p>
-        <p>Administrator and member accounts can use
-        <code>BatchUpdateFindings</code> to update the following finding fields
-        and objects.</p> <ul> <li> <p> <code>Confidence</code> </p> </li> <li>
-        <p> <code>Criticality</code> </p> </li> <li> <p> <code>Note</code> </p>
-        </li> <li> <p> <code>RelatedFindings</code> </p> </li> <li> <p>
-        <code>Severity</code> </p> </li> <li> <p> <code>Types</code> </p> </li>
-        <li> <p> <code>UserDefinedFields</code> </p> </li> <li> <p>
-        <code>VerificationState</code> </p> </li> <li> <p> <code>Workflow</code>
-        </p> </li> </ul> <p>You can configure IAM policies to restrict access to
-        fields and field values. For example, you might not want member accounts
-        to be able to suppress findings or change the finding severity. See <a
-        href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring
-        access to BatchUpdateFindings</a> in the <i>Security Hub User
-        Guide</i>.</p>
+        for their account. Updates from BatchUpdateFindings do not affect the
+        value of UpdatedAt for a finding. Administrator and member accounts can
+        use BatchUpdateFindings to update the following finding fields and
+        objects.    Confidence     Criticality     Note     RelatedFindings    
+        Severity     Types     UserDefinedFields     VerificationState    
+        Workflow    You can configure IAM policies to restrict access to fields
+        and field values. For example, you might not want member accounts to be
+        able to suppress findings or change the finding severity. See
+        Configuring access to BatchUpdateFindings in the Security Hub User
+        Guide.
+      operationId: amazonWebServicesBatchUpdateFindings
   /associations:
     GET:
-      summary: ListStandardsControlAssociations
-      description: >-
-        <p> Specifies whether a control is currently enabled or disabled in each
-        enabled standard in the calling account. </p>
+      summary: Liststandardscontrolassociations
+      description: ' Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account. '
+      operationId: amazonWebServicesListStandardsControlAssociations
   /actionTargets:
     POST:
-      summary: CreateActionTarget
+      summary: Createactiontarget
       description: >-
-        <p>Creates a custom action target in Security Hub.</p> <p>You can use
-        custom actions on findings and insights in Security Hub to trigger
-        target actions in Amazon CloudWatch Events.</p>
+        Creates a custom action target in Security Hub. You can use custom
+        actions on findings and insights in Security Hub to trigger target
+        actions in Amazon CloudWatch Events.
+      operationId: amazonWebServicesCreateActionTarget
   /automationrules/create:
     POST:
-      summary: CreateAutomationRule
-      description: <p> Creates an automation rule based on input parameters. </p>
+      summary: Createautomationrule
+      description: ' Creates an automation rule based on input parameters. '
+      operationId: amazonWebServicesCreateAutomationRule
   /configurationPolicy/create:
     POST:
-      summary: CreateConfigurationPolicy
-      description: >-
-        <p> Creates a configuration policy with the defined configuration. Only
-        the Security Hub delegated administrator can invoke this operation from
-        the home Region. </p>
+      summary: Createconfigurationpolicy
+      description: ' Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesCreateConfigurationPolicy
   /findingAggregator/create:
     POST:
-      summary: CreateFindingAggregator
+      summary: Createfindingaggregator
       description: >-
-        <p>Used to enable finding aggregation. Must be called from the
-        aggregation Region.</p> <p>For more details about cross-Region
-        replication, see <a
-        href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring
-        finding aggregation</a> in the <i>Security Hub User Guide</i>. </p>
+        Used to enable finding aggregation. Must be called from the aggregation
+        Region. For more details about cross-Region replication, see Configuring
+        finding aggregation in the Security Hub User Guide. 
+      operationId: amazonWebServicesCreateFindingAggregator
   /insights:
     POST:
-      summary: CreateInsight
+      summary: Createinsight
       description: >-
-        <p>Creates a custom insight in Security Hub. An insight is a
-        consolidation of findings that relate to a security issue that requires
-        attention or remediation.</p> <p>To group the related findings in the
-        insight, use the <code>GroupByAttribute</code>.</p>
+        Creates a custom insight in Security Hub. An insight is a consolidation
+        of findings that relate to a security issue that requires attention or
+        remediation. To group the related findings in the insight, use the
+        GroupByAttribute.
+      operationId: amazonWebServicesCreateInsight
   /members:
     GET:
-      summary: ListMembers
+      summary: Listmembers
       description: >-
-        <p>Lists details about all member accounts for the current Security Hub
-        administrator account.</p> <p>The results include both member accounts
-        that belong to an organization and member accounts that were invited
-        manually.</p>
+        Lists details about all member accounts for the current Security Hub
+        administrator account. The results include both member accounts that
+        belong to an organization and member accounts that were invited
+        manually.
+      operationId: amazonWebServicesListMembers
   /invitations/decline:
     POST:
-      summary: DeclineInvitations
+      summary: Declineinvitations
       description: >-
-        <p>Declines invitations to become a member account.</p> <p>A prospective
-        member account uses this operation to decline an invitation to become a
-        member.</p> <p>This operation is only called by member accounts that
-        aren't part of an organization. Organization accounts don't receive
-        invitations.</p>
+        Declines invitations to become a member account. A prospective member
+        account uses this operation to decline an invitation to become a member.
+        This operation is only called by member accounts that aren't part of an
+        organization. Organization accounts don't receive invitations.
+      operationId: amazonWebServicesDeclineInvitations
   /actionTargets/{ActionTargetArn+}:
     PATCH:
-      summary: UpdateActionTarget
+      summary: Updateactiontarget
       description: >-
-        <p>Updates the name and description of a custom action target in
-        Security Hub.</p>
+        Updates the name and description of a custom action target in Security
+        Hub.
+      operationId: amazonWebServicesUpdateActionTarget
   /configurationPolicy/{Identifier}:
     PATCH:
-      summary: UpdateConfigurationPolicy
-      description: >-
-        <p> Updates a configuration policy. Only the Security Hub delegated
-        administrator can invoke this operation from the home Region. </p>
+      summary: Updateconfigurationpolicy
+      description: ' Updates a configuration policy. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesUpdateConfigurationPolicy
   /findingAggregator/delete/{FindingAggregatorArn+}:
     DELETE:
-      summary: DeleteFindingAggregator
+      summary: Deletefindingaggregator
       description: >-
-        <p>Deletes a finding aggregator. When you delete the finding aggregator,
-        you stop finding aggregation.</p> <p>When you stop finding aggregation,
+        Deletes a finding aggregator. When you delete the finding aggregator,
+        you stop finding aggregation. When you stop finding aggregation,
         findings that were already aggregated to the aggregation Region are
         still visible from the aggregation Region. New findings and finding
-        updates are not aggregated. </p>
+        updates are not aggregated. 
+      operationId: amazonWebServicesDeleteFindingAggregator
   /insights/{InsightArn+}:
     PATCH:
-      summary: UpdateInsight
+      summary: Updateinsight
       description: >-
-        <p>Updates the Security Hub insight identified by the specified insight
-        ARN.</p>
+        Updates the Security Hub insight identified by the specified insight
+        ARN.
+      operationId: amazonWebServicesUpdateInsight
   /invitations/delete:
     POST:
-      summary: DeleteInvitations
+      summary: Deleteinvitations
       description: >-
-        <p>Deletes invitations received by the Amazon Web Services account to
-        become a member account.</p> <p>A Security Hub administrator account can
-        use this operation to delete invitations sent to one or more member
-        accounts.</p> <p>This operation is only used to delete invitations that
-        are sent to member accounts that aren't part of an organization.
-        Organization accounts don't receive invitations.</p>
+        Deletes invitations received by the Amazon Web Services account to
+        become a member account. A Security Hub administrator account can use
+        this operation to delete invitations sent to one or more member
+        accounts. This operation is only used to delete invitations that are
+        sent to member accounts that aren't part of an organization.
+        Organization accounts don't receive invitations.
+      operationId: amazonWebServicesDeleteInvitations
   /members/delete:
     POST:
-      summary: DeleteMembers
+      summary: Deletemembers
       description: >-
-        <p>Deletes the specified member accounts from Security Hub.</p> <p>You
-        can invoke this API only to delete accounts that became members through
-        invitation. You can't invoke this API to delete accounts that belong to
-        an Organizations organization.</p>
+        Deletes the specified member accounts from Security Hub. You can invoke
+        this API only to delete accounts that became members through invitation.
+        You can't invoke this API to delete accounts that belong to an
+        Organizations organization.
+      operationId: amazonWebServicesDeleteMembers
   /actionTargets/get:
     POST:
-      summary: DescribeActionTargets
+      summary: Describeactiontargets
       description: >-
-        <p>Returns a list of the custom action targets in Security Hub in your
-        account.</p>
+        Returns a list of the custom action targets in Security Hub in your
+        account.
+      operationId: amazonWebServicesDescribeActionTargets
   /accounts:
     PATCH:
-      summary: UpdateSecurityHubConfiguration
-      description: <p>Updates configuration options for Security Hub.</p>
+      summary: Updatesecurityhubconfiguration
+      description: Updates configuration options for Security Hub.
+      operationId: amazonWebServicesUpdateSecurityHubConfiguration
   /organization/configuration:
     POST:
-      summary: UpdateOrganizationConfiguration
+      summary: Updateorganizationconfiguration
       description: >-
-        <p>Updates the configuration of your organization in Security Hub. Only
-        the Security Hub administrator account can invoke this operation.</p>
+        Updates the configuration of your organization in Security Hub. Only the
+        Security Hub administrator account can invoke this operation.
+      operationId: amazonWebServicesUpdateOrganizationConfiguration
   /products:
     GET:
-      summary: DescribeProducts
+      summary: Describeproducts
       description: >-
-        <p>Returns information about product integrations in Security Hub.</p>
-        <p>You can optionally provide an integration ARN. If you provide an
-        integration ARN, then the results only include that integration.</p>
-        <p>If you do not provide an integration ARN, then the results include
-        all of the available product integrations. </p>
+        Returns information about product integrations in Security Hub. You can
+        optionally provide an integration ARN. If you provide an integration
+        ARN, then the results only include that integration. If you do not
+        provide an integration ARN, then the results include all of the
+        available product integrations. 
+      operationId: amazonWebServicesDescribeProducts
   /standards:
     GET:
-      summary: DescribeStandards
+      summary: Describestandards
       description: >-
-        <p>Returns a list of the available standards in Security Hub.</p> <p>For
-        each standard, the results include the standard ARN, the name, and a
-        description. </p>
+        Returns a list of the available standards in Security Hub. For each
+        standard, the results include the standard ARN, the name, and a
+        description. 
+      operationId: amazonWebServicesDescribeStandards
   /standards/controls/{StandardsSubscriptionArn+}:
     GET:
-      summary: DescribeStandardsControls
+      summary: Describestandardscontrols
       description: >-
-        <p>Returns a list of security standards controls.</p> <p>For each
-        control, the results include information about whether it is currently
-        enabled, the severity, and a link to remediation information.</p>
+        Returns a list of security standards controls. For each control, the
+        results include information about whether it is currently enabled, the
+        severity, and a link to remediation information.
+      operationId: amazonWebServicesDescribeStandardsControls
   /productSubscriptions/{ProductSubscriptionArn+}:
     DELETE:
-      summary: DisableImportFindingsForProduct
+      summary: Disableimportfindingsforproduct
       description: >-
-        <p>Disables the integration of the specified product with Security Hub.
+        Disables the integration of the specified product with Security Hub.
         After the integration is disabled, findings from that product are no
-        longer sent to Security Hub.</p>
+        longer sent to Security Hub.
+      operationId: amazonWebServicesDisableImportFindingsForProduct
   /organization/admin/disable:
     POST:
-      summary: DisableOrganizationAdminAccount
+      summary: Disableorganizationadminaccount
       description: >-
-        <p>Disables a Security Hub administrator account. Can only be called by
-        the organization management account.</p>
+        Disables a Security Hub administrator account. Can only be called by the
+        organization management account.
+      operationId: amazonWebServicesDisableOrganizationAdminAccount
   /administrator/disassociate:
     POST:
-      summary: DisassociateFromAdministratorAccount
+      summary: Disassociatefromadministratoraccount
       description: >-
-        <p>Disassociates the current Security Hub member account from the
-        associated administrator account.</p> <p>This operation is only used by
+        Disassociates the current Security Hub member account from the
+        associated administrator account. This operation is only used by
         accounts that are not part of an organization. For organization
         accounts, only the administrator account can disassociate a member
-        account.</p>
+        account.
+      operationId: amazonWebServicesDisassociateFromAdministratorAccount
   /master/disassociate:
     POST:
-      summary: DisassociateFromMasterAccount
+      summary: Disassociatefrommasteraccount
       description: >-
-        <p>This method is deprecated. Instead, use
-        <code>DisassociateFromAdministratorAccount</code>.</p> <p>The Security
-        Hub console continues to use <code>DisassociateFromMasterAccount</code>.
-        It will eventually change to use
-        <code>DisassociateFromAdministratorAccount</code>. Any IAM policies that
-        specifically control access to this function must continue to use
-        <code>DisassociateFromMasterAccount</code>. You should also add
-        <code>DisassociateFromAdministratorAccount</code> to your policies to
-        ensure that the correct permissions are in place after the console
-        begins to use <code>DisassociateFromAdministratorAccount</code>.</p>
-        <p>Disassociates the current Security Hub member account from the
-        associated administrator account.</p> <p>This operation is only used by
-        accounts that are not part of an organization. For organization
-        accounts, only the administrator account can disassociate a member
-        account.</p>
+        This method is deprecated. Instead, use
+        DisassociateFromAdministratorAccount. The Security Hub console continues
+        to use DisassociateFromMasterAccount. It will eventually change to use
+        DisassociateFromAdministratorAccount. Any IAM policies that specifically
+        control access to this function must continue to use
+        DisassociateFromMasterAccount. You should also add
+        DisassociateFromAdministratorAccount to your policies to ensure that the
+        correct permissions are in place after the console begins to use
+        DisassociateFromAdministratorAccount. Disassociates the current Security
+        Hub member account from the associated administrator account. This
+        operation is only used by accounts that are not part of an organization.
+        For organization accounts, only the administrator account can
+        disassociate a member account.
+      operationId: amazonWebServicesDisassociateFromMasterAccount
   /members/disassociate:
     POST:
-      summary: DisassociateMembers
+      summary: Disassociatemembers
       description: >-
-        <p>Disassociates the specified member accounts from the associated
-        administrator account.</p> <p>Can be used to disassociate both accounts
-        that are managed using Organizations and accounts that were invited
-        manually.</p>
+        Disassociates the specified member accounts from the associated
+        administrator account. Can be used to disassociate both accounts that
+        are managed using Organizations and accounts that were invited manually.
+      operationId: amazonWebServicesDisassociateMembers
   /productSubscriptions:
     GET:
-      summary: ListEnabledProductsForImport
+      summary: Listenabledproductsforimport
       description: >-
-        <p>Lists all findings-generating solutions (products) that you are
-        subscribed to receive findings from in Security Hub.</p>
+        Lists all findings-generating solutions (products) that you are
+        subscribed to receive findings from in Security Hub.
+      operationId: amazonWebServicesListEnabledProductsForImport
   /organization/admin/enable:
     POST:
-      summary: EnableOrganizationAdminAccount
+      summary: Enableorganizationadminaccount
       description: >-
-        <p>Designates the Security Hub administrator account for an
-        organization. Can only be called by the organization management
-        account.</p>
+        Designates the Security Hub administrator account for an organization.
+        Can only be called by the organization management account.
+      operationId: amazonWebServicesEnableOrganizationAdminAccount
   /configurationPolicy/get/{Identifier}:
     GET:
-      summary: GetConfigurationPolicy
-      description: >-
-        <p> Provides information about a configuration policy. Only the Security
-        Hub delegated administrator can invoke this operation from the home
-        Region. </p>
+      summary: Getconfigurationpolicy
+      description: ' Provides information about a configuration policy. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesGetConfigurationPolicy
   /configurationPolicyAssociation/get:
     POST:
-      summary: GetConfigurationPolicyAssociation
-      description: >-
-        <p> Returns the association between a configuration and a target
-        account, organizational unit, or the root. The configuration can be a
-        configuration policy or self-managed behavior. Only the Security Hub
-        delegated administrator can invoke this operation from the home Region.
-        </p>
+      summary: Getconfigurationpolicyassociation
+      description: ' Returns the association between a configuration and a target account, organizational unit, or the root. The configuration can be a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesGetConfigurationPolicyAssociation
   /standards/get:
     POST:
-      summary: GetEnabledStandards
-      description: <p>Returns a list of the standards that are currently enabled.</p>
+      summary: Getenabledstandards
+      description: Returns a list of the standards that are currently enabled.
+      operationId: amazonWebServicesGetEnabledStandards
   /findingAggregator/get/{FindingAggregatorArn+}:
     GET:
-      summary: GetFindingAggregator
-      description: <p>Returns the current finding aggregation configuration.</p>
+      summary: Getfindingaggregator
+      description: Returns the current finding aggregation configuration.
+      operationId: amazonWebServicesGetFindingAggregator
   /findingHistory/get:
     POST:
-      summary: GetFindingHistory
-      description: >-
-        <p> Returns history for a Security Hub finding in the last 90 days. The
-        history includes changes made to any fields in the Amazon Web Services
-        Security Finding Format (ASFF). </p>
+      summary: Getfindinghistory
+      description: ' Returns history for a Security Hub finding in the last 90 days. The history includes changes made to any fields in the Amazon Web Services Security Finding Format (ASFF). '
+      operationId: amazonWebServicesGetFindingHistory
   /findings:
     PATCH:
-      summary: UpdateFindings
-      description: >-
-        <p> <code>UpdateFindings</code> is deprecated. Instead of
-        <code>UpdateFindings</code>, use <code>BatchUpdateFindings</code>.</p>
-        <p>Updates the <code>Note</code> and <code>RecordState</code> of the
-        Security Hub-aggregated findings that the filter attributes specify. Any
-        member account that can view the finding also sees the update to the
-        finding.</p>
+      summary: Updatefindings
+      description: ' UpdateFindings is deprecated. Instead of UpdateFindings, use BatchUpdateFindings. Updates the Note and RecordState of the Security Hub-aggregated findings that the filter attributes specify. Any member account that can view the finding also sees the update to the finding.'
+      operationId: amazonWebServicesUpdateFindings
   /insights/results/{InsightArn+}:
     GET:
-      summary: GetInsightResults
+      summary: Getinsightresults
       description: >-
-        <p>Lists the results of the Security Hub insight specified by the
-        insight ARN.</p>
+        Lists the results of the Security Hub insight specified by the insight
+        ARN.
+      operationId: amazonWebServicesGetInsightResults
   /insights/get:
     POST:
-      summary: GetInsights
-      description: <p>Lists and describes insights for the specified insight ARNs.</p>
+      summary: Getinsights
+      description: Lists and describes insights for the specified insight ARNs.
+      operationId: amazonWebServicesGetInsights
   /invitations/count:
     GET:
-      summary: GetInvitationsCount
+      summary: Getinvitationscount
       description: >-
-        <p>Returns the count of all Security Hub membership invitations that
-        were sent to the current member account, not including the currently
-        accepted invitation. </p>
+        Returns the count of all Security Hub membership invitations that were
+        sent to the current member account, not including the currently accepted
+        invitation. 
+      operationId: amazonWebServicesGetInvitationsCount
   /members/get:
     POST:
-      summary: GetMembers
+      summary: Getmembers
       description: >-
-        <p>Returns the details for the Security Hub member accounts for the
-        specified account IDs.</p> <p>An administrator account can be either the
+        Returns the details for the Security Hub member accounts for the
+        specified account IDs. An administrator account can be either the
         delegated Security Hub administrator account for an organization or an
-        administrator account that enabled Security Hub manually.</p> <p>The
-        results include both member accounts that are managed using
-        Organizations and accounts that were invited manually.</p>
+        administrator account that enabled Security Hub manually. The results
+        include both member accounts that are managed using Organizations and
+        accounts that were invited manually.
+      operationId: amazonWebServicesGetMembers
   /securityControl/definition:
     GET:
-      summary: GetSecurityControlDefinition
-      description: >-
-        <p> Retrieves the definition of a security control. The definition
-        includes the control title, description, Region availability, parameter
-        definitions, and other details. </p>
+      summary: Getsecuritycontroldefinition
+      description: ' Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details. '
+      operationId: amazonWebServicesGetSecurityControlDefinition
   /members/invite:
     POST:
-      summary: InviteMembers
+      summary: Invitemembers
       description: >-
-        <p>Invites other Amazon Web Services accounts to become member accounts
-        for the Security Hub administrator account that the invitation is sent
-        from.</p> <p>This operation is only used to invite accounts that do not
-        belong to an organization. Organization accounts do not receive
-        invitations.</p> <p>Before you can use this action to invite a member,
-        you must first use the <code>CreateMembers</code> action to create the
-        member account in Security Hub.</p> <p>When the account owner enables
-        Security Hub and accepts the invitation to become a member account, the
-        administrator account can view the findings generated from the member
-        account.</p>
+        Invites other Amazon Web Services accounts to become member accounts for
+        the Security Hub administrator account that the invitation is sent from.
+        This operation is only used to invite accounts that do not belong to an
+        organization. Organization accounts do not receive invitations. Before
+        you can use this action to invite a member, you must first use the
+        CreateMembers action to create the member account in Security Hub. When
+        the account owner enables Security Hub and accepts the invitation to
+        become a member account, the administrator account can view the findings
+        generated from the member account.
+      operationId: amazonWebServicesInviteMembers
   /automationrules/list:
     GET:
-      summary: ListAutomationRules
-      description: >-
-        <p> A list of automation rules and their metadata for the calling
-        account. </p>
+      summary: Listautomationrules
+      description: ' A list of automation rules and their metadata for the calling account. '
+      operationId: amazonWebServicesListAutomationRules
   /configurationPolicy/list:
     GET:
-      summary: ListConfigurationPolicies
-      description: >-
-        <p> Lists the configuration policies that the Security Hub delegated
-        administrator has created for your organization. Only the delegated
-        administrator can invoke this operation from the home Region. </p>
+      summary: Listconfigurationpolicies
+      description: ' Lists the configuration policies that the Security Hub delegated administrator has created for your organization. Only the delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesListConfigurationPolicies
   /configurationPolicyAssociation/list:
     POST:
-      summary: ListConfigurationPolicyAssociations
-      description: >-
-        <p> Provides information about the associations for your configuration
-        policies and self-managed behavior. Only the Security Hub delegated
-        administrator can invoke this operation from the home Region. </p>
+      summary: Listconfigurationpolicyassociations
+      description: ' Provides information about the associations for your configuration policies and self-managed behavior. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesListConfigurationPolicyAssociations
   /findingAggregator/list:
     GET:
-      summary: ListFindingAggregators
+      summary: Listfindingaggregators
       description: >-
-        <p>If finding aggregation is enabled, then
-        <code>ListFindingAggregators</code> returns the ARN of the finding
-        aggregator. You can run this operation from any Region.</p>
+        If finding aggregation is enabled, then ListFindingAggregators returns
+        the ARN of the finding aggregator. You can run this operation from any
+        Region.
+      operationId: amazonWebServicesListFindingAggregators
   /invitations:
     GET:
-      summary: ListInvitations
+      summary: Listinvitations
       description: >-
-        <p>Lists all Security Hub membership invitations that were sent to the
-        current Amazon Web Services account.</p> <p>This operation is only used
-        by accounts that are managed by invitation. Accounts that are managed
-        using the integration with Organizations do not receive invitations.</p>
+        Lists all Security Hub membership invitations that were sent to the
+        current Amazon Web Services account. This operation is only used by
+        accounts that are managed by invitation. Accounts that are managed using
+        the integration with Organizations do not receive invitations.
+      operationId: amazonWebServicesListInvitations
   /organization/admin:
     GET:
-      summary: ListOrganizationAdminAccounts
+      summary: Listorganizationadminaccounts
       description: >-
-        <p>Lists the Security Hub administrator accounts. Can only be called by
-        the organization management account.</p>
+        Lists the Security Hub administrator accounts. Can only be called by the
+        organization management account.
+      operationId: amazonWebServicesListOrganizationAdminAccounts
   /securityControls/definitions:
     GET:
-      summary: ListSecurityControlDefinitions
-      description: >-
-        <p> Lists all of the security controls that apply to a specified
-        standard. </p>
+      summary: Listsecuritycontroldefinitions
+      description: ' Lists all of the security controls that apply to a specified standard. '
+      operationId: amazonWebServicesListSecurityControlDefinitions
   /tags/{ResourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes one or more tags from a resource.</p>
+      summary: Untagresource
+      description: Removes one or more tags from a resource.
+      operationId: amazonWebServicesUntagResource
   /configurationPolicyAssociation/associate:
     POST:
-      summary: StartConfigurationPolicyAssociation
-      description: >-
-        <p> Associates a target account, organizational unit, or the root with a
-        specified configuration. The target can be associated with a
-        configuration policy or self-managed behavior. Only the Security Hub
-        delegated administrator can invoke this operation from the home Region.
-        </p>
+      summary: Startconfigurationpolicyassociation
+      description: ' Associates a target account, organizational unit, or the root with a specified configuration. The target can be associated with a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesStartConfigurationPolicyAssociation
   /configurationPolicyAssociation/disassociate:
     POST:
-      summary: StartConfigurationPolicyDisassociation
-      description: >-
-        <p> Disassociates a target account, organizational unit, or the root
-        from a specified configuration. When you disassociate a configuration
-        from its target, the target inherits the configuration of the closest
-        parent. If there’s no configuration to inherit, the target retains its
-        settings but becomes a self-managed account. A target can be
-        disassociated from a configuration policy or self-managed behavior. Only
-        the Security Hub delegated administrator can invoke this operation from
-        the home Region. </p>
+      summary: Startconfigurationpolicydisassociation
+      description: ' Disassociates a target account, organizational unit, or the root from a specified configuration. When you disassociate a configuration from its target, the target inherits the configuration of the closest parent. If there’s no configuration to inherit, the target retains its settings but becomes a self-managed account. A target can be disassociated from a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can invoke this operation from the home Region. '
+      operationId: amazonWebServicesStartConfigurationPolicyDisassociation
   /findingAggregator/update:
     PATCH:
-      summary: UpdateFindingAggregator
+      summary: Updatefindingaggregator
       description: >-
-        <p>Updates the finding aggregation configuration. Used to update the
-        Region linking mode and the list of included or excluded Regions. You
-        cannot use <code>UpdateFindingAggregator</code> to change the
-        aggregation Region.</p> <p>You must run
-        <code>UpdateFindingAggregator</code> from the current aggregation
-        Region. </p>
+        Updates the finding aggregation configuration. Used to update the Region
+        linking mode and the list of included or excluded Regions. You cannot
+        use UpdateFindingAggregator to change the aggregation Region. You must
+        run UpdateFindingAggregator from the current aggregation Region. 
+      operationId: amazonWebServicesUpdateFindingAggregator
   /securityControl/update:
     PATCH:
-      summary: UpdateSecurityControl
-      description: <p> Updates the properties of a security control. </p>
+      summary: Updatesecuritycontrol
+      description: ' Updates the properties of a security control. '
+      operationId: amazonWebServicesUpdateSecurityControl
   /standards/control/{StandardsControlArn+}:
     PATCH:
-      summary: UpdateStandardsControl
+      summary: Updatestandardscontrol
       description: >-
-        <p>Used to control whether an individual security standard control is
-        enabled or disabled.</p>
+        Used to control whether an individual security standard control is
+        enabled or disabled.
+      operationId: amazonWebServicesUpdateStandardsControl
 tags: []

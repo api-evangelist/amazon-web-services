@@ -12,139 +12,157 @@ info:
 paths:
   /applications/{applicationId}/batch-job-executions/{executionId}/cancel:
     POST:
-      summary: CancelBatchJobExecution
-      description: <p>Cancels the running of a specific batch job execution.</p>
+      summary: Cancelbatchjobexecution
+      description: Cancels the running of a specific batch job execution.
+      operationId: amazonWebServicesCancelBatchJobExecution
   /applications:
     GET:
-      summary: ListApplications
+      summary: Listapplications
       description: >-
-        <p>Lists the applications associated with a specific Amazon Web Services
+        Lists the applications associated with a specific Amazon Web Services
         account. You can provide the unique identifier of a specific runtime
         environment in a query parameter to see all applications associated with
-        that environment.</p>
+        that environment.
+      operationId: amazonWebServicesListApplications
   /applications/{applicationId}/dataset-import-task:
     POST:
-      summary: CreateDataSetImportTask
-      description: <p>Starts a data set import task for a specific application.</p>
+      summary: Createdatasetimporttask
+      description: Starts a data set import task for a specific application.
+      operationId: amazonWebServicesCreateDataSetImportTask
   /applications/{applicationId}/deployments:
     GET:
-      summary: ListDeployments
+      summary: Listdeployments
       description: >-
-        <p>Returns a list of all deployments of a specific application. A
+        Returns a list of all deployments of a specific application. A
         deployment is a combination of a specific application and a specific
         version of that application. Each deployment is mapped to a particular
-        application version.</p>
+        application version.
+      operationId: amazonWebServicesListDeployments
   /environments:
     GET:
-      summary: ListEnvironments
-      description: <p>Lists the runtime environments.</p>
+      summary: Listenvironments
+      description: Lists the runtime environments.
+      operationId: amazonWebServicesListEnvironments
   /applications/{applicationId}:
     PATCH:
-      summary: UpdateApplication
-      description: <p>Updates an application and creates a new version.</p>
+      summary: Updateapplication
+      description: Updates an application and creates a new version.
+      operationId: amazonWebServicesUpdateApplication
   /applications/{applicationId}/environment/{environmentId}:
     DELETE:
-      summary: DeleteApplicationFromEnvironment
+      summary: Deleteapplicationfromenvironment
       description: >-
-        <p>Deletes a specific application from the specific runtime environment
+        Deletes a specific application from the specific runtime environment
         where it was previously deployed. You cannot delete a runtime
         environment using DeleteEnvironment if any application has ever been
         deployed to it. This API removes the association of the application with
-        the runtime environment so you can delete the environment smoothly.</p>
+        the runtime environment so you can delete the environment smoothly.
+      operationId: amazonWebServicesDeleteApplicationFromEnvironment
   /environments/{environmentId}:
     PATCH:
-      summary: UpdateEnvironment
-      description: >-
-        <p>Updates the configuration details for a specific runtime
-        environment.</p>
+      summary: Updateenvironment
+      description: Updates the configuration details for a specific runtime environment.
+      operationId: amazonWebServicesUpdateEnvironment
   /applications/{applicationId}/versions/{applicationVersion}:
     GET:
-      summary: GetApplicationVersion
-      description: >-
-        <p>Returns details about a specific version of a specific
-        application.</p>
+      summary: Getapplicationversion
+      description: Returns details about a specific version of a specific application.
+      operationId: amazonWebServicesGetApplicationVersion
   /applications/{applicationId}/batch-job-executions/{executionId}:
     GET:
-      summary: GetBatchJobExecution
+      summary: Getbatchjobexecution
       description: >-
-        <p>Gets the details of a specific batch job execution for a specific
-        application.</p>
+        Gets the details of a specific batch job execution for a specific
+        application.
+      operationId: amazonWebServicesGetBatchJobExecution
   /applications/{applicationId}/datasets/{dataSetName}:
     GET:
-      summary: GetDataSetDetails
-      description: <p>Gets the details of a specific data set.</p>
+      summary: Getdatasetdetails
+      description: Gets the details of a specific data set.
+      operationId: amazonWebServicesGetDataSetDetails
   /applications/{applicationId}/dataset-import-tasks/{taskId}:
     GET:
-      summary: GetDataSetImportTask
+      summary: Getdatasetimporttask
       description: >-
-        <p>Gets the status of a data set import task initiated with the
-        <a>CreateDataSetImportTask</a> operation.</p>
+        Gets the status of a data set import task initiated with the
+        CreateDataSetImportTask operation.
+      operationId: amazonWebServicesGetDataSetImportTask
   /applications/{applicationId}/deployments/{deploymentId}:
     GET:
-      summary: GetDeployment
+      summary: Getdeployment
       description: >-
-        <p>Gets details of a specific deployment with a given deployment
-        identifier.</p>
+        Gets details of a specific deployment with a given deployment
+        identifier.
+      operationId: amazonWebServicesGetDeployment
   /signed-bi-url:
     GET:
-      summary: GetSignedBluinsightsUrl
+      summary: Getsignedbluinsightsurl
       description: >-
-        <p>Gets a single sign-on URL that can be used to connect to AWS Blu
-        Insights.</p>
+        Gets a single sign-on URL that can be used to connect to AWS Blu
+        Insights.
+      operationId: amazonWebServicesGetSignedBluinsightsUrl
   /applications/{applicationId}/versions:
     GET:
-      summary: ListApplicationVersions
-      description: >-
-        <p>Returns a list of the application versions for a specific
-        application.</p>
+      summary: Listapplicationversions
+      description: Returns a list of the application versions for a specific application.
+      operationId: amazonWebServicesListApplicationVersions
   /applications/{applicationId}/batch-job-definitions:
     GET:
-      summary: ListBatchJobDefinitions
+      summary: Listbatchjobdefinitions
       description: >-
-        <p>Lists all the available batch job definitions based on the batch job
+        Lists all the available batch job definitions based on the batch job
         resources uploaded during the application creation. You can use the
-        batch job definitions in the list to start a batch job.</p>
+        batch job definitions in the list to start a batch job.
+      operationId: amazonWebServicesListBatchJobDefinitions
   /applications/{applicationId}/batch-job-executions:
     GET:
-      summary: ListBatchJobExecutions
+      summary: Listbatchjobexecutions
       description: >-
-        <p>Lists historical, current, and scheduled batch job executions for a
-        specific application.</p>
+        Lists historical, current, and scheduled batch job executions for a
+        specific application.
+      operationId: amazonWebServicesListBatchJobExecutions
   /applications/{applicationId}/dataset-import-tasks:
     GET:
-      summary: ListDataSetImportHistory
-      description: <p>Lists the data set imports for the specified application.</p>
+      summary: Listdatasetimporthistory
+      description: Lists the data set imports for the specified application.
+      operationId: amazonWebServicesListDataSetImportHistory
   /applications/{applicationId}/datasets:
     GET:
-      summary: ListDataSets
+      summary: Listdatasets
       description: >-
-        <p>Lists the data sets imported for a specific application. In Amazon
-        Web Services Mainframe Modernization, data sets are associated with
+        Lists the data sets imported for a specific application. In Amazon Web
+        Services Mainframe Modernization, data sets are associated with
         applications deployed on runtime environments. This is known as
         importing data sets. Currently, Amazon Web Services Mainframe
-        Modernization can import data sets into catalogs using <a
-        href="https://docs.aws.amazon.com/m2/latest/APIReference/API_CreateDataSetImportTask.html">CreateDataSetImportTask</a>.</p>
+        Modernization can import data sets into catalogs using
+        CreateDataSetImportTask.
+      operationId: amazonWebServicesListDataSets
   /engine-versions:
     GET:
-      summary: ListEngineVersions
-      description: <p>Lists the available engine versions.</p>
+      summary: Listengineversions
+      description: Lists the available engine versions.
+      operationId: amazonWebServicesListEngineVersions
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes one or more tags from the specified resource.</p>
+      summary: Untagresource
+      description: Removes one or more tags from the specified resource.
+      operationId: amazonWebServicesUntagResource
   /applications/{applicationId}/start:
     POST:
-      summary: StartApplication
-      description: <p>Starts an application that is currently stopped.</p>
+      summary: Startapplication
+      description: Starts an application that is currently stopped.
+      operationId: amazonWebServicesStartApplication
   /applications/{applicationId}/batch-job:
     POST:
-      summary: StartBatchJob
+      summary: Startbatchjob
       description: >-
-        <p>Starts a batch job and returns the unique identifier of this
-        execution of the batch job. The associated application must be running
-        in order to start the batch job.</p>
+        Starts a batch job and returns the unique identifier of this execution
+        of the batch job. The associated application must be running in order to
+        start the batch job.
+      operationId: amazonWebServicesStartBatchJob
   /applications/{applicationId}/stop:
     POST:
-      summary: StopApplication
-      description: <p>Stops a running application.</p>
+      summary: Stopapplication
+      description: Stops a running application.
+      operationId: amazonWebServicesStopApplication
 tags: []

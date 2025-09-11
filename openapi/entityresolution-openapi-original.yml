@@ -19,94 +19,103 @@ info:
 paths:
   /idmappingworkflows:
     GET:
-      summary: ListIdMappingWorkflows
+      summary: Listidmappingworkflows
       description: >-
-        <p>Returns a list of all the <code>IdMappingWorkflows</code> that have
-        been created for an Amazon Web Services account.</p>
+        Returns a list of all the IdMappingWorkflows that have been created for
+        an Amazon Web Services account.
+      operationId: amazonWebServicesListIdMappingWorkflows
   /matchingworkflows:
     GET:
-      summary: ListMatchingWorkflows
+      summary: Listmatchingworkflows
       description: >-
-        <p>Returns a list of all the <code>MatchingWorkflows</code> that have
-        been created for an Amazon Web Services account.</p>
+        Returns a list of all the MatchingWorkflows that have been created for
+        an Amazon Web Services account.
+      operationId: amazonWebServicesListMatchingWorkflows
   /schemas:
     GET:
-      summary: ListSchemaMappings
+      summary: Listschemamappings
       description: >-
-        <p>Returns a list of all the <code>SchemaMappings</code> that have been
-        created for an Amazon Web Services account.</p>
+        Returns a list of all the SchemaMappings that have been created for an
+        Amazon Web Services account.
+      operationId: amazonWebServicesListSchemaMappings
   /idmappingworkflows/{workflowName}:
     PUT:
-      summary: UpdateIdMappingWorkflow
+      summary: Updateidmappingworkflow
       description: >-
-        <p>Updates an existing <code>IdMappingWorkflow</code>. This method is
-        identical to <code>CreateIdMappingWorkflow</code>, except it uses an
-        HTTP <code>PUT</code> request instead of a <code>POST</code> request,
-        and the <code>IdMappingWorkflow</code> must already exist for the method
-        to succeed.</p>
+        Updates an existing IdMappingWorkflow. This method is identical to
+        CreateIdMappingWorkflow, except it uses an HTTP PUT request instead of a
+        POST request, and the IdMappingWorkflow must already exist for the
+        method to succeed.
+      operationId: amazonWebServicesUpdateIdMappingWorkflow
   /matchingworkflows/{workflowName}:
     PUT:
-      summary: UpdateMatchingWorkflow
+      summary: Updatematchingworkflow
       description: >-
-        <p>Updates an existing <code>MatchingWorkflow</code>. This method is
-        identical to <code>CreateMatchingWorkflow</code>, except it uses an HTTP
-        <code>PUT</code> request instead of a <code>POST</code> request, and the
-        <code>MatchingWorkflow</code> must already exist for the method to
-        succeed.</p>
+        Updates an existing MatchingWorkflow. This method is identical to
+        CreateMatchingWorkflow, except it uses an HTTP PUT request instead of a
+        POST request, and the MatchingWorkflow must already exist for the method
+        to succeed.
+      operationId: amazonWebServicesUpdateMatchingWorkflow
   /schemas/{schemaName}:
     PUT:
-      summary: UpdateSchemaMapping
+      summary: Updateschemamapping
       description: >-
-        <p>Updates a schema mapping.</p> <note> <p>A schema is immutable if it
-        is being used by a workflow. Therefore, you can't update a schema
-        mapping if it's associated with a workflow. </p> </note>
+        Updates a schema mapping.  A schema is immutable if it is being used by
+        a workflow. Therefore, you can't update a schema mapping if it's
+        associated with a workflow.  
+      operationId: amazonWebServicesUpdateSchemaMapping
   /idmappingworkflows/{workflowName}/jobs/{jobId}:
     GET:
-      summary: GetIdMappingJob
+      summary: Getidmappingjob
       description: >-
-        <p>Gets the status, metrics, and errors (if there are any) that are
-        associated with a job.</p>
+        Gets the status, metrics, and errors (if there are any) that are
+        associated with a job.
+      operationId: amazonWebServicesGetIdMappingJob
   /matchingworkflows/{workflowName}/matches:
     POST:
-      summary: GetMatchId
+      summary: Getmatchid
       description: >-
-        <p>Returns the corresponding Match ID of a customer record if the record
-        has been processed.</p>
+        Returns the corresponding Match ID of a customer record if the record
+        has been processed.
+      operationId: amazonWebServicesGetMatchId
   /matchingworkflows/{workflowName}/jobs/{jobId}:
     GET:
-      summary: GetMatchingJob
+      summary: Getmatchingjob
       description: >-
-        <p>Gets the status, metrics, and errors (if there are any) that are
-        associated with a job.</p>
+        Gets the status, metrics, and errors (if there are any) that are
+        associated with a job.
+      operationId: amazonWebServicesGetMatchingJob
   /providerservices/{providerName}/{providerServiceName}:
     GET:
-      summary: GetProviderService
-      description: <p>Returns the <code>ProviderService</code> of a given name.</p>
+      summary: Getproviderservice
+      description: Returns the ProviderService of a given name.
+      operationId: amazonWebServicesGetProviderService
   /idmappingworkflows/{workflowName}/jobs:
     POST:
-      summary: StartIdMappingJob
+      summary: Startidmappingjob
       description: >-
-        <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must
-        have previously been created using the
-        <code>CreateIdMappingWorkflow</code> endpoint.</p>
+        Starts the IdMappingJob of a workflow. The workflow must have previously
+        been created using the CreateIdMappingWorkflow endpoint.
+      operationId: amazonWebServicesStartIdMappingJob
   /matchingworkflows/{workflowName}/jobs:
     POST:
-      summary: StartMatchingJob
+      summary: Startmatchingjob
       description: >-
-        <p>Starts the <code>MatchingJob</code> of a workflow. The workflow must
-        have previously been created using the
-        <code>CreateMatchingWorkflow</code> endpoint.</p>
+        Starts the MatchingJob of a workflow. The workflow must have previously
+        been created using the CreateMatchingWorkflow endpoint.
+      operationId: amazonWebServicesStartMatchingJob
   /providerservices:
     GET:
-      summary: ListProviderServices
+      summary: Listproviderservices
       description: >-
-        <p>Returns a list of all the <code>ProviderServices</code> that are
-        available in this Amazon Web Services Region.</p>
+        Returns a list of all the ProviderServices that are available in this
+        Amazon Web Services Region.
+      operationId: amazonWebServicesListProviderServices
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>Removes one or more tags from the specified Entity Resolution
-        resource. In Entity Resolution, <code>SchemaMapping</code>, and
-        <code>MatchingWorkflow</code> can be tagged.</p>
+        Removes one or more tags from the specified Entity Resolution resource.
+        In Entity Resolution, SchemaMapping, and MatchingWorkflow can be tagged.
+      operationId: amazonWebServicesUntagResource
 tags: []

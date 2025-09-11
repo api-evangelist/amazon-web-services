@@ -7,203 +7,230 @@ info:
 paths:
   /v1/domainnames/{domainName}/apiassociation:
     GET:
-      summary: GetApiAssociation
-      description: <p>Retrieves an <code>ApiAssociation</code> object.</p>
+      summary: Getapiassociation
+      description: Retrieves an ApiAssociation object.
+      operationId: amazonWebServicesGetApiAssociation
   /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations:
     POST:
-      summary: AssociateMergedGraphqlApi
+      summary: Associatemergedgraphqlapi
       description: >-
-        <p>Creates an association between a Merged API and source API using the
-        source API's identifier.</p>
+        Creates an association between a Merged API and source API using the
+        source API's identifier.
+      operationId: amazonWebServicesAssociateMergedGraphqlApi
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations:
     POST:
-      summary: AssociateSourceGraphqlApi
+      summary: Associatesourcegraphqlapi
       description: >-
-        <p>Creates an association between a Merged API and source API using the
-        Merged API's identifier.</p>
+        Creates an association between a Merged API and source API using the
+        Merged API's identifier.
+      operationId: amazonWebServicesAssociateSourceGraphqlApi
   /v1/apis/{apiId}/ApiCaches:
     GET:
-      summary: GetApiCache
-      description: <p>Retrieves an <code>ApiCache</code> object.</p>
+      summary: Getapicache
+      description: Retrieves an ApiCache object.
+      operationId: amazonWebServicesGetApiCache
   /v1/apis/{apiId}/apikeys:
     GET:
-      summary: ListApiKeys
+      summary: Listapikeys
       description: >-
-        <p>Lists the API keys for a given API.</p> <note> <p>API keys are
-        deleted automatically 60 days after they expire. However, they may still
-        be included in the response until they have actually been deleted. You
-        can safely call <code>DeleteApiKey</code> to manually delete a key
-        before it's automatically deleted.</p> </note>
+        Lists the API keys for a given API.  API keys are deleted automatically
+        60 days after they expire. However, they may still be included in the
+        response until they have actually been deleted. You can safely call
+        DeleteApiKey to manually delete a key before it's automatically
+        deleted. 
+      operationId: amazonWebServicesListApiKeys
   /v1/apis/{apiId}/datasources:
     GET:
-      summary: ListDataSources
-      description: <p>Lists the data sources for a given API.</p>
+      summary: Listdatasources
+      description: Lists the data sources for a given API.
+      operationId: amazonWebServicesListDataSources
   /v1/domainnames:
     GET:
-      summary: ListDomainNames
-      description: <p>Lists multiple custom domain names.</p>
+      summary: Listdomainnames
+      description: Lists multiple custom domain names.
+      operationId: amazonWebServicesListDomainNames
   /v1/apis/{apiId}/functions:
     GET:
-      summary: ListFunctions
-      description: <p>List multiple functions.</p>
+      summary: Listfunctions
+      description: List multiple functions.
+      operationId: amazonWebServicesListFunctions
   /v1/apis:
     GET:
-      summary: ListGraphqlApis
-      description: <p>Lists your GraphQL APIs.</p>
+      summary: Listgraphqlapis
+      description: Lists your GraphQL APIs.
+      operationId: amazonWebServicesListGraphqlApis
   /v1/apis/{apiId}/types/{typeName}/resolvers:
     GET:
-      summary: ListResolvers
-      description: <p>Lists the resolvers for a given API and type.</p>
+      summary: Listresolvers
+      description: Lists the resolvers for a given API and type.
+      operationId: amazonWebServicesListResolvers
   /v1/apis/{apiId}/types:
     GET:
-      summary: ListTypes
-      description: <p>Lists the types for a given API.</p>
+      summary: Listtypes
+      description: Lists the types for a given API.
+      operationId: amazonWebServicesListTypes
   /v1/apis/{apiId}/apikeys/{id}:
     POST:
-      summary: UpdateApiKey
-      description: >-
-        <p>Updates an API key. You can update the key as long as it's not
-        deleted.</p>
+      summary: Updateapikey
+      description: Updates an API key. You can update the key as long as it's not deleted.
+      operationId: amazonWebServicesUpdateApiKey
   /v1/apis/{apiId}/datasources/{name}:
     POST:
-      summary: UpdateDataSource
-      description: <p>Updates a <code>DataSource</code> object.</p>
+      summary: Updatedatasource
+      description: Updates a DataSource object.
+      operationId: amazonWebServicesUpdateDataSource
   /v1/domainnames/{domainName}:
     POST:
-      summary: UpdateDomainName
-      description: <p>Updates a custom <code>DomainName</code> object.</p>
+      summary: Updatedomainname
+      description: Updates a custom DomainName object.
+      operationId: amazonWebServicesUpdateDomainName
   /v1/apis/{apiId}/functions/{functionId}:
     POST:
-      summary: UpdateFunction
-      description: <p>Updates a <code>Function</code> object.</p>
+      summary: Updatefunction
+      description: Updates a Function object.
+      operationId: amazonWebServicesUpdateFunction
   /v1/apis/{apiId}:
     POST:
-      summary: UpdateGraphqlApi
-      description: <p>Updates a <code>GraphqlApi</code> object.</p>
+      summary: Updategraphqlapi
+      description: Updates a GraphqlApi object.
+      operationId: amazonWebServicesUpdateGraphqlApi
   /v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}:
     POST:
-      summary: UpdateResolver
-      description: <p>Updates a <code>Resolver</code> object.</p>
+      summary: Updateresolver
+      description: Updates a Resolver object.
+      operationId: amazonWebServicesUpdateResolver
   /v1/apis/{apiId}/types/{typeName}:
     POST:
-      summary: UpdateType
-      description: <p>Updates a <code>Type</code> object.</p>
+      summary: Updatetype
+      description: Updates a Type object.
+      operationId: amazonWebServicesUpdateType
   /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}:
     DELETE:
-      summary: DisassociateMergedGraphqlApi
+      summary: Disassociatemergedgraphqlapi
       description: >-
-        <p>Deletes an association between a Merged API and source API using the
-        source API's identifier and the association ID.</p>
+        Deletes an association between a Merged API and source API using the
+        source API's identifier and the association ID.
+      operationId: amazonWebServicesDisassociateMergedGraphqlApi
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}:
     POST:
-      summary: UpdateSourceApiAssociation
+      summary: Updatesourceapiassociation
       description: >-
-        <p>Updates some of the configuration choices of a particular source API
-        association.</p>
+        Updates some of the configuration choices of a particular source API
+        association.
+      operationId: amazonWebServicesUpdateSourceApiAssociation
   /v1/dataplane-evaluatecode:
     POST:
-      summary: EvaluateCode
+      summary: Evaluatecode
       description: >-
-        <p>Evaluates the given code and returns the response. The code
-        definition requirements depend on the specified runtime. For
-        <code>APPSYNC_JS</code> runtimes, the code defines the request and
-        response functions. The request function takes the incoming request
-        after a GraphQL operation is parsed and converts it into a request
-        configuration for the selected data source operation. The response
-        function interprets responses from the data source and maps it to the
-        shape of the GraphQL field output type. </p>
+        Evaluates the given code and returns the response. The code definition
+        requirements depend on the specified runtime. For APPSYNC_JS runtimes,
+        the code defines the request and response functions. The request
+        function takes the incoming request after a GraphQL operation is parsed
+        and converts it into a request configuration for the selected data
+        source operation. The response function interprets responses from the
+        data source and maps it to the shape of the GraphQL field output type. 
+      operationId: amazonWebServicesEvaluateCode
   /v1/dataplane-evaluatetemplate:
     POST:
-      summary: EvaluateMappingTemplate
+      summary: Evaluatemappingtemplate
       description: >-
-        <p>Evaluates a given template and returns the response. The mapping
-        template can be a request or response template.</p> <p>Request templates
-        take the incoming request after a GraphQL operation is parsed and
-        convert it into a request configuration for the selected data source
-        operation. Response templates interpret responses from the data source
-        and map it to the shape of the GraphQL field output type.</p> <p>Mapping
-        templates are written in the Apache Velocity Template Language
-        (VTL).</p>
+        Evaluates a given template and returns the response. The mapping
+        template can be a request or response template. Request templates take
+        the incoming request after a GraphQL operation is parsed and convert it
+        into a request configuration for the selected data source operation.
+        Response templates interpret responses from the data source and map it
+        to the shape of the GraphQL field output type. Mapping templates are
+        written in the Apache Velocity Template Language (VTL).
+      operationId: amazonWebServicesEvaluateMappingTemplate
   /v1/apis/{apiId}/FlushCache:
     DELETE:
-      summary: FlushApiCache
-      description: <p>Flushes an <code>ApiCache</code> object.</p>
+      summary: Flushapicache
+      description: Flushes an ApiCache object.
+      operationId: amazonWebServicesFlushApiCache
   /v1/datasources/introspections/{introspectionId}:
     GET:
-      summary: GetDataSourceIntrospection
+      summary: Getdatasourceintrospection
       description: >-
-        <p>Retrieves the record of an existing introspection. If the retrieval
-        is successful, the result of the instrospection will also be returned.
-        If the retrieval fails the operation, an error message will be returned
-        instead.</p>
+        Retrieves the record of an existing introspection. If the retrieval is
+        successful, the result of the instrospection will also be returned. If
+        the retrieval fails the operation, an error message will be returned
+        instead.
+      operationId: amazonWebServicesGetDataSourceIntrospection
   /v1/apis/{apiId}/environmentVariables:
     PUT:
-      summary: PutGraphqlApiEnvironmentVariables
+      summary: Putgraphqlapienvironmentvariables
       description: >-
-        <p>Creates a list of environmental variables in an API by its ID value.
-        </p> <p>When creating an environmental variable, it must follow the
-        constraints below:</p> <ul> <li> <p>Both JavaScript and VTL templates
-        support environmental variables.</p> </li> <li> <p>Environmental
-        variables are not evaluated before function invocation.</p> </li> <li>
-        <p>Environmental variables only support string values.</p> </li> <li>
-        <p>Any defined value in an environmental variable is considered a string
-        literal and not expanded.</p> </li> <li> <p>Variable evaluations should
-        ideally be performed in the function code.</p> </li> </ul> <p>When
-        creating an environmental variable key-value pair, it must follow the
-        additional constraints below:</p> <ul> <li> <p>Keys must begin with a
-        letter.</p> </li> <li> <p>Keys must be at least two characters long.</p>
-        </li> <li> <p>Keys can only contain letters, numbers, and the underscore
-        character (_).</p> </li> <li> <p>Values can be up to 512 characters
-        long.</p> </li> <li> <p>You can configure up to 50 key-value pairs in a
-        GraphQL API.</p> </li> </ul> <p>You can create a list of environmental
-        variables by adding it to the <code>environmentVariables</code> payload
-        as a list in the format <code>{"key1":"value1","key2":"value2",
-        …}</code>. Note that each call of the
-        <code>PutGraphqlApiEnvironmentVariables</code> action will result in the
-        overwriting of the existing environmental variable list of that API.
-        This means the existing environmental variables will be lost. To avoid
-        this, you must include all existing and new environmental variables in
-        the list each time you call this action.</p>
+        Creates a list of environmental variables in an API by its ID value. 
+        When creating an environmental variable, it must follow the constraints
+        below:   Both JavaScript and VTL templates support environmental
+        variables.   Environmental variables are not evaluated before function
+        invocation.   Environmental variables only support string values.   Any
+        defined value in an environmental variable is considered a string
+        literal and not expanded.   Variable evaluations should ideally be
+        performed in the function code.   When creating an environmental
+        variable key-value pair, it must follow the additional constraints
+        below:   Keys must begin with a letter.   Keys must be at least two
+        characters long.   Keys can only contain letters, numbers, and the
+        underscore character (_).   Values can be up to 512 characters long.  
+        You can configure up to 50 key-value pairs in a GraphQL API.   You can
+        create a list of environmental variables by adding it to the
+        environmentVariables payload as a list in the format
+        {"key1":"value1","key2":"value2", …}. Note that each call of the
+        PutGraphqlApiEnvironmentVariables action will result in the overwriting
+        of the existing environmental variable list of that API. This means the
+        existing environmental variables will be lost. To avoid this, you must
+        include all existing and new environmental variables in the list each
+        time you call this action.
+      operationId: amazonWebServicesPutGraphqlApiEnvironmentVariables
   /v1/apis/{apiId}/schema:
     GET:
-      summary: GetIntrospectionSchema
-      description: <p>Retrieves the introspection schema for a GraphQL API.</p>
+      summary: Getintrospectionschema
+      description: Retrieves the introspection schema for a GraphQL API.
+      operationId: amazonWebServicesGetIntrospectionSchema
   /v1/apis/{apiId}/schemacreation:
     POST:
-      summary: StartSchemaCreation
+      summary: Startschemacreation
       description: >-
-        <p>Adds a new schema to your GraphQL API.</p> <p>This operation is
-        asynchronous. Use to determine when it has completed.</p>
+        Adds a new schema to your GraphQL API. This operation is asynchronous.
+        Use to determine when it has completed.
+      operationId: amazonWebServicesStartSchemaCreation
   /v1/apis/{apiId}/functions/{functionId}/resolvers:
     GET:
-      summary: ListResolversByFunction
-      description: <p>List the resolvers that are associated with a specific function.</p>
+      summary: Listresolversbyfunction
+      description: List the resolvers that are associated with a specific function.
+      operationId: amazonWebServicesListResolversByFunction
   /v1/apis/{apiId}/sourceApiAssociations:
     GET:
-      summary: ListSourceApiAssociations
-      description: <p>Lists the <code>SourceApiAssociationSummary</code> data.</p>
+      summary: Listsourceapiassociations
+      description: Lists the SourceApiAssociationSummary data.
+      operationId: amazonWebServicesListSourceApiAssociations
   /v1/tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Untags a resource.</p>
+      summary: Untagresource
+      description: Untags a resource.
+      operationId: amazonWebServicesUntagResource
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types:
     GET:
-      summary: ListTypesByAssociation
-      description: <p>Lists <code>Type</code> objects by the source API association ID.</p>
+      summary: Listtypesbyassociation
+      description: Lists Type objects by the source API association ID.
+      operationId: amazonWebServicesListTypesByAssociation
   /v1/datasources/introspections:
     POST:
-      summary: StartDataSourceIntrospection
+      summary: Startdatasourceintrospection
       description: >-
-        <p>Creates a new introspection. Returns the <code>introspectionId</code>
-        of the new introspection after its creation. </p>
+        Creates a new introspection. Returns the introspectionId of the new
+        introspection after its creation. 
+      operationId: amazonWebServicesStartDataSourceIntrospection
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge:
     POST:
-      summary: StartSchemaMerge
+      summary: Startschemamerge
       description: >-
-        <p>Initiates a merge operation. Returns a status that shows the result
-        of the merge operation.</p>
+        Initiates a merge operation. Returns a status that shows the result of
+        the merge operation.
+      operationId: amazonWebServicesStartSchemaMerge
   /v1/apis/{apiId}/ApiCaches/update:
     POST:
-      summary: UpdateApiCache
-      description: <p>Updates the cache for the GraphQL API.</p>
+      summary: Updateapicache
+      description: Updates the cache for the GraphQL API.
+      operationId: amazonWebServicesUpdateApiCache
 tags: []

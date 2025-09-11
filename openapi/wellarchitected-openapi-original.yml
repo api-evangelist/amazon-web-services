@@ -14,310 +14,344 @@ info:
 paths:
   /workloads/{WorkloadId}/associateLenses:
     PATCH:
-      summary: AssociateLenses
+      summary: Associatelenses
       description: >-
-        <p>Associate a lens to a workload.</p> <p>Up to 10 lenses can be
-        associated with a workload in a single API operation. A maximum of 20
-        lenses can be associated with a workload.</p> <note> <p>
-        <b>Disclaimer</b> </p> <p>By accessing and/or applying custom lenses
-        created by another Amazon Web Services user or account, you acknowledge
-        that custom lenses created by other users and shared with you are Third
-        Party Content as defined in the Amazon Web Services Customer Agreement.
-        </p> </note>
+        Associate a lens to a workload. Up to 10 lenses can be associated with a
+        workload in a single API operation. A maximum of 20 lenses can be
+        associated with a workload.   Disclaimer  By accessing and/or applying
+        custom lenses created by another Amazon Web Services user or account,
+        you acknowledge that custom lenses created by other users and shared
+        with you are Third Party Content as defined in the Amazon Web Services
+        Customer Agreement.  
+      operationId: amazonWebServicesAssociateLenses
   /workloads/{WorkloadId}/associateProfiles:
     PATCH:
-      summary: AssociateProfiles
-      description: <p>Associate a profile with a workload.</p>
+      summary: Associateprofiles
+      description: Associate a profile with a workload.
+      operationId: amazonWebServicesAssociateProfiles
   /lenses/{LensAlias}/shares:
     GET:
-      summary: ListLensShares
-      description: <p>List the lens shares associated with the lens.</p>
+      summary: Listlensshares
+      description: List the lens shares associated with the lens.
+      operationId: amazonWebServicesListLensShares
   /lenses/{LensAlias}/versions:
     POST:
-      summary: CreateLensVersion
+      summary: Createlensversion
       description: >-
-        <p>Create a new lens version.</p> <p>A lens can have up to 100
-        versions.</p> <p>Use this operation to publish a new lens version after
-        you have imported a lens. The <code>LensAlias</code> is used to identify
-        the lens to be published. The owner of a lens can share the lens with
-        other Amazon Web Services accounts and users in the same Amazon Web
-        Services Region. Only the owner of a lens can delete it. </p>
+        Create a new lens version. A lens can have up to 100 versions. Use this
+        operation to publish a new lens version after you have imported a lens.
+        The LensAlias is used to identify the lens to be published. The owner of
+        a lens can share the lens with other Amazon Web Services accounts and
+        users in the same Amazon Web Services Region. Only the owner of a lens
+        can delete it. 
+      operationId: amazonWebServicesCreateLensVersion
   /workloads/{WorkloadId}/milestones:
     POST:
-      summary: CreateMilestone
-      description: <p>Create a milestone for an existing workload.</p>
+      summary: Createmilestone
+      description: Create a milestone for an existing workload.
+      operationId: amazonWebServicesCreateMilestone
   /profiles:
     POST:
-      summary: CreateProfile
-      description: <p>Create a profile.</p>
+      summary: Createprofile
+      description: Create a profile.
+      operationId: amazonWebServicesCreateProfile
   /profiles/{ProfileArn}/shares:
     GET:
-      summary: ListProfileShares
-      description: <p>List profile shares.</p>
+      summary: Listprofileshares
+      description: List profile shares.
+      operationId: amazonWebServicesListProfileShares
   /reviewTemplates:
     GET:
-      summary: ListReviewTemplates
-      description: <p>List review templates.</p>
+      summary: Listreviewtemplates
+      description: List review templates.
+      operationId: amazonWebServicesListReviewTemplates
   /templates/shares/{TemplateArn}:
     GET:
-      summary: ListTemplateShares
-      description: <p>List review template shares.</p>
+      summary: Listtemplateshares
+      description: List review template shares.
+      operationId: amazonWebServicesListTemplateShares
   /workloads:
     POST:
-      summary: CreateWorkload
+      summary: Createworkload
       description: >-
-        <p>Create a new workload.</p> <p>The owner of a workload can share the
-        workload with other Amazon Web Services accounts, users, an
-        organization, and organizational units (OUs) in the same Amazon Web
-        Services Region. Only the owner of a workload can delete it.</p> <p>For
-        more information, see <a
-        href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining
-        a Workload</a> in the <i>Well-Architected Tool User Guide</i>.</p>
-        <important> <p>Either <code>AwsRegions</code>,
-        <code>NonAwsRegions</code>, or both must be specified when creating a
-        workload.</p> <p>You also must specify <code>ReviewOwner</code>, even
-        though the parameter is listed as not being required in the following
-        section. </p> </important> <p>When creating a workload using a review
-        template, you must have the following IAM permissions:</p> <ul> <li> <p>
-        <code>wellarchitected:GetReviewTemplate</code> </p> </li> <li> <p>
-        <code>wellarchitected:GetReviewTemplateAnswer</code> </p> </li> <li> <p>
-        <code>wellarchitected:ListReviewTemplateAnswers</code> </p> </li> <li>
-        <p> <code>wellarchitected:GetReviewTemplateLensReview</code> </p> </li>
-        </ul>
+        Create a new workload. The owner of a workload can share the workload
+        with other Amazon Web Services accounts, users, an organization, and
+        organizational units (OUs) in the same Amazon Web Services Region. Only
+        the owner of a workload can delete it. For more information, see
+        Defining a Workload in the Well-Architected Tool User Guide.  Either
+        AwsRegions, NonAwsRegions, or both must be specified when creating a
+        workload. You also must specify ReviewOwner, even though the parameter
+        is listed as not being required in the following section.   When
+        creating a workload using a review template, you must have the following
+        IAM permissions:    wellarchitected:GetReviewTemplate    
+        wellarchitected:GetReviewTemplateAnswer    
+        wellarchitected:ListReviewTemplateAnswers    
+        wellarchitected:GetReviewTemplateLensReview   
+      operationId: amazonWebServicesCreateWorkload
   /workloads/{WorkloadId}/shares:
     GET:
-      summary: ListWorkloadShares
-      description: <p>List the workload shares associated with the workload.</p>
+      summary: Listworkloadshares
+      description: List the workload shares associated with the workload.
+      operationId: amazonWebServicesListWorkloadShares
   /lenses/{LensAlias}:
     GET:
-      summary: GetLens
-      description: <p>Get an existing lens.</p>
+      summary: Getlens
+      description: Get an existing lens.
+      operationId: amazonWebServicesGetLens
   /lenses/{LensAlias}/shares/{ShareId}:
     DELETE:
-      summary: DeleteLensShare
+      summary: Deletelensshare
       description: >-
-        <p>Delete a lens share.</p> <p>After the lens share is deleted, Amazon
-        Web Services accounts, users, organizations, and organizational units
-        (OUs) that you shared the lens with can continue to use it, but they
-        will no longer be able to apply it to new workloads.</p> <note> <p>
-        <b>Disclaimer</b> </p> <p>By sharing your custom lenses with other
-        Amazon Web Services accounts, you acknowledge that Amazon Web Services
-        will make your custom lenses available to those other accounts. Those
-        other accounts may continue to access and use your shared custom lenses
-        even if you delete the custom lenses from your own Amazon Web Services
-        account or terminate your Amazon Web Services account.</p> </note>
+        Delete a lens share. After the lens share is deleted, Amazon Web
+        Services accounts, users, organizations, and organizational units (OUs)
+        that you shared the lens with can continue to use it, but they will no
+        longer be able to apply it to new workloads.   Disclaimer  By sharing
+        your custom lenses with other Amazon Web Services accounts, you
+        acknowledge that Amazon Web Services will make your custom lenses
+        available to those other accounts. Those other accounts may continue to
+        access and use your shared custom lenses even if you delete the custom
+        lenses from your own Amazon Web Services account or terminate your
+        Amazon Web Services account. 
+      operationId: amazonWebServicesDeleteLensShare
   /profiles/{ProfileArn}:
     PATCH:
-      summary: UpdateProfile
-      description: <p>Update a profile.</p>
+      summary: Updateprofile
+      description: Update a profile.
+      operationId: amazonWebServicesUpdateProfile
   /profiles/{ProfileArn}/shares/{ShareId}:
     DELETE:
-      summary: DeleteProfileShare
-      description: <p>Delete a profile share.</p>
+      summary: Deleteprofileshare
+      description: Delete a profile share.
+      operationId: amazonWebServicesDeleteProfileShare
   /reviewTemplates/{TemplateArn}:
     PATCH:
-      summary: UpdateReviewTemplate
-      description: <p>Update a review template.</p>
+      summary: Updatereviewtemplate
+      description: Update a review template.
+      operationId: amazonWebServicesUpdateReviewTemplate
   /templates/shares/{TemplateArn}/{ShareId}:
     DELETE:
-      summary: DeleteTemplateShare
+      summary: Deletetemplateshare
       description: >-
-        <p>Delete a review template share.</p> <p>After the review template
-        share is deleted, Amazon Web Services accounts, users, organizations,
-        and organizational units (OUs) that you shared the review template with
-        will no longer be able to apply it to new workloads.</p>
+        Delete a review template share. After the review template share is
+        deleted, Amazon Web Services accounts, users, organizations, and
+        organizational units (OUs) that you shared the review template with will
+        no longer be able to apply it to new workloads.
+      operationId: amazonWebServicesDeleteTemplateShare
   /workloads/{WorkloadId}:
     PATCH:
-      summary: UpdateWorkload
-      description: <p>Update an existing workload.</p>
+      summary: Updateworkload
+      description: Update an existing workload.
+      operationId: amazonWebServicesUpdateWorkload
   /workloads/{WorkloadId}/shares/{ShareId}:
     PATCH:
-      summary: UpdateWorkloadShare
-      description: <p>Update a workload share.</p>
+      summary: Updateworkloadshare
+      description: Update a workload share.
+      operationId: amazonWebServicesUpdateWorkloadShare
   /workloads/{WorkloadId}/disassociateLenses:
     PATCH:
-      summary: DisassociateLenses
+      summary: Disassociatelenses
       description: >-
-        <p>Disassociate a lens from a workload.</p> <p>Up to 10 lenses can be
-        disassociated from a workload in a single API operation.</p> <note>
-        <p>The Amazon Web Services Well-Architected Framework lens
-        (<code>wellarchitected</code>) cannot be removed from a workload.</p>
-        </note>
+        Disassociate a lens from a workload. Up to 10 lenses can be
+        disassociated from a workload in a single API operation.  The Amazon Web
+        Services Well-Architected Framework lens (wellarchitected) cannot be
+        removed from a workload. 
+      operationId: amazonWebServicesDisassociateLenses
   /workloads/{WorkloadId}/disassociateProfiles:
     PATCH:
-      summary: DisassociateProfiles
-      description: <p>Disassociate a profile from a workload.</p>
+      summary: Disassociateprofiles
+      description: Disassociate a profile from a workload.
+      operationId: amazonWebServicesDisassociateProfiles
   /lenses/{LensAlias}/export:
     GET:
-      summary: ExportLens
+      summary: Exportlens
       description: >-
-        <p>Export an existing lens.</p> <p>Only the owner of a lens can export
-        it. Lenses provided by Amazon Web Services (Amazon Web Services Official
-        Content) cannot be exported.</p> <p>Lenses are defined in JSON. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON
-        format specification</a> in the <i>Well-Architected Tool User
-        Guide</i>.</p> <note> <p> <b>Disclaimer</b> </p> <p>Do not include or
-        gather personal identifiable information (PII) of end users or other
+        Export an existing lens. Only the owner of a lens can export it. Lenses
+        provided by Amazon Web Services (Amazon Web Services Official Content)
+        cannot be exported. Lenses are defined in JSON. For more information,
+        see JSON format specification in the Well-Architected Tool User Guide.  
+        Disclaimer  Do not include or gather personal identifiable information
+        (PII) of end users or other identifiable individuals in or via your
+        custom lenses. If your custom lens or those shared with you and used in
+        your account do include or collect PII you are responsible for: ensuring
+        that the included PII is processed in accordance with applicable law,
+        providing adequate privacy notices, and obtaining necessary consents for
+        processing such data. 
+      operationId: amazonWebServicesExportLens
+  /workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}:
+    PATCH:
+      summary: Updateanswer
+      description: Update the answer to a specific question in a workload review.
+      operationId: amazonWebServicesUpdateAnswer
+  /consolidatedReport:
+    GET:
+      summary: Getconsolidatedreport
+      description: >-
+        Get a consolidated report of your workloads. You can optionally choose
+        to include workloads that have been shared with you.
+      operationId: amazonWebServicesGetConsolidatedReport
+  /workloads/{WorkloadId}/lensReviews/{LensAlias}:
+    PATCH:
+      summary: Updatelensreview
+      description: Update lens review for a particular workload.
+      operationId: amazonWebServicesUpdateLensReview
+  /workloads/{WorkloadId}/lensReviews/{LensAlias}/report:
+    GET:
+      summary: Getlensreviewreport
+      description: Get lens review report.
+      operationId: amazonWebServicesGetLensReviewReport
+  /lenses/{LensAlias}/versionDifference:
+    GET:
+      summary: Getlensversiondifference
+      description: Get lens version differences.
+      operationId: amazonWebServicesGetLensVersionDifference
+  /workloads/{WorkloadId}/milestones/{MilestoneNumber}:
+    GET:
+      summary: Getmilestone
+      description: Get a milestone for an existing workload.
+      operationId: amazonWebServicesGetMilestone
+  /profileTemplate:
+    GET:
+      summary: Getprofiletemplate
+      description: Get profile template.
+      operationId: amazonWebServicesGetProfileTemplate
+  /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}:
+    PATCH:
+      summary: Updatereviewtemplateanswer
+      description: Update a review template answer.
+      operationId: amazonWebServicesUpdateReviewTemplateAnswer
+  /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}:
+    PATCH:
+      summary: Updatereviewtemplatelensreview
+      description: Update a lens review associated with a review template.
+      operationId: amazonWebServicesUpdateReviewTemplateLensReview
+  /importLens:
+    PUT:
+      summary: Importlens
+      description: >-
+        Import a new custom lens or update an existing custom lens. To update an
+        existing custom lens, specify its ARN as the LensAlias. If no ARN is
+        specified, a new custom lens is created. The new or updated lens will
+        have a status of DRAFT. The lens cannot be applied to workloads or
+        shared with other Amazon Web Services accounts until it's published with
+        CreateLensVersion. Lenses are defined in JSON. For more information, see
+        JSON format specification in the Well-Architected Tool User Guide. A
+        custom lens cannot exceed 500 KB in size.   Disclaimer  Do not include
+        or gather personal identifiable information (PII) of end users or other
         identifiable individuals in or via your custom lenses. If your custom
         lens or those shared with you and used in your account do include or
         collect PII you are responsible for: ensuring that the included PII is
         processed in accordance with applicable law, providing adequate privacy
-        notices, and obtaining necessary consents for processing such data.</p>
-        </note>
-  /workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}:
-    PATCH:
-      summary: UpdateAnswer
-      description: <p>Update the answer to a specific question in a workload review.</p>
-  /consolidatedReport:
-    GET:
-      summary: GetConsolidatedReport
-      description: >-
-        <p>Get a consolidated report of your workloads.</p> <p>You can
-        optionally choose to include workloads that have been shared with
-        you.</p>
-  /workloads/{WorkloadId}/lensReviews/{LensAlias}:
-    PATCH:
-      summary: UpdateLensReview
-      description: <p>Update lens review for a particular workload.</p>
-  /workloads/{WorkloadId}/lensReviews/{LensAlias}/report:
-    GET:
-      summary: GetLensReviewReport
-      description: <p>Get lens review report.</p>
-  /lenses/{LensAlias}/versionDifference:
-    GET:
-      summary: GetLensVersionDifference
-      description: <p>Get lens version differences.</p>
-  /workloads/{WorkloadId}/milestones/{MilestoneNumber}:
-    GET:
-      summary: GetMilestone
-      description: <p>Get a milestone for an existing workload.</p>
-  /profileTemplate:
-    GET:
-      summary: GetProfileTemplate
-      description: <p>Get profile template.</p>
-  /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}:
-    PATCH:
-      summary: UpdateReviewTemplateAnswer
-      description: <p>Update a review template answer.</p>
-  /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}:
-    PATCH:
-      summary: UpdateReviewTemplateLensReview
-      description: <p>Update a lens review associated with a review template.</p>
-  /importLens:
-    PUT:
-      summary: ImportLens
-      description: >-
-        <p>Import a new custom lens or update an existing custom lens.</p> <p>To
-        update an existing custom lens, specify its ARN as the
-        <code>LensAlias</code>. If no ARN is specified, a new custom lens is
-        created.</p> <p>The new or updated lens will have a status of
-        <code>DRAFT</code>. The lens cannot be applied to workloads or shared
-        with other Amazon Web Services accounts until it's published with
-        <a>CreateLensVersion</a>.</p> <p>Lenses are defined in JSON. For more
-        information, see <a
-        href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON
-        format specification</a> in the <i>Well-Architected Tool User
-        Guide</i>.</p> <p>A custom lens cannot exceed 500 KB in size.</p> <note>
-        <p> <b>Disclaimer</b> </p> <p>Do not include or gather personal
-        identifiable information (PII) of end users or other identifiable
-        individuals in or via your custom lenses. If your custom lens or those
-        shared with you and used in your account do include or collect PII you
-        are responsible for: ensuring that the included PII is processed in
-        accordance with applicable law, providing adequate privacy notices, and
-        obtaining necessary consents for processing such data.</p> </note>
+        notices, and obtaining necessary consents for processing such data. 
+      operationId: amazonWebServicesImportLens
   /workloads/{WorkloadId}/lensReviews/{LensAlias}/answers:
     GET:
-      summary: ListAnswers
-      description: <p>List of answers for a particular workload and lens.</p>
+      summary: Listanswers
+      description: List of answers for a particular workload and lens.
+      operationId: amazonWebServicesListAnswers
   /workloads/{WorkloadId}/checks:
     POST:
-      summary: ListCheckDetails
+      summary: Listcheckdetails
       description: >-
-        <p>List of Trusted Advisor check details by account related to the
-        workload.</p>
+        List of Trusted Advisor check details by account related to the
+        workload.
+      operationId: amazonWebServicesListCheckDetails
   /workloads/{WorkloadId}/checkSummaries:
     POST:
-      summary: ListCheckSummaries
+      summary: Listchecksummaries
       description: >-
-        <p>List of Trusted Advisor checks summarized for all accounts related to
-        the workload.</p>
+        List of Trusted Advisor checks summarized for all accounts related to
+        the workload.
+      operationId: amazonWebServicesListCheckSummaries
   /workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements:
     GET:
-      summary: ListLensReviewImprovements
-      description: <p>List lens review improvements.</p>
+      summary: Listlensreviewimprovements
+      description: List lens review improvements.
+      operationId: amazonWebServicesListLensReviewImprovements
   /workloads/{WorkloadId}/lensReviews:
     GET:
-      summary: ListLensReviews
-      description: <p>List lens reviews for a particular workload.</p>
+      summary: Listlensreviews
+      description: List lens reviews for a particular workload.
+      operationId: amazonWebServicesListLensReviews
   /lenses:
     GET:
-      summary: ListLenses
-      description: <p>List the available lenses.</p>
+      summary: Listlenses
+      description: List the available lenses.
+      operationId: amazonWebServicesListLenses
   /workloads/{WorkloadId}/milestonesSummaries:
     POST:
-      summary: ListMilestones
-      description: <p>List all milestones for an existing workload.</p>
+      summary: Listmilestones
+      description: List all milestones for an existing workload.
+      operationId: amazonWebServicesListMilestones
   /notifications:
     POST:
-      summary: ListNotifications
-      description: <p>List lens notifications.</p>
+      summary: Listnotifications
+      description: List lens notifications.
+      operationId: amazonWebServicesListNotifications
   /profileNotifications/:
     GET:
-      summary: ListProfileNotifications
-      description: <p>List profile notifications.</p>
+      summary: Listprofilenotifications
+      description: List profile notifications.
+      operationId: amazonWebServicesListProfileNotifications
   /profileSummaries:
     GET:
-      summary: ListProfiles
-      description: <p>List profiles.</p>
+      summary: Listprofiles
+      description: List profiles.
+      operationId: amazonWebServicesListProfiles
   /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers:
     GET:
-      summary: ListReviewTemplateAnswers
-      description: <p>List the answers of a review template.</p>
+      summary: Listreviewtemplateanswers
+      description: List the answers of a review template.
+      operationId: amazonWebServicesListReviewTemplateAnswers
   /shareInvitations:
     GET:
-      summary: ListShareInvitations
+      summary: Listshareinvitations
       description: >-
-        <p>List the share invitations.</p> <p> <code>WorkloadNamePrefix</code>,
-        <code>LensNamePrefix</code>, <code>ProfileNamePrefix</code>, and
-        <code>TemplateNamePrefix</code> are mutually exclusive. Use the
-        parameter that matches your <code>ShareResourceType</code>.</p>
+        List the share invitations.  WorkloadNamePrefix, LensNamePrefix,
+        ProfileNamePrefix, and TemplateNamePrefix are mutually exclusive. Use
+        the parameter that matches your ShareResourceType.
+      operationId: amazonWebServicesListShareInvitations
   /tags/{WorkloadArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: >-
-        <p>Deletes specified tags from a resource.</p> <note> <p>The WorkloadArn
-        parameter can be a workload ARN, a custom lens ARN, a profile ARN, or
-        review template ARN.</p> </note> <p>To specify multiple tags, use
-        separate <b>tagKeys</b> parameters, for example:</p> <p> <code>DELETE
-        /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</code> </p>
+        Deletes specified tags from a resource.  The WorkloadArn parameter can
+        be a workload ARN, a custom lens ARN, a profile ARN, or review template
+        ARN.  To specify multiple tags, use separate tagKeys parameters, for
+        example:  DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2 
+      operationId: amazonWebServicesUntagResource
   /workloadsSummaries:
     POST:
-      summary: ListWorkloads
-      description: <p>Paginated list of workloads.</p>
+      summary: Listworkloads
+      description: Paginated list of workloads.
+      operationId: amazonWebServicesListWorkloads
   /global-settings:
     PATCH:
-      summary: UpdateGlobalSettings
+      summary: Updateglobalsettings
       description: >-
-        <p>Updates whether the Amazon Web Services account is opted into
-        organization sharing and discovery integration features.</p>
+        Updates whether the Amazon Web Services account is opted into
+        organization sharing and discovery integration features.
+      operationId: amazonWebServicesUpdateGlobalSettings
   /shareInvitations/{ShareInvitationId}:
     PATCH:
-      summary: UpdateShareInvitation
+      summary: Updateshareinvitation
       description: >-
-        <p>Update a workload or custom lens share invitation.</p> <note> <p>This
-        API operation can be called independently of any resource. Previous
-        documentation implied that a workload ARN must be specified.</p> </note>
+        Update a workload or custom lens share invitation.  This API operation
+        can be called independently of any resource. Previous documentation
+        implied that a workload ARN must be specified. 
+      operationId: amazonWebServicesUpdateShareInvitation
   /workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade:
     PUT:
-      summary: UpgradeLensReview
-      description: <p>Upgrade lens review for a particular workload.</p>
+      summary: Upgradelensreview
+      description: Upgrade lens review for a particular workload.
+      operationId: amazonWebServicesUpgradeLensReview
   /workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade:
     PUT:
-      summary: UpgradeProfileVersion
-      description: <p>Upgrade a profile.</p>
+      summary: Upgradeprofileversion
+      description: Upgrade a profile.
+      operationId: amazonWebServicesUpgradeProfileVersion
   /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade:
     PUT:
-      summary: UpgradeReviewTemplateLensReview
-      description: <p>Upgrade the lens review of a review template.</p>
+      summary: Upgradereviewtemplatelensreview
+      description: Upgrade the lens review of a review template.
+      operationId: amazonWebServicesUpgradeReviewTemplateLensReview
 tags: []

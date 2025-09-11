@@ -21,49 +21,56 @@ info:
 paths:
   /applications/{applicationId}/jobruns/{jobRunId}:
     GET:
-      summary: GetJobRun
-      description: <p>Displays detailed information about a job run.</p>
+      summary: Getjobrun
+      description: Displays detailed information about a job run.
+      operationId: amazonWebServicesGetJobRun
   /applications:
     GET:
-      summary: ListApplications
-      description: <p>Lists applications based on a set of parameters.</p>
+      summary: Listapplications
+      description: Lists applications based on a set of parameters.
+      operationId: amazonWebServicesListApplications
   /applications/{applicationId}:
     PATCH:
-      summary: UpdateApplication
+      summary: Updateapplication
       description: >-
-        <p>Updates a specified application. An application has to be in a
-        stopped or created state in order to be updated.</p>
+        Updates a specified application. An application has to be in a stopped
+        or created state in order to be updated.
+      operationId: amazonWebServicesUpdateApplication
   /applications/{applicationId}/jobruns/{jobRunId}/dashboard:
     GET:
-      summary: GetDashboardForJobRun
+      summary: Getdashboardforjobrun
       description: >-
-        <p>Creates and returns a URL that you can use to access the application
-        UIs for a job run.</p> <p>For jobs in a running state, the application
-        UI is a live user interface such as the Spark or Tez web UI. For
-        completed jobs, the application UI is a persistent application user
-        interface such as the Spark History Server or persistent Tez UI.</p>
-        <note> <p>The URL is valid for one hour after you generate it. To access
-        the application UI after that hour elapses, you must invoke the API
-        again to generate a new URL.</p> </note>
+        Creates and returns a URL that you can use to access the application UIs
+        for a job run. For jobs in a running state, the application UI is a live
+        user interface such as the Spark or Tez web UI. For completed jobs, the
+        application UI is a persistent application user interface such as the
+        Spark History Server or persistent Tez UI.  The URL is valid for one
+        hour after you generate it. To access the application UI after that hour
+        elapses, you must invoke the API again to generate a new URL. 
+      operationId: amazonWebServicesGetDashboardForJobRun
   /applications/{applicationId}/jobruns:
     POST:
-      summary: StartJobRun
-      description: <p>Starts a job run.</p>
+      summary: Startjobrun
+      description: Starts a job run.
+      operationId: amazonWebServicesStartJobRun
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes tags from resources.</p>
+      summary: Untagresource
+      description: Removes tags from resources.
+      operationId: amazonWebServicesUntagResource
   /applications/{applicationId}/start:
     POST:
-      summary: StartApplication
+      summary: Startapplication
       description: >-
-        <p>Starts a specified application and initializes initial capacity if
-        configured.</p>
+        Starts a specified application and initializes initial capacity if
+        configured.
+      operationId: amazonWebServicesStartApplication
   /applications/{applicationId}/stop:
     POST:
-      summary: StopApplication
+      summary: Stopapplication
       description: >-
-        <p>Stops a specified application and releases initial capacity if
+        Stops a specified application and releases initial capacity if
         configured. All scheduled and running jobs must be completed or
-        cancelled before stopping an application.</p>
+        cancelled before stopping an application.
+      operationId: amazonWebServicesStopApplication
 tags: []

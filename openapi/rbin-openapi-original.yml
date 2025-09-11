@@ -20,41 +20,44 @@ info:
 paths:
   /rules:
     POST:
-      summary: CreateRule
+      summary: Createrule
       description: >-
-        <p>Creates a Recycle Bin retention rule. For more information, see <a
-        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
-        Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute
-        Cloud User Guide</i>.</p>
+        Creates a Recycle Bin retention rule. For more information, see  Create
+        Recycle Bin retention rules in the Amazon Elastic Compute Cloud User
+        Guide.
+      operationId: amazonWebServicesCreateRule
   /rules/{identifier}:
     PATCH:
-      summary: UpdateRule
+      summary: Updaterule
       description: >-
-        <p>Updates an existing Recycle Bin retention rule. You can update a
+        Updates an existing Recycle Bin retention rule. You can update a
         retention rule's description, resource tags, and retention period at any
         time after creation. You can't update a retention rule's resource type
-        after creation. For more information, see <a
-        href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
-        Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute
-        Cloud User Guide</i>.</p>
+        after creation. For more information, see  Update Recycle Bin retention
+        rules in the Amazon Elastic Compute Cloud User Guide.
+      operationId: amazonWebServicesUpdateRule
   /list-rules:
     POST:
-      summary: ListRules
-      description: <p>Lists the Recycle Bin retention rules in the Region.</p>
+      summary: Listrules
+      description: Lists the Recycle Bin retention rules in the Region.
+      operationId: amazonWebServicesListRules
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Unassigns a tag from a retention rule.</p>
+      summary: Untagresource
+      description: Unassigns a tag from a retention rule.
+      operationId: amazonWebServicesUntagResource
   /rules/{identifier}/lock:
     PATCH:
-      summary: LockRule
+      summary: Lockrule
       description: >-
-        <p>Locks a retention rule. A locked retention rule can't be modified or
-        deleted.</p>
+        Locks a retention rule. A locked retention rule can't be modified or
+        deleted.
+      operationId: amazonWebServicesLockRule
   /rules/{identifier}/unlock:
     PATCH:
-      summary: UnlockRule
+      summary: Unlockrule
       description: >-
-        <p>Unlocks a retention rule. After a retention rule is unlocked, it can
-        be modified or deleted only after the unlock delay period expires.</p>
+        Unlocks a retention rule. After a retention rule is unlocked, it can be
+        modified or deleted only after the unlock delay period expires.
+      operationId: amazonWebServicesUnlockRule
 tags: []

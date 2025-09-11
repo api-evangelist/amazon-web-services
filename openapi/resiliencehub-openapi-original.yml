@@ -12,389 +12,400 @@ info:
 paths:
   /add-draft-app-version-resource-mappings:
     POST:
-      summary: AddDraftAppVersionResourceMappings
+      summary: Adddraftappversionresourcemappings
       description: >-
-        <p>Adds the source of resource-maps to the draft version of an
-        application. During assessment, Resilience Hub will use these
-        resource-maps to resolve the latest physical ID for each resource in the
-        application template. For more information about different types of
-        resources suported by Resilience Hub and how to add them in your
-        application, see <a
-        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step
-        2: How is your application managed?</a> in the Resilience Hub User
-        Guide.</p>
+        Adds the source of resource-maps to the draft version of an application.
+        During assessment, Resilience Hub will use these resource-maps to
+        resolve the latest physical ID for each resource in the application
+        template. For more information about different types of resources
+        suported by Resilience Hub and how to add them in your application, see
+        Step 2: How is your application managed? in the Resilience Hub User
+        Guide.
+      operationId: amazonWebServicesAddDraftAppVersionResourceMappings
   /batch-update-recommendation-status:
     POST:
-      summary: BatchUpdateRecommendationStatus
+      summary: Batchupdaterecommendationstatus
       description: >-
-        <p>Enables you to include or exclude one or more operational
-        recommendations.</p>
+        Enables you to include or exclude one or more operational
+        recommendations.
+      operationId: amazonWebServicesBatchUpdateRecommendationStatus
   /create-app:
     POST:
-      summary: CreateApp
+      summary: Createapp
       description: >-
-        <p>Creates an Resilience Hub application. An Resilience Hub application
-        is a collection of Amazon Web Services resources structured to prevent
-        and recover Amazon Web Services application disruptions. To describe a
+        Creates an Resilience Hub application. An Resilience Hub application is
+        a collection of Amazon Web Services resources structured to prevent and
+        recover Amazon Web Services application disruptions. To describe a
         Resilience Hub application, you provide an application name, resources
         from one or more CloudFormation stacks, Resource Groups, Terraform state
         files, AppRegistry applications, and an appropriate resiliency policy.
         In addition, you can also add resources that are located on Amazon
         Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
         For more information about the number of resources supported per
-        application, see <a
-        href="https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub">Service
-        quotas</a>.</p> <p>After you create an Resilience Hub application, you
-        publish it so that you can run a resiliency assessment on it. You can
-        then use recommendations from the assessment to improve resiliency by
-        running another assessment, comparing results, and then iterating the
-        process until you achieve your goals for recovery time objective (RTO)
-        and recovery point objective (RPO).</p>
+        application, see Service quotas. After you create an Resilience Hub
+        application, you publish it so that you can run a resiliency assessment
+        on it. You can then use recommendations from the assessment to improve
+        resiliency by running another assessment, comparing results, and then
+        iterating the process until you achieve your goals for recovery time
+        objective (RTO) and recovery point objective (RPO).
+      operationId: amazonWebServicesCreateApp
   /create-app-version-app-component:
     POST:
-      summary: CreateAppVersionAppComponent
+      summary: Createappversionappcomponent
       description: >-
-        <p>Creates a new Application Component in the Resilience Hub
-        application.</p> <note> <p>This API updates the Resilience Hub
-        application draft version. To use this Application Component for running
-        assessments, you must publish the Resilience Hub application using the
-        <code>PublishAppVersion</code> API.</p> </note>
+        Creates a new Application Component in the Resilience Hub application. 
+        This API updates the Resilience Hub application draft version. To use
+        this Application Component for running assessments, you must publish the
+        Resilience Hub application using the PublishAppVersion API. 
+      operationId: amazonWebServicesCreateAppVersionAppComponent
   /create-app-version-resource:
     POST:
-      summary: CreateAppVersionResource
+      summary: Createappversionresource
       description: >-
-        <p>Adds a resource to the Resilience Hub application and assigns it to
-        the specified Application Components. If you specify a new Application
+        Adds a resource to the Resilience Hub application and assigns it to the
+        specified Application Components. If you specify a new Application
         Component, Resilience Hub will automatically create the Application
-        Component.</p> <note> <ul> <li> <p>This action has no effect outside
-        Resilience Hub.</p> </li> <li> <p>This API updates the Resilience Hub
-        application draft version. To use this resource for running resiliency
-        assessments, you must publish the Resilience Hub application using the
-        <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update
-        application version with new <code>physicalResourceID</code>, you must
-        call <code>ResolveAppVersionResources</code> API.</p> </li> </ul>
-        </note>
+        Component.    This action has no effect outside Resilience Hub.   This
+        API updates the Resilience Hub application draft version. To use this
+        resource for running resiliency assessments, you must publish the
+        Resilience Hub application using the PublishAppVersion API.   To update
+        application version with new physicalResourceID, you must call
+        ResolveAppVersionResources API.   
+      operationId: amazonWebServicesCreateAppVersionResource
   /create-recommendation-template:
     POST:
-      summary: CreateRecommendationTemplate
+      summary: Createrecommendationtemplate
       description: >-
-        <p>Creates a new recommendation template for the Resilience Hub
-        application.</p>
+        Creates a new recommendation template for the Resilience Hub
+        application.
+      operationId: amazonWebServicesCreateRecommendationTemplate
   /create-resiliency-policy:
     POST:
-      summary: CreateResiliencyPolicy
+      summary: Createresiliencypolicy
       description: >-
-        <p>Creates a resiliency policy for an application.</p> <note>
-        <p>Resilience Hub allows you to provide a value of zero for
-        <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency
-        policy. But, while assessing your application, the lowest possible
-        assessment result is near zero. Hence, if you provide value zero for
-        <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated
-        workload RTO and estimated workload RPO result will be near zero and the
-        <b>Compliance status</b> for your application will be set to <b>Policy
-        breached</b>.</p> </note>
+        Creates a resiliency policy for an application.  Resilience Hub allows
+        you to provide a value of zero for rtoInSecs and rpoInSecs of your
+        resiliency policy. But, while assessing your application, the lowest
+        possible assessment result is near zero. Hence, if you provide value
+        zero for rtoInSecs and rpoInSecs, the estimated workload RTO and
+        estimated workload RPO result will be near zero and the Compliance
+        status for your application will be set to Policy breached. 
+      operationId: amazonWebServicesCreateResiliencyPolicy
   /delete-app:
     POST:
-      summary: DeleteApp
+      summary: Deleteapp
       description: >-
-        <p>Deletes an Resilience Hub application. This is a destructive action
-        that can't be undone.</p>
+        Deletes an Resilience Hub application. This is a destructive action that
+        can't be undone.
+      operationId: amazonWebServicesDeleteApp
   /delete-app-assessment:
     POST:
-      summary: DeleteAppAssessment
+      summary: Deleteappassessment
       description: >-
-        <p>Deletes an Resilience Hub application assessment. This is a
-        destructive action that can't be undone.</p>
+        Deletes an Resilience Hub application assessment. This is a destructive
+        action that can't be undone.
+      operationId: amazonWebServicesDeleteAppAssessment
   /delete-app-input-source:
     POST:
-      summary: DeleteAppInputSource
+      summary: Deleteappinputsource
       description: >-
-        <p>Deletes the input source and all of its imported resources from the
-        Resilience Hub application.</p>
+        Deletes the input source and all of its imported resources from the
+        Resilience Hub application.
+      operationId: amazonWebServicesDeleteAppInputSource
   /delete-app-version-app-component:
     POST:
-      summary: DeleteAppVersionAppComponent
+      summary: Deleteappversionappcomponent
       description: >-
-        <p>Deletes an Application Component from the Resilience Hub
-        application.</p> <note> <ul> <li> <p>This API updates the Resilience Hub
-        application draft version. To use this Application Component for running
-        assessments, you must publish the Resilience Hub application using the
-        <code>PublishAppVersion</code> API.</p> </li> <li> <p>You will not be
-        able to delete an Application Component if it has resources associated
-        with it.</p> </li> </ul> </note>
+        Deletes an Application Component from the Resilience Hub application.   
+        This API updates the Resilience Hub application draft version. To use
+        this Application Component for running assessments, you must publish the
+        Resilience Hub application using the PublishAppVersion API.   You will
+        not be able to delete an Application Component if it has resources
+        associated with it.   
+      operationId: amazonWebServicesDeleteAppVersionAppComponent
   /delete-app-version-resource:
     POST:
-      summary: DeleteAppVersionResource
+      summary: Deleteappversionresource
       description: >-
-        <p>Deletes a resource from the Resilience Hub application.</p> <note>
-        <ul> <li> <p>You can only delete a manually added resource. To exclude
-        non-manually added resources, use the
-        <code>UpdateAppVersionResource</code> API.</p> </li> <li> <p>This action
-        has no effect outside Resilience Hub.</p> </li> <li> <p>This API updates
-        the Resilience Hub application draft version. To use this resource for
-        running resiliency assessments, you must publish the Resilience Hub
-        application using the <code>PublishAppVersion</code> API.</p> </li>
-        </ul> </note>
+        Deletes a resource from the Resilience Hub application.    You can only
+        delete a manually added resource. To exclude non-manually added
+        resources, use the UpdateAppVersionResource API.   This action has no
+        effect outside Resilience Hub.   This API updates the Resilience Hub
+        application draft version. To use this resource for running resiliency
+        assessments, you must publish the Resilience Hub application using the
+        PublishAppVersion API.   
+      operationId: amazonWebServicesDeleteAppVersionResource
   /delete-recommendation-template:
     POST:
-      summary: DeleteRecommendationTemplate
+      summary: Deleterecommendationtemplate
       description: >-
-        <p>Deletes a recommendation template. This is a destructive action that
-        can't be undone.</p>
+        Deletes a recommendation template. This is a destructive action that
+        can't be undone.
+      operationId: amazonWebServicesDeleteRecommendationTemplate
   /delete-resiliency-policy:
     POST:
-      summary: DeleteResiliencyPolicy
+      summary: Deleteresiliencypolicy
       description: >-
-        <p>Deletes a resiliency policy. This is a destructive action that can't
-        be undone.</p>
+        Deletes a resiliency policy. This is a destructive action that can't be
+        undone.
+      operationId: amazonWebServicesDeleteResiliencyPolicy
   /describe-app:
     POST:
-      summary: DescribeApp
-      description: <p>Describes an Resilience Hub application.</p>
+      summary: Describeapp
+      description: Describes an Resilience Hub application.
+      operationId: amazonWebServicesDescribeApp
   /describe-app-assessment:
     POST:
-      summary: DescribeAppAssessment
-      description: <p>Describes an assessment for an Resilience Hub application.</p>
+      summary: Describeappassessment
+      description: Describes an assessment for an Resilience Hub application.
+      operationId: amazonWebServicesDescribeAppAssessment
   /describe-app-version:
     POST:
-      summary: DescribeAppVersion
-      description: <p>Describes the Resilience Hub application version.</p>
+      summary: Describeappversion
+      description: Describes the Resilience Hub application version.
+      operationId: amazonWebServicesDescribeAppVersion
   /describe-app-version-app-component:
     POST:
-      summary: DescribeAppVersionAppComponent
-      description: >-
-        <p>Describes an Application Component in the Resilience Hub
-        application.</p>
+      summary: Describeappversionappcomponent
+      description: Describes an Application Component in the Resilience Hub application.
+      operationId: amazonWebServicesDescribeAppVersionAppComponent
   /describe-app-version-resource:
     POST:
-      summary: DescribeAppVersionResource
+      summary: Describeappversionresource
       description: >-
-        <p>Describes a resource of the Resilience Hub application.</p> <note>
-        <p>This API accepts only one of the following parameters to descibe the
-        resource:</p> <ul> <li> <p> <code>resourceName</code> </p> </li> <li>
-        <p> <code>logicalResourceId</code> </p> </li> <li> <p>
-        <code>physicalResourceId</code> (Along with
-        <code>physicalResourceId</code>, you can also provide
-        <code>awsAccountId</code>, and <code>awsRegion</code>)</p> </li> </ul>
-        </note>
+        Describes a resource of the Resilience Hub application.  This API
+        accepts only one of the following parameters to descibe the resource:   
+        resourceName     logicalResourceId     physicalResourceId (Along with
+        physicalResourceId, you can also provide awsAccountId, and awsRegion)   
+      operationId: amazonWebServicesDescribeAppVersionResource
   /describe-app-version-resources-resolution-status:
     POST:
-      summary: DescribeAppVersionResourcesResolutionStatus
+      summary: Describeappversionresourcesresolutionstatus
       description: >-
-        <p>Returns the resolution status for the specified resolution identifier
-        for an application version. If <code>resolutionId</code> is not
-        specified, the current resolution status is returned.</p>
+        Returns the resolution status for the specified resolution identifier
+        for an application version. If resolutionId is not specified, the
+        current resolution status is returned.
+      operationId: amazonWebServicesDescribeAppVersionResourcesResolutionStatus
   /describe-app-version-template:
     POST:
-      summary: DescribeAppVersionTemplate
-      description: <p>Describes details about an Resilience Hub application.</p>
+      summary: Describeappversiontemplate
+      description: Describes details about an Resilience Hub application.
+      operationId: amazonWebServicesDescribeAppVersionTemplate
   /describe-draft-app-version-resources-import-status:
     POST:
-      summary: DescribeDraftAppVersionResourcesImportStatus
+      summary: Describedraftappversionresourcesimportstatus
       description: >-
-        <p>Describes the status of importing resources to an application
-        version.</p> <note> <p>If you get a 404 error with
-        <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must
-        call <code>importResourcesToDraftAppVersion</code> after creating the
-        application and before calling
-        <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
-        status.</p> </note>
+        Describes the status of importing resources to an application version. 
+        If you get a 404 error with
+        ResourceImportStatusNotFoundAppMetadataException, you must call
+        importResourcesToDraftAppVersion after creating the application and
+        before calling describeDraftAppVersionResourcesImportStatus to obtain
+        the status. 
+      operationId: amazonWebServicesDescribeDraftAppVersionResourcesImportStatus
   /describe-resiliency-policy:
     POST:
-      summary: DescribeResiliencyPolicy
+      summary: Describeresiliencypolicy
       description: >-
-        <p>Describes a specified resiliency policy for an Resilience Hub
+        Describes a specified resiliency policy for an Resilience Hub
         application. The returned policy object includes creation time, data
         location constraints, the Amazon Resource Name (ARN) for the policy,
-        tags, tier, and more.</p>
+        tags, tier, and more.
+      operationId: amazonWebServicesDescribeResiliencyPolicy
   /import-resources-to-draft-app-version:
     POST:
-      summary: ImportResourcesToDraftAppVersion
+      summary: Importresourcestodraftappversion
       description: >-
-        <p>Imports resources to Resilience Hub application draft version from
+        Imports resources to Resilience Hub application draft version from
         different input sources. For more information about the input sources
-        supported by Resilience Hub, see <a
-        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
-        the structure and describe your Resilience Hub application</a>.</p>
+        supported by Resilience Hub, see Discover the structure and describe
+        your Resilience Hub application.
+      operationId: amazonWebServicesImportResourcesToDraftAppVersion
   /list-alarm-recommendations:
     POST:
-      summary: ListAlarmRecommendations
-      description: >-
-        <p>Lists the alarm recommendations for an Resilience Hub
-        application.</p>
+      summary: Listalarmrecommendations
+      description: Lists the alarm recommendations for an Resilience Hub application.
+      operationId: amazonWebServicesListAlarmRecommendations
   /list-app-assessment-compliance-drifts:
     POST:
-      summary: ListAppAssessmentComplianceDrifts
+      summary: Listappassessmentcompliancedrifts
       description: >-
-        <p>List of compliance drifts that were detected while running an
-        assessment.</p>
+        List of compliance drifts that were detected while running an
+        assessment.
+      operationId: amazonWebServicesListAppAssessmentComplianceDrifts
   /list-app-assessments:
     GET:
-      summary: ListAppAssessments
+      summary: Listappassessments
       description: >-
-        <p>Lists the assessments for an Resilience Hub application. You can use
-        request parameters to refine the results for the response object.</p>
+        Lists the assessments for an Resilience Hub application. You can use
+        request parameters to refine the results for the response object.
+      operationId: amazonWebServicesListAppAssessments
   /list-app-component-compliances:
     POST:
-      summary: ListAppComponentCompliances
-      description: >-
-        <p>Lists the compliances for an Resilience Hub Application
-        Component.</p>
+      summary: Listappcomponentcompliances
+      description: Lists the compliances for an Resilience Hub Application Component.
+      operationId: amazonWebServicesListAppComponentCompliances
   /list-app-component-recommendations:
     POST:
-      summary: ListAppComponentRecommendations
-      description: >-
-        <p>Lists the recommendations for an Resilience Hub Application
-        Component.</p>
+      summary: Listappcomponentrecommendations
+      description: Lists the recommendations for an Resilience Hub Application Component.
+      operationId: amazonWebServicesListAppComponentRecommendations
   /list-app-input-sources:
     POST:
-      summary: ListAppInputSources
+      summary: Listappinputsources
       description: >-
-        <p>Lists all the input sources of the Resilience Hub application. For
-        more information about the input sources supported by Resilience Hub,
-        see <a
-        href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
-        the structure and describe your Resilience Hub application</a>.</p>
+        Lists all the input sources of the Resilience Hub application. For more
+        information about the input sources supported by Resilience Hub, see
+        Discover the structure and describe your Resilience Hub application.
+      operationId: amazonWebServicesListAppInputSources
   /list-app-version-app-components:
     POST:
-      summary: ListAppVersionAppComponents
-      description: >-
-        <p>Lists all the Application Components in the Resilience Hub
-        application.</p>
+      summary: Listappversionappcomponents
+      description: Lists all the Application Components in the Resilience Hub application.
+      operationId: amazonWebServicesListAppVersionAppComponents
   /list-app-version-resource-mappings:
     POST:
-      summary: ListAppVersionResourceMappings
+      summary: Listappversionresourcemappings
       description: >-
-        <p>Lists how the resources in an application version are mapped/sourced
+        Lists how the resources in an application version are mapped/sourced
         from. Mappings can be physical resource identifiers, CloudFormation
-        stacks, resource-groups, or an application registry app.</p>
+        stacks, resource-groups, or an application registry app.
+      operationId: amazonWebServicesListAppVersionResourceMappings
   /list-app-version-resources:
     POST:
-      summary: ListAppVersionResources
-      description: <p>Lists all the resources in an Resilience Hub application.</p>
+      summary: Listappversionresources
+      description: Lists all the resources in an Resilience Hub application.
+      operationId: amazonWebServicesListAppVersionResources
   /list-app-versions:
     POST:
-      summary: ListAppVersions
-      description: <p>Lists the different versions for the Resilience Hub applications.</p>
+      summary: Listappversions
+      description: Lists the different versions for the Resilience Hub applications.
+      operationId: amazonWebServicesListAppVersions
   /list-apps:
     GET:
-      summary: ListApps
+      summary: Listapps
       description: >-
-        <p>Lists your Resilience Hub applications.</p> <note> <p>You can filter
-        applications using only one filter at a time or without using any
-        filter. If you try to filter applications using multiple filters, you
-        will get the following error:</p> <p> <code>An error occurred
-        (ValidationException) when calling the ListApps operation: Only one
-        filter is supported for this operation.</code> </p> </note>
+        Lists your Resilience Hub applications.  You can filter applications
+        using only one filter at a time or without using any filter. If you try
+        to filter applications using multiple filters, you will get the
+        following error:  An error occurred (ValidationException) when calling
+        the ListApps operation: Only one filter is supported for this
+        operation.  
+      operationId: amazonWebServicesListApps
   /list-recommendation-templates:
     GET:
-      summary: ListRecommendationTemplates
-      description: >-
-        <p>Lists the recommendation templates for the Resilience Hub
-        applications.</p>
+      summary: Listrecommendationtemplates
+      description: Lists the recommendation templates for the Resilience Hub applications.
+      operationId: amazonWebServicesListRecommendationTemplates
   /list-resiliency-policies:
     GET:
-      summary: ListResiliencyPolicies
-      description: >-
-        <p>Lists the resiliency policies for the Resilience Hub
-        applications.</p>
+      summary: Listresiliencypolicies
+      description: Lists the resiliency policies for the Resilience Hub applications.
+      operationId: amazonWebServicesListResiliencyPolicies
   /list-sop-recommendations:
     POST:
-      summary: ListSopRecommendations
+      summary: Listsoprecommendations
       description: >-
-        <p>Lists the standard operating procedure (SOP) recommendations for the
-        Resilience Hub applications.</p>
+        Lists the standard operating procedure (SOP) recommendations for the
+        Resilience Hub applications.
+      operationId: amazonWebServicesListSopRecommendations
   /list-suggested-resiliency-policies:
     GET:
-      summary: ListSuggestedResiliencyPolicies
+      summary: Listsuggestedresiliencypolicies
       description: >-
-        <p>Lists the suggested resiliency policies for the Resilience Hub
-        applications.</p>
+        Lists the suggested resiliency policies for the Resilience Hub
+        applications.
+      operationId: amazonWebServicesListSuggestedResiliencyPolicies
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes one or more tags from a resource.</p>
+      summary: Untagresource
+      description: Removes one or more tags from a resource.
+      operationId: amazonWebServicesUntagResource
   /list-test-recommendations:
     POST:
-      summary: ListTestRecommendations
-      description: >-
-        <p>Lists the test recommendations for the Resilience Hub
-        application.</p>
+      summary: Listtestrecommendations
+      description: Lists the test recommendations for the Resilience Hub application.
+      operationId: amazonWebServicesListTestRecommendations
   /list-unsupported-app-version-resources:
     POST:
-      summary: ListUnsupportedAppVersionResources
+      summary: Listunsupportedappversionresources
       description: >-
-        <p>Lists the resources that are not currently supported in Resilience
-        Hub. An unsupported resource is a resource that exists in the object
-        that was used to create an app, but is not supported by Resilience
-        Hub.</p>
+        Lists the resources that are not currently supported in Resilience Hub.
+        An unsupported resource is a resource that exists in the object that was
+        used to create an app, but is not supported by Resilience Hub.
+      operationId: amazonWebServicesListUnsupportedAppVersionResources
   /publish-app-version:
     POST:
-      summary: PublishAppVersion
-      description: <p>Publishes a new version of a specific Resilience Hub application.</p>
+      summary: Publishappversion
+      description: Publishes a new version of a specific Resilience Hub application.
+      operationId: amazonWebServicesPublishAppVersion
   /put-draft-app-version-template:
     POST:
-      summary: PutDraftAppVersionTemplate
+      summary: Putdraftappversiontemplate
       description: >-
-        <p>Adds or updates the app template for an Resilience Hub application
-        draft version.</p>
+        Adds or updates the app template for an Resilience Hub application draft
+        version.
+      operationId: amazonWebServicesPutDraftAppVersionTemplate
   /remove-draft-app-version-resource-mappings:
     POST:
-      summary: RemoveDraftAppVersionResourceMappings
-      description: <p>Removes resource mappings from a draft application version.</p>
+      summary: Removedraftappversionresourcemappings
+      description: Removes resource mappings from a draft application version.
+      operationId: amazonWebServicesRemoveDraftAppVersionResourceMappings
   /resolve-app-version-resources:
     POST:
-      summary: ResolveAppVersionResources
-      description: <p>Resolves the resources for an application version.</p>
+      summary: Resolveappversionresources
+      description: Resolves the resources for an application version.
+      operationId: amazonWebServicesResolveAppVersionResources
   /start-app-assessment:
     POST:
-      summary: StartAppAssessment
-      description: <p>Creates a new application assessment for an application.</p>
+      summary: Startappassessment
+      description: Creates a new application assessment for an application.
+      operationId: amazonWebServicesStartAppAssessment
   /update-app:
     POST:
-      summary: UpdateApp
-      description: <p>Updates an application.</p>
+      summary: Updateapp
+      description: Updates an application.
+      operationId: amazonWebServicesUpdateApp
   /update-app-version:
     POST:
-      summary: UpdateAppVersion
+      summary: Updateappversion
       description: >-
-        <p>Updates the Resilience Hub application version.</p> <note> <p>This
-        API updates the Resilience Hub application draft version. To use this
-        information for running resiliency assessments, you must publish the
-        Resilience Hub application using the <code>PublishAppVersion</code>
-        API.</p> </note>
+        Updates the Resilience Hub application version.  This API updates the
+        Resilience Hub application draft version. To use this information for
+        running resiliency assessments, you must publish the Resilience Hub
+        application using the PublishAppVersion API. 
+      operationId: amazonWebServicesUpdateAppVersion
   /update-app-version-app-component:
     POST:
-      summary: UpdateAppVersionAppComponent
+      summary: Updateappversionappcomponent
       description: >-
-        <p>Updates an existing Application Component in the Resilience Hub
-        application.</p> <note> <p>This API updates the Resilience Hub
-        application draft version. To use this Application Component for running
-        assessments, you must publish the Resilience Hub application using the
-        <code>PublishAppVersion</code> API.</p> </note>
+        Updates an existing Application Component in the Resilience Hub
+        application.  This API updates the Resilience Hub application draft
+        version. To use this Application Component for running assessments, you
+        must publish the Resilience Hub application using the PublishAppVersion
+        API. 
+      operationId: amazonWebServicesUpdateAppVersionAppComponent
   /update-app-version-resource:
     POST:
-      summary: UpdateAppVersionResource
+      summary: Updateappversionresource
       description: >-
-        <p>Updates the resource details in the Resilience Hub application.</p>
-        <note> <ul> <li> <p>This action has no effect outside Resilience
-        Hub.</p> </li> <li> <p>This API updates the Resilience Hub application
-        draft version. To use this resource for running resiliency assessments,
-        you must publish the Resilience Hub application using the
-        <code>PublishAppVersion</code> API.</p> </li> <li> <p>To update
-        application version with new <code>physicalResourceID</code>, you must
-        call <code>ResolveAppVersionResources</code> API.</p> </li> </ul>
-        </note>
+        Updates the resource details in the Resilience Hub application.    This
+        action has no effect outside Resilience Hub.   This API updates the
+        Resilience Hub application draft version. To use this resource for
+        running resiliency assessments, you must publish the Resilience Hub
+        application using the PublishAppVersion API.   To update application
+        version with new physicalResourceID, you must call
+        ResolveAppVersionResources API.   
+      operationId: amazonWebServicesUpdateAppVersionResource
   /update-resiliency-policy:
     POST:
-      summary: UpdateResiliencyPolicy
+      summary: Updateresiliencypolicy
       description: >-
-        <p>Updates a resiliency policy.</p> <note> <p>Resilience Hub allows you
-        to provide a value of zero for <code>rtoInSecs</code> and
-        <code>rpoInSecs</code> of your resiliency policy. But, while assessing
-        your application, the lowest possible assessment result is near zero.
-        Hence, if you provide value zero for <code>rtoInSecs</code> and
-        <code>rpoInSecs</code>, the estimated workload RTO and estimated
-        workload RPO result will be near zero and the <b>Compliance status</b>
-        for your application will be set to <b>Policy breached</b>.</p> </note>
+        Updates a resiliency policy.  Resilience Hub allows you to provide a
+        value of zero for rtoInSecs and rpoInSecs of your resiliency policy.
+        But, while assessing your application, the lowest possible assessment
+        result is near zero. Hence, if you provide value zero for rtoInSecs and
+        rpoInSecs, the estimated workload RTO and estimated workload RPO result
+        will be near zero and the Compliance status for your application will be
+        set to Policy breached. 
+      operationId: amazonWebServicesUpdateResiliencyPolicy
 tags: []

@@ -26,80 +26,86 @@ info:
 paths:
   /virtualclusters/{virtualClusterId}/jobruns/{jobRunId}:
     GET:
-      summary: DescribeJobRun
+      summary: Describejobrun
       description: >-
-        <p>Displays detailed information about a job run. A job run is a unit of
+        Displays detailed information about a job run. A job run is a unit of
         work, such as a Spark jar, PySpark script, or SparkSQL query, that you
-        submit to Amazon EMR on EKS.</p>
+        submit to Amazon EMR on EKS.
+      operationId: amazonWebServicesDescribeJobRun
   /jobtemplates:
     GET:
-      summary: ListJobTemplates
+      summary: Listjobtemplates
       description: >-
-        <p>Lists job templates based on a set of parameters. Job template stores
+        Lists job templates based on a set of parameters. Job template stores
         values of StartJobRun API request in a template and can be used to start
         a job run. Job template allows two use cases: avoid repeating recurring
         StartJobRun API request values, enforcing certain values in StartJobRun
-        API request.</p>
+        API request.
+      operationId: amazonWebServicesListJobTemplates
   /virtualclusters/{virtualClusterId}/endpoints:
     GET:
-      summary: ListManagedEndpoints
+      summary: Listmanagedendpoints
       description: >-
-        <p>Lists managed endpoints based on a set of parameters. A managed
-        endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
-        EKS so that Amazon EMR Studio can communicate with your virtual
-        cluster.</p>
+        Lists managed endpoints based on a set of parameters. A managed endpoint
+        is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so
+        that Amazon EMR Studio can communicate with your virtual cluster.
+      operationId: amazonWebServicesListManagedEndpoints
   /virtualclusters:
     GET:
-      summary: ListVirtualClusters
+      summary: Listvirtualclusters
       description: >-
-        <p>Lists information about the specified virtual cluster. Virtual
+        Lists information about the specified virtual cluster. Virtual cluster
+        is a managed entity on Amazon EMR on EKS. You can create, describe, list
+        and delete virtual clusters. They do not consume any additional resource
+        in your system. A single virtual cluster maps to a single Kubernetes
+        namespace. Given this relationship, you can model virtual clusters the
+        same way you model Kubernetes namespaces to meet your requirements.
+      operationId: amazonWebServicesListVirtualClusters
+  /jobtemplates/{templateId}:
+    GET:
+      summary: Describejobtemplate
+      description: >-
+        Displays detailed information about a specified job template. Job
+        template stores values of StartJobRun API request in a template and can
+        be used to start a job run. Job template allows two use cases: avoid
+        repeating recurring StartJobRun API request values, enforcing certain
+        values in StartJobRun API request.
+      operationId: amazonWebServicesDescribeJobTemplate
+  /virtualclusters/{virtualClusterId}/endpoints/{endpointId}:
+    GET:
+      summary: Describemanagedendpoint
+      description: >-
+        Displays detailed information about a managed endpoint. A managed
+        endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
+        EKS so that Amazon EMR Studio can communicate with your virtual cluster.
+      operationId: amazonWebServicesDescribeManagedEndpoint
+  /virtualclusters/{virtualClusterId}:
+    GET:
+      summary: Describevirtualcluster
+      description: >-
+        Displays detailed information about a specified virtual cluster. Virtual
         cluster is a managed entity on Amazon EMR on EKS. You can create,
         describe, list and delete virtual clusters. They do not consume any
         additional resource in your system. A single virtual cluster maps to a
         single Kubernetes namespace. Given this relationship, you can model
         virtual clusters the same way you model Kubernetes namespaces to meet
-        your requirements.</p>
-  /jobtemplates/{templateId}:
-    GET:
-      summary: DescribeJobTemplate
-      description: >-
-        <p>Displays detailed information about a specified job template. Job
-        template stores values of StartJobRun API request in a template and can
-        be used to start a job run. Job template allows two use cases: avoid
-        repeating recurring StartJobRun API request values, enforcing certain
-        values in StartJobRun API request.</p>
-  /virtualclusters/{virtualClusterId}/endpoints/{endpointId}:
-    GET:
-      summary: DescribeManagedEndpoint
-      description: >-
-        <p>Displays detailed information about a managed endpoint. A managed
-        endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
-        EKS so that Amazon EMR Studio can communicate with your virtual
-        cluster.</p>
-  /virtualclusters/{virtualClusterId}:
-    GET:
-      summary: DescribeVirtualCluster
-      description: >-
-        <p>Displays detailed information about a specified virtual cluster.
-        Virtual cluster is a managed entity on Amazon EMR on EKS. You can
-        create, describe, list and delete virtual clusters. They do not consume
-        any additional resource in your system. A single virtual cluster maps to
-        a single Kubernetes namespace. Given this relationship, you can model
-        virtual clusters the same way you model Kubernetes namespaces to meet
-        your requirements.</p>
+        your requirements.
+      operationId: amazonWebServicesDescribeVirtualCluster
   /virtualclusters/{virtualClusterId}/endpoints/{endpointId}/credentials:
     POST:
-      summary: GetManagedEndpointSessionCredentials
-      description: <p>Generate a session token to connect to a managed endpoint. </p>
+      summary: Getmanagedendpointsessioncredentials
+      description: 'Generate a session token to connect to a managed endpoint. '
+      operationId: amazonWebServicesGetManagedEndpointSessionCredentials
   /virtualclusters/{virtualClusterId}/jobruns:
     POST:
-      summary: StartJobRun
+      summary: Startjobrun
       description: >-
-        <p>Starts a job run. A job run is a unit of work, such as a Spark jar,
-        PySpark script, or SparkSQL query, that you submit to Amazon EMR on
-        EKS.</p>
+        Starts a job run. A job run is a unit of work, such as a Spark jar,
+        PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
+      operationId: amazonWebServicesStartJobRun
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes tags from resources.</p>
+      summary: Untagresource
+      description: Removes tags from resources.
+      operationId: amazonWebServicesUntagResource
 tags: []

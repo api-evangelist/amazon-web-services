@@ -5,172 +5,204 @@ info:
 paths:
   /v1/bridges/{bridgeArn}/outputs:
     POST:
-      summary: AddBridgeOutputs
+      summary: Addbridgeoutputs
       description: Adds outputs to an existing bridge.
+      operationId: amazonWebServicesAddBridgeOutputs
   /v1/bridges/{bridgeArn}/sources:
     POST:
-      summary: AddBridgeSources
+      summary: Addbridgesources
       description: Adds sources to an existing bridge.
+      operationId: amazonWebServicesAddBridgeSources
   /v1/flows/{flowArn}/mediaStreams:
     POST:
-      summary: AddFlowMediaStreams
+      summary: Addflowmediastreams
       description: >-
         Adds media streams to an existing flow. After you add a media stream to
         a flow, you can associate it with a source and/or an output that uses
         the ST 2110 JPEG XS or CDI protocol.
+      operationId: amazonWebServicesAddFlowMediaStreams
   /v1/flows/{flowArn}/outputs:
     POST:
-      summary: AddFlowOutputs
+      summary: Addflowoutputs
       description: >-
         Adds outputs to an existing flow. You can create up to 50 outputs per
         flow.
+      operationId: amazonWebServicesAddFlowOutputs
   /v1/flows/{flowArn}/source:
     POST:
-      summary: AddFlowSources
+      summary: Addflowsources
       description: Adds Sources to flow
+      operationId: amazonWebServicesAddFlowSources
   /v1/flows/{flowArn}/vpcInterfaces:
     POST:
-      summary: AddFlowVpcInterfaces
+      summary: Addflowvpcinterfaces
       description: Adds VPC interfaces to flow
+      operationId: amazonWebServicesAddFlowVpcInterfaces
   /v1/bridges:
     GET:
-      summary: ListBridges
+      summary: Listbridges
       description: >-
         Displays a list of bridges that are associated with this account and an
         optionally specified Arn. This request returns a paginated result.
+      operationId: amazonWebServicesListBridges
   /v1/flows:
     GET:
-      summary: ListFlows
+      summary: Listflows
       description: >-
         Displays a list of flows that are associated with this account. This
         request returns a paginated result.
+      operationId: amazonWebServicesListFlows
   /v1/gateways:
     GET:
-      summary: ListGateways
+      summary: Listgateways
       description: >-
         Displays a list of gateways that are associated with this account. This
         request returns a paginated result.
+      operationId: amazonWebServicesListGateways
   /v1/bridges/{bridgeArn}:
     PUT:
-      summary: UpdateBridge
+      summary: Updatebridge
       description: Updates the bridge
+      operationId: amazonWebServicesUpdateBridge
   /v1/flows/{flowArn}:
     PUT:
-      summary: UpdateFlow
+      summary: Updateflow
       description: Updates flow
+      operationId: amazonWebServicesUpdateFlow
   /v1/gateways/{gatewayArn}:
     GET:
-      summary: DescribeGateway
+      summary: Describegateway
       description: >-
         Displays the details of a gateway. The response includes the gateway
         ARN, name, and CIDR blocks, as well as details about the networks.
+      operationId: amazonWebServicesDescribeGateway
   /v1/gateway-instances/{gatewayInstanceArn}:
     PUT:
-      summary: UpdateGatewayInstance
+      summary: Updategatewayinstance
       description: Updates the configuration of an existing Gateway Instance.
+      operationId: amazonWebServicesUpdateGatewayInstance
   /v1/flows/{flowArn}/source-metadata:
     GET:
-      summary: DescribeFlowSourceMetadata
+      summary: Describeflowsourcemetadata
       description: >-
         Displays details of the flow's source stream. The response contains
         information about the contents of the stream and its programs.
+      operationId: amazonWebServicesDescribeFlowSourceMetadata
   /v1/offerings/{offeringArn}:
     POST:
-      summary: PurchaseOffering
+      summary: Purchaseoffering
       description: >-
         Submits a request to purchase an offering. If you already have an active
         reservation, you can't purchase another offering.
+      operationId: amazonWebServicesPurchaseOffering
   /v1/reservations/{reservationArn}:
     GET:
-      summary: DescribeReservation
+      summary: Describereservation
       description: >-
         Displays the details of a reservation. The response includes the
         reservation name, state, start date and time, and the details of the
         offering that make up the rest of the reservation (such as price,
         duration, and outbound bandwidth).
+      operationId: amazonWebServicesDescribeReservation
   /v1/flows/{flowArn}/entitlements:
     POST:
-      summary: GrantFlowEntitlements
+      summary: Grantflowentitlements
       description: Grants entitlements to an existing flow.
+      operationId: amazonWebServicesGrantFlowEntitlements
   /v1/entitlements:
     GET:
-      summary: ListEntitlements
+      summary: Listentitlements
       description: >-
         Displays a list of all entitlements that have been granted to this
         account. This request returns 20 results per page.
+      operationId: amazonWebServicesListEntitlements
   /v1/gateway-instances:
     GET:
-      summary: ListGatewayInstances
+      summary: Listgatewayinstances
       description: >-
         Displays a list of instances associated with the AWS account. This
         request returns a paginated result. You can use the filterArn property
         to display only the instances associated with the selected Gateway
         Amazon Resource Name (ARN).
+      operationId: amazonWebServicesListGatewayInstances
   /v1/offerings:
     GET:
-      summary: ListOfferings
+      summary: Listofferings
       description: >-
         Displays a list of all offerings that are available to this account in
         the current AWS Region. If you have an active reservation (which means
         you've purchased an offering that has already started and hasn't expired
         yet), your account isn't eligible for other offerings.
+      operationId: amazonWebServicesListOfferings
   /v1/reservations:
     GET:
-      summary: ListReservations
+      summary: Listreservations
       description: >-
         Displays a list of all reservations that have been purchased by this
         account in the current AWS Region. This list includes all reservations
         in all states (such as active and expired).
+      operationId: amazonWebServicesListReservations
   /tags/{resourceArn}:
     DELETE:
-      summary: UntagResource
+      summary: Untagresource
       description: Deletes specified tags from a resource.
+      operationId: amazonWebServicesUntagResource
   /v1/bridges/{bridgeArn}/outputs/{outputName}:
     PUT:
-      summary: UpdateBridgeOutput
+      summary: Updatebridgeoutput
       description: Updates an existing bridge output.
+      operationId: amazonWebServicesUpdateBridgeOutput
   /v1/bridges/{bridgeArn}/sources/{sourceName}:
     PUT:
-      summary: UpdateBridgeSource
+      summary: Updatebridgesource
       description: Updates an existing bridge source.
+      operationId: amazonWebServicesUpdateBridgeSource
   /v1/flows/{flowArn}/mediaStreams/{mediaStreamName}:
     PUT:
-      summary: UpdateFlowMediaStream
+      summary: Updateflowmediastream
       description: Updates an existing media stream.
+      operationId: amazonWebServicesUpdateFlowMediaStream
   /v1/flows/{flowArn}/outputs/{outputArn}:
     PUT:
-      summary: UpdateFlowOutput
+      summary: Updateflowoutput
       description: Updates an existing flow output.
+      operationId: amazonWebServicesUpdateFlowOutput
   /v1/flows/{flowArn}/source/{sourceArn}:
     PUT:
-      summary: UpdateFlowSource
+      summary: Updateflowsource
       description: Updates the source of a flow.
+      operationId: amazonWebServicesUpdateFlowSource
   /v1/flows/{flowArn}/vpcInterfaces/{vpcInterfaceName}:
     DELETE:
-      summary: RemoveFlowVpcInterface
+      summary: Removeflowvpcinterface
       description: >-
         Removes a VPC Interface from an existing flow. This request can be made
         only on a VPC interface that does not have a Source or Output associated
         with it. If the VPC interface is referenced by a Source or Output, you
         must first delete or update the Source or Output to no longer reference
         the VPC interface.
+      operationId: amazonWebServicesRemoveFlowVpcInterface
   /v1/flows/{flowArn}/entitlements/{entitlementArn}:
     PUT:
-      summary: UpdateFlowEntitlement
+      summary: Updateflowentitlement
       description: >-
         You can change an entitlement's description, subscribers, and
         encryption. If you change the subscribers, the service will remove the
         outputs that are are used by the subscribers that are removed.
+      operationId: amazonWebServicesUpdateFlowEntitlement
   /v1/flows/start/{flowArn}:
     POST:
-      summary: StartFlow
+      summary: Startflow
       description: Starts a flow.
+      operationId: amazonWebServicesStartFlow
   /v1/flows/stop/{flowArn}:
     POST:
-      summary: StopFlow
+      summary: Stopflow
       description: Stops a flow.
+      operationId: amazonWebServicesStopFlow
   /v1/bridges/{bridgeArn}/state:
     PUT:
-      summary: UpdateBridgeState
+      summary: Updatebridgestate
       description: Updates the bridge state
+      operationId: amazonWebServicesUpdateBridgeState
 tags: []

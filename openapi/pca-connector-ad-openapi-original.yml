@@ -11,67 +11,73 @@ info:
 paths:
   /connectors:
     GET:
-      summary: ListConnectors
+      summary: Listconnectors
       description: >-
-        <p>Lists the connectors that you created by using the <a
-        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a>
-        action.</p>
+        Lists the connectors that you created by using the
+        https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector
+        action.
+      operationId: amazonWebServicesListConnectors
   /directoryRegistrations:
     GET:
-      summary: ListDirectoryRegistrations
+      summary: Listdirectoryregistrations
       description: >-
-        <p>Lists the directory registrations that you created by using the <a
-        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a>
-        action.</p>
+        Lists the directory registrations that you created by using the
+        https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration
+        action.
+      operationId: amazonWebServicesListDirectoryRegistrations
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}:
     GET:
-      summary: GetServicePrincipalName
+      summary: Getserviceprincipalname
       description: >-
-        <p>Lists the service principal name that the connector uses to
-        authenticate with Active Directory.</p>
+        Lists the service principal name that the connector uses to authenticate
+        with Active Directory.
+      operationId: amazonWebServicesGetServicePrincipalName
   /templates:
     GET:
-      summary: ListTemplates
-      description: >-
-        <p>Lists the templates, if any, that are associated with a
-        connector.</p>
+      summary: Listtemplates
+      description: Lists the templates, if any, that are associated with a connector.
+      operationId: amazonWebServicesListTemplates
   /templates/{TemplateArn}/accessControlEntries:
     GET:
-      summary: ListTemplateGroupAccessControlEntries
-      description: <p>Lists group access control entries you created. </p>
+      summary: Listtemplategroupaccesscontrolentries
+      description: 'Lists group access control entries you created. '
+      operationId: amazonWebServicesListTemplateGroupAccessControlEntries
   /connectors/{ConnectorArn}:
     GET:
-      summary: GetConnector
+      summary: Getconnector
       description: >-
-        <p>Lists information about your connector. You specify the connector on
-        input by its ARN (Amazon Resource Name). </p>
+        Lists information about your connector. You specify the connector on
+        input by its ARN (Amazon Resource Name). 
+      operationId: amazonWebServicesGetConnector
   /directoryRegistrations/{DirectoryRegistrationArn}:
     GET:
-      summary: GetDirectoryRegistration
-      description: >-
-        <p>A structure that contains information about your directory
-        registration.</p>
+      summary: Getdirectoryregistration
+      description: A structure that contains information about your directory registration.
+      operationId: amazonWebServicesGetDirectoryRegistration
   /templates/{TemplateArn}:
     PATCH:
-      summary: UpdateTemplate
+      summary: Updatetemplate
       description: >-
-        <p>Update template configuration to define the information included in
-        certificates.</p>
+        Update template configuration to define the information included in
+        certificates.
+      operationId: amazonWebServicesUpdateTemplate
   /templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}:
     PATCH:
-      summary: UpdateTemplateGroupAccessControlEntry
+      summary: Updatetemplategroupaccesscontrolentry
       description: >-
-        <p>Update a group access control entry you created using <a
-        href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html">CreateTemplateGroupAccessControlEntry</a>.
-        </p>
+        Update a group access control entry you created using
+        CreateTemplateGroupAccessControlEntry. 
+      operationId: amazonWebServicesUpdateTemplateGroupAccessControlEntry
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames:
     GET:
-      summary: ListServicePrincipalNames
+      summary: Listserviceprincipalnames
       description: >-
-        <p>Lists the service principal names that the connector uses to
-        authenticate with Active Directory.</p>
+        Lists the service principal names that the connector uses to
+        authenticate with Active Directory.
+      operationId: amazonWebServicesListServicePrincipalNames
   /tags/{ResourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes one or more tags from your resource.</p>
+      summary: Untagresource
+      description: Removes one or more tags from your resource.
+      operationId: amazonWebServicesUntagResource
 tags: []

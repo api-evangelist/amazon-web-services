@@ -10,101 +10,122 @@ info:
 paths:
   /application-instances:
     GET:
-      summary: ListApplicationInstances
-      description: <p>Returns a list of application instances.</p>
+      summary: Listapplicationinstances
+      description: Returns a list of application instances.
+      operationId: amazonWebServicesListApplicationInstances
   /jobs:
     GET:
-      summary: ListDevicesJobs
-      description: <p>Returns a list of jobs.</p>
+      summary: Listdevicesjobs
+      description: Returns a list of jobs.
+      operationId: amazonWebServicesListDevicesJobs
   /packages/template-job:
     GET:
-      summary: ListNodeFromTemplateJobs
-      description: <p>Returns a list of camera stream node jobs.</p>
+      summary: Listnodefromtemplatejobs
+      description: Returns a list of camera stream node jobs.
+      operationId: amazonWebServicesListNodeFromTemplateJobs
   /packages:
     GET:
-      summary: ListPackages
-      description: <p>Returns a list of packages.</p>
+      summary: Listpackages
+      description: Returns a list of packages.
+      operationId: amazonWebServicesListPackages
   /packages/import-jobs:
     GET:
-      summary: ListPackageImportJobs
-      description: <p>Returns a list of package import jobs.</p>
+      summary: Listpackageimportjobs
+      description: Returns a list of package import jobs.
+      operationId: amazonWebServicesListPackageImportJobs
   /devices/{DeviceId}:
     PUT:
-      summary: UpdateDeviceMetadata
-      description: <p>Updates a device's metadata.</p>
+      summary: Updatedevicemetadata
+      description: Updates a device's metadata.
+      operationId: amazonWebServicesUpdateDeviceMetadata
   /packages/{PackageId}:
     DELETE:
-      summary: DeletePackage
+      summary: Deletepackage
       description: >-
-        <p>Deletes a package.</p> <note> <p>To delete a package, you need
-        permission to call <code>s3:DeleteObject</code> in addition to
-        permissions for the AWS Panorama API.</p> </note>
+        Deletes a package.  To delete a package, you need permission to call
+        s3:DeleteObject in addition to permissions for the AWS Panorama API. 
+      operationId: amazonWebServicesDeletePackage
   /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
     PUT:
-      summary: RegisterPackageVersion
-      description: <p>Registers a package version.</p>
+      summary: Registerpackageversion
+      description: Registers a package version.
+      operationId: amazonWebServicesRegisterPackageVersion
   /application-instances/{ApplicationInstanceId}:
     DELETE:
-      summary: RemoveApplicationInstance
-      description: <p>Removes an application instance.</p>
+      summary: Removeapplicationinstance
+      description: Removes an application instance.
+      operationId: amazonWebServicesRemoveApplicationInstance
   /application-instances/{ApplicationInstanceId}/details:
     GET:
-      summary: DescribeApplicationInstanceDetails
+      summary: Describeapplicationinstancedetails
       description: >-
-        <p>Returns information about an application instance's configuration
-        manifest.</p>
+        Returns information about an application instance's configuration
+        manifest.
+      operationId: amazonWebServicesDescribeApplicationInstanceDetails
   /jobs/{JobId}:
     GET:
-      summary: DescribeDeviceJob
-      description: <p>Returns information about a device job.</p>
+      summary: Describedevicejob
+      description: Returns information about a device job.
+      operationId: amazonWebServicesDescribeDeviceJob
   /nodes/{NodeId}:
     GET:
-      summary: DescribeNode
-      description: <p>Returns information about a node.</p>
+      summary: Describenode
+      description: Returns information about a node.
+      operationId: amazonWebServicesDescribeNode
   /packages/template-job/{JobId}:
     GET:
-      summary: DescribeNodeFromTemplateJob
-      description: <p>Returns information about a job to create a camera stream node.</p>
+      summary: Describenodefromtemplatejob
+      description: Returns information about a job to create a camera stream node.
+      operationId: amazonWebServicesDescribeNodeFromTemplateJob
   /packages/metadata/{PackageId}:
     GET:
-      summary: DescribePackage
-      description: <p>Returns information about a package.</p>
+      summary: Describepackage
+      description: Returns information about a package.
+      operationId: amazonWebServicesDescribePackage
   /packages/import-jobs/{JobId}:
     GET:
-      summary: DescribePackageImportJob
-      description: <p>Returns information about a package import job.</p>
+      summary: Describepackageimportjob
+      description: Returns information about a package import job.
+      operationId: amazonWebServicesDescribePackageImportJob
   /packages/metadata/{PackageId}/versions/{PackageVersion}:
     GET:
-      summary: DescribePackageVersion
-      description: <p>Returns information about a package version.</p>
+      summary: Describepackageversion
+      description: Returns information about a package version.
+      operationId: amazonWebServicesDescribePackageVersion
   /application-instances/{ApplicationInstanceId}/package-dependencies:
     GET:
-      summary: ListApplicationInstanceDependencies
-      description: <p>Returns a list of application instance dependencies.</p>
+      summary: Listapplicationinstancedependencies
+      description: Returns a list of application instance dependencies.
+      operationId: amazonWebServicesListApplicationInstanceDependencies
   /application-instances/{ApplicationInstanceId}/node-instances:
     GET:
-      summary: ListApplicationInstanceNodeInstances
-      description: <p>Returns a list of application node instances.</p>
+      summary: Listapplicationinstancenodeinstances
+      description: Returns a list of application node instances.
+      operationId: amazonWebServicesListApplicationInstanceNodeInstances
   /devices:
     POST:
-      summary: ProvisionDevice
+      summary: Provisiondevice
       description: >-
-        <p>Creates a device and returns a configuration archive. The
-        configuration archive is a ZIP file that contains a provisioning
-        certificate that is valid for 5 minutes. Name the configuration archive
-        <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to
-        the device within 5 minutes. Use the included USB storage device and
-        connect it to the USB 3.0 port next to the HDMI output.</p>
+        Creates a device and returns a configuration archive. The configuration
+        archive is a ZIP file that contains a provisioning certificate that is
+        valid for 5 minutes. Name the configuration archive
+        certificates-omni_device-name.zip and transfer it to the device within 5
+        minutes. Use the included USB storage device and connect it to the USB
+        3.0 port next to the HDMI output.
+      operationId: amazonWebServicesProvisionDevice
   /nodes:
     GET:
-      summary: ListNodes
-      description: <p>Returns a list of nodes.</p>
+      summary: Listnodes
+      description: Returns a list of nodes.
+      operationId: amazonWebServicesListNodes
   /tags/{ResourceArn}:
     DELETE:
-      summary: UntagResource
-      description: <p>Removes tags from a resource.</p>
+      summary: Untagresource
+      description: Removes tags from a resource.
+      operationId: amazonWebServicesUntagResource
   /application-instances/{ApplicationInstanceId}/node-signals:
     PUT:
-      summary: SignalApplicationInstanceNodeInstances
-      description: <p>Signal camera nodes to stop or resume.</p>
+      summary: Signalapplicationinstancenodeinstances
+      description: Signal camera nodes to stop or resume.
+      operationId: amazonWebServicesSignalApplicationInstanceNodeInstances
 tags: []
