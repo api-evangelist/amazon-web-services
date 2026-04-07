@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
-  title: qldb
+  title: Amazon Web Services qldb
   description: <p>The resource management API for Amazon QLDB</p>
 paths:
   /ledgers/{name}/journal-kinesis-streams/{streamId}:
     GET:
-      summary: Describejournalkinesisstream
+      summary: Amazon Web Services Describejournalkinesisstream
       description: >-
         Returns detailed information about a given Amazon QLDB journal stream.
         The output includes the Amazon Resource Name (ARN), stream name, current
@@ -16,7 +16,7 @@ paths:
       operationId: amazonWebServicesDescribeJournalKinesisStream
   /ledgers:
     GET:
-      summary: Listledgers
+      summary: Amazon Web Services Listledgers
       description: >-
         Returns all ledgers that are associated with the current Amazon Web
         Services account and Region. This action returns a maximum of MaxResults
@@ -25,12 +25,12 @@ paths:
       operationId: amazonWebServicesListLedgers
   /ledgers/{name}:
     PATCH:
-      summary: Updateledger
+      summary: Amazon Web Services Updateledger
       description: Updates properties on a ledger.
       operationId: amazonWebServicesUpdateLedger
   /ledgers/{name}/journal-s3-exports/{exportId}:
     GET:
-      summary: Describejournals3export
+      summary: Amazon Web Services Describejournals3export
       description: >-
         Returns information about a journal export job, including the ledger
         name, export ID, creation time, current status, and the parameters of
@@ -43,7 +43,7 @@ paths:
       operationId: amazonWebServicesDescribeJournalS3Export
   /ledgers/{name}/journal-s3-exports:
     GET:
-      summary: Listjournals3exportsforledger
+      summary: Amazon Web Services Listjournals3exportsforledger
       description: >-
         Returns all journal export jobs for a specified ledger. This action
         returns a maximum of MaxResults items, and is paginated so that you can
@@ -54,7 +54,7 @@ paths:
       operationId: amazonWebServicesListJournalS3ExportsForLedger
   /ledgers/{name}/block:
     POST:
-      summary: Getblock
+      summary: Amazon Web Services Getblock
       description: >-
         Returns a block object at a specified address in a journal. Also returns
         a proof of the specified block for verification if DigestTipAddress is
@@ -68,14 +68,14 @@ paths:
       operationId: amazonWebServicesGetBlock
   /ledgers/{name}/digest:
     POST:
-      summary: Getdigest
+      summary: Amazon Web Services Getdigest
       description: >-
         Returns the digest of a ledger at the latest committed block in the
         journal. The response includes a 256-bit hash value and a block address.
       operationId: amazonWebServicesGetDigest
   /ledgers/{name}/revision:
     POST:
-      summary: Getrevision
+      summary: Amazon Web Services Getrevision
       description: >-
         Returns a revision data object for a specified document ID and block
         address. Also returns a proof of the specified revision for verification
@@ -83,7 +83,7 @@ paths:
       operationId: amazonWebServicesGetRevision
   /ledgers/{name}/journal-kinesis-streams:
     POST:
-      summary: Streamjournaltokinesis
+      summary: Amazon Web Services Streamjournaltokinesis
       description: >-
         Creates a journal stream for a given Amazon QLDB ledger. The stream
         captures every document revision that is committed to the ledger's
@@ -92,7 +92,7 @@ paths:
       operationId: amazonWebServicesStreamJournalToKinesis
   /journal-s3-exports:
     GET:
-      summary: Listjournals3exports
+      summary: Amazon Web Services Listjournals3exports
       description: >-
         Returns all journal export jobs for all ledgers that are associated with
         the current Amazon Web Services account and Region. This action returns
@@ -103,14 +103,14 @@ paths:
       operationId: amazonWebServicesListJournalS3Exports
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         Removes one or more tags from a specified Amazon QLDB resource. You can
         specify up to 50 tag keys to remove.
       operationId: amazonWebServicesUntagResource
   /ledgers/{name}/permissions-mode:
     PATCH:
-      summary: Updateledgerpermissionsmode
+      summary: Amazon Web Services Updateledgerpermissionsmode
       description: >-
         Updates the permissions mode of a ledger.  Before you switch to the
         STANDARD permissions mode, you must first create all required IAM

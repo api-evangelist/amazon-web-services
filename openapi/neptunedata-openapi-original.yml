@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: neptunedata
+  title: Amazon Web Services neptunedata
   description: >-
     <p><fullname>Neptune Data API</fullname> <p>The Amazon Neptune data API
     provides SDK support for more than 40 of Neptune's data operations,
@@ -11,7 +11,7 @@ info:
 paths:
   /gremlin/status/{queryId}:
     GET:
-      summary: Getgremlinquerystatus
+      summary: Amazon Web Services Getgremlinquerystatus
       description: >-
         Gets the status of a specified Gremlin query. When invoking this
         operation in a Neptune cluster that has IAM authentication enabled, the
@@ -23,7 +23,7 @@ paths:
       operationId: amazonWebServicesGetGremlinQueryStatus
   /loader/{loadId}:
     GET:
-      summary: Getloaderjobstatus
+      summary: Amazon Web Services Getloaderjobstatus
       description: >-
         Gets status information about a specified load job. Neptune keeps track
         of the most recent 1,024 bulk load jobs, and stores the last 10,000
@@ -35,7 +35,7 @@ paths:
       operationId: amazonWebServicesGetLoaderJobStatus
   /ml/dataprocessing/{id}:
     GET:
-      summary: Getmldataprocessingjob
+      summary: Amazon Web Services Getmldataprocessingjob
       description: >-
         Retrieves information about a specified data processing job. See The
         dataprocessing command. When invoking this operation in a Neptune
@@ -46,7 +46,7 @@ paths:
       operationId: amazonWebServicesGetMLDataProcessingJob
   /ml/modeltraining/{id}:
     GET:
-      summary: Getmlmodeltrainingjob
+      summary: Amazon Web Services Getmlmodeltrainingjob
       description: >-
         Retrieves information about a Neptune ML model training job. See Model
         training using the modeltraining command. When invoking this operation
@@ -56,7 +56,7 @@ paths:
       operationId: amazonWebServicesGetMLModelTrainingJob
   /ml/modeltransform/{id}:
     GET:
-      summary: Getmlmodeltransformjob
+      summary: Amazon Web Services Getmlmodeltransformjob
       description: >-
         Gets information about a specified model transform job. See Use a
         trained model to generate new model artifacts. When invoking this
@@ -67,7 +67,7 @@ paths:
       operationId: amazonWebServicesGetMLModelTransformJob
   /opencypher/status/{queryId}:
     GET:
-      summary: Getopencypherquerystatus
+      summary: Amazon Web Services Getopencypherquerystatus
       description: >-
         Retrieves the status of a specified openCypher query. When invoking this
         operation in a Neptune cluster that has IAM authentication enabled, the
@@ -80,7 +80,7 @@ paths:
       operationId: amazonWebServicesGetOpenCypherQueryStatus
   /ml/endpoints:
     GET:
-      summary: Listmlendpoints
+      summary: Amazon Web Services Listmlendpoints
       description: >-
         Lists existing inference endpoints. See Managing inference endpoints
         using the endpoints command. When invoking this operation in a Neptune
@@ -90,7 +90,7 @@ paths:
       operationId: amazonWebServicesListMLEndpoints
   /ml/endpoints/{id}:
     GET:
-      summary: Getmlendpoint
+      summary: Amazon Web Services Getmlendpoint
       description: >-
         Retrieves details about an inference endpoint. See Managing inference
         endpoints using the endpoints command. When invoking this operation in a
@@ -100,7 +100,7 @@ paths:
       operationId: amazonWebServicesGetMLEndpoint
   /propertygraph/statistics:
     POST:
-      summary: Managepropertygraphstatistics
+      summary: Amazon Web Services Managepropertygraphstatistics
       description: >-
         Manages the generation and use of property graph statistics. When
         invoking this operation in a Neptune cluster that has IAM authentication
@@ -110,7 +110,7 @@ paths:
       operationId: amazonWebServicesManagePropertygraphStatistics
   /sparql/statistics:
     POST:
-      summary: Managesparqlstatistics
+      summary: Amazon Web Services Managesparqlstatistics
       description: >-
         Manages the generation and use of RDF graph statistics. When invoking
         this operation in a Neptune cluster that has IAM authentication enabled,
@@ -119,7 +119,7 @@ paths:
       operationId: amazonWebServicesManageSparqlStatistics
   /system:
     POST:
-      summary: Executefastreset
+      summary: Amazon Web Services Executefastreset
       description: >-
         The fast reset REST API lets you reset a Neptune graph quicky and
         easily, removing all of its data. Neptune fast reset is a two-step
@@ -134,7 +134,7 @@ paths:
       operationId: amazonWebServicesExecuteFastReset
   /gremlin/explain:
     POST:
-      summary: Executegremlinexplainquery
+      summary: Amazon Web Services Executegremlinexplainquery
       description: >-
         Executes a Gremlin Explain query. Amazon Neptune has added a Gremlin
         feature named explain that provides is a self-service tool for
@@ -148,15 +148,14 @@ paths:
         When invoking this operation in a Neptune cluster that has IAM
         authentication enabled, the IAM user or role making the request must
         have a policy attached that allows one of the following IAM actions in
-        that cluster, depending on the query:    neptune-db:ReadDataViaQuery    
-        neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note
+        that cluster, depending on the query:    neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note
         that the neptune-db:QueryLanguage:Gremlin IAM condition key can be used
         in the policy document to restrict the use of Gremlin queries (see
         Condition keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteGremlinExplainQuery
   /gremlin/profile:
     POST:
-      summary: Executegremlinprofilequery
+      summary: Amazon Web Services Executegremlinprofilequery
       description: >-
         Executes a Gremlin Profile query, which runs a specified traversal,
         collects various metrics about the run, and produces a profile report as
@@ -170,7 +169,7 @@ paths:
       operationId: amazonWebServicesExecuteGremlinProfileQuery
   /gremlin:
     POST:
-      summary: Executegremlinquery
+      summary: Amazon Web Services Executegremlinquery
       description: >-
         This commands executes a Gremlin query. Amazon Neptune is compatible
         with Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal
@@ -179,16 +178,14 @@ paths:
         Neptune graph with Gremlin. When invoking this operation in a Neptune
         cluster that has IAM authentication enabled, the IAM user or role making
         the request must have a policy attached that enables one of the
-        following IAM actions in that cluster, depending on the query:   
-        neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery    
-        neptune-db:DeleteDataViaQuery    Note that the
+        following IAM actions in that cluster, depending on the query:    neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note that the
         neptune-db:QueryLanguage:Gremlin IAM condition key can be used in the
         policy document to restrict the use of Gremlin queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteGremlinQuery
   /opencypher/explain:
     POST:
-      summary: Executeopencypherexplainquery
+      summary: Amazon Web Services Executeopencypherexplainquery
       description: >-
         Executes an openCypher explain request. See The openCypher explain
         feature for more information. When invoking this operation in a Neptune
@@ -201,7 +198,7 @@ paths:
       operationId: amazonWebServicesExecuteOpenCypherExplainQuery
   /opencypher:
     POST:
-      summary: Executeopencypherquery
+      summary: Amazon Web Services Executeopencypherquery
       description: >-
         Executes an openCypher query. See Accessing the Neptune Graph with
         openCypher for more information. Neptune supports building graph
@@ -215,16 +212,14 @@ paths:
         license. Note that when invoking this operation in a Neptune cluster
         that has IAM authentication enabled, the IAM user or role making the
         request must have a policy attached that allows one of the following IAM
-        actions in that cluster, depending on the query:   
-        neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery    
-        neptune-db:DeleteDataViaQuery    Note also that the
+        actions in that cluster, depending on the query:    neptune-db:ReadDataViaQuery     neptune-db:WriteDataViaQuery     neptune-db:DeleteDataViaQuery    Note also that the
         neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the
         policy document to restrict the use of openCypher queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteOpenCypherQuery
   /status:
     GET:
-      summary: Getenginestatus
+      summary: Amazon Web Services Getenginestatus
       description: >-
         Retrieves the status of the graph database on the host. When invoking
         this operation in a Neptune cluster that has IAM authentication enabled,
@@ -233,7 +228,7 @@ paths:
       operationId: amazonWebServicesGetEngineStatus
   /propertygraph/stream:
     GET:
-      summary: Getpropertygraphstream
+      summary: Amazon Web Services Getpropertygraphstream
       description: >-
         Gets a stream for a property graph. With the Neptune Streams feature,
         you can generate a complete sequence of change-log entries that record
@@ -249,14 +244,12 @@ paths:
         cluster that has IAM authentication enabled, the IAM user or role making
         the request must have a policy attached that enables one of the
         following IAM actions, depending on the query: Note that you can
-        restrict property-graph queries using the following IAM context keys:   
-        neptune-db:QueryLanguage:Gremlin    
-        neptune-db:QueryLanguage:OpenCypher    See Condition keys available in
+        restrict property-graph queries using the following IAM context keys:    neptune-db:QueryLanguage:Gremlin     neptune-db:QueryLanguage:OpenCypher    See Condition keys available in
         Neptune IAM data-access policy statements).
       operationId: amazonWebServicesGetPropertygraphStream
   /propertygraph/statistics/summary:
     GET:
-      summary: Getpropertygraphsummary
+      summary: Amazon Web Services Getpropertygraphsummary
       description: >-
         Gets a graph summary for a property graph. When invoking this operation
         in a Neptune cluster that has IAM authentication enabled, the IAM user
@@ -265,7 +258,7 @@ paths:
       operationId: amazonWebServicesGetPropertygraphSummary
   /rdf/statistics/summary:
     GET:
-      summary: Getrdfgraphsummary
+      summary: Amazon Web Services Getrdfgraphsummary
       description: >-
         Gets a graph summary for an RDF graph. When invoking this operation in a
         Neptune cluster that has IAM authentication enabled, the IAM user or
@@ -274,7 +267,7 @@ paths:
       operationId: amazonWebServicesGetRDFGraphSummary
   /sparql/stream:
     GET:
-      summary: Getsparqlstream
+      summary: Amazon Web Services Getsparqlstream
       description: >-
         Gets a stream for an RDF graph. With the Neptune Streams feature, you
         can generate a complete sequence of change-log entries that record every
@@ -293,7 +286,7 @@ paths:
       operationId: amazonWebServicesGetSparqlStream
   /gremlin/status:
     GET:
-      summary: Listgremlinqueries
+      summary: Amazon Web Services Listgremlinqueries
       description: >-
         Lists active Gremlin queries. See Gremlin query status API for details
         about the output. When invoking this operation in a Neptune cluster that
@@ -306,7 +299,7 @@ paths:
       operationId: amazonWebServicesListGremlinQueries
   /loader:
     POST:
-      summary: Startloaderjob
+      summary: Amazon Web Services Startloaderjob
       description: >-
         Starts a Neptune bulk loader job to load data from an Amazon S3 bucket
         into a Neptune DB instance. See Using the Amazon Neptune Bulk Loader to
@@ -317,7 +310,7 @@ paths:
       operationId: amazonWebServicesStartLoaderJob
   /ml/dataprocessing:
     POST:
-      summary: Startmldataprocessingjob
+      summary: Amazon Web Services Startmldataprocessingjob
       description: >-
         Creates a new Neptune ML data processing job for processing the graph
         data exported from Neptune for training. See The dataprocessing command.
@@ -328,7 +321,7 @@ paths:
       operationId: amazonWebServicesStartMLDataProcessingJob
   /ml/modeltraining:
     POST:
-      summary: Startmlmodeltrainingjob
+      summary: Amazon Web Services Startmlmodeltrainingjob
       description: >-
         Creates a new Neptune ML model training job. See Model training using
         the modeltraining command. When invoking this operation in a Neptune
@@ -338,7 +331,7 @@ paths:
       operationId: amazonWebServicesStartMLModelTrainingJob
   /ml/modeltransform:
     POST:
-      summary: Startmlmodeltransformjob
+      summary: Amazon Web Services Startmlmodeltransformjob
       description: >-
         Creates a new model transform job. See Use a trained model to generate
         new model artifacts. When invoking this operation in a Neptune cluster
@@ -348,7 +341,7 @@ paths:
       operationId: amazonWebServicesStartMLModelTransformJob
   /opencypher/status:
     GET:
-      summary: Listopencypherqueries
+      summary: Amazon Web Services Listopencypherqueries
       description: >-
         Lists active openCypher queries. See Neptune openCypher status endpoint
         for more information. When invoking this operation in a Neptune cluster

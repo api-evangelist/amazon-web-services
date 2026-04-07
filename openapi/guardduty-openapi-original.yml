@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: guardduty
+  title: Amazon Web Services guardduty
   description: >-
     <p>Amazon GuardDuty is a continuous security monitoring service that
     analyzes and processes the following foundational data sources - VPC flow
@@ -28,7 +28,7 @@ info:
 paths:
   /detector/{detectorId}/administrator:
     GET:
-      summary: Getadministratoraccount
+      summary: Amazon Web Services Getadministratoraccount
       description: >-
         Provides the details of the GuardDuty administrator account associated
         with the current GuardDuty member account.  If the organization's
@@ -37,14 +37,14 @@ paths:
       operationId: amazonWebServicesGetAdministratorAccount
   /detector/{detectorId}/master:
     GET:
-      summary: Getmasteraccount
+      summary: Amazon Web Services Getmasteraccount
       description: >-
         Provides the details for the GuardDuty administrator account associated
         with the current GuardDuty member account.
       operationId: amazonWebServicesGetMasterAccount
   /detector/{detectorId}/findings/archive:
     POST:
-      summary: Archivefindings
+      summary: Amazon Web Services Archivefindings
       description: >-
         Archives GuardDuty findings that are specified by the list of finding
         IDs.  Only the administrator account can archive findings. Member
@@ -52,19 +52,19 @@ paths:
       operationId: amazonWebServicesArchiveFindings
   /detector:
     GET:
-      summary: Listdetectors
+      summary: Amazon Web Services Listdetectors
       description: >-
         Lists detectorIds of all the existing Amazon GuardDuty detector
         resources.
       operationId: amazonWebServicesListDetectors
   /detector/{detectorId}/filter:
     GET:
-      summary: Listfilters
+      summary: Amazon Web Services Listfilters
       description: Returns a paginated list of the current filters.
       operationId: amazonWebServicesListFilters
   /detector/{detectorId}/ipset:
     GET:
-      summary: Listipsets
+      summary: Amazon Web Services Listipsets
       description: >-
         Lists the IPSets of the GuardDuty service specified by the detector ID.
         If you use this operation from a member account, the IPSets returned are
@@ -72,21 +72,21 @@ paths:
       operationId: amazonWebServicesListIPSets
   /detector/{detectorId}/member:
     GET:
-      summary: Listmembers
+      summary: Amazon Web Services Listmembers
       description: >-
         Lists details about all member accounts for the current GuardDuty
         administrator account.
       operationId: amazonWebServicesListMembers
   /detector/{detectorId}/publishingDestination:
     GET:
-      summary: Listpublishingdestinations
+      summary: Amazon Web Services Listpublishingdestinations
       description: >-
         Returns a list of publishing destinations associated with the specified
         detectorId.
       operationId: amazonWebServicesListPublishingDestinations
   /detector/{detectorId}/findings/create:
     POST:
-      summary: Createsamplefindings
+      summary: Amazon Web Services Createsamplefindings
       description: >-
         Generates sample findings of types specified by the list of finding
         types. If 'NULL' is specified for findingTypes, the API generates sample
@@ -94,7 +94,7 @@ paths:
       operationId: amazonWebServicesCreateSampleFindings
   /detector/{detectorId}/threatintelset:
     GET:
-      summary: Listthreatintelsets
+      summary: Amazon Web Services Listthreatintelsets
       description: >-
         Lists the ThreatIntelSets of the GuardDuty service specified by the
         detector ID. If you use this operation from a member account, the
@@ -102,14 +102,14 @@ paths:
       operationId: amazonWebServicesListThreatIntelSets
   /invitation/decline:
     POST:
-      summary: Declineinvitations
+      summary: Amazon Web Services Declineinvitations
       description: >-
         Declines invitations sent to the current member account by Amazon Web
         Services accounts specified by their account IDs.
       operationId: amazonWebServicesDeclineInvitations
   /detector/{detectorId}:
     POST:
-      summary: Updatedetector
+      summary: Amazon Web Services Updatedetector
       description: >-
         Updates the Amazon GuardDuty detector specified by the detectorId. There
         might be regional differences because some data sources might not be
@@ -118,24 +118,24 @@ paths:
       operationId: amazonWebServicesUpdateDetector
   /detector/{detectorId}/filter/{filterName}:
     POST:
-      summary: Updatefilter
+      summary: Amazon Web Services Updatefilter
       description: Updates the filter specified by the filter name.
       operationId: amazonWebServicesUpdateFilter
   /detector/{detectorId}/ipset/{ipSetId}:
     POST:
-      summary: Updateipset
+      summary: Amazon Web Services Updateipset
       description: Updates the IPSet specified by the IPSet ID.
       operationId: amazonWebServicesUpdateIPSet
   /invitation/delete:
     POST:
-      summary: Deleteinvitations
+      summary: Amazon Web Services Deleteinvitations
       description: >-
         Deletes invitations sent to the current member account by Amazon Web
         Services accounts specified by their account IDs.
       operationId: amazonWebServicesDeleteInvitations
   /detector/{detectorId}/member/delete:
     POST:
-      summary: Deletemembers
+      summary: Amazon Web Services Deletemembers
       description: >-
         Deletes GuardDuty member accounts (to the current GuardDuty
         administrator account) specified by the account IDs. With
@@ -145,19 +145,19 @@ paths:
       operationId: amazonWebServicesDeleteMembers
   /detector/{detectorId}/publishingDestination/{destinationId}:
     POST:
-      summary: Updatepublishingdestination
+      summary: Amazon Web Services Updatepublishingdestination
       description: >-
         Updates information about the publishing destination specified by the
         destinationId.
       operationId: amazonWebServicesUpdatePublishingDestination
   /detector/{detectorId}/threatintelset/{threatIntelSetId}:
     POST:
-      summary: Updatethreatintelset
+      summary: Amazon Web Services Updatethreatintelset
       description: Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
       operationId: amazonWebServicesUpdateThreatIntelSet
   /detector/{detectorId}/malware-scans:
     POST:
-      summary: Describemalwarescans
+      summary: Amazon Web Services Describemalwarescans
       description: >-
         Returns a list of malware scans. Each member account can view the
         malware scans for their own accounts. An administrator can view the
@@ -168,7 +168,7 @@ paths:
       operationId: amazonWebServicesDescribeMalwareScans
   /detector/{detectorId}/admin:
     POST:
-      summary: Updateorganizationconfiguration
+      summary: Amazon Web Services Updateorganizationconfiguration
       description: >-
         Configures the delegated administrator account with the provided values.
         You must provide a value for either autoEnableOrganizationMembers or
@@ -179,7 +179,7 @@ paths:
       operationId: amazonWebServicesUpdateOrganizationConfiguration
   /admin/disable:
     POST:
-      summary: Disableorganizationadminaccount
+      summary: Amazon Web Services Disableorganizationadminaccount
       description: >-
         Removes the existing GuardDuty delegated administrator of the
         organization. Only the organization's management account can run this
@@ -187,7 +187,7 @@ paths:
       operationId: amazonWebServicesDisableOrganizationAdminAccount
   /detector/{detectorId}/administrator/disassociate:
     POST:
-      summary: Disassociatefromadministratoraccount
+      summary: Amazon Web Services Disassociatefromadministratoraccount
       description: >-
         Disassociates the current GuardDuty member account from its
         administrator account. When you disassociate an invited member from a
@@ -196,14 +196,13 @@ paths:
         are retained. This is done so that the delegated administrator can
         invoke the InviteMembers API without the need to invoke the
         CreateMembers API again. To remove the details associated with a member
-        account, the delegated administrator must invoke the DeleteMembers API. 
-        With autoEnableOrganizationMembers configuration for your organization
+        account, the delegated administrator must invoke the DeleteMembers API.  With autoEnableOrganizationMembers configuration for your organization
         set to ALL, you'll receive an error if you attempt to disable GuardDuty
         in a member account.
       operationId: amazonWebServicesDisassociateFromAdministratorAccount
   /detector/{detectorId}/master/disassociate:
     POST:
-      summary: Disassociatefrommasteraccount
+      summary: Amazon Web Services Disassociatefrommasteraccount
       description: >-
         Disassociates the current GuardDuty member account from its
         administrator account. When you disassociate an invited member from a
@@ -216,7 +215,7 @@ paths:
       operationId: amazonWebServicesDisassociateFromMasterAccount
   /detector/{detectorId}/member/disassociate:
     POST:
-      summary: Disassociatemembers
+      summary: Amazon Web Services Disassociatemembers
       description: >-
         Disassociates GuardDuty member accounts (from the current administrator
         account) specified by the account IDs. When you disassociate an invited
@@ -233,7 +232,7 @@ paths:
       operationId: amazonWebServicesDisassociateMembers
   /admin/enable:
     POST:
-      summary: Enableorganizationadminaccount
+      summary: Amazon Web Services Enableorganizationadminaccount
       description: >-
         Designates an Amazon Web Services account within the organization as
         your GuardDuty delegated administrator. Only the organization's
@@ -241,7 +240,7 @@ paths:
       operationId: amazonWebServicesEnableOrganizationAdminAccount
   /detector/{detectorId}/coverage/statistics:
     POST:
-      summary: Getcoveragestatistics
+      summary: Amazon Web Services Getcoveragestatistics
       description: >-
         Retrieves aggregated statistics for your account. If you are a GuardDuty
         administrator, you can retrieve the statistics for all the resources
@@ -251,26 +250,26 @@ paths:
       operationId: amazonWebServicesGetCoverageStatistics
   /detector/{detectorId}/findings/get:
     POST:
-      summary: Getfindings
+      summary: Amazon Web Services Getfindings
       description: Describes Amazon GuardDuty findings specified by finding IDs.
       operationId: amazonWebServicesGetFindings
   /detector/{detectorId}/findings/statistics:
     POST:
-      summary: Getfindingsstatistics
+      summary: Amazon Web Services Getfindingsstatistics
       description: >-
         Lists Amazon GuardDuty findings statistics for the specified detector
         ID.
       operationId: amazonWebServicesGetFindingsStatistics
   /invitation/count:
     GET:
-      summary: Getinvitationscount
+      summary: Amazon Web Services Getinvitationscount
       description: >-
         Returns the count of all GuardDuty membership invitations that were sent
         to the current member account except the currently accepted invitation.
       operationId: amazonWebServicesGetInvitationsCount
   /detector/{detectorId}/malware-scan-settings:
     POST:
-      summary: Updatemalwarescansettings
+      summary: Amazon Web Services Updatemalwarescansettings
       description: >-
         Updates the malware scan settings. There might be regional differences
         because some data sources might not be available in all the Amazon Web
@@ -279,7 +278,7 @@ paths:
       operationId: amazonWebServicesUpdateMalwareScanSettings
   /detector/{detectorId}/member/detector/get:
     POST:
-      summary: Getmemberdetectors
+      summary: Amazon Web Services Getmemberdetectors
       description: >-
         Describes which data sources are enabled for the member account's
         detector. There might be regional differences because some data sources
@@ -289,14 +288,14 @@ paths:
       operationId: amazonWebServicesGetMemberDetectors
   /detector/{detectorId}/member/get:
     POST:
-      summary: Getmembers
+      summary: Amazon Web Services Getmembers
       description: >-
         Retrieves GuardDuty member accounts (of the current GuardDuty
         administrator account) specified by the account IDs.
       operationId: amazonWebServicesGetMembers
   /organization/statistics:
     GET:
-      summary: Getorganizationstatistics
+      summary: Amazon Web Services Getorganizationstatistics
       description: >-
         Retrieves how many active member accounts in your Amazon Web Services
         organization have each feature enabled within GuardDuty. Only a
@@ -306,14 +305,14 @@ paths:
       operationId: amazonWebServicesGetOrganizationStatistics
   /detector/{detectorId}/freeTrial/daysRemaining:
     POST:
-      summary: Getremainingfreetrialdays
+      summary: Amazon Web Services Getremainingfreetrialdays
       description: >-
         Provides the number of days left for each data source used in the free
         trial period.
       operationId: amazonWebServicesGetRemainingFreeTrialDays
   /detector/{detectorId}/usage/statistics:
     POST:
-      summary: Getusagestatistics
+      summary: Amazon Web Services Getusagestatistics
       description: >-
         Lists Amazon GuardDuty usage statistics over the last 30 days for the
         specified detector ID. For newly enabled detectors or data sources, the
@@ -324,7 +323,7 @@ paths:
       operationId: amazonWebServicesGetUsageStatistics
   /detector/{detectorId}/member/invite:
     POST:
-      summary: Invitemembers
+      summary: Amazon Web Services Invitemembers
       description: >-
         Invites Amazon Web Services accounts to become members of an
         organization administered by the Amazon Web Services account that
@@ -348,7 +347,7 @@ paths:
       operationId: amazonWebServicesInviteMembers
   /detector/{detectorId}/coverage:
     POST:
-      summary: Listcoverage
+      summary: Amazon Web Services Listcoverage
       description: >-
         Lists coverage details for your GuardDuty account. If you're a GuardDuty
         administrator, you can retrieve all resources associated with the active
@@ -358,38 +357,38 @@ paths:
       operationId: amazonWebServicesListCoverage
   /detector/{detectorId}/findings:
     POST:
-      summary: Listfindings
+      summary: Amazon Web Services Listfindings
       description: Lists Amazon GuardDuty findings for the specified detector ID.
       operationId: amazonWebServicesListFindings
   /invitation:
     GET:
-      summary: Listinvitations
+      summary: Amazon Web Services Listinvitations
       description: >-
         Lists all GuardDuty membership invitations that were sent to the current
         Amazon Web Services account.
       operationId: amazonWebServicesListInvitations
   /admin:
     GET:
-      summary: Listorganizationadminaccounts
+      summary: Amazon Web Services Listorganizationadminaccounts
       description: >-
         Lists the accounts designated as GuardDuty delegated administrators.
         Only the organization's management account can run this API operation.
       operationId: amazonWebServicesListOrganizationAdminAccounts
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
   /malware-scan/start:
     POST:
-      summary: Startmalwarescan
+      summary: Amazon Web Services Startmalwarescan
       description: >-
         Initiates the malware scan. Invoking this API will automatically create
         the Service-linked role  in the corresponding account.
       operationId: amazonWebServicesStartMalwareScan
   /detector/{detectorId}/member/start:
     POST:
-      summary: Startmonitoringmembers
+      summary: Amazon Web Services Startmonitoringmembers
       description: >-
         Turns on GuardDuty monitoring of the specified member accounts. Use this
         operation to restart monitoring of accounts that you stopped monitoring
@@ -397,7 +396,7 @@ paths:
       operationId: amazonWebServicesStartMonitoringMembers
   /detector/{detectorId}/member/stop:
     POST:
-      summary: Stopmonitoringmembers
+      summary: Amazon Web Services Stopmonitoringmembers
       description: >-
         Stops GuardDuty monitoring for the specified member accounts. Use the
         StartMonitoringMembers operation to restart monitoring for those
@@ -407,17 +406,17 @@ paths:
       operationId: amazonWebServicesStopMonitoringMembers
   /detector/{detectorId}/findings/unarchive:
     POST:
-      summary: Unarchivefindings
+      summary: Amazon Web Services Unarchivefindings
       description: Unarchives GuardDuty findings specified by the findingIds.
       operationId: amazonWebServicesUnarchiveFindings
   /detector/{detectorId}/findings/feedback:
     POST:
-      summary: Updatefindingsfeedback
+      summary: Amazon Web Services Updatefindingsfeedback
       description: Marks the specified GuardDuty findings as useful or not useful.
       operationId: amazonWebServicesUpdateFindingsFeedback
   /detector/{detectorId}/member/detector/update:
     POST:
-      summary: Updatememberdetectors
+      summary: Amazon Web Services Updatememberdetectors
       description: >-
         Contains information on member accounts to be updated. There might be
         regional differences because some data sources might not be available in

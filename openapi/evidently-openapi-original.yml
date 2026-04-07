@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: evidently
+  title: Amazon Web Services evidently
   description: >-
     <p>You can use Amazon CloudWatch Evidently to safely validate new features
     by serving them to a specified percentage of your users while you roll out
@@ -16,7 +16,7 @@ info:
 paths:
   /projects/{project}/evaluations:
     POST:
-      summary: Batchevaluatefeature
+      summary: Amazon Web Services Batchevaluatefeature
       description: >-
         This operation assigns feature variation to user sessions. For each user
         session, you pass in an entityID that represents the user. Evidently
@@ -39,63 +39,63 @@ paths:
       operationId: amazonWebServicesBatchEvaluateFeature
   /projects/{project}/experiments:
     GET:
-      summary: Listexperiments
+      summary: Amazon Web Services Listexperiments
       description: >-
         Returns configuration details about all the experiments in the specified
         project.
       operationId: amazonWebServicesListExperiments
   /projects/{project}/features:
     GET:
-      summary: Listfeatures
+      summary: Amazon Web Services Listfeatures
       description: >-
         Returns configuration details about all the features in the specified
         project.
       operationId: amazonWebServicesListFeatures
   /projects/{project}/launches:
     GET:
-      summary: Listlaunches
+      summary: Amazon Web Services Listlaunches
       description: >-
         Returns configuration details about all the launches in the specified
         project.
       operationId: amazonWebServicesListLaunches
   /projects:
     GET:
-      summary: Listprojects
+      summary: Amazon Web Services Listprojects
       description: >-
         Returns configuration details about all the projects in the current
         Region in your account.
       operationId: amazonWebServicesListProjects
   /segments:
     GET:
-      summary: Listsegments
+      summary: Amazon Web Services Listsegments
       description: >-
         Returns a list of audience segments that you have created in your
         account in this Region.
       operationId: amazonWebServicesListSegments
   /projects/{project}/experiments/{experiment}:
     PATCH:
-      summary: Updateexperiment
+      summary: Amazon Web Services Updateexperiment
       description: >-
         Updates an Evidently experiment.  Don't use this operation to update an
         experiment's tag. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateExperiment
   /projects/{project}/features/{feature}:
     PATCH:
-      summary: Updatefeature
+      summary: Amazon Web Services Updatefeature
       description: >-
         Updates an existing feature. You can't use this operation to update the
         tags of an existing feature. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateFeature
   /projects/{project}/launches/{launch}:
     PATCH:
-      summary: Updatelaunch
+      summary: Amazon Web Services Updatelaunch
       description: >-
         Updates a launch of a given feature.  Don't use this operation to update
         the tags of an existing launch. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateLaunch
   /projects/{project}:
     PATCH:
-      summary: Updateproject
+      summary: Amazon Web Services Updateproject
       description: >-
         Updates the description of an existing project. To create a new project,
         use CreateProject. Don't use this operation to update the data storage
@@ -105,14 +105,14 @@ paths:
       operationId: amazonWebServicesUpdateProject
   /segments/{segment}:
     GET:
-      summary: Getsegment
+      summary: Amazon Web Services Getsegment
       description: >-
         Returns information about the specified segment. Specify the segment you
         want to view by specifying its ARN.
       operationId: amazonWebServicesGetSegment
   /projects/{project}/evaluations/{feature}:
     POST:
-      summary: Evaluatefeature
+      summary: Amazon Web Services Evaluatefeature
       description: >-
         This operation assigns a feature variation to one given user session.
         You pass in an entityID that represents the user. Evidently then checks
@@ -141,7 +141,7 @@ paths:
       operationId: amazonWebServicesEvaluateFeature
   /projects/{project}/experiments/{experiment}/results:
     POST:
-      summary: Getexperimentresults
+      summary: Amazon Web Services Getexperimentresults
       description: >-
         Retrieves the results of a running or completed experiment. No results
         are available until there have been 100 events for each variation and at
@@ -156,45 +156,45 @@ paths:
       operationId: amazonWebServicesGetExperimentResults
   /segments/{segment}/references:
     GET:
-      summary: Listsegmentreferences
+      summary: Amazon Web Services Listsegmentreferences
       description: >-
         Use this operation to find which experiments or launches are using a
         specified segment.
       operationId: amazonWebServicesListSegmentReferences
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
       operationId: amazonWebServicesUntagResource
   /events/projects/{project}:
     POST:
-      summary: Putprojectevents
+      summary: Amazon Web Services Putprojectevents
       description: >-
         Sends performance events to Evidently. These events can be used to
         evaluate a launch or an experiment.
       operationId: amazonWebServicesPutProjectEvents
   /projects/{project}/experiments/{experiment}/start:
     POST:
-      summary: Startexperiment
+      summary: Amazon Web Services Startexperiment
       description: >-
         Starts an existing experiment. To create an experiment, use
         CreateExperiment.
       operationId: amazonWebServicesStartExperiment
   /projects/{project}/launches/{launch}/start:
     POST:
-      summary: Startlaunch
+      summary: Amazon Web Services Startlaunch
       description: Starts an existing launch. To create a launch, use CreateLaunch.
       operationId: amazonWebServicesStartLaunch
   /projects/{project}/experiments/{experiment}/cancel:
     POST:
-      summary: Stopexperiment
+      summary: Amazon Web Services Stopexperiment
       description: >-
         Stops an experiment that is currently running. If you stop an
         experiment, you can't resume it or restart it.
       operationId: amazonWebServicesStopExperiment
   /projects/{project}/launches/{launch}/cancel:
     POST:
-      summary: Stoplaunch
+      summary: Amazon Web Services Stoplaunch
       description: >-
         Stops a launch that is currently running. After you stop a launch, you
         will not be able to resume it or restart it. Also, it will not be
@@ -205,7 +205,7 @@ paths:
       operationId: amazonWebServicesStopLaunch
   /test-segment-pattern:
     POST:
-      summary: Testsegmentpattern
+      summary: Amazon Web Services Testsegmentpattern
       description: >-
         Use this operation to test a rules pattern that you plan to use to
         create an audience segment. For more information about segments, see
@@ -213,7 +213,7 @@ paths:
       operationId: amazonWebServicesTestSegmentPattern
   /projects/{project}/data-delivery:
     PATCH:
-      summary: Updateprojectdatadelivery
+      summary: Amazon Web Services Updateprojectdatadelivery
       description: >-
         Updates the data storage options for this project. If you store
         evaluation events, you an keep them and analyze them on your own. If you

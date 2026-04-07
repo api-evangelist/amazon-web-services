@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: lookoutvision
+  title: Amazon Web Services lookoutvision
   description: >-
     <p>This is the Amazon Lookout for Vision API Reference. It provides
     descriptions of actions, data types, common parameters, and common
@@ -13,7 +13,7 @@ info:
 paths:
   /2020-11-20/projects/{projectName}/datasets:
     POST:
-      summary: Createdataset
+      summary: Amazon Web Services Createdataset
       description: >-
         Creates a new dataset in an Amazon Lookout for Vision project.
         CreateDataset can create a training or a test dataset from a valid
@@ -27,7 +27,7 @@ paths:
       operationId: amazonWebServicesCreateDataset
   /2020-11-20/projects/{projectName}/models:
     GET:
-      summary: Listmodels
+      summary: Amazon Web Services Listmodels
       description: >-
         Lists the versions of a model in an Amazon Lookout for Vision project.
         The ListModels operation is eventually consistent. Recent calls to
@@ -37,7 +37,7 @@ paths:
       operationId: amazonWebServicesListModels
   /2020-11-20/projects:
     GET:
-      summary: Listprojects
+      summary: Amazon Web Services Listprojects
       description: >-
         Lists the Amazon Lookout for Vision projects in your AWS account that
         are in the AWS Region in which you call ListProjects. The ListProjects
@@ -48,14 +48,14 @@ paths:
       operationId: amazonWebServicesListProjects
   /2020-11-20/projects/{projectName}/datasets/{datasetType}:
     GET:
-      summary: Describedataset
+      summary: Amazon Web Services Describedataset
       description: >-
         Describe an Amazon Lookout for Vision dataset. This operation requires
         permissions to perform the lookoutvision:DescribeDataset operation.
       operationId: amazonWebServicesDescribeDataset
   /2020-11-20/projects/{projectName}/models/{modelVersion}:
     GET:
-      summary: Describemodel
+      summary: Amazon Web Services Describemodel
       description: >-
         Describes a version of an Amazon Lookout for Vision model. This
         operation requires permissions to perform the
@@ -63,14 +63,14 @@ paths:
       operationId: amazonWebServicesDescribeModel
   /2020-11-20/projects/{projectName}:
     GET:
-      summary: Describeproject
+      summary: Amazon Web Services Describeproject
       description: >-
         Describes an Amazon Lookout for Vision project. This operation requires
         permissions to perform the lookoutvision:DescribeProject operation.
       operationId: amazonWebServicesDescribeProject
   /2020-11-20/projects/{projectName}/modelpackagingjobs/{jobName}:
     GET:
-      summary: Describemodelpackagingjob
+      summary: Amazon Web Services Describemodelpackagingjob
       description: >-
         Describes an Amazon Lookout for Vision model packaging job.  This
         operation requires permissions to perform the
@@ -80,14 +80,13 @@ paths:
       operationId: amazonWebServicesDescribeModelPackagingJob
   /2020-11-20/projects/{projectName}/models/{modelVersion}/detect:
     POST:
-      summary: Detectanomalies
+      summary: Amazon Web Services Detectanomalies
       description: >-
         Detects anomalies in an image that you supply.  The response from
         DetectAnomalies includes a boolean prediction that the image contains
         one or more anomalies and a confidence value for the prediction. If the
         model is an image segmentation model, the response also includes
-        segmentation information for each type of anomaly found in the image. 
-        Before calling DetectAnomalies, you must first start your model with the
+        segmentation information for each type of anomaly found in the image.  Before calling DetectAnomalies, you must first start your model with the
         StartModel operation. You are charged for the amount of time, in
         minutes, that a model runs and for the number of anomaly detection units
         that your model uses. If you are not using a model, use the StopModel
@@ -98,7 +97,7 @@ paths:
       operationId: amazonWebServicesDetectAnomalies
   /2020-11-20/projects/{projectName}/datasets/{datasetType}/entries:
     PATCH:
-      summary: Updatedatasetentries
+      summary: Amazon Web Services Updatedatasetentries
       description: >-
         Adds or updates one or more JSON Line entries in a dataset. A JSON Line
         includes information about an image used for training or testing an
@@ -116,7 +115,7 @@ paths:
       operationId: amazonWebServicesUpdateDatasetEntries
   /2020-11-20/projects/{projectName}/modelpackagingjobs:
     POST:
-      summary: Startmodelpackagingjob
+      summary: Amazon Web Services Startmodelpackagingjob
       description: >-
         Starts an Amazon Lookout for Vision model packaging job. A model
         packaging job creates an AWS IoT Greengrass component for a Lookout for
@@ -126,17 +125,14 @@ paths:
         complete if the value of Status is SUCCEEDED. To deploy the component to
         the target device, use the component name and component version with the
         AWS IoT Greengrass CreateDeployment API. This operation requires the
-        following permissions:    lookoutvision:StartModelPackagingJob    
-        s3:PutObject     s3:GetBucketLocation     kms:GenerateDataKey    
-        greengrass:CreateComponentVersion     greengrass:DescribeComponent   
-        (Optional) greengrass:TagResource. Only required if you want to tag the
+        following permissions:    lookoutvision:StartModelPackagingJob     s3:PutObject     s3:GetBucketLocation     kms:GenerateDataKey     greengrass:CreateComponentVersion     greengrass:DescribeComponent    (Optional) greengrass:TagResource. Only required if you want to tag the
         component.   For more information, see Using your Amazon Lookout for
         Vision model on an edge device in the Amazon Lookout for Vision
         Developer Guide. 
       operationId: amazonWebServicesStartModelPackagingJob
   /2020-11-20/tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         Removes one or more tags from an Amazon Lookout for Vision model. For
         more information, see Tagging a model in the Amazon Lookout for Vision
@@ -145,7 +141,7 @@ paths:
       operationId: amazonWebServicesUntagResource
   /2020-11-20/projects/{projectName}/models/{modelVersion}/start:
     POST:
-      summary: Startmodel
+      summary: Amazon Web Services Startmodel
       description: >-
         Starts the running of the version of an Amazon Lookout for Vision model.
         Starting a model takes a while to complete. To check the current state
@@ -158,7 +154,7 @@ paths:
       operationId: amazonWebServicesStartModel
   /2020-11-20/projects/{projectName}/models/{modelVersion}/stop:
     POST:
-      summary: Stopmodel
+      summary: Amazon Web Services Stopmodel
       description: >-
         Stops the hosting of a running model. The operation might take a while
         to complete. To check the current status, call DescribeModel.  After the

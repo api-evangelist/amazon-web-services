@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: codeartifact
+  title: Amazon Web Services codeartifact
   description: >-
     <p> CodeArtifact is a fully managed artifact repository compatible with
     language-native package managers and build tools such as npm, Apache Maven,
@@ -142,32 +142,32 @@ info:
 paths:
   /v1/repository/external-connection:
     DELETE:
-      summary: Disassociateexternalconnection
+      summary: Amazon Web Services Disassociateexternalconnection
       description: ' Removes an existing external connection from a repository. '
       operationId: amazonWebServicesDisassociateExternalConnection
   /v1/package/versions/copy:
     POST:
-      summary: Copypackageversions
+      summary: Amazon Web Services Copypackageversions
       description: ' Copies package versions from one repository to another repository in the same domain.    You must specify versions or versionRevisions. You cannot specify both.  '
       operationId: amazonWebServicesCopyPackageVersions
   /v1/domain:
     GET:
-      summary: Describedomain
+      summary: Amazon Web Services Describedomain
       description: ' Returns a DomainDescription object that contains information about the requested domain. '
       operationId: amazonWebServicesDescribeDomain
   /v1/repository:
     PUT:
-      summary: Updaterepository
+      summary: Amazon Web Services Updaterepository
       description: ' Update the properties of a repository. '
       operationId: amazonWebServicesUpdateRepository
   /v1/domain/permissions/policy:
     PUT:
-      summary: Putdomainpermissionspolicy
+      summary: Amazon Web Services Putdomainpermissionspolicy
       description: ' Sets a resource policy on a domain that specifies permissions to access it.   When you call PutDomainPermissionsPolicy, the resource policy on the domain is ignored when evaluting permissions. This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being able to update the resource policy. '
       operationId: amazonWebServicesPutDomainPermissionsPolicy
   /v1/package:
     POST:
-      summary: Putpackageoriginconfiguration
+      summary: Amazon Web Services Putpackageoriginconfiguration
       description: >-
         Sets the package origin configuration for a package. The package origin
         configuration determines how new versions of a package can be added to a
@@ -187,94 +187,94 @@ paths:
       operationId: amazonWebServicesPutPackageOriginConfiguration
   /v1/package/versions/delete:
     POST:
-      summary: Deletepackageversions
+      summary: Amazon Web Services Deletepackageversions
       description: ' Deletes one or more versions of a package. A deleted package version cannot be restored in your repository. If you want to remove a package version from your repository and be able to restore it later, set its status to Archived. Archived packages cannot be downloaded from a repository and don''t show up with list package APIs (for example, ListPackageVersions), but you can restore them using UpdatePackageVersionsStatus. '
       operationId: amazonWebServicesDeletePackageVersions
   /v1/repository/permissions/policies:
     DELETE:
-      summary: Deleterepositorypermissionspolicy
+      summary: Amazon Web Services Deleterepositorypermissionspolicy
       description: ' Deletes the resource policy that is set on a repository. After a resource policy is deleted, the permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.    Use DeleteRepositoryPermissionsPolicy with caution. After a policy is deleted, Amazon Web Services users, roles, and accounts lose permissions to perform the repository actions granted by the deleted policy.  '
       operationId: amazonWebServicesDeleteRepositoryPermissionsPolicy
   /v1/package/version:
     GET:
-      summary: Describepackageversion
+      summary: Amazon Web Services Describepackageversion
       description: ' Returns a PackageVersionDescription object that contains information about the requested package version. '
       operationId: amazonWebServicesDescribePackageVersion
   /v1/package/versions/dispose:
     POST:
-      summary: Disposepackageversions
+      summary: Amazon Web Services Disposepackageversions
       description: ' Deletes the assets in package versions and sets the package versions'' status to Disposed. A disposed package version cannot be restored in your repository because its assets are deleted.   To view all disposed package versions in a repository, use ListPackageVersions and set the status parameter to Disposed.   To view information about a disposed package version, use DescribePackageVersion. '
       operationId: amazonWebServicesDisposePackageVersions
   /v1/authorization-token:
     POST:
-      summary: Getauthorizationtoken
+      summary: Amazon Web Services Getauthorizationtoken
       description: ' Generates a temporary authorization token for accessing repositories in the domain. This API requires the codeartifact:GetAuthorizationToken and sts:GetServiceBearerToken permissions. For more information about authorization tokens, see CodeArtifact authentication and tokens.   CodeArtifact authorization tokens are valid for a period of 12 hours when created with the login command. You can call login periodically to refresh the token. When you create an authorization token with the GetAuthorizationToken API, you can set a custom authorization period, up to a maximum of 12 hours, with the durationSeconds parameter. The authorization period begins after login or GetAuthorizationToken is called. If login or GetAuthorizationToken is called while assuming a role, the token lifetime is independent of the maximum session duration of the role. For example, if you call sts assume-role and specify a session duration of 15 minutes, then generate a CodeArtifact authorization token, the token will be valid for the full authorization period even though this is longer than the 15-minute session duration. See Using IAM Roles for more information on controlling session duration.  '
       operationId: amazonWebServicesGetAuthorizationToken
   /v1/package/version/asset:
     GET:
-      summary: Getpackageversionasset
+      summary: Amazon Web Services Getpackageversionasset
       description: ' Returns an asset (or file) that is in a package. For example, for a Maven package version, use GetPackageVersionAsset to download a JAR file, a POM file, or any other assets in the package version. '
       operationId: amazonWebServicesGetPackageVersionAsset
   /v1/package/version/readme:
     GET:
-      summary: Getpackageversionreadme
+      summary: Amazon Web Services Getpackageversionreadme
       description: ' Gets the readme file or descriptive text for a package version.   The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText. '
       operationId: amazonWebServicesGetPackageVersionReadme
   /v1/repository/endpoint:
     GET:
-      summary: Getrepositoryendpoint
+      summary: Amazon Web Services Getrepositoryendpoint
       description: ' Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each package format:     maven     npm     nuget     pypi   '
       operationId: amazonWebServicesGetRepositoryEndpoint
   /v1/repository/permissions/policy:
     PUT:
-      summary: Putrepositorypermissionspolicy
+      summary: Amazon Web Services Putrepositorypermissionspolicy
       description: ' Sets the resource policy on a repository that specifies permissions to access it.   When you call PutRepositoryPermissionsPolicy, the resource policy on the repository is ignored when evaluting permissions. This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being able to update the resource policy. '
       operationId: amazonWebServicesPutRepositoryPermissionsPolicy
   /v1/domains:
     POST:
-      summary: Listdomains
+      summary: Amazon Web Services Listdomains
       description: ' Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes this call. Each returned DomainSummary object contains information about a domain. '
       operationId: amazonWebServicesListDomains
   /v1/package/version/assets:
     POST:
-      summary: Listpackageversionassets
+      summary: Amazon Web Services Listpackageversionassets
       description: ' Returns a list of AssetSummary objects for assets in a package version. '
       operationId: amazonWebServicesListPackageVersionAssets
   /v1/package/version/dependencies:
     POST:
-      summary: Listpackageversiondependencies
+      summary: Amazon Web Services Listpackageversiondependencies
       description: ' Returns the direct dependencies for a package version. The dependencies are returned as PackageDependency objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package format (for example, the package.json file for npm packages and the pom.xml file for Maven). Any package version dependencies that are not listed in the configuration file are not returned. '
       operationId: amazonWebServicesListPackageVersionDependencies
   /v1/package/versions:
     POST:
-      summary: Listpackageversions
+      summary: Amazon Web Services Listpackageversions
       description: ' Returns a list of PackageVersionSummary objects for package versions in a repository that match the request parameters. Package versions of all statuses will be returned by default when calling list-package-versions with no --status parameter. '
       operationId: amazonWebServicesListPackageVersions
   /v1/packages:
     POST:
-      summary: Listpackages
+      summary: Amazon Web Services Listpackages
       description: ' Returns a list of PackageSummary objects for packages in a repository that match the request parameters. '
       operationId: amazonWebServicesListPackages
   /v1/repositories:
     POST:
-      summary: Listrepositories
+      summary: Amazon Web Services Listrepositories
       description: ' Returns a list of RepositorySummary objects. Each RepositorySummary contains information about a repository in the specified Amazon Web Services account and that matches the input parameters. '
       operationId: amazonWebServicesListRepositories
   /v1/domain/repositories:
     POST:
-      summary: Listrepositoriesindomain
+      summary: Amazon Web Services Listrepositoriesindomain
       description: ' Returns a list of RepositorySummary objects. Each RepositorySummary contains information about a repository in the specified domain and that matches the input parameters. '
       operationId: amazonWebServicesListRepositoriesInDomain
   /v1/tags:
     POST:
-      summary: Listtagsforresource
+      summary: Amazon Web Services Listtagsforresource
       description: >-
         Gets information about Amazon Web Services tags for a specified Amazon
         Resource Name (ARN) in CodeArtifact.
       operationId: amazonWebServicesListTagsForResource
   /v1/package/version/publish:
     POST:
-      summary: Publishpackageversion
+      summary: Amazon Web Services Publishpackageversion
       description: >-
         Creates a new package version containing one or more assets (or files).
         The unfinished flag can be used to keep the package version in the
@@ -289,17 +289,17 @@ paths:
       operationId: amazonWebServicesPublishPackageVersion
   /v1/tag:
     POST:
-      summary: Tagresource
+      summary: Amazon Web Services Tagresource
       description: Adds or updates tags for a resource in CodeArtifact.
       operationId: amazonWebServicesTagResource
   /v1/untag:
     POST:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes tags from a resource in CodeArtifact.
       operationId: amazonWebServicesUntagResource
   /v1/package/versions/update_status:
     POST:
-      summary: Updatepackageversionsstatus
+      summary: Amazon Web Services Updatepackageversionsstatus
       description: ' Updates the status of one or more versions of a package. Using UpdatePackageVersionsStatus, you can update the status of package versions to Archived, Published, or Unlisted. To set the status of a package version to Disposed, use DisposePackageVersions. '
       operationId: amazonWebServicesUpdatePackageVersionsStatus
 tags: []

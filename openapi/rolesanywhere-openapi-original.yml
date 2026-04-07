@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: rolesanywhere
+  title: Amazon Web Services rolesanywhere
   description: >-
     <p>Identity and Access Management Roles Anywhere provides a secure way for
     your workloads such as servers, containers, and applications that run
@@ -22,22 +22,21 @@ info:
 paths:
   /profiles:
     GET:
-      summary: Listprofiles
+      summary: Amazon Web Services Listprofiles
       description: >-
         Lists all profiles in the authenticated account and Amazon Web Services
         Region.  Required permissions:  rolesanywhere:ListProfiles. 
       operationId: amazonWebServicesListProfiles
   /trustanchors:
     GET:
-      summary: Listtrustanchors
+      summary: Amazon Web Services Listtrustanchors
       description: >-
         Lists the trust anchors in the authenticated account and Amazon Web
-        Services Region.  Required permissions: 
-        rolesanywhere:ListTrustAnchors. 
+        Services Region.  Required permissions:  rolesanywhere:ListTrustAnchors. 
       operationId: amazonWebServicesListTrustAnchors
   /crl/{crlId}:
     PATCH:
-      summary: Updatecrl
+      summary: Amazon Web Services Updatecrl
       description: >-
         Updates the certificate revocation list (CRL). A CRL is a list of
         certificates that have been revoked by the issuing certificate authority
@@ -46,7 +45,7 @@ paths:
       operationId: amazonWebServicesUpdateCrl
   /profile/{profileId}:
     PATCH:
-      summary: Updateprofile
+      summary: Amazon Web Services Updateprofile
       description: >-
         Updates a profile, a list of the roles that IAM Roles Anywhere service
         is trusted to assume. You use profiles to intersect permissions with IAM
@@ -54,7 +53,7 @@ paths:
       operationId: amazonWebServicesUpdateProfile
   /trustanchor/{trustAnchorId}:
     PATCH:
-      summary: Updatetrustanchor
+      summary: Amazon Web Services Updatetrustanchor
       description: >-
         Updates a trust anchor. You establish trust between IAM Roles Anywhere
         and your certificate authority (CA) by configuring a trust anchor. You
@@ -62,58 +61,52 @@ paths:
         Authority (Private CA) or by uploading a CA certificate. Your Amazon Web
         Services workloads can authenticate with the trust anchor using
         certificates issued by the CA in exchange for temporary Amazon Web
-        Services credentials.  Required permissions: 
-        rolesanywhere:UpdateTrustAnchor. 
+        Services credentials.  Required permissions:  rolesanywhere:UpdateTrustAnchor. 
       operationId: amazonWebServicesUpdateTrustAnchor
   /crl/{crlId}/disable:
     POST:
-      summary: Disablecrl
+      summary: Amazon Web Services Disablecrl
       description: >-
-        Disables a certificate revocation list (CRL).  Required permissions: 
-        rolesanywhere:DisableCrl. 
+        Disables a certificate revocation list (CRL).  Required permissions:  rolesanywhere:DisableCrl. 
       operationId: amazonWebServicesDisableCrl
   /profile/{profileId}/disable:
     POST:
-      summary: Disableprofile
+      summary: Amazon Web Services Disableprofile
       description: >-
         Disables a profile. When disabled, temporary credential requests with
-        this profile fail.  Required permissions: 
-        rolesanywhere:DisableProfile. 
+        this profile fail.  Required permissions:  rolesanywhere:DisableProfile. 
       operationId: amazonWebServicesDisableProfile
   /trustanchor/{trustAnchorId}/disable:
     POST:
-      summary: Disabletrustanchor
+      summary: Amazon Web Services Disabletrustanchor
       description: >-
         Disables a trust anchor. When disabled, temporary credential requests
-        specifying this trust anchor are unauthorized.  Required permissions: 
-        rolesanywhere:DisableTrustAnchor. 
+        specifying this trust anchor are unauthorized.  Required permissions:  rolesanywhere:DisableTrustAnchor. 
       operationId: amazonWebServicesDisableTrustAnchor
   /crl/{crlId}/enable:
     POST:
-      summary: Enablecrl
+      summary: Amazon Web Services Enablecrl
       description: >-
         Enables a certificate revocation list (CRL). When enabled, certificates
-        stored in the CRL are unauthorized to receive session credentials. 
-        Required permissions:  rolesanywhere:EnableCrl. 
+        stored in the CRL are unauthorized to receive session credentials.  Required permissions:  rolesanywhere:EnableCrl. 
       operationId: amazonWebServicesEnableCrl
   /profile/{profileId}/enable:
     POST:
-      summary: Enableprofile
+      summary: Amazon Web Services Enableprofile
       description: >-
         Enables temporary credential requests for a profile.   Required
         permissions:  rolesanywhere:EnableProfile. 
       operationId: amazonWebServicesEnableProfile
   /trustanchor/{trustAnchorId}/enable:
     POST:
-      summary: Enabletrustanchor
+      summary: Amazon Web Services Enabletrustanchor
       description: >-
         Enables a trust anchor. When enabled, certificates in the trust anchor
-        chain are authorized for trust validation.   Required permissions: 
-        rolesanywhere:EnableTrustAnchor. 
+        chain are authorized for trust validation.   Required permissions:  rolesanywhere:EnableTrustAnchor. 
       operationId: amazonWebServicesEnableTrustAnchor
   /subject/{subjectId}:
     GET:
-      summary: Getsubject
+      summary: Amazon Web Services Getsubject
       description: >-
         Gets a subject, which associates a certificate identity with
         authentication attempts. The subject stores auditing information such as
@@ -123,29 +116,27 @@ paths:
       operationId: amazonWebServicesGetSubject
   /crls:
     GET:
-      summary: Listcrls
+      summary: Amazon Web Services Listcrls
       description: >-
         Lists all certificate revocation lists (CRL) in the authenticated
-        account and Amazon Web Services Region.  Required permissions: 
-        rolesanywhere:ListCrls. 
+        account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListCrls. 
       operationId: amazonWebServicesListCrls
   /subjects:
     GET:
-      summary: Listsubjects
+      summary: Amazon Web Services Listsubjects
       description: >-
         Lists the subjects in the authenticated account and Amazon Web Services
         Region.  Required permissions:  rolesanywhere:ListSubjects. 
       operationId: amazonWebServicesListSubjects
   /ListTagsForResource:
     GET:
-      summary: Listtagsforresource
+      summary: Amazon Web Services Listtagsforresource
       description: >-
-        Lists the tags attached to the resource.  Required permissions: 
-        rolesanywhere:ListTagsForResource. 
+        Lists the tags attached to the resource.  Required permissions:  rolesanywhere:ListTagsForResource. 
       operationId: amazonWebServicesListTagsForResource
   /put-notifications-settings:
     PATCH:
-      summary: Putnotificationsettings
+      summary: Amazon Web Services Putnotificationsettings
       description: >-
         Attaches a list of notification settings to a trust anchor. A
         notification setting includes information such as event name, threshold,
@@ -154,24 +145,21 @@ paths:
       operationId: amazonWebServicesPutNotificationSettings
   /reset-notifications-settings:
     PATCH:
-      summary: Resetnotificationsettings
+      summary: Amazon Web Services Resetnotificationsettings
       description: >-
         Resets the custom notification setting to IAM Roles Anywhere default
-        setting.   Required permissions: 
-        rolesanywhere:ResetNotificationSettings. 
+        setting.   Required permissions:  rolesanywhere:ResetNotificationSettings. 
       operationId: amazonWebServicesResetNotificationSettings
   /TagResource:
     POST:
-      summary: Tagresource
+      summary: Amazon Web Services Tagresource
       description: >-
-        Attaches tags to a resource.  Required permissions: 
-        rolesanywhere:TagResource. 
+        Attaches tags to a resource.  Required permissions:  rolesanywhere:TagResource. 
       operationId: amazonWebServicesTagResource
   /UntagResource:
     POST:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
-        Removes tags from the resource.  Required permissions: 
-        rolesanywhere:UntagResource. 
+        Removes tags from the resource.  Required permissions:  rolesanywhere:UntagResource. 
       operationId: amazonWebServicesUntagResource
 tags: []

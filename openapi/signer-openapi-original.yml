@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: signer
+  title: Amazon Web Services signer
   description: >-
     <p>AWS Signer is a fully managed code-signing service to help you ensure the
     trust and integrity of your code. </p> <p>Signer supports the following
@@ -34,19 +34,19 @@ info:
 paths:
   /signing-profiles/{profileName}/permissions:
     GET:
-      summary: Listprofilepermissions
+      summary: Amazon Web Services Listprofilepermissions
       description: Lists the cross-account permissions associated with a signing profile.
       operationId: amazonWebServicesListProfilePermissions
   /signing-profiles/{profileName}:
     PUT:
-      summary: Putsigningprofile
+      summary: Amazon Web Services Putsigningprofile
       description: >-
         Creates a signing profile. A signing profile is a code-signing template
         that can be used to carry out a pre-defined signing job. 
       operationId: amazonWebServicesPutSigningProfile
   /signing-jobs/{jobId}:
     GET:
-      summary: Describesigningjob
+      summary: Amazon Web Services Describesigningjob
       description: >-
         Returns information about a specific code signing job. You specify the
         job by using the jobId value that is returned by the StartSigningJob
@@ -54,19 +54,19 @@ paths:
       operationId: amazonWebServicesDescribeSigningJob
   /revocations:
     GET:
-      summary: Getrevocationstatus
+      summary: Amazon Web Services Getrevocationstatus
       description: >-
         Retrieves the revocation status of one or more of the signing profile,
         signing job, and signing certificate.
       operationId: amazonWebServicesGetRevocationStatus
   /signing-platforms/{platformId}:
     GET:
-      summary: Getsigningplatform
+      summary: Amazon Web Services Getsigningplatform
       description: Returns information on a specific signing platform.
       operationId: amazonWebServicesGetSigningPlatform
   /signing-jobs:
     POST:
-      summary: Startsigningjob
+      summary: Amazon Web Services Startsigningjob
       description: >-
         Initiates a signing job to be performed on the code provided. Signing
         jobs are viewable by the ListSigningJobs operation for two years after
@@ -83,7 +83,7 @@ paths:
       operationId: amazonWebServicesStartSigningJob
   /signing-platforms:
     GET:
-      summary: Listsigningplatforms
+      summary: Amazon Web Services Listsigningplatforms
       description: >-
         Lists all signing platforms available in AWS Signer that match the
         request parameters. If additional jobs remain to be listed, Signer
@@ -95,7 +95,7 @@ paths:
       operationId: amazonWebServicesListSigningPlatforms
   /signing-profiles:
     GET:
-      summary: Listsigningprofiles
+      summary: Amazon Web Services Listsigningprofiles
       description: >-
         Lists all available signing profiles in your AWS account. Returns only
         profiles with an ACTIVE status unless the includeCanceled request field
@@ -108,26 +108,26 @@ paths:
       operationId: amazonWebServicesListSigningProfiles
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         Removes one or more tags from a signing profile. To remove the tags,
         specify a list of tag keys.
       operationId: amazonWebServicesUntagResource
   /signing-profiles/{profileName}/permissions/{statementId}:
     DELETE:
-      summary: Removeprofilepermission
+      summary: Amazon Web Services Removeprofilepermission
       description: Removes cross-account permissions from a signing profile.
       operationId: amazonWebServicesRemoveProfilePermission
   /signing-jobs/{jobId}/revoke:
     PUT:
-      summary: Revokesignature
+      summary: Amazon Web Services Revokesignature
       description: >-
         Changes the state of a signing job to REVOKED. This indicates that the
         signature is no longer valid.
       operationId: amazonWebServicesRevokeSignature
   /signing-profiles/{profileName}/revoke:
     PUT:
-      summary: Revokesigningprofile
+      summary: Amazon Web Services Revokesigningprofile
       description: >-
         Changes the state of a signing profile to REVOKED. This indicates that
         signatures generated using the signing profile after an effective start
@@ -135,7 +135,7 @@ paths:
       operationId: amazonWebServicesRevokeSigningProfile
   /signing-jobs/with-payload:
     POST:
-      summary: Signpayload
+      summary: Amazon Web Services Signpayload
       description: Signs a binary payload and returns a signature envelope.
       operationId: amazonWebServicesSignPayload
 tags: []

@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: ebs
+  title: Amazon Web Services ebs
   description: >-
     <p>You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to
     create Amazon EBS snapshots, write data directly to your snapshots, read
@@ -32,7 +32,7 @@ info:
 paths:
   /snapshots/completion/{snapshotId}:
     POST:
-      summary: Completesnapshot
+      summary: Amazon Web Services Completesnapshot
       description: >-
         Seals and completes the snapshot after all of the required blocks of
         data have been written to it. Completing the snapshot changes the status
@@ -44,7 +44,7 @@ paths:
       operationId: amazonWebServicesCompleteSnapshot
   /snapshots/{snapshotId}/blocks/{blockIndex}:
     PUT:
-      summary: Putsnapshotblock
+      summary: Amazon Web Services Putsnapshotblock
       description: >-
         Writes a block of data to a snapshot. If the specified block contains
         data, the existing data is overwritten. The target snapshot must be in
@@ -56,7 +56,7 @@ paths:
       operationId: amazonWebServicesPutSnapshotBlock
   /snapshots/{secondSnapshotId}/changedblocks:
     GET:
-      summary: Listchangedblocks
+      summary: Amazon Web Services Listchangedblocks
       description: >-
         Returns information about the blocks that are different between two
         Amazon Elastic Block Store snapshots of the same volume/snapshot
@@ -67,7 +67,7 @@ paths:
       operationId: amazonWebServicesListChangedBlocks
   /snapshots/{snapshotId}/blocks:
     GET:
-      summary: Listsnapshotblocks
+      summary: Amazon Web Services Listsnapshotblocks
       description: >-
         Returns information about the blocks in an Amazon Elastic Block Store
         snapshot.  You should always retry requests that receive server (5xx)
@@ -77,11 +77,10 @@ paths:
       operationId: amazonWebServicesListSnapshotBlocks
   /snapshots:
     POST:
-      summary: Startsnapshot
+      summary: Amazon Web Services Startsnapshot
       description: >-
         Creates a new Amazon EBS snapshot. The new snapshot enters the pending
-        state after the request completes.  After creating the snapshot, use 
-        PutSnapshotBlock to write blocks of data to the snapshot.  You should
+        state after the request completes.  After creating the snapshot, use  PutSnapshotBlock to write blocks of data to the snapshot.  You should
         always retry requests that receive server (5xx) error responses, and
         ThrottlingException and RequestThrottledException client error
         responses. For more information see Error retries in the Amazon Elastic

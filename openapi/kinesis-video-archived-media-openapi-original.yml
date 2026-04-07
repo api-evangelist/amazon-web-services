@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
-  title: kinesis-video-archived-media
+  title: Amazon Web Services kinesis-video-archived-media
   description: <p/>
 paths:
   /getClip:
     POST:
-      summary: Getclip
+      summary: Amazon Web Services Getclip
       description: >-
         Downloads an MP4 file (clip) containing the archived, on-demand media
         from the specified video stream over the specified time range.  Both the
@@ -35,7 +35,7 @@ paths:
       operationId: amazonWebServicesGetClip
   /getDASHStreamingSessionURL:
     POST:
-      summary: Getdashstreamingsessionurl
+      summary: Amazon Web Services Getdashstreamingsessionurl
       description: >-
         Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for
         the stream. You can then open the URL in a media player to view the
@@ -78,8 +78,7 @@ paths:
         decoder and renderer. The media fragments contain encoded video frames
         or encoded audio samples.   The media player receives the authenticated
         URL and requests stream metadata and media data normally. When the media
-        player requests data, it calls the following actions:   
-        GetDASHManifest: Retrieves an MPEG DASH manifest, which contains the
+        player requests data, it calls the following actions:    GetDASHManifest: Retrieves an MPEG DASH manifest, which contains the
         metadata for the media that you want to playback.    GetMP4InitFragment:
         Retrieves the MP4 initialization fragment. The media player typically
         loads the initialization fragment before loading any media fragments.
@@ -90,14 +89,12 @@ paths:
         respective track, which the media player needs to decode the media
         frames.    GetMP4MediaFragment: Retrieves MP4 media fragments. These
         fragments contain the "moof" and "mdat" MP4 atoms and their child atoms,
-        containing the encoded fragment's media frames and their timestamps.  
-        After the first media fragment is made available in a streaming session,
+        containing the encoded fragment's media frames and their timestamps.   After the first media fragment is made available in a streaming session,
         any fragments that don't contain the same codec private data cause an
         error to be returned when those different media fragments are loaded.
         Therefore, the codec private data should not change between fragments in
         a session. This also means that the session fails if the fragments in a
-        stream change from having only video to having both audio and video. 
-        Data retrieved with this action is billable. See Pricing for
+        stream change from having only video to having both audio and video.  Data retrieved with this action is billable. See Pricing for
         details.      For restrictions that apply to MPEG-DASH sessions, see
         Kinesis Video Streams Limits.  You can monitor the amount of data that
         the media player consumes by monitoring the
@@ -109,12 +106,10 @@ paths:
         more information about HLS, see HTTP Live Streaming on the Apple
         Developer site.  If an error is thrown after invoking a Kinesis Video
         Streams archived media API, in addition to the HTTP status code and the
-        response body, it includes the following pieces of information:    
-        x-amz-ErrorType HTTP header – contains a more specific error type in
+        response body, it includes the following pieces of information:     x-amz-ErrorType HTTP header – contains a more specific error type in
         addition to what the HTTP status code provides.     x-amz-RequestId HTTP
         header – if you want to report an issue to Amazon Web Services the
-        support team can better diagnose the problem if given the Request Id.  
-        Both the HTTP status code and the ErrorType header can be utilized to
+        support team can better diagnose the problem if given the Request Id.   Both the HTTP status code and the ErrorType header can be utilized to
         make programmatic decisions about whether errors are retry-able and
         under what conditions, as well as provide information on what actions
         the client programmer might need to take in order to successfully try
@@ -123,7 +118,7 @@ paths:
       operationId: amazonWebServicesGetDASHStreamingSessionURL
   /getHLSStreamingSessionURL:
     POST:
-      summary: Gethlsstreamingsessionurl
+      summary: Amazon Web Services Gethlsstreamingsessionurl
       description: >-
         Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then
         open the URL in a browser or media player to view the stream contents.
@@ -209,8 +204,7 @@ paths:
         information, see Pricing.    GetTSFragment: Retrieves MPEG TS fragments
         containing both initialization and media data for all tracks in the
         stream.  If the ContainerFormat is MPEG_TS, this API is used instead of
-        GetMP4InitFragment and GetMP4MediaFragment to retrieve stream media. 
-        Data retrieved with this action is billable. For more information, see
+        GetMP4InitFragment and GetMP4MediaFragment to retrieve stream media.  Data retrieved with this action is billable. For more information, see
         Kinesis Video Streams pricing.     A streaming session URL must not be
         shared between players. The service might throttle a session if multiple
         media players are sharing it. For connection limits, see Kinesis Video
@@ -237,14 +231,14 @@ paths:
       operationId: amazonWebServicesGetHLSStreamingSessionURL
   /getImages:
     POST:
-      summary: Getimages
+      summary: Amazon Web Services Getimages
       description: >-
         Retrieves a list of images corresponding to each timestamp for a given
         time range, sampling interval, and image format configuration.
       operationId: amazonWebServicesGetImages
   /getMediaForFragmentList:
     POST:
-      summary: Getmediaforfragmentlist
+      summary: Amazon Web Services Getmediaforfragmentlist
       description: >-
         Gets media for a list of fragments (specified by fragment number) from
         the archived data in an Amazon Kinesis video stream.  You must first
@@ -253,12 +247,10 @@ paths:
         --endpoint-url parameter.   For limits, see Kinesis Video Streams
         Limits.  If an error is thrown after invoking a Kinesis Video Streams
         archived media API, in addition to the HTTP status code and the response
-        body, it includes the following pieces of information:    
-        x-amz-ErrorType HTTP header – contains a more specific error type in
+        body, it includes the following pieces of information:     x-amz-ErrorType HTTP header – contains a more specific error type in
         addition to what the HTTP status code provides.     x-amz-RequestId HTTP
         header – if you want to report an issue to Amazon Web Services, the
-        support team can better diagnose the problem if given the Request Id.  
-        Both the HTTP status code and the ErrorType header can be utilized to
+        support team can better diagnose the problem if given the Request Id.   Both the HTTP status code and the ErrorType header can be utilized to
         make programmatic decisions about whether errors are retry-able and
         under what conditions, as well as provide information on what actions
         the client programmer might need to take in order to successfully try
@@ -267,7 +259,7 @@ paths:
       operationId: amazonWebServicesGetMediaForFragmentList
   /listFragments:
     POST:
-      summary: Listfragments
+      summary: Amazon Web Services Listfragments
       description: >-
         Returns a list of Fragment objects from the specified stream and
         timestamp range within the archived data. Listing fragments is

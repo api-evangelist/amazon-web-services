@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: greengrassv2
+  title: Amazon Web Services greengrassv2
   description: >-
     <p>IoT Greengrass brings local compute, messaging, data management, sync,
     and ML inference capabilities to edge devices. This enables devices to
@@ -20,7 +20,7 @@ info:
 paths:
   /greengrass/servicerole:
     GET:
-      summary: Getserviceroleforaccount
+      summary: Amazon Web Services Getserviceroleforaccount
       description: >-
         Gets the service role associated with IoT Greengrass for your Amazon Web
         Services account in this Amazon Web Services Region. IoT Greengrass uses
@@ -30,7 +30,7 @@ paths:
       operationId: amazonWebServicesGetServiceRoleForAccount
   /greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices:
     POST:
-      summary: Batchassociateclientdevicewithcoredevice
+      summary: Amazon Web Services Batchassociateclientdevicewithcoredevice
       description: >-
         Associates a list of client devices with a core device. Use this API
         operation to specify which client devices can discover a core device
@@ -47,7 +47,7 @@ paths:
       operationId: amazonWebServicesBatchAssociateClientDeviceWithCoreDevice
   /greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices:
     POST:
-      summary: Batchdisassociateclientdevicefromcoredevice
+      summary: Amazon Web Services Batchdisassociateclientdevicefromcoredevice
       description: >-
         Disassociates a list of client devices from a core device. After you
         disassociate a client device from a core device, the client device won't
@@ -56,7 +56,7 @@ paths:
       operationId: amazonWebServicesBatchDisassociateClientDeviceFromCoreDevice
   /greengrass/v2/deployments/{deploymentId}/cancel:
     POST:
-      summary: Canceldeployment
+      summary: Amazon Web Services Canceldeployment
       description: >-
         Cancels a deployment. This operation cancels the deployment for devices
         that haven't yet received it. If a device already received the
@@ -64,7 +64,7 @@ paths:
       operationId: amazonWebServicesCancelDeployment
   /greengrass/v2/createComponentVersion:
     POST:
-      summary: Createcomponentversion
+      summary: Amazon Web Services Createcomponentversion
       description: >-
         Creates a component. Components are software that run on Greengrass core
         devices. After you develop and test a component on your core device, you
@@ -81,8 +81,7 @@ paths:
         creates a recipe and artifacts from the Lambda function's deployment
         package. You can use this operation to migrate Lambda functions from IoT
         Greengrass V1 to IoT Greengrass V2. This function only accepts Lambda
-        functions that use the following runtimes:   Python 2.7 – python2.7   
-        Python 3.7 – python3.7    Python 3.8 – python3.8    Python 3.9 –
+        functions that use the following runtimes:   Python 2.7 – python2.7    Python 3.7 – python3.7    Python 3.8 – python3.8    Python 3.9 –
         python3.9    Java 8 – java8    Java 11 – java11    Node.js 10 –
         nodejs10.x    Node.js 12 – nodejs12.x    Node.js 14 – nodejs14.x    To
         create a component from a Lambda function, specify lambdaFunction when
@@ -91,17 +90,17 @@ paths:
       operationId: amazonWebServicesCreateComponentVersion
   /greengrass/v2/deployments:
     GET:
-      summary: Listdeployments
+      summary: Amazon Web Services Listdeployments
       description: Retrieves a paginated list of deployments.
       operationId: amazonWebServicesListDeployments
   /greengrass/v2/components/{arn}:
     GET:
-      summary: Getcomponent
+      summary: Amazon Web Services Getcomponent
       description: Gets the recipe for a version of a component.
       operationId: amazonWebServicesGetComponent
   /greengrass/v2/coreDevices/{coreDeviceThingName}:
     GET:
-      summary: Getcoredevice
+      summary: Amazon Web Services Getcoredevice
       description: >-
         Retrieves metadata for a Greengrass core device.  IoT Greengrass relies
         on individual devices to send status updates to the Amazon Web Services
@@ -119,19 +118,19 @@ paths:
       operationId: amazonWebServicesGetCoreDevice
   /greengrass/v2/deployments/{deploymentId}:
     GET:
-      summary: Getdeployment
+      summary: Amazon Web Services Getdeployment
       description: >-
         Gets a deployment. Deployments define the components that run on
         Greengrass core devices.
       operationId: amazonWebServicesGetDeployment
   /greengrass/v2/components/{arn}/metadata:
     GET:
-      summary: Describecomponent
+      summary: Amazon Web Services Describecomponent
       description: Retrieves metadata for a version of a component.
       operationId: amazonWebServicesDescribeComponent
   /greengrass/v2/components/{arn}/artifacts/{artifactName+}:
     GET:
-      summary: Getcomponentversionartifact
+      summary: Amazon Web Services Getcomponentversionartifact
       description: >-
         Gets the pre-signed URL to download a public or a Lambda component
         artifact. Core devices call this operation to identify the URL that they
@@ -139,7 +138,7 @@ paths:
       operationId: amazonWebServicesGetComponentVersionArtifact
   /greengrass/things/{thingName}/connectivityInfo:
     PUT:
-      summary: Updateconnectivityinfo
+      summary: Amazon Web Services Updateconnectivityinfo
       description: >-
         Updates connectivity information for a Greengrass core device.
         Connectivity information includes endpoints and ports where client
@@ -151,28 +150,28 @@ paths:
       operationId: amazonWebServicesUpdateConnectivityInfo
   /greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices:
     GET:
-      summary: Listclientdevicesassociatedwithcoredevice
+      summary: Amazon Web Services Listclientdevicesassociatedwithcoredevice
       description: >-
         Retrieves a paginated list of client devices that are associated with a
         core device.
       operationId: amazonWebServicesListClientDevicesAssociatedWithCoreDevice
   /greengrass/v2/components/{arn}/versions:
     GET:
-      summary: Listcomponentversions
+      summary: Amazon Web Services Listcomponentversions
       description: >-
         Retrieves a paginated list of all versions for a component. Greater
         versions are listed first.
       operationId: amazonWebServicesListComponentVersions
   /greengrass/v2/components:
     GET:
-      summary: Listcomponents
+      summary: Amazon Web Services Listcomponents
       description: >-
         Retrieves a paginated list of component summaries. This list includes
         components that you have permission to view.
       operationId: amazonWebServicesListComponents
   /greengrass/v2/coreDevices:
     GET:
-      summary: Listcoredevices
+      summary: Amazon Web Services Listcoredevices
       description: >-
         Retrieves a paginated list of Greengrass core devices.  IoT Greengrass
         relies on individual devices to send status updates to the Amazon Web
@@ -190,14 +189,14 @@ paths:
       operationId: amazonWebServicesListCoreDevices
   /greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments:
     GET:
-      summary: Listeffectivedeployments
+      summary: Amazon Web Services Listeffectivedeployments
       description: >-
         Retrieves a paginated list of deployment jobs that IoT Greengrass sends
         to Greengrass core devices.
       operationId: amazonWebServicesListEffectiveDeployments
   /greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents:
     GET:
-      summary: Listinstalledcomponents
+      summary: Amazon Web Services Listinstalledcomponents
       description: >-
         Retrieves a paginated list of the components that a Greengrass core
         device runs. By default, this list doesn't include components that are
@@ -218,12 +217,12 @@ paths:
       operationId: amazonWebServicesListInstalledComponents
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes a tag from an IoT Greengrass resource.
       operationId: amazonWebServicesUntagResource
   /greengrass/v2/resolveComponentCandidates:
     POST:
-      summary: Resolvecomponentcandidates
+      summary: Amazon Web Services Resolvecomponentcandidates
       description: >-
         Retrieves a list of components that meet the component, version, and
         platform requirements of a deployment. Greengrass core devices call this

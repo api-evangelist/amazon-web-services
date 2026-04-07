@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: elasticfilesystem
+  title: Amazon Web Services elasticfilesystem
   description: >-
     <fullname>Amazon Elastic File System</fullname> <p>Amazon Elastic File
     System (Amazon EFS) provides simple, scalable file storage for use with
@@ -15,7 +15,7 @@ info:
 paths:
   /2015-02-01/access-points:
     GET:
-      summary: Describeaccesspoints
+      summary: Amazon Web Services Describeaccesspoints
       description: >-
         Returns the description of a specific Amazon EFS access point if the
         AccessPointId is provided. If you provide an EFS FileSystemId, it
@@ -26,7 +26,7 @@ paths:
       operationId: amazonWebServicesDescribeAccessPoints
   /2015-02-01/file-systems:
     GET:
-      summary: Describefilesystems
+      summary: Amazon Web Services Describefilesystems
       description: >-
         Returns the description of a specific Amazon EFS file system if either
         the file system CreationToken or the FileSystemId is provided.
@@ -51,7 +51,7 @@ paths:
       operationId: amazonWebServicesDescribeFileSystems
   /2015-02-01/mount-targets:
     GET:
-      summary: Describemounttargets
+      summary: Amazon Web Services Describemounttargets
       description: >-
         Returns the descriptions of all the current mount targets, or a specific
         mount target, for a file system. When requesting all of the current
@@ -63,7 +63,7 @@ paths:
       operationId: amazonWebServicesDescribeMountTargets
   /2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration:
     DELETE:
-      summary: Deletereplicationconfiguration
+      summary: Amazon Web Services Deletereplicationconfiguration
       description: >-
         Deletes a replication configuration. Deleting a replication
         configuration ends the replication process. After a replication
@@ -75,12 +75,12 @@ paths:
       operationId: amazonWebServicesDeleteReplicationConfiguration
   /2015-02-01/create-tags/{FileSystemId}:
     POST:
-      summary: Createtags
+      summary: Amazon Web Services Createtags
       description: ' DEPRECATED - CreateTags is deprecated and not maintained. To create tags for EFS resources, use the API action.  Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the Name tag to your file system, Amazon EFS returns it in the response to the DescribeFileSystems operation.  This operation requires permission for the elasticfilesystem:CreateTags action.'
       operationId: amazonWebServicesCreateTags
   /2015-02-01/access-points/{AccessPointId}:
     DELETE:
-      summary: Deleteaccesspoint
+      summary: Amazon Web Services Deleteaccesspoint
       description: >-
         Deletes the specified access point. After deletion is complete, new
         clients can no longer connect to the access points. Clients connected to
@@ -90,14 +90,14 @@ paths:
       operationId: amazonWebServicesDeleteAccessPoint
   /2015-02-01/file-systems/{FileSystemId}:
     PUT:
-      summary: Updatefilesystem
+      summary: Amazon Web Services Updatefilesystem
       description: >-
         Updates the throughput mode or the amount of provisioned throughput of
         an existing file system.
       operationId: amazonWebServicesUpdateFileSystem
   /2015-02-01/file-systems/{FileSystemId}/policy:
     PUT:
-      summary: Putfilesystempolicy
+      summary: Amazon Web Services Putfilesystempolicy
       description: >-
         Applies an Amazon EFS FileSystemPolicy to an Amazon EFS file system. A
         file system policy is an IAM resource-based policy and can contain
@@ -112,7 +112,7 @@ paths:
       operationId: amazonWebServicesPutFileSystemPolicy
   /2015-02-01/mount-targets/{MountTargetId}:
     DELETE:
-      summary: Deletemounttarget
+      summary: Amazon Web Services Deletemounttarget
       description: >-
         Deletes the specified mount target. This operation forcibly breaks any
         mounts of the file system by using the mount target that is being
@@ -124,8 +124,7 @@ paths:
         does not corrupt the file system itself. The file system you created
         remains. You can mount an EC2 instance in your VPC by using another
         mount target. This operation requires permissions for the following
-        action on the file system:    elasticfilesystem:DeleteMountTarget    
-        The DeleteMountTarget call returns while the mount target state is still
+        action on the file system:    elasticfilesystem:DeleteMountTarget     The DeleteMountTarget call returns while the mount target state is still
         deleting. You can check the mount target deletion by calling the
         DescribeMountTargets operation, which returns a list of mount target
         descriptions for the given file system.   The operation also requires
@@ -134,12 +133,12 @@ paths:
       operationId: amazonWebServicesDeleteMountTarget
   /2015-02-01/delete-tags/{FileSystemId}:
     POST:
-      summary: Deletetags
+      summary: Amazon Web Services Deletetags
       description: ' DEPRECATED - DeleteTags is deprecated and not maintained. To remove tags from EFS resources, use the API action.  Deletes the specified tags from a file system. If the DeleteTags request includes a tag key that doesn''t exist, Amazon EFS ignores it and doesn''t cause an error. For more information about tags and related restrictions, see Tag restrictions in the Billing and Cost Management User Guide. This operation requires permissions for the elasticfilesystem:DeleteTags action.'
       operationId: amazonWebServicesDeleteTags
   /2015-02-01/account-preferences:
     PUT:
-      summary: Putaccountpreferences
+      summary: Amazon Web Services Putaccountpreferences
       description: >-
         Use this operation to set the account preference in the current Amazon
         Web Services Region to use long 17 character (63 bit) or short 8
@@ -155,14 +154,14 @@ paths:
       operationId: amazonWebServicesPutAccountPreferences
   /2015-02-01/file-systems/{FileSystemId}/backup-policy:
     PUT:
-      summary: Putbackuppolicy
+      summary: Amazon Web Services Putbackuppolicy
       description: >-
         Updates the file system's backup policy. Use this action to start or
         stop automatic backups of the file system. 
       operationId: amazonWebServicesPutBackupPolicy
   /2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration:
     PUT:
-      summary: Putlifecycleconfiguration
+      summary: Amazon Web Services Putlifecycleconfiguration
       description: >-
         Use this action to manage storage for your file system. A
         LifecycleConfiguration consists of one or more LifecyclePolicy objects
@@ -201,7 +200,7 @@ paths:
       operationId: amazonWebServicesPutLifecycleConfiguration
   /2015-02-01/mount-targets/{MountTargetId}/security-groups:
     PUT:
-      summary: Modifymounttargetsecuritygroups
+      summary: Amazon Web Services Modifymounttargetsecuritygroups
       description: >-
         Modifies the set of security groups in effect for a mount target. When
         you create a mount target, Amazon EFS also creates a new network
@@ -217,7 +216,7 @@ paths:
       operationId: amazonWebServicesModifyMountTargetSecurityGroups
   /2015-02-01/file-systems/replication-configurations:
     GET:
-      summary: Describereplicationconfigurations
+      summary: Amazon Web Services Describereplicationconfigurations
       description: >-
         Retrieves the replication configuration for a specific file system. If a
         file system is not specified, all of the replication configurations for
@@ -226,12 +225,12 @@ paths:
       operationId: amazonWebServicesDescribeReplicationConfigurations
   /2015-02-01/tags/{FileSystemId}/:
     GET:
-      summary: Describetags
+      summary: Amazon Web Services Describetags
       description: ' DEPRECATED - The DescribeTags action is deprecated and not maintained. To view tags associated with EFS resources, use the ListTagsForResource API action.  Returns the tags associated with a file system. The order of tags returned in the response of one DescribeTags call and the order of tags returned across the responses of a multiple-call iteration (when using pagination) is unspecified.   This operation requires permissions for the elasticfilesystem:DescribeTags action. '
       operationId: amazonWebServicesDescribeTags
   /2015-02-01/resource-tags/{ResourceId}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         Removes tags from an EFS resource. You can remove tags from EFS file
         systems and access points using this API operation. This operation
@@ -239,7 +238,7 @@ paths:
       operationId: amazonWebServicesUntagResource
   /2015-02-01/file-systems/{FileSystemId}/protection:
     PUT:
-      summary: Updatefilesystemprotection
+      summary: Amazon Web Services Updatefilesystemprotection
       description: >-
         Updates protection on the file system. This operation requires
         permissions for the elasticfilesystem:UpdateFileSystemProtection

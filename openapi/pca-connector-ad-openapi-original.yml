@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: pca-connector-ad
+  title: Amazon Web Services pca-connector-ad
   description: >-
     <p>Amazon Web Services Private CA Connector for Active Directory creates a
     connector between Amazon Web Services Private CA and Active Directory (AD)
@@ -11,7 +11,7 @@ info:
 paths:
   /connectors:
     GET:
-      summary: Listconnectors
+      summary: Amazon Web Services Listconnectors
       description: >-
         Lists the connectors that you created by using the
         https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector
@@ -19,7 +19,7 @@ paths:
       operationId: amazonWebServicesListConnectors
   /directoryRegistrations:
     GET:
-      summary: Listdirectoryregistrations
+      summary: Amazon Web Services Listdirectoryregistrations
       description: >-
         Lists the directory registrations that you created by using the
         https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration
@@ -27,57 +27,57 @@ paths:
       operationId: amazonWebServicesListDirectoryRegistrations
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}:
     GET:
-      summary: Getserviceprincipalname
+      summary: Amazon Web Services Getserviceprincipalname
       description: >-
         Lists the service principal name that the connector uses to authenticate
         with Active Directory.
       operationId: amazonWebServicesGetServicePrincipalName
   /templates:
     GET:
-      summary: Listtemplates
+      summary: Amazon Web Services Listtemplates
       description: Lists the templates, if any, that are associated with a connector.
       operationId: amazonWebServicesListTemplates
   /templates/{TemplateArn}/accessControlEntries:
     GET:
-      summary: Listtemplategroupaccesscontrolentries
+      summary: Amazon Web Services Listtemplategroupaccesscontrolentries
       description: 'Lists group access control entries you created. '
       operationId: amazonWebServicesListTemplateGroupAccessControlEntries
   /connectors/{ConnectorArn}:
     GET:
-      summary: Getconnector
+      summary: Amazon Web Services Getconnector
       description: >-
         Lists information about your connector. You specify the connector on
         input by its ARN (Amazon Resource Name). 
       operationId: amazonWebServicesGetConnector
   /directoryRegistrations/{DirectoryRegistrationArn}:
     GET:
-      summary: Getdirectoryregistration
+      summary: Amazon Web Services Getdirectoryregistration
       description: A structure that contains information about your directory registration.
       operationId: amazonWebServicesGetDirectoryRegistration
   /templates/{TemplateArn}:
     PATCH:
-      summary: Updatetemplate
+      summary: Amazon Web Services Updatetemplate
       description: >-
         Update template configuration to define the information included in
         certificates.
       operationId: amazonWebServicesUpdateTemplate
   /templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}:
     PATCH:
-      summary: Updatetemplategroupaccesscontrolentry
+      summary: Amazon Web Services Updatetemplategroupaccesscontrolentry
       description: >-
         Update a group access control entry you created using
         CreateTemplateGroupAccessControlEntry. 
       operationId: amazonWebServicesUpdateTemplateGroupAccessControlEntry
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames:
     GET:
-      summary: Listserviceprincipalnames
+      summary: Amazon Web Services Listserviceprincipalnames
       description: >-
         Lists the service principal names that the connector uses to
         authenticate with Active Directory.
       operationId: amazonWebServicesListServicePrincipalNames
   /tags/{ResourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes one or more tags from your resource.
       operationId: amazonWebServicesUntagResource
 tags: []

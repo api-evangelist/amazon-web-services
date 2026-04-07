@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: grafana
+  title: Amazon Web Services grafana
   description: >-
     <p>Amazon Managed Grafana is a fully managed and secure data visualization
     service that you can use to instantly query, correlate, and visualize
@@ -15,12 +15,12 @@ info:
 paths:
   /workspaces/{workspaceId}/licenses/{licenseType}:
     DELETE:
-      summary: Disassociatelicense
+      summary: Amazon Web Services Disassociatelicense
       description: Removes the Grafana Enterprise license from a workspace.
       operationId: amazonWebServicesDisassociateLicense
   /workspaces:
     GET:
-      summary: Listworkspaces
+      summary: Amazon Web Services Listworkspaces
       description: >-
         Returns a list of Amazon Managed Grafana workspaces in the account, with
         some information about each workspace. For more complete information
@@ -28,7 +28,7 @@ paths:
       operationId: amazonWebServicesListWorkspaces
   /workspaces/{workspaceId}/apikeys:
     POST:
-      summary: Createworkspaceapikey
+      summary: Amazon Web Services Createworkspaceapikey
       description: >-
         Creates a Grafana API key for the workspace. This key can be used to
         authenticate requests sent to the workspace's HTTP API. See
@@ -37,7 +37,7 @@ paths:
       operationId: amazonWebServicesCreateWorkspaceApiKey
   /workspaces/{workspaceId}:
     PUT:
-      summary: Updateworkspace
+      summary: Amazon Web Services Updateworkspace
       description: >-
         Modifies an existing Amazon Managed Grafana workspace. If you use this
         operation and omit any optional parameters, the existing values of those
@@ -48,12 +48,12 @@ paths:
       operationId: amazonWebServicesUpdateWorkspace
   /workspaces/{workspaceId}/apikeys/{keyName}:
     DELETE:
-      summary: Deleteworkspaceapikey
+      summary: Amazon Web Services Deleteworkspaceapikey
       description: Deletes a Grafana API key for the workspace.
       operationId: amazonWebServicesDeleteWorkspaceApiKey
   /workspaces/{workspaceId}/authentication:
     POST:
-      summary: Updateworkspaceauthentication
+      summary: Amazon Web Services Updateworkspaceauthentication
       description: >-
         Use this operation to define the identity provider (IdP) that this
         workspace authenticates users from, using SAML. You can also map SAML
@@ -64,26 +64,26 @@ paths:
       operationId: amazonWebServicesUpdateWorkspaceAuthentication
   /workspaces/{workspaceId}/configuration:
     PUT:
-      summary: Updateworkspaceconfiguration
+      summary: Amazon Web Services Updateworkspaceconfiguration
       description: Updates the configuration string for the given workspace
       operationId: amazonWebServicesUpdateWorkspaceConfiguration
   /workspaces/{workspaceId}/permissions:
     PATCH:
-      summary: Updatepermissions
+      summary: Amazon Web Services Updatepermissions
       description: >-
         Updates which users in a workspace have the Grafana Admin or Editor
         roles.
       operationId: amazonWebServicesUpdatePermissions
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         The UntagResource operation removes the association of the tag with the
         Amazon Managed Grafana resource. 
       operationId: amazonWebServicesUntagResource
   /versions:
     GET:
-      summary: Listversions
+      summary: Amazon Web Services Listversions
       description: >-
         Lists available versions of Grafana. These are available when calling
         CreateWorkspace. Optionally, include a workspace to list the versions to

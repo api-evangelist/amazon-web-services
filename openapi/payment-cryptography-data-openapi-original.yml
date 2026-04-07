@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: payment-cryptography-data
+  title: Amazon Web Services payment-cryptography-data
   description: >-
     <p>You use the Amazon Web Services Payment Cryptography Data Plane to manage
     how encryption keys are used for payment-related transaction processing and
@@ -17,7 +17,7 @@ info:
 paths:
   /keys/{KeyIdentifier}/decrypt:
     POST:
-      summary: Decryptdata
+      summary: Amazon Web Services Decryptdata
       description: >-
         Decrypts ciphertext data to plaintext using symmetric, asymmetric, or
         DUKPT data encryption key. For more information, see Decrypt data in the
@@ -37,14 +37,12 @@ paths:
         For AES algorithm, the ciphertext data length must be a multiple of 32
         bytes. For information about valid keys for this operation, see
         Understanding key attributes and Key types for specific data operations
-        in the Amazon Web Services Payment Cryptography User Guide.  
-        Cross-account use: This operation can't be used across different Amazon
-        Web Services accounts.  Related operations:     EncryptData    
-        GetPublicCertificate     ImportKey   
+        in the Amazon Web Services Payment Cryptography User Guide.   Cross-account use: This operation can't be used across different Amazon
+        Web Services accounts.  Related operations:     EncryptData     GetPublicCertificate     ImportKey   
       operationId: amazonWebServicesDecryptData
   /keys/{KeyIdentifier}/encrypt:
     POST:
-      summary: Encryptdata
+      summary: Amazon Web Services Encryptdata
       description: >-
         Encrypts plaintext data to ciphertext using symmetric, asymmetric, or
         DUKPT data encryption key. For more information, see Encrypt data in the
@@ -64,12 +62,11 @@ paths:
         operation, see Understanding key attributes and Key types for specific
         data operations in the Amazon Web Services Payment Cryptography User
         Guide.  Cross-account use: This operation can't be used across different
-        Amazon Web Services accounts.  Related operations:     DecryptData    
-        GetPublicCertificate     ImportKey     ReEncryptData   
+        Amazon Web Services accounts.  Related operations:     DecryptData     GetPublicCertificate     ImportKey     ReEncryptData   
       operationId: amazonWebServicesEncryptData
   /cardvalidationdata/generate:
     POST:
-      summary: Generatecardvalidationdata
+      summary: Amazon Web Services Generatecardvalidationdata
       description: >-
         Generates card-related validation data using algorithms such as Card
         Verification Values (CVV/CVV2), Dynamic Card Verification Values
@@ -91,7 +88,7 @@ paths:
       operationId: amazonWebServicesGenerateCardValidationData
   /mac/generate:
     POST:
-      summary: Generatemac
+      summary: Amazon Web Services Generatemac
       description: >-
         Generates a Message Authentication Code (MAC) cryptogram within Amazon
         Web Services Payment Cryptography.  You can use this operation when keys
@@ -111,7 +108,7 @@ paths:
       operationId: amazonWebServicesGenerateMac
   /pindata/generate:
     POST:
-      summary: Generatepindata
+      summary: Amazon Web Services Generatepindata
       description: >-
         Generates pin-related data such as PIN, PIN Verification Value (PVV),
         PIN Block, and PIN Offset during new card issuance or reissuance. For
@@ -125,13 +122,11 @@ paths:
         information about valid keys for this operation, see Understanding key
         attributes and Key types for specific data operations in the Amazon Web
         Services Payment Cryptography User Guide.  Cross-account use: This
-        operation can't be used across different Amazon Web Services accounts. 
-        Related operations:     GenerateCardValidationData    
-        TranslatePinData     VerifyPinData   
+        operation can't be used across different Amazon Web Services accounts.  Related operations:     GenerateCardValidationData     TranslatePinData     VerifyPinData   
       operationId: amazonWebServicesGeneratePinData
   /keys/{IncomingKeyIdentifier}/reencrypt:
     POST:
-      summary: Reencryptdata
+      summary: Amazon Web Services Reencryptdata
       description: >-
         Re-encrypt ciphertext using DUKPT, Symmetric and Asymmetric Data
         Encryption Keys.  You can either generate an encryption key within
@@ -149,13 +144,11 @@ paths:
         information about valid keys for this operation, see Understanding key
         attributes and Key types for specific data operations in the Amazon Web
         Services Payment Cryptography User Guide.   Cross-account use: This
-        operation can't be used across different Amazon Web Services accounts. 
-        Related operations:     DecryptData     EncryptData    
-        GetPublicCertificate     ImportKey   
+        operation can't be used across different Amazon Web Services accounts.  Related operations:     DecryptData     EncryptData     GetPublicCertificate     ImportKey   
       operationId: amazonWebServicesReEncryptData
   /pindata/translate:
     POST:
-      summary: Translatepindata
+      summary: Amazon Web Services Translatepindata
       description: >-
         Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4. For
         more information, see Translate PIN data in the Amazon Web Services
@@ -178,14 +171,12 @@ paths:
         keys for this operation, see Understanding key attributes and Key types
         for specific data operations in the Amazon Web Services Payment
         Cryptography User Guide.  At this time, Amazon Web Services Payment
-        Cryptography does not support translations to PIN format 4.  
-        Cross-account use: This operation can't be used across different Amazon
-        Web Services accounts.  Related operations:     GeneratePinData    
-        VerifyPinData   
+        Cryptography does not support translations to PIN format 4.   Cross-account use: This operation can't be used across different Amazon
+        Web Services accounts.  Related operations:     GeneratePinData     VerifyPinData   
       operationId: amazonWebServicesTranslatePinData
   /cryptogram/verify:
     POST:
-      summary: Verifyauthrequestcryptogram
+      summary: Amazon Web Services Verifyauthrequestcryptogram
       description: >-
         Verifies Authorization Request Cryptogram (ARQC) for a EMV chip payment
         card authorization. For more information, see Verify auth request
@@ -204,12 +195,11 @@ paths:
         this operation, see Understanding key attributes and Key types for
         specific data operations in the Amazon Web Services Payment Cryptography
         User Guide.  Cross-account use: This operation can't be used across
-        different Amazon Web Services accounts.  Related operations:    
-        VerifyCardValidationData     VerifyPinData   
+        different Amazon Web Services accounts.  Related operations:     VerifyCardValidationData     VerifyPinData   
       operationId: amazonWebServicesVerifyAuthRequestCryptogram
   /cardvalidationdata/verify:
     POST:
-      summary: Verifycardvalidationdata
+      summary: Amazon Web Services Verifycardvalidationdata
       description: >-
         Verifies card-related validation data using algorithms such as Card
         Verification Values (CVV/CVV2), Dynamic Card Verification Values
@@ -227,13 +217,11 @@ paths:
         for this operation, see Understanding key attributes and Key types for
         specific data operations in the Amazon Web Services Payment Cryptography
         User Guide.   Cross-account use: This operation can't be used across
-        different Amazon Web Services accounts.  Related operations:    
-        GenerateCardValidationData     VerifyAuthRequestCryptogram    
-        VerifyPinData   
+        different Amazon Web Services accounts.  Related operations:     GenerateCardValidationData     VerifyAuthRequestCryptogram     VerifyPinData   
       operationId: amazonWebServicesVerifyCardValidationData
   /mac/verify:
     POST:
-      summary: Verifymac
+      summary: Amazon Web Services Verifymac
       description: >-
         Verifies a Message Authentication Code (MAC).  You can use this
         operation when keys won't be shared but mutual data is present on both
@@ -251,7 +239,7 @@ paths:
       operationId: amazonWebServicesVerifyMac
   /pindata/verify:
     POST:
-      summary: Verifypindata
+      summary: Amazon Web Services Verifypindata
       description: >-
         Verifies pin-related data such as PIN and PIN Offset using algorithms
         including VISA PVV and IBM3624. For more information, see Verify PIN
@@ -265,7 +253,6 @@ paths:
         this operation, see Understanding key attributes and Key types for
         specific data operations in the Amazon Web Services Payment Cryptography
         User Guide.   Cross-account use: This operation can't be used across
-        different Amazon Web Services accounts.  Related operations:    
-        GeneratePinData     TranslatePinData   
+        different Amazon Web Services accounts.  Related operations:     GeneratePinData     TranslatePinData   
       operationId: amazonWebServicesVerifyPinData
 tags: []

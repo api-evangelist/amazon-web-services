@@ -1,13 +1,13 @@
 openapi: 3.1.0
 info:
-  title: location
+  title: Amazon Web Services location
   description: >-
     <p>"Suite of geospatial services including Maps, Places, Routes, Tracking,
     and Geofencing"</p>
 paths:
   /tracking/v0/trackers/{TrackerName}/consumers:
     POST:
-      summary: Associatetrackerconsumer
+      summary: Amazon Web Services Associatetrackerconsumer
       description: >-
         Creates an association between a geofence collection and a tracker
         resource. This allows the tracker resource to communicate location data
@@ -19,28 +19,27 @@ paths:
       operationId: amazonWebServicesAssociateTrackerConsumer
   /tracking/v0/trackers/{TrackerName}/delete-positions:
     POST:
-      summary: Batchdeletedevicepositionhistory
+      summary: Amazon Web Services Batchdeletedevicepositionhistory
       description: >-
         Deletes the position history of one or more devices from a tracker
         resource.
       operationId: amazonWebServicesBatchDeleteDevicePositionHistory
   /geofencing/v0/collections/{CollectionName}/delete-geofences:
     POST:
-      summary: Batchdeletegeofence
+      summary: Amazon Web Services Batchdeletegeofence
       description: >-
         Deletes a batch of geofences from a geofence collection.  This operation
         deletes the resource permanently. 
       operationId: amazonWebServicesBatchDeleteGeofence
   /geofencing/v0/collections/{CollectionName}/positions:
     POST:
-      summary: Batchevaluategeofences
+      summary: Amazon Web Services Batchevaluategeofences
       description: >-
         Evaluates device positions against the geofence geometries from a given
         geofence collection. This operation always returns an empty response
         because geofences are asynchronously evaluated. The evaluation
         determines if the device has entered or exited a geofenced area, and
-        then publishes one of the following events to Amazon EventBridge:   
-        ENTER if Amazon Location determines that the tracked device has entered
+        then publishes one of the following events to Amazon EventBridge:    ENTER if Amazon Location determines that the tracked device has entered
         a geofenced area.    EXIT if Amazon Location determines that the tracked
         device has exited a geofenced area.    The last geofence that a device
         was observed within is tracked for 30 days after the most recent device
@@ -52,12 +51,12 @@ paths:
       operationId: amazonWebServicesBatchEvaluateGeofences
   /tracking/v0/trackers/{TrackerName}/get-positions:
     POST:
-      summary: Batchgetdeviceposition
+      summary: Amazon Web Services Batchgetdeviceposition
       description: Lists the latest device positions for requested devices.
       operationId: amazonWebServicesBatchGetDevicePosition
   /geofencing/v0/collections/{CollectionName}/put-geofences:
     POST:
-      summary: Batchputgeofence
+      summary: Amazon Web Services Batchputgeofence
       description: >-
         A batch request for storing geofence geometries into a given geofence
         collection, or updates the geometry of an existing geofence if a
@@ -65,7 +64,7 @@ paths:
       operationId: amazonWebServicesBatchPutGeofence
   /tracking/v0/trackers/{TrackerName}/positions:
     POST:
-      summary: Batchupdatedeviceposition
+      summary: Amazon Web Services Batchupdatedeviceposition
       description: >-
         Uploads position update data for one or more devices to a tracker
         resource (up to 10 devices per batch). Amazon Location uses the data
@@ -91,22 +90,22 @@ paths:
       operationId: amazonWebServicesBatchUpdateDevicePosition
   /routes/v0/calculators/{CalculatorName}/calculate/route:
     POST:
-      summary: Calculateroute
+      summary: Amazon Web Services Calculateroute
       description: ' Calculates a route given the following required parameters: DeparturePosition and DestinationPosition. Requires that you first create a route calculator resource. By default, a request that doesn''t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route. Additional options include:    Specifying a departure time using either DepartureTime or DepartNow. This calculates a route based on predictive traffic data at the given time.   You can''t specify both DepartureTime and DepartNow in a single request. Specifying both parameters returns a validation error.     Specifying a travel mode using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in CarModeOptions if traveling by Car, or TruckModeOptions if traveling by Truck.  If you specify walking for the travel mode and your data provider is Esri, the start and destination must be within 40km.   '
       operationId: amazonWebServicesCalculateRoute
   /routes/v0/calculators/{CalculatorName}/calculate/route-matrix:
     POST:
-      summary: Calculateroutematrix
+      summary: Amazon Web Services Calculateroutematrix
       description: '  Calculates a route matrix given the following required parameters: DeparturePositions and DestinationPositions. CalculateRouteMatrix calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, CalculateRouteMatrix will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of DeparturePositions times the number of DestinationPositions.  Your account is charged for each route calculated, not the number of requests.  Requires that you first create a route calculator resource. By default, a request that doesn''t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes. Additional options include:     Specifying a departure time using either DepartureTime or DepartNow. This calculates routes based on predictive traffic data at the given time.   You can''t specify both DepartureTime and DepartNow in a single request. Specifying both parameters returns a validation error.     Specifying a travel mode using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in CarModeOptions if traveling by Car, or TruckModeOptions if traveling by Truck.  '
       operationId: amazonWebServicesCalculateRouteMatrix
   /geofencing/v0/collections:
     POST:
-      summary: Creategeofencecollection
+      summary: Amazon Web Services Creategeofencecollection
       description: Creates a geofence collection, which manages and stores geofences.
       operationId: amazonWebServicesCreateGeofenceCollection
   /metadata/v0/keys:
     POST:
-      summary: Createkey
+      summary: Amazon Web Services Createkey
       description: >-
         Creates an API key resource in your Amazon Web Services account, which
         lets you grant actions for Amazon Location resources to the API key
@@ -114,7 +113,7 @@ paths:
       operationId: amazonWebServicesCreateKey
   /maps/v0/maps:
     POST:
-      summary: Createmap
+      summary: Amazon Web Services Createmap
       description: >-
         Creates a map resource in your Amazon Web Services account, which
         provides map tiles of different styles sourced from global location data
@@ -125,7 +124,7 @@ paths:
       operationId: amazonWebServicesCreateMap
   /places/v0/indexes:
     POST:
-      summary: Createplaceindex
+      summary: Amazon Web Services Createplaceindex
       description: >-
         Creates a place index resource in your Amazon Web Services account. Use
         a place index resource to geocode addresses and other text queries by
@@ -139,7 +138,7 @@ paths:
       operationId: amazonWebServicesCreatePlaceIndex
   /routes/v0/calculators:
     POST:
-      summary: Createroutecalculator
+      summary: Amazon Web Services Createroutecalculator
       description: >-
         Creates a route calculator resource in your Amazon Web Services account.
         You can send requests to a route calculator resource to estimate travel
@@ -152,44 +151,44 @@ paths:
       operationId: amazonWebServicesCreateRouteCalculator
   /tracking/v0/trackers:
     POST:
-      summary: Createtracker
+      summary: Amazon Web Services Createtracker
       description: >-
         Creates a tracker resource in your Amazon Web Services account, which
         lets you retrieve current and historical location of devices.
       operationId: amazonWebServicesCreateTracker
   /geofencing/v0/collections/{CollectionName}:
     PATCH:
-      summary: Updategeofencecollection
+      summary: Amazon Web Services Updategeofencecollection
       description: Updates the specified properties of a given geofence collection.
       operationId: amazonWebServicesUpdateGeofenceCollection
   /metadata/v0/keys/{KeyName}:
     PATCH:
-      summary: Updatekey
+      summary: Amazon Web Services Updatekey
       description: Updates the specified properties of a given API key resource.
       operationId: amazonWebServicesUpdateKey
   /maps/v0/maps/{MapName}:
     PATCH:
-      summary: Updatemap
+      summary: Amazon Web Services Updatemap
       description: Updates the specified properties of a given map resource.
       operationId: amazonWebServicesUpdateMap
   /places/v0/indexes/{IndexName}:
     PATCH:
-      summary: Updateplaceindex
+      summary: Amazon Web Services Updateplaceindex
       description: Updates the specified properties of a given place index resource.
       operationId: amazonWebServicesUpdatePlaceIndex
   /routes/v0/calculators/{CalculatorName}:
     PATCH:
-      summary: Updateroutecalculator
+      summary: Amazon Web Services Updateroutecalculator
       description: Updates the specified properties for a given route calculator resource.
       operationId: amazonWebServicesUpdateRouteCalculator
   /tracking/v0/trackers/{TrackerName}:
     PATCH:
-      summary: Updatetracker
+      summary: Amazon Web Services Updatetracker
       description: Updates the specified properties of a given tracker resource.
       operationId: amazonWebServicesUpdateTracker
   /tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}:
     DELETE:
-      summary: Disassociatetrackerconsumer
+      summary: Amazon Web Services Disassociatetrackerconsumer
       description: >-
         Removes the association between a tracker resource and a geofence
         collection.  Once you unlink a tracker resource from a geofence
@@ -198,21 +197,20 @@ paths:
       operationId: amazonWebServicesDisassociateTrackerConsumer
   /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest:
     GET:
-      summary: Getdeviceposition
+      summary: Amazon Web Services Getdeviceposition
       description: >-
-        Retrieves a device's most recent position according to its sample time. 
-        Device positions are deleted after 30 days. 
+        Retrieves a device's most recent position according to its sample time.  Device positions are deleted after 30 days. 
       operationId: amazonWebServicesGetDevicePosition
   /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions:
     POST:
-      summary: Getdevicepositionhistory
+      summary: Amazon Web Services Getdevicepositionhistory
       description: >-
         Retrieves the device position history from a tracker resource within a
         specified range of time.  Device positions are deleted after 30 days. 
       operationId: amazonWebServicesGetDevicePositionHistory
   /geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}:
     PUT:
-      summary: Putgeofence
+      summary: Amazon Web Services Putgeofence
       description: >-
         Stores a geofence geometry in a given geofence collection, or updates
         the geometry of an existing geofence if a geofence ID is included in the
@@ -220,12 +218,12 @@ paths:
       operationId: amazonWebServicesPutGeofence
   /maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}:
     GET:
-      summary: Getmapglyphs
+      summary: Amazon Web Services Getmapglyphs
       description: Retrieves glyphs used to display labels on a map.
       operationId: amazonWebServicesGetMapGlyphs
   /maps/v0/maps/{MapName}/sprites/{FileName}:
     GET:
-      summary: Getmapsprites
+      summary: Amazon Web Services Getmapsprites
       description: >-
         Retrieves the sprite sheet corresponding to a map resource. The sprite
         sheet is a PNG image paired with a JSON document describing the offsets
@@ -233,7 +231,7 @@ paths:
       operationId: amazonWebServicesGetMapSprites
   /maps/v0/maps/{MapName}/style-descriptor:
     GET:
-      summary: Getmapstyledescriptor
+      summary: Amazon Web Services Getmapstyledescriptor
       description: >-
         Retrieves the map style descriptor from a map resource.  The style
         descriptor contains speciﬁcations on how features render on a map. For
@@ -243,7 +241,7 @@ paths:
       operationId: amazonWebServicesGetMapStyleDescriptor
   /maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}:
     GET:
-      summary: Getmaptile
+      summary: Amazon Web Services Getmaptile
       description: >-
         Retrieves a vector data tile from the map resource. Map tiles are used
         by clients to render a map. they're addressed using a grid arrangement
@@ -255,7 +253,7 @@ paths:
       operationId: amazonWebServicesGetMapTile
   /places/v0/indexes/{IndexName}/places/{PlaceId}:
     GET:
-      summary: Getplace
+      summary: Amazon Web Services Getplace
       description: >-
         Finds a place by its unique ID. A PlaceId is returned by other search
         operations.  A PlaceId is valid only if all of the following are the
@@ -265,59 +263,59 @@ paths:
       operationId: amazonWebServicesGetPlace
   /tracking/v0/trackers/{TrackerName}/list-positions:
     POST:
-      summary: Listdevicepositions
+      summary: Amazon Web Services Listdevicepositions
       description: A batch request to retrieve all device positions.
       operationId: amazonWebServicesListDevicePositions
   /geofencing/v0/list-collections:
     POST:
-      summary: Listgeofencecollections
+      summary: Amazon Web Services Listgeofencecollections
       description: Lists geofence collections in your Amazon Web Services account.
       operationId: amazonWebServicesListGeofenceCollections
   /geofencing/v0/collections/{CollectionName}/list-geofences:
     POST:
-      summary: Listgeofences
+      summary: Amazon Web Services Listgeofences
       description: Lists geofences stored in a given geofence collection.
       operationId: amazonWebServicesListGeofences
   /metadata/v0/list-keys:
     POST:
-      summary: Listkeys
+      summary: Amazon Web Services Listkeys
       description: Lists API key resources in your Amazon Web Services account.
       operationId: amazonWebServicesListKeys
   /maps/v0/list-maps:
     POST:
-      summary: Listmaps
+      summary: Amazon Web Services Listmaps
       description: Lists map resources in your Amazon Web Services account.
       operationId: amazonWebServicesListMaps
   /places/v0/list-indexes:
     POST:
-      summary: Listplaceindexes
+      summary: Amazon Web Services Listplaceindexes
       description: Lists place index resources in your Amazon Web Services account.
       operationId: amazonWebServicesListPlaceIndexes
   /routes/v0/list-calculators:
     POST:
-      summary: Listroutecalculators
+      summary: Amazon Web Services Listroutecalculators
       description: Lists route calculator resources in your Amazon Web Services account.
       operationId: amazonWebServicesListRouteCalculators
   /tags/{ResourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified Amazon Location resource.
       operationId: amazonWebServicesUntagResource
   /tracking/v0/trackers/{TrackerName}/list-consumers:
     POST:
-      summary: Listtrackerconsumers
+      summary: Amazon Web Services Listtrackerconsumers
       description: >-
         Lists geofence collections currently associated to the given tracker
         resource.
       operationId: amazonWebServicesListTrackerConsumers
   /tracking/v0/list-trackers:
     POST:
-      summary: Listtrackers
+      summary: Amazon Web Services Listtrackers
       description: Lists tracker resources in your Amazon Web Services account.
       operationId: amazonWebServicesListTrackers
   /places/v0/indexes/{IndexName}/search/position:
     POST:
-      summary: Searchplaceindexforposition
+      summary: Amazon Web Services Searchplaceindexforposition
       description: >-
         Reverse geocodes a given coordinate and returns a legible address.
         Allows you to search for Places or points of interest near a given
@@ -325,7 +323,7 @@ paths:
       operationId: amazonWebServicesSearchPlaceIndexForPosition
   /places/v0/indexes/{IndexName}/search/suggestions:
     POST:
-      summary: Searchplaceindexforsuggestions
+      summary: Amazon Web Services Searchplaceindexforsuggestions
       description: >-
         Generates suggestions for addresses and points of interest based on
         partial or misspelled free-form text. This operation is also known as
@@ -339,13 +337,12 @@ paths:
       operationId: amazonWebServicesSearchPlaceIndexForSuggestions
   /places/v0/indexes/{IndexName}/search/text:
     POST:
-      summary: Searchplaceindexfortext
+      summary: Amazon Web Services Searchplaceindexfortext
       description: >-
         Geocodes free-form text, such as an address, name, city, or region to
         allow you to search for Places or points of interest.  Optional
         parameters let you narrow your search results by bounding box or
-        country, or bias your search toward a specific position on the globe. 
-        You can search for places near a given position using BiasPosition, or
+        country, or bias your search toward a specific position on the globe.  You can search for places near a given position using BiasPosition, or
         filter results within a bounding box using FilterBBox. Providing both
         parameters simultaneously returns an error.  Search results are returned
         in order of highest to lowest relevance.

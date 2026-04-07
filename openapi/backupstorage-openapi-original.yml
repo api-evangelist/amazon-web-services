@@ -1,46 +1,46 @@
 openapi: 3.1.0
 info:
-  title: backupstorage
+  title: Amazon Web Services backupstorage
   description: The frontend service for Cryo Storage.
 paths:
   /backup-jobs/{jobId}/object/{objectName}:
     PUT:
-      summary: Startobject
+      summary: Amazon Web Services Startobject
       description: Start upload containing one or many chunks.
       operationId: amazonWebServicesStartObject
   /restore-jobs/{jobId}/chunk/{chunkToken}:
     GET:
-      summary: Getchunk
+      summary: Amazon Web Services Getchunk
       description: Gets the specified object's chunk.
       operationId: amazonWebServicesGetChunk
   /restore-jobs/{jobId}/object/{objectToken}/metadata:
     GET:
-      summary: Getobjectmetadata
+      summary: Amazon Web Services Getobjectmetadata
       description: Get metadata associated with an Object.
       operationId: amazonWebServicesGetObjectMetadata
   /restore-jobs/{jobId}/chunks/{objectToken}/list:
     GET:
-      summary: Listchunks
+      summary: Amazon Web Services Listchunks
       description: List chunks in a given Object
       operationId: amazonWebServicesListChunks
   /restore-jobs/{jobId}/objects/list:
     GET:
-      summary: Listobjects
+      summary: Amazon Web Services Listobjects
       description: List all Objects in a given Backup.
       operationId: amazonWebServicesListObjects
   /backup-jobs/{jobId}/object/{uploadId}/complete:
     PUT:
-      summary: Notifyobjectcomplete
+      summary: Amazon Web Services Notifyobjectcomplete
       description: Complete upload
       operationId: amazonWebServicesNotifyObjectComplete
   /backup-jobs/{jobId}/chunk/{uploadId}/{chunkIndex}:
     PUT:
-      summary: Putchunk
+      summary: Amazon Web Services Putchunk
       description: Upload chunk.
       operationId: amazonWebServicesPutChunk
   /backup-jobs/{jobId}/object/{objectName}/put-object:
     PUT:
-      summary: Putobject
+      summary: Amazon Web Services Putobject
       description: >-
         Upload object that can store object metadata String and data blob in
         single API call using inline chunk field.

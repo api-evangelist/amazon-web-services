@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
-  title: snow-device-management
+  title: Amazon Web Services snow-device-management
   description: <p>Amazon Web Services Snow Device Management documentation.</p>
 paths:
   /task/{taskId}/cancel:
     POST:
-      summary: Canceltask
+      summary: Amazon Web Services Canceltask
       description: >-
         Sends a cancel request for a specified task. You can cancel a task only
         if it's still in a QUEUED state. Tasks that are already running can't be
@@ -14,21 +14,21 @@ paths:
       operationId: amazonWebServicesCancelTask
   /task:
     POST:
-      summary: Createtask
+      summary: Amazon Web Services Createtask
       description: >-
         Instructs one or more devices to start a task, such as unlocking or
         rebooting.
       operationId: amazonWebServicesCreateTask
   /managed-device/{managedDeviceId}/describe:
     POST:
-      summary: Describedevice
+      summary: Amazon Web Services Describedevice
       description: >-
         Checks device-specific information, such as the device type, software
         version, IP addresses, and lock status.
       operationId: amazonWebServicesDescribeDevice
   /managed-device/{managedDeviceId}/resources/ec2/describe:
     POST:
-      summary: Describedeviceec2instances
+      summary: Amazon Web Services Describedeviceec2instances
       description: >-
         Checks the current state of the Amazon EC2 instances. The output is
         similar to describeDevice, but the results are sourced from the device
@@ -37,19 +37,19 @@ paths:
       operationId: amazonWebServicesDescribeDeviceEc2Instances
   /task/{taskId}/execution/{managedDeviceId}:
     POST:
-      summary: Describeexecution
+      summary: Amazon Web Services Describeexecution
       description: >-
         Checks the status of a remote task running on one or more target
         devices.
       operationId: amazonWebServicesDescribeExecution
   /task/{taskId}:
     POST:
-      summary: Describetask
+      summary: Amazon Web Services Describetask
       description: 'Checks the metadata for a given task on a device. '
       operationId: amazonWebServicesDescribeTask
   /managed-device/{managedDeviceId}/resources:
     GET:
-      summary: Listdeviceresources
+      summary: Amazon Web Services Listdeviceresources
       description: >-
         Returns a list of the Amazon Web Services resources available for a
         device. Currently, Amazon EC2 instances are the only supported resource
@@ -57,7 +57,7 @@ paths:
       operationId: amazonWebServicesListDeviceResources
   /managed-devices:
     GET:
-      summary: Listdevices
+      summary: Amazon Web Services Listdevices
       description: >-
         Returns a list of all devices on your Amazon Web Services account that
         have Amazon Web Services Snow Device Management enabled in the Amazon
@@ -65,17 +65,17 @@ paths:
       operationId: amazonWebServicesListDevices
   /executions:
     GET:
-      summary: Listexecutions
+      summary: Amazon Web Services Listexecutions
       description: Returns the status of tasks for one or more target devices.
       operationId: amazonWebServicesListExecutions
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes a tag from a device or task.
       operationId: amazonWebServicesUntagResource
   /tasks:
     GET:
-      summary: Listtasks
+      summary: Amazon Web Services Listtasks
       description: Returns a list of tasks that can be filtered by state.
       operationId: amazonWebServicesListTasks
 tags: []

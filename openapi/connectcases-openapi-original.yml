@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: connectcases
+  title: Amazon Web Services connectcases
   description: >-
     <p>With Amazon Connect Cases, your agents can track and manage customer
     issues that require multiple interactions, follow-up tasks, and teams in
@@ -12,26 +12,26 @@ info:
 paths:
   /domains/{domainId}/fields-batch:
     POST:
-      summary: Batchgetfield
+      summary: Amazon Web Services Batchgetfield
       description: >-
         Returns the description for the list of fields in the request
         parameters. 
       operationId: amazonWebServicesBatchGetField
   /domains/{domainId}/fields/{fieldId}/options:
     PUT:
-      summary: Batchputfieldoptions
+      summary: Amazon Web Services Batchputfieldoptions
       description: >-
         Creates and updates a set of field options for a single select field in
         a Cases domain.
       operationId: amazonWebServicesBatchPutFieldOptions
   /domains/{domainId}/cases:
     POST:
-      summary: Createcase
+      summary: Amazon Web Services Createcase
       description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.&lt;/p&gt; &lt;p&gt;The following fields are required when creating a case:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You must provide the full customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;title&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; '
       operationId: amazonWebServicesCreateCase
   /domains:
     POST:
-      summary: Createdomain
+      summary: Amazon Web Services Createdomain
       description: >-
         Creates a domain, which is a container for all case data, such as cases,
         fields, templates and layouts. Each Amazon Connect instance can be
@@ -43,7 +43,7 @@ paths:
       operationId: amazonWebServicesCreateDomain
   /domains/{domainId}/fields:
     POST:
-      summary: Createfield
+      summary: Amazon Web Services Createfield
       description: >-
         Creates a field in the Cases domain. This field is used to define the
         case object model (that is, defines what data can be captured on cases)
@@ -51,7 +51,7 @@ paths:
       operationId: amazonWebServicesCreateField
   /domains/{domainId}/layouts:
     POST:
-      summary: Createlayout
+      summary: Amazon Web Services Createlayout
       description: >-
         Creates a layout in the Cases domain. Layouts define the following
         configuration in the top section and More Info tab of the Cases user
@@ -61,7 +61,7 @@ paths:
       operationId: amazonWebServicesCreateLayout
   /domains/{domainId}/cases/{caseId}/related-items/:
     POST:
-      summary: Createrelateditem
+      summary: Amazon Web Services Createrelateditem
       description: >-
         Creates a related item (comments, tasks, and contacts) and associates it
         with a case.    A Related Item is a resource that is associated with a
@@ -74,7 +74,7 @@ paths:
       operationId: amazonWebServicesCreateRelatedItem
   /domains/{domainId}/templates:
     POST:
-      summary: Createtemplate
+      summary: Amazon Web Services Createtemplate
       description: >-
         Creates a template in the Cases domain. This template is used to define
         the case object model (that is, to define what data can be captured on
@@ -86,22 +86,22 @@ paths:
       operationId: amazonWebServicesCreateTemplate
   /domains/{domainId}:
     POST:
-      summary: Getdomain
+      summary: Amazon Web Services Getdomain
       description: 'Returns information about a specific domain if it exists. '
       operationId: amazonWebServicesGetDomain
   /domains/{domainId}/cases/{caseId}:
     PUT:
-      summary: Updatecase
+      summary: Amazon Web Services Updatecase
       description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the &lt;code&gt;CreateCase&lt;/code&gt; input .&lt;/p&gt; &lt;p&gt;If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.&lt;/p&gt; '
       operationId: amazonWebServicesUpdateCase
   /domains/{domainId}/cases/{caseId}/audit-history:
     POST:
-      summary: Getcaseauditevents
+      summary: Amazon Web Services Getcaseauditevents
       description: Returns the audit history about a specific case if it exists.
       operationId: amazonWebServicesGetCaseAuditEvents
   /domains/{domainId}/case-event-configuration:
     PUT:
-      summary: Putcaseeventconfiguration
+      summary: Amazon Web Services Putcaseeventconfiguration
       description: >-
         Adds case event publishing configuration. For a complete list of fields
         you can add to the event message, see Create case fields in the Amazon
@@ -109,7 +109,7 @@ paths:
       operationId: amazonWebServicesPutCaseEventConfiguration
   /domains/{domainId}/layouts/{layoutId}:
     PUT:
-      summary: Updatelayout
+      summary: Amazon Web Services Updatelayout
       description: >-
         Updates the attributes of an existing layout. If the action is
         successful, the service sends back an HTTP 200 response with an empty
@@ -119,7 +119,7 @@ paths:
       operationId: amazonWebServicesUpdateLayout
   /domains/{domainId}/templates/{templateId}:
     PUT:
-      summary: Updatetemplate
+      summary: Amazon Web Services Updatetemplate
       description: >-
         Updates the attributes of an existing template. The template attributes
         that can be modified include name, description, layoutConfiguration,
@@ -129,48 +129,48 @@ paths:
       operationId: amazonWebServicesUpdateTemplate
   /domains/{domainId}/list-cases-for-contact:
     POST:
-      summary: Listcasesforcontact
+      summary: Amazon Web Services Listcasesforcontact
       description: Lists cases for a given contact.
       operationId: amazonWebServicesListCasesForContact
   /domains-list:
     POST:
-      summary: Listdomains
+      summary: Amazon Web Services Listdomains
       description: >-
         Lists all cases domains in the Amazon Web Services account. Each list
         item is a condensed summary object of the domain.
       operationId: amazonWebServicesListDomains
   /domains/{domainId}/fields/{fieldId}/options-list:
     POST:
-      summary: Listfieldoptions
+      summary: Amazon Web Services Listfieldoptions
       description: 'Lists all of the field options for a field identifier in the domain. '
       operationId: amazonWebServicesListFieldOptions
   /domains/{domainId}/fields-list:
     POST:
-      summary: Listfields
+      summary: Amazon Web Services Listfields
       description: Lists all fields in a Cases domain.
       operationId: amazonWebServicesListFields
   /domains/{domainId}/layouts-list:
     POST:
-      summary: Listlayouts
+      summary: Amazon Web Services Listlayouts
       description: >-
         Lists all layouts in the given cases domain. Each list item is a
         condensed summary object of the layout.
       operationId: amazonWebServicesListLayouts
   /tags/{arn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Untags a resource.
       operationId: amazonWebServicesUntagResource
   /domains/{domainId}/templates-list:
     POST:
-      summary: Listtemplates
+      summary: Amazon Web Services Listtemplates
       description: >-
         Lists all of the templates in a Cases domain. Each list item is a
         condensed summary object of the template. 
       operationId: amazonWebServicesListTemplates
   /domains/{domainId}/cases-search:
     POST:
-      summary: Searchcases
+      summary: Amazon Web Services Searchcases
       description: >-
         Searches for cases within their associated Cases domain. Search results
         are returned as a paginated list of abridged case documents.  For
@@ -180,7 +180,7 @@ paths:
       operationId: amazonWebServicesSearchCases
   /domains/{domainId}/cases/{caseId}/related-items-search:
     POST:
-      summary: Searchrelateditems
+      summary: Amazon Web Services Searchrelateditems
       description: >-
         Searches for related items that are associated with a case.  If no
         filters are provided, this returns all related items associated with a
@@ -188,7 +188,7 @@ paths:
       operationId: amazonWebServicesSearchRelatedItems
   /domains/{domainId}/fields/{fieldId}:
     PUT:
-      summary: Updatefield
+      summary: Amazon Web Services Updatefield
       description: 'Updates the properties of an existing field. '
       operationId: amazonWebServicesUpdateField
 tags: []

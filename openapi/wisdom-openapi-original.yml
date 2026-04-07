@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: wisdom
+  title: Amazon Web Services wisdom
   description: >-
     <p>Amazon Connect Wisdom delivers agents the information they need to solve
     customer issues as they're actively speaking with customers. Agents can
@@ -11,32 +11,32 @@ info:
 paths:
   /assistants:
     GET:
-      summary: Listassistants
+      summary: Amazon Web Services Listassistants
       description: Lists information about assistants.
       operationId: amazonWebServicesListAssistants
   /assistants/{assistantId}/associations:
     GET:
-      summary: Listassistantassociations
+      summary: Amazon Web Services Listassistantassociations
       description: Lists information about assistant associations.
       operationId: amazonWebServicesListAssistantAssociations
   /knowledgeBases/{knowledgeBaseId}/contents:
     GET:
-      summary: Listcontents
+      summary: Amazon Web Services Listcontents
       description: Lists the content.
       operationId: amazonWebServicesListContents
   /knowledgeBases:
     GET:
-      summary: Listknowledgebases
+      summary: Amazon Web Services Listknowledgebases
       description: Lists the knowledge bases.
       operationId: amazonWebServicesListKnowledgeBases
   /knowledgeBases/{knowledgeBaseId}/quickResponses:
     GET:
-      summary: Listquickresponses
+      summary: Amazon Web Services Listquickresponses
       description: Lists information about quick response.
       operationId: amazonWebServicesListQuickResponses
   /assistants/{assistantId}/sessions:
     POST:
-      summary: Createsession
+      summary: Amazon Web Services Createsession
       description: >-
         Creates a session. A session is a contextual container used for
         generating recommendations. Amazon Connect creates a new Wisdom session
@@ -44,42 +44,42 @@ paths:
       operationId: amazonWebServicesCreateSession
   /assistants/{assistantId}:
     GET:
-      summary: Getassistant
+      summary: Amazon Web Services Getassistant
       description: Retrieves information about an assistant.
       operationId: amazonWebServicesGetAssistant
   /assistants/{assistantId}/associations/{assistantAssociationId}:
     GET:
-      summary: Getassistantassociation
+      summary: Amazon Web Services Getassistantassociation
       description: Retrieves information about an assistant association.
       operationId: amazonWebServicesGetAssistantAssociation
   /knowledgeBases/{knowledgeBaseId}/contents/{contentId}:
     POST:
-      summary: Updatecontent
+      summary: Amazon Web Services Updatecontent
       description: Updates information about the content.
       operationId: amazonWebServicesUpdateContent
   /knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}:
     GET:
-      summary: Getimportjob
+      summary: Amazon Web Services Getimportjob
       description: Retrieves the started import job.
       operationId: amazonWebServicesGetImportJob
   /knowledgeBases/{knowledgeBaseId}:
     GET:
-      summary: Getknowledgebase
+      summary: Amazon Web Services Getknowledgebase
       description: Retrieves information about the knowledge base.
       operationId: amazonWebServicesGetKnowledgeBase
   /knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}:
     POST:
-      summary: Updatequickresponse
+      summary: Amazon Web Services Updatequickresponse
       description: Updates an existing Wisdom quick response.
       operationId: amazonWebServicesUpdateQuickResponse
   /knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary:
     GET:
-      summary: Getcontentsummary
+      summary: Amazon Web Services Getcontentsummary
       description: Retrieves summary information about the content.
       operationId: amazonWebServicesGetContentSummary
   /assistants/{assistantId}/sessions/{sessionId}/recommendations:
     GET:
-      summary: Getrecommendations
+      summary: Amazon Web Services Getrecommendations
       description: >-
         Retrieves recommendations for the specified session. To avoid retrieving
         the same recommendations in subsequent calls, use
@@ -90,12 +90,12 @@ paths:
       operationId: amazonWebServicesGetRecommendations
   /assistants/{assistantId}/sessions/{sessionId}:
     GET:
-      summary: Getsession
+      summary: Amazon Web Services Getsession
       description: Retrieves information for a specified session.
       operationId: amazonWebServicesGetSession
   /knowledgeBases/{knowledgeBaseId}/importJobs:
     POST:
-      summary: Startimportjob
+      summary: Amazon Web Services Startimportjob
       description: >-
         Start an asynchronous job to import Wisdom resources from an uploaded
         source file. Before calling this API, use StartContentUpload to upload
@@ -106,12 +106,12 @@ paths:
       operationId: amazonWebServicesStartImportJob
   /tags/{resourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
   /assistants/{assistantId}/sessions/{sessionId}/recommendations/notify:
     POST:
-      summary: Notifyrecommendationsreceived
+      summary: Amazon Web Services Notifyrecommendationsreceived
       description: >-
         Removes the specified recommendations from the specified assistant's
         queue of newly available recommendations. You can use this API in
@@ -120,14 +120,14 @@ paths:
       operationId: amazonWebServicesNotifyRecommendationsReceived
   /assistants/{assistantId}/query:
     POST:
-      summary: Queryassistant
+      summary: Amazon Web Services Queryassistant
       description: >-
         Performs a manual search against the specified assistant. To retrieve
         recommendations for an assistant, use GetRecommendations. 
       operationId: amazonWebServicesQueryAssistant
   /knowledgeBases/{knowledgeBaseId}/templateUri:
     POST:
-      summary: Updateknowledgebasetemplateuri
+      summary: Amazon Web Services Updateknowledgebasetemplateuri
       description: >-
         Updates the template URI of a knowledge base. This is only supported for
         knowledge bases of type EXTERNAL. Include a single variable in
@@ -138,24 +138,24 @@ paths:
       operationId: amazonWebServicesUpdateKnowledgeBaseTemplateUri
   /knowledgeBases/{knowledgeBaseId}/search:
     POST:
-      summary: Searchcontent
+      summary: Amazon Web Services Searchcontent
       description: >-
         Searches for content in a specified knowledge base. Can be used to get a
         specific content resource by its name.
       operationId: amazonWebServicesSearchContent
   /knowledgeBases/{knowledgeBaseId}/search/quickResponses:
     POST:
-      summary: Searchquickresponses
+      summary: Amazon Web Services Searchquickresponses
       description: Searches existing Wisdom quick responses in a Wisdom knowledge base.
       operationId: amazonWebServicesSearchQuickResponses
   /assistants/{assistantId}/searchSessions:
     POST:
-      summary: Searchsessions
+      summary: Amazon Web Services Searchsessions
       description: Searches for sessions.
       operationId: amazonWebServicesSearchSessions
   /knowledgeBases/{knowledgeBaseId}/upload:
     POST:
-      summary: Startcontentupload
+      summary: Amazon Web Services Startcontentupload
       description: >-
         Get a URL to upload content to a knowledge base. To upload content,
         first make a PUT request to the returned URL with your file, making sure

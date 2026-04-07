@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: rds-data
+  title: Amazon Web Services rds-data
   description: >-
     <p><fullname>RDS Data API</fullname> <p>Amazon RDS provides an HTTP endpoint
     to run SQL statements on an Amazon Aurora DB cluster. To run these
@@ -14,13 +14,12 @@ info:
 paths:
   /BatchExecute:
     POST:
-      summary: Batchexecutestatement
+      summary: Amazon Web Services Batchexecutestatement
       description: >-
         Runs a batch SQL statement over an array of data. You can run bulk
         update and insert operations for multiple records using a DML statement
         with different parameter sets. Bulk operations can provide a significant
-        performance improvement over individual insert and update operations. 
-        If a call isn't part of a transaction because it doesn't include the
+        performance improvement over individual insert and update operations.  If a call isn't part of a transaction because it doesn't include the
         transactionID parameter, changes that result from the call are committed
         automatically. There isn't a fixed upper limit on the number of
         parameter sets. However, the maximum size of the HTTP request submitted
@@ -34,7 +33,7 @@ paths:
       operationId: amazonWebServicesBatchExecuteStatement
   /BeginTransaction:
     POST:
-      summary: Begintransaction
+      summary: Amazon Web Services Begintransaction
       description: >-
         Starts a SQL transaction.  A transaction can run for a maximum of 24
         hours. A transaction is terminated and rolled back automatically after
@@ -46,14 +45,14 @@ paths:
       operationId: amazonWebServicesBeginTransaction
   /CommitTransaction:
     POST:
-      summary: Committransaction
+      summary: Amazon Web Services Committransaction
       description: >-
         Ends a SQL transaction started with the BeginTransaction operation and
         commits the changes.
       operationId: amazonWebServicesCommitTransaction
   /ExecuteSql:
     POST:
-      summary: Executesql
+      summary: Amazon Web Services Executesql
       description: >-
         Runs one or more SQL statements.  This operation isn't supported for
         Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for
@@ -62,7 +61,7 @@ paths:
       operationId: amazonWebServicesExecuteSql
   /Execute:
     POST:
-      summary: Executestatement
+      summary: Amazon Web Services Executestatement
       description: >-
         Runs a SQL statement against a database.  If a call isn't part of a
         transaction because it doesn't include the transactionID parameter,
@@ -72,7 +71,7 @@ paths:
       operationId: amazonWebServicesExecuteStatement
   /RollbackTransaction:
     POST:
-      summary: Rollbacktransaction
+      summary: Amazon Web Services Rollbacktransaction
       description: >-
         Performs a rollback of a transaction. Rolling back a transaction cancels
         its changes.

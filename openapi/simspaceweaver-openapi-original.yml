@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: simspaceweaver
+  title: Amazon Web Services simspaceweaver
   description: >-
     <p>SimSpace Weaver (SimSpace Weaver) is a service that you can use to build
     and run large-scale spatial simulations in the Amazon Web Services Cloud.
@@ -18,7 +18,7 @@ info:
 paths:
   /createsnapshot:
     POST:
-      summary: Createsnapshot
+      summary: Amazon Web Services Createsnapshot
       description: >-
         Creates a snapshot of the specified simulation. A snapshot is a file
         that contains simulation state data at a specific time. The state data
@@ -31,52 +31,49 @@ paths:
         ObjectKeyPrefix. The ObjectKeyPrefix is usually the name of a folder in
         the bucket. SimSpace Weaver creates a snapshot folder inside the
         Destination and places the snapshot file there. The snapshot file is an
-        Amazon S3 object. It has an object key with the form: 
-        object-key-prefix/snapshot/simulation-name-YYMMdd-HHmm-ss.zip,
-        where:      YY  is the 2-digit year     MM  is the 2-digit month     dd 
-        is the 2-digit day of the month     HH  is the 2-digit hour (24-hour
+        Amazon S3 object. It has an object key with the form:  object-key-prefix/snapshot/simulation-name-YYMMdd-HHmm-ss.zip,
+        where:      YY  is the 2-digit year     MM  is the 2-digit month     dd  is the 2-digit day of the month     HH  is the 2-digit hour (24-hour
         clock)     mm  is the 2-digit minutes     ss  is the 2-digit seconds  
       operationId: amazonWebServicesCreateSnapshot
   /deleteapp:
     DELETE:
-      summary: Deleteapp
+      summary: Amazon Web Services Deleteapp
       description: Deletes the instance of the given custom app.
       operationId: amazonWebServicesDeleteApp
   /deletesimulation:
     DELETE:
-      summary: Deletesimulation
+      summary: Amazon Web Services Deletesimulation
       description: >-
-        Deletes all SimSpace Weaver resources assigned to the given simulation. 
-        Your simulation uses resources in other Amazon Web Services. This API
+        Deletes all SimSpace Weaver resources assigned to the given simulation.  Your simulation uses resources in other Amazon Web Services. This API
         operation doesn't delete resources in other Amazon Web Services. 
       operationId: amazonWebServicesDeleteSimulation
   /describeapp:
     GET:
-      summary: Describeapp
+      summary: Amazon Web Services Describeapp
       description: Returns the state of the given custom app.
       operationId: amazonWebServicesDescribeApp
   /describesimulation:
     GET:
-      summary: Describesimulation
+      summary: Amazon Web Services Describesimulation
       description: Returns the current state of the given simulation.
       operationId: amazonWebServicesDescribeSimulation
   /listapps:
     GET:
-      summary: Listapps
+      summary: Amazon Web Services Listapps
       description: >-
         Lists all custom apps or service apps for the given simulation and
         domain.
       operationId: amazonWebServicesListApps
   /listsimulations:
     GET:
-      summary: Listsimulations
+      summary: Amazon Web Services Listsimulations
       description: >-
         Lists the SimSpace Weaver simulations in the Amazon Web Services account
         used to make the API call.
       operationId: amazonWebServicesListSimulations
   /tags/{ResourceArn}:
     DELETE:
-      summary: Untagresource
+      summary: Amazon Web Services Untagresource
       description: >-
         Removes tags from a SimSpace Weaver resource. For more information about
         tags, see Tagging Amazon Web Services resources in the Amazon Web
@@ -84,19 +81,19 @@ paths:
       operationId: amazonWebServicesUntagResource
   /startapp:
     POST:
-      summary: Startapp
+      summary: Amazon Web Services Startapp
       description: >-
         Starts a custom app with the configuration specified in the simulation
         schema.
       operationId: amazonWebServicesStartApp
   /startclock:
     POST:
-      summary: Startclock
+      summary: Amazon Web Services Startclock
       description: Starts the simulation clock.
       operationId: amazonWebServicesStartClock
   /startsimulation:
     POST:
-      summary: Startsimulation
+      summary: Amazon Web Services Startsimulation
       description: >-
         Starts a simulation with the given name. You must choose to start your
         simulation from a schema or from a snapshot. For more information about
@@ -106,19 +103,19 @@ paths:
       operationId: amazonWebServicesStartSimulation
   /stopapp:
     POST:
-      summary: Stopapp
+      summary: Amazon Web Services Stopapp
       description: >-
         Stops the given custom app and shuts down all of its allocated compute
         resources.
       operationId: amazonWebServicesStopApp
   /stopclock:
     POST:
-      summary: Stopclock
+      summary: Amazon Web Services Stopclock
       description: Stops the simulation clock.
       operationId: amazonWebServicesStopClock
   /stopsimulation:
     POST:
-      summary: Stopsimulation
+      summary: Amazon Web Services Stopsimulation
       description: >-
         Stops the given simulation.  You can't restart a simulation after you
         stop it. If you want to restart a simulation, then you must stop it,
