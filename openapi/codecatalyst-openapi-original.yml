@@ -81,6 +81,8 @@ paths:
         calls the API. You can only list PATs associated with your Amazon Web
         Services Builder ID.
       operationId: amazonWebServicesListAccessTokens
+      tags:
+        - accessTokens
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments:
     PUT:
       summary: Amazon Web Services Createdevenvironment
@@ -93,16 +95,22 @@ paths:
         None of these defaults apply to a Dev Environment created
         programmatically. 
       operationId: amazonWebServicesCreateDevEnvironment
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects:
     POST:
       summary: Amazon Web Services Listprojects
       description: Retrieves a list of projects.
       operationId: amazonWebServicesListProjects
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}:
     GET:
       summary: Amazon Web Services Getsourcerepository
       description: Returns information about a source repository.
       operationId: amazonWebServicesGetSourceRepository
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches/{name}:
     PUT:
       summary: Amazon Web Services Createsourcerepositorybranch
@@ -112,6 +120,8 @@ paths:
         hosted in Amazon CodeCatalyst. You cannot use this API to create a
         branch in a linked repository. 
       operationId: amazonWebServicesCreateSourceRepositoryBranch
+      tags:
+        - Spaces
   /v1/accessTokens/{id}:
     DELETE:
       summary: Amazon Web Services Deleteaccesstoken
@@ -119,6 +129,8 @@ paths:
         Deletes a specified personal access token (PAT). A personal access token
         can only be deleted by the user who created it.
       operationId: amazonWebServicesDeleteAccessToken
+      tags:
+        - accessTokens
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}:
     PATCH:
       summary: Amazon Web Services Updatedevenvironment
@@ -126,16 +138,22 @@ paths:
         Changes one or more values for a Dev Environment. Updating certain
         values of the Dev Environment will cause a restart.
       operationId: amazonWebServicesUpdateDevEnvironment
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{name}:
     PATCH:
       summary: Amazon Web Services Updateproject
       description: Changes one or more values for a project.
       operationId: amazonWebServicesUpdateProject
+      tags:
+        - Spaces
   /v1/spaces/{name}:
     PATCH:
       summary: Amazon Web Services Updatespace
       description: Changes one or more values for a space.
       operationId: amazonWebServicesUpdateSpace
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/cloneUrls:
     GET:
       summary: Amazon Web Services Getsourcerepositorycloneurls
@@ -143,6 +161,8 @@ paths:
         Returns information about the URLs that can be used with a Git client to
         clone a source repository.
       operationId: amazonWebServicesGetSourceRepositoryCloneUrls
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/subscription:
     GET:
       summary: Amazon Web Services Getsubscription
@@ -150,31 +170,43 @@ paths:
         Returns information about the Amazon Web Services account used for
         billing purposes and the billing plan for the space.
       operationId: amazonWebServicesGetSubscription
+      tags:
+        - Spaces
   /userDetails:
     GET:
       summary: Amazon Web Services Getuserdetails
       description: 'Returns information about a user. '
       operationId: amazonWebServicesGetUserDetails
+      tags:
+        - userDetails
   /v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}:
     GET:
       summary: Amazon Web Services Getworkflow
       description: Returns information about a workflow.
       operationId: amazonWebServicesGetWorkflow
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}:
     GET:
       summary: Amazon Web Services Getworkflowrun
       description: Returns information about a specified run of a workflow.
       operationId: amazonWebServicesGetWorkflowRun
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions:
     POST:
       summary: Amazon Web Services Listdevenvironmentsessions
       description: Retrieves a list of active sessions for a Dev Environment in a project.
       operationId: amazonWebServicesListDevEnvironmentSessions
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/devEnvironments:
     POST:
       summary: Amazon Web Services Listdevenvironments
       description: Retrieves a list of Dev Environments in a project.
       operationId: amazonWebServicesListDevEnvironments
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/eventLogs:
     POST:
       summary: Amazon Web Services Listeventlogs
@@ -190,41 +222,57 @@ paths:
         Working with CloudTrail Event History and Working with CloudTrail
         trails. 
       operationId: amazonWebServicesListEventLogs
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories:
     POST:
       summary: Amazon Web Services Listsourcerepositories
       description: Retrieves a list of source repositories in a project.
       operationId: amazonWebServicesListSourceRepositories
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches:
     POST:
       summary: Amazon Web Services Listsourcerepositorybranches
       description: Retrieves a list of branches in a specified source repository.
       operationId: amazonWebServicesListSourceRepositoryBranches
+      tags:
+        - Spaces
   /v1/spaces:
     POST:
       summary: Amazon Web Services Listspaces
       description: Retrieves a list of spaces.
       operationId: amazonWebServicesListSpaces
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/workflowRuns:
     PUT:
       summary: Amazon Web Services Startworkflowrun
       description: Begins a run of a specified workflow.
       operationId: amazonWebServicesStartWorkflowRun
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/workflows:
     POST:
       summary: Amazon Web Services Listworkflows
       description: Retrieves a list of workflows in a specified project.
       operationId: amazonWebServicesListWorkflows
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start:
     PUT:
       summary: Amazon Web Services Startdevenvironment
       description: 'Starts a specified Dev Environment and puts it into an active state. '
       operationId: amazonWebServicesStartDevEnvironment
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session:
     PUT:
       summary: Amazon Web Services Startdevenvironmentsession
       description: Starts a session for a specified Dev Environment.
       operationId: amazonWebServicesStartDevEnvironmentSession
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop:
     PUT:
       summary: Amazon Web Services Stopdevenvironment
@@ -232,11 +280,15 @@ paths:
         Pauses a specified Dev Environment and places it in a non-running state.
         Stopped Dev Environments do not consume compute minutes.
       operationId: amazonWebServicesStopDevEnvironment
+      tags:
+        - Spaces
   /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}:
     DELETE:
       summary: Amazon Web Services Stopdevenvironmentsession
       description: Stops a session for a specified Dev Environment.
       operationId: amazonWebServicesStopDevEnvironmentSession
+      tags:
+        - Spaces
   /session:
     GET:
       summary: Amazon Web Services Verifysession
@@ -245,4 +297,10 @@ paths:
         and session. If successful, this returns the ID of the user in Amazon
         CodeCatalyst.
       operationId: amazonWebServicesVerifySession
-tags: []
+      tags:
+        - Session
+tags:
+  - name: accessTokens
+  - name: Session
+  - name: Spaces
+  - name: userDetails

@@ -78,6 +78,8 @@ paths:
         operation that creates and configures a landing zone, based on the
         parameters specified in the manifest JSON file.
       operationId: amazonWebServicesCreateLandingZone
+      tags:
+        - Create Landingzone
   /delete-landingzone:
     POST:
       summary: Amazon Web Services Deletelandingzone
@@ -86,6 +88,8 @@ paths:
         operation that deletes Amazon Web Services Control Tower resources
         deployed in accounts managed by Amazon Web Services Control Tower.
       operationId: amazonWebServicesDeleteLandingZone
+      tags:
+        - Delete Landingzone
   /disable-baseline:
     POST:
       summary: Amazon Web Services Disablebaseline
@@ -95,6 +99,8 @@ paths:
         part of the baseline enablement. The resource will vary depending on the
         enabled baseline.
       operationId: amazonWebServicesDisableBaseline
+      tags:
+        - Disable Baseline
   /disable-control:
     POST:
       summary: Amazon Web Services Disablecontrol
@@ -105,6 +111,8 @@ paths:
         that you specify. For usage examples, see  the Amazon Web Services
         Control Tower User Guide .
       operationId: amazonWebServicesDisableControl
+      tags:
+        - Disable Control
   /enable-baseline:
     POST:
       summary: Amazon Web Services Enablebaseline
@@ -113,6 +121,8 @@ paths:
         operation to deploy resources specified by the Baseline to the specified
         Target.
       operationId: amazonWebServicesEnableBaseline
+      tags:
+        - Enable Baseline
   /enable-control:
     POST:
       summary: Amazon Web Services Enablecontrol
@@ -123,6 +133,8 @@ paths:
         will vary according to the control that you specify. For usage examples,
         see  the Amazon Web Services Control Tower User Guide .
       operationId: amazonWebServicesEnableControl
+      tags:
+        - Enable Control
   /get-baseline:
     POST:
       summary: Amazon Web Services Getbaseline
@@ -130,6 +142,8 @@ paths:
         Retrieve details about an existing Baseline resource by specifying its
         identifier.
       operationId: amazonWebServicesGetBaseline
+      tags:
+        - Get Baseline
   /get-baseline-operation:
     POST:
       summary: Amazon Web Services Getbaselineoperation
@@ -139,6 +153,8 @@ paths:
         UpdateEnabledBaseline, ResetEnabledBaseline. A status message is
         displayed in case of operation failure.
       operationId: amazonWebServicesGetBaselineOperation
+      tags:
+        - Get Baseline Operation
   /get-control-operation:
     POST:
       summary: Amazon Web Services Getcontroloperation
@@ -148,6 +164,8 @@ paths:
         are available for 90 days. For usage examples, see  the Amazon Web
         Services Control Tower User Guide .
       operationId: amazonWebServicesGetControlOperation
+      tags:
+        - Get Control Operation
   /get-enabled-baseline:
     POST:
       summary: Amazon Web Services Getenabledbaseline
@@ -155,6 +173,8 @@ paths:
         Retrieve details of an EnabledBaseline resource by specifying its
         identifier.
       operationId: amazonWebServicesGetEnabledBaseline
+      tags:
+        - Get Enabled Baseline
   /get-enabled-control:
     POST:
       summary: Amazon Web Services Getenabledcontrol
@@ -162,6 +182,8 @@ paths:
         Retrieves details about an enabled control. For usage examples, see  the
         Amazon Web Services Control Tower User Guide .
       operationId: amazonWebServicesGetEnabledControl
+      tags:
+        - Get Enabled Control
   /get-landingzone:
     POST:
       summary: Amazon Web Services Getlandingzone
@@ -169,6 +191,8 @@ paths:
         Returns details about the landing zone. Displays a message in case of
         error.
       operationId: amazonWebServicesGetLandingZone
+      tags:
+        - Get Landingzone
   /get-landingzone-operation:
     POST:
       summary: Amazon Web Services Getlandingzoneoperation
@@ -176,11 +200,15 @@ paths:
         Returns the status of the specified landing zone operation. Details for
         an operation are available for 60 days.
       operationId: amazonWebServicesGetLandingZoneOperation
+      tags:
+        - Get Landingzone Operation
   /list-baselines:
     POST:
       summary: Amazon Web Services Listbaselines
       description: Returns a summary list of all available baselines.
       operationId: amazonWebServicesListBaselines
+      tags:
+        - List Baselines
   /list-enabled-baselines:
     POST:
       summary: Amazon Web Services Listenabledbaselines
@@ -189,6 +217,8 @@ paths:
         can filter the list by the corresponding Baseline or Target of the
         EnabledBaseline resources.
       operationId: amazonWebServicesListEnabledBaselines
+      tags:
+        - List Enabled Baselines
   /list-enabled-controls:
     POST:
       summary: Amazon Web Services Listenabledcontrols
@@ -197,6 +227,8 @@ paths:
         specified organizational unit and the accounts it contains. For usage
         examples, see  the Amazon Web Services Control Tower User Guide .
       operationId: amazonWebServicesListEnabledControls
+      tags:
+        - List Enabled Controls
   /list-landingzones:
     POST:
       summary: Amazon Web Services Listlandingzones
@@ -205,6 +237,8 @@ paths:
         managed account. This API also creates an ARN for existing accounts that
         do not yet have a landing zone ARN.  Returns one landing zone ARN.
       operationId: amazonWebServicesListLandingZones
+      tags:
+        - List Landingzones
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -212,6 +246,8 @@ paths:
         Removes tags from a resource. For usage examples, see  the Amazon Web
         Services Control Tower User Guide .
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /reset-enabled-baseline:
     POST:
       summary: Amazon Web Services Resetenabledbaseline
@@ -220,6 +256,8 @@ paths:
         re-apply the existing Baseline after a new member account is moved to
         the target OU.
       operationId: amazonWebServicesResetEnabledBaseline
+      tags:
+        - Reset Enabled Baseline
   /reset-landingzone:
     POST:
       summary: Amazon Web Services Resetlandingzone
@@ -228,16 +266,22 @@ paths:
         that resets the landing zone to the parameters specified in its original
         configuration.
       operationId: amazonWebServicesResetLandingZone
+      tags:
+        - Reset Landingzone
   /update-enabled-baseline:
     POST:
       summary: Amazon Web Services Updateenabledbaseline
       description: Updates an EnabledBaseline resource's applied parameters or version.
       operationId: amazonWebServicesUpdateEnabledBaseline
+      tags:
+        - Update Enabled Baseline
   /update-enabled-control:
     POST:
       summary: Amazon Web Services Updateenabledcontrol
       description: ' Updates the configuration of an already enabled control. If the enabled control shows an EnablementStatus of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request. If the enabled control shows an EnablementStatus of FAILED, Amazon Web Services Control Tower will update the control to match any valid parameters that you supply. If the DriftSummary status for the control shows as DRIFTED, you cannot call this API. Instead, you can update the control by calling DisableControl and again calling EnableControl, or you can run an extending governance operation. For usage examples, see  the Amazon Web Services Control Tower User Guide  '
       operationId: amazonWebServicesUpdateEnabledControl
+      tags:
+        - Update Enabled Control
   /update-landingzone:
     POST:
       summary: Amazon Web Services Updatelandingzone
@@ -247,4 +291,29 @@ paths:
         version, or on the changed parameters specified in the updated manifest
         file. 
       operationId: amazonWebServicesUpdateLandingZone
-tags: []
+      tags:
+        - Update Landingzone
+tags:
+  - name: Create Landingzone
+  - name: Delete Landingzone
+  - name: Disable Baseline
+  - name: Disable Control
+  - name: Enable Baseline
+  - name: Enable Control
+  - name: Get Baseline
+  - name: Get Baseline Operation
+  - name: Get Control Operation
+  - name: Get Enabled Baseline
+  - name: Get Enabled Control
+  - name: Get Landingzone
+  - name: Get Landingzone Operation
+  - name: List Baselines
+  - name: List Enabled Baselines
+  - name: List Enabled Controls
+  - name: List Landingzones
+  - name: Reset Enabled Baseline
+  - name: Reset Landingzone
+  - name: Tags
+  - name: Update Enabled Baseline
+  - name: Update Enabled Control
+  - name: Update Landingzone

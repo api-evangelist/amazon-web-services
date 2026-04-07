@@ -13,66 +13,92 @@ paths:
       summary: Amazon Web Services Createworkflow
       description: Create a workflow to orchestrate your migrations.
       operationId: amazonWebServicesCreateWorkflow
+      tags:
+        - Migrationworkflow
   /workflowstep:
     POST:
       summary: Amazon Web Services Createworkflowstep
       description: Create a step in the migration workflow.
       operationId: amazonWebServicesCreateWorkflowStep
+      tags:
+        - Workflowstep
   /workflowstepgroups:
     GET:
       summary: Amazon Web Services Listworkflowstepgroups
       description: List the step groups in a migration workflow.
       operationId: amazonWebServicesListWorkflowStepGroups
+      tags:
+        - Workflowstepgroups
   /migrationworkflow/{id}:
     POST:
       summary: Amazon Web Services Updateworkflow
       description: Update a migration workflow.
       operationId: amazonWebServicesUpdateWorkflow
+      tags:
+        - Migrationworkflow
   /workflowstep/{id}:
     POST:
       summary: Amazon Web Services Updateworkflowstep
       description: Update a step in a migration workflow.
       operationId: amazonWebServicesUpdateWorkflowStep
+      tags:
+        - Workflowstep
   /workflowstepgroup/{id}:
     POST:
       summary: Amazon Web Services Updateworkflowstepgroup
       description: Update the step group in a migration workflow.
       operationId: amazonWebServicesUpdateWorkflowStepGroup
+      tags:
+        - Workflowstepgroup
   /migrationworkflowtemplate/{id}:
     GET:
       summary: Amazon Web Services Gettemplate
       description: Get the template you want to use for creating a migration workflow.
       operationId: amazonWebServicesGetTemplate
+      tags:
+        - Migrationworkflowtemplate
   /templatestep/{id}:
     GET:
       summary: Amazon Web Services Gettemplatestep
       description: Get a specific step in a template.
       operationId: amazonWebServicesGetTemplateStep
+      tags:
+        - Templatestep
   /templates/{templateId}/stepgroups/{id}:
     GET:
       summary: Amazon Web Services Gettemplatestepgroup
       description: Get a step group in a template.
       operationId: amazonWebServicesGetTemplateStepGroup
+      tags:
+        - Templates
   /plugins:
     GET:
       summary: Amazon Web Services Listplugins
       description: List AWS Migration Hub Orchestrator plugins.
       operationId: amazonWebServicesListPlugins
+      tags:
+        - Plugins
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes the tags for a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /templatestepgroups/{templateId}:
     GET:
       summary: Amazon Web Services Listtemplatestepgroups
       description: List the step groups in a template.
       operationId: amazonWebServicesListTemplateStepGroups
+      tags:
+        - Templatestepgroups
   /templatesteps:
     GET:
       summary: Amazon Web Services Listtemplatesteps
       description: List the steps in a template.
       operationId: amazonWebServicesListTemplateSteps
+      tags:
+        - Templatesteps
   /migrationworkflowtemplates:
     GET:
       summary: Amazon Web Services Listtemplates
@@ -80,29 +106,56 @@ paths:
         List the templates available in Migration Hub Orchestrator to create a
         migration workflow.
       operationId: amazonWebServicesListTemplates
+      tags:
+        - Migrationworkflowtemplates
   /workflow/{workflowId}/workflowstepgroups/{stepGroupId}/workflowsteps:
     GET:
       summary: Amazon Web Services Listworkflowsteps
       description: List the steps in a workflow.
       operationId: amazonWebServicesListWorkflowSteps
+      tags:
+        - Workflow
   /migrationworkflows:
     GET:
       summary: Amazon Web Services Listworkflows
       description: List the migration workflows.
       operationId: amazonWebServicesListWorkflows
+      tags:
+        - Migrationworkflows
   /retryworkflowstep/{id}:
     POST:
       summary: Amazon Web Services Retryworkflowstep
       description: Retry a failed step in a migration workflow.
       operationId: amazonWebServicesRetryWorkflowStep
+      tags:
+        - Retryworkflowstep
   /migrationworkflow/{id}/start:
     POST:
       summary: Amazon Web Services Startworkflow
       description: Start a migration workflow.
       operationId: amazonWebServicesStartWorkflow
+      tags:
+        - Migrationworkflow
   /migrationworkflow/{id}/stop:
     POST:
       summary: Amazon Web Services Stopworkflow
       description: Stop an ongoing migration workflow.
       operationId: amazonWebServicesStopWorkflow
-tags: []
+      tags:
+        - Migrationworkflow
+tags:
+  - name: Migrationworkflow
+  - name: Migrationworkflows
+  - name: Migrationworkflowtemplate
+  - name: Migrationworkflowtemplates
+  - name: Plugins
+  - name: Retryworkflowstep
+  - name: Tags
+  - name: Templates
+  - name: Templatestep
+  - name: Templatestepgroups
+  - name: Templatesteps
+  - name: Workflow
+  - name: Workflowstep
+  - name: Workflowstepgroup
+  - name: Workflowstepgroups

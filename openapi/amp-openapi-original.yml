@@ -28,6 +28,8 @@ paths:
         workspace does not already have an alert manager definition, don't use
         this operation to create it. Instead, use CreateAlertManagerDefinition.
       operationId: amazonWebServicesPutAlertManagerDefinition
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/logging:
     PUT:
       summary: Amazon Web Services Updateloggingconfiguration
@@ -35,11 +37,15 @@ paths:
         Updates the log group ARN or the workspace ID of the current logging
         configuration.
       operationId: amazonWebServicesUpdateLoggingConfiguration
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/rulegroupsnamespaces:
     GET:
       summary: Amazon Web Services Listrulegroupsnamespaces
       description: Returns a list of rule groups namespaces in a workspace.
       operationId: amazonWebServicesListRuleGroupsNamespaces
+      tags:
+        - Workspaces
   /scrapers:
     GET:
       summary: Amazon Web Services Listscrapers
@@ -48,6 +54,8 @@ paths:
         This includes scrapers being created or deleted. You can optionally
         filter the returned list.
       operationId: amazonWebServicesListScrapers
+      tags:
+        - Scrapers
   /workspaces:
     GET:
       summary: Amazon Web Services Listworkspaces
@@ -55,6 +63,8 @@ paths:
         Lists all of the Amazon Managed Service for Prometheus workspaces in
         your account. This includes workspaces being created or deleted. 
       operationId: amazonWebServicesListWorkspaces
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/rulegroupsnamespaces/{name}:
     PUT:
       summary: Amazon Web Services Putrulegroupsnamespace
@@ -67,6 +77,8 @@ paths:
         to add tags to an existing rule groups namespace. Instead, use
         TagResource.
       operationId: amazonWebServicesPutRuleGroupsNamespace
+      tags:
+        - Workspaces
   /scrapers/{scraperId}:
     GET:
       summary: Amazon Web Services Describescraper
@@ -74,11 +86,15 @@ paths:
         The DescribeScraper operation displays information about an existing
         scraper.
       operationId: amazonWebServicesDescribeScraper
+      tags:
+        - Scrapers
   /workspaces/{workspaceId}:
     GET:
       summary: Amazon Web Services Describeworkspace
       description: 'Returns information about an existing workspace. '
       operationId: amazonWebServicesDescribeWorkspace
+      tags:
+        - Workspaces
   /scraperconfiguration:
     GET:
       summary: Amazon Web Services Getdefaultscraperconfiguration
@@ -86,6 +102,8 @@ paths:
         The GetDefaultScraperConfiguration operation returns the default scraper
         configuration used when Amazon EKS creates a scraper for you.
       operationId: amazonWebServicesGetDefaultScraperConfiguration
+      tags:
+        - Scraperconfiguration
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -94,9 +112,17 @@ paths:
         resource. The only resources that can be tagged are workspaces and rule
         groups namespaces. 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /workspaces/{workspaceId}/alias:
     POST:
       summary: Amazon Web Services Updateworkspacealias
       description: 'Updates the alias of an existing workspace. '
       operationId: amazonWebServicesUpdateWorkspaceAlias
-tags: []
+      tags:
+        - Workspaces
+tags:
+  - name: Scraperconfiguration
+  - name: Scrapers
+  - name: Tags
+  - name: Workspaces

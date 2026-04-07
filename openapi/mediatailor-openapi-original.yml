@@ -20,11 +20,15 @@ paths:
       summary: Amazon Web Services Configurelogsforchannel
       description: Configures Amazon CloudWatch log settings for a channel.
       operationId: amazonWebServicesConfigureLogsForChannel
+      tags:
+        - configureLogs
   /configureLogs/playbackConfiguration:
     PUT:
       summary: Amazon Web Services Configurelogsforplaybackconfiguration
       description: Amazon CloudWatch log settings for a playback configuration.
       operationId: amazonWebServicesConfigureLogsForPlaybackConfiguration
+      tags:
+        - configureLogs
   /channel/{ChannelName}:
     PUT:
       summary: Amazon Web Services Updatechannel
@@ -32,11 +36,15 @@ paths:
         Updates a channel. For information about MediaTailor channels, see
         Working with channels in the MediaTailor User Guide.
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - Channel
   /sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}:
     PUT:
       summary: Amazon Web Services Updatelivesource
       description: Updates a live source's configuration.
       operationId: amazonWebServicesUpdateLiveSource
+      tags:
+        - sourceLocation
   /prefetchSchedule/{PlaybackConfigurationName}/{Name}:
     GET:
       summary: Amazon Web Services Getprefetchschedule
@@ -46,11 +54,15 @@ paths:
         before an ad break happens. For more information about ad prefetching,
         see Using ad prefetching in the MediaTailor User Guide.
       operationId: amazonWebServicesGetPrefetchSchedule
+      tags:
+        - prefetchSchedule
   /channel/{ChannelName}/program/{ProgramName}:
     PUT:
       summary: Amazon Web Services Updateprogram
       description: Updates a program within a channel.
       operationId: amazonWebServicesUpdateProgram
+      tags:
+        - Channel
   /sourceLocation/{SourceLocationName}:
     PUT:
       summary: Amazon Web Services Updatesourcelocation
@@ -59,11 +71,15 @@ paths:
         For more information about source locations, see Working with source
         locations in the MediaTailor User Guide.
       operationId: amazonWebServicesUpdateSourceLocation
+      tags:
+        - sourceLocation
   /sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}:
     PUT:
       summary: Amazon Web Services Updatevodsource
       description: Updates a VOD source's configuration.
       operationId: amazonWebServicesUpdateVodSource
+      tags:
+        - sourceLocation
   /channel/{ChannelName}/policy:
     PUT:
       summary: Amazon Web Services Putchannelpolicy
@@ -71,6 +87,8 @@ paths:
         Creates an IAM policy for the channel. IAM policies are used to control
         access to your channel.
       operationId: amazonWebServicesPutChannelPolicy
+      tags:
+        - Channel
   /playbackConfiguration/{Name}:
     GET:
       summary: Amazon Web Services Getplaybackconfiguration
@@ -79,11 +97,15 @@ paths:
         configurations, see Working with configurations in AWS Elemental
         MediaTailor.
       operationId: amazonWebServicesGetPlaybackConfiguration
+      tags:
+        - playbackConfiguration
   /channel/{ChannelName}/schedule:
     GET:
       summary: Amazon Web Services Getchannelschedule
       description: Retrieves information about your channel's schedule.
       operationId: amazonWebServicesGetChannelSchedule
+      tags:
+        - Channel
   /alerts:
     GET:
       summary: Amazon Web Services Listalerts
@@ -91,6 +113,8 @@ paths:
         Lists the alerts that are associated with a MediaTailor channel assembly
         resource.
       operationId: amazonWebServicesListAlerts
+      tags:
+        - Alerts
   /channels:
     GET:
       summary: Amazon Web Services Listchannels
@@ -98,6 +122,8 @@ paths:
         Retrieves information about the channels that are associated with the
         current AWS account.
       operationId: amazonWebServicesListChannels
+      tags:
+        - Channels
   /sourceLocation/{SourceLocationName}/liveSources:
     GET:
       summary: Amazon Web Services Listlivesources
@@ -105,6 +131,8 @@ paths:
         Lists the live sources contained in a source location. A source
         represents a piece of content.
       operationId: amazonWebServicesListLiveSources
+      tags:
+        - sourceLocation
   /playbackConfigurations:
     GET:
       summary: Amazon Web Services Listplaybackconfigurations
@@ -113,11 +141,15 @@ paths:
         MediaTailor configurations, see Working with Configurations in AWS
         Elemental MediaTailor.
       operationId: amazonWebServicesListPlaybackConfigurations
+      tags:
+        - playbackConfigurations
   /prefetchSchedule/{PlaybackConfigurationName}:
     POST:
       summary: Amazon Web Services Listprefetchschedules
       description: Lists the prefetch schedules for a playback configuration.
       operationId: amazonWebServicesListPrefetchSchedules
+      tags:
+        - prefetchSchedule
   /sourceLocations:
     GET:
       summary: Amazon Web Services Listsourcelocations
@@ -125,11 +157,15 @@ paths:
         Lists the source locations for a channel. A source location defines the
         host server URL, and contains a list of sources.
       operationId: amazonWebServicesListSourceLocations
+      tags:
+        - sourceLocations
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: The resource to untag.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /sourceLocation/{SourceLocationName}/vodSources:
     GET:
       summary: Amazon Web Services Listvodsources
@@ -137,6 +173,8 @@ paths:
         Lists the VOD sources contained in a source location. A source
         represents a piece of content.
       operationId: amazonWebServicesListVodSources
+      tags:
+        - sourceLocation
   /playbackConfiguration:
     PUT:
       summary: Amazon Web Services Putplaybackconfiguration
@@ -145,6 +183,8 @@ paths:
         configurations, see Working with configurations in AWS Elemental
         MediaTailor.
       operationId: amazonWebServicesPutPlaybackConfiguration
+      tags:
+        - playbackConfiguration
   /channel/{ChannelName}/start:
     PUT:
       summary: Amazon Web Services Startchannel
@@ -152,6 +192,8 @@ paths:
         Starts a channel. For information about MediaTailor channels, see
         Working with channels in the MediaTailor User Guide.
       operationId: amazonWebServicesStartChannel
+      tags:
+        - Channel
   /channel/{ChannelName}/stop:
     PUT:
       summary: Amazon Web Services Stopchannel
@@ -159,4 +201,16 @@ paths:
         Stops a channel. For information about MediaTailor channels, see Working
         with channels in the MediaTailor User Guide.
       operationId: amazonWebServicesStopChannel
-tags: []
+      tags:
+        - Channel
+tags:
+  - name: Alerts
+  - name: Channel
+  - name: Channels
+  - name: configureLogs
+  - name: playbackConfiguration
+  - name: playbackConfigurations
+  - name: prefetchSchedule
+  - name: sourceLocation
+  - name: sourceLocations
+  - name: Tags

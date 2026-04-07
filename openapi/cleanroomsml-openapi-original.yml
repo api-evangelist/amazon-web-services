@@ -23,26 +23,36 @@ paths:
       summary: Amazon Web Services Listaudiencemodels
       description: Returns a list of audience models.
       operationId: amazonWebServicesListAudienceModels
+      tags:
+        - Audience Model
   /configured-audience-model:
     GET:
       summary: Amazon Web Services Listconfiguredaudiencemodels
       description: Returns a list of the configured audience models.
       operationId: amazonWebServicesListConfiguredAudienceModels
+      tags:
+        - Configured Audience Model
   /training-dataset:
     GET:
       summary: Amazon Web Services Listtrainingdatasets
       description: Returns a list of training datasets.
       operationId: amazonWebServicesListTrainingDatasets
+      tags:
+        - Training Dataset
   /audience-generation-job/{audienceGenerationJobArn}:
     GET:
       summary: Amazon Web Services Getaudiencegenerationjob
       description: Returns information about an audience generation job.
       operationId: amazonWebServicesGetAudienceGenerationJob
+      tags:
+        - Audience Generation Job
   /audience-model/{audienceModelArn}:
     GET:
       summary: Amazon Web Services Getaudiencemodel
       description: Returns information about an audience model
       operationId: amazonWebServicesGetAudienceModel
+      tags:
+        - Audience Model
   /configured-audience-model/{configuredAudienceModelArn}:
     PATCH:
       summary: Amazon Web Services Updateconfiguredaudiencemodel
@@ -51,16 +61,22 @@ paths:
         model. Updates that impact audience generation jobs take effect when a
         new job starts, but do not impact currently running jobs.
       operationId: amazonWebServicesUpdateConfiguredAudienceModel
+      tags:
+        - Configured Audience Model
   /configured-audience-model/{configuredAudienceModelArn}/policy:
     PUT:
       summary: Amazon Web Services Putconfiguredaudiencemodelpolicy
       description: Create or update the resource policy for a configured audience model.
       operationId: amazonWebServicesPutConfiguredAudienceModelPolicy
+      tags:
+        - Configured Audience Model
   /training-dataset/{trainingDatasetArn}:
     GET:
       summary: Amazon Web Services Gettrainingdataset
       description: Returns information about a training dataset.
       operationId: amazonWebServicesGetTrainingDataset
+      tags:
+        - Training Dataset
   /audience-export-job:
     POST:
       summary: Amazon Web Services Startaudienceexportjob
@@ -68,14 +84,26 @@ paths:
         Export an audience of a specified size after you have generated an
         audience.
       operationId: amazonWebServicesStartAudienceExportJob
+      tags:
+        - Audience Export Job
   /audience-generation-job:
     POST:
       summary: Amazon Web Services Startaudiencegenerationjob
       description: Information necessary to start the audience generation job.
       operationId: amazonWebServicesStartAudienceGenerationJob
+      tags:
+        - Audience Generation Job
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes metadata tags from a specified resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Audience Export Job
+  - name: Audience Generation Job
+  - name: Audience Model
+  - name: Configured Audience Model
+  - name: Tags
+  - name: Training Dataset

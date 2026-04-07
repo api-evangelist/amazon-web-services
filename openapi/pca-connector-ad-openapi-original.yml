@@ -17,6 +17,8 @@ paths:
         https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector
         action.
       operationId: amazonWebServicesListConnectors
+      tags:
+        - Connectors
   /directoryRegistrations:
     GET:
       summary: Amazon Web Services Listdirectoryregistrations
@@ -25,6 +27,8 @@ paths:
         https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration
         action.
       operationId: amazonWebServicesListDirectoryRegistrations
+      tags:
+        - directoryRegistrations
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}:
     GET:
       summary: Amazon Web Services Getserviceprincipalname
@@ -32,16 +36,22 @@ paths:
         Lists the service principal name that the connector uses to authenticate
         with Active Directory.
       operationId: amazonWebServicesGetServicePrincipalName
+      tags:
+        - directoryRegistrations
   /templates:
     GET:
       summary: Amazon Web Services Listtemplates
       description: Lists the templates, if any, that are associated with a connector.
       operationId: amazonWebServicesListTemplates
+      tags:
+        - Templates
   /templates/{TemplateArn}/accessControlEntries:
     GET:
       summary: Amazon Web Services Listtemplategroupaccesscontrolentries
       description: 'Lists group access control entries you created. '
       operationId: amazonWebServicesListTemplateGroupAccessControlEntries
+      tags:
+        - Templates
   /connectors/{ConnectorArn}:
     GET:
       summary: Amazon Web Services Getconnector
@@ -49,11 +59,15 @@ paths:
         Lists information about your connector. You specify the connector on
         input by its ARN (Amazon Resource Name). 
       operationId: amazonWebServicesGetConnector
+      tags:
+        - Connectors
   /directoryRegistrations/{DirectoryRegistrationArn}:
     GET:
       summary: Amazon Web Services Getdirectoryregistration
       description: A structure that contains information about your directory registration.
       operationId: amazonWebServicesGetDirectoryRegistration
+      tags:
+        - directoryRegistrations
   /templates/{TemplateArn}:
     PATCH:
       summary: Amazon Web Services Updatetemplate
@@ -61,6 +75,8 @@ paths:
         Update template configuration to define the information included in
         certificates.
       operationId: amazonWebServicesUpdateTemplate
+      tags:
+        - Templates
   /templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}:
     PATCH:
       summary: Amazon Web Services Updatetemplategroupaccesscontrolentry
@@ -68,6 +84,8 @@ paths:
         Update a group access control entry you created using
         CreateTemplateGroupAccessControlEntry. 
       operationId: amazonWebServicesUpdateTemplateGroupAccessControlEntry
+      tags:
+        - Templates
   /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames:
     GET:
       summary: Amazon Web Services Listserviceprincipalnames
@@ -75,9 +93,17 @@ paths:
         Lists the service principal names that the connector uses to
         authenticate with Active Directory.
       operationId: amazonWebServicesListServicePrincipalNames
+      tags:
+        - directoryRegistrations
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from your resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Connectors
+  - name: directoryRegistrations
+  - name: Tags
+  - name: Templates

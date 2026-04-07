@@ -31,6 +31,8 @@ paths:
         the size of each parameter set. The response size limit is 1 MiB. If the
         call returns more than 1 MiB of response data, the call is terminated. 
       operationId: amazonWebServicesBatchExecuteStatement
+      tags:
+        - BatchExecute
   /BeginTransaction:
     POST:
       summary: Amazon Web Services Begintransaction
@@ -43,6 +45,8 @@ paths:
         implicit commit. We recommend that you run each DDL statement in a
         separate ExecuteStatement call with continueAfterTimeout enabled. 
       operationId: amazonWebServicesBeginTransaction
+      tags:
+        - BeginTransaction
   /CommitTransaction:
     POST:
       summary: Amazon Web Services Committransaction
@@ -50,6 +54,8 @@ paths:
         Ends a SQL transaction started with the BeginTransaction operation and
         commits the changes.
       operationId: amazonWebServicesCommitTransaction
+      tags:
+        - CommitTransaction
   /ExecuteSql:
     POST:
       summary: Amazon Web Services Executesql
@@ -59,6 +65,8 @@ paths:
         Aurora Serverless v1 DB clusters, the operation is deprecated. Use the
         BatchExecuteStatement or ExecuteStatement operation. 
       operationId: amazonWebServicesExecuteSql
+      tags:
+        - ExecuteSql
   /Execute:
     POST:
       summary: Amazon Web Services Executestatement
@@ -69,6 +77,8 @@ paths:
         binary response data from the database is more than 1 MB, the call is
         terminated. 
       operationId: amazonWebServicesExecuteStatement
+      tags:
+        - Execute
   /RollbackTransaction:
     POST:
       summary: Amazon Web Services Rollbacktransaction
@@ -76,4 +86,12 @@ paths:
         Performs a rollback of a transaction. Rolling back a transaction cancels
         its changes.
       operationId: amazonWebServicesRollbackTransaction
-tags: []
+      tags:
+        - RollbackTransaction
+tags:
+  - name: BatchExecute
+  - name: BeginTransaction
+  - name: CommitTransaction
+  - name: Execute
+  - name: ExecuteSql
+  - name: RollbackTransaction

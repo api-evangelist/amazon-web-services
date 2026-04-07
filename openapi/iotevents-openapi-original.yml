@@ -14,6 +14,8 @@ paths:
         Lists the alarm models that you created. The operation returns only the
         metadata associated with each alarm model.
       operationId: amazonWebServicesListAlarmModels
+      tags:
+        - Alarm Models
   /detector-models:
     GET:
       summary: Amazon Web Services Listdetectormodels
@@ -21,11 +23,15 @@ paths:
         Lists the detector models you have created. Only the metadata associated
         with each detector model is returned.
       operationId: amazonWebServicesListDetectorModels
+      tags:
+        - Detector Models
   /inputs:
     GET:
       summary: Amazon Web Services Listinputs
       description: Lists the inputs you have created.
       operationId: amazonWebServicesListInputs
+      tags:
+        - Inputs
   /alarm-models/{alarmModelName}:
     POST:
       summary: Amazon Web Services Updatealarmmodel
@@ -33,6 +39,8 @@ paths:
         Updates an alarm model. Any alarms that were created based on the
         previous version are deleted and then created again as new data arrives.
       operationId: amazonWebServicesUpdateAlarmModel
+      tags:
+        - Alarm Models
   /detector-models/{detectorModelName}:
     POST:
       summary: Amazon Web Services Updatedetectormodel
@@ -40,11 +48,15 @@ paths:
         Updates a detector model. Detectors (instances) spawned by the previous
         version are deleted and then re-created as new inputs arrive.
       operationId: amazonWebServicesUpdateDetectorModel
+      tags:
+        - Detector Models
   /inputs/{inputName}:
     PUT:
       summary: Amazon Web Services Updateinput
       description: Updates an input.
       operationId: amazonWebServicesUpdateInput
+      tags:
+        - Inputs
   /analysis/detector-models/{analysisId}:
     GET:
       summary: Amazon Web Services Describedetectormodelanalysis
@@ -53,6 +65,8 @@ paths:
         AWS IoT Events starts analyzing your detector model, you have up to 24
         hours to retrieve the analysis results. 
       operationId: amazonWebServicesDescribeDetectorModelAnalysis
+      tags:
+        - Analysis
   /logging:
     PUT:
       summary: Amazon Web Services Putloggingoptions
@@ -63,6 +77,8 @@ paths:
         specified in the roleArn field (for example, to correct an invalid
         policy), it takes up to five minutes for that change to take effect.
       operationId: amazonWebServicesPutLoggingOptions
+      tags:
+        - Logging
   /analysis/detector-models/{analysisId}/results:
     GET:
       summary: Amazon Web Services Getdetectormodelanalysisresults
@@ -71,6 +87,8 @@ paths:
         IoT Events starts analyzing your detector model, you have up to 24 hours
         to retrieve the analysis results. 
       operationId: amazonWebServicesGetDetectorModelAnalysisResults
+      tags:
+        - Analysis
   /alarm-models/{alarmModelName}/versions:
     GET:
       summary: Amazon Web Services Listalarmmodelversions
@@ -78,6 +96,8 @@ paths:
         Lists all the versions of an alarm model. The operation returns only the
         metadata associated with each alarm model version.
       operationId: amazonWebServicesListAlarmModelVersions
+      tags:
+        - Alarm Models
   /detector-models/{detectorModelName}/versions:
     GET:
       summary: Amazon Web Services Listdetectormodelversions
@@ -85,16 +105,22 @@ paths:
         Lists all the versions of a detector model. Only the metadata associated
         with each detector model version is returned.
       operationId: amazonWebServicesListDetectorModelVersions
+      tags:
+        - Detector Models
   /input-routings:
     POST:
       summary: Amazon Web Services Listinputroutings
       description: ' Lists one or more input routings. '
       operationId: amazonWebServicesListInputRoutings
+      tags:
+        - Input Routings
   /tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the given tags (metadata) from the resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /analysis/detector-models/:
     POST:
       summary: Amazon Web Services Startdetectormodelanalysis
@@ -102,4 +128,13 @@ paths:
         Performs an analysis of your detector model. For more information, see
         Troubleshooting a detector model in the AWS IoT Events Developer Guide.
       operationId: amazonWebServicesStartDetectorModelAnalysis
-tags: []
+      tags:
+        - Analysis
+tags:
+  - name: Alarm Models
+  - name: Analysis
+  - name: Detector Models
+  - name: Input Routings
+  - name: Inputs
+  - name: Logging
+  - name: Tags

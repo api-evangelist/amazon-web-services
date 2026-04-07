@@ -39,6 +39,8 @@ paths:
         their statuses, along with the Amazon Resource Name (ARN) and name of
         each monitor.
       operationId: amazonWebServicesListMonitors
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}:
     PATCH:
       summary: Amazon Web Services Updatemonitor
@@ -52,6 +54,8 @@ paths:
         information, see Choosing a city-network maximum value in the Amazon
         CloudWatch User Guide.
       operationId: amazonWebServicesUpdateMonitor
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}:
     GET:
       summary: Amazon Web Services Gethealthevent
@@ -65,6 +69,8 @@ paths:
         up at the global traffic level is also returned, including the impact
         type and total traffic impact.
       operationId: amazonWebServicesGetHealthEvent
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results:
     GET:
       summary: Amazon Web Services Getqueryresults
@@ -76,6 +82,8 @@ paths:
         CloudWatch Internet Monitor query interface in the Amazon CloudWatch
         Internet Monitor User Guide.
       operationId: amazonWebServicesGetQueryResults
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status:
     GET:
       summary: Amazon Web Services Getquerystatus
@@ -87,6 +95,8 @@ paths:
         run.    RUNNING: The query is in progress but not complete.    SUCCEEDED: The query completed sucessfully.    FAILED: The query failed
         due to an error.    CANCELED: The query was canceled.  
       operationId: amazonWebServicesGetQueryStatus
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}/HealthEvents:
     GET:
       summary: Amazon Web Services Listhealthevents
@@ -97,11 +107,15 @@ paths:
         the time frame that is requested are not included in the list of health
         events. 
       operationId: amazonWebServicesListHealthEvents
+      tags:
+        - Monitors
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v20210603/Monitors/{MonitorName}/Queries:
     POST:
       summary: Amazon Web Services Startquery
@@ -115,9 +129,15 @@ paths:
         Internet Monitor query interface in the Amazon CloudWatch Internet
         Monitor User Guide.
       operationId: amazonWebServicesStartQuery
+      tags:
+        - Monitors
   /v20210603/Monitors/{MonitorName}/Queries/{QueryId}:
     DELETE:
       summary: Amazon Web Services Stopquery
       description: Stop a query that is progress for a specific monitor.
       operationId: amazonWebServicesStopQuery
-tags: []
+      tags:
+        - Monitors
+tags:
+  - name: Monitors
+  - name: Tags

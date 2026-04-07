@@ -27,6 +27,8 @@ paths:
         summary information about a repository association. You can filter the
         returned list by ProviderType, Name, State, and Owner.
       operationId: amazonWebServicesListRepositoryAssociations
+      tags:
+        - Associations
   /codereviews:
     GET:
       summary: Amazon Web Services Listcodereviews
@@ -34,6 +36,8 @@ paths:
         Lists all the code reviews that the customer has created in the past 90
         days.
       operationId: amazonWebServicesListCodeReviews
+      tags:
+        - Codereviews
   /codereviews/{CodeReviewArn}:
     GET:
       summary: Amazon Web Services Describecodereview
@@ -41,11 +45,15 @@ paths:
         Returns the metadata associated with the code review along with its
         status.
       operationId: amazonWebServicesDescribeCodeReview
+      tags:
+        - Codereviews
   /feedback/{CodeReviewArn}:
     GET:
       summary: Amazon Web Services Describerecommendationfeedback
       description: Describes the customer feedback for a CodeGuru Reviewer recommendation.
       operationId: amazonWebServicesDescribeRecommendationFeedback
+      tags:
+        - Feedback
   /associations/{AssociationArn}:
     DELETE:
       summary: Amazon Web Services Disassociaterepository
@@ -53,6 +61,8 @@ paths:
         Removes the association between Amazon CodeGuru Reviewer and a
         repository.
       operationId: amazonWebServicesDisassociateRepository
+      tags:
+        - Associations
   /feedback/{CodeReviewArn}/RecommendationFeedback:
     GET:
       summary: Amazon Web Services Listrecommendationfeedback
@@ -60,16 +70,22 @@ paths:
         Returns a list of RecommendationFeedbackSummary objects that contain
         customer recommendation feedback for all CodeGuru Reviewer users.
       operationId: amazonWebServicesListRecommendationFeedback
+      tags:
+        - Feedback
   /codereviews/{CodeReviewArn}/Recommendations:
     GET:
       summary: Amazon Web Services Listrecommendations
       description: Returns the list of all recommendations for a completed code review.
       operationId: amazonWebServicesListRecommendations
+      tags:
+        - Codereviews
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from an associated repository.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /feedback:
     PUT:
       summary: Amazon Web Services Putrecommendationfeedback
@@ -78,4 +94,10 @@ paths:
         this API is called again with different reactions the previous feedback
         is overwritten.
       operationId: amazonWebServicesPutRecommendationFeedback
-tags: []
+      tags:
+        - Feedback
+tags:
+  - name: Associations
+  - name: Codereviews
+  - name: Feedback
+  - name: Tags

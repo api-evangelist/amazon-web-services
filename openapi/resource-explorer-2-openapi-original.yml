@@ -46,11 +46,15 @@ paths:
         explicitly specify a view with every Search operation performed in that
         Region.
       operationId: amazonWebServicesAssociateDefaultView
+      tags:
+        - AssociateDefaultView
   /BatchGetView:
     POST:
       summary: Amazon Web Services Batchgetview
       description: Retrieves details about a list of views.
       operationId: amazonWebServicesBatchGetView
+      tags:
+        - BatchGetView
   /CreateIndex:
     POST:
       summary: Amazon Web Services Createindex
@@ -88,6 +92,8 @@ paths:
         the same service-linked role for all additional indexes you create
         afterwards.  
       operationId: amazonWebServicesCreateIndex
+      tags:
+        - CreateIndex
   /CreateView:
     POST:
       summary: Amazon Web Services Createview
@@ -101,6 +107,8 @@ paths:
         on a Resource with the Amazon resource name (ARN) of this view can
         Search using views you create with this operation.
       operationId: amazonWebServicesCreateView
+      tags:
+        - CreateView
   /DeleteIndex:
     POST:
       summary: Amazon Web Services Deleteindex
@@ -117,6 +125,8 @@ paths:
         index for the account. Users can't perform account-wide searches using
         Resource Explorer until another aggregator index is configured. 
       operationId: amazonWebServicesDeleteIndex
+      tags:
+        - DeleteIndex
   /DeleteView:
     POST:
       summary: Amazon Web Services Deleteview
@@ -126,6 +136,8 @@ paths:
         Region must explicitly specify the view to use until you configure a new
         default by calling the AssociateDefaultView operation.
       operationId: amazonWebServicesDeleteView
+      tags:
+        - DeleteView
   /DisassociateDefaultView:
     POST:
       summary: Amazon Web Services Disassociatedefaultview
@@ -138,6 +150,8 @@ paths:
         must explicitly specify a view with every Search operation performed in
         that Region.
       operationId: amazonWebServicesDisassociateDefaultView
+      tags:
+        - DisassociateDefaultView
   /GetAccountLevelServiceConfiguration:
     POST:
       summary: Amazon Web Services Getaccountlevelserviceconfiguration
@@ -147,6 +161,8 @@ paths:
         multi-account search feature. Only the management account or a delegated
         administrator with service access enabled can invoke this API call. 
       operationId: amazonWebServicesGetAccountLevelServiceConfiguration
+      tags:
+        - GetAccountLevelServiceConfiguration
   /GetDefaultView:
     POST:
       summary: Amazon Web Services Getdefaultview
@@ -155,6 +171,8 @@ paths:
         for the Amazon Web Services Region in which you call this operation. You
         can then call GetView to retrieve the details of that view.
       operationId: amazonWebServicesGetDefaultView
+      tags:
+        - GetDefaultView
   /GetIndex:
     POST:
       summary: Amazon Web Services Getindex
@@ -162,11 +180,15 @@ paths:
         Retrieves details about the Amazon Web Services Resource Explorer index
         in the Amazon Web Services Region in which you invoked the operation.
       operationId: amazonWebServicesGetIndex
+      tags:
+        - GetIndex
   /GetView:
     POST:
       summary: Amazon Web Services Getview
       description: Retrieves details of the specified view.
       operationId: amazonWebServicesGetView
+      tags:
+        - GetView
   /ListIndexes:
     POST:
       summary: Amazon Web Services Listindexes
@@ -175,6 +197,8 @@ paths:
         that are currently collecting resource information for Amazon Web
         Services Resource Explorer.
       operationId: amazonWebServicesListIndexes
+      tags:
+        - ListIndexes
   /ListIndexesForMembers:
     POST:
       summary: Amazon Web Services Listindexesformembers
@@ -185,6 +209,8 @@ paths:
         delegated administrator with service access enabled can invoke this API
         call. 
       operationId: amazonWebServicesListIndexesForMembers
+      tags:
+        - ListIndexesForMembers
   /ListSupportedResourceTypes:
     POST:
       summary: Amazon Web Services Listsupportedresourcetypes
@@ -192,6 +218,8 @@ paths:
         Retrieves a list of all resource types currently supported by Amazon Web
         Services Resource Explorer.
       operationId: amazonWebServicesListSupportedResourceTypes
+      tags:
+        - ListSupportedResourceTypes
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -199,6 +227,8 @@ paths:
         Removes one or more tag key and value pairs from an Amazon Web Services
         Resource Explorer view or index.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /ListViews:
     POST:
       summary: Amazon Web Services Listviews
@@ -211,6 +241,8 @@ paths:
         response parameter value is null only when there are no more results to
         display. 
       operationId: amazonWebServicesListViews
+      tags:
+        - ListViews
   /Search:
     POST:
       summary: Amazon Web Services Search
@@ -227,6 +259,8 @@ paths:
         Explorer. If your search results are empty, or are missing results that
         you think should be there, see Troubleshooting Resource Explorer search.
       operationId: amazonWebServicesSearch
+      tags:
+        - Search
   /UpdateIndexType:
     POST:
       summary: Amazon Web Services Updateindextype
@@ -274,6 +308,8 @@ paths:
         before you can promote another index to be the new aggregator index for
         the account.   
       operationId: amazonWebServicesUpdateIndexType
+      tags:
+        - UpdateIndexType
   /UpdateView:
     POST:
       summary: Amazon Web Services Updateview
@@ -282,4 +318,25 @@ paths:
         and the list of included properties. You can't change the name of the
         view.
       operationId: amazonWebServicesUpdateView
-tags: []
+      tags:
+        - UpdateView
+tags:
+  - name: AssociateDefaultView
+  - name: BatchGetView
+  - name: CreateIndex
+  - name: CreateView
+  - name: DeleteIndex
+  - name: DeleteView
+  - name: DisassociateDefaultView
+  - name: GetAccountLevelServiceConfiguration
+  - name: GetDefaultView
+  - name: GetIndex
+  - name: GetView
+  - name: ListIndexes
+  - name: ListIndexesForMembers
+  - name: ListSupportedResourceTypes
+  - name: ListViews
+  - name: Search
+  - name: Tags
+  - name: UpdateIndexType
+  - name: UpdateView

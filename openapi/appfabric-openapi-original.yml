@@ -24,6 +24,8 @@ paths:
         Gets user access details in a batch request. This action polls data from
         the tasks that are kicked off by the StartUserAccessTasks action.
       operationId: amazonWebServicesBatchGetUserAccessTasks
+      tags:
+        - Useraccess
   /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect:
     POST:
       summary: Amazon Web Services Connectappauthorization
@@ -31,21 +33,29 @@ paths:
         Establishes a connection between Amazon Web Services AppFabric and an
         application, which allows AppFabric to call the APIs of the application.
       operationId: amazonWebServicesConnectAppAuthorization
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/appauthorizations:
     GET:
       summary: Amazon Web Services Listappauthorizations
       description: Returns a list of all app authorizations configured for an app bundle.
       operationId: amazonWebServicesListAppAuthorizations
+      tags:
+        - Appbundles
   /appbundles:
     GET:
       summary: Amazon Web Services Listappbundles
       description: Returns a list of app bundles.
       operationId: amazonWebServicesListAppBundles
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/ingestions:
     GET:
       summary: Amazon Web Services Listingestions
       description: Returns a list of all ingestions configured for an app bundle.
       operationId: amazonWebServicesListIngestions
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations:
     GET:
       summary: Amazon Web Services Listingestiondestinations
@@ -53,6 +63,8 @@ paths:
         Returns a list of all ingestion destinations configured for an
         ingestion.
       operationId: amazonWebServicesListIngestionDestinations
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateappauthorization
@@ -62,16 +74,22 @@ paths:
         a connected state, updating the app authorization will set it back to a
         PendingConnect state.
       operationId: amazonWebServicesUpdateAppAuthorization
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}:
     GET:
       summary: Amazon Web Services Getappbundle
       description: Returns information about an app bundle.
       operationId: amazonWebServicesGetAppBundle
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}:
     GET:
       summary: Amazon Web Services Getingestion
       description: Returns information about an ingestion.
       operationId: amazonWebServicesGetIngestion
+      tags:
+        - Appbundles
   /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateingestiondestination
@@ -80,16 +98,22 @@ paths:
         ingested data is processed by Amazon Web Services AppFabric and where
         it's delivered.
       operationId: amazonWebServicesUpdateIngestionDestination
+      tags:
+        - Appbundles
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag or tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start:
     POST:
       summary: Amazon Web Services Startingestion
       description: Starts (enables) an ingestion, which collects data from an application.
       operationId: amazonWebServicesStartIngestion
+      tags:
+        - Appbundles
   /useraccess/start:
     POST:
       summary: Amazon Web Services Startuseraccesstasks
@@ -99,9 +123,16 @@ paths:
         found. The tasks are terminated when the API calls to the application
         time out.
       operationId: amazonWebServicesStartUserAccessTasks
+      tags:
+        - Useraccess
   /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop:
     POST:
       summary: Amazon Web Services Stopingestion
       description: Stops (disables) an ingestion.
       operationId: amazonWebServicesStopIngestion
-tags: []
+      tags:
+        - Appbundles
+tags:
+  - name: Appbundles
+  - name: Tags
+  - name: Useraccess

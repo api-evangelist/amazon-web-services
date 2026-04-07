@@ -21,6 +21,8 @@ paths:
         1. For more information, see versioning-intro.   This operation requires
         permission for the lex:CreateBotVersion action. 
       operationId: amazonWebServicesCreateBotVersion
+      tags:
+        - Bots
   /intents/{name}/versions:
     POST:
       summary: Amazon Web Services Createintentversion
@@ -35,6 +37,8 @@ paths:
         by 1. For more information, see versioning-intro.  This operation
         requires permissions to perform the lex:CreateIntentVersion action. 
       operationId: amazonWebServicesCreateIntentVersion
+      tags:
+        - Intents
   /slottypes/{name}/versions:
     POST:
       summary: Amazon Web Services Createslottypeversion
@@ -49,6 +53,8 @@ paths:
         information, see versioning-intro.  This operation requires permissions
         for the lex:CreateSlotTypeVersion action.
       operationId: amazonWebServicesCreateSlotTypeVersion
+      tags:
+        - Slottypes
   /bots/{name}:
     DELETE:
       summary: Amazon Web Services Deletebot
@@ -67,6 +73,8 @@ paths:
         delete the referring alias until the DeleteBot operation is successful.
         This operation requires permissions for the lex:DeleteBot action.
       operationId: amazonWebServicesDeleteBot
+      tags:
+        - Bots
   /bots/{botName}/aliases/{name}:
     PUT:
       summary: Amazon Web Services Putbotalias
@@ -77,6 +85,8 @@ paths:
         see versioning-aliases. This operation requires permissions for the
         lex:PutBotAlias action. 
       operationId: amazonWebServicesPutBotAlias
+      tags:
+        - Bots
   /bots/{botName}/aliases/{aliasName}/channels/{name}:
     GET:
       summary: Amazon Web Services Getbotchannelassociation
@@ -85,6 +95,8 @@ paths:
         a messaging platform. This operation requires permissions for the
         lex:GetBotChannelAssociation action.
       operationId: amazonWebServicesGetBotChannelAssociation
+      tags:
+        - Bots
   /bots/{name}/versions/{version}:
     DELETE:
       summary: Amazon Web Services Deletebotversion
@@ -93,6 +105,8 @@ paths:
         use the DeleteBot operation.  This operation requires permissions for
         the lex:DeleteBotVersion action.
       operationId: amazonWebServicesDeleteBotVersion
+      tags:
+        - Bots
   /intents/{name}:
     DELETE:
       summary: Amazon Web Services Deleteintent
@@ -110,11 +124,15 @@ paths:
         successful.    This operation requires permission for the
         lex:DeleteIntent action. 
       operationId: amazonWebServicesDeleteIntent
+      tags:
+        - Intents
   /intents/{name}/versions/{version}:
     GET:
       summary: Amazon Web Services Getintent
       description: ' Returns information about an intent. In addition to the intent name, you must specify the intent version.   This operation requires permissions to perform the lex:GetIntent action. '
       operationId: amazonWebServicesGetIntent
+      tags:
+        - Intents
   /slottypes/{name}:
     DELETE:
       summary: Amazon Web Services Deleteslottype
@@ -132,6 +150,8 @@ paths:
         references and the DeleteSlotType call is successful.   This operation
         requires permission for the lex:DeleteSlotType action.
       operationId: amazonWebServicesDeleteSlotType
+      tags:
+        - Slottypes
   /slottypes/{name}/version/{version}:
     DELETE:
       summary: Amazon Web Services Deleteslottypeversion
@@ -140,6 +160,8 @@ paths:
         slot type, use the DeleteSlotType operation.  This operation requires
         permissions for the lex:DeleteSlotTypeVersion action.
       operationId: amazonWebServicesDeleteSlotTypeVersion
+      tags:
+        - Slottypes
   /bots/{botName}/utterances/{userId}:
     DELETE:
       summary: Amazon Web Services Deleteutterances
@@ -155,6 +177,8 @@ paths:
         GetUtterancesView operation are deleted after 15 days. This operation
         requires permissions for the lex:DeleteUtterances action.
       operationId: amazonWebServicesDeleteUtterances
+      tags:
+        - Bots
   /bots/{name}/versions/{versionoralias}:
     GET:
       summary: Amazon Web Services Getbot
@@ -163,6 +187,8 @@ paths:
         bot name and the bot version or alias.   This operation requires
         permissions for the lex:GetBot action. 
       operationId: amazonWebServicesGetBot
+      tags:
+        - Bots
   /bots/{botName}/aliases/:
     GET:
       summary: Amazon Web Services Getbotaliases
@@ -170,11 +196,15 @@ paths:
         Returns a list of aliases for a specified Amazon Lex bot. This operation
         requires permissions for the lex:GetBotAliases action.
       operationId: amazonWebServicesGetBotAliases
+      tags:
+        - Bots
   /bots/{botName}/aliases/{aliasName}/channels/:
     GET:
       summary: Amazon Web Services Getbotchannelassociations
       description: ' Returns a list of all of the channels associated with the specified bot.  The GetBotChannelAssociations operation requires permissions for the lex:GetBotChannelAssociations action.'
       operationId: amazonWebServicesGetBotChannelAssociations
+      tags:
+        - Bots
   /bots/{name}/versions/:
     GET:
       summary: Amazon Web Services Getbotversions
@@ -187,6 +217,8 @@ paths:
         operation always returns at least one version, the $LATEST version. This
         operation requires permissions for the lex:GetBotVersions action.
       operationId: amazonWebServicesGetBotVersions
+      tags:
+        - Bots
   /bots/:
     GET:
       summary: Amazon Web Services Getbots
@@ -198,6 +230,8 @@ paths:
         $LATEST version of all of your bots.   This operation requires
         permission for the lex:GetBots action.
       operationId: amazonWebServicesGetBots
+      tags:
+        - Bots
   /builtins/intents/{signature}:
     GET:
       summary: Amazon Web Services Getbuiltinintent
@@ -205,6 +239,8 @@ paths:
         Returns information about a built-in intent. This operation requires
         permission for the lex:GetBuiltinIntent action.
       operationId: amazonWebServicesGetBuiltinIntent
+      tags:
+        - Builtins
   /builtins/intents/:
     GET:
       summary: Amazon Web Services Getbuiltinintents
@@ -212,6 +248,8 @@ paths:
         Gets a list of built-in intents that meet the specified criteria. This
         operation requires permission for the lex:GetBuiltinIntents action.
       operationId: amazonWebServicesGetBuiltinIntents
+      tags:
+        - Builtins
   /builtins/slottypes/:
     GET:
       summary: Amazon Web Services Getbuiltinslottypes
@@ -221,11 +259,15 @@ paths:
         Skills Kit. This operation requires permission for the
         lex:GetBuiltInSlotTypes action.
       operationId: amazonWebServicesGetBuiltinSlotTypes
+      tags:
+        - Builtins
   /exports/:
     GET:
       summary: Amazon Web Services Getexport
       description: 'Exports the contents of a Amazon Lex resource in a specified format. '
       operationId: amazonWebServicesGetExport
+      tags:
+        - Exports
   /imports/{importId}:
     GET:
       summary: Amazon Web Services Getimport
@@ -233,6 +275,8 @@ paths:
         Gets information about an import job started with the StartImport
         operation.
       operationId: amazonWebServicesGetImport
+      tags:
+        - Imports
   /intents/{name}/versions/:
     GET:
       summary: Amazon Web Services Getintentversions
@@ -246,6 +290,8 @@ paths:
         least one version, the $LATEST version. This operation requires
         permissions for the lex:GetIntentVersions action.
       operationId: amazonWebServicesGetIntentVersions
+      tags:
+        - Intents
   /intents/:
     GET:
       summary: Amazon Web Services Getintents
@@ -255,6 +301,8 @@ paths:
         contain the specified string.    If you don't specify the nameContains
         field, returns information about the $LATEST version of all intents.     The operation requires permission for the lex:GetIntents action. 
       operationId: amazonWebServicesGetIntents
+      tags:
+        - Intents
   /migrations/{migrationId}:
     GET:
       summary: Amazon Web Services Getmigration
@@ -263,6 +311,8 @@ paths:
         Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the
         migration alerts and warnings related to the migration.
       operationId: amazonWebServicesGetMigration
+      tags:
+        - Migrations
   /migrations:
     POST:
       summary: Amazon Web Services Startmigration
@@ -272,6 +322,8 @@ paths:
         V2. For more information, see Migrating a bot in the Amazon Lex
         developer guide.
       operationId: amazonWebServicesStartMigration
+      tags:
+        - Migrations
   /slottypes/{name}/versions/{version}:
     GET:
       summary: Amazon Web Services Getslottype
@@ -281,6 +333,8 @@ paths:
         version. This operation requires permissions for the lex:GetSlotType
         action.
       operationId: amazonWebServicesGetSlotType
+      tags:
+        - Slottypes
   /slottypes/{name}/versions/:
     GET:
       summary: Amazon Web Services Getslottypeversions
@@ -294,6 +348,8 @@ paths:
         always returns at least one version, the $LATEST version. This operation
         requires permissions for the lex:GetSlotTypeVersions action.
       operationId: amazonWebServicesGetSlotTypeVersions
+      tags:
+        - Slottypes
   /slottypes/:
     GET:
       summary: Amazon Web Services Getslottypes
@@ -305,6 +361,8 @@ paths:
         types.     The operation requires permission for the lex:GetSlotTypes
         action. 
       operationId: amazonWebServicesGetSlotTypes
+      tags:
+        - Slottypes
   /bots/{botname}/utterances?view=aggregation:
     GET:
       summary: Amazon Web Services Getutterancesview
@@ -330,11 +388,15 @@ paths:
         in improving Amazon Lex, utterances are not available. This operation
         requires permissions for the lex:GetUtterancesView action.
       operationId: amazonWebServicesGetUtterancesView
+      tags:
+        - Bots
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a bot, bot alias or bot channel.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /bots/{name}/versions/$LATEST:
     PUT:
       summary: Amazon Web Services Putbot
@@ -355,6 +417,8 @@ paths:
         Lex throws an exception. This operation requires permissions for the
         lex:PutBot action. For more information, see security-iam.
       operationId: amazonWebServicesPutBot
+      tags:
+        - Bots
   /intents/{name}/versions/$LATEST:
     PUT:
       summary: Amazon Web Services Putintent
@@ -389,6 +453,8 @@ paths:
         NOT_BUILT. For more information, see how-it-works. This operation
         requires permissions for the lex:PutIntent action.
       operationId: amazonWebServicesPutIntent
+      tags:
+        - Intents
   /slottypes/{name}/versions/$LATEST:
     PUT:
       summary: Amazon Web Services Putslottype
@@ -406,9 +472,21 @@ paths:
         NOT_BUILT. This operation requires permissions for the lex:PutSlotType
         action.
       operationId: amazonWebServicesPutSlotType
+      tags:
+        - Slottypes
   /imports/:
     POST:
       summary: Amazon Web Services Startimport
       description: Starts a job to import a resource to Amazon Lex.
       operationId: amazonWebServicesStartImport
-tags: []
+      tags:
+        - Imports
+tags:
+  - name: Bots
+  - name: Builtins
+  - name: Exports
+  - name: Imports
+  - name: Intents
+  - name: Migrations
+  - name: Slottypes
+  - name: Tags

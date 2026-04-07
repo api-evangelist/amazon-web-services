@@ -20,11 +20,15 @@ paths:
         defined in the parent asset's model. For more information, see
         Associating assets in the IoT SiteWise User Guide.
       operationId: amazonWebServicesAssociateAssets
+      tags:
+        - Assets
   /timeseries/associate/:
     POST:
       summary: Amazon Web Services Associatetimeseriestoassetproperty
       description: Associates a time series (data stream) with an asset property.
       operationId: amazonWebServicesAssociateTimeSeriesToAssetProperty
+      tags:
+        - Timeseries
   /projects/{projectId}/assets/associate:
     POST:
       summary: Amazon Web Services Batchassociateprojectassets
@@ -32,6 +36,8 @@ paths:
         Associates a group (batch) of assets with an IoT SiteWise Monitor
         project.
       operationId: amazonWebServicesBatchAssociateProjectAssets
+      tags:
+        - Projects
   /projects/{projectId}/assets/disassociate:
     POST:
       summary: Amazon Web Services Batchdisassociateprojectassets
@@ -39,6 +45,8 @@ paths:
         Disassociates a group (batch) of assets from an IoT SiteWise Monitor
         project.
       operationId: amazonWebServicesBatchDisassociateProjectAssets
+      tags:
+        - Projects
   /properties/batch/aggregates:
     POST:
       summary: Amazon Web Services Batchgetassetpropertyaggregates
@@ -47,6 +55,8 @@ paths:
         one or more asset properties. For more information, see Querying
         aggregates in the IoT SiteWise User Guide.
       operationId: amazonWebServicesBatchGetAssetPropertyAggregates
+      tags:
+        - Properties
   /properties/batch/latest:
     POST:
       summary: Amazon Web Services Batchgetassetpropertyvalue
@@ -54,6 +64,8 @@ paths:
         Gets the current value for one or more asset properties. For more
         information, see Querying current values in the IoT SiteWise User Guide.
       operationId: amazonWebServicesBatchGetAssetPropertyValue
+      tags:
+        - Properties
   /properties/batch/history:
     POST:
       summary: Amazon Web Services Batchgetassetpropertyvaluehistory
@@ -62,6 +74,8 @@ paths:
         information, see Querying historical values in the IoT SiteWise User
         Guide.
       operationId: amazonWebServicesBatchGetAssetPropertyValueHistory
+      tags:
+        - Properties
   /properties:
     POST:
       summary: Amazon Web Services Batchputassetpropertyvalue
@@ -85,6 +99,8 @@ paths:
         For more information, see BatchPutAssetPropertyValue authorization in
         the IoT SiteWise User Guide.
       operationId: amazonWebServicesBatchPutAssetPropertyValue
+      tags:
+        - Properties
   /access-policies:
     GET:
       summary: Amazon Web Services Listaccesspolicies
@@ -93,6 +109,8 @@ paths:
         Identity Center user, an IAM Identity Center group, or an IAM user) or
         an IoT SiteWise Monitor resource (a portal or project).
       operationId: amazonWebServicesListAccessPolicies
+      tags:
+        - Access Policies
   /assets:
     GET:
       summary: Amazon Web Services Listassets
@@ -104,11 +122,15 @@ paths:
         ListAssetModels to get all of your asset model IDs. Then, use ListAssets
         to get all assets for each asset model.
       operationId: amazonWebServicesListAssets
+      tags:
+        - Assets
   /asset-models:
     GET:
       summary: Amazon Web Services Listassetmodels
       description: Retrieves a paginated list of summaries of all asset models.
       operationId: amazonWebServicesListAssetModels
+      tags:
+        - Asset Models
   /asset-models/{assetModelId}/composite-models:
     GET:
       summary: Amazon Web Services Listassetmodelcompositemodels
@@ -116,6 +138,8 @@ paths:
         Retrieves a paginated list of composite models associated with the asset
         model
       operationId: amazonWebServicesListAssetModelCompositeModels
+      tags:
+        - Asset Models
   /jobs:
     GET:
       summary: Amazon Web Services Listbulkimportjobs
@@ -124,6 +148,8 @@ paths:
         information, see List bulk import jobs (CLI) in the IoT SiteWise User
         Guide.
       operationId: amazonWebServicesListBulkImportJobs
+      tags:
+        - Jobs
   /dashboards:
     GET:
       summary: Amazon Web Services Listdashboards
@@ -131,16 +157,22 @@ paths:
         Retrieves a paginated list of dashboards for an IoT SiteWise Monitor
         project.
       operationId: amazonWebServicesListDashboards
+      tags:
+        - Dashboards
   /20200301/gateways:
     GET:
       summary: Amazon Web Services Listgateways
       description: Retrieves a paginated list of gateways.
       operationId: amazonWebServicesListGateways
+      tags:
+        - '20200301'
   /portals:
     GET:
       summary: Amazon Web Services Listportals
       description: Retrieves a paginated list of IoT SiteWise Monitor portals.
       operationId: amazonWebServicesListPortals
+      tags:
+        - Portals
   /projects:
     GET:
       summary: Amazon Web Services Listprojects
@@ -148,6 +180,8 @@ paths:
         Retrieves a paginated list of projects for an IoT SiteWise Monitor
         portal.
       operationId: amazonWebServicesListProjects
+      tags:
+        - Projects
   /access-policies/{accessPolicyId}:
     PUT:
       summary: Amazon Web Services Updateaccesspolicy
@@ -155,6 +189,8 @@ paths:
         Updates an existing access policy that specifies an identity's access to
         an IoT SiteWise Monitor portal or project resource.
       operationId: amazonWebServicesUpdateAccessPolicy
+      tags:
+        - Access Policies
   /assets/{assetId}:
     PUT:
       summary: Amazon Web Services Updateasset
@@ -162,6 +198,8 @@ paths:
         Updates an asset's name. For more information, see Updating assets and
         models in the IoT SiteWise User Guide.
       operationId: amazonWebServicesUpdateAsset
+      tags:
+        - Assets
   /asset-models/{assetModelId}:
     PUT:
       summary: Amazon Web Services Updateassetmodel
@@ -179,6 +217,8 @@ paths:
         SiteWise disassociates every asset associated with that hierarchy. You
         can't change the type or data type of an existing property. 
       operationId: amazonWebServicesUpdateAssetModel
+      tags:
+        - Asset Models
   /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}:
     PUT:
       summary: Amazon Web Services Updateassetmodelcompositemodel
@@ -197,26 +237,36 @@ paths:
         the same name as the previous one and IoT SiteWise will generate a new
         unique id.   
       operationId: amazonWebServicesUpdateAssetModelCompositeModel
+      tags:
+        - Asset Models
   /dashboards/{dashboardId}:
     PUT:
       summary: Amazon Web Services Updatedashboard
       description: Updates an IoT SiteWise Monitor dashboard.
       operationId: amazonWebServicesUpdateDashboard
+      tags:
+        - Dashboards
   /20200301/gateways/{gatewayId}:
     PUT:
       summary: Amazon Web Services Updategateway
       description: Updates a gateway's name.
       operationId: amazonWebServicesUpdateGateway
+      tags:
+        - '20200301'
   /portals/{portalId}:
     PUT:
       summary: Amazon Web Services Updateportal
       description: Updates an IoT SiteWise Monitor portal.
       operationId: amazonWebServicesUpdatePortal
+      tags:
+        - Portals
   /projects/{projectId}:
     PUT:
       summary: Amazon Web Services Updateproject
       description: Updates an IoT SiteWise Monitor project.
       operationId: amazonWebServicesUpdateProject
+      tags:
+        - Projects
   /timeseries/delete/:
     POST:
       summary: Amazon Web Services Deletetimeseries
@@ -230,11 +280,15 @@ paths:
         specify one of the following:    The alias of the time series.   The
         assetId and propertyId that identifies the asset property.    
       operationId: amazonWebServicesDeleteTimeSeries
+      tags:
+        - Timeseries
   /actions/{actionId}:
     GET:
       summary: Amazon Web Services Describeaction
       description: Retrieves information about an action.
       operationId: amazonWebServicesDescribeAction
+      tags:
+        - Actions
   /assets/{assetId}/composite-models/{assetCompositeModelId}:
     GET:
       summary: Amazon Web Services Describeassetcompositemodel
@@ -244,6 +298,8 @@ paths:
         AssetModelCompositeModel. If you want to see information about the model
         this is based on, call DescribeAssetModelCompositeModel.
       operationId: amazonWebServicesDescribeAssetCompositeModel
+      tags:
+        - Assets
   /assets/{assetId}/properties/{propertyId}:
     PUT:
       summary: Amazon Web Services Updateassetproperty
@@ -254,6 +310,8 @@ paths:
         must include the existing values in the UpdateAssetProperty request. For
         more information, see DescribeAssetProperty. 
       operationId: amazonWebServicesUpdateAssetProperty
+      tags:
+        - Assets
   /jobs/{jobId}:
     GET:
       summary: Amazon Web Services Describebulkimportjob
@@ -262,6 +320,8 @@ paths:
         information, see Describe a bulk import job (CLI) in the Amazon Simple
         Storage Service User Guide.
       operationId: amazonWebServicesDescribeBulkImportJob
+      tags:
+        - Jobs
   /configuration/account/encryption:
     POST:
       summary: Amazon Web Services Putdefaultencryptionconfiguration
@@ -270,6 +330,8 @@ paths:
         account. For more information, see Key management in the IoT SiteWise
         User Guide.
       operationId: amazonWebServicesPutDefaultEncryptionConfiguration
+      tags:
+        - Configuration
   /20200301/gateways/{gatewayId}/capability/{capabilityNamespace}:
     GET:
       summary: Amazon Web Services Describegatewaycapabilityconfiguration
@@ -281,16 +343,22 @@ paths:
         your OPC-UA sources are stored in one capability configuration. To list
         all capability configurations for a gateway, use DescribeGateway.
       operationId: amazonWebServicesDescribeGatewayCapabilityConfiguration
+      tags:
+        - '20200301'
   /logging:
     PUT:
       summary: Amazon Web Services Putloggingoptions
       description: Sets logging options for IoT SiteWise.
       operationId: amazonWebServicesPutLoggingOptions
+      tags:
+        - Logging
   /configuration/account/storage:
     POST:
       summary: Amazon Web Services Putstorageconfiguration
       description: Configures storage settings for IoT SiteWise.
       operationId: amazonWebServicesPutStorageConfiguration
+      tags:
+        - Configuration
   /timeseries/describe/:
     GET:
       summary: Amazon Web Services Describetimeseries
@@ -302,6 +370,8 @@ paths:
         specify one of the following:    The alias of the time series.   The
         assetId and propertyId that identifies the asset property.    
       operationId: amazonWebServicesDescribeTimeSeries
+      tags:
+        - Timeseries
   /assets/{assetId}/disassociate:
     POST:
       summary: Amazon Web Services Disassociateassets
@@ -309,16 +379,22 @@ paths:
         Disassociates a child asset from the given parent asset through a
         hierarchy defined in the parent asset's model.
       operationId: amazonWebServicesDisassociateAssets
+      tags:
+        - Assets
   /timeseries/disassociate/:
     POST:
       summary: Amazon Web Services Disassociatetimeseriesfromassetproperty
       description: Disassociates a time series (data stream) from an asset property.
       operationId: amazonWebServicesDisassociateTimeSeriesFromAssetProperty
+      tags:
+        - Timeseries
   /actions:
     GET:
       summary: Amazon Web Services Listactions
       description: Retrieves a paginated list of actions for a specific target resource.
       operationId: amazonWebServicesListActions
+      tags:
+        - Actions
   /queries/execution:
     POST:
       summary: Amazon Web Services Executequery
@@ -326,6 +402,8 @@ paths:
         Run SQL queries to retrieve metadata and time-series data from asset
         models, assets, measurements, metrics, transforms, and aggregates.
       operationId: amazonWebServicesExecuteQuery
+      tags:
+        - Queries
   /properties/aggregates:
     GET:
       summary: Amazon Web Services Getassetpropertyaggregates
@@ -337,6 +415,8 @@ paths:
         stream alias (for example, /company/windfarm/3/turbine/7/temperature).
         To define an asset property's alias, see UpdateAssetProperty.  
       operationId: amazonWebServicesGetAssetPropertyAggregates
+      tags:
+        - Properties
   /properties/latest:
     GET:
       summary: Amazon Web Services Getassetpropertyvalue
@@ -348,6 +428,8 @@ paths:
         stream alias (for example, /company/windfarm/3/turbine/7/temperature).
         To define an asset property's alias, see UpdateAssetProperty.  
       operationId: amazonWebServicesGetAssetPropertyValue
+      tags:
+        - Properties
   /properties/history:
     GET:
       summary: Amazon Web Services Getassetpropertyvaluehistory
@@ -360,6 +442,8 @@ paths:
         /company/windfarm/3/turbine/7/temperature). To define an asset
         property's alias, see UpdateAssetProperty.  
       operationId: amazonWebServicesGetAssetPropertyValueHistory
+      tags:
+        - Properties
   /properties/interpolated:
     GET:
       summary: Amazon Web Services Getinterpolatedassetpropertyvalues
@@ -375,6 +459,8 @@ paths:
         /company/windfarm/3/turbine/7/temperature). To define an asset
         property's alias, see UpdateAssetProperty.  
       operationId: amazonWebServicesGetInterpolatedAssetPropertyValues
+      tags:
+        - Properties
   /asset-models/{assetModelId}/properties:
     GET:
       summary: Amazon Web Services Listassetmodelproperties
@@ -383,6 +469,8 @@ paths:
         If you update properties associated with the model before you finish
         listing all the properties, you need to start all over again.
       operationId: amazonWebServicesListAssetModelProperties
+      tags:
+        - Asset Models
   /assets/{assetId}/properties:
     GET:
       summary: Amazon Web Services Listassetproperties
@@ -391,6 +479,8 @@ paths:
         you update properties associated with the model before you finish
         listing all the properties, you need to start all over again.
       operationId: amazonWebServicesListAssetProperties
+      tags:
+        - Assets
   /assets/{assetId}/assetRelationships:
     GET:
       summary: Amazon Web Services Listassetrelationships
@@ -399,6 +489,8 @@ paths:
         use this operation to identify an asset's root asset and all associated
         assets between that asset and its root.
       operationId: amazonWebServicesListAssetRelationships
+      tags:
+        - Assets
   /assets/{assetId}/hierarchies:
     GET:
       summary: Amazon Web Services Listassociatedassets
@@ -408,6 +500,8 @@ paths:
         parent asset by a hierarchy that you specify.   List an asset's parent
         asset.  
       operationId: amazonWebServicesListAssociatedAssets
+      tags:
+        - Assets
   /asset-models/{assetModelId}/composition-relationships:
     GET:
       summary: Amazon Web Services Listcompositionrelationships
@@ -415,6 +509,8 @@ paths:
         Retrieves a paginated list of composition relationships for an asset
         model of type COMPONENT_MODEL.
       operationId: amazonWebServicesListCompositionRelationships
+      tags:
+        - Asset Models
   /projects/{projectId}/assets:
     GET:
       summary: Amazon Web Services Listprojectassets
@@ -422,16 +518,22 @@ paths:
         Retrieves a paginated list of assets associated with an IoT SiteWise
         Monitor project.
       operationId: amazonWebServicesListProjectAssets
+      tags:
+        - Projects
   /tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from an IoT SiteWise resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /timeseries/:
     GET:
       summary: Amazon Web Services Listtimeseries
       description: Retrieves a paginated list of time series (data streams).
       operationId: amazonWebServicesListTimeSeries
+      tags:
+        - Timeseries
   /20200301/gateways/{gatewayId}/capability:
     POST:
       summary: Amazon Web Services Updategatewaycapabilityconfiguration
@@ -444,4 +546,21 @@ paths:
         capability configuration. To list all capability configurations for a
         gateway, use DescribeGateway.
       operationId: amazonWebServicesUpdateGatewayCapabilityConfiguration
-tags: []
+      tags:
+        - '20200301'
+tags:
+  - name: '20200301'
+  - name: Access Policies
+  - name: Actions
+  - name: Asset Models
+  - name: Assets
+  - name: Configuration
+  - name: Dashboards
+  - name: Jobs
+  - name: Logging
+  - name: Portals
+  - name: Projects
+  - name: Properties
+  - name: Queries
+  - name: Tags
+  - name: Timeseries

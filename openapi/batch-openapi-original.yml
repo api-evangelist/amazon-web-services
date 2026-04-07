@@ -34,6 +34,8 @@ paths:
         operation still succeeds, even if no job is canceled. These jobs must be
         terminated with the TerminateJob operation.
       operationId: amazonWebServicesCancelJob
+      tags:
+        - Canceljob
   /v1/createcomputeenvironment:
     POST:
       summary: Amazon Web Services Createcomputeenvironment
@@ -105,6 +107,8 @@ paths:
         version of the launch template is evaluated up at the time of the
         infrastructure update, even if the launchTemplate wasn't updated. 
       operationId: amazonWebServicesCreateComputeEnvironment
+      tags:
+        - Createcomputeenvironment
   /v1/createjobqueue:
     POST:
       summary: Amazon Web Services Createjobqueue
@@ -118,11 +122,15 @@ paths:
         with a higher priority is given preference for scheduling jobs to that
         compute environment.
       operationId: amazonWebServicesCreateJobQueue
+      tags:
+        - Createjobqueue
   /v1/createschedulingpolicy:
     POST:
       summary: Amazon Web Services Createschedulingpolicy
       description: Creates an Batch scheduling policy.
       operationId: amazonWebServicesCreateSchedulingPolicy
+      tags:
+        - Createschedulingpolicy
   /v1/deletecomputeenvironment:
     POST:
       summary: Amazon Web Services Deletecomputeenvironment
@@ -135,6 +143,8 @@ paths:
         environment before deleting the compute environment. If this isn't done,
         the compute environment enters an invalid state.
       operationId: amazonWebServicesDeleteComputeEnvironment
+      tags:
+        - Deletecomputeenvironment
   /v1/deletejobqueue:
     POST:
       summary: Amazon Web Services Deletejobqueue
@@ -146,6 +156,8 @@ paths:
         disassociate compute environments from a queue before submitting a
         DeleteJobQueue request.
       operationId: amazonWebServicesDeleteJobQueue
+      tags:
+        - Deletejobqueue
   /v1/deleteschedulingpolicy:
     POST:
       summary: Amazon Web Services Deleteschedulingpolicy
@@ -153,6 +165,8 @@ paths:
         Deletes the specified scheduling policy. You can't delete a scheduling
         policy that's used in any job queues.
       operationId: amazonWebServicesDeleteSchedulingPolicy
+      tags:
+        - Deleteschedulingpolicy
   /v1/deregisterjobdefinition:
     POST:
       summary: Amazon Web Services Deregisterjobdefinition
@@ -160,6 +174,8 @@ paths:
         Deregisters an Batch job definition. Job definitions are permanently
         deleted after 180 days.
       operationId: amazonWebServicesDeregisterJobDefinition
+      tags:
+        - Deregisterjobdefinition
   /v1/describecomputeenvironments:
     POST:
       summary: Amazon Web Services Describecomputeenvironments
@@ -169,6 +185,8 @@ paths:
         DescribeComputeEnvironment operation to determine the ecsClusterArn that
         you launch your Amazon ECS container instances into.
       operationId: amazonWebServicesDescribeComputeEnvironments
+      tags:
+        - Describecomputeenvironments
   /v1/describejobdefinitions:
     POST:
       summary: Amazon Web Services Describejobdefinitions
@@ -176,21 +194,29 @@ paths:
         Describes a list of job definitions. You can specify a status (such as
         ACTIVE) to only return job definitions that match that status.
       operationId: amazonWebServicesDescribeJobDefinitions
+      tags:
+        - Describejobdefinitions
   /v1/describejobqueues:
     POST:
       summary: Amazon Web Services Describejobqueues
       description: Describes one or more of your job queues.
       operationId: amazonWebServicesDescribeJobQueues
+      tags:
+        - Describejobqueues
   /v1/describejobs:
     POST:
       summary: Amazon Web Services Describejobs
       description: Describes a list of Batch jobs.
       operationId: amazonWebServicesDescribeJobs
+      tags:
+        - Describejobs
   /v1/describeschedulingpolicies:
     POST:
       summary: Amazon Web Services Describeschedulingpolicies
       description: Describes one or more of your scheduling policies.
       operationId: amazonWebServicesDescribeSchedulingPolicies
+      tags:
+        - Describeschedulingpolicies
   /v1/listjobs:
     POST:
       summary: Amazon Web Services Listjobs
@@ -202,21 +228,29 @@ paths:
         filter the results by job status with the jobStatus parameter. If you
         don't specify a status, only RUNNING jobs are returned.
       operationId: amazonWebServicesListJobs
+      tags:
+        - Listjobs
   /v1/listschedulingpolicies:
     POST:
       summary: Amazon Web Services Listschedulingpolicies
       description: Returns a list of Batch scheduling policies.
       operationId: amazonWebServicesListSchedulingPolicies
+      tags:
+        - Listschedulingpolicies
   /v1/tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes specified tags from an Batch resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/registerjobdefinition:
     POST:
       summary: Amazon Web Services Registerjobdefinition
       description: Registers an Batch job definition.
       operationId: amazonWebServicesRegisterJobDefinition
+      tags:
+        - Registerjobdefinition
   /v1/submitjob:
     POST:
       summary: Amazon Web Services Submitjob
@@ -234,6 +268,8 @@ paths:
         because, after 14 days, Fargate resources might become unavailable and
         job might be terminated. 
       operationId: amazonWebServicesSubmitJob
+      tags:
+        - Submitjob
   /v1/terminatejob:
     POST:
       summary: Amazon Web Services Terminatejob
@@ -242,19 +278,49 @@ paths:
         RUNNING state are terminated, which causes them to transition to FAILED.
         Jobs that have not progressed to the STARTING state are cancelled.
       operationId: amazonWebServicesTerminateJob
+      tags:
+        - Terminatejob
   /v1/updatecomputeenvironment:
     POST:
       summary: Amazon Web Services Updatecomputeenvironment
       description: Updates an Batch compute environment.
       operationId: amazonWebServicesUpdateComputeEnvironment
+      tags:
+        - Updatecomputeenvironment
   /v1/updatejobqueue:
     POST:
       summary: Amazon Web Services Updatejobqueue
       description: Updates a job queue.
       operationId: amazonWebServicesUpdateJobQueue
+      tags:
+        - Updatejobqueue
   /v1/updateschedulingpolicy:
     POST:
       summary: Amazon Web Services Updateschedulingpolicy
       description: Updates a scheduling policy.
       operationId: amazonWebServicesUpdateSchedulingPolicy
-tags: []
+      tags:
+        - Updateschedulingpolicy
+tags:
+  - name: Canceljob
+  - name: Createcomputeenvironment
+  - name: Createjobqueue
+  - name: Createschedulingpolicy
+  - name: Deletecomputeenvironment
+  - name: Deletejobqueue
+  - name: Deleteschedulingpolicy
+  - name: Deregisterjobdefinition
+  - name: Describecomputeenvironments
+  - name: Describejobdefinitions
+  - name: Describejobqueues
+  - name: Describejobs
+  - name: Describeschedulingpolicies
+  - name: Listjobs
+  - name: Listschedulingpolicies
+  - name: Registerjobdefinition
+  - name: Submitjob
+  - name: Tags
+  - name: Terminatejob
+  - name: Updatecomputeenvironment
+  - name: Updatejobqueue
+  - name: Updateschedulingpolicy

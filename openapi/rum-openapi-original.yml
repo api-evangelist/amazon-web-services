@@ -22,6 +22,8 @@ paths:
         metrics. For more information about extended metrics, see
         BatchCreateRumMetricsDefinitions.
       operationId: amazonWebServicesUpdateRumMetricDefinition
+      tags:
+        - Rummetrics
   /appmonitor:
     POST:
       summary: Amazon Web Services Createappmonitor
@@ -36,6 +38,8 @@ paths:
         your web application. For more information, see How do I find a code
         snippet that I've already generated? 
       operationId: amazonWebServicesCreateAppMonitor
+      tags:
+        - Appmonitor
   /appmonitor/{Name}:
     PATCH:
       summary: Amazon Web Services Updateappmonitor
@@ -51,6 +55,8 @@ paths:
         to your web application. For more information, see How do I find a code
         snippet that I've already generated? 
       operationId: amazonWebServicesUpdateAppMonitor
+      tags:
+        - Appmonitor
   /rummetrics/{AppMonitorName}/metricsdestination:
     POST:
       summary: Amazon Web Services Putrummetricsdestination
@@ -60,6 +66,8 @@ paths:
         CloudWatch Evidently experiment. For more information about extended
         metrics, see BatchCreateRumMetricDefinitions.
       operationId: amazonWebServicesPutRumMetricsDestination
+      tags:
+        - Rummetrics
   /appmonitor/{Name}/data:
     POST:
       summary: Amazon Web Services Getappmonitordata
@@ -68,16 +76,22 @@ paths:
         web application, so that you can do your own processing or analysis of
         this data.
       operationId: amazonWebServicesGetAppMonitorData
+      tags:
+        - Appmonitor
   /appmonitors:
     POST:
       summary: Amazon Web Services Listappmonitors
       description: Returns a list of the Amazon CloudWatch RUM app monitors in the account.
       operationId: amazonWebServicesListAppMonitors
+      tags:
+        - Appmonitors
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /appmonitors/{Id}/:
     POST:
       summary: Amazon Web Services Putrumevents
@@ -88,4 +102,10 @@ paths:
         data to RUM. Each PutRumEvents operation can send a batch of events from
         one user session.
       operationId: amazonWebServicesPutRumEvents
-tags: []
+      tags:
+        - Appmonitors
+tags:
+  - name: Appmonitor
+  - name: Appmonitors
+  - name: Rummetrics
+  - name: Tags

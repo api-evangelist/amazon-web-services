@@ -13,31 +13,43 @@ paths:
       summary: Amazon Web Services Listapplicationinstances
       description: Returns a list of application instances.
       operationId: amazonWebServicesListApplicationInstances
+      tags:
+        - Application Instances
   /jobs:
     GET:
       summary: Amazon Web Services Listdevicesjobs
       description: Returns a list of jobs.
       operationId: amazonWebServicesListDevicesJobs
+      tags:
+        - Jobs
   /packages/template-job:
     GET:
       summary: Amazon Web Services Listnodefromtemplatejobs
       description: Returns a list of camera stream node jobs.
       operationId: amazonWebServicesListNodeFromTemplateJobs
+      tags:
+        - Packages
   /packages:
     GET:
       summary: Amazon Web Services Listpackages
       description: Returns a list of packages.
       operationId: amazonWebServicesListPackages
+      tags:
+        - Packages
   /packages/import-jobs:
     GET:
       summary: Amazon Web Services Listpackageimportjobs
       description: Returns a list of package import jobs.
       operationId: amazonWebServicesListPackageImportJobs
+      tags:
+        - Packages
   /devices/{DeviceId}:
     PUT:
       summary: Amazon Web Services Updatedevicemetadata
       description: Updates a device's metadata.
       operationId: amazonWebServicesUpdateDeviceMetadata
+      tags:
+        - Devices
   /packages/{PackageId}:
     DELETE:
       summary: Amazon Web Services Deletepackage
@@ -45,16 +57,22 @@ paths:
         Deletes a package.  To delete a package, you need permission to call
         s3:DeleteObject in addition to permissions for the AWS Panorama API. 
       operationId: amazonWebServicesDeletePackage
+      tags:
+        - Packages
   /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
     PUT:
       summary: Amazon Web Services Registerpackageversion
       description: Registers a package version.
       operationId: amazonWebServicesRegisterPackageVersion
+      tags:
+        - Packages
   /application-instances/{ApplicationInstanceId}:
     DELETE:
       summary: Amazon Web Services Removeapplicationinstance
       description: Removes an application instance.
       operationId: amazonWebServicesRemoveApplicationInstance
+      tags:
+        - Application Instances
   /application-instances/{ApplicationInstanceId}/details:
     GET:
       summary: Amazon Web Services Describeapplicationinstancedetails
@@ -62,46 +80,64 @@ paths:
         Returns information about an application instance's configuration
         manifest.
       operationId: amazonWebServicesDescribeApplicationInstanceDetails
+      tags:
+        - Application Instances
   /jobs/{JobId}:
     GET:
       summary: Amazon Web Services Describedevicejob
       description: Returns information about a device job.
       operationId: amazonWebServicesDescribeDeviceJob
+      tags:
+        - Jobs
   /nodes/{NodeId}:
     GET:
       summary: Amazon Web Services Describenode
       description: Returns information about a node.
       operationId: amazonWebServicesDescribeNode
+      tags:
+        - Nodes
   /packages/template-job/{JobId}:
     GET:
       summary: Amazon Web Services Describenodefromtemplatejob
       description: Returns information about a job to create a camera stream node.
       operationId: amazonWebServicesDescribeNodeFromTemplateJob
+      tags:
+        - Packages
   /packages/metadata/{PackageId}:
     GET:
       summary: Amazon Web Services Describepackage
       description: Returns information about a package.
       operationId: amazonWebServicesDescribePackage
+      tags:
+        - Packages
   /packages/import-jobs/{JobId}:
     GET:
       summary: Amazon Web Services Describepackageimportjob
       description: Returns information about a package import job.
       operationId: amazonWebServicesDescribePackageImportJob
+      tags:
+        - Packages
   /packages/metadata/{PackageId}/versions/{PackageVersion}:
     GET:
       summary: Amazon Web Services Describepackageversion
       description: Returns information about a package version.
       operationId: amazonWebServicesDescribePackageVersion
+      tags:
+        - Packages
   /application-instances/{ApplicationInstanceId}/package-dependencies:
     GET:
       summary: Amazon Web Services Listapplicationinstancedependencies
       description: Returns a list of application instance dependencies.
       operationId: amazonWebServicesListApplicationInstanceDependencies
+      tags:
+        - Application Instances
   /application-instances/{ApplicationInstanceId}/node-instances:
     GET:
       summary: Amazon Web Services Listapplicationinstancenodeinstances
       description: Returns a list of application node instances.
       operationId: amazonWebServicesListApplicationInstanceNodeInstances
+      tags:
+        - Application Instances
   /devices:
     POST:
       summary: Amazon Web Services Provisiondevice
@@ -113,19 +149,33 @@ paths:
         minutes. Use the included USB storage device and connect it to the USB
         3.0 port next to the HDMI output.
       operationId: amazonWebServicesProvisionDevice
+      tags:
+        - Devices
   /nodes:
     GET:
       summary: Amazon Web Services Listnodes
       description: Returns a list of nodes.
       operationId: amazonWebServicesListNodes
+      tags:
+        - Nodes
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /application-instances/{ApplicationInstanceId}/node-signals:
     PUT:
       summary: Amazon Web Services Signalapplicationinstancenodeinstances
       description: Signal camera nodes to stop or resume.
       operationId: amazonWebServicesSignalApplicationInstanceNodeInstances
-tags: []
+      tags:
+        - Application Instances
+tags:
+  - name: Application Instances
+  - name: Devices
+  - name: Jobs
+  - name: Nodes
+  - name: Packages
+  - name: Tags

@@ -49,6 +49,8 @@ paths:
         the deletion, and any error messages related to the process, by using
         CloudWatch.
       operationId: amazonWebServicesBatchDeleteDocument
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/documents:
     POST:
       summary: Amazon Web Services Batchputdocument
@@ -60,36 +62,50 @@ paths:
         the deletion, and any error messages related to the process, by using
         CloudWatch.
       operationId: amazonWebServicesBatchPutDocument
+      tags:
+        - Applications
   /applications/{applicationId}/conversations?sync:
     POST:
       summary: Amazon Web Services Chatsync
       description: Starts or continues a non-streaming Amazon Q conversation.
       operationId: amazonWebServicesChatSync
+      tags:
+        - Applications
   /applications:
     GET:
       summary: Amazon Web Services Listapplications
       description: Lists Amazon Q applications.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/datasources:
     GET:
       summary: Amazon Web Services Listdatasources
       description: Lists the Amazon Q data source connectors that you have created.
       operationId: amazonWebServicesListDataSources
+      tags:
+        - Applications
   /applications/{applicationId}/indices:
     GET:
       summary: Amazon Web Services Listindices
       description: Lists the Amazon Q indices you have created.
       operationId: amazonWebServicesListIndices
+      tags:
+        - Applications
   /applications/{applicationId}/plugins:
     GET:
       summary: Amazon Web Services Listplugins
       description: Lists configured Amazon Q plugins.
       operationId: amazonWebServicesListPlugins
+      tags:
+        - Applications
   /applications/{applicationId}/retrievers:
     GET:
       summary: Amazon Web Services Listretrievers
       description: Lists the retriever used by an Amazon Q application.
       operationId: amazonWebServicesListRetrievers
+      tags:
+        - Applications
   /applications/{applicationId}/users:
     POST:
       summary: Amazon Web Services Createuser
@@ -97,16 +113,22 @@ paths:
         Creates a universally unique identifier (UUID) mapped to a list of local
         user ids within an application.
       operationId: amazonWebServicesCreateUser
+      tags:
+        - Applications
   /applications/{applicationId}/experiences:
     GET:
       summary: Amazon Web Services Listwebexperiences
       description: Lists one or more Amazon Q Web Experiences.
       operationId: amazonWebServicesListWebExperiences
+      tags:
+        - Applications
   /applications/{applicationId}:
     PUT:
       summary: Amazon Web Services Updateapplication
       description: Updates an existing Amazon Q application.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /applications/{applicationId}/chatcontrols:
     PATCH:
       summary: Amazon Web Services Updatechatcontrolsconfiguration
@@ -114,61 +136,85 @@ paths:
         Updates an set of chat controls configured for an existing Amazon Q
         application.
       operationId: amazonWebServicesUpdateChatControlsConfiguration
+      tags:
+        - Applications
   /applications/{applicationId}/conversations/{conversationId}:
     GET:
       summary: Amazon Web Services Listmessages
       description: Gets a list of messages associated with an Amazon Q web experience.
       operationId: amazonWebServicesListMessages
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}:
     PUT:
       summary: Amazon Web Services Updatedatasource
       description: Updates an existing Amazon Q data source connector.
       operationId: amazonWebServicesUpdateDataSource
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/groups/{groupName}:
     GET:
       summary: Amazon Web Services Getgroup
       description: Describes a group by group name.
       operationId: amazonWebServicesGetGroup
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}:
     PUT:
       summary: Amazon Web Services Updateindex
       description: Updates an Amazon Q index.
       operationId: amazonWebServicesUpdateIndex
+      tags:
+        - Applications
   /applications/{applicationId}/plugins/{pluginId}:
     PUT:
       summary: Amazon Web Services Updateplugin
       description: Updates an Amazon Q plugin.
       operationId: amazonWebServicesUpdatePlugin
+      tags:
+        - Applications
   /applications/{applicationId}/retrievers/{retrieverId}:
     PUT:
       summary: Amazon Web Services Updateretriever
       description: Updates the retriever used for your Amazon Q application.
       operationId: amazonWebServicesUpdateRetriever
+      tags:
+        - Applications
   /applications/{applicationId}/users/{userId}:
     PUT:
       summary: Amazon Web Services Updateuser
       description: Updates a information associated with a user id.
       operationId: amazonWebServicesUpdateUser
+      tags:
+        - Applications
   /applications/{applicationId}/experiences/{webExperienceId}:
     PUT:
       summary: Amazon Web Services Updatewebexperience
       description: 'Updates an Amazon Q web experience. '
       operationId: amazonWebServicesUpdateWebExperience
+      tags:
+        - Applications
   /applications/{applicationId}/conversations:
     GET:
       summary: Amazon Web Services Listconversations
       description: Lists one or more Amazon Q conversations.
       operationId: amazonWebServicesListConversations
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs:
     GET:
       summary: Amazon Web Services Listdatasourcesyncjobs
       description: Get information about an Amazon Q data source connector synchronization.
       operationId: amazonWebServicesListDataSourceSyncJobs
+      tags:
+        - Applications
   /applications/{applicationId}/index/{indexId}/documents:
     GET:
       summary: Amazon Web Services Listdocuments
       description: A list of documents attached to an index.
       operationId: amazonWebServicesListDocuments
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/groups:
     PUT:
       summary: Amazon Web Services Putgroup
@@ -181,11 +227,15 @@ paths:
         engineering, and therefore belong in the intellectual property group,
         can see top-secret company documents in their Amazon Q chat results.
       operationId: amazonWebServicesPutGroup
+      tags:
+        - Applications
   /v1/tags/{resourceARN}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from an Amazon Q application or a data source.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/feedback:
     POST:
       summary: Amazon Web Services Putfeedback
@@ -193,6 +243,8 @@ paths:
         Enables your end user to to provide feedback on their Amazon Q generated
         chat responses.
       operationId: amazonWebServicesPutFeedback
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync:
     POST:
       summary: Amazon Web Services Startdatasourcesyncjob
@@ -200,6 +252,8 @@ paths:
         Starts a data source connector synchronization job. If a synchronization
         job is already in progress, Amazon Q returns a ConflictException.
       operationId: amazonWebServicesStartDataSourceSyncJob
+      tags:
+        - Applications
   /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync:
     POST:
       summary: Amazon Web Services Stopdatasourcesyncjob
@@ -207,4 +261,8 @@ paths:
         Stops an Amazon Q data source connector synchronization job already in
         progress.
       operationId: amazonWebServicesStopDataSourceSyncJob
-tags: []
+      tags:
+        - Applications
+tags:
+  - name: Applications
+  - name: Tags

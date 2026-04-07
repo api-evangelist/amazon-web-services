@@ -22,11 +22,15 @@ paths:
       summary: Amazon Web Services Updatejobexecution
       description: Updates the status of a job execution.
       operationId: amazonWebServicesUpdateJobExecution
+      tags:
+        - Things
   /things/{thingName}/jobs:
     GET:
       summary: Amazon Web Services Getpendingjobexecutions
       description: Gets the list of all jobs for a thing that are not in a terminal status.
       operationId: amazonWebServicesGetPendingJobExecutions
+      tags:
+        - Things
   /things/{thingName}/jobs/$next:
     PUT:
       summary: Amazon Web Services Startnextpendingjobexecution
@@ -34,4 +38,7 @@ paths:
         Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
         execution for a thing.
       operationId: amazonWebServicesStartNextPendingJobExecution
-tags: []
+      tags:
+        - Things
+tags:
+  - name: Things

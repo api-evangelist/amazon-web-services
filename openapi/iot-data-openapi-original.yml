@@ -23,6 +23,8 @@ paths:
         access the UpdateThingShadow action. For more information, see
         UpdateThingShadow in the IoT Developer Guide.
       operationId: amazonWebServicesUpdateThingShadow
+      tags:
+        - Things
   /retainedMessage/{topic}:
     GET:
       summary: Amazon Web Services Getretainedmessage
@@ -34,6 +36,8 @@ paths:
         GetRetainedMessage action. For more information about messaging costs,
         see Amazon Web Services IoT Core pricing - Messaging.
       operationId: amazonWebServicesGetRetainedMessage
+      tags:
+        - retainedMessage
   /api/things/shadow/ListNamedShadowsForThing/{thingName}:
     GET:
       summary: Amazon Web Services Listnamedshadowsforthing
@@ -41,6 +45,8 @@ paths:
         Lists the shadows for the specified thing. Requires permission to access
         the ListNamedShadowsForThing action.
       operationId: amazonWebServicesListNamedShadowsForThing
+      tags:
+        - Things
   /retainedMessage:
     GET:
       summary: Amazon Web Services Listretainedmessages
@@ -54,6 +60,8 @@ paths:
         access the ListRetainedMessages action. For more information about
         messaging costs, see Amazon Web Services IoT Core pricing - Messaging.
       operationId: amazonWebServicesListRetainedMessages
+      tags:
+        - retainedMessage
   /topics/{topic}:
     POST:
       summary: Amazon Web Services Publish
@@ -63,4 +71,9 @@ paths:
         the IoT Developer Guide. For more information about messaging costs, see
         Amazon Web Services IoT Core pricing - Messaging.
       operationId: amazonWebServicesPublish
-tags: []
+      tags:
+        - Topics
+tags:
+  - name: retainedMessage
+  - name: Things
+  - name: Topics

@@ -13,26 +13,36 @@ paths:
       summary: Amazon Web Services Describecontact
       description: Describes an existing contact.
       operationId: amazonWebServicesDescribeContact
+      tags:
+        - Contact
   /config:
     GET:
       summary: Amazon Web Services Listconfigs
       description: Returns a list of Config objects.
       operationId: amazonWebServicesListConfigs
+      tags:
+        - Config
   /dataflowEndpointGroup:
     GET:
       summary: Amazon Web Services Listdataflowendpointgroups
       description: Returns a list of DataflowEndpoint groups.
       operationId: amazonWebServicesListDataflowEndpointGroups
+      tags:
+        - dataflowEndpointGroup
   /ephemeris:
     POST:
       summary: Amazon Web Services Createephemeris
       description: Creates an Ephemeris with the specified EphemerisData.
       operationId: amazonWebServicesCreateEphemeris
+      tags:
+        - Ephemeris
   /missionprofile:
     GET:
       summary: Amazon Web Services Listmissionprofiles
       description: Returns a list of mission profiles.
       operationId: amazonWebServicesListMissionProfiles
+      tags:
+        - Missionprofile
   /config/{configType}/{configId}:
     PUT:
       summary: Amazon Web Services Updateconfig
@@ -41,16 +51,22 @@ paths:
         not update the execution parameters for existing future contacts
         scheduled with this Config.
       operationId: amazonWebServicesUpdateConfig
+      tags:
+        - Config
   /dataflowEndpointGroup/{dataflowEndpointGroupId}:
     GET:
       summary: Amazon Web Services Getdataflowendpointgroup
       description: Returns the dataflow endpoint group.
       operationId: amazonWebServicesGetDataflowEndpointGroup
+      tags:
+        - dataflowEndpointGroup
   /ephemeris/{ephemerisId}:
     PUT:
       summary: Amazon Web Services Updateephemeris
       description: Updates an existing ephemeris
       operationId: amazonWebServicesUpdateEphemeris
+      tags:
+        - Ephemeris
   /missionprofile/{missionProfileId}:
     PUT:
       summary: Amazon Web Services Updatemissionprofile
@@ -58,21 +74,29 @@ paths:
         Updates a mission profile. Updating a mission profile will not update
         the execution parameters for existing future contacts.
       operationId: amazonWebServicesUpdateMissionProfile
+      tags:
+        - Missionprofile
   /agent/{agentId}/configuration:
     GET:
       summary: Amazon Web Services Getagentconfiguration
       description: '  For use by AWS Ground Station Agent and shouldn''t be called directly.  Gets the latest configuration information for a registered agent.'
       operationId: amazonWebServicesGetAgentConfiguration
+      tags:
+        - Agent
   /minute-usage:
     POST:
       summary: Amazon Web Services Getminuteusage
       description: Returns the number of reserved minutes used by account.
       operationId: amazonWebServicesGetMinuteUsage
+      tags:
+        - Minute Usage
   /satellite/{satelliteId}:
     GET:
       summary: Amazon Web Services Getsatellite
       description: Returns a satellite.
       operationId: amazonWebServicesGetSatellite
+      tags:
+        - Satellite
   /contacts:
     POST:
       summary: Amazon Web Services Listcontacts
@@ -81,39 +105,67 @@ paths:
         request must include groundStation, missionprofileArn, and
         satelliteArn. 
       operationId: amazonWebServicesListContacts
+      tags:
+        - Contacts
   /ephemerides:
     POST:
       summary: Amazon Web Services Listephemerides
       description: List existing ephemerides.
       operationId: amazonWebServicesListEphemerides
+      tags:
+        - Ephemerides
   /groundstation:
     GET:
       summary: Amazon Web Services Listgroundstations
       description: 'Returns a list of ground stations. '
       operationId: amazonWebServicesListGroundStations
+      tags:
+        - Groundstation
   /satellite:
     GET:
       summary: Amazon Web Services Listsatellites
       description: Returns a list of satellites.
       operationId: amazonWebServicesListSatellites
+      tags:
+        - Satellite
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deassigns a resource tag.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /agent:
     POST:
       summary: Amazon Web Services Registeragent
       description: '  For use by AWS Ground Station Agent and shouldn''t be called directly.   Registers a new agent with AWS Ground Station. '
       operationId: amazonWebServicesRegisterAgent
+      tags:
+        - Agent
   /contact:
     POST:
       summary: Amazon Web Services Reservecontact
       description: Reserves a contact using specified parameters.
       operationId: amazonWebServicesReserveContact
+      tags:
+        - Contact
   /agent/{agentId}:
     PUT:
       summary: Amazon Web Services Updateagentstatus
       description: '  For use by AWS Ground Station Agent and shouldn''t be called directly.  Update the status of the agent.'
       operationId: amazonWebServicesUpdateAgentStatus
-tags: []
+      tags:
+        - Agent
+tags:
+  - name: Agent
+  - name: Config
+  - name: Contact
+  - name: Contacts
+  - name: dataflowEndpointGroup
+  - name: Ephemerides
+  - name: Ephemeris
+  - name: Groundstation
+  - name: Minute Usage
+  - name: Missionprofile
+  - name: Satellite
+  - name: Tags

@@ -17,6 +17,8 @@ paths:
         Returns the description for the list of fields in the request
         parameters. 
       operationId: amazonWebServicesBatchGetField
+      tags:
+        - Domains
   /domains/{domainId}/fields/{fieldId}/options:
     PUT:
       summary: Amazon Web Services Batchputfieldoptions
@@ -24,11 +26,15 @@ paths:
         Creates and updates a set of field options for a single select field in
         a Cases domain.
       operationId: amazonWebServicesBatchPutFieldOptions
+      tags:
+        - Domains
   /domains/{domainId}/cases:
     POST:
       summary: Amazon Web Services Createcase
       description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.&lt;/p&gt; &lt;p&gt;The following fields are required when creating a case:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You must provide the full customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;title&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; '
       operationId: amazonWebServicesCreateCase
+      tags:
+        - Domains
   /domains:
     POST:
       summary: Amazon Web Services Createdomain
@@ -41,6 +47,8 @@ paths:
         successfully associate the Cases domain. For more information, see
         Onboard to Cases.  &lt;/important&gt; 
       operationId: amazonWebServicesCreateDomain
+      tags:
+        - Domains
   /domains/{domainId}/fields:
     POST:
       summary: Amazon Web Services Createfield
@@ -49,6 +57,8 @@ paths:
         case object model (that is, defines what data can be captured on cases)
         in a Cases domain. 
       operationId: amazonWebServicesCreateField
+      tags:
+        - Domains
   /domains/{domainId}/layouts:
     POST:
       summary: Amazon Web Services Createlayout
@@ -59,6 +69,8 @@ paths:
         and Status fields cannot be part of layouts since they are not
         configurable. 
       operationId: amazonWebServicesCreateLayout
+      tags:
+        - Domains
   /domains/{domainId}/cases/{caseId}/related-items/:
     POST:
       summary: Amazon Web Services Createrelateditem
@@ -72,6 +84,8 @@ paths:
         performedBy.userArn you must also have DescribeUser permission on the
         ARN of the user that you provide.    &lt;/note&gt; 
       operationId: amazonWebServicesCreateRelatedItem
+      tags:
+        - Domains
   /domains/{domainId}/templates:
     POST:
       summary: Amazon Web Services Createtemplate
@@ -84,21 +98,29 @@ paths:
         same Template. A template can be either Active or Inactive, as indicated
         by its status. Inactive templates cannot be used to create cases.
       operationId: amazonWebServicesCreateTemplate
+      tags:
+        - Domains
   /domains/{domainId}:
     POST:
       summary: Amazon Web Services Getdomain
       description: 'Returns information about a specific domain if it exists. '
       operationId: amazonWebServicesGetDomain
+      tags:
+        - Domains
   /domains/{domainId}/cases/{caseId}:
     PUT:
       summary: Amazon Web Services Updatecase
       description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the &lt;code&gt;CreateCase&lt;/code&gt; input .&lt;/p&gt; &lt;p&gt;If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.&lt;/p&gt; '
       operationId: amazonWebServicesUpdateCase
+      tags:
+        - Domains
   /domains/{domainId}/cases/{caseId}/audit-history:
     POST:
       summary: Amazon Web Services Getcaseauditevents
       description: Returns the audit history about a specific case if it exists.
       operationId: amazonWebServicesGetCaseAuditEvents
+      tags:
+        - Domains
   /domains/{domainId}/case-event-configuration:
     PUT:
       summary: Amazon Web Services Putcaseeventconfiguration
@@ -107,6 +129,8 @@ paths:
         you can add to the event message, see Create case fields in the Amazon
         Connect Administrator Guide 
       operationId: amazonWebServicesPutCaseEventConfiguration
+      tags:
+        - Domains
   /domains/{domainId}/layouts/{layoutId}:
     PUT:
       summary: Amazon Web Services Updatelayout
@@ -117,6 +141,8 @@ paths:
         fieldIds to a layout.  Title and Status fields cannot be part of layouts
         because they are not configurable. 
       operationId: amazonWebServicesUpdateLayout
+      tags:
+        - Domains
   /domains/{domainId}/templates/{templateId}:
     PUT:
       summary: Amazon Web Services Updatetemplate
@@ -127,11 +153,15 @@ paths:
         null. If a null value is provided for a given attribute, that attribute
         is ignored and its current value is preserved.
       operationId: amazonWebServicesUpdateTemplate
+      tags:
+        - Domains
   /domains/{domainId}/list-cases-for-contact:
     POST:
       summary: Amazon Web Services Listcasesforcontact
       description: Lists cases for a given contact.
       operationId: amazonWebServicesListCasesForContact
+      tags:
+        - Domains
   /domains-list:
     POST:
       summary: Amazon Web Services Listdomains
@@ -139,16 +169,22 @@ paths:
         Lists all cases domains in the Amazon Web Services account. Each list
         item is a condensed summary object of the domain.
       operationId: amazonWebServicesListDomains
+      tags:
+        - Domains List
   /domains/{domainId}/fields/{fieldId}/options-list:
     POST:
       summary: Amazon Web Services Listfieldoptions
       description: 'Lists all of the field options for a field identifier in the domain. '
       operationId: amazonWebServicesListFieldOptions
+      tags:
+        - Domains
   /domains/{domainId}/fields-list:
     POST:
       summary: Amazon Web Services Listfields
       description: Lists all fields in a Cases domain.
       operationId: amazonWebServicesListFields
+      tags:
+        - Domains
   /domains/{domainId}/layouts-list:
     POST:
       summary: Amazon Web Services Listlayouts
@@ -156,11 +192,15 @@ paths:
         Lists all layouts in the given cases domain. Each list item is a
         condensed summary object of the layout.
       operationId: amazonWebServicesListLayouts
+      tags:
+        - Domains
   /tags/{arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untags a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /domains/{domainId}/templates-list:
     POST:
       summary: Amazon Web Services Listtemplates
@@ -168,6 +208,8 @@ paths:
         Lists all of the templates in a Cases domain. Each list item is a
         condensed summary object of the template. 
       operationId: amazonWebServicesListTemplates
+      tags:
+        - Domains
   /domains/{domainId}/cases-search:
     POST:
       summary: Amazon Web Services Searchcases
@@ -178,6 +220,8 @@ paths:
         format:  arn:aws:profile:your AWS Region:your AWS account
         ID:domains/profiles domain name/profiles/profile ID.  
       operationId: amazonWebServicesSearchCases
+      tags:
+        - Domains
   /domains/{domainId}/cases/{caseId}/related-items-search:
     POST:
       summary: Amazon Web Services Searchrelateditems
@@ -186,9 +230,16 @@ paths:
         filters are provided, this returns all related items associated with a
         case. 
       operationId: amazonWebServicesSearchRelatedItems
+      tags:
+        - Domains
   /domains/{domainId}/fields/{fieldId}:
     PUT:
       summary: Amazon Web Services Updatefield
       description: 'Updates the properties of an existing field. '
       operationId: amazonWebServicesUpdateField
-tags: []
+      tags:
+        - Domains
+tags:
+  - name: Domains
+  - name: Domains List
+  - name: Tags

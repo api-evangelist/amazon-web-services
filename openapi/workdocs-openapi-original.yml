@@ -46,6 +46,8 @@ paths:
         document upload, after the client uploads the document to an
         S3-presigned URL returned by InitiateDocumentVersionUpload. 
       operationId: amazonWebServicesUpdateDocumentVersion
+      tags:
+        - Documents
   /api/v1/users/{UserId}/activation:
     DELETE:
       summary: Amazon Web Services Deactivateuser
@@ -53,36 +55,50 @@ paths:
         Deactivates the specified user, which revokes the user's access to
         Amazon WorkDocs.
       operationId: amazonWebServicesDeactivateUser
+      tags:
+        - Users
   /api/v1/resources/{ResourceId}/permissions:
     DELETE:
       summary: Amazon Web Services Removeallresourcepermissions
       description: Removes all the permissions from the specified resource.
       operationId: amazonWebServicesRemoveAllResourcePermissions
+      tags:
+        - Resources
   /api/v1/documents/{DocumentId}/versions/{VersionId}/comment:
     POST:
       summary: Amazon Web Services Createcomment
       description: Adds a new comment to the specified document version.
       operationId: amazonWebServicesCreateComment
+      tags:
+        - Documents
   /api/v1/resources/{ResourceId}/customMetadata:
     DELETE:
       summary: Amazon Web Services Deletecustommetadata
       description: Deletes custom metadata from the specified resource.
       operationId: amazonWebServicesDeleteCustomMetadata
+      tags:
+        - Resources
   /api/v1/folders:
     POST:
       summary: Amazon Web Services Createfolder
       description: Creates a folder with the specified name and parent folder.
       operationId: amazonWebServicesCreateFolder
+      tags:
+        - Folders
   /api/v1/resources/{ResourceId}/labels:
     DELETE:
       summary: Amazon Web Services Deletelabels
       description: Deletes the specified list of labels from a resource.
       operationId: amazonWebServicesDeleteLabels
+      tags:
+        - Resources
   /api/v1/organizations/{OrganizationId}/subscriptions:
     GET:
       summary: Amazon Web Services Describenotificationsubscriptions
       description: Lists the specified notification subscriptions.
       operationId: amazonWebServicesDescribeNotificationSubscriptions
+      tags:
+        - Organizations
   /api/v1/users:
     GET:
       summary: Amazon Web Services Describeusers
@@ -93,11 +109,15 @@ paths:
         results, the response includes a marker that you can use to request the
         next set of results.
       operationId: amazonWebServicesDescribeUsers
+      tags:
+        - Users
   /api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}:
     DELETE:
       summary: Amazon Web Services Deletecomment
       description: Deletes the specified comment from the document version.
       operationId: amazonWebServicesDeleteComment
+      tags:
+        - Documents
   /api/v1/documents/{DocumentId}:
     PATCH:
       summary: Amazon Web Services Updatedocument
@@ -105,11 +125,15 @@ paths:
         Updates the specified attributes of a document. The user must have
         access to both the document and its parent folder, if applicable.
       operationId: amazonWebServicesUpdateDocument
+      tags:
+        - Documents
   /api/v1/documentVersions/{DocumentId}/versions/{VersionId}:
     DELETE:
       summary: Amazon Web Services Deletedocumentversion
       description: Deletes a specific version of a document.
       operationId: amazonWebServicesDeleteDocumentVersion
+      tags:
+        - documentVersions
   /api/v1/folders/{FolderId}:
     PATCH:
       summary: Amazon Web Services Updatefolder
@@ -117,6 +141,8 @@ paths:
         Updates the specified attributes of the specified folder. The user must
         have access to both the folder and its parent folder, if applicable.
       operationId: amazonWebServicesUpdateFolder
+      tags:
+        - Folders
   /api/v1/folders/{FolderId}/contents:
     GET:
       summary: Amazon Web Services Describefoldercontents
@@ -127,11 +153,15 @@ paths:
         response includes a marker that you can use to request the next set of
         results. You can also request initialized documents.
       operationId: amazonWebServicesDescribeFolderContents
+      tags:
+        - Folders
   /api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}:
     DELETE:
       summary: Amazon Web Services Deletenotificationsubscription
       description: Deletes the specified subscription from the specified organization.
       operationId: amazonWebServicesDeleteNotificationSubscription
+      tags:
+        - Organizations
   /api/v1/users/{UserId}:
     PATCH:
       summary: Amazon Web Services Updateuser
@@ -139,16 +169,22 @@ paths:
         Updates the specified attributes of the specified user, and grants or
         revokes administrative privileges to the Amazon WorkDocs site.
       operationId: amazonWebServicesUpdateUser
+      tags:
+        - Users
   /api/v1/activities:
     GET:
       summary: Amazon Web Services Describeactivities
       description: Describes the user activities in a specified time period.
       operationId: amazonWebServicesDescribeActivities
+      tags:
+        - Activities
   /api/v1/documents/{DocumentId}/versions/{VersionId}/comments:
     GET:
       summary: Amazon Web Services Describecomments
       description: List all the comments for the specified document version.
       operationId: amazonWebServicesDescribeComments
+      tags:
+        - Documents
   /api/v1/documents/{DocumentId}/versions:
     GET:
       summary: Amazon Web Services Describedocumentversions
@@ -156,6 +192,8 @@ paths:
         Retrieves the document versions for the specified document. By default,
         only active versions are returned.
       operationId: amazonWebServicesDescribeDocumentVersions
+      tags:
+        - Documents
   /api/v1/groups:
     GET:
       summary: Amazon Web Services Describegroups
@@ -163,6 +201,8 @@ paths:
         Describes the groups specified by the query. Groups are defined by the
         underlying Active Directory.
       operationId: amazonWebServicesDescribeGroups
+      tags:
+        - Groups
   /api/v1/me/root:
     GET:
       summary: Amazon Web Services Describerootfolders
@@ -176,6 +216,8 @@ paths:
         Authentication and Access Control for User Applications in the Amazon
         WorkDocs Developer Guide.
       operationId: amazonWebServicesDescribeRootFolders
+      tags:
+        - Me
   /api/v1/me:
     GET:
       summary: Amazon Web Services Getcurrentuser
@@ -187,6 +229,8 @@ paths:
         more information, see Authentication and Access Control for User
         Applications in the Amazon WorkDocs Developer Guide.
       operationId: amazonWebServicesGetCurrentUser
+      tags:
+        - Me
   /api/v1/documents/{DocumentId}/path:
     GET:
       summary: Amazon Web Services Getdocumentpath
@@ -197,6 +241,8 @@ paths:
         of the parent folders in the path. You can limit the maximum number of
         levels. You can also request the names of the parent folders.
       operationId: amazonWebServicesGetDocumentPath
+      tags:
+        - Documents
   /api/v1/folders/{FolderId}/path:
     GET:
       summary: Amazon Web Services Getfolderpath
@@ -207,6 +253,8 @@ paths:
         of the parent folders in the path. You can limit the maximum number of
         levels. You can also request the parent folder names.
       operationId: amazonWebServicesGetFolderPath
+      tags:
+        - Folders
   /api/v1/resources:
     GET:
       summary: Amazon Web Services Getresources
@@ -214,6 +262,8 @@ paths:
         Retrieves a collection of resources, including folders and documents.
         The only CollectionType supported is SHARED_WITH_ME.
       operationId: amazonWebServicesGetResources
+      tags:
+        - Resources
   /api/v1/documents:
     POST:
       summary: Amazon Web Services Initiatedocumentversionupload
@@ -226,6 +276,8 @@ paths:
         UpdateDocumentVersion. To cancel the document upload, call
         AbortDocumentVersionUpload.
       operationId: amazonWebServicesInitiateDocumentVersionUpload
+      tags:
+        - Documents
   /api/v1/resources/{ResourceId}/permissions/{PrincipalId}:
     DELETE:
       summary: Amazon Web Services Removeresourcepermission
@@ -233,11 +285,15 @@ paths:
         Removes the permission for the specified principal from the specified
         resource.
       operationId: amazonWebServicesRemoveResourcePermission
+      tags:
+        - Resources
   /api/v1/documentVersions/restore/{DocumentId}:
     POST:
       summary: Amazon Web Services Restoredocumentversions
       description: Recovers a deleted version of an Amazon WorkDocs document.
       operationId: amazonWebServicesRestoreDocumentVersions
+      tags:
+        - documentVersions
   /api/v1/search:
     POST:
       summary: Amazon Web Services Searchresources
@@ -245,4 +301,16 @@ paths:
         Searches metadata and the content of folders, documents, document
         versions, and comments.
       operationId: amazonWebServicesSearchResources
-tags: []
+      tags:
+        - Search
+tags:
+  - name: Activities
+  - name: Documents
+  - name: documentVersions
+  - name: Folders
+  - name: Groups
+  - name: Me
+  - name: Organizations
+  - name: Resources
+  - name: Search
+  - name: Users

@@ -12,84 +12,121 @@ paths:
         List of Knowledge Bases associated to an existing Amazon Bedrock Agent
         Version
       operationId: amazonWebServicesListAgentKnowledgeBases
+      tags:
+        - Agents
   /agents/:
     POST:
       summary: Amazon Web Services Listagents
       description: Lists Agents
       operationId: amazonWebServicesListAgents
+      tags:
+        - Agents
   /agents/{agentId}/agentversions/{agentVersion}/actiongroups/:
     POST:
       summary: Amazon Web Services Listagentactiongroups
       description: Lists an Action Group for existing Amazon Bedrock Agent Version
       operationId: amazonWebServicesListAgentActionGroups
+      tags:
+        - Agents
   /agents/{agentId}/agentaliases/:
     POST:
       summary: Amazon Web Services Listagentaliases
       description: Lists all the Aliases for an Amazon Bedrock Agent
       operationId: amazonWebServicesListAgentAliases
+      tags:
+        - Agents
   /knowledgebases/{knowledgeBaseId}/datasources/:
     POST:
       summary: Amazon Web Services Listdatasources
       description: List data sources
       operationId: amazonWebServicesListDataSources
+      tags:
+        - Knowledgebases
   /knowledgebases/:
     POST:
       summary: Amazon Web Services Listknowledgebases
       description: List Knowledge Bases
       operationId: amazonWebServicesListKnowledgeBases
+      tags:
+        - Knowledgebases
   /agents/{agentId}/:
     PUT:
       summary: Amazon Web Services Updateagent
       description: Updates an existing Amazon Bedrock Agent
       operationId: amazonWebServicesUpdateAgent
+      tags:
+        - Agents
   /agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}/:
     PUT:
       summary: Amazon Web Services Updateagentactiongroup
       description: Updates an existing Action Group for Amazon Bedrock Agent
       operationId: amazonWebServicesUpdateAgentActionGroup
+      tags:
+        - Agents
   /agents/{agentId}/agentaliases/{agentAliasId}/:
     PUT:
       summary: Amazon Web Services Updateagentalias
       description: Updates an existing Alias for an Amazon Bedrock Agent
       operationId: amazonWebServicesUpdateAgentAlias
+      tags:
+        - Agents
   /agents/{agentId}/agentversions/{agentVersion}/:
     GET:
       summary: Amazon Web Services Getagentversion
       description: Gets an Agent version for existing Amazon Bedrock Agent
       operationId: amazonWebServicesGetAgentVersion
+      tags:
+        - Agents
   /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}:
     PUT:
       summary: Amazon Web Services Updatedatasource
       description: Update an existing data source
       operationId: amazonWebServicesUpdateDataSource
+      tags:
+        - Knowledgebases
   /knowledgebases/{knowledgeBaseId}:
     PUT:
       summary: Amazon Web Services Updateknowledgebase
       description: Update an existing knowledge base
       operationId: amazonWebServicesUpdateKnowledgeBase
+      tags:
+        - Knowledgebases
   /agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}/:
     PUT:
       summary: Amazon Web Services Updateagentknowledgebase
       description: Updates an existing Knowledge Base associated to an Amazon Bedrock Agent
       operationId: amazonWebServicesUpdateAgentKnowledgeBase
+      tags:
+        - Agents
   /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}:
     GET:
       summary: Amazon Web Services Getingestionjob
       description: Get an ingestion job
       operationId: amazonWebServicesGetIngestionJob
+      tags:
+        - Knowledgebases
   /agents/{agentId}/agentversions/:
     POST:
       summary: Amazon Web Services Listagentversions
       description: Lists Agent Versions
       operationId: amazonWebServicesListAgentVersions
+      tags:
+        - Agents
   /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/:
     PUT:
       summary: Amazon Web Services Startingestionjob
       description: Start a new ingestion job
       operationId: amazonWebServicesStartIngestionJob
+      tags:
+        - Knowledgebases
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untag a resource
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Agents
+  - name: Knowledgebases
+  - name: Tags

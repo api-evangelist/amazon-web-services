@@ -18,6 +18,8 @@ paths:
       summary: Amazon Web Services Disassociatelicense
       description: Removes the Grafana Enterprise license from a workspace.
       operationId: amazonWebServicesDisassociateLicense
+      tags:
+        - Workspaces
   /workspaces:
     GET:
       summary: Amazon Web Services Listworkspaces
@@ -26,6 +28,8 @@ paths:
         some information about each workspace. For more complete information
         about one workspace, use DescribeWorkspace.
       operationId: amazonWebServicesListWorkspaces
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/apikeys:
     POST:
       summary: Amazon Web Services Createworkspaceapikey
@@ -35,6 +39,8 @@ paths:
         https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html
         for available APIs and example requests.
       operationId: amazonWebServicesCreateWorkspaceApiKey
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}:
     PUT:
       summary: Amazon Web Services Updateworkspace
@@ -46,11 +52,15 @@ paths:
         UpdateWorkspaceAuthentication. To modify which users in the workspace
         have the Admin and Editor Grafana roles, use UpdatePermissions.
       operationId: amazonWebServicesUpdateWorkspace
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/apikeys/{keyName}:
     DELETE:
       summary: Amazon Web Services Deleteworkspaceapikey
       description: Deletes a Grafana API key for the workspace.
       operationId: amazonWebServicesDeleteWorkspaceApiKey
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/authentication:
     POST:
       summary: Amazon Web Services Updateworkspaceauthentication
@@ -62,11 +72,15 @@ paths:
         in the workspace.  Changes to the authentication method for a workspace
         may take a few minutes to take effect. 
       operationId: amazonWebServicesUpdateWorkspaceAuthentication
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/configuration:
     PUT:
       summary: Amazon Web Services Updateworkspaceconfiguration
       description: Updates the configuration string for the given workspace
       operationId: amazonWebServicesUpdateWorkspaceConfiguration
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/permissions:
     PATCH:
       summary: Amazon Web Services Updatepermissions
@@ -74,6 +88,8 @@ paths:
         Updates which users in a workspace have the Grafana Admin or Editor
         roles.
       operationId: amazonWebServicesUpdatePermissions
+      tags:
+        - Workspaces
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -81,6 +97,8 @@ paths:
         The UntagResource operation removes the association of the tag with the
         Amazon Managed Grafana resource. 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /versions:
     GET:
       summary: Amazon Web Services Listversions
@@ -89,4 +107,9 @@ paths:
         CreateWorkspace. Optionally, include a workspace to list the versions to
         which it can be upgraded.
       operationId: amazonWebServicesListVersions
-tags: []
+      tags:
+        - Versions
+tags:
+  - name: Tags
+  - name: Versions
+  - name: Workspaces

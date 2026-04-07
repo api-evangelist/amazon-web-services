@@ -15,16 +15,22 @@ paths:
         attributes contained in the attribute group from the application's
         metadata. This operation reverts AssociateAttributeGroup.
       operationId: amazonWebServicesDisassociateAttributeGroup
+      tags:
+        - Applications
   /applications/{application}/resources/{resourceType}/{resource}:
     GET:
       summary: Amazon Web Services Getassociatedresource
       description: Gets the resource associated with the application.
       operationId: amazonWebServicesGetAssociatedResource
+      tags:
+        - Applications
   /applications:
     GET:
       summary: Amazon Web Services Listapplications
       description: Retrieves a list of all of your applications. Results are paginated.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /attribute-groups:
     GET:
       summary: Amazon Web Services Listattributegroups
@@ -32,21 +38,29 @@ paths:
         Lists all attribute groups which you have access to. Results are
         paginated.
       operationId: amazonWebServicesListAttributeGroups
+      tags:
+        - Attribute Groups
   /applications/{application}:
     PATCH:
       summary: Amazon Web Services Updateapplication
       description: Updates an existing application with new attributes.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /attribute-groups/{attributeGroup}:
     PATCH:
       summary: Amazon Web Services Updateattributegroup
       description: 'Updates an existing attribute group with new details. '
       operationId: amazonWebServicesUpdateAttributeGroup
+      tags:
+        - Attribute Groups
   /configuration:
     PUT:
       summary: Amazon Web Services Putconfiguration
       description: ' Associates a TagKey configuration to an account. '
       operationId: amazonWebServicesPutConfiguration
+      tags:
+        - Configuration
   /applications/{application}/attribute-groups:
     GET:
       summary: Amazon Web Services Listassociatedattributegroups
@@ -54,11 +68,15 @@ paths:
         Lists all attribute groups that are associated with specified
         application. Results are paginated.
       operationId: amazonWebServicesListAssociatedAttributeGroups
+      tags:
+        - Applications
   /applications/{application}/resources:
     GET:
       summary: Amazon Web Services Listassociatedresources
       description: ' Lists all of the resources that are associated with the specified application. Results are paginated.    If you share an application, and a consumer account associates a tag query to the application, all of the users who can access the application can also view the tag values in all accounts that are associated with it using this API.  '
       operationId: amazonWebServicesListAssociatedResources
+      tags:
+        - Applications
   /applications/{application}/attribute-group-details:
     GET:
       summary: Amazon Web Services Listattributegroupsforapplication
@@ -66,6 +84,8 @@ paths:
         Lists the details of all attribute groups associated with a specific
         application. The results display in pages.
       operationId: amazonWebServicesListAttributeGroupsForApplication
+      tags:
+        - Applications
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -73,6 +93,8 @@ paths:
         Removes tags from a resource. This operation returns an empty response
         if the call was successful.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /sync/{resourceType}/{resource}:
     POST:
       summary: Amazon Web Services Syncresource
@@ -83,4 +105,11 @@ paths:
         associate with the application. The caller must have permissions to read
         and update the resource.
       operationId: amazonWebServicesSyncResource
-tags: []
+      tags:
+        - Sync
+tags:
+  - name: Applications
+  - name: Attribute Groups
+  - name: Configuration
+  - name: Sync
+  - name: Tags

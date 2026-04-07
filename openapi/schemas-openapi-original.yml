@@ -8,11 +8,15 @@ paths:
       summary: Amazon Web Services Listdiscoverers
       description: List the discoverers.
       operationId: amazonWebServicesListDiscoverers
+      tags:
+        - Discoverers
   /v1/registries/name/{registryName}:
     PUT:
       summary: Amazon Web Services Updateregistry
       description: Updates a registry.
       operationId: amazonWebServicesUpdateRegistry
+      tags:
+        - Registries
   /v1/registries/name/{registryName}/schemas/name/{schemaName}:
     PUT:
       summary: Amazon Web Services Updateschema
@@ -20,74 +24,109 @@ paths:
         Updates the schema definition Inactive schemas will be deleted after two
         years.
       operationId: amazonWebServicesUpdateSchema
+      tags:
+        - Registries
   /v1/discoverers/id/{discovererId}:
     PUT:
       summary: Amazon Web Services Updatediscoverer
       description: Updates the discoverer
       operationId: amazonWebServicesUpdateDiscoverer
+      tags:
+        - Discoverers
   /v1/policy:
     PUT:
       summary: Amazon Web Services Putresourcepolicy
       description: The name of the policy.
       operationId: amazonWebServicesPutResourcePolicy
+      tags:
+        - Policy
   /v1/registries/name/{registryName}/schemas/name/{schemaName}/version/{schemaVersion}:
     DELETE:
       summary: Amazon Web Services Deleteschemaversion
       description: Delete the schema version definition
       operationId: amazonWebServicesDeleteSchemaVersion
+      tags:
+        - Registries
   /v1/registries/name/{registryName}/schemas/name/{schemaName}/language/{language}:
     POST:
       summary: Amazon Web Services Putcodebinding
       description: Put code binding URI
       operationId: amazonWebServicesPutCodeBinding
+      tags:
+        - Registries
   /v1/registries/name/{registryName}/schemas/name/{schemaName}/language/{language}/source:
     GET:
       summary: Amazon Web Services Getcodebindingsource
       description: Get the code binding source URI.
       operationId: amazonWebServicesGetCodeBindingSource
+      tags:
+        - Registries
   /v1/discover:
     POST:
       summary: Amazon Web Services Getdiscoveredschema
       description: Get the discovered schema that was generated based on sampled events.
       operationId: amazonWebServicesGetDiscoveredSchema
+      tags:
+        - Discover
   /v1/registries:
     GET:
       summary: Amazon Web Services Listregistries
       description: List the registries.
       operationId: amazonWebServicesListRegistries
+      tags:
+        - Registries
   /v1/registries/name/{registryName}/schemas/name/{schemaName}/versions:
     GET:
       summary: Amazon Web Services Listschemaversions
       description: Provides a list of the schema versions and related information.
       operationId: amazonWebServicesListSchemaVersions
+      tags:
+        - Registries
   /v1/registries/name/{registryName}/schemas:
     GET:
       summary: Amazon Web Services Listschemas
       description: List the schemas.
       operationId: amazonWebServicesListSchemas
+      tags:
+        - Registries
   /tags/{resource-arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/registries/name/{registryName}/schemas/search:
     GET:
       summary: Amazon Web Services Searchschemas
       description: Search the schemas
       operationId: amazonWebServicesSearchSchemas
+      tags:
+        - Registries
   /v1/discoverers/id/{discovererId}/start:
     POST:
       summary: Amazon Web Services Startdiscoverer
       description: Starts the discoverer
       operationId: amazonWebServicesStartDiscoverer
+      tags:
+        - Discoverers
   /v1/discoverers/id/{discovererId}/stop:
     POST:
       summary: Amazon Web Services Stopdiscoverer
       description: Stops the discoverer
       operationId: amazonWebServicesStopDiscoverer
+      tags:
+        - Discoverers
   /v1/registries/name/{registryName}/schemas/name/{schemaName}/export:
     GET:
       summary: Amazon Web Services Exportschema
       description: Exports a schema to a different specification.
       operationId: amazonWebServicesExportSchema
-tags: []
+      tags:
+        - Registries
+tags:
+  - name: Discover
+  - name: Discoverers
+  - name: Policy
+  - name: Registries
+  - name: Tags

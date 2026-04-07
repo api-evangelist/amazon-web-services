@@ -37,6 +37,8 @@ paths:
         not assigned to a launch or experiment, they are served the default
         variation.
       operationId: amazonWebServicesBatchEvaluateFeature
+      tags:
+        - Projects
   /projects/{project}/experiments:
     GET:
       summary: Amazon Web Services Listexperiments
@@ -44,6 +46,8 @@ paths:
         Returns configuration details about all the experiments in the specified
         project.
       operationId: amazonWebServicesListExperiments
+      tags:
+        - Projects
   /projects/{project}/features:
     GET:
       summary: Amazon Web Services Listfeatures
@@ -51,6 +55,8 @@ paths:
         Returns configuration details about all the features in the specified
         project.
       operationId: amazonWebServicesListFeatures
+      tags:
+        - Projects
   /projects/{project}/launches:
     GET:
       summary: Amazon Web Services Listlaunches
@@ -58,6 +64,8 @@ paths:
         Returns configuration details about all the launches in the specified
         project.
       operationId: amazonWebServicesListLaunches
+      tags:
+        - Projects
   /projects:
     GET:
       summary: Amazon Web Services Listprojects
@@ -65,6 +73,8 @@ paths:
         Returns configuration details about all the projects in the current
         Region in your account.
       operationId: amazonWebServicesListProjects
+      tags:
+        - Projects
   /segments:
     GET:
       summary: Amazon Web Services Listsegments
@@ -72,6 +82,8 @@ paths:
         Returns a list of audience segments that you have created in your
         account in this Region.
       operationId: amazonWebServicesListSegments
+      tags:
+        - Segments
   /projects/{project}/experiments/{experiment}:
     PATCH:
       summary: Amazon Web Services Updateexperiment
@@ -79,6 +91,8 @@ paths:
         Updates an Evidently experiment.  Don't use this operation to update an
         experiment's tag. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateExperiment
+      tags:
+        - Projects
   /projects/{project}/features/{feature}:
     PATCH:
       summary: Amazon Web Services Updatefeature
@@ -86,6 +100,8 @@ paths:
         Updates an existing feature. You can't use this operation to update the
         tags of an existing feature. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateFeature
+      tags:
+        - Projects
   /projects/{project}/launches/{launch}:
     PATCH:
       summary: Amazon Web Services Updatelaunch
@@ -93,6 +109,8 @@ paths:
         Updates a launch of a given feature.  Don't use this operation to update
         the tags of an existing launch. Instead, use TagResource. 
       operationId: amazonWebServicesUpdateLaunch
+      tags:
+        - Projects
   /projects/{project}:
     PATCH:
       summary: Amazon Web Services Updateproject
@@ -103,6 +121,8 @@ paths:
         this operation to update the tags of a project. Instead, use
         TagResource. 
       operationId: amazonWebServicesUpdateProject
+      tags:
+        - Projects
   /segments/{segment}:
     GET:
       summary: Amazon Web Services Getsegment
@@ -110,6 +130,8 @@ paths:
         Returns information about the specified segment. Specify the segment you
         want to view by specifying its ARN.
       operationId: amazonWebServicesGetSegment
+      tags:
+        - Segments
   /projects/{project}/evaluations/{feature}:
     POST:
       summary: Amazon Web Services Evaluatefeature
@@ -139,6 +161,8 @@ paths:
         feature variations used for the experiment.  If the user is not assigned
         to a launch or experiment, they are served the default variation.
       operationId: amazonWebServicesEvaluateFeature
+      tags:
+        - Projects
   /projects/{project}/experiments/{experiment}/results:
     POST:
       summary: Amazon Web Services Getexperimentresults
@@ -154,6 +178,8 @@ paths:
         start of the experiment. They are not available after that because of
         CloudWatch data retention policies.
       operationId: amazonWebServicesGetExperimentResults
+      tags:
+        - Projects
   /segments/{segment}/references:
     GET:
       summary: Amazon Web Services Listsegmentreferences
@@ -161,11 +187,15 @@ paths:
         Use this operation to find which experiments or launches are using a
         specified segment.
       operationId: amazonWebServicesListSegmentReferences
+      tags:
+        - Segments
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /events/projects/{project}:
     POST:
       summary: Amazon Web Services Putprojectevents
@@ -173,6 +203,8 @@ paths:
         Sends performance events to Evidently. These events can be used to
         evaluate a launch or an experiment.
       operationId: amazonWebServicesPutProjectEvents
+      tags:
+        - Events
   /projects/{project}/experiments/{experiment}/start:
     POST:
       summary: Amazon Web Services Startexperiment
@@ -180,11 +212,15 @@ paths:
         Starts an existing experiment. To create an experiment, use
         CreateExperiment.
       operationId: amazonWebServicesStartExperiment
+      tags:
+        - Projects
   /projects/{project}/launches/{launch}/start:
     POST:
       summary: Amazon Web Services Startlaunch
       description: Starts an existing launch. To create a launch, use CreateLaunch.
       operationId: amazonWebServicesStartLaunch
+      tags:
+        - Projects
   /projects/{project}/experiments/{experiment}/cancel:
     POST:
       summary: Amazon Web Services Stopexperiment
@@ -192,6 +228,8 @@ paths:
         Stops an experiment that is currently running. If you stop an
         experiment, you can't resume it or restart it.
       operationId: amazonWebServicesStopExperiment
+      tags:
+        - Projects
   /projects/{project}/launches/{launch}/cancel:
     POST:
       summary: Amazon Web Services Stoplaunch
@@ -203,6 +241,8 @@ paths:
         experiment, if there is one. Otherwise, all traffic will be served the
         default variation after the launch is stopped.
       operationId: amazonWebServicesStopLaunch
+      tags:
+        - Projects
   /test-segment-pattern:
     POST:
       summary: Amazon Web Services Testsegmentpattern
@@ -211,6 +251,8 @@ paths:
         create an audience segment. For more information about segments, see
         CreateSegment.
       operationId: amazonWebServicesTestSegmentPattern
+      tags:
+        - Test Segment Pattern
   /projects/{project}/data-delivery:
     PATCH:
       summary: Amazon Web Services Updateprojectdatadelivery
@@ -222,4 +264,11 @@ paths:
         view. You can't specify both cloudWatchLogs and s3Destination in the
         same operation.
       operationId: amazonWebServicesUpdateProjectDataDelivery
-tags: []
+      tags:
+        - Projects
+tags:
+  - name: Events
+  - name: Projects
+  - name: Segments
+  - name: Tags
+  - name: Test Segment Pattern

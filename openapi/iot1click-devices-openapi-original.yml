@@ -14,6 +14,8 @@ paths:
         Adds device(s) to your account (i.e., claim one or more devices) if and
         only if you<br> received a claim code with the device(s).
       operationId: amazonWebServicesClaimDevicesByClaimCode
+      tags:
+        - Claims
   /devices/{deviceId}:
     GET:
       summary: Amazon Web Services Describedevice
@@ -21,6 +23,8 @@ paths:
         Given a device ID, returns a DescribeDeviceResponse object describing
         the<br> details of the device.
       operationId: amazonWebServicesDescribeDevice
+      tags:
+        - Devices
   /devices/{deviceId}/finalize-claim:
     PUT:
       summary: Amazon Web Services Finalizedeviceclaim
@@ -31,6 +35,8 @@ paths:
         type button, a device event can<br> be published by simply clicking the
         device.<br> 
       operationId: amazonWebServicesFinalizeDeviceClaim
+      tags:
+        - Devices
   /devices/{deviceId}/methods:
     POST:
       summary: Amazon Web Services Invokedevicemethod
@@ -39,6 +45,8 @@ paths:
         (with possible<br> parameters). See the "Example POST" code snippet
         below.
       operationId: amazonWebServicesInvokeDeviceMethod
+      tags:
+        - Devices
   /devices/{deviceId}/initiate-claim:
     PUT:
       summary: Amazon Web Services Initiatedeviceclaim
@@ -49,6 +57,8 @@ paths:
         type button, a device event can<br> be published by simply clicking the
         device.<br> 
       operationId: amazonWebServicesInitiateDeviceClaim
+      tags:
+        - Devices
   /devices/{deviceId}/events:
     GET:
       summary: Amazon Web Services Listdeviceevents
@@ -56,11 +66,15 @@ paths:
         Using a device ID, returns a DeviceEventsResponse object containing
         an<br> array of events for the device.
       operationId: amazonWebServicesListDeviceEvents
+      tags:
+        - Devices
   /devices:
     GET:
       summary: Amazon Web Services Listdevices
       description: Lists the 1-Click compatible devices associated with your AWS account.
       operationId: amazonWebServicesListDevices
+      tags:
+        - Devices
   /tags/{resource-arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -68,11 +82,15 @@ paths:
         Using tag keys, deletes the tags (key/value pairs) associated with the
         specified<br> resource ARN.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /devices/{deviceId}/unclaim:
     PUT:
       summary: Amazon Web Services Unclaimdevice
       description: Disassociates a device from your AWS account using its device ID.
       operationId: amazonWebServicesUnclaimDevice
+      tags:
+        - Devices
   /devices/{deviceId}/state:
     PUT:
       summary: Amazon Web Services Updatedevicestate
@@ -80,4 +98,9 @@ paths:
         Using a Boolean value (true or false), this operation<br> enables or
         disables the device given a device ID.
       operationId: amazonWebServicesUpdateDeviceState
-tags: []
+      tags:
+        - Devices
+tags:
+  - name: Claims
+  - name: Devices
+  - name: Tags

@@ -14,76 +14,106 @@ paths:
       summary: Amazon Web Services Listmediacapturepipelines
       description: Returns a list of media pipelines.
       operationId: amazonWebServicesListMediaCapturePipelines
+      tags:
+        - Sdk Media Capture Pipelines
   /sdk-media-concatenation-pipelines:
     POST:
       summary: Amazon Web Services Createmediaconcatenationpipeline
       description: Creates a media concatenation pipeline.
       operationId: amazonWebServicesCreateMediaConcatenationPipeline
+      tags:
+        - Sdk Media Concatenation Pipelines
   /media-insights-pipelines:
     POST:
       summary: Amazon Web Services Createmediainsightspipeline
       description: Creates a media insights pipeline.
       operationId: amazonWebServicesCreateMediaInsightsPipeline
+      tags:
+        - Media Insights Pipelines
   /media-insights-pipeline-configurations:
     GET:
       summary: Amazon Web Services Listmediainsightspipelineconfigurations
       description: Lists the available media insights pipeline configurations.
       operationId: amazonWebServicesListMediaInsightsPipelineConfigurations
+      tags:
+        - Media Insights Pipeline Configurations
   /sdk-media-live-connector-pipelines:
     POST:
       summary: Amazon Web Services Createmedialiveconnectorpipeline
       description: Creates a media live connector pipeline in an Amazon Chime SDK meeting.
       operationId: amazonWebServicesCreateMediaLiveConnectorPipeline
+      tags:
+        - Sdk Media Live Connector Pipelines
   /media-pipeline-kinesis-video-stream-pools:
     GET:
       summary: Amazon Web Services Listmediapipelinekinesisvideostreampools
       description: Lists the video stream pools in the media pipeline.
       operationId: amazonWebServicesListMediaPipelineKinesisVideoStreamPools
+      tags:
+        - Media Pipeline Kinesis Video Stream Pools
   /sdk-media-stream-pipelines:
     POST:
       summary: Amazon Web Services Createmediastreampipeline
       description: Creates a streaming media pipeline.
       operationId: amazonWebServicesCreateMediaStreamPipeline
+      tags:
+        - Sdk Media Stream Pipelines
   /sdk-media-capture-pipelines/{mediaPipelineId}:
     GET:
       summary: Amazon Web Services Getmediacapturepipeline
       description: Gets an existing media pipeline.
       operationId: amazonWebServicesGetMediaCapturePipeline
+      tags:
+        - Sdk Media Capture Pipelines
   /media-insights-pipeline-configurations/{identifier}:
     PUT:
       summary: Amazon Web Services Updatemediainsightspipelineconfiguration
       description: Updates the media insights pipeline's configuration settings.
       operationId: amazonWebServicesUpdateMediaInsightsPipelineConfiguration
+      tags:
+        - Media Insights Pipeline Configurations
   /sdk-media-pipelines/{mediaPipelineId}:
     GET:
       summary: Amazon Web Services Getmediapipeline
       description: Gets an existing media pipeline.
       operationId: amazonWebServicesGetMediaPipeline
+      tags:
+        - Sdk Media Pipelines
   /media-pipeline-kinesis-video-stream-pools/{identifier}:
     PUT:
       summary: Amazon Web Services Updatemediapipelinekinesisvideostreampool
       description: Updates an Kinesis video stream pool in a media pipeline.
       operationId: amazonWebServicesUpdateMediaPipelineKinesisVideoStreamPool
+      tags:
+        - Media Pipeline Kinesis Video Stream Pools
   /media-insights-pipelines/{identifier}/speaker-search-tasks/{speakerSearchTaskId}:
     GET:
       summary: Amazon Web Services Getspeakersearchtask
       description: Retrieves the details of the specified speaker search task.
       operationId: amazonWebServicesGetSpeakerSearchTask
+      tags:
+        - Media Insights Pipelines
   /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/{voiceToneAnalysisTaskId}:
     GET:
       summary: Amazon Web Services Getvoicetoneanalysistask
       description: Retrieves the details of a voice tone analysis task.
       operationId: amazonWebServicesGetVoiceToneAnalysisTask
+      tags:
+        - Media Insights Pipelines
   /sdk-media-pipelines:
     GET:
       summary: Amazon Web Services Listmediapipelines
       description: Returns a list of media pipelines.
       operationId: amazonWebServicesListMediaPipelines
+      tags:
+        - Sdk Media Pipelines
   /tags:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: Lists the tags available for a media pipeline.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags
   /media-insights-pipelines/{identifier}/speaker-search-tasks?operation=start:
     POST:
       summary: Amazon Web Services Startspeakersearchtask
@@ -93,6 +123,8 @@ paths:
         required under applicable privacy and biometrics laws, and as required
         under the AWS service terms for the Amazon Chime SDK. 
       operationId: amazonWebServicesStartSpeakerSearchTask
+      tags:
+        - Media Insights Pipelines
   /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks?operation=start:
     POST:
       summary: Amazon Web Services Startvoicetoneanalysistask
@@ -104,16 +136,22 @@ paths:
         required under applicable privacy and biometrics laws, and as required
         under the AWS service terms for the Amazon Chime SDK. 
       operationId: amazonWebServicesStartVoiceToneAnalysisTask
+      tags:
+        - Media Insights Pipelines
   /media-insights-pipelines/{identifier}/speaker-search-tasks/{speakerSearchTaskId}?operation=stop:
     POST:
       summary: Amazon Web Services Stopspeakersearchtask
       description: Stops a speaker search task.
       operationId: amazonWebServicesStopSpeakerSearchTask
+      tags:
+        - Media Insights Pipelines
   /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/{voiceToneAnalysisTaskId}?operation=stop:
     POST:
       summary: Amazon Web Services Stopvoicetoneanalysistask
       description: Stops a voice tone analysis task.
       operationId: amazonWebServicesStopVoiceToneAnalysisTask
+      tags:
+        - Media Insights Pipelines
   /tags?operation=tag-resource:
     POST:
       summary: Amazon Web Services Tagresource
@@ -121,14 +159,32 @@ paths:
         The ARN of the media pipeline that you want to tag. Consists of the
         pipeline's endpoint region, resource ID, and pipeline ID.
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags?operation=tag Resource
   /tags?operation=untag-resource:
     POST:
       summary: Amazon Web Services Untagresource
       description: Removes any tags from a media pipeline.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags?operation=untag Resource
   /media-insights-pipeline-status/{identifier}:
     PUT:
       summary: Amazon Web Services Updatemediainsightspipelinestatus
       description: Updates the status of a media insights pipeline.
       operationId: amazonWebServicesUpdateMediaInsightsPipelineStatus
-tags: []
+      tags:
+        - Media Insights Pipeline Status
+tags:
+  - name: Media Insights Pipeline Configurations
+  - name: Media Insights Pipeline Status
+  - name: Media Insights Pipelines
+  - name: Media Pipeline Kinesis Video Stream Pools
+  - name: Sdk Media Capture Pipelines
+  - name: Sdk Media Concatenation Pipelines
+  - name: Sdk Media Live Connector Pipelines
+  - name: Sdk Media Pipelines
+  - name: Sdk Media Stream Pipelines
+  - name: Tags
+  - name: Tags?operation=tag Resource
+  - name: Tags?operation=untag Resource

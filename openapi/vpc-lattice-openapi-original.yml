@@ -15,6 +15,8 @@ paths:
       summary: Amazon Web Services Listrules
       description: Lists the rules for the listener.
       operationId: amazonWebServicesListRules
+      tags:
+        - Services
   /accesslogsubscriptions:
     GET:
       summary: Amazon Web Services Listaccesslogsubscriptions
@@ -22,11 +24,15 @@ paths:
         Lists all access log subscriptions for the specified service network or
         service.
       operationId: amazonWebServicesListAccessLogSubscriptions
+      tags:
+        - Accesslogsubscriptions
   /services/{serviceIdentifier}/listeners:
     GET:
       summary: Amazon Web Services Listlisteners
       description: Lists the listeners for the specified service.
       operationId: amazonWebServicesListListeners
+      tags:
+        - Services
   /services:
     GET:
       summary: Amazon Web Services Listservices
@@ -34,6 +40,8 @@ paths:
         Lists the services owned by the caller account or shared with the caller
         account.
       operationId: amazonWebServicesListServices
+      tags:
+        - Services
   /servicenetworks:
     GET:
       summary: Amazon Web Services Listservicenetworks
@@ -42,6 +50,8 @@ paths:
         the caller account. Also includes the account ID in the ARN to show
         which account owns the service network.
       operationId: amazonWebServicesListServiceNetworks
+      tags:
+        - Servicenetworks
   /servicenetworkserviceassociations:
     GET:
       summary: Amazon Web Services Listservicenetworkserviceassociations
@@ -56,6 +66,8 @@ paths:
         association will include the local account ID as the prefix in the ARN
         for each account the resource is shared with.
       operationId: amazonWebServicesListServiceNetworkServiceAssociations
+      tags:
+        - Servicenetworkserviceassociations
   /servicenetworkvpcassociations:
     GET:
       summary: Amazon Web Services Listservicenetworkvpcassociations
@@ -64,6 +76,8 @@ paths:
         either by VPC or service network. You must provide either the service
         network identifier or the VPC identifier.
       operationId: amazonWebServicesListServiceNetworkVpcAssociations
+      tags:
+        - Servicenetworkvpcassociations
   /targetgroups:
     GET:
       summary: Amazon Web Services Listtargetgroups
@@ -71,21 +85,29 @@ paths:
         Lists your target groups. You can narrow your search by using the
         filters below in your request.
       operationId: amazonWebServicesListTargetGroups
+      tags:
+        - Targetgroups
   /accesslogsubscriptions/{accessLogSubscriptionIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateaccesslogsubscription
       description: Updates the specified access log subscription.
       operationId: amazonWebServicesUpdateAccessLogSubscription
+      tags:
+        - Accesslogsubscriptions
   /authpolicy/{resourceIdentifier}:
     PUT:
       summary: Amazon Web Services Putauthpolicy
       description: Creates or updates the auth policy.
       operationId: amazonWebServicesPutAuthPolicy
+      tags:
+        - Authpolicy
   /services/{serviceIdentifier}/listeners/{listenerIdentifier}:
     PATCH:
       summary: Amazon Web Services Updatelistener
       description: Updates the specified listener for the specified service.
       operationId: amazonWebServicesUpdateListener
+      tags:
+        - Services
   /resourcepolicy/{resourceArn}:
     PUT:
       summary: Amazon Web Services Putresourcepolicy
@@ -95,6 +117,8 @@ paths:
         statements as the Amazon Web Services Resource Access Manager permission
         for sharing services and service networks.
       operationId: amazonWebServicesPutResourcePolicy
+      tags:
+        - Resourcepolicy
   /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}:
     PATCH:
       summary: Amazon Web Services Updaterule
@@ -102,16 +126,22 @@ paths:
         Updates a rule for the listener. You can't modify a default listener
         rule. To modify a default listener rule, use UpdateListener.
       operationId: amazonWebServicesUpdateRule
+      tags:
+        - Services
   /services/{serviceIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateservice
       description: Updates the specified service.
       operationId: amazonWebServicesUpdateService
+      tags:
+        - Services
   /servicenetworks/{serviceNetworkIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateservicenetwork
       description: Updates the specified service network.
       operationId: amazonWebServicesUpdateServiceNetwork
+      tags:
+        - Servicenetworks
   /servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}:
     GET:
       summary: Amazon Web Services Getservicenetworkserviceassociation
@@ -119,6 +149,8 @@ paths:
         Retrieves information about the specified association between a service
         network and a service.
       operationId: amazonWebServicesGetServiceNetworkServiceAssociation
+      tags:
+        - Servicenetworkserviceassociations
   /servicenetworkvpcassociations/{serviceNetworkVpcAssociationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateservicenetworkvpcassociation
@@ -126,21 +158,29 @@ paths:
         Updates the service network and VPC association. Once you add a security
         group, it cannot be removed.
       operationId: amazonWebServicesUpdateServiceNetworkVpcAssociation
+      tags:
+        - Servicenetworkvpcassociations
   /targetgroups/{targetGroupIdentifier}:
     PATCH:
       summary: Amazon Web Services Updatetargetgroup
       description: Updates the specified target group.
       operationId: amazonWebServicesUpdateTargetGroup
+      tags:
+        - Targetgroups
   /targetgroups/{targetGroupIdentifier}/deregistertargets:
     POST:
       summary: Amazon Web Services Deregistertargets
       description: Deregisters the specified targets from the specified target group.
       operationId: amazonWebServicesDeregisterTargets
+      tags:
+        - Targetgroups
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /targetgroups/{targetGroupIdentifier}/listtargets:
     POST:
       summary: Amazon Web Services Listtargets
@@ -149,6 +189,8 @@ paths:
         included. You can use this API to check the health status of targets.
         You can also ﬁlter the results by target. 
       operationId: amazonWebServicesListTargets
+      tags:
+        - Targetgroups
   /targetgroups/{targetGroupIdentifier}/registertargets:
     POST:
       summary: Amazon Web Services Registertargets
@@ -156,4 +198,15 @@ paths:
         Registers the targets with the target group. If it's a Lambda target,
         you can only have one target in a target group.
       operationId: amazonWebServicesRegisterTargets
-tags: []
+      tags:
+        - Targetgroups
+tags:
+  - name: Accesslogsubscriptions
+  - name: Authpolicy
+  - name: Resourcepolicy
+  - name: Servicenetworks
+  - name: Servicenetworkserviceassociations
+  - name: Servicenetworkvpcassociations
+  - name: Services
+  - name: Tags
+  - name: Targetgroups

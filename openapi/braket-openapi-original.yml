@@ -13,21 +13,29 @@ paths:
       summary: Amazon Web Services Canceljob
       description: Cancels an Amazon Braket job.
       operationId: amazonWebServicesCancelJob
+      tags:
+        - Job
   /quantum-task/{quantumTaskArn}/cancel:
     PUT:
       summary: Amazon Web Services Cancelquantumtask
       description: Cancels the specified task.
       operationId: amazonWebServicesCancelQuantumTask
+      tags:
+        - Quantum Task
   /job:
     POST:
       summary: Amazon Web Services Createjob
       description: Creates an Amazon Braket job.
       operationId: amazonWebServicesCreateJob
+      tags:
+        - Job
   /quantum-task:
     POST:
       summary: Amazon Web Services Createquantumtask
       description: Creates a quantum task.
       operationId: amazonWebServicesCreateQuantumTask
+      tags:
+        - Quantum Task
   /device/{deviceArn}:
     GET:
       summary: Amazon Web Services Getdevice
@@ -43,34 +51,55 @@ paths:
         this for the AWS CLI, Boto3, and the Go, Java, and JavaScript/TypeScript
         SDKs. 
       operationId: amazonWebServicesGetDevice
+      tags:
+        - Device
   /job/{jobArn}:
     GET:
       summary: Amazon Web Services Getjob
       description: Retrieves the specified Amazon Braket job.
       operationId: amazonWebServicesGetJob
+      tags:
+        - Job
   /quantum-task/{quantumTaskArn}:
     GET:
       summary: Amazon Web Services Getquantumtask
       description: Retrieves the specified quantum task.
       operationId: amazonWebServicesGetQuantumTask
+      tags:
+        - Quantum Task
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Remove tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /devices:
     POST:
       summary: Amazon Web Services Searchdevices
       description: Searches for devices using the specified filters.
       operationId: amazonWebServicesSearchDevices
+      tags:
+        - Devices
   /jobs:
     POST:
       summary: Amazon Web Services Searchjobs
       description: Searches for Amazon Braket jobs that match the specified filter values.
       operationId: amazonWebServicesSearchJobs
+      tags:
+        - Jobs
   /quantum-tasks:
     POST:
       summary: Amazon Web Services Searchquantumtasks
       description: Searches for tasks that match the specified filter values.
       operationId: amazonWebServicesSearchQuantumTasks
-tags: []
+      tags:
+        - Quantum Tasks
+tags:
+  - name: Device
+  - name: Devices
+  - name: Job
+  - name: Jobs
+  - name: Quantum Task
+  - name: Quantum Tasks
+  - name: Tags

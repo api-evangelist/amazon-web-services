@@ -22,16 +22,22 @@ paths:
         Retrieves multiple analysis templates within a collaboration by their
         Amazon Resource Names (ARNs).
       operationId: amazonWebServicesBatchGetCollaborationAnalysisTemplate
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/batch-schema:
     POST:
       summary: Amazon Web Services Batchgetschema
       description: Retrieves multiple schemas by their identifiers.
       operationId: amazonWebServicesBatchGetSchema
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}/analysistemplates:
     GET:
       summary: Amazon Web Services Listanalysistemplates
       description: Lists analysis templates that the caller owns.
       operationId: amazonWebServicesListAnalysisTemplates
+      tags:
+        - Memberships
   /collaborations:
     GET:
       summary: Amazon Web Services Listcollaborations
@@ -39,6 +45,8 @@ paths:
         Lists collaborations the caller owns, is active in, or has been invited
         to.
       operationId: amazonWebServicesListCollaborations
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}/configuredaudiencemodelassociations:
     GET:
       summary: Amazon Web Services Listconfiguredaudiencemodelassociations
@@ -46,11 +54,15 @@ paths:
         Lists information about requested configured audience model
         associations.
       operationId: amazonWebServicesListConfiguredAudienceModelAssociations
+      tags:
+        - Memberships
   /configuredTables:
     GET:
       summary: Amazon Web Services Listconfiguredtables
       description: Lists configured tables.
       operationId: amazonWebServicesListConfiguredTables
+      tags:
+        - configuredTables
   /configuredTables/{configuredTableIdentifier}/analysisRule:
     POST:
       summary: Amazon Web Services Createconfiguredtableanalysisrule
@@ -58,16 +70,22 @@ paths:
         Creates a new analysis rule for a configured table. Currently, only one
         analysis rule can be created for a given configured table.
       operationId: amazonWebServicesCreateConfiguredTableAnalysisRule
+      tags:
+        - configuredTables
   /memberships/{membershipIdentifier}/configuredTableAssociations:
     GET:
       summary: Amazon Web Services Listconfiguredtableassociations
       description: Lists configured table associations for a membership.
       operationId: amazonWebServicesListConfiguredTableAssociations
+      tags:
+        - Memberships
   /memberships:
     GET:
       summary: Amazon Web Services Listmemberships
       description: Lists all memberships resources within the caller's account.
       operationId: amazonWebServicesListMemberships
+      tags:
+        - Memberships
   /memberships/{membershipIdentifier}/privacybudgettemplates:
     GET:
       summary: Amazon Web Services Listprivacybudgettemplates
@@ -75,11 +93,15 @@ paths:
         Returns detailed information about the privacy budget templates in a
         specified membership.
       operationId: amazonWebServicesListPrivacyBudgetTemplates
+      tags:
+        - Memberships
   /memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateanalysistemplate
       description: Updates the analysis template metadata.
       operationId: amazonWebServicesUpdateAnalysisTemplate
+      tags:
+        - Memberships
   /collaborations/{collaborationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updatecollaboration
@@ -87,6 +109,8 @@ paths:
         Updates collaboration metadata and can only be called by the
         collaboration owner.
       operationId: amazonWebServicesUpdateCollaboration
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateconfiguredaudiencemodelassociation
@@ -94,21 +118,29 @@ paths:
         Provides the details necessary to update a configured audience model
         association.
       operationId: amazonWebServicesUpdateConfiguredAudienceModelAssociation
+      tags:
+        - Memberships
   /configuredTables/{configuredTableIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateconfiguredtable
       description: Updates a configured table.
       operationId: amazonWebServicesUpdateConfiguredTable
+      tags:
+        - configuredTables
   /configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}:
     PATCH:
       summary: Amazon Web Services Updateconfiguredtableanalysisrule
       description: Updates a configured table analysis rule.
       operationId: amazonWebServicesUpdateConfiguredTableAnalysisRule
+      tags:
+        - configuredTables
   /memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateconfiguredtableassociation
       description: Updates a configured table association.
       operationId: amazonWebServicesUpdateConfiguredTableAssociation
+      tags:
+        - Memberships
   /collaborations/{collaborationIdentifier}/member/{accountId}:
     DELETE:
       summary: Amazon Web Services Deletemember
@@ -118,21 +150,29 @@ paths:
         The removed member's data is inaccessible to active members of the
         collaboration.
       operationId: amazonWebServicesDeleteMember
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}:
     PATCH:
       summary: Amazon Web Services Updatemembership
       description: Updates a membership.
       operationId: amazonWebServicesUpdateMembership
+      tags:
+        - Memberships
   /memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateprivacybudgettemplate
       description: Updates the privacy budget template for the specified membership.
       operationId: amazonWebServicesUpdatePrivacyBudgetTemplate
+      tags:
+        - Memberships
   /collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}:
     GET:
       summary: Amazon Web Services Getcollaborationanalysistemplate
       description: Retrieves an analysis template within a collaboration.
       operationId: amazonWebServicesGetCollaborationAnalysisTemplate
+      tags:
+        - Collaborations
   ? /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}
   : GET:
       summary: Amazon Web Services Getcollaborationconfiguredaudiencemodelassociation
@@ -140,36 +180,50 @@ paths:
         Retrieves a configured audience model association within a
         collaboration.
       operationId: amazonWebServicesGetCollaborationConfiguredAudienceModelAssociation
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}:
     GET:
       summary: Amazon Web Services Getcollaborationprivacybudgettemplate
       description: Returns details about a specified privacy budget template.
       operationId: amazonWebServicesGetCollaborationPrivacyBudgetTemplate
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateprotectedquery
       description: Updates the processing of a currently running query.
       operationId: amazonWebServicesUpdateProtectedQuery
+      tags:
+        - Memberships
   /collaborations/{collaborationIdentifier}/schemas/{name}:
     GET:
       summary: Amazon Web Services Getschema
       description: Retrieves the schema for a relation within a collaboration.
       operationId: amazonWebServicesGetSchema
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}:
     GET:
       summary: Amazon Web Services Getschemaanalysisrule
       description: Retrieves a schema analysis rule.
       operationId: amazonWebServicesGetSchemaAnalysisRule
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/analysistemplates:
     GET:
       summary: Amazon Web Services Listcollaborationanalysistemplates
       description: Lists analysis templates within a collaboration.
       operationId: amazonWebServicesListCollaborationAnalysisTemplates
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations:
     GET:
       summary: Amazon Web Services Listcollaborationconfiguredaudiencemodelassociations
       description: Lists configured audience model associations within a collaboration.
       operationId: amazonWebServicesListCollaborationConfiguredAudienceModelAssociations
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/privacybudgettemplates:
     GET:
       summary: Amazon Web Services Listcollaborationprivacybudgettemplates
@@ -177,6 +231,8 @@ paths:
         Returns an array that summarizes each privacy budget template in a
         specified collaboration.
       operationId: amazonWebServicesListCollaborationPrivacyBudgetTemplates
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/privacybudgets:
     GET:
       summary: Amazon Web Services Listcollaborationprivacybudgets
@@ -185,11 +241,15 @@ paths:
         collaboration. The summary includes the collaboration ARN, creation
         time, creating account, and privacy budget details.
       operationId: amazonWebServicesListCollaborationPrivacyBudgets
+      tags:
+        - Collaborations
   /collaborations/{collaborationIdentifier}/members:
     GET:
       summary: Amazon Web Services Listmembers
       description: Lists all members within a collaboration.
       operationId: amazonWebServicesListMembers
+      tags:
+        - Collaborations
   /memberships/{membershipIdentifier}/privacybudgets:
     GET:
       summary: Amazon Web Services Listprivacybudgets
@@ -197,21 +257,29 @@ paths:
         Returns detailed information about the privacy budgets in a specified
         membership.
       operationId: amazonWebServicesListPrivacyBudgets
+      tags:
+        - Memberships
   /memberships/{membershipIdentifier}/protectedQueries:
     POST:
       summary: Amazon Web Services Startprotectedquery
       description: Creates a protected query that is started by Clean Rooms.
       operationId: amazonWebServicesStartProtectedQuery
+      tags:
+        - Memberships
   /collaborations/{collaborationIdentifier}/schemas:
     GET:
       summary: Amazon Web Services Listschemas
       description: Lists the schemas for relations within a collaboration.
       operationId: amazonWebServicesListSchemas
+      tags:
+        - Collaborations
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag or list of tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /memberships/{membershipIdentifier}/previewprivacyimpact:
     POST:
       summary: Amazon Web Services Previewprivacyimpact
@@ -219,4 +287,10 @@ paths:
         An estimate of the number of aggregation functions that the member who
         can query can run given epsilon and noise parameters.
       operationId: amazonWebServicesPreviewPrivacyImpact
-tags: []
+      tags:
+        - Memberships
+tags:
+  - name: Collaborations
+  - name: configuredTables
+  - name: Memberships
+  - name: Tags

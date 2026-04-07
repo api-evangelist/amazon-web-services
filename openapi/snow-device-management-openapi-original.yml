@@ -12,6 +12,8 @@ paths:
         cancelled.  A task might still run if it's processed from the queue
         before the CancelTask operation changes the task's state. 
       operationId: amazonWebServicesCancelTask
+      tags:
+        - Task
   /task:
     POST:
       summary: Amazon Web Services Createtask
@@ -19,6 +21,8 @@ paths:
         Instructs one or more devices to start a task, such as unlocking or
         rebooting.
       operationId: amazonWebServicesCreateTask
+      tags:
+        - Task
   /managed-device/{managedDeviceId}/describe:
     POST:
       summary: Amazon Web Services Describedevice
@@ -26,6 +30,8 @@ paths:
         Checks device-specific information, such as the device type, software
         version, IP addresses, and lock status.
       operationId: amazonWebServicesDescribeDevice
+      tags:
+        - Managed Device
   /managed-device/{managedDeviceId}/resources/ec2/describe:
     POST:
       summary: Amazon Web Services Describedeviceec2instances
@@ -35,6 +41,8 @@ paths:
         cache in the Amazon Web Services Cloud and include a subset of the
         available fields. 
       operationId: amazonWebServicesDescribeDeviceEc2Instances
+      tags:
+        - Managed Device
   /task/{taskId}/execution/{managedDeviceId}:
     POST:
       summary: Amazon Web Services Describeexecution
@@ -42,11 +50,15 @@ paths:
         Checks the status of a remote task running on one or more target
         devices.
       operationId: amazonWebServicesDescribeExecution
+      tags:
+        - Task
   /task/{taskId}:
     POST:
       summary: Amazon Web Services Describetask
       description: 'Checks the metadata for a given task on a device. '
       operationId: amazonWebServicesDescribeTask
+      tags:
+        - Task
   /managed-device/{managedDeviceId}/resources:
     GET:
       summary: Amazon Web Services Listdeviceresources
@@ -55,6 +67,8 @@ paths:
         device. Currently, Amazon EC2 instances are the only supported resource
         type.
       operationId: amazonWebServicesListDeviceResources
+      tags:
+        - Managed Device
   /managed-devices:
     GET:
       summary: Amazon Web Services Listdevices
@@ -63,19 +77,33 @@ paths:
         have Amazon Web Services Snow Device Management enabled in the Amazon
         Web Services Region where the command is run.
       operationId: amazonWebServicesListDevices
+      tags:
+        - Managed Devices
   /executions:
     GET:
       summary: Amazon Web Services Listexecutions
       description: Returns the status of tasks for one or more target devices.
       operationId: amazonWebServicesListExecutions
+      tags:
+        - Executions
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from a device or task.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /tasks:
     GET:
       summary: Amazon Web Services Listtasks
       description: Returns a list of tasks that can be filtered by state.
       operationId: amazonWebServicesListTasks
-tags: []
+      tags:
+        - Tasks
+tags:
+  - name: Executions
+  - name: Managed Device
+  - name: Managed Devices
+  - name: Tags
+  - name: Task
+  - name: Tasks

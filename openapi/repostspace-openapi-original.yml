@@ -20,11 +20,15 @@ paths:
         Returns a list of AWS re:Post Private private re:Posts in the account
         with some information about each private re:Post.
       operationId: amazonWebServicesListSpaces
+      tags:
+        - Spaces
   /spaces/{spaceId}:
     PUT:
       summary: Amazon Web Services Updatespace
       description: Modifies an existing AWS re:Post Private private re:Post.
       operationId: amazonWebServicesUpdateSpace
+      tags:
+        - Spaces
   /spaces/{spaceId}/admins/{adminId}:
     POST:
       summary: Amazon Web Services Registeradmin
@@ -32,6 +36,8 @@ paths:
         Adds a user or group to the list of administrators of the private
         re:Post.
       operationId: amazonWebServicesRegisterAdmin
+      tags:
+        - Spaces
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -39,9 +45,15 @@ paths:
         Removes the association of the tag with the AWS re:Post Private
         resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /spaces/{spaceId}/invite:
     POST:
       summary: Amazon Web Services Sendinvites
       description: Sends an invitation email to selected users and groups.
       operationId: amazonWebServicesSendInvites
-tags: []
+      tags:
+        - Spaces
+tags:
+  - name: Spaces
+  - name: Tags

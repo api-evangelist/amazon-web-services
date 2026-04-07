@@ -24,11 +24,15 @@ paths:
       summary: Amazon Web Services Getjobrun
       description: Displays detailed information about a job run.
       operationId: amazonWebServicesGetJobRun
+      tags:
+        - Applications
   /applications:
     GET:
       summary: Amazon Web Services Listapplications
       description: Lists applications based on a set of parameters.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /applications/{applicationId}:
     PATCH:
       summary: Amazon Web Services Updateapplication
@@ -36,6 +40,8 @@ paths:
         Updates a specified application. An application has to be in a stopped
         or created state in order to be updated.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /applications/{applicationId}/jobruns/{jobRunId}/dashboard:
     GET:
       summary: Amazon Web Services Getdashboardforjobrun
@@ -48,16 +54,22 @@ paths:
         hour after you generate it. To access the application UI after that hour
         elapses, you must invoke the API again to generate a new URL. 
       operationId: amazonWebServicesGetDashboardForJobRun
+      tags:
+        - Applications
   /applications/{applicationId}/jobruns:
     POST:
       summary: Amazon Web Services Startjobrun
       description: Starts a job run.
       operationId: amazonWebServicesStartJobRun
+      tags:
+        - Applications
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from resources.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /applications/{applicationId}/start:
     POST:
       summary: Amazon Web Services Startapplication
@@ -65,6 +77,8 @@ paths:
         Starts a specified application and initializes initial capacity if
         configured.
       operationId: amazonWebServicesStartApplication
+      tags:
+        - Applications
   /applications/{applicationId}/stop:
     POST:
       summary: Amazon Web Services Stopapplication
@@ -73,4 +87,8 @@ paths:
         configured. All scheduled and running jobs must be completed or
         cancelled before stopping an application.
       operationId: amazonWebServicesStopApplication
-tags: []
+      tags:
+        - Applications
+tags:
+  - name: Applications
+  - name: Tags

@@ -22,26 +22,36 @@ paths:
       summary: Amazon Web Services Listpartneraccounts
       description: Lists the partner accounts associated with your AWS account.
       operationId: amazonWebServicesListPartnerAccounts
+      tags:
+        - Partner Accounts
   /fuota-tasks/{Id}/multicast-group:
     PUT:
       summary: Amazon Web Services Associatemulticastgroupwithfuotatask
       description: Associate a multicast group with a FUOTA task.
       operationId: amazonWebServicesAssociateMulticastGroupWithFuotaTask
+      tags:
+        - Fuota Tasks
   /fuota-tasks/{Id}/wireless-device:
     PUT:
       summary: Amazon Web Services Associatewirelessdevicewithfuotatask
       description: Associate a wireless device with a FUOTA task.
       operationId: amazonWebServicesAssociateWirelessDeviceWithFuotaTask
+      tags:
+        - Fuota Tasks
   /multicast-groups/{Id}/wireless-device:
     PUT:
       summary: Amazon Web Services Associatewirelessdevicewithmulticastgroup
       description: Associates a wireless device with a multicast group.
       operationId: amazonWebServicesAssociateWirelessDeviceWithMulticastGroup
+      tags:
+        - Multicast Groups
   /wireless-devices/{Id}/thing:
     DELETE:
       summary: Amazon Web Services Disassociatewirelessdevicefromthing
       description: Disassociates a wireless device from its currently associated thing.
       operationId: amazonWebServicesDisassociateWirelessDeviceFromThing
+      tags:
+        - Wireless Devices
   /wireless-gateways/{Id}/certificate:
     GET:
       summary: Amazon Web Services Getwirelessgatewaycertificate
@@ -49,61 +59,85 @@ paths:
         Gets the ID of the certificate that is currently associated with a
         wireless gateway.
       operationId: amazonWebServicesGetWirelessGatewayCertificate
+      tags:
+        - Wireless Gateways
   /wireless-gateways/{Id}/thing:
     DELETE:
       summary: Amazon Web Services Disassociatewirelessgatewayfromthing
       description: Disassociates a wireless gateway from its currently associated thing.
       operationId: amazonWebServicesDisassociateWirelessGatewayFromThing
+      tags:
+        - Wireless Gateways
   /multicast-groups/{Id}/session:
     PUT:
       summary: Amazon Web Services Startmulticastgroupsession
       description: Starts a multicast group session.
       operationId: amazonWebServicesStartMulticastGroupSession
+      tags:
+        - Multicast Groups
   /destinations:
     GET:
       summary: Amazon Web Services Listdestinations
       description: Lists the destinations registered to your AWS account.
       operationId: amazonWebServicesListDestinations
+      tags:
+        - Destinations
   /device-profiles:
     GET:
       summary: Amazon Web Services Listdeviceprofiles
       description: Lists the device profiles registered to your AWS account.
       operationId: amazonWebServicesListDeviceProfiles
+      tags:
+        - Device Profiles
   /fuota-tasks:
     GET:
       summary: Amazon Web Services Listfuotatasks
       description: Lists the FUOTA tasks registered to your AWS account.
       operationId: amazonWebServicesListFuotaTasks
+      tags:
+        - Fuota Tasks
   /multicast-groups:
     GET:
       summary: Amazon Web Services Listmulticastgroups
       description: Lists the multicast groups registered to your AWS account.
       operationId: amazonWebServicesListMulticastGroups
+      tags:
+        - Multicast Groups
   /network-analyzer-configurations:
     GET:
       summary: Amazon Web Services Listnetworkanalyzerconfigurations
       description: Lists the network analyzer configurations.
       operationId: amazonWebServicesListNetworkAnalyzerConfigurations
+      tags:
+        - Network Analyzer Configurations
   /service-profiles:
     GET:
       summary: Amazon Web Services Listserviceprofiles
       description: Lists the service profiles registered to your AWS account.
       operationId: amazonWebServicesListServiceProfiles
+      tags:
+        - Service Profiles
   /wireless-devices:
     GET:
       summary: Amazon Web Services Listwirelessdevices
       description: Lists the wireless devices registered to your AWS account.
       operationId: amazonWebServicesListWirelessDevices
+      tags:
+        - Wireless Devices
   /wireless-gateways:
     GET:
       summary: Amazon Web Services Listwirelessgateways
       description: Lists the wireless gateways registered to your AWS account.
       operationId: amazonWebServicesListWirelessGateways
+      tags:
+        - Wireless Gateways
   /wireless-gateways/{Id}/tasks:
     GET:
       summary: Amazon Web Services Getwirelessgatewaytask
       description: Gets information about a wireless gateway task.
       operationId: amazonWebServicesGetWirelessGatewayTask
+      tags:
+        - Wireless Gateways
   /wireless-gateway-task-definitions:
     GET:
       summary: Amazon Web Services Listwirelessgatewaytaskdefinitions
@@ -111,91 +145,127 @@ paths:
         List the wireless gateway tasks definitions registered to your AWS
         account.
       operationId: amazonWebServicesListWirelessGatewayTaskDefinitions
+      tags:
+        - Wireless Gateway Task Definitions
   /destinations/{Name}:
     PATCH:
       summary: Amazon Web Services Updatedestination
       description: Updates properties of a destination.
       operationId: amazonWebServicesUpdateDestination
+      tags:
+        - Destinations
   /device-profiles/{Id}:
     GET:
       summary: Amazon Web Services Getdeviceprofile
       description: Gets information about a device profile.
       operationId: amazonWebServicesGetDeviceProfile
+      tags:
+        - Device Profiles
   /fuota-tasks/{Id}:
     PATCH:
       summary: Amazon Web Services Updatefuotatask
       description: Updates properties of a FUOTA task.
       operationId: amazonWebServicesUpdateFuotaTask
+      tags:
+        - Fuota Tasks
   /multicast-groups/{Id}:
     PATCH:
       summary: Amazon Web Services Updatemulticastgroup
       description: Updates properties of a multicast group session.
       operationId: amazonWebServicesUpdateMulticastGroup
+      tags:
+        - Multicast Groups
   /network-analyzer-configurations/{ConfigurationName}:
     PATCH:
       summary: Amazon Web Services Updatenetworkanalyzerconfiguration
       description: Update network analyzer configuration.
       operationId: amazonWebServicesUpdateNetworkAnalyzerConfiguration
+      tags:
+        - Network Analyzer Configurations
   /wireless-devices/{Id}/data:
     POST:
       summary: Amazon Web Services Senddatatowirelessdevice
       description: Sends a decrypted application data frame to a device.
       operationId: amazonWebServicesSendDataToWirelessDevice
+      tags:
+        - Wireless Devices
   /service-profiles/{Id}:
     GET:
       summary: Amazon Web Services Getserviceprofile
       description: Gets information about a service profile.
       operationId: amazonWebServicesGetServiceProfile
+      tags:
+        - Service Profiles
   /wireless-devices/{Id}:
     PATCH:
       summary: Amazon Web Services Updatewirelessdevice
       description: Updates properties of a wireless device.
       operationId: amazonWebServicesUpdateWirelessDevice
+      tags:
+        - Wireless Devices
   /wireless_device_import_task/{Id}:
     PATCH:
       summary: Amazon Web Services Updatewirelessdeviceimporttask
       description: Update an import task to add more devices to the task.
       operationId: amazonWebServicesUpdateWirelessDeviceImportTask
+      tags:
+        - Wireless Device Import Task
   /wireless-gateways/{Id}:
     PATCH:
       summary: Amazon Web Services Updatewirelessgateway
       description: Updates properties of a wireless gateway.
       operationId: amazonWebServicesUpdateWirelessGateway
+      tags:
+        - Wireless Gateways
   /wireless-gateway-task-definitions/{Id}:
     GET:
       summary: Amazon Web Services Getwirelessgatewaytaskdefinition
       description: Gets information about a wireless gateway task definition.
       operationId: amazonWebServicesGetWirelessGatewayTaskDefinition
+      tags:
+        - Wireless Gateway Task Definitions
   /wireless-devices/{Identifier}/deregister:
     PATCH:
       summary: Amazon Web Services Deregisterwirelessdevice
       description: Deregister a wireless device from AWS IoT Wireless.
       operationId: amazonWebServicesDeregisterWirelessDevice
+      tags:
+        - Wireless Devices
   /partner-accounts/{PartnerAccountId}:
     PATCH:
       summary: Amazon Web Services Updatepartneraccount
       description: Updates properties of a partner account.
       operationId: amazonWebServicesUpdatePartnerAccount
+      tags:
+        - Partner Accounts
   /fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}:
     DELETE:
       summary: Amazon Web Services Disassociatemulticastgroupfromfuotatask
       description: Disassociates a multicast group from a fuota task.
       operationId: amazonWebServicesDisassociateMulticastGroupFromFuotaTask
+      tags:
+        - Fuota Tasks
   /fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}:
     DELETE:
       summary: Amazon Web Services Disassociatewirelessdevicefromfuotatask
       description: Disassociates a wireless device from a FUOTA task.
       operationId: amazonWebServicesDisassociateWirelessDeviceFromFuotaTask
+      tags:
+        - Fuota Tasks
   /multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}:
     DELETE:
       summary: Amazon Web Services Disassociatewirelessdevicefrommulticastgroup
       description: Disassociates a wireless device from a multicast group.
       operationId: amazonWebServicesDisassociateWirelessDeviceFromMulticastGroup
+      tags:
+        - Multicast Groups
   /event-configurations-resource-types:
     PATCH:
       summary: Amazon Web Services Updateeventconfigurationbyresourcetypes
       description: Update the event configuration based on resource types.
       operationId: amazonWebServicesUpdateEventConfigurationByResourceTypes
+      tags:
+        - Event Configurations Resource Types
   /log-levels:
     POST:
       summary: Amazon Web Services Updateloglevelsbyresourcetypes
@@ -204,6 +274,8 @@ paths:
         wireless device log options or wireless gateways log options and is used
         to control the log messages that'll be displayed in CloudWatch.
       operationId: amazonWebServicesUpdateLogLevelsByResourceTypes
+      tags:
+        - Log Levels
   /positions/{ResourceIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateposition
@@ -212,6 +284,8 @@ paths:
         supported. Calls to update the position information should use the
         UpdateResourcePosition API operation instead. 
       operationId: amazonWebServicesUpdatePosition
+      tags:
+        - Positions
   /position-configurations/{ResourceIdentifier}:
     PUT:
       summary: Amazon Web Services Putpositionconfiguration
@@ -220,6 +294,8 @@ paths:
         longer supported. Calls to update the position configuration should use
         the UpdateResourcePosition API operation instead. 
       operationId: amazonWebServicesPutPositionConfiguration
+      tags:
+        - Position Configurations
   /position-estimate:
     POST:
       summary: Amazon Web Services Getpositionestimate
@@ -228,11 +304,15 @@ paths:
         payload measurement data is resolved using solvers that are provided by
         third-party vendors.
       operationId: amazonWebServicesGetPositionEstimate
+      tags:
+        - Position Estimate
   /event-configurations/{Identifier}:
     PATCH:
       summary: Amazon Web Services Updateresourceeventconfiguration
       description: Update the event configuration for a particular resource identifier.
       operationId: amazonWebServicesUpdateResourceEventConfiguration
+      tags:
+        - Event Configurations
   /log-levels/{ResourceIdentifier}:
     DELETE:
       summary: Amazon Web Services Resetresourceloglevel
@@ -241,6 +321,8 @@ paths:
         resource-type. It can be used for a wireless device or a wireless
         gateway.
       operationId: amazonWebServicesResetResourceLogLevel
+      tags:
+        - Log Levels
   /resource-positions/{ResourceIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateresourceposition
@@ -249,6 +331,8 @@ paths:
         gateway resource. The position coordinates are based on the  World
         Geodetic System (WGS84).
       operationId: amazonWebServicesUpdateResourcePosition
+      tags:
+        - Resource Positions
   /service-endpoint:
     GET:
       summary: Amazon Web Services Getserviceendpoint
@@ -256,21 +340,29 @@ paths:
         Gets the account-specific endpoint for Configuration and Update Server
         (CUPS) protocol or LoRaWAN Network Server (LNS) connections.
       operationId: amazonWebServicesGetServiceEndpoint
+      tags:
+        - Service Endpoint
   /wireless-devices/{Identifier}:
     GET:
       summary: Amazon Web Services Getwirelessdevice
       description: Gets information about a wireless device.
       operationId: amazonWebServicesGetWirelessDevice
+      tags:
+        - Wireless Devices
   /wireless-devices/{Id}/statistics:
     GET:
       summary: Amazon Web Services Getwirelessdevicestatistics
       description: Gets operating information about a wireless device.
       operationId: amazonWebServicesGetWirelessDeviceStatistics
+      tags:
+        - Wireless Devices
   /wireless-gateways/{Identifier}:
     GET:
       summary: Amazon Web Services Getwirelessgateway
       description: Gets information about a wireless gateway.
       operationId: amazonWebServicesGetWirelessGateway
+      tags:
+        - Wireless Gateways
   /wireless-gateways/{Id}/firmware-information:
     GET:
       summary: Amazon Web Services Getwirelessgatewayfirmwareinformation
@@ -278,11 +370,15 @@ paths:
         Gets the firmware version and other information about a wireless
         gateway.
       operationId: amazonWebServicesGetWirelessGatewayFirmwareInformation
+      tags:
+        - Wireless Gateways
   /wireless-gateways/{Id}/statistics:
     GET:
       summary: Amazon Web Services Getwirelessgatewaystatistics
       description: Gets operating information about a wireless gateway.
       operationId: amazonWebServicesGetWirelessGatewayStatistics
+      tags:
+        - Wireless Gateways
   /wireless_device_import_task:
     POST:
       summary: Amazon Web Services Startwirelessdeviceimporttask
@@ -290,6 +386,8 @@ paths:
         Start import task for provisioning Sidewalk devices in bulk using an S3
         CSV file.
       operationId: amazonWebServicesStartWirelessDeviceImportTask
+      tags:
+        - Wireless Device Import Task
   /event-configurations:
     GET:
       summary: Amazon Web Services Listeventconfigurations
@@ -297,11 +395,15 @@ paths:
         List event configurations where at least one event topic has been
         enabled.
       operationId: amazonWebServicesListEventConfigurations
+      tags:
+        - Event Configurations
   /fuota-tasks/{Id}/multicast-groups:
     GET:
       summary: Amazon Web Services Listmulticastgroupsbyfuotatask
       description: List all multicast groups associated with a fuota task.
       operationId: amazonWebServicesListMulticastGroupsByFuotaTask
+      tags:
+        - Fuota Tasks
   /position-configurations:
     GET:
       summary: Amazon Web Services Listpositionconfigurations
@@ -310,21 +412,29 @@ paths:
         solvers.  This action is no longer supported. Calls to retrieve position
         information should use the GetResourcePosition API operation instead. 
       operationId: amazonWebServicesListPositionConfigurations
+      tags:
+        - Position Configurations
   /tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /wireless_device_import_tasks:
     GET:
       summary: Amazon Web Services Listwirelessdeviceimporttasks
       description: List wireless devices that have been added to an import task.
       operationId: amazonWebServicesListWirelessDeviceImportTasks
+      tags:
+        - Wireless Device Import Tasks
   /multicast-groups/{Id}/data:
     POST:
       summary: Amazon Web Services Senddatatomulticastgroup
       description: Sends the specified data to a multicast group.
       operationId: amazonWebServicesSendDataToMulticastGroup
+      tags:
+        - Multicast Groups
   /multicast-groups/{Id}/bulk:
     POST:
       summary: Amazon Web Services Startbulkdisassociatewirelessdevicefrommulticastgroup
@@ -332,11 +442,15 @@ paths:
         Starts a bulk disassociatin of all qualifying wireless devices from a
         multicast group.
       operationId: amazonWebServicesStartBulkDisassociateWirelessDeviceFromMulticastGroup
+      tags:
+        - Multicast Groups
   /wireless_single_device_import_task:
     POST:
       summary: Amazon Web Services Startsinglewirelessdeviceimporttask
       description: Start import task for a single wireless device.
       operationId: amazonWebServicesStartSingleWirelessDeviceImportTask
+      tags:
+        - Wireless Single Device Import Task
   /wireless-devices/{Id}/test:
     POST:
       summary: Amazon Web Services Testwirelessdevice
@@ -344,4 +458,28 @@ paths:
         Simulates a provisioned device by sending an uplink data payload of
         Hello.
       operationId: amazonWebServicesTestWirelessDevice
-tags: []
+      tags:
+        - Wireless Devices
+tags:
+  - name: Destinations
+  - name: Device Profiles
+  - name: Event Configurations
+  - name: Event Configurations Resource Types
+  - name: Fuota Tasks
+  - name: Log Levels
+  - name: Multicast Groups
+  - name: Network Analyzer Configurations
+  - name: Partner Accounts
+  - name: Position Configurations
+  - name: Position Estimate
+  - name: Positions
+  - name: Resource Positions
+  - name: Service Endpoint
+  - name: Service Profiles
+  - name: Tags
+  - name: Wireless Device Import Task
+  - name: Wireless Device Import Tasks
+  - name: Wireless Devices
+  - name: Wireless Gateway Task Definitions
+  - name: Wireless Gateways
+  - name: Wireless Single Device Import Task

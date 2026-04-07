@@ -14,11 +14,15 @@ paths:
         of segment documents that originates from a single request. Use
         GetTraceSummaries to get a list of trace IDs.
       operationId: amazonWebServicesBatchGetTraces
+      tags:
+        - Traces
   /CreateGroup:
     POST:
       summary: Amazon Web Services Creategroup
       description: 'Creates a group resource with a name and a filter expression. '
       operationId: amazonWebServicesCreateGroup
+      tags:
+        - CreateGroup
   /CreateSamplingRule:
     POST:
       summary: Amazon Web Services Createsamplingrule
@@ -32,36 +36,50 @@ paths:
         updated rule contains a trace quota that the service can use instead of
         borrowing from the reservoir.
       operationId: amazonWebServicesCreateSamplingRule
+      tags:
+        - CreateSamplingRule
   /DeleteGroup:
     POST:
       summary: Amazon Web Services Deletegroup
       description: Deletes a group resource.
       operationId: amazonWebServicesDeleteGroup
+      tags:
+        - DeleteGroup
   /DeleteResourcePolicy:
     POST:
       summary: Amazon Web Services Deleteresourcepolicy
       description: Deletes a resource policy from the target Amazon Web Services account.
       operationId: amazonWebServicesDeleteResourcePolicy
+      tags:
+        - DeleteResourcePolicy
   /DeleteSamplingRule:
     POST:
       summary: Amazon Web Services Deletesamplingrule
       description: Deletes a sampling rule.
       operationId: amazonWebServicesDeleteSamplingRule
+      tags:
+        - DeleteSamplingRule
   /EncryptionConfig:
     POST:
       summary: Amazon Web Services Getencryptionconfig
       description: Retrieves the current encryption configuration for X-Ray data.
       operationId: amazonWebServicesGetEncryptionConfig
+      tags:
+        - EncryptionConfig
   /GetGroup:
     POST:
       summary: Amazon Web Services Getgroup
       description: Retrieves group resource details.
       operationId: amazonWebServicesGetGroup
+      tags:
+        - GetGroup
   /Groups:
     POST:
       summary: Amazon Web Services Getgroups
       description: Retrieves all active group details.
       operationId: amazonWebServicesGetGroups
+      tags:
+        - Groups
   /Insight:
     POST:
       summary: Amazon Web Services Getinsight
@@ -71,6 +89,8 @@ paths:
         category, the state of the insight, and the start and end time of the
         insight.
       operationId: amazonWebServicesGetInsight
+      tags:
+        - Insight
   /InsightEvents:
     POST:
       summary: Amazon Web Services Getinsightevents
@@ -79,6 +99,8 @@ paths:
         records each intermediate state as an event. You can review an insight's
         events in the Impact Timeline on the Inspect page in the X-Ray console.
       operationId: amazonWebServicesGetInsightEvents
+      tags:
+        - InsightEvents
   /InsightImpactGraph:
     POST:
       summary: Amazon Web Services Getinsightimpactgraph
@@ -87,6 +109,8 @@ paths:
         The service graph is limited to only structural information. For a
         complete service graph, use this API with the GetServiceGraph API.
       operationId: amazonWebServicesGetInsightImpactGraph
+      tags:
+        - InsightImpactGraph
   /InsightSummaries:
     POST:
       summary: Amazon Web Services Getinsightsummaries
@@ -94,11 +118,15 @@ paths:
         Retrieves the summaries of all insights in the specified group matching
         the provided filter values.
       operationId: amazonWebServicesGetInsightSummaries
+      tags:
+        - InsightSummaries
   /GetSamplingRules:
     POST:
       summary: Amazon Web Services Getsamplingrules
       description: Retrieves all sampling rules.
       operationId: amazonWebServicesGetSamplingRules
+      tags:
+        - GetSamplingRules
   /SamplingStatisticSummaries:
     POST:
       summary: Amazon Web Services Getsamplingstatisticsummaries
@@ -106,6 +134,8 @@ paths:
         Retrieves information about recent sampling results for all sampling
         rules.
       operationId: amazonWebServicesGetSamplingStatisticSummaries
+      tags:
+        - SamplingStatisticSummaries
   /SamplingTargets:
     POST:
       summary: Amazon Web Services Getsamplingtargets
@@ -113,6 +143,8 @@ paths:
         Requests a sampling quota for rules that the service is using to sample
         requests. 
       operationId: amazonWebServicesGetSamplingTargets
+      tags:
+        - SamplingTargets
   /ServiceGraph:
     POST:
       summary: Amazon Web Services Getservicegraph
@@ -124,6 +156,8 @@ paths:
         Services X-Ray SDK. Downstream services can be other applications,
         Amazon Web Services resources, HTTP web APIs, or SQL databases.
       operationId: amazonWebServicesGetServiceGraph
+      tags:
+        - ServiceGraph
   /TimeSeriesServiceStatistics:
     POST:
       summary: Amazon Web Services Gettimeseriesservicestatistics
@@ -131,11 +165,15 @@ paths:
         Get an aggregation of service statistics defined by a specific time
         range.
       operationId: amazonWebServicesGetTimeSeriesServiceStatistics
+      tags:
+        - TimeSeriesServiceStatistics
   /TraceGraph:
     POST:
       summary: Amazon Web Services Gettracegraph
       description: Retrieves a service graph for one or more specific trace IDs.
       operationId: amazonWebServicesGetTraceGraph
+      tags:
+        - TraceGraph
   /TraceSummaries:
     POST:
       summary: Amazon Web Services Gettracesummaries
@@ -152,6 +190,8 @@ paths:
         Using Filter Expressions in the Amazon Web Services X-Ray Developer
         Guide.
       operationId: amazonWebServicesGetTraceSummaries
+      tags:
+        - TraceSummaries
   /ListResourcePolicies:
     POST:
       summary: Amazon Web Services Listresourcepolicies
@@ -159,6 +199,8 @@ paths:
         Returns the list of resource policies in the target Amazon Web Services
         account.
       operationId: amazonWebServicesListResourcePolicies
+      tags:
+        - ListResourcePolicies
   /ListTagsForResource:
     POST:
       summary: Amazon Web Services Listtagsforresource
@@ -166,21 +208,29 @@ paths:
         Returns a list of tags that are applied to the specified Amazon Web
         Services X-Ray group or sampling rule.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - ListTagsForResource
   /PutEncryptionConfig:
     POST:
       summary: Amazon Web Services Putencryptionconfig
       description: Updates the encryption configuration for X-Ray data.
       operationId: amazonWebServicesPutEncryptionConfig
+      tags:
+        - PutEncryptionConfig
   /PutResourcePolicy:
     POST:
       summary: Amazon Web Services Putresourcepolicy
       description: ' Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account. Each Amazon Web Services account can have a maximum of 5 resource policies, and each policy name must be unique within that account. The maximum size of each resource policy is 5KB. '
       operationId: amazonWebServicesPutResourcePolicy
+      tags:
+        - PutResourcePolicy
   /TelemetryRecords:
     POST:
       summary: Amazon Web Services Puttelemetryrecords
       description: Used by the Amazon Web Services X-Ray daemon to upload telemetry.
       operationId: amazonWebServicesPutTelemetryRecords
+      tags:
+        - TelemetryRecords
   /TraceSegments:
     POST:
       summary: Amazon Web Services Puttracesegments
@@ -213,6 +263,8 @@ paths:
         1480615200 seconds, or 58406520 in hexadecimal.   A 96-bit identifier
         for the trace, globally unique, in 24 hexadecimal digits.  
       operationId: amazonWebServicesPutTraceSegments
+      tags:
+        - TraceSegments
   /TagResource:
     POST:
       summary: Amazon Web Services Tagresource
@@ -220,6 +272,8 @@ paths:
         Applies tags to an existing Amazon Web Services X-Ray group or sampling
         rule.
       operationId: amazonWebServicesTagResource
+      tags:
+        - TagResource
   /UntagResource:
     POST:
       summary: Amazon Web Services Untagresource
@@ -227,14 +281,50 @@ paths:
         Removes tags from an Amazon Web Services X-Ray group or sampling rule.
         You cannot edit or delete system tags (those with an aws: prefix).
       operationId: amazonWebServicesUntagResource
+      tags:
+        - UntagResource
   /UpdateGroup:
     POST:
       summary: Amazon Web Services Updategroup
       description: Updates a group resource.
       operationId: amazonWebServicesUpdateGroup
+      tags:
+        - UpdateGroup
   /UpdateSamplingRule:
     POST:
       summary: Amazon Web Services Updatesamplingrule
       description: Modifies a sampling rule's configuration.
       operationId: amazonWebServicesUpdateSamplingRule
-tags: []
+      tags:
+        - UpdateSamplingRule
+tags:
+  - name: CreateGroup
+  - name: CreateSamplingRule
+  - name: DeleteGroup
+  - name: DeleteResourcePolicy
+  - name: DeleteSamplingRule
+  - name: EncryptionConfig
+  - name: GetGroup
+  - name: GetSamplingRules
+  - name: Groups
+  - name: Insight
+  - name: InsightEvents
+  - name: InsightImpactGraph
+  - name: InsightSummaries
+  - name: ListResourcePolicies
+  - name: ListTagsForResource
+  - name: PutEncryptionConfig
+  - name: PutResourcePolicy
+  - name: SamplingStatisticSummaries
+  - name: SamplingTargets
+  - name: ServiceGraph
+  - name: TagResource
+  - name: TelemetryRecords
+  - name: TimeSeriesServiceStatistics
+  - name: TraceGraph
+  - name: Traces
+  - name: TraceSegments
+  - name: TraceSummaries
+  - name: UntagResource
+  - name: UpdateGroup
+  - name: UpdateSamplingRule

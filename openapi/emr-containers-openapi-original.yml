@@ -32,6 +32,8 @@ paths:
         work, such as a Spark jar, PySpark script, or SparkSQL query, that you
         submit to Amazon EMR on EKS.
       operationId: amazonWebServicesDescribeJobRun
+      tags:
+        - Virtualclusters
   /jobtemplates:
     GET:
       summary: Amazon Web Services Listjobtemplates
@@ -42,6 +44,8 @@ paths:
         StartJobRun API request values, enforcing certain values in StartJobRun
         API request.
       operationId: amazonWebServicesListJobTemplates
+      tags:
+        - Jobtemplates
   /virtualclusters/{virtualClusterId}/endpoints:
     GET:
       summary: Amazon Web Services Listmanagedendpoints
@@ -50,6 +54,8 @@ paths:
         is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so
         that Amazon EMR Studio can communicate with your virtual cluster.
       operationId: amazonWebServicesListManagedEndpoints
+      tags:
+        - Virtualclusters
   /virtualclusters:
     GET:
       summary: Amazon Web Services Listvirtualclusters
@@ -61,6 +67,8 @@ paths:
         namespace. Given this relationship, you can model virtual clusters the
         same way you model Kubernetes namespaces to meet your requirements.
       operationId: amazonWebServicesListVirtualClusters
+      tags:
+        - Virtualclusters
   /jobtemplates/{templateId}:
     GET:
       summary: Amazon Web Services Describejobtemplate
@@ -71,6 +79,8 @@ paths:
         repeating recurring StartJobRun API request values, enforcing certain
         values in StartJobRun API request.
       operationId: amazonWebServicesDescribeJobTemplate
+      tags:
+        - Jobtemplates
   /virtualclusters/{virtualClusterId}/endpoints/{endpointId}:
     GET:
       summary: Amazon Web Services Describemanagedendpoint
@@ -79,6 +89,8 @@ paths:
         endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
         EKS so that Amazon EMR Studio can communicate with your virtual cluster.
       operationId: amazonWebServicesDescribeManagedEndpoint
+      tags:
+        - Virtualclusters
   /virtualclusters/{virtualClusterId}:
     GET:
       summary: Amazon Web Services Describevirtualcluster
@@ -91,11 +103,15 @@ paths:
         virtual clusters the same way you model Kubernetes namespaces to meet
         your requirements.
       operationId: amazonWebServicesDescribeVirtualCluster
+      tags:
+        - Virtualclusters
   /virtualclusters/{virtualClusterId}/endpoints/{endpointId}/credentials:
     POST:
       summary: Amazon Web Services Getmanagedendpointsessioncredentials
       description: 'Generate a session token to connect to a managed endpoint. '
       operationId: amazonWebServicesGetManagedEndpointSessionCredentials
+      tags:
+        - Virtualclusters
   /virtualclusters/{virtualClusterId}/jobruns:
     POST:
       summary: Amazon Web Services Startjobrun
@@ -103,9 +119,16 @@ paths:
         Starts a job run. A job run is a unit of work, such as a Spark jar,
         PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
       operationId: amazonWebServicesStartJobRun
+      tags:
+        - Virtualclusters
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from resources.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Jobtemplates
+  - name: Tags
+  - name: Virtualclusters

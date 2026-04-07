@@ -50,6 +50,8 @@ paths:
       summary: Amazon Web Services Associatephonenumberwithuser
       description: Associates a phone number with the specified Amazon Chime user.
       operationId: amazonWebServicesAssociatePhoneNumberWithUser
+      tags:
+        - Accounts
   /voice-connectors/{voiceConnectorId}?operation=associate-phone-numbers:
     POST:
       summary: Amazon Web Services Associatephonenumberswithvoiceconnector
@@ -62,6 +64,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesAssociatePhoneNumbersWithVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}?operation=associate-phone-numbers:
     POST:
       summary: Amazon Web Services Associatephonenumberswithvoiceconnectorgroup
@@ -74,6 +78,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesAssociatePhoneNumbersWithVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /accounts/{accountId}?operation=associate-signin-delegate-groups:
     POST:
       summary: Amazon Web Services Associatesignindelegategroupswithaccount
@@ -81,6 +87,8 @@ paths:
         Associates the specified sign-in delegate groups with the specified
         Amazon Chime account.
       operationId: amazonWebServicesAssociateSigninDelegateGroupsWithAccount
+      tags:
+        - Accounts
   /meetings/{meetingId}/attendees?operation=batch-create:
     POST:
       summary: Amazon Web Services Batchcreateattendee
@@ -94,6 +102,8 @@ paths:
         more information about the Amazon Chime SDK, see Using the Amazon Chime
         SDK in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesBatchCreateAttendee
+      tags:
+        - Meetings
   /channels/{channelArn}/memberships?operation=batch-create:
     POST:
       summary: Amazon Web Services Batchcreatechannelmembership
@@ -105,6 +115,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesBatchCreateChannelMembership
+      tags:
+        - Channels
   /accounts/{accountId}/rooms/{roomId}/memberships?operation=batch-create:
     POST:
       summary: Amazon Web Services Batchcreateroommembership
@@ -114,11 +126,15 @@ paths:
         whether the member is a chat room administrator or a general chat room
         member.
       operationId: amazonWebServicesBatchCreateRoomMembership
+      tags:
+        - Accounts
   /phone-numbers?operation=batch-delete:
     POST:
       summary: Amazon Web Services Batchdeletephonenumber
       description: ' Moves phone numbers into the Deletion queue. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.   Phone numbers remain in the Deletion queue for 7 days before they are deleted permanently. '
       operationId: amazonWebServicesBatchDeletePhoneNumber
+      tags:
+        - Phone Numbers?operation=batch Delete
   /accounts/{accountId}/users?operation=suspend:
     POST:
       summary: Amazon Web Services Batchsuspenduser
@@ -136,6 +152,8 @@ paths:
         action.  To sign out users without suspending them, use the LogoutUser
         action.
       operationId: amazonWebServicesBatchSuspendUser
+      tags:
+        - Accounts
   /accounts/{accountId}/users?operation=unsuspend:
     POST:
       summary: Amazon Web Services Batchunsuspenduser
@@ -149,6 +167,8 @@ paths:
         are returned to Registered status. Users who are not previously
         suspended are ignored.
       operationId: amazonWebServicesBatchUnsuspendUser
+      tags:
+        - Accounts
   /phone-numbers?operation=batch-update:
     POST:
       summary: Amazon Web Services Batchupdatephonenumber
@@ -162,6 +182,8 @@ paths:
         take up to 72 hours to complete. Pending updates to outbound calling
         names must be complete before you can request another update.
       operationId: amazonWebServicesBatchUpdatePhoneNumber
+      tags:
+        - Phone Numbers?operation=batch Update
   /accounts/{accountId}/users:
     GET:
       summary: Amazon Web Services Listusers
@@ -170,6 +192,8 @@ paths:
         can specify an email address to list only the user that the email
         address belongs to.
       operationId: amazonWebServicesListUsers
+      tags:
+        - Accounts
   /accounts:
     GET:
       summary: Amazon Web Services Listaccounts
@@ -179,6 +203,8 @@ paths:
         Chime account a user belongs to, you can filter by the user's email
         address, which returns one account result.
       operationId: amazonWebServicesListAccounts
+      tags:
+        - Accounts
   /app-instances:
     GET:
       summary: Amazon Web Services Listappinstances
@@ -190,6 +216,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListAppInstances
+      tags:
+        - App Instances
   /app-instances/{appInstanceArn}/admins:
     GET:
       summary: Amazon Web Services Listappinstanceadmins
@@ -201,6 +229,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListAppInstanceAdmins
+      tags:
+        - App Instances
   /app-instance-users:
     GET:
       summary: Amazon Web Services Listappinstanceusers
@@ -212,11 +242,15 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListAppInstanceUsers
+      tags:
+        - App Instance Users
   /meetings/{meetingId}/attendees:
     GET:
       summary: Amazon Web Services Listattendees
       description: ' Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK Developer Guide.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListAttendees, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
       operationId: amazonWebServicesListAttendees
+      tags:
+        - Meetings
   /accounts/{accountId}/bots:
     GET:
       summary: Amazon Web Services Listbots
@@ -224,6 +258,8 @@ paths:
         Lists the bots associated with the administrator's Amazon Chime
         Enterprise account ID.
       operationId: amazonWebServicesListBots
+      tags:
+        - Accounts
   /channels:
     GET:
       summary: Amazon Web Services Listchannels
@@ -241,6 +277,8 @@ paths:
         to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
         Developer Guide. 
       operationId: amazonWebServicesListChannels
+      tags:
+        - Channels
   /channels/{channelArn}/bans:
     GET:
       summary: Amazon Web Services Listchannelbans
@@ -254,6 +292,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListChannelBans
+      tags:
+        - Channels
   /channels/{channelArn}/memberships:
     GET:
       summary: Amazon Web Services Listchannelmemberships
@@ -267,6 +307,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListChannelMemberships
+      tags:
+        - Channels
   /channels/{channelArn}/moderators:
     GET:
       summary: Amazon Web Services Listchannelmoderators
@@ -280,6 +322,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListChannelModerators
+      tags:
+        - Channels
   /media-capture-pipelines:
     GET:
       summary: Amazon Web Services Listmediacapturepipelines
@@ -291,6 +335,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListMediaCapturePipelines
+      tags:
+        - Media Capture Pipelines
   /meetings:
     GET:
       summary: Amazon Web Services Listmeetings
@@ -301,6 +347,8 @@ paths:
         Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK
         Developer Guide.
       operationId: amazonWebServicesListMeetings
+      tags:
+        - Meetings
   /meetings/{meetingId}/dial-outs:
     POST:
       summary: Amazon Web Services Createmeetingdialout
@@ -314,11 +362,15 @@ paths:
         application ID.   This API is is not available in a dedicated
         namespace.  
       operationId: amazonWebServicesCreateMeetingDialOut
+      tags:
+        - Meetings
   /meetings?operation=create-attendees:
     POST:
       summary: Amazon Web Services Createmeetingwithattendees
       description: ' Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see Amazon Chime SDK Media Regions in the Amazon Chime SDK Developer Guide . For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK Developer Guide .    This API is is no longer supported and will not be updated. We recommend using the latest version, CreateMeetingWithAttendees, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
       operationId: amazonWebServicesCreateMeetingWithAttendees
+      tags:
+        - Meetings?operation=create Attendees
   /phone-number-orders:
     GET:
       summary: Amazon Web Services Listphonenumberorders
@@ -326,6 +378,8 @@ paths:
         Lists the phone number orders for the administrator's Amazon Chime
         account.
       operationId: amazonWebServicesListPhoneNumberOrders
+      tags:
+        - Phone Number Orders
   /voice-connectors/{voiceConnectorId}/proxy-sessions:
     GET:
       summary: Amazon Web Services Listproxysessions
@@ -337,6 +391,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListProxySessions
+      tags:
+        - Voice Connectors
   /accounts/{accountId}/rooms:
     GET:
       summary: Amazon Web Services Listrooms
@@ -345,6 +401,8 @@ paths:
         account. Optionally, filter the results by a member ID (user ID or bot
         ID) to see a list of rooms that the member belongs to.
       operationId: amazonWebServicesListRooms
+      tags:
+        - Accounts
   /accounts/{accountId}/rooms/{roomId}/memberships:
     GET:
       summary: Amazon Web Services Listroommemberships
@@ -353,6 +411,8 @@ paths:
         Enterprise account, such as the members' IDs, email addresses, and
         names.
       operationId: amazonWebServicesListRoomMemberships
+      tags:
+        - Accounts
   /sip-media-applications:
     GET:
       summary: Amazon Web Services Listsipmediaapplications
@@ -364,6 +424,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListSipMediaApplications
+      tags:
+        - Sip Media Applications
   /sip-media-applications/{sipMediaApplicationId}/calls:
     POST:
       summary: Amazon Web Services Createsipmediaapplicationcall
@@ -377,6 +439,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesCreateSipMediaApplicationCall
+      tags:
+        - Sip Media Applications
   /sip-rules:
     GET:
       summary: Amazon Web Services Listsiprules
@@ -388,11 +452,15 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListSipRules
+      tags:
+        - Sip Rules
   /accounts/{accountId}/users?operation=create:
     POST:
       summary: Amazon Web Services Createuser
       description: Creates a user under the specified Amazon Chime account.
       operationId: amazonWebServicesCreateUser
+      tags:
+        - Accounts
   /voice-connectors:
     GET:
       summary: Amazon Web Services Listvoiceconnectors
@@ -404,6 +472,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListVoiceConnectors
+      tags:
+        - Voice Connectors
   /voice-connector-groups:
     GET:
       summary: Amazon Web Services Listvoiceconnectorgroups
@@ -416,6 +486,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListVoiceConnectorGroups
+      tags:
+        - Voice Connector Groups
   /accounts/{accountId}:
     POST:
       summary: Amazon Web Services Updateaccount
@@ -424,6 +496,8 @@ paths:
         Currently, only account name and default license updates are supported
         for this action.
       operationId: amazonWebServicesUpdateAccount
+      tags:
+        - Accounts
   /app-instances/{appInstanceArn}:
     PUT:
       summary: Amazon Web Services Updateappinstance
@@ -435,6 +509,8 @@ paths:
         to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
         Developer Guide. 
       operationId: amazonWebServicesUpdateAppInstance
+      tags:
+        - App Instances
   /app-instances/{appInstanceArn}/admins/{appInstanceAdminArn}:
     GET:
       summary: Amazon Web Services Describeappinstanceadmin
@@ -446,6 +522,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDescribeAppInstanceAdmin
+      tags:
+        - App Instances
   /app-instances/{appInstanceArn}/streaming-configurations:
     PUT:
       summary: Amazon Web Services Putappinstancestreamingconfigurations
@@ -457,6 +535,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutAppInstanceStreamingConfigurations
+      tags:
+        - App Instances
   /app-instance-users/{appInstanceUserArn}:
     PUT:
       summary: Amazon Web Services Updateappinstanceuser
@@ -468,11 +548,15 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateAppInstanceUser
+      tags:
+        - App Instance Users
   /meetings/{meetingId}/attendees/{attendeeId}:
     GET:
       summary: Amazon Web Services Getattendee
       description: ' Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK Developer Guide.    This API is is no longer supported and will not be updated. We recommend using the latest version, GetAttendee, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
       operationId: amazonWebServicesGetAttendee
+      tags:
+        - Meetings
   /channels/{channelArn}:
     PUT:
       summary: Amazon Web Services Updatechannel
@@ -486,6 +570,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - Channels
   /channels/{channelArn}/bans/{memberArn}:
     GET:
       summary: Amazon Web Services Describechannelban
@@ -499,6 +585,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDescribeChannelBan
+      tags:
+        - Channels
   /channels/{channelArn}/memberships/{memberArn}:
     GET:
       summary: Amazon Web Services Describechannelmembership
@@ -513,6 +601,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDescribeChannelMembership
+      tags:
+        - Channels
   /channels/{channelArn}/messages/{messageId}:
     PUT:
       summary: Amazon Web Services Updatechannelmessage
@@ -526,6 +616,8 @@ paths:
         to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
         Developer Guide. 
       operationId: amazonWebServicesUpdateChannelMessage
+      tags:
+        - Channels
   /channels/{channelArn}/moderators/{channelModeratorArn}:
     GET:
       summary: Amazon Web Services Describechannelmoderator
@@ -540,6 +632,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDescribeChannelModerator
+      tags:
+        - Channels
   /accounts/{accountId}/bots/{botId}/events-configuration:
     PUT:
       summary: Amazon Web Services Puteventsconfiguration
@@ -548,6 +642,8 @@ paths:
         events sent by Amazon Chime. Choose either an HTTPS endpoint or a Lambda
         function ARN. For more information, see Bot.
       operationId: amazonWebServicesPutEventsConfiguration
+      tags:
+        - Accounts
   /media-capture-pipelines/{mediaPipelineId}:
     GET:
       summary: Amazon Web Services Getmediacapturepipeline
@@ -559,11 +655,15 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesGetMediaCapturePipeline
+      tags:
+        - Media Capture Pipelines
   /meetings/{meetingId}:
     GET:
       summary: Amazon Web Services Getmeeting
       description: '  This API is is no longer supported and will not be updated. We recommend using the latest version, GetMeeting, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide.   Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime SDK Developer Guide . '
       operationId: amazonWebServicesGetMeeting
+      tags:
+        - Meetings
   /phone-numbers/{phoneNumberId}:
     POST:
       summary: Amazon Web Services Updatephonenumber
@@ -578,6 +678,8 @@ paths:
         complete. Pending updates to outbound calling names must be complete
         before you can request another update.
       operationId: amazonWebServicesUpdatePhoneNumber
+      tags:
+        - Phone Numbers
   /voice-connectors/{voiceConnectorId}/proxy-sessions/{proxySessionId}:
     POST:
       summary: Amazon Web Services Updateproxysession
@@ -589,6 +691,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateProxySession
+      tags:
+        - Voice Connectors
   /accounts/{accountId}/rooms/{roomId}:
     POST:
       summary: Amazon Web Services Updateroom
@@ -596,6 +700,8 @@ paths:
         Updates room details, such as the room name, for a room in an Amazon
         Chime Enterprise account.
       operationId: amazonWebServicesUpdateRoom
+      tags:
+        - Accounts
   /accounts/{accountId}/rooms/{roomId}/memberships/{memberId}:
     POST:
       summary: Amazon Web Services Updateroommembership
@@ -605,6 +711,8 @@ paths:
         the member is a chat room administrator or a general chat room member.
         The member role can be updated only for user IDs.
       operationId: amazonWebServicesUpdateRoomMembership
+      tags:
+        - Accounts
   /sip-media-applications/{sipMediaApplicationId}:
     PUT:
       summary: Amazon Web Services Updatesipmediaapplication
@@ -616,6 +724,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateSipMediaApplication
+      tags:
+        - Sip Media Applications
   /sip-rules/{sipRuleId}:
     PUT:
       summary: Amazon Web Services Updatesiprule
@@ -627,6 +737,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateSipRule
+      tags:
+        - Sip Rules
   /voice-connectors/{voiceConnectorId}:
     PUT:
       summary: Amazon Web Services Updatevoiceconnector
@@ -638,6 +750,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/emergency-calling-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectoremergencycallingconfiguration
@@ -653,6 +767,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorEmergencyCallingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}:
     PUT:
       summary: Amazon Web Services Updatevoiceconnectorgroup
@@ -664,6 +780,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /voice-connectors/{voiceConnectorId}/origination:
     PUT:
       summary: Amazon Web Services Putvoiceconnectororigination
@@ -677,6 +795,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorOrigination
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/programmable-numbers/proxy:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorproxy
@@ -688,6 +808,8 @@ paths:
         a dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorProxy
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/streaming-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorstreamingconfiguration
@@ -702,6 +824,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorStreamingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination:
     PUT:
       summary: Amazon Web Services Putvoiceconnectortermination
@@ -715,6 +839,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorTermination
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination/credentials?operation=delete:
     POST:
       summary: Amazon Web Services Deletevoiceconnectorterminationcredentials
@@ -727,11 +853,15 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDeleteVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /channels/{channelArn}?scope=app-instance-user-membership:
     GET:
       summary: Amazon Web Services Describechannelmembershipforappinstanceuser
       description: ' Returns the details of a channel based on the membership of the specified AppInstanceUser.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelMembershipForAppInstanceUser, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
       operationId: amazonWebServicesDescribeChannelMembershipForAppInstanceUser
+      tags:
+        - Channels
   /channels/{channelArn}?scope=app-instance-user-moderated-channel:
     GET:
       summary: Amazon Web Services Describechannelmoderatedbyappinstanceuser
@@ -746,6 +876,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDescribeChannelModeratedByAppInstanceUser
+      tags:
+        - Channels
   /accounts/{accountId}/users/{userId}?operation=disassociate-phone-number:
     POST:
       summary: Amazon Web Services Disassociatephonenumberfromuser
@@ -753,6 +885,8 @@ paths:
         Disassociates the primary provisioned phone number from the specified
         Amazon Chime user.
       operationId: amazonWebServicesDisassociatePhoneNumberFromUser
+      tags:
+        - Accounts
   /voice-connectors/{voiceConnectorId}?operation=disassociate-phone-numbers:
     POST:
       summary: Amazon Web Services Disassociatephonenumbersfromvoiceconnector
@@ -765,6 +899,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDisassociatePhoneNumbersFromVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}?operation=disassociate-phone-numbers:
     POST:
       summary: Amazon Web Services Disassociatephonenumbersfromvoiceconnectorgroup
@@ -777,6 +913,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesDisassociatePhoneNumbersFromVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /accounts/{accountId}?operation=disassociate-signin-delegate-groups:
     POST:
       summary: Amazon Web Services Disassociatesignindelegategroupsfromaccount
@@ -784,6 +922,8 @@ paths:
         Disassociates the specified sign-in delegate groups from the specified
         Amazon Chime account.
       operationId: amazonWebServicesDisassociateSigninDelegateGroupsFromAccount
+      tags:
+        - Accounts
   /accounts/{accountId}/settings:
     PUT:
       summary: Amazon Web Services Updateaccountsettings
@@ -793,6 +933,8 @@ paths:
         dial-out option. For more information about these settings, see Use the
         Policies Page in the Amazon Chime Administration Guide.
       operationId: amazonWebServicesUpdateAccountSettings
+      tags:
+        - Accounts
   /app-instances/{appInstanceArn}/retention-settings:
     PUT:
       summary: Amazon Web Services Putappinstanceretentionsettings
@@ -803,6 +945,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutAppInstanceRetentionSettings
+      tags:
+        - App Instances
   /accounts/{accountId}/bots/{botId}:
     POST:
       summary: Amazon Web Services Updatebot
@@ -810,6 +954,8 @@ paths:
         Updates the status of the specified bot, such as starting or stopping
         the bot from running in your Amazon Chime Enterprise account.
       operationId: amazonWebServicesUpdateBot
+      tags:
+        - Accounts
   /settings:
     PUT:
       summary: Amazon Web Services Updateglobalsettings
@@ -817,6 +963,8 @@ paths:
         Updates global settings for the administrator's AWS account, such as
         Amazon Chime Business Calling and Amazon Chime Voice Connector settings.
       operationId: amazonWebServicesUpdateGlobalSettings
+      tags:
+        - Settings
   /endpoints/messaging-session:
     GET:
       summary: Amazon Web Services Getmessagingsessionendpoint
@@ -828,6 +976,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesGetMessagingSessionEndpoint
+      tags:
+        - Endpoints
   /phone-number-orders/{phoneNumberOrderId}:
     GET:
       summary: Amazon Web Services Getphonenumberorder
@@ -836,6 +986,8 @@ paths:
         order creation timestamp, phone numbers in E.164 format, product type,
         and order status.
       operationId: amazonWebServicesGetPhoneNumberOrder
+      tags:
+        - Phone Number Orders
   /settings/phone-number:
     PUT:
       summary: Amazon Web Services Updatephonenumbersettings
@@ -845,11 +997,15 @@ paths:
         outbound calling name once every seven days. Outbound calling names can
         take up to 72 hours to update.
       operationId: amazonWebServicesUpdatePhoneNumberSettings
+      tags:
+        - Settings
   /accounts/{accountId}/retention-settings:
     PUT:
       summary: Amazon Web Services Putretentionsettings
       description: ' Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see Logging Amazon Chime API Calls with AWS CloudTrail in the Amazon Chime Administration Guide.  To turn off existing retention settings, remove the number of days from the corresponding RetentionDays field in the RetentionSettings object. For more information about retention settings, see Managing Chat Retention Policies in the Amazon Chime Administration Guide.'
       operationId: amazonWebServicesPutRetentionSettings
+      tags:
+        - Accounts
   /sip-media-applications/{sipMediaApplicationId}/logging-configuration:
     PUT:
       summary: Amazon Web Services Putsipmediaapplicationloggingconfiguration
@@ -862,6 +1018,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutSipMediaApplicationLoggingConfiguration
+      tags:
+        - Sip Media Applications
   /accounts/{accountId}/users/{userId}:
     POST:
       summary: Amazon Web Services Updateuser
@@ -869,6 +1027,8 @@ paths:
         Updates user details for a specified user ID. Currently, only
         LicenseType updates are supported for this action.
       operationId: amazonWebServicesUpdateUser
+      tags:
+        - Accounts
   /accounts/{accountId}/users/{userId}/settings:
     PUT:
       summary: Amazon Web Services Updateusersettings
@@ -876,6 +1036,8 @@ paths:
         Updates the settings for the specified user, such as phone number
         settings.
       operationId: amazonWebServicesUpdateUserSettings
+      tags:
+        - Accounts
   /voice-connectors/{voiceConnectorId}/logging-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorloggingconfiguration
@@ -889,11 +1051,15 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorLoggingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination/health:
     GET:
       summary: Amazon Web Services Getvoiceconnectorterminationhealth
       description: '  This API is is no longer supported and will not be updated. We recommend using the latest version, GetVoiceConnectorTerminationHealth, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide.  Retrieves information about the last time a SIP OPTIONS ping was received from your SIP infrastructure for the specified Amazon Chime Voice Connector.'
       operationId: amazonWebServicesGetVoiceConnectorTerminationHealth
+      tags:
+        - Voice Connectors
   /accounts/{accountId}/users?operation=add:
     POST:
       summary: Amazon Web Services Inviteusers
@@ -902,6 +1068,8 @@ paths:
         Amazon Chime Team account. Only Team account types are currently
         supported for this action.
       operationId: amazonWebServicesInviteUsers
+      tags:
+        - Accounts
   /meetings/{meetingId}/attendees/{attendeeId}/tags:
     GET:
       summary: Amazon Web Services Listattendeetags
@@ -909,11 +1077,15 @@ paths:
         Lists the tags applied to an Amazon Chime SDK attendee resource.  ListAttendeeTags is not supported in the Amazon Chime SDK Meetings
         Namespace. Update your application to remove calls to this API. 
       operationId: amazonWebServicesListAttendeeTags
+      tags:
+        - Meetings
   /channels?scope=app-instance-user-memberships:
     GET:
       summary: Amazon Web Services Listchannelmembershipsforappinstanceuser
       description: ' Lists all channels that a particular AppInstanceUser is a part of. Only an AppInstanceAdmin can call the API with a user ARN that is not their own.   The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListChannelMembershipsForAppInstanceUser, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
       operationId: amazonWebServicesListChannelMembershipsForAppInstanceUser
+      tags:
+        - Channels?scope=app Instance User Memberships
   /channels/{channelArn}/messages:
     POST:
       summary: Amazon Web Services Sendchannelmessage
@@ -928,6 +1100,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesSendChannelMessage
+      tags:
+        - Channels
   /channels?scope=app-instance-user-moderated-channels:
     GET:
       summary: Amazon Web Services Listchannelsmoderatedbyappinstanceuser
@@ -942,6 +1116,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListChannelsModeratedByAppInstanceUser
+      tags:
+        - Channels?scope=app Instance User Moderated Channels
   /meetings/{meetingId}/tags:
     GET:
       summary: Amazon Web Services Listmeetingtags
@@ -953,6 +1129,8 @@ paths:
         For more information, refer to Migrating from the Amazon Chime namespace
         in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListMeetingTags
+      tags:
+        - Meetings
   /phone-numbers:
     GET:
       summary: Amazon Web Services Listphonenumbers
@@ -961,11 +1139,15 @@ paths:
         Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice
         Connector group.
       operationId: amazonWebServicesListPhoneNumbers
+      tags:
+        - Phone Numbers
   /phone-number-countries:
     GET:
       summary: Amazon Web Services Listsupportedphonenumbercountries
       description: Lists supported phone number countries.
       operationId: amazonWebServicesListSupportedPhoneNumberCountries
+      tags:
+        - Phone Number Countries
   /tags:
     GET:
       summary: Amazon Web Services Listtagsforresource
@@ -978,6 +1160,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags
   /voice-connectors/{voiceConnectorId}/termination/credentials:
     GET:
       summary: Amazon Web Services Listvoiceconnectorterminationcredentials
@@ -990,6 +1174,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesListVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /accounts/{accountId}/users/{userId}?operation=logout:
     POST:
       summary: Amazon Web Services Logoutuser
@@ -997,6 +1183,8 @@ paths:
         Logs out the specified user from all of the devices they are currently
         logged into.
       operationId: amazonWebServicesLogoutUser
+      tags:
+        - Accounts
   /voice-connectors/{voiceConnectorId}/termination/credentials?operation=put:
     POST:
       summary: Amazon Web Services Putvoiceconnectorterminationcredentials
@@ -1009,6 +1197,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesPutVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /channels/{channelArn}/messages/{messageId}?operation=redact:
     POST:
       summary: Amazon Web Services Redactchannelmessage
@@ -1023,6 +1213,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesRedactChannelMessage
+      tags:
+        - Channels
   /accounts/{accountId}/conversations/{conversationId}/messages/{messageId}?operation=redact:
     POST:
       summary: Amazon Web Services Redactconversationmessage
@@ -1030,16 +1222,22 @@ paths:
         Redacts the specified message from the specified Amazon Chime
         conversation.
       operationId: amazonWebServicesRedactConversationMessage
+      tags:
+        - Accounts
   /accounts/{accountId}/rooms/{roomId}/messages/{messageId}?operation=redact:
     POST:
       summary: Amazon Web Services Redactroommessage
       description: Redacts the specified message from the specified Amazon Chime channel.
       operationId: amazonWebServicesRedactRoomMessage
+      tags:
+        - Accounts
   /accounts/{accountId}/bots/{botId}?operation=regenerate-security-token:
     POST:
       summary: Amazon Web Services Regeneratesecuritytoken
       description: Regenerates the security token for a bot.
       operationId: amazonWebServicesRegenerateSecurityToken
+      tags:
+        - Accounts
   /accounts/{accountId}/users/{userId}?operation=reset-personal-pin:
     POST:
       summary: Amazon Web Services Resetpersonalpin
@@ -1048,6 +1246,8 @@ paths:
         Chime account. Returns the User object with the updated personal meeting
         PIN.
       operationId: amazonWebServicesResetPersonalPIN
+      tags:
+        - Accounts
   /phone-numbers/{phoneNumberId}?operation=restore:
     POST:
       summary: Amazon Web Services Restorephonenumber
@@ -1055,6 +1255,8 @@ paths:
         Moves a phone number from the Deletion queue back into the phone number
         Inventory.
       operationId: amazonWebServicesRestorePhoneNumber
+      tags:
+        - Phone Numbers
   /search?type=phone-numbers:
     GET:
       summary: Amazon Web Services Searchavailablephonenumbers
@@ -1065,6 +1267,8 @@ paths:
         Numbers outside the US only support the PhoneNumberType filter, which
         you must use.
       operationId: amazonWebServicesSearchAvailablePhoneNumbers
+      tags:
+        - Search?type=phone Numbers
   /meetings/{meetingId}/transcription?operation=start:
     POST:
       summary: Amazon Web Services Startmeetingtranscription
@@ -1084,6 +1288,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesStartMeetingTranscription
+      tags:
+        - Meetings
   /meetings/{meetingId}/transcription?operation=stop:
     POST:
       summary: Amazon Web Services Stopmeetingtranscription
@@ -1095,6 +1301,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesStopMeetingTranscription
+      tags:
+        - Meetings
   /meetings/{meetingId}/attendees/{attendeeId}/tags?operation=add:
     POST:
       summary: Amazon Web Services Tagattendee
@@ -1102,6 +1310,8 @@ paths:
         Applies the specified tags to the specified Amazon Chime attendee.  TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace.
         Update your application to remove calls to this API. 
       operationId: amazonWebServicesTagAttendee
+      tags:
+        - Meetings
   /meetings/{meetingId}/tags?operation=add:
     POST:
       summary: Amazon Web Services Tagmeeting
@@ -1112,6 +1322,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesTagMeeting
+      tags:
+        - Meetings
   /tags?operation=tag-resource:
     POST:
       summary: Amazon Web Services Tagresource
@@ -1123,6 +1335,8 @@ paths:
         namespace. For more information, refer to Migrating from the Amazon
         Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags?operation=tag Resource
   /meetings/{meetingId}/attendees/{attendeeId}/tags?operation=delete:
     POST:
       summary: Amazon Web Services Untagattendee
@@ -1130,6 +1344,8 @@ paths:
         Untags the specified tags from the specified Amazon Chime SDK attendee.  UntagAttendee is not supported in the Amazon Chime SDK Meetings
         Namespace. Update your application to remove calls to this API. 
       operationId: amazonWebServicesUntagAttendee
+      tags:
+        - Meetings
   /meetings/{meetingId}/tags?operation=delete:
     POST:
       summary: Amazon Web Services Untagmeeting
@@ -1140,6 +1356,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUntagMeeting
+      tags:
+        - Meetings
   /tags?operation=untag-resource:
     POST:
       summary: Amazon Web Services Untagresource
@@ -1152,6 +1370,8 @@ paths:
         dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags?operation=untag Resource
   /channels/{channelArn}/readMarker:
     PUT:
       summary: Amazon Web Services Updatechannelreadmarker
@@ -1164,6 +1384,8 @@ paths:
         a dedicated namespace. For more information, refer to Migrating from the
         Amazon Chime namespace in the Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateChannelReadMarker
+      tags:
+        - Channels
   /sip-media-applications/{sipMediaApplicationId}/calls/{transactionId}:
     POST:
       summary: Amazon Web Services Updatesipmediaapplicationcall
@@ -1177,6 +1399,8 @@ paths:
         information, refer to Migrating from the Amazon Chime namespace in the
         Amazon Chime SDK Developer Guide. 
       operationId: amazonWebServicesUpdateSipMediaApplicationCall
+      tags:
+        - Sip Media Applications
   /emergency-calling/address:
     POST:
       summary: Amazon Web Services Validatee911address
@@ -1192,4 +1416,31 @@ paths:
         to Migrating from the Amazon Chime namespace in the Amazon Chime SDK
         Developer Guide. 
       operationId: amazonWebServicesValidateE911Address
-tags: []
+      tags:
+        - Emergency Calling
+tags:
+  - name: Accounts
+  - name: App Instance Users
+  - name: App Instances
+  - name: Channels
+  - name: Channels?scope=app Instance User Memberships
+  - name: Channels?scope=app Instance User Moderated Channels
+  - name: Emergency Calling
+  - name: Endpoints
+  - name: Media Capture Pipelines
+  - name: Meetings
+  - name: Meetings?operation=create Attendees
+  - name: Phone Number Countries
+  - name: Phone Number Orders
+  - name: Phone Numbers
+  - name: Phone Numbers?operation=batch Delete
+  - name: Phone Numbers?operation=batch Update
+  - name: Search?type=phone Numbers
+  - name: Settings
+  - name: Sip Media Applications
+  - name: Sip Rules
+  - name: Tags
+  - name: Tags?operation=tag Resource
+  - name: Tags?operation=untag Resource
+  - name: Voice Connector Groups
+  - name: Voice Connectors

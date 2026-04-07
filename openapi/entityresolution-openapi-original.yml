@@ -24,6 +24,8 @@ paths:
         Returns a list of all the IdMappingWorkflows that have been created for
         an Amazon Web Services account.
       operationId: amazonWebServicesListIdMappingWorkflows
+      tags:
+        - Idmappingworkflows
   /matchingworkflows:
     GET:
       summary: Amazon Web Services Listmatchingworkflows
@@ -31,6 +33,8 @@ paths:
         Returns a list of all the MatchingWorkflows that have been created for
         an Amazon Web Services account.
       operationId: amazonWebServicesListMatchingWorkflows
+      tags:
+        - Matchingworkflows
   /schemas:
     GET:
       summary: Amazon Web Services Listschemamappings
@@ -38,6 +42,8 @@ paths:
         Returns a list of all the SchemaMappings that have been created for an
         Amazon Web Services account.
       operationId: amazonWebServicesListSchemaMappings
+      tags:
+        - Schemas
   /idmappingworkflows/{workflowName}:
     PUT:
       summary: Amazon Web Services Updateidmappingworkflow
@@ -47,6 +53,8 @@ paths:
         POST request, and the IdMappingWorkflow must already exist for the
         method to succeed.
       operationId: amazonWebServicesUpdateIdMappingWorkflow
+      tags:
+        - Idmappingworkflows
   /matchingworkflows/{workflowName}:
     PUT:
       summary: Amazon Web Services Updatematchingworkflow
@@ -56,6 +64,8 @@ paths:
         POST request, and the MatchingWorkflow must already exist for the method
         to succeed.
       operationId: amazonWebServicesUpdateMatchingWorkflow
+      tags:
+        - Matchingworkflows
   /schemas/{schemaName}:
     PUT:
       summary: Amazon Web Services Updateschemamapping
@@ -64,6 +74,8 @@ paths:
         a workflow. Therefore, you can't update a schema mapping if it's
         associated with a workflow.  
       operationId: amazonWebServicesUpdateSchemaMapping
+      tags:
+        - Schemas
   /idmappingworkflows/{workflowName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Getidmappingjob
@@ -71,6 +83,8 @@ paths:
         Gets the status, metrics, and errors (if there are any) that are
         associated with a job.
       operationId: amazonWebServicesGetIdMappingJob
+      tags:
+        - Idmappingworkflows
   /matchingworkflows/{workflowName}/matches:
     POST:
       summary: Amazon Web Services Getmatchid
@@ -78,6 +92,8 @@ paths:
         Returns the corresponding Match ID of a customer record if the record
         has been processed.
       operationId: amazonWebServicesGetMatchId
+      tags:
+        - Matchingworkflows
   /matchingworkflows/{workflowName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Getmatchingjob
@@ -85,11 +101,15 @@ paths:
         Gets the status, metrics, and errors (if there are any) that are
         associated with a job.
       operationId: amazonWebServicesGetMatchingJob
+      tags:
+        - Matchingworkflows
   /providerservices/{providerName}/{providerServiceName}:
     GET:
       summary: Amazon Web Services Getproviderservice
       description: Returns the ProviderService of a given name.
       operationId: amazonWebServicesGetProviderService
+      tags:
+        - Providerservices
   /idmappingworkflows/{workflowName}/jobs:
     POST:
       summary: Amazon Web Services Startidmappingjob
@@ -97,6 +117,8 @@ paths:
         Starts the IdMappingJob of a workflow. The workflow must have previously
         been created using the CreateIdMappingWorkflow endpoint.
       operationId: amazonWebServicesStartIdMappingJob
+      tags:
+        - Idmappingworkflows
   /matchingworkflows/{workflowName}/jobs:
     POST:
       summary: Amazon Web Services Startmatchingjob
@@ -104,6 +126,8 @@ paths:
         Starts the MatchingJob of a workflow. The workflow must have previously
         been created using the CreateMatchingWorkflow endpoint.
       operationId: amazonWebServicesStartMatchingJob
+      tags:
+        - Matchingworkflows
   /providerservices:
     GET:
       summary: Amazon Web Services Listproviderservices
@@ -111,6 +135,8 @@ paths:
         Returns a list of all the ProviderServices that are available in this
         Amazon Web Services Region.
       operationId: amazonWebServicesListProviderServices
+      tags:
+        - Providerservices
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -118,4 +144,11 @@ paths:
         Removes one or more tags from the specified Entity Resolution resource.
         In Entity Resolution, SchemaMapping, and MatchingWorkflow can be tagged.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Idmappingworkflows
+  - name: Matchingworkflows
+  - name: Providerservices
+  - name: Schemas
+  - name: Tags

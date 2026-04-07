@@ -17,6 +17,8 @@ paths:
         more information about the Amazon Chime SDK, see Using the Amazon Chime
         SDK in the Amazon Chime Developer Guide.
       operationId: amazonWebServicesBatchCreateAttendee
+      tags:
+        - Meetings
   /meetings/{MeetingId}/attendees/capabilities?operation=batch-update-except:
     PUT:
       summary: Amazon Web Services Batchupdateattendeecapabilitiesexcept
@@ -45,11 +47,15 @@ paths:
         but only after media renegotiation between the client and the Amazon
         Chime back-end server.  
       operationId: amazonWebServicesBatchUpdateAttendeeCapabilitiesExcept
+      tags:
+        - Meetings
   /meetings/{MeetingId}/attendees:
     GET:
       summary: Amazon Web Services Listattendees
       description: ' Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime Developer Guide. '
       operationId: amazonWebServicesListAttendees
+      tags:
+        - Meetings
   /meetings:
     POST:
       summary: Amazon Web Services Createmeeting
@@ -60,16 +66,22 @@ paths:
         Developer Guide. For more information about the Amazon Chime SDK, see
         Using the Amazon Chime SDK in the Amazon Chime Developer Guide. 
       operationId: amazonWebServicesCreateMeeting
+      tags:
+        - Meetings
   /meetings?operation=create-attendees:
     POST:
       summary: Amazon Web Services Createmeetingwithattendees
       description: ' Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see Amazon Chime SDK Media Regions in the Amazon Chime Developer Guide. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime Developer Guide. '
       operationId: amazonWebServicesCreateMeetingWithAttendees
+      tags:
+        - Meetings?operation=create Attendees
   /meetings/{MeetingId}/attendees/{AttendeeId}:
     GET:
       summary: Amazon Web Services Getattendee
       description: ' Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see Using the Amazon Chime SDK in the Amazon Chime Developer Guide. '
       operationId: amazonWebServicesGetAttendee
+      tags:
+        - Meetings
   /meetings/{MeetingId}:
     GET:
       summary: Amazon Web Services Getmeeting
@@ -78,11 +90,15 @@ paths:
         For more information about the Amazon Chime SDK, see Using the Amazon
         Chime SDK in the Amazon Chime Developer Guide.
       operationId: amazonWebServicesGetMeeting
+      tags:
+        - Meetings
   /tags:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: Returns a list of the tags available for the specified resource.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags
   /meetings/{MeetingId}/transcription?operation=start:
     POST:
       summary: Amazon Web Services Startmeetingtranscription
@@ -106,6 +122,8 @@ paths:
         content to develop and improve AWS AI/ML services by configuring an AI
         services opt out policy using Amazon Web Services Organizations. 
       operationId: amazonWebServicesStartMeetingTranscription
+      tags:
+        - Meetings
   /meetings/{MeetingId}/transcription?operation=stop:
     POST:
       summary: Amazon Web Services Stopmeetingtranscription
@@ -126,11 +144,15 @@ paths:
         Web Services AI/ML services by configuring an AI services opt out policy
         using Amazon Web Services Organizations. 
       operationId: amazonWebServicesStopMeetingTranscription
+      tags:
+        - Meetings
   /tags?operation=tag-resource:
     POST:
       summary: Amazon Web Services Tagresource
       description: The resource that supports tags.
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags?operation=tag Resource
   /tags?operation=untag-resource:
     POST:
       summary: Amazon Web Services Untagresource
@@ -151,6 +173,8 @@ paths:
         UntagResources operation, you must have both of the following
         permissions:  tag:UntagResource   ChimeSDKMeetings:DeleteTags 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags?operation=untag Resource
   /meetings/{MeetingId}/attendees/{AttendeeId}/capabilities:
     PUT:
       summary: Amazon Web Services Updateattendeecapabilities
@@ -178,4 +202,11 @@ paths:
         but only after media renegotiation between the client and the Amazon
         Chime back-end server.  
       operationId: amazonWebServicesUpdateAttendeeCapabilities
-tags: []
+      tags:
+        - Meetings
+tags:
+  - name: Meetings
+  - name: Meetings?operation=create Attendees
+  - name: Tags
+  - name: Tags?operation=tag Resource
+  - name: Tags?operation=untag Resource

@@ -10,6 +10,8 @@ paths:
       summary: Amazon Web Services Addlftagstoresource
       description: Attaches one or more LF-tags to an existing resource.
       operationId: amazonWebServicesAddLFTagsToResource
+      tags:
+        - AddLFTagsToResource
   /AssumeDecoratedRoleWithSAML:
     POST:
       summary: Amazon Web Services Assumedecoratedrolewithsaml
@@ -28,16 +30,22 @@ paths:
         minimum include lakeformation:GetDataAccess in their role policies. A
         typical IAM policy attached to such a role would look as follows: 
       operationId: amazonWebServicesAssumeDecoratedRoleWithSAML
+      tags:
+        - AssumeDecoratedRoleWithSAML
   /BatchGrantPermissions:
     POST:
       summary: Amazon Web Services Batchgrantpermissions
       description: Batch operation to grant permissions to the principal.
       operationId: amazonWebServicesBatchGrantPermissions
+      tags:
+        - BatchGrantPermissions
   /BatchRevokePermissions:
     POST:
       summary: Amazon Web Services Batchrevokepermissions
       description: Batch operation to revoke permissions from the principal.
       operationId: amazonWebServicesBatchRevokePermissions
+      tags:
+        - BatchRevokePermissions
   /CancelTransaction:
     POST:
       summary: Amazon Web Services Canceltransaction
@@ -45,6 +53,8 @@ paths:
         Attempts to cancel the specified transaction. Returns an exception if
         the transaction was previously committed.
       operationId: amazonWebServicesCancelTransaction
+      tags:
+        - CancelTransaction
   /CommitTransaction:
     POST:
       summary: Amazon Web Services Committransaction
@@ -53,6 +63,8 @@ paths:
         the transaction was previously aborted. This API action is idempotent if
         called multiple times for the same transaction.
       operationId: amazonWebServicesCommitTransaction
+      tags:
+        - CommitTransaction
   /CreateDataCellsFilter:
     POST:
       summary: Amazon Web Services Createdatacellsfilter
@@ -60,11 +72,15 @@ paths:
         Creates a data cell filter to allow one to grant access to certain
         columns on certain rows.
       operationId: amazonWebServicesCreateDataCellsFilter
+      tags:
+        - CreateDataCellsFilter
   /CreateLFTag:
     POST:
       summary: Amazon Web Services Createlftag
       description: Creates an LF-tag with the specified name and values.
       operationId: amazonWebServicesCreateLFTag
+      tags:
+        - CreateLFTag
   /CreateLakeFormationIdentityCenterConfiguration:
     POST:
       summary: Amazon Web Services Createlakeformationidentitycenterconfiguration
@@ -72,6 +88,8 @@ paths:
         Creates an IAM Identity Center connection with Lake Formation to allow
         IAM Identity Center users and groups to access Data Catalog resources.
       operationId: amazonWebServicesCreateLakeFormationIdentityCenterConfiguration
+      tags:
+        - CreateLakeFormationIdentityCenterConfiguration
   /CreateLakeFormationOptIn:
     POST:
       summary: Amazon Web Services Createlakeformationoptin
@@ -79,11 +97,15 @@ paths:
         Enforce Lake Formation permissions for the given databases, tables, and
         principals.
       operationId: amazonWebServicesCreateLakeFormationOptIn
+      tags:
+        - CreateLakeFormationOptIn
   /DeleteDataCellsFilter:
     POST:
       summary: Amazon Web Services Deletedatacellsfilter
       description: Deletes a data cell filter.
       operationId: amazonWebServicesDeleteDataCellsFilter
+      tags:
+        - DeleteDataCellsFilter
   /DeleteLFTag:
     POST:
       summary: Amazon Web Services Deletelftag
@@ -95,11 +117,15 @@ paths:
         tag policy attach to the deleted LF-tag will no longer be applied to the
         resource.
       operationId: amazonWebServicesDeleteLFTag
+      tags:
+        - DeleteLFTag
   /DeleteLakeFormationIdentityCenterConfiguration:
     POST:
       summary: Amazon Web Services Deletelakeformationidentitycenterconfiguration
       description: Deletes an IAM Identity Center connection with Lake Formation.
       operationId: amazonWebServicesDeleteLakeFormationIdentityCenterConfiguration
+      tags:
+        - DeleteLakeFormationIdentityCenterConfiguration
   /DeleteLakeFormationOptIn:
     POST:
       summary: Amazon Web Services Deletelakeformationoptin
@@ -107,6 +133,8 @@ paths:
         Remove the Lake Formation permissions enforcement of the given
         databases, tables, and principals.
       operationId: amazonWebServicesDeleteLakeFormationOptIn
+      tags:
+        - DeleteLakeFormationOptIn
   /DeleteObjectsOnCancel:
     POST:
       summary: Amazon Web Services Deleteobjectsoncancel
@@ -120,6 +148,8 @@ paths:
         call DeleteObjectsOnCancel before writes. For more information, see
         Rolling Back Amazon S3 Writes. 
       operationId: amazonWebServicesDeleteObjectsOnCancel
+      tags:
+        - DeleteObjectsOnCancel
   /DeregisterResource:
     POST:
       summary: Amazon Web Services Deregisterresource
@@ -128,11 +158,15 @@ paths:
         deregister a path, Lake Formation removes the path from the inline
         policy attached to your service-linked role.
       operationId: amazonWebServicesDeregisterResource
+      tags:
+        - DeregisterResource
   /DescribeLakeFormationIdentityCenterConfiguration:
     POST:
       summary: Amazon Web Services Describelakeformationidentitycenterconfiguration
       description: Retrieves the instance ARN and application ARN for the connection.
       operationId: amazonWebServicesDescribeLakeFormationIdentityCenterConfiguration
+      tags:
+        - DescribeLakeFormationIdentityCenterConfiguration
   /DescribeResource:
     POST:
       summary: Amazon Web Services Describeresource
@@ -140,11 +174,15 @@ paths:
         Retrieves the current data access role for the given resource registered
         in Lake Formation.
       operationId: amazonWebServicesDescribeResource
+      tags:
+        - DescribeResource
   /DescribeTransaction:
     POST:
       summary: Amazon Web Services Describetransaction
       description: Returns the details of a single transaction.
       operationId: amazonWebServicesDescribeTransaction
+      tags:
+        - DescribeTransaction
   /ExtendTransaction:
     POST:
       summary: Amazon Web Services Extendtransaction
@@ -154,11 +192,15 @@ paths:
         remain idle for a long period are automatically aborted unless
         explicitly extended.
       operationId: amazonWebServicesExtendTransaction
+      tags:
+        - ExtendTransaction
   /GetDataCellsFilter:
     POST:
       summary: Amazon Web Services Getdatacellsfilter
       description: Returns a data cells filter.
       operationId: amazonWebServicesGetDataCellsFilter
+      tags:
+        - GetDataCellsFilter
   /GetDataLakeSettings:
     POST:
       summary: Amazon Web Services Getdatalakesettings
@@ -166,6 +208,8 @@ paths:
         Retrieves the list of the data lake administrators of a Lake
         Formation-managed data lake. 
       operationId: amazonWebServicesGetDataLakeSettings
+      tags:
+        - GetDataLakeSettings
   /GetEffectivePermissionsForPath:
     POST:
       summary: Amazon Web Services Geteffectivepermissionsforpath
@@ -174,11 +218,15 @@ paths:
         resource located at a path in Amazon S3. GetEffectivePermissionsForPath
         will not return databases and tables if the catalog is encrypted.
       operationId: amazonWebServicesGetEffectivePermissionsForPath
+      tags:
+        - GetEffectivePermissionsForPath
   /GetLFTag:
     POST:
       summary: Amazon Web Services Getlftag
       description: Returns an LF-tag definition.
       operationId: amazonWebServicesGetLFTag
+      tags:
+        - GetLFTag
   /GetQueryState:
     POST:
       summary: Amazon Web Services Getquerystate
@@ -188,16 +236,22 @@ paths:
         before retrieving the work units. A query state is only visible to the
         principal that made the initial call to StartQueryPlanning.
       operationId: amazonWebServicesGetQueryState
+      tags:
+        - GetQueryState
   /GetQueryStatistics:
     POST:
       summary: Amazon Web Services Getquerystatistics
       description: Retrieves statistics on the planning and execution of a query.
       operationId: amazonWebServicesGetQueryStatistics
+      tags:
+        - GetQueryStatistics
   /GetResourceLFTags:
     POST:
       summary: Amazon Web Services Getresourcelftags
       description: Returns the LF-tags applied to a resource.
       operationId: amazonWebServicesGetResourceLFTags
+      tags:
+        - GetResourceLFTags
   /GetTableObjects:
     POST:
       summary: Amazon Web Services Gettableobjects
@@ -206,6 +260,8 @@ paths:
         table. A transaction ID or timestamp can be specified for time-travel
         queries.
       operationId: amazonWebServicesGetTableObjects
+      tags:
+        - GetTableObjects
   /GetTemporaryGluePartitionCredentials:
     POST:
       summary: Amazon Web Services Gettemporarygluepartitioncredentials
@@ -216,6 +272,8 @@ paths:
         same scope down policy which restricts access to a single Amazon S3
         prefix.
       operationId: amazonWebServicesGetTemporaryGluePartitionCredentials
+      tags:
+        - GetTemporaryGluePartitionCredentials
   /GetTemporaryGlueTableCredentials:
     POST:
       summary: Amazon Web Services Gettemporarygluetablecredentials
@@ -226,6 +284,8 @@ paths:
         Amazon S3 bucket, with a scope down policy which restricts the access to
         a single prefix.
       operationId: amazonWebServicesGetTemporaryGlueTableCredentials
+      tags:
+        - GetTemporaryGlueTableCredentials
   /GetWorkUnitResults:
     POST:
       summary: Amazon Web Services Getworkunitresults
@@ -233,11 +293,15 @@ paths:
         Returns the work units resulting from the query. Work units can be
         executed in any order and in parallel. 
       operationId: amazonWebServicesGetWorkUnitResults
+      tags:
+        - GetWorkUnitResults
   /GetWorkUnits:
     POST:
       summary: Amazon Web Services Getworkunits
       description: Retrieves the work units generated by the StartQueryPlanning operation.
       operationId: amazonWebServicesGetWorkUnits
+      tags:
+        - GetWorkUnits
   /GrantPermissions:
     POST:
       summary: Amazon Web Services Grantpermissions
@@ -247,16 +311,22 @@ paths:
         For information about permissions, see Security and Access Control to
         Metadata and Data.
       operationId: amazonWebServicesGrantPermissions
+      tags:
+        - GrantPermissions
   /ListDataCellsFilter:
     POST:
       summary: Amazon Web Services Listdatacellsfilter
       description: Lists all the data cell filters on a table.
       operationId: amazonWebServicesListDataCellsFilter
+      tags:
+        - ListDataCellsFilter
   /ListLFTags:
     POST:
       summary: Amazon Web Services Listlftags
       description: 'Lists LF-tags that the requester has permission to view. '
       operationId: amazonWebServicesListLFTags
+      tags:
+        - ListLFTags
   /ListLakeFormationOptIns:
     POST:
       summary: Amazon Web Services Listlakeformationoptins
@@ -264,6 +334,8 @@ paths:
         Retrieve the current list of resources and principals that are opt in to
         enforce Lake Formation permissions.
       operationId: amazonWebServicesListLakeFormationOptIns
+      tags:
+        - ListLakeFormationOptIns
   /ListPermissions:
     POST:
       summary: Amazon Web Services Listpermissions
@@ -275,11 +347,15 @@ paths:
         explicitly granted. For information about permissions, see Security and
         Access Control to Metadata and Data.
       operationId: amazonWebServicesListPermissions
+      tags:
+        - ListPermissions
   /ListResources:
     POST:
       summary: Amazon Web Services Listresources
       description: Lists the resources registered to be managed by the Data Catalog.
       operationId: amazonWebServicesListResources
+      tags:
+        - ListResources
   /ListTableStorageOptimizers:
     POST:
       summary: Amazon Web Services Listtablestorageoptimizers
@@ -287,6 +363,8 @@ paths:
         Returns the configuration of all storage optimizers associated with a
         specified table.
       operationId: amazonWebServicesListTableStorageOptimizers
+      tags:
+        - ListTableStorageOptimizers
   /ListTransactions:
     POST:
       summary: Amazon Web Services Listtransactions
@@ -297,6 +375,8 @@ paths:
         help you identify uncommitted transactions or to get information about
         transactions.
       operationId: amazonWebServicesListTransactions
+      tags:
+        - ListTransactions
   /PutDataLakeSettings:
     POST:
       summary: Amazon Web Services Putdatalakesettings
@@ -308,6 +388,8 @@ paths:
         add an admin, fetch the current list and add the new admin to that list
         and pass that list in this API.
       operationId: amazonWebServicesPutDataLakeSettings
+      tags:
+        - PutDataLakeSettings
   /RegisterResource:
     POST:
       summary: Amazon Web Services Registerresource
@@ -326,6 +408,8 @@ paths:
         UseServiceLinkedRole = true  If UseServiceLinkedRole is not set to true,
         you must provide or set the RoleArn:  arn:aws:iam::12345:role/my-data-access-role 
       operationId: amazonWebServicesRegisterResource
+      tags:
+        - RegisterResource
   /RemoveLFTagsFromResource:
     POST:
       summary: Amazon Web Services Removelftagsfromresource
@@ -334,6 +418,8 @@ paths:
         tableWithColumns resource are allowed. To tag columns, use the column
         inclusion list in tableWithColumns to specify column input.
       operationId: amazonWebServicesRemoveLFTagsFromResource
+      tags:
+        - RemoveLFTagsFromResource
   /RevokePermissions:
     POST:
       summary: Amazon Web Services Revokepermissions
@@ -341,6 +427,8 @@ paths:
         Revokes permissions to the principal to access metadata in the Data
         Catalog and data organized in underlying data storage such as Amazon S3.
       operationId: amazonWebServicesRevokePermissions
+      tags:
+        - RevokePermissions
   /SearchDatabasesByLFTags:
     POST:
       summary: Amazon Web Services Searchdatabasesbylftags
@@ -352,6 +440,8 @@ paths:
         TagConditions are valid to verify whether the returned resources can be
         shared.
       operationId: amazonWebServicesSearchDatabasesByLFTags
+      tags:
+        - SearchDatabasesByLFTags
   /SearchTablesByLFTags:
     POST:
       summary: Amazon Web Services Searchtablesbylftags
@@ -362,6 +452,8 @@ paths:
         all resources where the given LFTags are valid to verify whether the
         returned resources can be shared.
       operationId: amazonWebServicesSearchTablesByLFTags
+      tags:
+        - SearchTablesByLFTags
   /StartQueryPlanning:
     POST:
       summary: Amazon Web Services Startqueryplanning
@@ -370,6 +462,8 @@ paths:
         work units that can be retrieved with the GetWorkUnits operation as soon
         as the query state is WORKUNITS_AVAILABLE or FINISHED.
       operationId: amazonWebServicesStartQueryPlanning
+      tags:
+        - StartQueryPlanning
   /StartTransaction:
     POST:
       summary: Amazon Web Services Starttransaction
@@ -377,11 +471,15 @@ paths:
         Starts a new transaction and returns its transaction ID. Transaction IDs
         are opaque objects that you can use to identify a transaction.
       operationId: amazonWebServicesStartTransaction
+      tags:
+        - StartTransaction
   /UpdateDataCellsFilter:
     POST:
       summary: Amazon Web Services Updatedatacellsfilter
       description: Updates a data cell filter.
       operationId: amazonWebServicesUpdateDataCellsFilter
+      tags:
+        - UpdateDataCellsFilter
   /UpdateLFTag:
     POST:
       summary: Amazon Web Services Updatelftag
@@ -393,11 +491,15 @@ paths:
         resource, then API errors out with a 400 Exception - "Update not
         allowed". Untag the attribute before deleting the LF-tag key's value. 
       operationId: amazonWebServicesUpdateLFTag
+      tags:
+        - UpdateLFTag
   /UpdateLakeFormationIdentityCenterConfiguration:
     POST:
       summary: Amazon Web Services Updatelakeformationidentitycenterconfiguration
       description: Updates the IAM Identity Center connection parameters.
       operationId: amazonWebServicesUpdateLakeFormationIdentityCenterConfiguration
+      tags:
+        - UpdateLakeFormationIdentityCenterConfiguration
   /UpdateResource:
     POST:
       summary: Amazon Web Services Updateresource
@@ -405,6 +507,8 @@ paths:
         Updates the data access role used for vending access to the given
         (registered) resource in Lake Formation. 
       operationId: amazonWebServicesUpdateResource
+      tags:
+        - UpdateResource
   /UpdateTableObjects:
     POST:
       summary: Amazon Web Services Updatetableobjects
@@ -412,9 +516,67 @@ paths:
         Updates the manifest of Amazon S3 objects that make up the specified
         governed table.
       operationId: amazonWebServicesUpdateTableObjects
+      tags:
+        - UpdateTableObjects
   /UpdateTableStorageOptimizer:
     POST:
       summary: Amazon Web Services Updatetablestorageoptimizer
       description: Updates the configuration of the storage optimizers for a table.
       operationId: amazonWebServicesUpdateTableStorageOptimizer
-tags: []
+      tags:
+        - UpdateTableStorageOptimizer
+tags:
+  - name: AddLFTagsToResource
+  - name: AssumeDecoratedRoleWithSAML
+  - name: BatchGrantPermissions
+  - name: BatchRevokePermissions
+  - name: CancelTransaction
+  - name: CommitTransaction
+  - name: CreateDataCellsFilter
+  - name: CreateLakeFormationIdentityCenterConfiguration
+  - name: CreateLakeFormationOptIn
+  - name: CreateLFTag
+  - name: DeleteDataCellsFilter
+  - name: DeleteLakeFormationIdentityCenterConfiguration
+  - name: DeleteLakeFormationOptIn
+  - name: DeleteLFTag
+  - name: DeleteObjectsOnCancel
+  - name: DeregisterResource
+  - name: DescribeLakeFormationIdentityCenterConfiguration
+  - name: DescribeResource
+  - name: DescribeTransaction
+  - name: ExtendTransaction
+  - name: GetDataCellsFilter
+  - name: GetDataLakeSettings
+  - name: GetEffectivePermissionsForPath
+  - name: GetLFTag
+  - name: GetQueryState
+  - name: GetQueryStatistics
+  - name: GetResourceLFTags
+  - name: GetTableObjects
+  - name: GetTemporaryGluePartitionCredentials
+  - name: GetTemporaryGlueTableCredentials
+  - name: GetWorkUnitResults
+  - name: GetWorkUnits
+  - name: GrantPermissions
+  - name: ListDataCellsFilter
+  - name: ListLakeFormationOptIns
+  - name: ListLFTags
+  - name: ListPermissions
+  - name: ListResources
+  - name: ListTableStorageOptimizers
+  - name: ListTransactions
+  - name: PutDataLakeSettings
+  - name: RegisterResource
+  - name: RemoveLFTagsFromResource
+  - name: RevokePermissions
+  - name: SearchDatabasesByLFTags
+  - name: SearchTablesByLFTags
+  - name: StartQueryPlanning
+  - name: StartTransaction
+  - name: UpdateDataCellsFilter
+  - name: UpdateLakeFormationIdentityCenterConfiguration
+  - name: UpdateLFTag
+  - name: UpdateResource
+  - name: UpdateTableObjects
+  - name: UpdateTableStorageOptimizer

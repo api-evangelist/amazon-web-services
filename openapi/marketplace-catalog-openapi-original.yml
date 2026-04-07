@@ -18,6 +18,8 @@ paths:
         version of the DescribeEntity API and uses the same IAM permission
         action as DescribeEntity API.
       operationId: amazonWebServicesBatchDescribeEntities
+      tags:
+        - BatchDescribeEntities
   /CancelChangeSet:
     PATCH:
       summary: Amazon Web Services Cancelchangeset
@@ -27,6 +29,8 @@ paths:
         change request. You can describe a change during the 60-day request
         history retention period for API calls.
       operationId: amazonWebServicesCancelChangeSet
+      tags:
+        - CancelChangeSet
   /DeleteResourcePolicy:
     DELETE:
       summary: Amazon Web Services Deleteresourcepolicy
@@ -34,16 +38,22 @@ paths:
         Deletes a resource-based policy on an entity that is identified by its
         resource ARN.
       operationId: amazonWebServicesDeleteResourcePolicy
+      tags:
+        - DeleteResourcePolicy
   /DescribeChangeSet:
     GET:
       summary: Amazon Web Services Describechangeset
       description: Provides information about a given change set.
       operationId: amazonWebServicesDescribeChangeSet
+      tags:
+        - DescribeChangeSet
   /DescribeEntity:
     GET:
       summary: Amazon Web Services Describeentity
       description: Returns the metadata and content of the entity.
       operationId: amazonWebServicesDescribeEntity
+      tags:
+        - DescribeEntity
   /GetResourcePolicy:
     GET:
       summary: Amazon Web Services Getresourcepolicy
@@ -51,6 +61,8 @@ paths:
         Gets a resource-based policy of an entity that is identified by its
         resource ARN.
       operationId: amazonWebServicesGetResourcePolicy
+      tags:
+        - GetResourcePolicy
   /ListChangeSets:
     POST:
       summary: Amazon Web Services Listchangesets
@@ -62,11 +74,15 @@ paths:
         can describe a change during the 60-day request history retention period
         for API calls.
       operationId: amazonWebServicesListChangeSets
+      tags:
+        - ListChangeSets
   /ListEntities:
     POST:
       summary: Amazon Web Services Listentities
       description: Provides the list of entities of a given type.
       operationId: amazonWebServicesListEntities
+      tags:
+        - ListEntities
   /ListTagsForResource:
     POST:
       summary: Amazon Web Services Listtagsforresource
@@ -74,6 +90,8 @@ paths:
         Lists all tags that have been added to a resource (either an entity or
         change set).
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - ListTagsForResource
   /PutResourcePolicy:
     POST:
       summary: Amazon Web Services Putresourcepolicy
@@ -81,6 +99,8 @@ paths:
         Attaches a resource-based policy to an entity. Examples of an entity
         include: AmiProduct and ContainerProduct.
       operationId: amazonWebServicesPutResourcePolicy
+      tags:
+        - PutResourcePolicy
   /StartChangeSet:
     POST:
       summary: Amazon Web Services Startchangeset
@@ -101,11 +121,15 @@ paths:
         change types available for container-based products, see Working with
         container products.
       operationId: amazonWebServicesStartChangeSet
+      tags:
+        - StartChangeSet
   /TagResource:
     POST:
       summary: Amazon Web Services Tagresource
       description: Tags a resource (either an entity or change set).
       operationId: amazonWebServicesTagResource
+      tags:
+        - TagResource
   /UntagResource:
     POST:
       summary: Amazon Web Services Untagresource
@@ -113,4 +137,19 @@ paths:
         Removes a tag or list of tags from a resource (either an entity or
         change set).
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - UntagResource
+tags:
+  - name: BatchDescribeEntities
+  - name: CancelChangeSet
+  - name: DeleteResourcePolicy
+  - name: DescribeChangeSet
+  - name: DescribeEntity
+  - name: GetResourcePolicy
+  - name: ListChangeSets
+  - name: ListEntities
+  - name: ListTagsForResource
+  - name: PutResourcePolicy
+  - name: StartChangeSet
+  - name: TagResource
+  - name: UntagResource

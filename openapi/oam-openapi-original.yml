@@ -33,6 +33,8 @@ paths:
         as many as 100,000 source accounts. Each source account can be linked to
         as many as five monitoring accounts.
       operationId: amazonWebServicesCreateLink
+      tags:
+        - CreateLink
   /CreateSink:
     POST:
       summary: Amazon Web Services Createsink
@@ -46,6 +48,8 @@ paths:
         PutSinkPolicy. Each account can contain one sink. If you delete a sink,
         you can then create a new one in that account.
       operationId: amazonWebServicesCreateSink
+      tags:
+        - CreateSink
   /DeleteLink:
     POST:
       summary: Amazon Web Services Deletelink
@@ -53,6 +57,8 @@ paths:
         Deletes a link between a monitoring account sink and a source account.
         You must run this operation in the source account.
       operationId: amazonWebServicesDeleteLink
+      tags:
+        - DeleteLink
   /DeleteSink:
     POST:
       summary: Amazon Web Services Deletesink
@@ -60,6 +66,8 @@ paths:
         Deletes a sink. You must delete all links to a sink before you can
         delete that sink.
       operationId: amazonWebServicesDeleteSink
+      tags:
+        - DeleteSink
   /GetLink:
     POST:
       summary: Amazon Web Services Getlink
@@ -67,6 +75,8 @@ paths:
         Returns complete information about one link. To use this operation,
         provide the link ARN. To retrieve a list of link ARNs, use ListLinks.
       operationId: amazonWebServicesGetLink
+      tags:
+        - GetLink
   /GetSink:
     POST:
       summary: Amazon Web Services Getsink
@@ -75,6 +85,8 @@ paths:
         this operation, provide the sink ARN. To retrieve a list of sink ARNs,
         use ListSinks.
       operationId: amazonWebServicesGetSink
+      tags:
+        - GetSink
   /GetSinkPolicy:
     POST:
       summary: Amazon Web Services Getsinkpolicy
@@ -83,6 +95,8 @@ paths:
         specifies what accounts can attach to this sink as source accounts, and
         what types of data they can share.
       operationId: amazonWebServicesGetSinkPolicy
+      tags:
+        - GetSinkPolicy
   /ListAttachedLinks:
     POST:
       summary: Amazon Web Services Listattachedlinks
@@ -92,6 +106,8 @@ paths:
         retrieve a list of sink ARNs, use ListSinks. To find a list of links for
         one source account, use ListLinks.
       operationId: amazonWebServicesListAttachedLinks
+      tags:
+        - ListAttachedLinks
   /ListLinks:
     POST:
       summary: Amazon Web Services Listlinks
@@ -101,6 +117,8 @@ paths:
         links for one monitoring account sink, use ListAttachedLinks from within
         the monitoring account.
       operationId: amazonWebServicesListLinks
+      tags:
+        - ListLinks
   /ListSinks:
     POST:
       summary: Amazon Web Services Listsinks
@@ -108,6 +126,8 @@ paths:
         Use this operation in a monitoring account to return the list of sinks
         created in that account.
       operationId: amazonWebServicesListSinks
+      tags:
+        - ListSinks
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -118,6 +138,8 @@ paths:
         iam:TagResource permission does not allow you to tag and untag links and
         sinks. 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /PutSinkPolicy:
     POST:
       summary: Amazon Web Services Putsinkpolicy
@@ -133,6 +155,8 @@ paths:
         AWS::ApplicationInsights::Application    See the examples in this
         section to see how to specify permitted source accounts and data types.
       operationId: amazonWebServicesPutSinkPolicy
+      tags:
+        - PutSinkPolicy
   /UpdateLink:
     POST:
       summary: Amazon Web Services Updatelink
@@ -142,4 +166,19 @@ paths:
         or change the monitoring account with this operation. To update the list
         of tags associated with the sink, use TagResource.
       operationId: amazonWebServicesUpdateLink
-tags: []
+      tags:
+        - UpdateLink
+tags:
+  - name: CreateLink
+  - name: CreateSink
+  - name: DeleteLink
+  - name: DeleteSink
+  - name: GetLink
+  - name: GetSink
+  - name: GetSinkPolicy
+  - name: ListAttachedLinks
+  - name: ListLinks
+  - name: ListSinks
+  - name: PutSinkPolicy
+  - name: Tags
+  - name: UpdateLink

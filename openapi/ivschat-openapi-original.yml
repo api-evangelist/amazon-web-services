@@ -136,6 +136,8 @@ paths:
         name, colors, badges, and other display features. Encryption keys are
         owned by Amazon IVS Chat and never used directly by your application.
       operationId: amazonWebServicesCreateChatToken
+      tags:
+        - CreateChatToken
   /CreateLoggingConfiguration:
     POST:
       summary: Amazon Web Services Createloggingconfiguration
@@ -143,16 +145,22 @@ paths:
         Creates a logging configuration that allows clients to store and record
         sent messages.
       operationId: amazonWebServicesCreateLoggingConfiguration
+      tags:
+        - CreateLoggingConfiguration
   /CreateRoom:
     POST:
       summary: Amazon Web Services Createroom
       description: Creates a room that allows clients to connect and pass messages.
       operationId: amazonWebServicesCreateRoom
+      tags:
+        - CreateRoom
   /DeleteLoggingConfiguration:
     POST:
       summary: Amazon Web Services Deleteloggingconfiguration
       description: Deletes the specified logging configuration.
       operationId: amazonWebServicesDeleteLoggingConfiguration
+      tags:
+        - DeleteLoggingConfiguration
   /DeleteMessage:
     POST:
       summary: Amazon Web Services Deletemessage
@@ -163,11 +171,15 @@ paths:
         This replicates the  DeleteMessage WebSocket operation in the Amazon IVS
         Chat Messaging API.
       operationId: amazonWebServicesDeleteMessage
+      tags:
+        - DeleteMessage
   /DeleteRoom:
     POST:
       summary: Amazon Web Services Deleteroom
       description: Deletes the specified room.
       operationId: amazonWebServicesDeleteRoom
+      tags:
+        - DeleteRoom
   /DisconnectUser:
     POST:
       summary: Amazon Web Services Disconnectuser
@@ -176,16 +188,22 @@ paths:
         replicates the  DisconnectUser WebSocket operation in the Amazon IVS
         Chat Messaging API.
       operationId: amazonWebServicesDisconnectUser
+      tags:
+        - DisconnectUser
   /GetLoggingConfiguration:
     POST:
       summary: Amazon Web Services Getloggingconfiguration
       description: Gets the specified logging configuration.
       operationId: amazonWebServicesGetLoggingConfiguration
+      tags:
+        - GetLoggingConfiguration
   /GetRoom:
     POST:
       summary: Amazon Web Services Getroom
       description: Gets the specified room.
       operationId: amazonWebServicesGetRoom
+      tags:
+        - GetRoom
   /ListLoggingConfigurations:
     POST:
       summary: Amazon Web Services Listloggingconfigurations
@@ -193,6 +211,8 @@ paths:
         Gets summary information about all your logging configurations in the
         AWS region where the API request is processed.
       operationId: amazonWebServicesListLoggingConfigurations
+      tags:
+        - ListLoggingConfigurations
   /ListRooms:
     POST:
       summary: Amazon Web Services Listrooms
@@ -201,11 +221,15 @@ paths:
         the API request is processed. Results are sorted in descending order of
         updateTime.
       operationId: amazonWebServicesListRooms
+      tags:
+        - ListRooms
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from the resource with the specified ARN.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /SendEvent:
     POST:
       summary: Amazon Web Services Sendevent
@@ -214,14 +238,35 @@ paths:
         logic to send events to clients of a room; e.g., to notify clients to
         change the way the chat UI is rendered.
       operationId: amazonWebServicesSendEvent
+      tags:
+        - SendEvent
   /UpdateLoggingConfiguration:
     POST:
       summary: Amazon Web Services Updateloggingconfiguration
       description: Updates a specified logging configuration.
       operationId: amazonWebServicesUpdateLoggingConfiguration
+      tags:
+        - UpdateLoggingConfiguration
   /UpdateRoom:
     POST:
       summary: Amazon Web Services Updateroom
       description: Updates a room’s configuration.
       operationId: amazonWebServicesUpdateRoom
-tags: []
+      tags:
+        - UpdateRoom
+tags:
+  - name: CreateChatToken
+  - name: CreateLoggingConfiguration
+  - name: CreateRoom
+  - name: DeleteLoggingConfiguration
+  - name: DeleteMessage
+  - name: DeleteRoom
+  - name: DisconnectUser
+  - name: GetLoggingConfiguration
+  - name: GetRoom
+  - name: ListLoggingConfigurations
+  - name: ListRooms
+  - name: SendEvent
+  - name: Tags
+  - name: UpdateLoggingConfiguration
+  - name: UpdateRoom

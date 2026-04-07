@@ -25,6 +25,8 @@ paths:
         After the evaluation form is activated, it is available to start new
         evaluations based on the form. 
       operationId: amazonWebServicesActivateEvaluationForm
+      tags:
+        - Evaluation Forms
   /analytics-data/instance/{InstanceId}/association:
     GET:
       summary: Amazon Web Services Listanalyticsdataassociations
@@ -33,6 +35,8 @@ paths:
         change. Lists the association status of requested dataset ID for a given
         Amazon Connect instance.
       operationId: amazonWebServicesListAnalyticsDataAssociations
+      tags:
+        - Analytics Data
   /instance/{InstanceId}/approved-origin:
     DELETE:
       summary: Amazon Web Services Disassociateapprovedorigin
@@ -40,6 +44,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Revokes access to integrated applications from Amazon Connect.
       operationId: amazonWebServicesDisassociateApprovedOrigin
+      tags:
+        - Instance
   /instance/{InstanceId}/bot:
     POST:
       summary: Amazon Web Services Disassociatebot
@@ -48,6 +54,8 @@ paths:
         change. Revokes authorization from the specified instance to access the
         specified Amazon Lex or Amazon Lex V2 bot. 
       operationId: amazonWebServicesDisassociateBot
+      tags:
+        - Instance
   /default-vocabulary/{InstanceId}/{LanguageCode}:
     PUT:
       summary: Amazon Web Services Associatedefaultvocabulary
@@ -56,11 +64,15 @@ paths:
         Amazon Connect uses the vocabulary in post-call and real-time analysis
         sessions for the given language.
       operationId: amazonWebServicesAssociateDefaultVocabulary
+      tags:
+        - Default Vocabulary
   /flow-associations/{InstanceId}:
     PUT:
       summary: Amazon Web Services Associateflow
       description: Associates a connect resource to a flow.
       operationId: amazonWebServicesAssociateFlow
+      tags:
+        - Flow Associations
   /instance/{InstanceId}/storage-config:
     PUT:
       summary: Amazon Web Services Associateinstancestorageconfig
@@ -74,6 +86,8 @@ paths:
         Ensure that the resource being specified in the storage configuration,
         like an S3 bucket, exists when being used for association.
       operationId: amazonWebServicesAssociateInstanceStorageConfig
+      tags:
+        - Instance
   /instance/{InstanceId}/lambda-function:
     DELETE:
       summary: Amazon Web Services Disassociatelambdafunction
@@ -82,6 +96,8 @@ paths:
         change. Remove the Lambda function from the dropdown options available
         in the relevant flow blocks.
       operationId: amazonWebServicesDisassociateLambdaFunction
+      tags:
+        - Instance
   /instance/{InstanceId}/lex-bot:
     DELETE:
       summary: Amazon Web Services Disassociatelexbot
@@ -90,6 +106,8 @@ paths:
         change. Revokes authorization from the specified instance to access the
         specified Amazon Lex bot.
       operationId: amazonWebServicesDisassociateLexBot
+      tags:
+        - Instance
   /phone-number/{PhoneNumberId}/contact-flow:
     DELETE:
       summary: Amazon Web Services Disassociatephonenumbercontactflow
@@ -106,6 +124,8 @@ paths:
         a UUID is provided in this scenario, you will receive a
         ResourceNotFoundException. 
       operationId: amazonWebServicesDisassociatePhoneNumberContactFlow
+      tags:
+        - Phone Number
   /queues/{InstanceId}/{QueueId}/associate-quick-connects:
     POST:
       summary: Amazon Web Services Associatequeuequickconnects
@@ -113,11 +133,15 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Associates a set of quick connects with a queue.
       operationId: amazonWebServicesAssociateQueueQuickConnects
+      tags:
+        - Queues
   /routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues:
     POST:
       summary: Amazon Web Services Associateroutingprofilequeues
       description: Associates a set of queues with a routing profile.
       operationId: amazonWebServicesAssociateRoutingProfileQueues
+      tags:
+        - Routing Profiles
   /instance/{InstanceId}/security-key:
     PUT:
       summary: Amazon Web Services Associatesecuritykey
@@ -125,16 +149,22 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Associates a security key to the instance.
       operationId: amazonWebServicesAssociateSecurityKey
+      tags:
+        - Instance
   /traffic-distribution-group/{TrafficDistributionGroupId}/user:
     GET:
       summary: Amazon Web Services Listtrafficdistributiongroupusers
       description: Lists traffic distribution group users.
       operationId: amazonWebServicesListTrafficDistributionGroupUsers
+      tags:
+        - Traffic Distribution Group
   /users/{InstanceId}/{UserId}/associate-proficiencies:
     POST:
       summary: Amazon Web Services Associateuserproficiencies
       description: '&gt;Associates a set of proficiencies with a user.'
       operationId: amazonWebServicesAssociateUserProficiencies
+      tags:
+        - Users
   /analytics-data/instance/{InstanceId}/associations:
     POST:
       summary: Amazon Web Services Batchdisassociateanalyticsdataset
@@ -144,16 +174,22 @@ paths:
         Amazon Connect instance. You can disassociate multiple datasets in a
         single call.
       operationId: amazonWebServicesBatchDisassociateAnalyticsDataSet
+      tags:
+        - Analytics Data
   /flow-associations-batch/{InstanceId}:
     POST:
       summary: Amazon Web Services Batchgetflowassociation
       description: Retrieve the flow associations for the given resources.
       operationId: amazonWebServicesBatchGetFlowAssociation
+      tags:
+        - Flow Associations Batch
   /contact/batch/{InstanceId}:
     PUT:
       summary: Amazon Web Services Batchputcontact
       description: ' Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API.  Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial requests via the PutDialRequestBatch API. It then uses BatchPutContact to create contacts corresponding to those dial requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting voice call uses the same contactId that was created by BatchPutContact. '
       operationId: amazonWebServicesBatchPutContact
+      tags:
+        - Contact
   /phone-number/claim:
     POST:
       summary: Amazon Web Services Claimphonenumber
@@ -183,6 +219,8 @@ paths:
         from claiming any more numbers until you open an Amazon Web Services
         support ticket.
       operationId: amazonWebServicesClaimPhoneNumber
+      tags:
+        - Phone Number
   /agent-status/{InstanceId}:
     GET:
       summary: Amazon Web Services Listagentstatuses
@@ -190,6 +228,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Lists agent statuses.
       operationId: amazonWebServicesListAgentStatuses
+      tags:
+        - Agent Status
   /contact-flows/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createcontactflow
@@ -197,16 +237,22 @@ paths:
         Creates a flow for the specified Amazon Connect instance. You can also
         create and update flows using the Amazon Connect Flow language.
       operationId: amazonWebServicesCreateContactFlow
+      tags:
+        - Contact Flows
   /contact-flow-modules/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createcontactflowmodule
       description: 'Creates a flow module for the specified Amazon Connect instance. '
       operationId: amazonWebServicesCreateContactFlowModule
+      tags:
+        - Contact Flow Modules
   /evaluation-forms/{InstanceId}:
     GET:
       summary: Amazon Web Services Listevaluationforms
       description: Lists evaluation forms in the specified Amazon Connect instance.
       operationId: amazonWebServicesListEvaluationForms
+      tags:
+        - Evaluation Forms
   /hours-of-operations/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createhoursofoperation
@@ -214,6 +260,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Creates hours of operation. 
       operationId: amazonWebServicesCreateHoursOfOperation
+      tags:
+        - Hours of Operations
   /instance:
     GET:
       summary: Amazon Web Services Listinstances
@@ -224,6 +272,8 @@ paths:
         successfully created (they are in a failed state) are returned only for
         24 hours after the CreateInstance API was invoked.
       operationId: amazonWebServicesListInstances
+      tags:
+        - Instance
   /instance/{InstanceId}/integration-associations:
     GET:
       summary: Amazon Web Services Listintegrationassociations
@@ -231,6 +281,8 @@ paths:
         Provides summary information about the Amazon Web Services resource
         associations for the specified Amazon Connect instance.
       operationId: amazonWebServicesListIntegrationAssociations
+      tags:
+        - Instance
   /contact/create-participant:
     POST:
       summary: Amazon Web Services Createparticipant
@@ -239,6 +291,8 @@ paths:
         information, see Customize chat flow experiences by integrating custom
         participants.
       operationId: amazonWebServicesCreateParticipant
+      tags:
+        - Contact
   /contact/persistent-contact-association/{InstanceId}/{InitialContactId}:
     POST:
       summary: Amazon Web Services Createpersistentcontactassociation
@@ -247,11 +301,15 @@ paths:
         information about chat rehydration, see Enable persistent chat in the
         Amazon Connect Administrator Guide. 
       operationId: amazonWebServicesCreatePersistentContactAssociation
+      tags:
+        - Contact
   /predefined-attributes/{InstanceId}:
     GET:
       summary: Amazon Web Services Listpredefinedattributes
       description: Lists predefined attributes for the specified Amazon Connect instance.
       operationId: amazonWebServicesListPredefinedAttributes
+      tags:
+        - Predefined Attributes
   /prompts/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createprompt
@@ -260,6 +318,8 @@ paths:
         file types and maximum length, see Create prompts in the Amazon Connect
         Administrator's Guide.
       operationId: amazonWebServicesCreatePrompt
+      tags:
+        - Prompts
   /queues/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createqueue
@@ -283,6 +343,8 @@ paths:
         distribution group, see Allow or Deny queue API actions for phone
         numbers in a replica Region.   
       operationId: amazonWebServicesCreateQueue
+      tags:
+        - Queues
   /quick-connects/{InstanceId}:
     GET:
       summary: Amazon Web Services Listquickconnects
@@ -290,26 +352,36 @@ paths:
         Provides information about the quick connects for the specified Amazon
         Connect instance. 
       operationId: amazonWebServicesListQuickConnects
+      tags:
+        - Quick Connects
   /routing-profiles/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createroutingprofile
       description: Creates a new routing profile.
       operationId: amazonWebServicesCreateRoutingProfile
+      tags:
+        - Routing Profiles
   /rules/{InstanceId}:
     GET:
       summary: Amazon Web Services Listrules
       description: List all rules for the specified Amazon Connect instance.
       operationId: amazonWebServicesListRules
+      tags:
+        - Rules
   /security-profiles/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createsecurityprofile
       description: Creates a security profile.
       operationId: amazonWebServicesCreateSecurityProfile
+      tags:
+        - Security Profiles
   /instance/{InstanceId}/task/template:
     GET:
       summary: Amazon Web Services Listtasktemplates
       description: Lists task templates for the specified Amazon Connect instance.
       operationId: amazonWebServicesListTaskTemplates
+      tags:
+        - Instance
   /traffic-distribution-group:
     PUT:
       summary: Amazon Web Services Createtrafficdistributiongroup
@@ -323,11 +395,15 @@ paths:
         more information about creating traffic distribution groups, see Set up
         traffic distribution groups in the Amazon Connect Administrator Guide. 
       operationId: amazonWebServicesCreateTrafficDistributionGroup
+      tags:
+        - Traffic Distribution Group
   /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases:
     GET:
       summary: Amazon Web Services Listusecases
       description: 'Lists the use cases for the integration association. '
       operationId: amazonWebServicesListUseCases
+      tags:
+        - Instance
   /users/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createuser
@@ -339,11 +415,15 @@ paths:
         create users using the Amazon Connect admin website, see Add Users in
         the Amazon Connect Administrator Guide.
       operationId: amazonWebServicesCreateUser
+      tags:
+        - Users
   /user-hierarchy-groups/{InstanceId}:
     PUT:
       summary: Amazon Web Services Createuserhierarchygroup
       description: Creates a new user hierarchy group.
       operationId: amazonWebServicesCreateUserHierarchyGroup
+      tags:
+        - User Hierarchy Groups
   /views/{InstanceId}:
     GET:
       summary: Amazon Web Services Listviews
@@ -351,6 +431,8 @@ paths:
         Returns views in the given instance. Results are sorted primarily by
         type, and secondarily by name.
       operationId: amazonWebServicesListViews
+      tags:
+        - Views
   /views/{InstanceId}/{ViewId}/versions:
     GET:
       summary: Amazon Web Services Listviewversions
@@ -359,6 +441,8 @@ paths:
         instance and view identifier. Results will be sorted from highest to
         lowest.
       operationId: amazonWebServicesListViewVersions
+      tags:
+        - Views
   /vocabulary/{InstanceId}:
     POST:
       summary: Amazon Web Services Createvocabulary
@@ -369,6 +453,8 @@ paths:
         vocabulary in post-call and real-time contact analysis sessions for that
         language.
       operationId: amazonWebServicesCreateVocabulary
+      tags:
+        - Vocabulary
   /evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate:
     POST:
       summary: Amazon Web Services Deactivateevaluationform
@@ -377,6 +463,8 @@ paths:
         After a form is deactivated, it is no longer available for users to
         start new evaluations based on the form. 
       operationId: amazonWebServicesDeactivateEvaluationForm
+      tags:
+        - Evaluation Forms
   /contact-evaluations/{InstanceId}/{EvaluationId}:
     POST:
       summary: Amazon Web Services Updatecontactevaluation
@@ -387,6 +475,8 @@ paths:
         evaluation. An answer or note can be deleted by passing an empty object
         ({}) to the question identifier. 
       operationId: amazonWebServicesUpdateContactEvaluation
+      tags:
+        - Contact Evaluations
   /contact-flows/{InstanceId}/{ContactFlowId}:
     GET:
       summary: Amazon Web Services Describecontactflow
@@ -394,11 +484,15 @@ paths:
         Describes the specified flow. You can also create and update flows using
         the Amazon Connect Flow language.
       operationId: amazonWebServicesDescribeContactFlow
+      tags:
+        - Contact Flows
   /contact-flow-modules/{InstanceId}/{ContactFlowModuleId}:
     GET:
       summary: Amazon Web Services Describecontactflowmodule
       description: Describes the specified flow module.
       operationId: amazonWebServicesDescribeContactFlowModule
+      tags:
+        - Contact Flow Modules
   /evaluation-forms/{InstanceId}/{EvaluationFormId}:
     PUT:
       summary: Amazon Web Services Updateevaluationform
@@ -409,6 +503,8 @@ paths:
         does not support partial updates. Instead it does a full update of
         evaluation form content.
       operationId: amazonWebServicesUpdateEvaluationForm
+      tags:
+        - Evaluation Forms
   /hours-of-operations/{InstanceId}/{HoursOfOperationId}:
     POST:
       summary: Amazon Web Services Updatehoursofoperation
@@ -416,6 +512,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Updates the hours of operation.
       operationId: amazonWebServicesUpdateHoursOfOperation
+      tags:
+        - Hours of Operations
   /instance/{InstanceId}:
     GET:
       summary: Amazon Web Services Describeinstance
@@ -428,6 +526,8 @@ paths:
         instance in a failed state is returned only for 24 hours after the
         CreateInstance API was invoked.
       operationId: amazonWebServicesDescribeInstance
+      tags:
+        - Instance
   /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}:
     DELETE:
       summary: Amazon Web Services Deleteintegrationassociation
@@ -436,6 +536,8 @@ paths:
         Connect instance. The association must not have any use cases associated
         with it.
       operationId: amazonWebServicesDeleteIntegrationAssociation
+      tags:
+        - Instance
   /predefined-attributes/{InstanceId}/{Name}:
     POST:
       summary: Amazon Web Services Updatepredefinedattribute
@@ -443,11 +545,15 @@ paths:
         Updates a predefined attribute for the specified Amazon Connect
         instance.
       operationId: amazonWebServicesUpdatePredefinedAttribute
+      tags:
+        - Predefined Attributes
   /prompts/{InstanceId}/{PromptId}:
     POST:
       summary: Amazon Web Services Updateprompt
       description: Updates a prompt.
       operationId: amazonWebServicesUpdatePrompt
+      tags:
+        - Prompts
   /queues/{InstanceId}/{QueueId}:
     GET:
       summary: Amazon Web Services Describequeue
@@ -455,16 +561,22 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Describes the specified queue.
       operationId: amazonWebServicesDescribeQueue
+      tags:
+        - Queues
   /quick-connects/{InstanceId}/{QuickConnectId}:
     GET:
       summary: Amazon Web Services Describequickconnect
       description: Describes the quick connect.
       operationId: amazonWebServicesDescribeQuickConnect
+      tags:
+        - Quick Connects
   /routing-profiles/{InstanceId}/{RoutingProfileId}:
     GET:
       summary: Amazon Web Services Describeroutingprofile
       description: Describes the specified routing profile.
       operationId: amazonWebServicesDescribeRoutingProfile
+      tags:
+        - Routing Profiles
   /rules/{InstanceId}/{RuleId}:
     PUT:
       summary: Amazon Web Services Updaterule
@@ -472,11 +584,15 @@ paths:
         Updates a rule for the specified Amazon Connect instance. Use the Rules
         Function language to code conditions for the rule. 
       operationId: amazonWebServicesUpdateRule
+      tags:
+        - Rules
   /security-profiles/{InstanceId}/{SecurityProfileId}:
     POST:
       summary: Amazon Web Services Updatesecurityprofile
       description: Updates a security profile.
       operationId: amazonWebServicesUpdateSecurityProfile
+      tags:
+        - Security Profiles
   /instance/{InstanceId}/task/template/{TaskTemplateId}:
     POST:
       summary: Amazon Web Services Updatetasktemplate
@@ -485,16 +601,22 @@ paths:
         Connect instance. This operation does not support partial updates.
         Instead it does a full update of template content.
       operationId: amazonWebServicesUpdateTaskTemplate
+      tags:
+        - Instance
   /traffic-distribution-group/{TrafficDistributionGroupId}:
     GET:
       summary: Amazon Web Services Describetrafficdistributiongroup
       description: Gets details and status of a traffic distribution group.
       operationId: amazonWebServicesDescribeTrafficDistributionGroup
+      tags:
+        - Traffic Distribution Group
   /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}:
     DELETE:
       summary: Amazon Web Services Deleteusecase
       description: Deletes a use case from an integration association.
       operationId: amazonWebServicesDeleteUseCase
+      tags:
+        - Instance
   /users/{InstanceId}/{UserId}:
     GET:
       summary: Amazon Web Services Describeuser
@@ -504,11 +626,15 @@ paths:
         display the user IDs. Instead, list the users and note the IDs provided
         in the output.
       operationId: amazonWebServicesDescribeUser
+      tags:
+        - Users
   /user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}:
     GET:
       summary: Amazon Web Services Describeuserhierarchygroup
       description: Describes the specified hierarchy group.
       operationId: amazonWebServicesDescribeUserHierarchyGroup
+      tags:
+        - User Hierarchy Groups
   /views/{InstanceId}/{ViewId}:
     POST:
       summary: Amazon Web Services Updateviewcontent
@@ -519,16 +645,22 @@ paths:
         Note that the $SAVED alias' content will always be updated, but the
         $LATEST alias' content will only be updated if Status is PUBLISHED.
       operationId: amazonWebServicesUpdateViewContent
+      tags:
+        - Views
   /views/{InstanceId}/{ViewId}/versions/{ViewVersion}:
     DELETE:
       summary: Amazon Web Services Deleteviewversion
       description: Deletes the particular version specified in ViewVersion identifier.
       operationId: amazonWebServicesDeleteViewVersion
+      tags:
+        - Views
   /vocabulary-remove/{InstanceId}/{VocabularyId}:
     POST:
       summary: Amazon Web Services Deletevocabulary
       description: Deletes the vocabulary that has the given identifier.
       operationId: amazonWebServicesDeleteVocabulary
+      tags:
+        - Vocabulary Remove
   /agent-status/{InstanceId}/{AgentStatusId}:
     POST:
       summary: Amazon Web Services Updateagentstatus
@@ -536,6 +668,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Updates agent status.
       operationId: amazonWebServicesUpdateAgentStatus
+      tags:
+        - Agent Status
   /contacts/{InstanceId}/{ContactId}:
     POST:
       summary: Amazon Web Services Updatecontact
@@ -546,6 +680,8 @@ paths:
         in the request.  You can add or update user-defined contact information
         for both ongoing and completed contacts. 
       operationId: amazonWebServicesUpdateContact
+      tags:
+        - Contacts
   /instance/{InstanceId}/attribute/{AttributeType}:
     POST:
       summary: Amazon Web Services Updateinstanceattribute
@@ -553,6 +689,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Updates the value for the specified attribute type.
       operationId: amazonWebServicesUpdateInstanceAttribute
+      tags:
+        - Instance
   /instance/{InstanceId}/storage-config/{AssociationId}:
     POST:
       summary: Amazon Web Services Updateinstancestorageconfig
@@ -561,6 +699,8 @@ paths:
         change. Updates an existing configuration for a resource type. This API
         is idempotent.
       operationId: amazonWebServicesUpdateInstanceStorageConfig
+      tags:
+        - Instance
   /phone-number/{PhoneNumberId}:
     PUT:
       summary: Amazon Web Services Updatephonenumber
@@ -576,6 +716,8 @@ paths:
         call DescribePhoneNumber API to verify the status of a previous
         UpdatePhoneNumber operation. 
       operationId: amazonWebServicesUpdatePhoneNumber
+      tags:
+        - Phone Number
   /user-hierarchy-structure/{InstanceId}:
     POST:
       summary: Amazon Web Services Updateuserhierarchystructure
@@ -583,16 +725,22 @@ paths:
         Updates the user hierarchy structure: add, remove, and rename user
         hierarchy levels.
       operationId: amazonWebServicesUpdateUserHierarchyStructure
+      tags:
+        - User Hierarchy Structure
   /vocabulary/{InstanceId}/{VocabularyId}:
     GET:
       summary: Amazon Web Services Describevocabulary
       description: Describes the specified vocabulary.
       operationId: amazonWebServicesDescribeVocabulary
+      tags:
+        - Vocabulary
   /flow-associations/{InstanceId}/{ResourceId}/{ResourceType}:
     GET:
       summary: Amazon Web Services Getflowassociation
       description: Retrieves the flow associated for a given resource.
       operationId: amazonWebServicesGetFlowAssociation
+      tags:
+        - Flow Associations
   /queues/{InstanceId}/{QueueId}/disassociate-quick-connects:
     POST:
       summary: Amazon Web Services Disassociatequeuequickconnects
@@ -600,11 +748,15 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Disassociates a set of quick connects from a queue.
       operationId: amazonWebServicesDisassociateQueueQuickConnects
+      tags:
+        - Queues
   /routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues:
     POST:
       summary: Amazon Web Services Disassociateroutingprofilequeues
       description: Disassociates a set of queues from a routing profile.
       operationId: amazonWebServicesDisassociateRoutingProfileQueues
+      tags:
+        - Routing Profiles
   /instance/{InstanceId}/security-key/{AssociationId}:
     DELETE:
       summary: Amazon Web Services Disassociatesecuritykey
@@ -612,11 +764,15 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Deletes the specified security key.
       operationId: amazonWebServicesDisassociateSecurityKey
+      tags:
+        - Instance
   /users/{InstanceId}/{UserId}/disassociate-proficiencies:
     POST:
       summary: Amazon Web Services Disassociateuserproficiencies
       description: Disassociates a set of proficiencies from a user.
       operationId: amazonWebServicesDisassociateUserProficiencies
+      tags:
+        - Users
   /users/{InstanceId}/{UserId}/contact:
     POST:
       summary: Amazon Web Services Dismissusercontact
@@ -626,11 +782,15 @@ paths:
         Contacts can only be dismissed if they are in a MISSED, ERROR, ENDED, or
         REJECTED state in the Agent Event Stream.
       operationId: amazonWebServicesDismissUserContact
+      tags:
+        - Users
   /contact/attributes/{InstanceId}/{InitialContactId}:
     GET:
       summary: Amazon Web Services Getcontactattributes
       description: Retrieves the contact attributes for the specified contact.
       operationId: amazonWebServicesGetContactAttributes
+      tags:
+        - Contact
   /metrics/current/{InstanceId}:
     POST:
       summary: Amazon Web Services Getcurrentmetricdata
@@ -639,6 +799,8 @@ paths:
         instance. For a description of each metric, see Real-time Metrics
         Definitions in the Amazon Connect Administrator Guide.
       operationId: amazonWebServicesGetCurrentMetricData
+      tags:
+        - Metrics
   /metrics/userdata/{InstanceId}:
     POST:
       summary: Amazon Web Services Getcurrentuserdata
@@ -646,6 +808,8 @@ paths:
         Gets the real-time active user data from the specified Amazon Connect
         instance. 
       operationId: amazonWebServicesGetCurrentUserData
+      tags:
+        - Metrics
   /user/federate/{InstanceId}:
     GET:
       summary: Amazon Web Services Getfederationtoken
@@ -660,6 +824,8 @@ paths:
         similar to the following one appears:   Provided identity: Principal:
         .... User: .... cannot be used for federation with Amazon Connect  
       operationId: amazonWebServicesGetFederationToken
+      tags:
+        - User
   /metrics/historical/{InstanceId}:
     POST:
       summary: Amazon Web Services Getmetricdata
@@ -675,6 +841,8 @@ paths:
         track the number of incoming contacts for the last 7 days, with data
         split by day, to see how contact volume changed per day of the week. 
       operationId: amazonWebServicesGetMetricData
+      tags:
+        - Metrics
   /metrics/data:
     POST:
       summary: Amazon Web Services Getmetricdatav2
@@ -687,11 +855,15 @@ paths:
         GetMetricDataV2 and GetMetricData, see Historical metrics definitions in
         the Amazon Connect Administrator's Guide.
       operationId: amazonWebServicesGetMetricDataV2
+      tags:
+        - Metrics
   /prompts/{InstanceId}/{PromptId}/file:
     GET:
       summary: Amazon Web Services Getpromptfile
       description: Gets the prompt file.
       operationId: amazonWebServicesGetPromptFile
+      tags:
+        - Prompts
   /traffic-distribution/{Id}:
     PUT:
       summary: Amazon Web Services Updatetrafficdistribution
@@ -706,6 +878,8 @@ paths:
         telephony traffic distribution across Amazon Web Services Regions  in
         the Amazon Connect Administrator Guide. 
       operationId: amazonWebServicesUpdateTrafficDistribution
+      tags:
+        - Traffic Distribution
   /phone-number/import:
     POST:
       summary: Amazon Web Services Importphonenumber
@@ -715,6 +889,8 @@ paths:
         the same Amazon Web Services Region where the Amazon Connect instance
         was created.
       operationId: amazonWebServicesImportPhoneNumber
+      tags:
+        - Phone Number
   /instance/{InstanceId}/approved-origins:
     GET:
       summary: Amazon Web Services Listapprovedorigins
@@ -723,6 +899,8 @@ paths:
         change. Returns a paginated list of all approved origins associated with
         the instance.
       operationId: amazonWebServicesListApprovedOrigins
+      tags:
+        - Instance
   /instance/{InstanceId}/bots:
     GET:
       summary: Amazon Web Services Listbots
@@ -732,6 +910,8 @@ paths:
         list of all the Amazon Lex bots currently associated with the instance.
         Use this API to returns both Amazon Lex V1 and V2 bots.
       operationId: amazonWebServicesListBots
+      tags:
+        - Instance
   /contact-evaluations/{InstanceId}:
     PUT:
       summary: Amazon Web Services Startcontactevaluation
@@ -744,6 +924,8 @@ paths:
         created through the public API do not contain answer values suggested
         from automation. 
       operationId: amazonWebServicesStartContactEvaluation
+      tags:
+        - Contact Evaluations
   /contact-flow-modules-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listcontactflowmodules
@@ -751,6 +933,8 @@ paths:
         Provides information about the flow modules for the specified Amazon
         Connect instance.
       operationId: amazonWebServicesListContactFlowModules
+      tags:
+        - Contact Flow Modules Summary
   /contact-flows-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listcontactflows
@@ -760,6 +944,8 @@ paths:
         Flow language. For more information about flows, see Flows in the Amazon
         Connect Administrator Guide.
       operationId: amazonWebServicesListContactFlows
+      tags:
+        - Contact Flows Summary
   /contact/references/{InstanceId}/{ContactId}:
     GET:
       summary: Amazon Web Services Listcontactreferences
@@ -768,6 +954,8 @@ paths:
         change. For the specified referenceTypes, returns a list of references
         associated with the contact. 
       operationId: amazonWebServicesListContactReferences
+      tags:
+        - Contact
   /default-vocabulary-summary/{InstanceId}:
     POST:
       summary: Amazon Web Services Listdefaultvocabularies
@@ -775,6 +963,8 @@ paths:
         Lists the default vocabularies for the specified Amazon Connect
         instance.
       operationId: amazonWebServicesListDefaultVocabularies
+      tags:
+        - Default Vocabulary Summary
   /evaluation-forms/{InstanceId}/{EvaluationFormId}/versions:
     GET:
       summary: Amazon Web Services Listevaluationformversions
@@ -782,11 +972,15 @@ paths:
         Lists versions of an evaluation form in the specified Amazon Connect
         instance.
       operationId: amazonWebServicesListEvaluationFormVersions
+      tags:
+        - Evaluation Forms
   /flow-associations-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listflowassociations
       description: List the flow association based on the filters.
       operationId: amazonWebServicesListFlowAssociations
+      tags:
+        - Flow Associations Summary
   /hours-of-operations-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listhoursofoperations
@@ -796,6 +990,8 @@ paths:
         see Set the Hours of Operation for a Queue in the Amazon Connect
         Administrator Guide.
       operationId: amazonWebServicesListHoursOfOperations
+      tags:
+        - Hours of Operations Summary
   /instance/{InstanceId}/attributes:
     GET:
       summary: Amazon Web Services Listinstanceattributes
@@ -804,6 +1000,8 @@ paths:
         change. Returns a paginated list of all attribute types for the given
         instance.
       operationId: amazonWebServicesListInstanceAttributes
+      tags:
+        - Instance
   /instance/{InstanceId}/storage-configs:
     GET:
       summary: Amazon Web Services Listinstancestorageconfigs
@@ -812,6 +1010,8 @@ paths:
         change. Returns a paginated list of storage configs for the identified
         instance and resource type.
       operationId: amazonWebServicesListInstanceStorageConfigs
+      tags:
+        - Instance
   /instance/{InstanceId}/lambda-functions:
     GET:
       summary: Amazon Web Services Listlambdafunctions
@@ -820,6 +1020,8 @@ paths:
         change. Returns a paginated list of all Lambda functions that display in
         the dropdown options in the relevant flow blocks.
       operationId: amazonWebServicesListLambdaFunctions
+      tags:
+        - Instance
   /instance/{InstanceId}/lex-bots:
     GET:
       summary: Amazon Web Services Listlexbots
@@ -829,6 +1031,8 @@ paths:
         associated with the instance. To return both Amazon Lex V1 and V2 bots,
         use the ListBots API. 
       operationId: amazonWebServicesListLexBots
+      tags:
+        - Instance
   /phone-numbers-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listphonenumbers
@@ -846,6 +1050,8 @@ paths:
         ListPhoneNumbersV2 API. It returns the new phone number ARN that can be
         used to tag phone number resources.   
       operationId: amazonWebServicesListPhoneNumbers
+      tags:
+        - Phone Numbers Summary
   /phone-number/list:
     POST:
       summary: Amazon Web Services Listphonenumbersv2
@@ -861,6 +1067,8 @@ paths:
         ListPhoneNumbersV2 returns only the phone numbers claimed to the traffic
         distribution group.   
       operationId: amazonWebServicesListPhoneNumbersV2
+      tags:
+        - Phone Number
   /prompts-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listprompts
@@ -868,6 +1076,8 @@ paths:
         Provides information about the prompts for the specified Amazon Connect
         instance.
       operationId: amazonWebServicesListPrompts
+      tags:
+        - Prompts Summary
   /queues/{InstanceId}/{QueueId}/quick-connects:
     GET:
       summary: Amazon Web Services Listqueuequickconnects
@@ -875,6 +1085,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Lists the quick connects associated with a queue.
       operationId: amazonWebServicesListQueueQuickConnects
+      tags:
+        - Queues
   /queues-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listqueues
@@ -886,11 +1098,15 @@ paths:
         results of the API call in code. For more information about queues, see
         Queues: Standard and Agent in the Amazon Connect Administrator Guide.
       operationId: amazonWebServicesListQueues
+      tags:
+        - Queues Summary
   /contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}:
     POST:
       summary: Amazon Web Services Listrealtimecontactanalysissegmentsv2
       description: 'Provides a list of analysis segments for a real-time analysis session. '
       operationId: amazonWebServicesListRealtimeContactAnalysisSegmentsV2
+      tags:
+        - Contact
   /routing-profiles/{InstanceId}/{RoutingProfileId}/queues:
     POST:
       summary: Amazon Web Services Updateroutingprofilequeues
@@ -898,6 +1114,8 @@ paths:
         Updates the properties associated with a set of queues for a routing
         profile.
       operationId: amazonWebServicesUpdateRoutingProfileQueues
+      tags:
+        - Routing Profiles
   /routing-profiles-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listroutingprofiles
@@ -907,6 +1125,8 @@ paths:
         profiles, see Routing Profiles and Create a Routing Profile in the
         Amazon Connect Administrator Guide.
       operationId: amazonWebServicesListRoutingProfiles
+      tags:
+        - Routing Profiles Summary
   /instance/{InstanceId}/security-keys:
     GET:
       summary: Amazon Web Services Listsecuritykeys
@@ -915,6 +1135,8 @@ paths:
         change. Returns a paginated list of all security keys associated with
         the instance.
       operationId: amazonWebServicesListSecurityKeys
+      tags:
+        - Instance
   /security-profiles-applications/{InstanceId}/{SecurityProfileId}:
     GET:
       summary: Amazon Web Services Listsecurityprofileapplications
@@ -922,11 +1144,15 @@ paths:
         Returns a list of third-party applications in a specific security
         profile.
       operationId: amazonWebServicesListSecurityProfileApplications
+      tags:
+        - Security Profiles Applications
   /security-profiles-permissions/{InstanceId}/{SecurityProfileId}:
     GET:
       summary: Amazon Web Services Listsecurityprofilepermissions
       description: Lists the permissions granted to a security profile.
       operationId: amazonWebServicesListSecurityProfilePermissions
+      tags:
+        - Security Profiles Permissions
   /security-profiles-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listsecurityprofiles
@@ -936,16 +1162,22 @@ paths:
         profiles, see Security Profiles in the Amazon Connect Administrator
         Guide.
       operationId: amazonWebServicesListSecurityProfiles
+      tags:
+        - Security Profiles Summary
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /traffic-distribution-groups:
     GET:
       summary: Amazon Web Services Listtrafficdistributiongroups
       description: Lists traffic distribution groups.
       operationId: amazonWebServicesListTrafficDistributionGroups
+      tags:
+        - Traffic Distribution Groups
   /user-hierarchy-groups-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listuserhierarchygroups
@@ -955,11 +1187,15 @@ paths:
         hierarchies, see Set Up Agent Hierarchies in the Amazon Connect
         Administrator Guide.
       operationId: amazonWebServicesListUserHierarchyGroups
+      tags:
+        - User Hierarchy Groups Summary
   /users/{InstanceId}/{UserId}/proficiencies:
     POST:
       summary: Amazon Web Services Updateuserproficiencies
       description: Updates the properties associated with the proficiencies of a user.
       operationId: amazonWebServicesUpdateUserProficiencies
+      tags:
+        - Users
   /users-summary/{InstanceId}:
     GET:
       summary: Amazon Web Services Listusers
@@ -967,6 +1203,8 @@ paths:
         Provides summary information about the users for the specified Amazon
         Connect instance.
       operationId: amazonWebServicesListUsers
+      tags:
+        - Users Summary
   /contact/monitor:
     POST:
       summary: Amazon Web Services Monitorcontact
@@ -975,11 +1213,15 @@ paths:
         (CCP) of the user specified by userId will be set to silent monitoring
         mode on the contact.
       operationId: amazonWebServicesMonitorContact
+      tags:
+        - Contact
   /contact/pause:
     POST:
       summary: Amazon Web Services Pausecontact
       description: Allows pausing an ongoing task contact.
       operationId: amazonWebServicesPauseContact
+      tags:
+        - Contact
   /users/{InstanceId}/{UserId}/status:
     PUT:
       summary: Amazon Web Services Putuserstatus
@@ -989,6 +1231,8 @@ paths:
         status. For more information, see Agent status and Set your next status
         in the Amazon Connect Administrator Guide.
       operationId: amazonWebServicesPutUserStatus
+      tags:
+        - Users
   /instance/{InstanceId}/replicate:
     POST:
       summary: Amazon Web Services Replicateinstance
@@ -1000,11 +1244,15 @@ paths:
         your existing Amazon Connect instance in the Amazon Connect
         Administrator Guide.
       operationId: amazonWebServicesReplicateInstance
+      tags:
+        - Instance
   /contact/resume:
     POST:
       summary: Amazon Web Services Resumecontact
       description: Allows resuming a task contact in a paused state.
       operationId: amazonWebServicesResumeContact
+      tags:
+        - Contact
   /contact/resume-recording:
     POST:
       summary: Amazon Web Services Resumecontactrecording
@@ -1015,6 +1263,8 @@ paths:
         If only call recording or only screen recording is enabled, then it
         would resume. Voice and screen recordings are supported.
       operationId: amazonWebServicesResumeContactRecording
+      tags:
+        - Contact
   /phone-number/search-available:
     POST:
       summary: Amazon Web Services Searchavailablephonenumbers
@@ -1025,11 +1275,15 @@ paths:
         Amazon Web Services Regions associated with the traffic distribution
         group.
       operationId: amazonWebServicesSearchAvailablePhoneNumbers
+      tags:
+        - Phone Number
   /search-contacts:
     POST:
       summary: Amazon Web Services Searchcontacts
       description: Searches contacts in an Amazon Connect instance.
       operationId: amazonWebServicesSearchContacts
+      tags:
+        - Search Contacts
   /search-hours-of-operations:
     POST:
       summary: Amazon Web Services Searchhoursofoperations
@@ -1037,21 +1291,29 @@ paths:
         Searches the hours of operation in an Amazon Connect instance, with
         optional filtering.
       operationId: amazonWebServicesSearchHoursOfOperations
+      tags:
+        - Search Hours of Operations
   /search-predefined-attributes:
     POST:
       summary: Amazon Web Services Searchpredefinedattributes
       description: Predefined attributes that meet certain criteria.
       operationId: amazonWebServicesSearchPredefinedAttributes
+      tags:
+        - Search Predefined Attributes
   /search-prompts:
     POST:
       summary: Amazon Web Services Searchprompts
       description: Searches prompts in an Amazon Connect instance, with optional filtering.
       operationId: amazonWebServicesSearchPrompts
+      tags:
+        - Search Prompts
   /search-queues:
     POST:
       summary: Amazon Web Services Searchqueues
       description: Searches queues in an Amazon Connect instance, with optional filtering.
       operationId: amazonWebServicesSearchQueues
+      tags:
+        - Search Queues
   /search-quick-connects:
     POST:
       summary: Amazon Web Services Searchquickconnects
@@ -1059,6 +1321,8 @@ paths:
         Searches quick connects in an Amazon Connect instance, with optional
         filtering.
       operationId: amazonWebServicesSearchQuickConnects
+      tags:
+        - Search Quick Connects
   /search-resource-tags:
     POST:
       summary: Amazon Web Services Searchresourcetags
@@ -1066,6 +1330,8 @@ paths:
         Searches tags used in an Amazon Connect instance using optional search
         criteria.
       operationId: amazonWebServicesSearchResourceTags
+      tags:
+        - Search Resource Tags
   /search-routing-profiles:
     POST:
       summary: Amazon Web Services Searchroutingprofiles
@@ -1073,6 +1339,8 @@ paths:
         Searches routing profiles in an Amazon Connect instance, with optional
         filtering.
       operationId: amazonWebServicesSearchRoutingProfiles
+      tags:
+        - Search Routing Profiles
   /search-security-profiles:
     POST:
       summary: Amazon Web Services Searchsecurityprofiles
@@ -1080,6 +1348,8 @@ paths:
         Searches security profiles in an Amazon Connect instance, with optional
         filtering.
       operationId: amazonWebServicesSearchSecurityProfiles
+      tags:
+        - Search Security Profiles
   /search-users:
     POST:
       summary: Amazon Web Services Searchusers
@@ -1087,6 +1357,8 @@ paths:
         Searches users in an Amazon Connect instance, with optional
         filtering.    AfterContactWorkTimeLimit is returned in milliseconds.  
       operationId: amazonWebServicesSearchUsers
+      tags:
+        - Search Users
   /vocabulary-summary/{InstanceId}:
     POST:
       summary: Amazon Web Services Searchvocabularies
@@ -1094,6 +1366,8 @@ paths:
         Searches for vocabularies within a specific Amazon Connect instance
         using State, NameStartsWith, and LanguageCode.
       operationId: amazonWebServicesSearchVocabularies
+      tags:
+        - Vocabulary Summary
   /chat-integration-event:
     POST:
       summary: Amazon Web Services Sendchatintegrationevent
@@ -1107,6 +1381,8 @@ paths:
         handling chat action.  Access to this API is currently restricted to
         Amazon Pinpoint for supporting SMS integration. 
       operationId: amazonWebServicesSendChatIntegrationEvent
+      tags:
+        - Chat Integration Event
   /contact/chat:
     PUT:
       summary: Amazon Web Services Startchatcontact
@@ -1127,6 +1403,8 @@ paths:
         Web Services Support.  For more information about chat, see Chat in the
         Amazon Connect Administrator Guide.
       operationId: amazonWebServicesStartChatContact
+      tags:
+        - Contact
   /contact/start-recording:
     POST:
       summary: Amazon Web Services Startcontactrecording
@@ -1144,11 +1422,15 @@ paths:
         the Set recording behavior block. Only voice recordings are supported at
         this time.
       operationId: amazonWebServicesStartContactRecording
+      tags:
+        - Contact
   /contact/start-streaming:
     POST:
       summary: Amazon Web Services Startcontactstreaming
       description: ' Initiates real-time message streaming for a new chat contact.  For more information about message streaming, see Enable real-time chat message streaming in the Amazon Connect Administrator Guide.'
       operationId: amazonWebServicesStartContactStreaming
+      tags:
+        - Contact
   /contact/outbound-voice:
     PUT:
       summary: Amazon Web Services Startoutboundvoicecontact
@@ -1168,6 +1450,8 @@ paths:
         CAMPAIGN, you must submit a service quota increase request to the quota
         Amazon Connect campaigns.  
       operationId: amazonWebServicesStartOutboundVoiceContact
+      tags:
+        - Contact
   /contact/task:
     PUT:
       summary: Amazon Web Services Starttaskcontact
@@ -1196,6 +1480,8 @@ paths:
         about service quotas for task contacts, see Amazon Connect service
         quotas in the Amazon Connect Administrator Guide. 
       operationId: amazonWebServicesStartTaskContact
+      tags:
+        - Contact
   /contact/webrtc:
     PUT:
       summary: Amazon Web Services Startwebrtccontact
@@ -1205,6 +1491,8 @@ paths:
         specified (in ContactFlowId) and present in the Amazon Connect instance
         (specified as InstanceId).
       operationId: amazonWebServicesStartWebRTCContact
+      tags:
+        - Contact
   /contact/stop:
     POST:
       summary: Amazon Web Services Stopcontact
@@ -1213,6 +1501,8 @@ paths:
         that use the following initiation methods:   DISCONNECT   TRANSFER   QUEUE_TRANSFER   Chat and task contacts, however, can be terminated in
         any state, regardless of initiation method.
       operationId: amazonWebServicesStopContact
+      tags:
+        - Contact
   /contact/stop-recording:
     POST:
       summary: Amazon Web Services Stopcontactrecording
@@ -1226,11 +1516,15 @@ paths:
         SuspendContactRecording and ResumeContactRecording. Only voice
         recordings are supported at this time.
       operationId: amazonWebServicesStopContactRecording
+      tags:
+        - Contact
   /contact/stop-streaming:
     POST:
       summary: Amazon Web Services Stopcontactstreaming
       description: ' Ends message streaming on a specified contact. To restart message streaming on that contact, call the StartContactStreaming API. '
       operationId: amazonWebServicesStopContactStreaming
+      tags:
+        - Contact
   /contact-evaluations/{InstanceId}/{EvaluationId}/submit:
     POST:
       summary: Amazon Web Services Submitcontactevaluation
@@ -1243,6 +1537,8 @@ paths:
         a contact evaluation is already in submitted state, this operation will
         trigger a resubmission.
       operationId: amazonWebServicesSubmitContactEvaluation
+      tags:
+        - Contact Evaluations
   /contact/suspend-recording:
     POST:
       summary: Amazon Web Services Suspendcontactrecording
@@ -1256,6 +1552,8 @@ paths:
         time that the recording is suspended is filled with silence in the final
         recording. Voice and screen recordings are supported.
       operationId: amazonWebServicesSuspendContactRecording
+      tags:
+        - Contact
   /contact/tags:
     POST:
       summary: Amazon Web Services Tagcontact
@@ -1264,6 +1562,8 @@ paths:
         about this API is used, see Set up granular billing for a detailed view
         of your Amazon Connect usage. 
       operationId: amazonWebServicesTagContact
+      tags:
+        - Contact
   /contact/transfer:
     POST:
       summary: Amazon Web Services Transfercontact
@@ -1280,6 +1580,8 @@ paths:
         be called only on active contacts.   A contact cannot be transferred
         more than 11 times.  
       operationId: amazonWebServicesTransferContact
+      tags:
+        - Contact
   /contact/tags/{InstanceId}/{ContactId}:
     DELETE:
       summary: Amazon Web Services Untagcontact
@@ -1288,6 +1590,8 @@ paths:
         information about this API is used, see Set up granular billing for a
         detailed view of your Amazon Connect usage.
       operationId: amazonWebServicesUntagContact
+      tags:
+        - Contact
   /contact/attributes:
     POST:
       summary: Amazon Web Services Updatecontactattributes
@@ -1306,6 +1610,8 @@ paths:
         retention and the maximum size of the contact record attributes section,
         see Feature specifications in the Amazon Connect Administrator Guide. 
       operationId: amazonWebServicesUpdateContactAttributes
+      tags:
+        - Contact
   /contact-flows/{InstanceId}/{ContactFlowId}/content:
     POST:
       summary: Amazon Web Services Updatecontactflowcontent
@@ -1313,11 +1619,15 @@ paths:
         Updates the specified flow. You can also create and update flows using
         the Amazon Connect Flow language.
       operationId: amazonWebServicesUpdateContactFlowContent
+      tags:
+        - Contact Flows
   /contact-flows/{InstanceId}/{ContactFlowId}/metadata:
     POST:
       summary: Amazon Web Services Updatecontactflowmetadata
       description: Updates metadata about specified flow.
       operationId: amazonWebServicesUpdateContactFlowMetadata
+      tags:
+        - Contact Flows
   /contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content:
     POST:
       summary: Amazon Web Services Updatecontactflowmodulecontent
@@ -1325,11 +1635,15 @@ paths:
         Updates specified flow module for the specified Amazon Connect
         instance. 
       operationId: amazonWebServicesUpdateContactFlowModuleContent
+      tags:
+        - Contact Flow Modules
   /contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata:
     POST:
       summary: Amazon Web Services Updatecontactflowmodulemetadata
       description: Updates metadata about specified flow module.
       operationId: amazonWebServicesUpdateContactFlowModuleMetadata
+      tags:
+        - Contact Flow Modules
   /contact-flows/{InstanceId}/{ContactFlowId}/name:
     POST:
       summary: Amazon Web Services Updatecontactflowname
@@ -1337,6 +1651,8 @@ paths:
         The name of the flow. You can also create and update flows using the
         Amazon Connect Flow language.
       operationId: amazonWebServicesUpdateContactFlowName
+      tags:
+        - Contact Flows
   /contacts/{InstanceId}/{ContactId}/routing-data:
     POST:
       summary: Amazon Web Services Updatecontactroutingdata
@@ -1354,11 +1670,15 @@ paths:
         wait time as reported through metrics. These properties can also be
         updated by using the Set routing priority / age flow block.
       operationId: amazonWebServicesUpdateContactRoutingData
+      tags:
+        - Contacts
   /contact/schedule:
     POST:
       summary: Amazon Web Services Updatecontactschedule
       description: Updates the scheduled time of a task contact that is already scheduled.
       operationId: amazonWebServicesUpdateContactSchedule
+      tags:
+        - Contact
   /contact/participant-role-config/{InstanceId}/{ContactId}:
     PUT:
       summary: Amazon Web Services Updateparticipantroleconfig
@@ -1370,6 +1690,8 @@ paths:
         timeout   For more information about how chat timeouts work, see Set up
         chat timeouts for human participants. 
       operationId: amazonWebServicesUpdateParticipantRoleConfig
+      tags:
+        - Contact
   /phone-number/{PhoneNumberId}/metadata:
     PUT:
       summary: Amazon Web Services Updatephonenumbermetadata
@@ -1377,6 +1699,8 @@ paths:
         Updates a phone number’s metadata.  To verify the status of a previous
         UpdatePhoneNumberMetadata operation, call the DescribePhoneNumber API. 
       operationId: amazonWebServicesUpdatePhoneNumberMetadata
+      tags:
+        - Phone Number
   /queues/{InstanceId}/{QueueId}/hours-of-operation:
     POST:
       summary: Amazon Web Services Updatequeuehoursofoperation
@@ -1384,6 +1708,8 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Updates the hours of operation for the specified queue.
       operationId: amazonWebServicesUpdateQueueHoursOfOperation
+      tags:
+        - Queues
   /queues/{InstanceId}/{QueueId}/max-contacts:
     POST:
       summary: Amazon Web Services Updatequeuemaxcontacts
@@ -1392,6 +1718,8 @@ paths:
         change. Updates the maximum number of contacts allowed in a queue before
         it is considered full.
       operationId: amazonWebServicesUpdateQueueMaxContacts
+      tags:
+        - Queues
   /queues/{InstanceId}/{QueueId}/name:
     POST:
       summary: Amazon Web Services Updatequeuename
@@ -1400,6 +1728,8 @@ paths:
         change. Updates the name and description of a queue. At least Name or
         Description must be provided.
       operationId: amazonWebServicesUpdateQueueName
+      tags:
+        - Queues
   /queues/{InstanceId}/{QueueId}/outbound-caller-config:
     POST:
       summary: Amazon Web Services Updatequeueoutboundcallerconfig
@@ -1423,6 +1753,8 @@ paths:
         Allow or Deny queue API actions for phone numbers in a replica
         Region.   
       operationId: amazonWebServicesUpdateQueueOutboundCallerConfig
+      tags:
+        - Queues
   /queues/{InstanceId}/{QueueId}/status:
     POST:
       summary: Amazon Web Services Updatequeuestatus
@@ -1430,11 +1762,15 @@ paths:
         This API is in preview release for Amazon Connect and is subject to
         change. Updates the status of the queue.
       operationId: amazonWebServicesUpdateQueueStatus
+      tags:
+        - Queues
   /quick-connects/{InstanceId}/{QuickConnectId}/config:
     POST:
       summary: Amazon Web Services Updatequickconnectconfig
       description: Updates the configuration settings for the specified quick connect.
       operationId: amazonWebServicesUpdateQuickConnectConfig
+      tags:
+        - Quick Connects
   /quick-connects/{InstanceId}/{QuickConnectId}/name:
     POST:
       summary: Amazon Web Services Updatequickconnectname
@@ -1443,6 +1779,8 @@ paths:
         the following data in JSON format. At least Name or Description must be
         provided.
       operationId: amazonWebServicesUpdateQuickConnectName
+      tags:
+        - Quick Connects
   /routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer:
     POST:
       summary: Amazon Web Services Updateroutingprofileagentavailabilitytimer
@@ -1451,6 +1789,8 @@ paths:
         calculated based on time since their last inbound contact or longest
         idle time. 
       operationId: amazonWebServicesUpdateRoutingProfileAgentAvailabilityTimer
+      tags:
+        - Routing Profiles
   /routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency:
     POST:
       summary: Amazon Web Services Updateroutingprofileconcurrency
@@ -1458,11 +1798,15 @@ paths:
         Updates the channels that agents can handle in the Contact Control Panel
         (CCP) for a routing profile.
       operationId: amazonWebServicesUpdateRoutingProfileConcurrency
+      tags:
+        - Routing Profiles
   /routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue:
     POST:
       summary: Amazon Web Services Updateroutingprofiledefaultoutboundqueue
       description: Updates the default outbound queue of a routing profile.
       operationId: amazonWebServicesUpdateRoutingProfileDefaultOutboundQueue
+      tags:
+        - Routing Profiles
   /routing-profiles/{InstanceId}/{RoutingProfileId}/name:
     POST:
       summary: Amazon Web Services Updateroutingprofilename
@@ -1471,16 +1815,22 @@ paths:
         accepts the following data in JSON format. At least Name or Description
         must be provided.
       operationId: amazonWebServicesUpdateRoutingProfileName
+      tags:
+        - Routing Profiles
   /users/{InstanceId}/{UserId}/hierarchy:
     POST:
       summary: Amazon Web Services Updateuserhierarchy
       description: Assigns the specified hierarchy group to the specified user.
       operationId: amazonWebServicesUpdateUserHierarchy
+      tags:
+        - Users
   /user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name:
     POST:
       summary: Amazon Web Services Updateuserhierarchygroupname
       description: 'Updates the name of the user hierarchy group. '
       operationId: amazonWebServicesUpdateUserHierarchyGroupName
+      tags:
+        - User Hierarchy Groups
   /users/{InstanceId}/{UserId}/identity-info:
     POST:
       summary: Amazon Web Services Updateuseridentityinfo
@@ -1494,21 +1844,29 @@ paths:
         more information, see Best Practices for Security Profiles in the Amazon
         Connect Administrator Guide. 
       operationId: amazonWebServicesUpdateUserIdentityInfo
+      tags:
+        - Users
   /users/{InstanceId}/{UserId}/phone-config:
     POST:
       summary: Amazon Web Services Updateuserphoneconfig
       description: Updates the phone configuration settings for the specified user.
       operationId: amazonWebServicesUpdateUserPhoneConfig
+      tags:
+        - Users
   /users/{InstanceId}/{UserId}/routing-profile:
     POST:
       summary: Amazon Web Services Updateuserroutingprofile
       description: Assigns the specified routing profile to the specified user.
       operationId: amazonWebServicesUpdateUserRoutingProfile
+      tags:
+        - Users
   /users/{InstanceId}/{UserId}/security-profiles:
     POST:
       summary: Amazon Web Services Updateusersecurityprofiles
       description: Assigns the specified security profiles to the specified user.
       operationId: amazonWebServicesUpdateUserSecurityProfiles
+      tags:
+        - Users
   /views/{InstanceId}/{ViewId}/metadata:
     POST:
       summary: Amazon Web Services Updateviewmetadata
@@ -1516,4 +1874,65 @@ paths:
         Updates the view metadata. Note that either Name or Description must be
         provided.
       operationId: amazonWebServicesUpdateViewMetadata
-tags: []
+      tags:
+        - Views
+tags:
+  - name: Agent Status
+  - name: Analytics Data
+  - name: Chat Integration Event
+  - name: Contact
+  - name: Contact Evaluations
+  - name: Contact Flow Modules
+  - name: Contact Flow Modules Summary
+  - name: Contact Flows
+  - name: Contact Flows Summary
+  - name: Contacts
+  - name: Default Vocabulary
+  - name: Default Vocabulary Summary
+  - name: Evaluation Forms
+  - name: Flow Associations
+  - name: Flow Associations Batch
+  - name: Flow Associations Summary
+  - name: Hours of Operations
+  - name: Hours of Operations Summary
+  - name: Instance
+  - name: Metrics
+  - name: Phone Number
+  - name: Phone Numbers Summary
+  - name: Predefined Attributes
+  - name: Prompts
+  - name: Prompts Summary
+  - name: Queues
+  - name: Queues Summary
+  - name: Quick Connects
+  - name: Routing Profiles
+  - name: Routing Profiles Summary
+  - name: Rules
+  - name: Search Contacts
+  - name: Search Hours of Operations
+  - name: Search Predefined Attributes
+  - name: Search Prompts
+  - name: Search Queues
+  - name: Search Quick Connects
+  - name: Search Resource Tags
+  - name: Search Routing Profiles
+  - name: Search Security Profiles
+  - name: Search Users
+  - name: Security Profiles
+  - name: Security Profiles Applications
+  - name: Security Profiles Permissions
+  - name: Security Profiles Summary
+  - name: Tags
+  - name: Traffic Distribution
+  - name: Traffic Distribution Group
+  - name: Traffic Distribution Groups
+  - name: User
+  - name: User Hierarchy Groups
+  - name: User Hierarchy Groups Summary
+  - name: User Hierarchy Structure
+  - name: Users
+  - name: Users Summary
+  - name: Views
+  - name: Vocabulary
+  - name: Vocabulary Remove
+  - name: Vocabulary Summary

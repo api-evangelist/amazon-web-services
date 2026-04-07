@@ -16,6 +16,8 @@ paths:
       summary: Amazon Web Services Updatereportdefinition
       description: Updates existing report in AWS Application Cost Profiler.
       operationId: amazonWebServicesUpdateReportDefinition
+      tags:
+        - reportDefinition
   /importApplicationUsage:
     POST:
       summary: Amazon Web Services Importapplicationusage
@@ -25,9 +27,15 @@ paths:
         the action, AWS Application Cost Profiler copies the object from your S3
         bucket to an S3 bucket owned by Amazon for processing asynchronously.
       operationId: amazonWebServicesImportApplicationUsage
+      tags:
+        - importApplicationUsage
   /reportDefinition:
     POST:
       summary: Amazon Web Services Putreportdefinition
       description: Creates the report definition for a report in Application Cost Profiler.
       operationId: amazonWebServicesPutReportDefinition
-tags: []
+      tags:
+        - reportDefinition
+tags:
+  - name: importApplicationUsage
+  - name: reportDefinition

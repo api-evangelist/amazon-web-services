@@ -34,6 +34,8 @@ paths:
         call ListCertificates to enumerate your certificates. Requires
         permission to access the AcceptCertificateTransfer action.
       operationId: amazonWebServicesAcceptCertificateTransfer
+      tags:
+        - Accept Certificate Transfer
   /billing-groups/addThingToBillingGroup:
     PUT:
       summary: Amazon Web Services Addthingtobillinggroup
@@ -41,6 +43,8 @@ paths:
         Adds a thing to a billing group. Requires permission to access the
         AddThingToBillingGroup action.
       operationId: amazonWebServicesAddThingToBillingGroup
+      tags:
+        - Billing Groups
   /thing-groups/addThingToThingGroup:
     PUT:
       summary: Amazon Web Services Addthingtothinggroup
@@ -48,6 +52,8 @@ paths:
         Adds a thing to a thing group. Requires permission to access the
         AddThingToThingGroup action.
       operationId: amazonWebServicesAddThingToThingGroup
+      tags:
+        - Thing Groups
   /jobs/{jobId}/targets:
     POST:
       summary: Amazon Web Services Associatetargetswithjob
@@ -56,6 +62,8 @@ paths:
         met:    The job must have been created with the targetSelection field
         set to "CONTINUOUS".   The job status must currently be "IN_PROGRESS".   The total number of targets associated with a job must not exceed 100.   Requires permission to access the AssociateTargetsWithJob action.
       operationId: amazonWebServicesAssociateTargetsWithJob
+      tags:
+        - Jobs
   /target-policies/{policyName}:
     POST:
       summary: Amazon Web Services Detachpolicy
@@ -65,6 +73,8 @@ paths:
         policy is detached before it's ready to be deleted.  Requires permission
         to access the DetachPolicy action.
       operationId: amazonWebServicesDetachPolicy
+      tags:
+        - Target Policies
   /principal-policies/{policyName}:
     DELETE:
       summary: Amazon Web Services Detachprincipalpolicy
@@ -74,6 +84,8 @@ paths:
         but we won't add enhancements. Use DetachPolicy instead. Requires
         permission to access the DetachPrincipalPolicy action.
       operationId: amazonWebServicesDetachPrincipalPolicy
+      tags:
+        - Principal Policies
   /security-profiles/{securityProfileName}/targets:
     GET:
       summary: Amazon Web Services Listtargetsforsecurityprofile
@@ -82,6 +94,8 @@ paths:
         security profile. Requires permission to access the
         ListTargetsForSecurityProfile action.
       operationId: amazonWebServicesListTargetsForSecurityProfile
+      tags:
+        - Security Profiles
   /things/{thingName}/principals:
     GET:
       summary: Amazon Web Services Listthingprincipals
@@ -91,6 +105,8 @@ paths:
         identities or federated identities. Requires permission to access the
         ListThingPrincipals action.
       operationId: amazonWebServicesListThingPrincipals
+      tags:
+        - Things
   /audit/mitigationactions/tasks/{taskId}/cancel:
     PUT:
       summary: Amazon Web Services Cancelauditmitigationactionstask
@@ -99,6 +115,8 @@ paths:
         in progress, an InvalidRequestException occurs. Requires permission to
         access the CancelAuditMitigationActionsTask action.
       operationId: amazonWebServicesCancelAuditMitigationActionsTask
+      tags:
+        - Audit
   /audit/tasks/{taskId}/cancel:
     PUT:
       summary: Amazon Web Services Cancelaudittask
@@ -108,6 +126,8 @@ paths:
         "InvalidRequestException" occurs. Requires permission to access the
         CancelAuditTask action.
       operationId: amazonWebServicesCancelAuditTask
+      tags:
+        - Audit
   /cancel-certificate-transfer/{certificateId}:
     PATCH:
       summary: Amazon Web Services Cancelcertificatetransfer
@@ -122,16 +142,22 @@ paths:
         to INACTIVE. Requires permission to access the CancelCertificateTransfer
         action.
       operationId: amazonWebServicesCancelCertificateTransfer
+      tags:
+        - Cancel Certificate Transfer
   /detect/mitigationactions/tasks/{taskId}/cancel:
     PUT:
       summary: Amazon Web Services Canceldetectmitigationactionstask
       description: ' Cancels a Device Defender ML Detect mitigation action.  Requires permission to access the CancelDetectMitigationActionsTask action.'
       operationId: amazonWebServicesCancelDetectMitigationActionsTask
+      tags:
+        - Detect
   /jobs/{jobId}/cancel:
     PUT:
       summary: Amazon Web Services Canceljob
       description: Cancels a job. Requires permission to access the CancelJob action.
       operationId: amazonWebServicesCancelJob
+      tags:
+        - Jobs
   /things/{thingName}/jobs/{jobId}/cancel:
     PUT:
       summary: Amazon Web Services Canceljobexecution
@@ -139,6 +165,8 @@ paths:
         Cancels the execution of a job for a given thing. Requires permission to
         access the CancelJobExecution action.
       operationId: amazonWebServicesCancelJobExecution
+      tags:
+        - Things
   /default-authorizer:
     POST:
       summary: Amazon Web Services Setdefaultauthorizer
@@ -147,6 +175,8 @@ paths:
         is made without specifying an authorizer. Requires permission to access
         the SetDefaultAuthorizer action.
       operationId: amazonWebServicesSetDefaultAuthorizer
+      tags:
+        - Default Authorizer
   /confirmdestination/{confirmationToken+}:
     GET:
       summary: Amazon Web Services Confirmtopicruledestination
@@ -158,11 +188,15 @@ paths:
         access to the endpoint. Requires permission to access the
         ConfirmTopicRuleDestination action.
       operationId: amazonWebServicesConfirmTopicRuleDestination
+      tags:
+        - Confirmdestination
   /audit/suppressions/create:
     POST:
       summary: Amazon Web Services Createauditsuppression
       description: ' Creates a Device Defender audit suppression.  Requires permission to access the CreateAuditSuppression action.'
       operationId: amazonWebServicesCreateAuditSuppression
+      tags:
+        - Audit
   /authorizer/{authorizerName}:
     PUT:
       summary: Amazon Web Services Updateauthorizer
@@ -170,6 +204,8 @@ paths:
         Updates an authorizer. Requires permission to access the
         UpdateAuthorizer action.
       operationId: amazonWebServicesUpdateAuthorizer
+      tags:
+        - Authorizer
   /billing-groups/{billingGroupName}:
     PATCH:
       summary: Amazon Web Services Updatebillinggroup
@@ -177,6 +213,8 @@ paths:
         Updates information about the billing group. Requires permission to
         access the UpdateBillingGroup action.
       operationId: amazonWebServicesUpdateBillingGroup
+      tags:
+        - Billing Groups
   /certificates:
     GET:
       summary: Amazon Web Services Listcertificates
@@ -186,6 +224,8 @@ paths:
         the returned marker to retrieve additional results. Requires permission
         to access the ListCertificates action.
       operationId: amazonWebServicesListCertificates
+      tags:
+        - Certificates
   /certificate-providers/{certificateProviderName}:
     PUT:
       summary: Amazon Web Services Updatecertificateprovider
@@ -193,6 +233,8 @@ paths:
         Updates a certificate provider. Requires permission to access the
         UpdateCertificateProvider action. 
       operationId: amazonWebServicesUpdateCertificateProvider
+      tags:
+        - Certificate Providers
   /custom-metric/{metricName}:
     PATCH:
       summary: Amazon Web Services Updatecustommetric
@@ -200,6 +242,8 @@ paths:
         Updates a Device Defender detect custom metric.  Requires permission to
         access the UpdateCustomMetric action.
       operationId: amazonWebServicesUpdateCustomMetric
+      tags:
+        - Custom Metric
   /dimensions/{name}:
     PATCH:
       summary: Amazon Web Services Updatedimension
@@ -208,6 +252,8 @@ paths:
         dimension after it is created (you can delete it and recreate it).
         Requires permission to access the UpdateDimension action.
       operationId: amazonWebServicesUpdateDimension
+      tags:
+        - Dimensions
   /domainConfigurations/{domainConfigurationName}:
     PUT:
       summary: Amazon Web Services Updatedomainconfiguration
@@ -216,6 +262,8 @@ paths:
         for default endpoints can't be updated. Requires permission to access
         the UpdateDomainConfiguration action.
       operationId: amazonWebServicesUpdateDomainConfiguration
+      tags:
+        - domainConfigurations
   /dynamic-thing-groups/{thingGroupName}:
     PATCH:
       summary: Amazon Web Services Updatedynamicthinggroup
@@ -223,6 +271,8 @@ paths:
         Updates a dynamic thing group. Requires permission to access the
         UpdateDynamicThingGroup action.
       operationId: amazonWebServicesUpdateDynamicThingGroup
+      tags:
+        - Dynamic Thing Groups
   /fleet-metric/{metricName}:
     PATCH:
       summary: Amazon Web Services Updatefleetmetric
@@ -230,6 +280,8 @@ paths:
         Updates the data for a fleet metric. Requires permission to access the
         UpdateFleetMetric action.
       operationId: amazonWebServicesUpdateFleetMetric
+      tags:
+        - Fleet Metric
   /jobs/{jobId}:
     PATCH:
       summary: Amazon Web Services Updatejob
@@ -237,11 +289,15 @@ paths:
         Updates supported fields of the specified job. Requires permission to
         access the UpdateJob action.
       operationId: amazonWebServicesUpdateJob
+      tags:
+        - Jobs
   /job-templates/{jobTemplateId}:
     GET:
       summary: Amazon Web Services Describejobtemplate
       description: Returns information about a job template.
       operationId: amazonWebServicesDescribeJobTemplate
+      tags:
+        - Job Templates
   /keys-and-certificate:
     POST:
       summary: Amazon Web Services Createkeysandcertificate
@@ -252,6 +308,8 @@ paths:
         certificate, so it is important to keep it in a secure location.
         Requires permission to access the CreateKeysAndCertificate action.
       operationId: amazonWebServicesCreateKeysAndCertificate
+      tags:
+        - Keys and Certificate
   /mitigationactions/actions/{actionName}:
     PATCH:
       summary: Amazon Web Services Updatemitigationaction
@@ -259,6 +317,8 @@ paths:
         Updates the definition for the specified mitigation action. Requires
         permission to access the UpdateMitigationAction action.
       operationId: amazonWebServicesUpdateMitigationAction
+      tags:
+        - Mitigationactions
   /otaUpdates/{otaUpdateId}:
     GET:
       summary: Amazon Web Services Getotaupdate
@@ -266,6 +326,8 @@ paths:
         Gets an OTA update. Requires permission to access the GetOTAUpdate
         action.
       operationId: amazonWebServicesGetOTAUpdate
+      tags:
+        - otaUpdates
   /packages/{packageName}:
     PATCH:
       summary: Amazon Web Services Updatepackage
@@ -274,6 +336,8 @@ paths:
         permission to access the UpdatePackage and GetIndexingConfiguration
         actions.
       operationId: amazonWebServicesUpdatePackage
+      tags:
+        - Packages
   /packages/{packageName}/versions/{versionName}:
     PATCH:
       summary: Amazon Web Services Updatepackageversion
@@ -282,6 +346,8 @@ paths:
         permission to access the UpdatePackageVersion and
         GetIndexingConfiguration actions.
       operationId: amazonWebServicesUpdatePackageVersion
+      tags:
+        - Packages
   /policies/{policyName}:
     GET:
       summary: Amazon Web Services Getpolicy
@@ -289,6 +355,8 @@ paths:
         Gets information about the specified policy with the policy document of
         the default version. Requires permission to access the GetPolicy action.
       operationId: amazonWebServicesGetPolicy
+      tags:
+        - Policies
   /policies/{policyName}/version:
     GET:
       summary: Amazon Web Services Listpolicyversions
@@ -296,6 +364,8 @@ paths:
         Lists the versions of the specified policy and identifies the default
         version. Requires permission to access the ListPolicyVersions action.
       operationId: amazonWebServicesListPolicyVersions
+      tags:
+        - Policies
   /provisioning-templates/{templateName}/provisioning-claim:
     POST:
       summary: Amazon Web Services Createprovisioningclaim
@@ -303,6 +373,8 @@ paths:
         Creates a provisioning claim. Requires permission to access the
         CreateProvisioningClaim action.
       operationId: amazonWebServicesCreateProvisioningClaim
+      tags:
+        - Provisioning Templates
   /provisioning-templates:
     GET:
       summary: Amazon Web Services Listprovisioningtemplates
@@ -310,6 +382,8 @@ paths:
         Lists the provisioning templates in your Amazon Web Services account.
         Requires permission to access the ListProvisioningTemplates action.
       operationId: amazonWebServicesListProvisioningTemplates
+      tags:
+        - Provisioning Templates
   /provisioning-templates/{templateName}/versions:
     GET:
       summary: Amazon Web Services Listprovisioningtemplateversions
@@ -317,6 +391,8 @@ paths:
         A list of provisioning template versions. Requires permission to access
         the ListProvisioningTemplateVersions action.
       operationId: amazonWebServicesListProvisioningTemplateVersions
+      tags:
+        - Provisioning Templates
   /role-aliases/{roleAlias}:
     PUT:
       summary: Amazon Web Services Updaterolealias
@@ -324,6 +400,8 @@ paths:
         Updates a role alias. Requires permission to access the UpdateRoleAlias
         action.
       operationId: amazonWebServicesUpdateRoleAlias
+      tags:
+        - Role Aliases
   /audit/scheduledaudits/{scheduledAuditName}:
     PATCH:
       summary: Amazon Web Services Updatescheduledaudit
@@ -332,6 +410,8 @@ paths:
         often the audit takes place. Requires permission to access the
         UpdateScheduledAudit action.
       operationId: amazonWebServicesUpdateScheduledAudit
+      tags:
+        - Audit
   /security-profiles/{securityProfileName}:
     PATCH:
       summary: Amazon Web Services Updatesecurityprofile
@@ -339,6 +419,8 @@ paths:
         Updates a Device Defender security profile. Requires permission to
         access the UpdateSecurityProfile action.
       operationId: amazonWebServicesUpdateSecurityProfile
+      tags:
+        - Security Profiles
   /streams/{streamId}:
     PUT:
       summary: Amazon Web Services Updatestream
@@ -346,6 +428,8 @@ paths:
         Updates an existing stream. The stream version will be incremented by
         one. Requires permission to access the UpdateStream action.
       operationId: amazonWebServicesUpdateStream
+      tags:
+        - Streams
   /things/{thingName}:
     PATCH:
       summary: Amazon Web Services Updatething
@@ -353,6 +437,8 @@ paths:
         Updates the data for a thing. Requires permission to access the
         UpdateThing action.
       operationId: amazonWebServicesUpdateThing
+      tags:
+        - Things
   /thing-groups/{thingGroupName}:
     PATCH:
       summary: Amazon Web Services Updatethinggroup
@@ -360,6 +446,8 @@ paths:
         Update a thing group. Requires permission to access the UpdateThingGroup
         action.
       operationId: amazonWebServicesUpdateThingGroup
+      tags:
+        - Thing Groups
   /thing-types/{thingTypeName}:
     GET:
       summary: Amazon Web Services Describethingtype
@@ -367,6 +455,8 @@ paths:
         Gets information about the specified thing type. Requires permission to
         access the DescribeThingType action.
       operationId: amazonWebServicesDescribeThingType
+      tags:
+        - Thing Types
   /rules/{ruleName}:
     PATCH:
       summary: Amazon Web Services Replacetopicrule
@@ -376,6 +466,8 @@ paths:
         permission to create rules will be able to access data processed by the
         rule. Requires permission to access the ReplaceTopicRule action.
       operationId: amazonWebServicesReplaceTopicRule
+      tags:
+        - Rules
   /destinations:
     PATCH:
       summary: Amazon Web Services Updatetopicruledestination
@@ -384,6 +476,8 @@ paths:
         endpoint URL, or confirmation URL of the destination. Requires
         permission to access the UpdateTopicRuleDestination action.
       operationId: amazonWebServicesUpdateTopicRuleDestination
+      tags:
+        - Destinations
   /audit/configuration:
     PATCH:
       summary: Amazon Web Services Updateaccountauditconfiguration
@@ -393,11 +487,15 @@ paths:
         audit checks are enabled or disabled. Requires permission to access the
         UpdateAccountAuditConfiguration action.
       operationId: amazonWebServicesUpdateAccountAuditConfiguration
+      tags:
+        - Audit
   /audit/suppressions/delete:
     POST:
       summary: Amazon Web Services Deleteauditsuppression
       description: ' Deletes a Device Defender audit suppression.  Requires permission to access the DeleteAuditSuppression action.'
       operationId: amazonWebServicesDeleteAuditSuppression
+      tags:
+        - Audit
   /cacertificate/{caCertificateId}:
     PUT:
       summary: Amazon Web Services Updatecacertificate
@@ -405,6 +503,8 @@ paths:
         Updates a registered CA certificate. Requires permission to access the
         UpdateCACertificate action.
       operationId: amazonWebServicesUpdateCACertificate
+      tags:
+        - Cacertificate
   /certificates/{certificateId}:
     PUT:
       summary: Amazon Web Services Updatecertificate
@@ -417,6 +517,8 @@ paths:
         all devices that used that certificate to connect. Devices cannot use a
         certificate that is not in the ACTIVE state to reconnect.
       operationId: amazonWebServicesUpdateCertificate
+      tags:
+        - Certificates
   /things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}:
     DELETE:
       summary: Amazon Web Services Deletejobexecution
@@ -424,6 +526,8 @@ paths:
         Deletes a job execution. Requires permission to access the
         DeleteJobExecution action.
       operationId: amazonWebServicesDeleteJobExecution
+      tags:
+        - Things
   /policies/{policyName}/version/{policyVersionId}:
     PATCH:
       summary: Amazon Web Services Setdefaultpolicyversion
@@ -434,6 +538,8 @@ paths:
         attached to, use the ListPrincipalPolicies action. Requires permission
         to access the SetDefaultPolicyVersion action.
       operationId: amazonWebServicesSetDefaultPolicyVersion
+      tags:
+        - Policies
   /provisioning-templates/{templateName}:
     PATCH:
       summary: Amazon Web Services Updateprovisioningtemplate
@@ -441,6 +547,8 @@ paths:
         Updates a provisioning template. Requires permission to access the
         UpdateProvisioningTemplate action.
       operationId: amazonWebServicesUpdateProvisioningTemplate
+      tags:
+        - Provisioning Templates
   /provisioning-templates/{templateName}/versions/{versionId}:
     GET:
       summary: Amazon Web Services Describeprovisioningtemplateversion
@@ -448,6 +556,8 @@ paths:
         Returns information about a provisioning template version. Requires
         permission to access the DescribeProvisioningTemplateVersion action.
       operationId: amazonWebServicesDescribeProvisioningTemplateVersion
+      tags:
+        - Provisioning Templates
   /registrationcode:
     GET:
       summary: Amazon Web Services Getregistrationcode
@@ -458,6 +568,8 @@ paths:
         a registration code, this API call will return the same registration
         code. Requires permission to access the GetRegistrationCode action.
       operationId: amazonWebServicesGetRegistrationCode
+      tags:
+        - Registrationcode
   /destinations/{arn+}:
     GET:
       summary: Amazon Web Services Gettopicruledestination
@@ -465,6 +577,8 @@ paths:
         Gets information about a topic rule destination. Requires permission to
         access the GetTopicRuleDestination action.
       operationId: amazonWebServicesGetTopicRuleDestination
+      tags:
+        - Destinations
   /v2LoggingLevel:
     POST:
       summary: Amazon Web Services Setv2logginglevel
@@ -472,6 +586,8 @@ paths:
         Sets the logging level. Requires permission to access the
         SetV2LoggingLevel action.
       operationId: amazonWebServicesSetV2LoggingLevel
+      tags:
+        - v2LoggingLevel
   /thing-types/{thingTypeName}/deprecate:
     POST:
       summary: Amazon Web Services Deprecatethingtype
@@ -480,6 +596,8 @@ paths:
         deprecated thing type. Requires permission to access the
         DeprecateThingType action.
       operationId: amazonWebServicesDeprecateThingType
+      tags:
+        - Thing Types
   /audit/findings/{findingId}:
     GET:
       summary: Amazon Web Services Describeauditfinding
@@ -489,6 +607,8 @@ paths:
         when the audit that returned the finding. Requires permission to access
         the DescribeAuditFinding action.
       operationId: amazonWebServicesDescribeAuditFinding
+      tags:
+        - Audit
   /audit/mitigationactions/tasks/{taskId}:
     POST:
       summary: Amazon Web Services Startauditmitigationactionstask
@@ -497,11 +617,15 @@ paths:
         target. Requires permission to access the
         StartAuditMitigationActionsTask action.
       operationId: amazonWebServicesStartAuditMitigationActionsTask
+      tags:
+        - Audit
   /audit/suppressions/describe:
     POST:
       summary: Amazon Web Services Describeauditsuppression
       description: ' Gets information about a Device Defender audit suppression. '
       operationId: amazonWebServicesDescribeAuditSuppression
+      tags:
+        - Audit
   /audit/tasks/{taskId}:
     GET:
       summary: Amazon Web Services Describeaudittask
@@ -509,11 +633,15 @@ paths:
         Gets information about a Device Defender audit. Requires permission to
         access the DescribeAuditTask action.
       operationId: amazonWebServicesDescribeAuditTask
+      tags:
+        - Audit
   /detect/mitigationactions/tasks/{taskId}:
     PUT:
       summary: Amazon Web Services Startdetectmitigationactionstask
       description: ' Starts a Device Defender ML Detect mitigation actions task.  Requires permission to access the StartDetectMitigationActionsTask action.'
       operationId: amazonWebServicesStartDetectMitigationActionsTask
+      tags:
+        - Detect
   /endpoint:
     GET:
       summary: Amazon Web Services Describeendpoint
@@ -524,6 +652,8 @@ paths:
         same endpoint.  Requires permission to access the DescribeEndpoint
         action.
       operationId: amazonWebServicesDescribeEndpoint
+      tags:
+        - Endpoint
   /event-configurations:
     PATCH:
       summary: Amazon Web Services Updateeventconfigurations
@@ -531,6 +661,8 @@ paths:
         Updates the event configurations. Requires permission to access the
         UpdateEventConfigurations action.
       operationId: amazonWebServicesUpdateEventConfigurations
+      tags:
+        - Event Configurations
   /indices/{indexName}:
     GET:
       summary: Amazon Web Services Describeindex
@@ -538,6 +670,8 @@ paths:
         Describes a search index. Requires permission to access the
         DescribeIndex action.
       operationId: amazonWebServicesDescribeIndex
+      tags:
+        - Indices
   /things/{thingName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Describejobexecution
@@ -545,11 +679,15 @@ paths:
         Describes a job execution. Requires permission to access the
         DescribeJobExecution action.
       operationId: amazonWebServicesDescribeJobExecution
+      tags:
+        - Things
   /managed-job-templates/{templateName}:
     GET:
       summary: Amazon Web Services Describemanagedjobtemplate
       description: View details of a managed job template.
       operationId: amazonWebServicesDescribeManagedJobTemplate
+      tags:
+        - Managed Job Templates
   /thing-registration-tasks/{taskId}:
     GET:
       summary: Amazon Web Services Describethingregistrationtask
@@ -557,6 +695,8 @@ paths:
         Describes a bulk thing provisioning task. Requires permission to access
         the DescribeThingRegistrationTask action.
       operationId: amazonWebServicesDescribeThingRegistrationTask
+      tags:
+        - Thing Registration Tasks
   /rules/{ruleName}/disable:
     POST:
       summary: Amazon Web Services Disabletopicrule
@@ -564,6 +704,8 @@ paths:
         Disables the rule. Requires permission to access the DisableTopicRule
         action.
       operationId: amazonWebServicesDisableTopicRule
+      tags:
+        - Rules
   /rules/{ruleName}/enable:
     POST:
       summary: Amazon Web Services Enabletopicrule
@@ -571,11 +713,15 @@ paths:
         Enables the rule. Requires permission to access the EnableTopicRule
         action.
       operationId: amazonWebServicesEnableTopicRule
+      tags:
+        - Rules
   /behavior-model-training/summaries:
     GET:
       summary: Amazon Web Services Getbehaviormodeltrainingsummaries
       description: ' Returns a Device Defender''s ML Detect Security Profile training model''s status.  Requires permission to access the GetBehaviorModelTrainingSummaries action.'
       operationId: amazonWebServicesGetBehaviorModelTrainingSummaries
+      tags:
+        - Behavior Model Training
   /indices/buckets:
     POST:
       summary: Amazon Web Services Getbucketsaggregation
@@ -583,6 +729,8 @@ paths:
         Aggregates on indexed data with search queries pertaining to particular
         fields.  Requires permission to access the GetBucketsAggregation action.
       operationId: amazonWebServicesGetBucketsAggregation
+      tags:
+        - Indices
   /indices/cardinality:
     POST:
       summary: Amazon Web Services Getcardinality
@@ -590,6 +738,8 @@ paths:
         Returns the approximate count of unique values that match the query.
         Requires permission to access the GetCardinality action.
       operationId: amazonWebServicesGetCardinality
+      tags:
+        - Indices
   /effective-policies:
     POST:
       summary: Amazon Web Services Geteffectivepolicies
@@ -598,6 +748,8 @@ paths:
         behavior of the specified device when it connects to the IoT device
         gateway. Requires permission to access the GetEffectivePolicies action.
       operationId: amazonWebServicesGetEffectivePolicies
+      tags:
+        - Effective Policies
   /indexing/config:
     POST:
       summary: Amazon Web Services Updateindexingconfiguration
@@ -605,6 +757,8 @@ paths:
         Updates the search configuration. Requires permission to access the
         UpdateIndexingConfiguration action.
       operationId: amazonWebServicesUpdateIndexingConfiguration
+      tags:
+        - Indexing
   /jobs/{jobId}/job-document:
     GET:
       summary: Amazon Web Services Getjobdocument
@@ -612,6 +766,8 @@ paths:
         Gets a job document. Requires permission to access the GetJobDocument
         action.
       operationId: amazonWebServicesGetJobDocument
+      tags:
+        - Jobs
   /loggingOptions:
     POST:
       summary: Amazon Web Services Setloggingoptions
@@ -620,6 +776,8 @@ paths:
         Use SetV2LoggingOptions instead. Requires permission to access the
         SetLoggingOptions action.
       operationId: amazonWebServicesSetLoggingOptions
+      tags:
+        - loggingOptions
   /package-configuration:
     PATCH:
       summary: Amazon Web Services Updatepackageconfiguration
@@ -627,6 +785,8 @@ paths:
         Updates the software package configuration. Requires permission to
         access the UpdatePackageConfiguration and iam:PassRole actions.
       operationId: amazonWebServicesUpdatePackageConfiguration
+      tags:
+        - Package Configuration
   /indices/percentiles:
     POST:
       summary: Amazon Web Services Getpercentiles
@@ -643,6 +803,8 @@ paths:
         the more values that match the query, the more accurate the percentile
         values. Requires permission to access the GetPercentiles action.
       operationId: amazonWebServicesGetPercentiles
+      tags:
+        - Indices
   /indices/statistics:
     POST:
       summary: Amazon Web Services Getstatistics
@@ -652,6 +814,8 @@ paths:
         the aggregation field is of type String, only the count statistic is
         returned. Requires permission to access the GetStatistics action.
       operationId: amazonWebServicesGetStatistics
+      tags:
+        - Indices
   /v2LoggingOptions:
     POST:
       summary: Amazon Web Services Setv2loggingoptions
@@ -659,6 +823,8 @@ paths:
         Sets the logging options for the V2 logging service. Requires permission
         to access the SetV2LoggingOptions action.
       operationId: amazonWebServicesSetV2LoggingOptions
+      tags:
+        - v2LoggingOptions
   /active-violations:
     GET:
       summary: Amazon Web Services Listactiveviolations
@@ -666,6 +832,8 @@ paths:
         Lists the active violations for a given Device Defender security
         profile. Requires permission to access the ListActiveViolations action.
       operationId: amazonWebServicesListActiveViolations
+      tags:
+        - Active Violations
   /attached-policies/{target}:
     POST:
       summary: Amazon Web Services Listattachedpolicies
@@ -673,6 +841,8 @@ paths:
         Lists the policies attached to the specified thing group. Requires
         permission to access the ListAttachedPolicies action.
       operationId: amazonWebServicesListAttachedPolicies
+      tags:
+        - Attached Policies
   /audit/findings:
     POST:
       summary: Amazon Web Services Listauditfindings
@@ -681,6 +851,8 @@ paths:
         performed during a specified time period. (Findings are retained for 90
         days.) Requires permission to access the ListAuditFindings action.
       operationId: amazonWebServicesListAuditFindings
+      tags:
+        - Audit
   /audit/mitigationactions/executions:
     GET:
       summary: Amazon Web Services Listauditmitigationactionsexecutions
@@ -689,6 +861,8 @@ paths:
         Requires permission to access the ListAuditMitigationActionsExecutions
         action.
       operationId: amazonWebServicesListAuditMitigationActionsExecutions
+      tags:
+        - Audit
   /audit/mitigationactions/tasks:
     GET:
       summary: Amazon Web Services Listauditmitigationactionstasks
@@ -697,11 +871,15 @@ paths:
         filters. Requires permission to access the
         ListAuditMitigationActionsTasks action.
       operationId: amazonWebServicesListAuditMitigationActionsTasks
+      tags:
+        - Audit
   /audit/suppressions/list:
     POST:
       summary: Amazon Web Services Listauditsuppressions
       description: ' Lists your Device Defender audit listings.  Requires permission to access the ListAuditSuppressions action.'
       operationId: amazonWebServicesListAuditSuppressions
+      tags:
+        - Audit
   /audit/tasks:
     POST:
       summary: Amazon Web Services Startondemandaudittask
@@ -709,6 +887,8 @@ paths:
         Starts an on-demand Device Defender audit. Requires permission to access
         the StartOnDemandAuditTask action.
       operationId: amazonWebServicesStartOnDemandAuditTask
+      tags:
+        - Audit
   /authorizers/:
     GET:
       summary: Amazon Web Services Listauthorizers
@@ -716,6 +896,8 @@ paths:
         Lists the authorizers registered in your account. Requires permission to
         access the ListAuthorizers action.
       operationId: amazonWebServicesListAuthorizers
+      tags:
+        - Authorizers
   /billing-groups:
     GET:
       summary: Amazon Web Services Listbillinggroups
@@ -723,6 +905,8 @@ paths:
         Lists the billing groups you have created. Requires permission to access
         the ListBillingGroups action.
       operationId: amazonWebServicesListBillingGroups
+      tags:
+        - Billing Groups
   /cacertificates:
     GET:
       summary: Amazon Web Services Listcacertificates
@@ -732,6 +916,8 @@ paths:
         can use the returned marker to retrieve additional results. Requires
         permission to access the ListCACertificates action.
       operationId: amazonWebServicesListCACertificates
+      tags:
+        - Cacertificates
   /certificate-providers/:
     GET:
       summary: Amazon Web Services Listcertificateproviders
@@ -740,6 +926,8 @@ paths:
         account. Requires permission to access the ListCertificateProviders
         action. 
       operationId: amazonWebServicesListCertificateProviders
+      tags:
+        - Certificate Providers
   /certificates-by-ca/{caCertificateId}:
     GET:
       summary: Amazon Web Services Listcertificatesbyca
@@ -747,21 +935,29 @@ paths:
         List the device certificates signed by the specified CA certificate.
         Requires permission to access the ListCertificatesByCA action.
       operationId: amazonWebServicesListCertificatesByCA
+      tags:
+        - Certificates by Ca
   /custom-metrics:
     GET:
       summary: Amazon Web Services Listcustommetrics
       description: ' Lists your Device Defender detect custom metrics.  Requires permission to access the ListCustomMetrics action.'
       operationId: amazonWebServicesListCustomMetrics
+      tags:
+        - Custom Metrics
   /detect/mitigationactions/executions:
     GET:
       summary: Amazon Web Services Listdetectmitigationactionsexecutions
       description: ' Lists mitigation actions executions for a Device Defender ML Detect Security Profile.  Requires permission to access the ListDetectMitigationActionsExecutions action.'
       operationId: amazonWebServicesListDetectMitigationActionsExecutions
+      tags:
+        - Detect
   /detect/mitigationactions/tasks:
     GET:
       summary: Amazon Web Services Listdetectmitigationactionstasks
       description: ' List of Device Defender ML Detect mitigation actions tasks.  Requires permission to access the ListDetectMitigationActionsTasks action.'
       operationId: amazonWebServicesListDetectMitigationActionsTasks
+      tags:
+        - Detect
   /dimensions:
     GET:
       summary: Amazon Web Services Listdimensions
@@ -769,6 +965,8 @@ paths:
         List the set of dimensions that are defined for your Amazon Web Services
         accounts. Requires permission to access the ListDimensions action.
       operationId: amazonWebServicesListDimensions
+      tags:
+        - Dimensions
   /domainConfigurations:
     GET:
       summary: Amazon Web Services Listdomainconfigurations
@@ -777,6 +975,8 @@ paths:
         alphabetically by domain configuration name. Requires permission to
         access the ListDomainConfigurations action.
       operationId: amazonWebServicesListDomainConfigurations
+      tags:
+        - domainConfigurations
   /fleet-metrics:
     GET:
       summary: Amazon Web Services Listfleetmetrics
@@ -784,6 +984,8 @@ paths:
         Lists all your fleet metrics.  Requires permission to access the
         ListFleetMetrics action.
       operationId: amazonWebServicesListFleetMetrics
+      tags:
+        - Fleet Metrics
   /indices:
     GET:
       summary: Amazon Web Services Listindices
@@ -791,6 +993,8 @@ paths:
         Lists the search indices. Requires permission to access the ListIndices
         action.
       operationId: amazonWebServicesListIndices
+      tags:
+        - Indices
   /jobs/{jobId}/things:
     GET:
       summary: Amazon Web Services Listjobexecutionsforjob
@@ -798,6 +1002,8 @@ paths:
         Lists the job executions for a job. Requires permission to access the
         ListJobExecutionsForJob action.
       operationId: amazonWebServicesListJobExecutionsForJob
+      tags:
+        - Jobs
   /things/{thingName}/jobs:
     GET:
       summary: Amazon Web Services Listjobexecutionsforthing
@@ -805,6 +1011,8 @@ paths:
         Lists the job executions for the specified thing. Requires permission to
         access the ListJobExecutionsForThing action.
       operationId: amazonWebServicesListJobExecutionsForThing
+      tags:
+        - Things
   /job-templates:
     GET:
       summary: Amazon Web Services Listjobtemplates
@@ -812,16 +1020,22 @@ paths:
         Returns a list of job templates. Requires permission to access the
         ListJobTemplates action.
       operationId: amazonWebServicesListJobTemplates
+      tags:
+        - Job Templates
   /jobs:
     GET:
       summary: Amazon Web Services Listjobs
       description: Lists jobs. Requires permission to access the ListJobs action.
       operationId: amazonWebServicesListJobs
+      tags:
+        - Jobs
   /managed-job-templates:
     GET:
       summary: Amazon Web Services Listmanagedjobtemplates
       description: Returns a list of managed job templates.
       operationId: amazonWebServicesListManagedJobTemplates
+      tags:
+        - Managed Job Templates
   /metric-values:
     GET:
       summary: Amazon Web Services Listmetricvalues
@@ -830,6 +1044,8 @@ paths:
         metric, cloud-side metric, or custom metric) by the given thing during
         the specified time period.
       operationId: amazonWebServicesListMetricValues
+      tags:
+        - Metric Values
   /mitigationactions/actions:
     GET:
       summary: Amazon Web Services Listmitigationactions
@@ -838,6 +1054,8 @@ paths:
         criteria. Requires permission to access the ListMitigationActions
         action.
       operationId: amazonWebServicesListMitigationActions
+      tags:
+        - Mitigationactions
   /otaUpdates:
     GET:
       summary: Amazon Web Services Listotaupdates
@@ -845,6 +1063,8 @@ paths:
         Lists OTA updates. Requires permission to access the ListOTAUpdates
         action.
       operationId: amazonWebServicesListOTAUpdates
+      tags:
+        - otaUpdates
   /certificates-out-going:
     GET:
       summary: Amazon Web Services Listoutgoingcertificates
@@ -852,6 +1072,8 @@ paths:
         Lists certificates that are being transferred but not yet accepted.
         Requires permission to access the ListOutgoingCertificates action.
       operationId: amazonWebServicesListOutgoingCertificates
+      tags:
+        - Certificates Out Going
   /packages/{packageName}/versions:
     GET:
       summary: Amazon Web Services Listpackageversions
@@ -859,6 +1081,8 @@ paths:
         Lists the software package versions associated to the account. Requires
         permission to access the ListPackageVersions action.
       operationId: amazonWebServicesListPackageVersions
+      tags:
+        - Packages
   /packages:
     GET:
       summary: Amazon Web Services Listpackages
@@ -866,6 +1090,8 @@ paths:
         Lists the software packages associated to the account. Requires
         permission to access the ListPackages action.
       operationId: amazonWebServicesListPackages
+      tags:
+        - Packages
   /policies:
     GET:
       summary: Amazon Web Services Listpolicies
@@ -873,6 +1099,8 @@ paths:
         Lists your policies. Requires permission to access the ListPolicies
         action.
       operationId: amazonWebServicesListPolicies
+      tags:
+        - Policies
   /policy-principals:
     GET:
       summary: Amazon Web Services Listpolicyprincipals
@@ -882,6 +1110,8 @@ paths:
         but we won't add enhancements. Use ListTargetsForPolicy instead.
         Requires permission to access the ListPolicyPrincipals action.
       operationId: amazonWebServicesListPolicyPrincipals
+      tags:
+        - Policy Principals
   /principal-policies:
     GET:
       summary: Amazon Web Services Listprincipalpolicies
@@ -891,6 +1121,8 @@ paths:
         compatibility, but we won't add enhancements. Use ListAttachedPolicies
         instead. Requires permission to access the ListPrincipalPolicies action.
       operationId: amazonWebServicesListPrincipalPolicies
+      tags:
+        - Principal Policies
   /principals/things:
     GET:
       summary: Amazon Web Services Listprincipalthings
@@ -900,6 +1132,8 @@ paths:
         identities or federated identities.  Requires permission to access the
         ListPrincipalThings action.
       operationId: amazonWebServicesListPrincipalThings
+      tags:
+        - Principals
   /audit/relatedResources:
     GET:
       summary: Amazon Web Services Listrelatedresourcesforauditfinding
@@ -913,6 +1147,8 @@ paths:
         this API, ListRelatedResourcesForAuditFinding, to list the
         certificates. 
       operationId: amazonWebServicesListRelatedResourcesForAuditFinding
+      tags:
+        - Audit
   /role-aliases:
     GET:
       summary: Amazon Web Services Listrolealiases
@@ -920,6 +1156,8 @@ paths:
         Lists the role aliases registered in your account. Requires permission
         to access the ListRoleAliases action.
       operationId: amazonWebServicesListRoleAliases
+      tags:
+        - Role Aliases
   /audit/scheduledaudits:
     GET:
       summary: Amazon Web Services Listscheduledaudits
@@ -927,6 +1165,8 @@ paths:
         Lists all of your scheduled audits. Requires permission to access the
         ListScheduledAudits action.
       operationId: amazonWebServicesListScheduledAudits
+      tags:
+        - Audit
   /security-profiles:
     GET:
       summary: Amazon Web Services Listsecurityprofiles
@@ -936,6 +1176,8 @@ paths:
         permission to access the ListSecurityProfiles action.   dimensionName
         and metricName cannot be used in the same request. 
       operationId: amazonWebServicesListSecurityProfiles
+      tags:
+        - Security Profiles
   /security-profiles-for-target:
     GET:
       summary: Amazon Web Services Listsecurityprofilesfortarget
@@ -944,6 +1186,8 @@ paths:
         group). Requires permission to access the ListSecurityProfilesForTarget
         action.
       operationId: amazonWebServicesListSecurityProfilesForTarget
+      tags:
+        - Security Profiles for Target
   /streams:
     GET:
       summary: Amazon Web Services Liststreams
@@ -951,6 +1195,8 @@ paths:
         Lists all of the streams in your Amazon Web Services account. Requires
         permission to access the ListStreams action.
       operationId: amazonWebServicesListStreams
+      tags:
+        - Streams
   /tags:
     POST:
       summary: Amazon Web Services Tagresource
@@ -959,6 +1205,8 @@ paths:
         which can be used to manage a resource. Requires permission to access
         the TagResource action.
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags
   /policy-targets/{policyName}:
     POST:
       summary: Amazon Web Services Listtargetsforpolicy
@@ -966,6 +1214,8 @@ paths:
         List targets for the specified policy. Requires permission to access the
         ListTargetsForPolicy action.
       operationId: amazonWebServicesListTargetsForPolicy
+      tags:
+        - Policy Targets
   /thing-groups:
     GET:
       summary: Amazon Web Services Listthinggroups
@@ -973,6 +1223,8 @@ paths:
         List the thing groups in your account. Requires permission to access the
         ListThingGroups action.
       operationId: amazonWebServicesListThingGroups
+      tags:
+        - Thing Groups
   /things/{thingName}/thing-groups:
     GET:
       summary: Amazon Web Services Listthinggroupsforthing
@@ -980,11 +1232,15 @@ paths:
         List the thing groups to which the specified thing belongs. Requires
         permission to access the ListThingGroupsForThing action.
       operationId: amazonWebServicesListThingGroupsForThing
+      tags:
+        - Things
   /thing-registration-tasks/{taskId}/reports:
     GET:
       summary: Amazon Web Services Listthingregistrationtaskreports
       description: Information about the thing registration tasks.
       operationId: amazonWebServicesListThingRegistrationTaskReports
+      tags:
+        - Thing Registration Tasks
   /thing-registration-tasks:
     POST:
       summary: Amazon Web Services Startthingregistrationtask
@@ -992,6 +1248,8 @@ paths:
         Creates a bulk thing provisioning task. Requires permission to access
         the StartThingRegistrationTask action.
       operationId: amazonWebServicesStartThingRegistrationTask
+      tags:
+        - Thing Registration Tasks
   /thing-types:
     GET:
       summary: Amazon Web Services Listthingtypes
@@ -999,6 +1257,8 @@ paths:
         Lists the existing thing types. Requires permission to access the
         ListThingTypes action.
       operationId: amazonWebServicesListThingTypes
+      tags:
+        - Thing Types
   /things:
     POST:
       summary: Amazon Web Services Registerthing
@@ -1009,6 +1269,8 @@ paths:
         Services Customer Support to raise your throttling limits if necessary.
         Requires permission to access the RegisterThing action.
       operationId: amazonWebServicesRegisterThing
+      tags:
+        - Things
   /billing-groups/{billingGroupName}/things:
     GET:
       summary: Amazon Web Services Listthingsinbillinggroup
@@ -1016,6 +1278,8 @@ paths:
         Lists the things you have added to the given billing group. Requires
         permission to access the ListThingsInBillingGroup action.
       operationId: amazonWebServicesListThingsInBillingGroup
+      tags:
+        - Billing Groups
   /thing-groups/{thingGroupName}/things:
     GET:
       summary: Amazon Web Services Listthingsinthinggroup
@@ -1023,6 +1287,8 @@ paths:
         Lists the things in the specified group. Requires permission to access
         the ListThingsInThingGroup action.
       operationId: amazonWebServicesListThingsInThingGroup
+      tags:
+        - Thing Groups
   /rules:
     GET:
       summary: Amazon Web Services Listtopicrules
@@ -1030,6 +1296,8 @@ paths:
         Lists the rules for the specific topic. Requires permission to access
         the ListTopicRules action.
       operationId: amazonWebServicesListTopicRules
+      tags:
+        - Rules
   /violation-events:
     GET:
       summary: Amazon Web Services Listviolationevents
@@ -1039,6 +1307,8 @@ paths:
         alerts issued for a particular security profile, behavior, or thing
         (device). Requires permission to access the ListViolationEvents action.
       operationId: amazonWebServicesListViolationEvents
+      tags:
+        - Violation Events
   /violations/verification-state/{violationId}:
     POST:
       summary: Amazon Web Services Putverificationstateonviolation
@@ -1046,6 +1316,8 @@ paths:
         Set a verification state and provide a description of that verification
         state on a violation (detect alarm).
       operationId: amazonWebServicesPutVerificationStateOnViolation
+      tags:
+        - Violations
   /cacertificate:
     POST:
       summary: Amazon Web Services Registercacertificate
@@ -1056,6 +1328,8 @@ paths:
         with the same CA subject field per Amazon Web Services account. Requires
         permission to access the RegisterCACertificate action.
       operationId: amazonWebServicesRegisterCACertificate
+      tags:
+        - Cacertificate
   /certificate/register:
     POST:
       summary: Amazon Web Services Registercertificate
@@ -1066,6 +1340,8 @@ paths:
         sign the device certificate being registered. Requires permission to
         access the RegisterCertificate action.
       operationId: amazonWebServicesRegisterCertificate
+      tags:
+        - Certificate
   /certificate/register-no-ca:
     POST:
       summary: Amazon Web Services Registercertificatewithoutca
@@ -1074,6 +1350,8 @@ paths:
         For supported certificates, consult  Certificate signing algorithms
         supported by IoT. 
       operationId: amazonWebServicesRegisterCertificateWithoutCA
+      tags:
+        - Certificate
   /reject-certificate-transfer/{certificateId}:
     PATCH:
       summary: Amazon Web Services Rejectcertificatetransfer
@@ -1087,6 +1365,8 @@ paths:
         state. Requires permission to access the RejectCertificateTransfer
         action.
       operationId: amazonWebServicesRejectCertificateTransfer
+      tags:
+        - Reject Certificate Transfer
   /billing-groups/removeThingFromBillingGroup:
     PUT:
       summary: Amazon Web Services Removethingfrombillinggroup
@@ -1096,6 +1376,8 @@ paths:
         asynchronous. It might take several seconds for the detachment to
         propagate. 
       operationId: amazonWebServicesRemoveThingFromBillingGroup
+      tags:
+        - Billing Groups
   /thing-groups/removeThingFromThingGroup:
     PUT:
       summary: Amazon Web Services Removethingfromthinggroup
@@ -1106,6 +1388,8 @@ paths:
         from the thing group.  Requires permission to access the
         RemoveThingFromThingGroup action.
       operationId: amazonWebServicesRemoveThingFromThingGroup
+      tags:
+        - Thing Groups
   /indices/search:
     POST:
       summary: Amazon Web Services Searchindex
@@ -1113,6 +1397,8 @@ paths:
         The query search index. Requires permission to access the SearchIndex
         action.
       operationId: amazonWebServicesSearchIndex
+      tags:
+        - Indices
   /thing-registration-tasks/{taskId}/cancel:
     PUT:
       summary: Amazon Web Services Stopthingregistrationtask
@@ -1120,6 +1406,8 @@ paths:
         Cancels a bulk thing provisioning task. Requires permission to access
         the StopThingRegistrationTask action.
       operationId: amazonWebServicesStopThingRegistrationTask
+      tags:
+        - Thing Registration Tasks
   /test-authorization:
     POST:
       summary: Amazon Web Services Testauthorization
@@ -1129,6 +1417,8 @@ paths:
         behavior of devices that connect to the IoT device gateway. Requires
         permission to access the TestAuthorization action.
       operationId: amazonWebServicesTestAuthorization
+      tags:
+        - Test Authorization
   /authorizer/{authorizerName}/test:
     POST:
       summary: Amazon Web Services Testinvokeauthorizer
@@ -1138,6 +1428,8 @@ paths:
         of devices that connect to the IoT device gateway. Requires permission
         to access the TestInvokeAuthorizer action.
       operationId: amazonWebServicesTestInvokeAuthorizer
+      tags:
+        - Authorizer
   /transfer-certificate/{certificateId}:
     PATCH:
       summary: Amazon Web Services Transfercertificate
@@ -1152,6 +1444,8 @@ paths:
         any policies attached to it. You can use the DetachPolicy action to
         detach them.
       operationId: amazonWebServicesTransferCertificate
+      tags:
+        - Transfer Certificate
   /untag:
     POST:
       summary: Amazon Web Services Untagresource
@@ -1159,11 +1453,15 @@ paths:
         Removes the given tags (metadata) from the resource. Requires permission
         to access the UntagResource action.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Untag
   /audit/suppressions/update:
     PATCH:
       summary: Amazon Web Services Updateauditsuppression
       description: ' Updates a Device Defender audit suppression. '
       operationId: amazonWebServicesUpdateAuditSuppression
+      tags:
+        - Audit
   /thing-groups/updateThingGroupsForThing:
     PUT:
       summary: Amazon Web Services Updatethinggroupsforthing
@@ -1171,6 +1469,8 @@ paths:
         Updates the groups to which the thing belongs. Requires permission to
         access the UpdateThingGroupsForThing action.
       operationId: amazonWebServicesUpdateThingGroupsForThing
+      tags:
+        - Thing Groups
   /security-profile-behaviors/validate:
     POST:
       summary: Amazon Web Services Validatesecurityprofilebehaviors
@@ -1179,4 +1479,75 @@ paths:
         Requires permission to access the ValidateSecurityProfileBehaviors
         action.
       operationId: amazonWebServicesValidateSecurityProfileBehaviors
-tags: []
+      tags:
+        - Security Profile Behaviors
+tags:
+  - name: Accept Certificate Transfer
+  - name: Active Violations
+  - name: Attached Policies
+  - name: Audit
+  - name: Authorizer
+  - name: Authorizers
+  - name: Behavior Model Training
+  - name: Billing Groups
+  - name: Cacertificate
+  - name: Cacertificates
+  - name: Cancel Certificate Transfer
+  - name: Certificate
+  - name: Certificate Providers
+  - name: Certificates
+  - name: Certificates by Ca
+  - name: Certificates Out Going
+  - name: Confirmdestination
+  - name: Custom Metric
+  - name: Custom Metrics
+  - name: Default Authorizer
+  - name: Destinations
+  - name: Detect
+  - name: Dimensions
+  - name: domainConfigurations
+  - name: Dynamic Thing Groups
+  - name: Effective Policies
+  - name: Endpoint
+  - name: Event Configurations
+  - name: Fleet Metric
+  - name: Fleet Metrics
+  - name: Indexing
+  - name: Indices
+  - name: Job Templates
+  - name: Jobs
+  - name: Keys and Certificate
+  - name: loggingOptions
+  - name: Managed Job Templates
+  - name: Metric Values
+  - name: Mitigationactions
+  - name: otaUpdates
+  - name: Package Configuration
+  - name: Packages
+  - name: Policies
+  - name: Policy Principals
+  - name: Policy Targets
+  - name: Principal Policies
+  - name: Principals
+  - name: Provisioning Templates
+  - name: Registrationcode
+  - name: Reject Certificate Transfer
+  - name: Role Aliases
+  - name: Rules
+  - name: Security Profile Behaviors
+  - name: Security Profiles
+  - name: Security Profiles for Target
+  - name: Streams
+  - name: Tags
+  - name: Target Policies
+  - name: Test Authorization
+  - name: Thing Groups
+  - name: Thing Registration Tasks
+  - name: Thing Types
+  - name: Things
+  - name: Transfer Certificate
+  - name: Untag
+  - name: v2LoggingLevel
+  - name: v2LoggingOptions
+  - name: Violation Events
+  - name: Violations

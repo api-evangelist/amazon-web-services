@@ -21,6 +21,8 @@ paths:
       summary: Amazon Web Services Batchgetrecord
       description: Retrieves a batch of Records from a FeatureGroup.
       operationId: amazonWebServicesBatchGetRecord
+      tags:
+        - BatchGetRecord
   /FeatureGroup/{FeatureGroupName}:
     PUT:
       summary: Amazon Web Services Putrecord
@@ -39,4 +41,8 @@ paths:
         TtlDuration is set to the default feature group level TtlDuration. A
         record level TtlDuration supersedes the group level TtlDuration.
       operationId: amazonWebServicesPutRecord
-tags: []
+      tags:
+        - FeatureGroup
+tags:
+  - name: BatchGetRecord
+  - name: FeatureGroup

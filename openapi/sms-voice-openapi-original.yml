@@ -10,6 +10,8 @@ paths:
         List all of the configuration sets associated with your Amazon Pinpoint
         account in the current region.
       operationId: amazonWebServicesListConfigurationSets
+      tags:
+        - Sms Voice
   /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations:
     GET:
       summary: Amazon Web Services Getconfigurationseteventdestinations
@@ -18,11 +20,15 @@ paths:
         events it reports, the Amazon Resource Name (ARN) of the destination,
         and the name of the event destination.
       operationId: amazonWebServicesGetConfigurationSetEventDestinations
+      tags:
+        - Sms Voice
   /v1/sms-voice/configuration-sets/{ConfigurationSetName}:
     DELETE:
       summary: Amazon Web Services Deleteconfigurationset
       description: Deletes an existing configuration set.
       operationId: amazonWebServicesDeleteConfigurationSet
+      tags:
+        - Sms Voice
   /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}:
     PUT:
       summary: Amazon Web Services Updateconfigurationseteventdestination
@@ -32,9 +38,14 @@ paths:
         For example, you can log an event to an Amazon CloudWatch destination
         when a call fails.
       operationId: amazonWebServicesUpdateConfigurationSetEventDestination
+      tags:
+        - Sms Voice
   /v1/sms-voice/voice/message:
     POST:
       summary: Amazon Web Services Sendvoicemessage
       description: Create a new voice message and send it to a recipient's phone number.
       operationId: amazonWebServicesSendVoiceMessage
-tags: []
+      tags:
+        - Sms Voice
+tags:
+  - name: Sms Voice

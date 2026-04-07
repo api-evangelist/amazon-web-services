@@ -27,6 +27,8 @@ paths:
       summary: Amazon Web Services Startjob
       description: This operation starts a job.
       operationId: amazonWebServicesStartJob
+      tags:
+        - Jobs
   /v1/data-sets:
     GET:
       summary: Amazon Web Services Listdatasets
@@ -36,16 +38,22 @@ paths:
         origin ENTITLED, there is no order and the maxResults parameter is
         ignored.
       operationId: amazonWebServicesListDataSets
+      tags:
+        - Data Sets
   /v1/event-actions:
     GET:
       summary: Amazon Web Services Listeventactions
       description: This operation lists your event actions.
       operationId: amazonWebServicesListEventActions
+      tags:
+        - Event Actions
   /v1/jobs:
     GET:
       summary: Amazon Web Services Listjobs
       description: This operation lists your jobs sorted by CreatedAt in descending order.
       operationId: amazonWebServicesListJobs
+      tags:
+        - Jobs
   /v1/data-sets/{DataSetId}/revisions:
     GET:
       summary: Amazon Web Services Listdatasetrevisions
@@ -53,26 +61,36 @@ paths:
         This operation lists a data set's revisions sorted by CreatedAt in
         descending order.
       operationId: amazonWebServicesListDataSetRevisions
+      tags:
+        - Data Sets
   /v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}:
     PATCH:
       summary: Amazon Web Services Updateasset
       description: This operation updates an asset.
       operationId: amazonWebServicesUpdateAsset
+      tags:
+        - Data Sets
   /v1/data-sets/{DataSetId}:
     PATCH:
       summary: Amazon Web Services Updatedataset
       description: This operation updates a data set.
       operationId: amazonWebServicesUpdateDataSet
+      tags:
+        - Data Sets
   /v1/event-actions/{EventActionId}:
     PATCH:
       summary: Amazon Web Services Updateeventaction
       description: This operation updates the event action.
       operationId: amazonWebServicesUpdateEventAction
+      tags:
+        - Event Actions
   /v1/data-sets/{DataSetId}/revisions/{RevisionId}:
     PATCH:
       summary: Amazon Web Services Updaterevision
       description: This operation updates a revision.
       operationId: amazonWebServicesUpdateRevision
+      tags:
+        - Data Sets
   /v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets:
     GET:
       summary: Amazon Web Services Listrevisionassets
@@ -80,16 +98,22 @@ paths:
         This operation lists a revision's assets sorted alphabetically in
         descending order.
       operationId: amazonWebServicesListRevisionAssets
+      tags:
+        - Data Sets
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: This operation removes one or more tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke:
     POST:
       summary: Amazon Web Services Revokerevision
       description: This operation revokes subscribers' access to a revision.
       operationId: amazonWebServicesRevokeRevision
+      tags:
+        - Data Sets
   /v1:
     POST:
       summary: Amazon Web Services Sendapiasset
@@ -102,4 +126,10 @@ paths:
       summary: Amazon Web Services Senddatasetnotification
       description: The type of event associated with the data set.
       operationId: amazonWebServicesSendDataSetNotification
-tags: []
+      tags:
+        - Data Sets
+tags:
+  - name: Data Sets
+  - name: Event Actions
+  - name: Jobs
+  - name: Tags

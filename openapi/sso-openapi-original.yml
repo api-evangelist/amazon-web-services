@@ -29,11 +29,15 @@ paths:
         Returns the STS short-term credentials for a given role name that is
         assigned to the user.
       operationId: amazonWebServicesGetRoleCredentials
+      tags:
+        - Federation
   /assignment/roles:
     GET:
       summary: Amazon Web Services Listaccountroles
       description: Lists all roles that are assigned to the user for a given AWS account.
       operationId: amazonWebServicesListAccountRoles
+      tags:
+        - Assignment
   /assignment/accounts:
     GET:
       summary: Amazon Web Services Listaccounts
@@ -43,6 +47,8 @@ paths:
         Assign User Access in the IAM Identity Center User Guide. This operation
         returns a paginated response.
       operationId: amazonWebServicesListAccounts
+      tags:
+        - Assignment
   /logout:
     POST:
       summary: Amazon Web Services Logout
@@ -61,4 +67,9 @@ paths:
         permission set. For more information, see User authentications in the
         IAM Identity Center User Guide. 
       operationId: amazonWebServicesLogout
-tags: []
+      tags:
+        - Logout
+tags:
+  - name: Assignment
+  - name: Federation
+  - name: Logout

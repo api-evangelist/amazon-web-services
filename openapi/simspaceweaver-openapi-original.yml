@@ -35,11 +35,15 @@ paths:
         where:      YY  is the 2-digit year     MM  is the 2-digit month     dd  is the 2-digit day of the month     HH  is the 2-digit hour (24-hour
         clock)     mm  is the 2-digit minutes     ss  is the 2-digit seconds  
       operationId: amazonWebServicesCreateSnapshot
+      tags:
+        - Createsnapshot
   /deleteapp:
     DELETE:
       summary: Amazon Web Services Deleteapp
       description: Deletes the instance of the given custom app.
       operationId: amazonWebServicesDeleteApp
+      tags:
+        - Deleteapp
   /deletesimulation:
     DELETE:
       summary: Amazon Web Services Deletesimulation
@@ -47,16 +51,22 @@ paths:
         Deletes all SimSpace Weaver resources assigned to the given simulation.  Your simulation uses resources in other Amazon Web Services. This API
         operation doesn't delete resources in other Amazon Web Services. 
       operationId: amazonWebServicesDeleteSimulation
+      tags:
+        - Deletesimulation
   /describeapp:
     GET:
       summary: Amazon Web Services Describeapp
       description: Returns the state of the given custom app.
       operationId: amazonWebServicesDescribeApp
+      tags:
+        - Describeapp
   /describesimulation:
     GET:
       summary: Amazon Web Services Describesimulation
       description: Returns the current state of the given simulation.
       operationId: amazonWebServicesDescribeSimulation
+      tags:
+        - Describesimulation
   /listapps:
     GET:
       summary: Amazon Web Services Listapps
@@ -64,6 +74,8 @@ paths:
         Lists all custom apps or service apps for the given simulation and
         domain.
       operationId: amazonWebServicesListApps
+      tags:
+        - Listapps
   /listsimulations:
     GET:
       summary: Amazon Web Services Listsimulations
@@ -71,6 +83,8 @@ paths:
         Lists the SimSpace Weaver simulations in the Amazon Web Services account
         used to make the API call.
       operationId: amazonWebServicesListSimulations
+      tags:
+        - Listsimulations
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -79,6 +93,8 @@ paths:
         tags, see Tagging Amazon Web Services resources in the Amazon Web
         Services General Reference.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /startapp:
     POST:
       summary: Amazon Web Services Startapp
@@ -86,11 +102,15 @@ paths:
         Starts a custom app with the configuration specified in the simulation
         schema.
       operationId: amazonWebServicesStartApp
+      tags:
+        - Startapp
   /startclock:
     POST:
       summary: Amazon Web Services Startclock
       description: Starts the simulation clock.
       operationId: amazonWebServicesStartClock
+      tags:
+        - Startclock
   /startsimulation:
     POST:
       summary: Amazon Web Services Startsimulation
@@ -101,6 +121,8 @@ paths:
         For more information about snapshots, see Snapshots in the SimSpace
         Weaver User Guide.
       operationId: amazonWebServicesStartSimulation
+      tags:
+        - Startsimulation
   /stopapp:
     POST:
       summary: Amazon Web Services Stopapp
@@ -108,11 +130,15 @@ paths:
         Stops the given custom app and shuts down all of its allocated compute
         resources.
       operationId: amazonWebServicesStopApp
+      tags:
+        - Stopapp
   /stopclock:
     POST:
       summary: Amazon Web Services Stopclock
       description: Stops the simulation clock.
       operationId: amazonWebServicesStopClock
+      tags:
+        - Stopclock
   /stopsimulation:
     POST:
       summary: Amazon Web Services Stopsimulation
@@ -121,4 +147,20 @@ paths:
         stop it. If you want to restart a simulation, then you must stop it,
         delete it, and start a new instance of it. 
       operationId: amazonWebServicesStopSimulation
-tags: []
+      tags:
+        - Stopsimulation
+tags:
+  - name: Createsnapshot
+  - name: Deleteapp
+  - name: Deletesimulation
+  - name: Describeapp
+  - name: Describesimulation
+  - name: Listapps
+  - name: Listsimulations
+  - name: Startapp
+  - name: Startclock
+  - name: Startsimulation
+  - name: Stopapp
+  - name: Stopclock
+  - name: Stopsimulation
+  - name: Tags

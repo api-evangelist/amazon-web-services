@@ -8,36 +8,50 @@ paths:
       summary: Amazon Web Services Disassociateuserfrompermissiongroup
       description: Removes a user from a permission group.
       operationId: amazonWebServicesDisassociateUserFromPermissionGroup
+      tags:
+        - Permission Group
   /datasets/{datasetId}/changesetsv2:
     GET:
       summary: Amazon Web Services Listchangesets
       description: Lists the FinSpace Changesets for a Dataset.
       operationId: amazonWebServicesListChangesets
+      tags:
+        - Datasets
   /datasets/{datasetId}/dataviewsv2:
     GET:
       summary: Amazon Web Services Listdataviews
       description: Lists all available Dataviews for a Dataset.
       operationId: amazonWebServicesListDataViews
+      tags:
+        - Datasets
   /datasetsv2:
     GET:
       summary: Amazon Web Services Listdatasets
       description: Lists all of the active Datasets that a user has access to.
       operationId: amazonWebServicesListDatasets
+      tags:
+        - Datasetsv2
   /permission-group:
     GET:
       summary: Amazon Web Services Listpermissiongroups
       description: Lists all available permission groups in FinSpace.
       operationId: amazonWebServicesListPermissionGroups
+      tags:
+        - Permission Group
   /user:
     GET:
       summary: Amazon Web Services Listusers
       description: Lists all available users in FinSpace.
       operationId: amazonWebServicesListUsers
+      tags:
+        - User
   /datasetsv2/{datasetId}:
     PUT:
       summary: Amazon Web Services Updatedataset
       description: Updates a FinSpace Dataset.
       operationId: amazonWebServicesUpdateDataset
+      tags:
+        - Datasetsv2
   /permission-group/{permissionGroupId}:
     PUT:
       summary: Amazon Web Services Updatepermissiongroup
@@ -45,6 +59,8 @@ paths:
         Modifies the details of a permission group. You cannot modify a
         permissionGroupID.
       operationId: amazonWebServicesUpdatePermissionGroup
+      tags:
+        - Permission Group
   /user/{userId}/disable:
     POST:
       summary: Amazon Web Services Disableuser
@@ -52,21 +68,29 @@ paths:
         Denies access to the FinSpace web application and API for the specified
         user.
       operationId: amazonWebServicesDisableUser
+      tags:
+        - User
   /user/{userId}/enable:
     POST:
       summary: Amazon Web Services Enableuser
       description: ' Allows the specified user to access the FinSpace web application and API.'
       operationId: amazonWebServicesEnableUser
+      tags:
+        - User
   /datasets/{datasetId}/changesetsv2/{changesetId}:
     PUT:
       summary: Amazon Web Services Updatechangeset
       description: Updates a FinSpace Changeset.
       operationId: amazonWebServicesUpdateChangeset
+      tags:
+        - Datasets
   /datasets/{datasetId}/dataviewsv2/{dataviewId}:
     GET:
       summary: Amazon Web Services Getdataview
       description: Gets information about a Dataview.
       operationId: amazonWebServicesGetDataView
+      tags:
+        - Datasets
   /datasets/{datasetId}/dataviewsv2/{dataviewId}/external-access-details:
     POST:
       summary: Amazon Web Services Getexternaldataviewaccessdetails
@@ -76,6 +100,8 @@ paths:
         credentials.   You must be a member of a FinSpace user group, where the
         dataset that you want to access has Read Dataset Data permissions.  
       operationId: amazonWebServicesGetExternalDataViewAccessDetails
+      tags:
+        - Datasets
   /credentials/programmatic:
     GET:
       summary: Amazon Web Services Getprogrammaticaccesscredentials
@@ -84,6 +110,8 @@ paths:
         information, see Step 2. Access credentials programmatically using IAM
         access key id and secret access key.
       operationId: amazonWebServicesGetProgrammaticAccessCredentials
+      tags:
+        - Credentials
   /user/{userId}:
     PUT:
       summary: Amazon Web Services Updateuser
@@ -91,6 +119,8 @@ paths:
         Modifies the details of the specified user. You cannot update the userId
         for a user.
       operationId: amazonWebServicesUpdateUser
+      tags:
+        - User
   /workingLocationV1:
     POST:
       summary: Amazon Web Services Getworkinglocation
@@ -98,6 +128,8 @@ paths:
         A temporary Amazon S3 location, where you can copy your files from a
         source location to stage or use as a scratch space in FinSpace notebook.
       operationId: amazonWebServicesGetWorkingLocation
+      tags:
+        - workingLocationV1
   /user/{userId}/permission-groups:
     GET:
       summary: Amazon Web Services Listpermissiongroupsbyuser
@@ -105,11 +137,15 @@ paths:
         Lists all the permission groups that are associated with a specific
         user.
       operationId: amazonWebServicesListPermissionGroupsByUser
+      tags:
+        - User
   /permission-group/{permissionGroupId}/users:
     GET:
       summary: Amazon Web Services Listusersbypermissiongroup
       description: Lists details of all the users in a specific permission group.
       operationId: amazonWebServicesListUsersByPermissionGroup
+      tags:
+        - Permission Group
   /user/{userId}/password:
     POST:
       summary: Amazon Web Services Resetuserpassword
@@ -119,4 +155,12 @@ paths:
         password immediately invalidates the previous password associated with
         the user.
       operationId: amazonWebServicesResetUserPassword
-tags: []
+      tags:
+        - User
+tags:
+  - name: Credentials
+  - name: Datasets
+  - name: Datasetsv2
+  - name: Permission Group
+  - name: User
+  - name: workingLocationV1

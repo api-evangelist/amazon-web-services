@@ -16,6 +16,8 @@ paths:
         You can check if the association completed by using ListMembers for
         multiple accounts or GetMembers for a single account.
       operationId: amazonWebServicesAssociateMember
+      tags:
+        - Members
   /status/batch/get:
     POST:
       summary: Amazon Web Services Batchgetaccountstatus
@@ -23,6 +25,8 @@ paths:
         Retrieves the Amazon Inspector status of multiple Amazon Web Services
         accounts within your environment.
       operationId: amazonWebServicesBatchGetAccountStatus
+      tags:
+        - Status
   /codesnippet/batchget:
     POST:
       summary: Amazon Web Services Batchgetcodesnippet
@@ -30,16 +34,22 @@ paths:
         Retrieves code snippets from findings that Amazon Inspector detected
         code vulnerabilities in.
       operationId: amazonWebServicesBatchGetCodeSnippet
+      tags:
+        - Codesnippet
   /findings/details/batch/get:
     POST:
       summary: Amazon Web Services Batchgetfindingdetails
       description: Gets vulnerability details for findings.
       operationId: amazonWebServicesBatchGetFindingDetails
+      tags:
+        - Findings
   /freetrialinfo/batchget:
     POST:
       summary: Amazon Web Services Batchgetfreetrialinfo
       description: Gets free trial status for multiple Amazon Web Services accounts.
       operationId: amazonWebServicesBatchGetFreeTrialInfo
+      tags:
+        - Freetrialinfo
   /ec2deepinspectionstatus/member/batch/get:
     POST:
       summary: Amazon Web Services Batchgetmemberec2deepinspectionstatus
@@ -48,6 +58,8 @@ paths:
         member accounts within your organization. You must be the delegated
         administrator of an organization in Amazon Inspector to use this API.
       operationId: amazonWebServicesBatchGetMemberEc2DeepInspectionStatus
+      tags:
+        - Ec2deepinspectionstatus
   /ec2deepinspectionstatus/member/batch/update:
     POST:
       summary: Amazon Web Services Batchupdatememberec2deepinspectionstatus
@@ -56,21 +68,29 @@ paths:
         provided member accounts in your organization. You must be the delegated
         administrator of an organization in Amazon Inspector to use this API.
       operationId: amazonWebServicesBatchUpdateMemberEc2DeepInspectionStatus
+      tags:
+        - Ec2deepinspectionstatus
   /reporting/cancel:
     POST:
       summary: Amazon Web Services Cancelfindingsreport
       description: Cancels the given findings report.
       operationId: amazonWebServicesCancelFindingsReport
+      tags:
+        - Reporting
   /sbomexport/cancel:
     POST:
       summary: Amazon Web Services Cancelsbomexport
       description: Cancels a software bill of materials (SBOM) report.
       operationId: amazonWebServicesCancelSbomExport
+      tags:
+        - Sbomexport
   /cis/scan-configuration/create:
     POST:
       summary: Amazon Web Services Createcisscanconfiguration
       description: Creates a CIS scan configuration.
       operationId: amazonWebServicesCreateCisScanConfiguration
+      tags:
+        - Cis
   /filters/create:
     POST:
       summary: Amazon Web Services Createfilter
@@ -78,6 +98,8 @@ paths:
         Creates a filter resource using specified filter criteria. When the
         filter action is set to SUPPRESS this action creates a suppression rule.
       operationId: amazonWebServicesCreateFilter
+      tags:
+        - Filters
   /reporting/create:
     POST:
       summary: Amazon Web Services Createfindingsreport
@@ -86,21 +108,29 @@ paths:
         in the report. To see SUPRESSED or CLOSED findings you must specify a
         value for the findingStatus filter criteria. 
       operationId: amazonWebServicesCreateFindingsReport
+      tags:
+        - Reporting
   /sbomexport/create:
     POST:
       summary: Amazon Web Services Createsbomexport
       description: Creates a software bill of materials (SBOM) report.
       operationId: amazonWebServicesCreateSbomExport
+      tags:
+        - Sbomexport
   /cis/scan-configuration/delete:
     POST:
       summary: Amazon Web Services Deletecisscanconfiguration
       description: Deletes a CIS scan configuration.
       operationId: amazonWebServicesDeleteCisScanConfiguration
+      tags:
+        - Cis
   /filters/delete:
     POST:
       summary: Amazon Web Services Deletefilter
       description: Deletes a filter resource.
       operationId: amazonWebServicesDeleteFilter
+      tags:
+        - Filters
   /organizationconfiguration/describe:
     POST:
       summary: Amazon Web Services Describeorganizationconfiguration
@@ -108,6 +138,8 @@ paths:
         Describe Amazon Inspector configuration settings for an Amazon Web
         Services organization.
       operationId: amazonWebServicesDescribeOrganizationConfiguration
+      tags:
+        - Organizationconfiguration
   /disable:
     POST:
       summary: Amazon Web Services Disable
@@ -116,6 +148,8 @@ paths:
         accounts. Disabling all scan types in an account disables the Amazon
         Inspector service.
       operationId: amazonWebServicesDisable
+      tags:
+        - Disable
   /delegatedadminaccounts/disable:
     POST:
       summary: Amazon Web Services Disabledelegatedadminaccount
@@ -123,6 +157,8 @@ paths:
         Disables the Amazon Inspector delegated administrator for your
         organization.
       operationId: amazonWebServicesDisableDelegatedAdminAccount
+      tags:
+        - Delegatedadminaccounts
   /members/disassociate:
     POST:
       summary: Amazon Web Services Disassociatemember
@@ -130,6 +166,8 @@ paths:
         Disassociates a member account from an Amazon Inspector delegated
         administrator.
       operationId: amazonWebServicesDisassociateMember
+      tags:
+        - Members
   /enable:
     POST:
       summary: Amazon Web Services Enable
@@ -137,6 +175,8 @@ paths:
         Enables Amazon Inspector scans for one or more Amazon Web Services
         accounts.
       operationId: amazonWebServicesEnable
+      tags:
+        - Enable
   /delegatedadminaccounts/enable:
     POST:
       summary: Amazon Web Services Enabledelegatedadminaccount
@@ -144,21 +184,29 @@ paths:
         Enables the Amazon Inspector delegated administrator for your
         Organizations organization.
       operationId: amazonWebServicesEnableDelegatedAdminAccount
+      tags:
+        - Delegatedadminaccounts
   /cis/scan/report/get:
     POST:
       summary: Amazon Web Services Getcisscanreport
       description: Retrieves a CIS scan report.
       operationId: amazonWebServicesGetCisScanReport
+      tags:
+        - Cis
   /cis/scan-result/details/get:
     POST:
       summary: Amazon Web Services Getcisscanresultdetails
       description: Retrieves CIS scan result details.
       operationId: amazonWebServicesGetCisScanResultDetails
+      tags:
+        - Cis
   /configuration/get:
     POST:
       summary: Amazon Web Services Getconfiguration
       description: Retrieves setting configurations for Inspector scans.
       operationId: amazonWebServicesGetConfiguration
+      tags:
+        - Configuration
   /delegatedadminaccounts/get:
     POST:
       summary: Amazon Web Services Getdelegatedadminaccount
@@ -166,6 +214,8 @@ paths:
         Retrieves information about the Amazon Inspector delegated administrator
         for your organization.
       operationId: amazonWebServicesGetDelegatedAdminAccount
+      tags:
+        - Delegatedadminaccounts
   /ec2deepinspectionconfiguration/get:
     POST:
       summary: Amazon Web Services Getec2deepinspectionconfiguration
@@ -173,61 +223,85 @@ paths:
         Retrieves the activation status of Amazon Inspector deep inspection and
         custom paths associated with your account. 
       operationId: amazonWebServicesGetEc2DeepInspectionConfiguration
+      tags:
+        - Ec2deepinspectionconfiguration
   /encryptionkey/get:
     GET:
       summary: Amazon Web Services Getencryptionkey
       description: Gets an encryption key.
       operationId: amazonWebServicesGetEncryptionKey
+      tags:
+        - Encryptionkey
   /reporting/status/get:
     POST:
       summary: Amazon Web Services Getfindingsreportstatus
       description: Gets the status of a findings report.
       operationId: amazonWebServicesGetFindingsReportStatus
+      tags:
+        - Reporting
   /members/get:
     POST:
       summary: Amazon Web Services Getmember
       description: Gets member information for your organization.
       operationId: amazonWebServicesGetMember
+      tags:
+        - Members
   /sbomexport/get:
     POST:
       summary: Amazon Web Services Getsbomexport
       description: Gets details of a software bill of materials (SBOM) report.
       operationId: amazonWebServicesGetSbomExport
+      tags:
+        - Sbomexport
   /accountpermissions/list:
     POST:
       summary: Amazon Web Services Listaccountpermissions
       description: Lists the permissions an account has to configure Amazon Inspector.
       operationId: amazonWebServicesListAccountPermissions
+      tags:
+        - Accountpermissions
   /cis/scan-configuration/list:
     POST:
       summary: Amazon Web Services Listcisscanconfigurations
       description: Lists CIS scan configurations.
       operationId: amazonWebServicesListCisScanConfigurations
+      tags:
+        - Cis
   /cis/scan-result/check/list:
     POST:
       summary: Amazon Web Services Listcisscanresultsaggregatedbychecks
       description: Lists scan results aggregated by checks.
       operationId: amazonWebServicesListCisScanResultsAggregatedByChecks
+      tags:
+        - Cis
   /cis/scan-result/resource/list:
     POST:
       summary: Amazon Web Services Listcisscanresultsaggregatedbytargetresource
       description: Lists scan results aggregated by a target resource.
       operationId: amazonWebServicesListCisScanResultsAggregatedByTargetResource
+      tags:
+        - Cis
   /cis/scan/list:
     POST:
       summary: Amazon Web Services Listcisscans
       description: Returns a CIS scan list.
       operationId: amazonWebServicesListCisScans
+      tags:
+        - Cis
   /coverage/list:
     POST:
       summary: Amazon Web Services Listcoverage
       description: Lists coverage details for you environment.
       operationId: amazonWebServicesListCoverage
+      tags:
+        - Coverage
   /coverage/statistics/list:
     POST:
       summary: Amazon Web Services Listcoveragestatistics
       description: Lists Amazon Inspector coverage statistics for your environment.
       operationId: amazonWebServicesListCoverageStatistics
+      tags:
+        - Coverage
   /delegatedadminaccounts/list:
     POST:
       summary: Amazon Web Services Listdelegatedadminaccounts
@@ -235,11 +309,15 @@ paths:
         Lists information about the Amazon Inspector delegated administrator of
         your organization.
       operationId: amazonWebServicesListDelegatedAdminAccounts
+      tags:
+        - Delegatedadminaccounts
   /filters/list:
     POST:
       summary: Amazon Web Services Listfilters
       description: Lists the filters associated with your account.
       operationId: amazonWebServicesListFilters
+      tags:
+        - Filters
   /findings/aggregation/list:
     POST:
       summary: Amazon Web Services Listfindingaggregations
@@ -247,11 +325,15 @@ paths:
         Lists aggregated finding data for your environment based on specific
         criteria.
       operationId: amazonWebServicesListFindingAggregations
+      tags:
+        - Findings
   /findings/list:
     POST:
       summary: Amazon Web Services Listfindings
       description: Lists findings for your environment.
       operationId: amazonWebServicesListFindings
+      tags:
+        - Findings
   /members/list:
     POST:
       summary: Amazon Web Services Listmembers
@@ -259,16 +341,22 @@ paths:
         List members associated with the Amazon Inspector delegated
         administrator for your organization.
       operationId: amazonWebServicesListMembers
+      tags:
+        - Members
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /usage/list:
     POST:
       summary: Amazon Web Services Listusagetotals
       description: Lists the Amazon Inspector usage totals over the last 30 days.
       operationId: amazonWebServicesListUsageTotals
+      tags:
+        - Usage
   /encryptionkey/reset:
     PUT:
       summary: Amazon Web Services Resetencryptionkey
@@ -276,36 +364,50 @@ paths:
         Resets an encryption key. After the key is reset your resources will be
         encrypted by an Amazon Web Services owned key.
       operationId: amazonWebServicesResetEncryptionKey
+      tags:
+        - Encryptionkey
   /vulnerabilities/search:
     POST:
       summary: Amazon Web Services Searchvulnerabilities
       description: Lists Amazon Inspector coverage details for a specific vulnerability.
       operationId: amazonWebServicesSearchVulnerabilities
+      tags:
+        - Vulnerabilities
   /cissession/health/send:
     PUT:
       summary: Amazon Web Services Sendcissessionhealth
       description: ' Sends a CIS session health. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service. '
       operationId: amazonWebServicesSendCisSessionHealth
+      tags:
+        - Cissession
   /cissession/telemetry/send:
     PUT:
       summary: Amazon Web Services Sendcissessiontelemetry
       description: ' Sends a CIS session telemetry. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service. '
       operationId: amazonWebServicesSendCisSessionTelemetry
+      tags:
+        - Cissession
   /cissession/start:
     PUT:
       summary: Amazon Web Services Startcissession
       description: ' Starts a CIS session. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service. '
       operationId: amazonWebServicesStartCisSession
+      tags:
+        - Cissession
   /cissession/stop:
     PUT:
       summary: Amazon Web Services Stopcissession
       description: ' Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service. '
       operationId: amazonWebServicesStopCisSession
+      tags:
+        - Cissession
   /cis/scan-configuration/update:
     POST:
       summary: Amazon Web Services Updatecisscanconfiguration
       description: Updates a CIS scan configuration.
       operationId: amazonWebServicesUpdateCisScanConfiguration
+      tags:
+        - Cis
   /configuration/update:
     POST:
       summary: Amazon Web Services Updateconfiguration
@@ -315,6 +417,8 @@ paths:
         updates the setting for all accounts you manage. Member accounts in an
         organization cannot update this setting.
       operationId: amazonWebServicesUpdateConfiguration
+      tags:
+        - Configuration
   /ec2deepinspectionconfiguration/update:
     POST:
       summary: Amazon Web Services Updateec2deepinspectionconfiguration
@@ -322,6 +426,8 @@ paths:
         Activates, deactivates Amazon Inspector deep inspection, or updates
         custom paths for your account. 
       operationId: amazonWebServicesUpdateEc2DeepInspectionConfiguration
+      tags:
+        - Ec2deepinspectionconfiguration
   /encryptionkey/update:
     PUT:
       summary: Amazon Web Services Updateencryptionkey
@@ -329,6 +435,8 @@ paths:
         Updates an encryption key. A ResourceNotFoundException means that an
         Amazon Web Services owned key is being used for encryption.
       operationId: amazonWebServicesUpdateEncryptionKey
+      tags:
+        - Encryptionkey
   /filters/update:
     POST:
       summary: Amazon Web Services Updatefilter
@@ -336,6 +444,8 @@ paths:
         Specifies the action that is to be applied to the findings that match
         the filter.
       operationId: amazonWebServicesUpdateFilter
+      tags:
+        - Filters
   /ec2deepinspectionconfiguration/org/update:
     POST:
       summary: Amazon Web Services Updateorgec2deepinspectionconfiguration
@@ -344,9 +454,36 @@ paths:
         organization. You must be an Amazon Inspector delegated administrator to
         use this API.
       operationId: amazonWebServicesUpdateOrgEc2DeepInspectionConfiguration
+      tags:
+        - Ec2deepinspectionconfiguration
   /organizationconfiguration/update:
     POST:
       summary: Amazon Web Services Updateorganizationconfiguration
       description: Updates the configurations for your Amazon Inspector organization.
       operationId: amazonWebServicesUpdateOrganizationConfiguration
-tags: []
+      tags:
+        - Organizationconfiguration
+tags:
+  - name: Accountpermissions
+  - name: Cis
+  - name: Cissession
+  - name: Codesnippet
+  - name: Configuration
+  - name: Coverage
+  - name: Delegatedadminaccounts
+  - name: Disable
+  - name: Ec2deepinspectionconfiguration
+  - name: Ec2deepinspectionstatus
+  - name: Enable
+  - name: Encryptionkey
+  - name: Filters
+  - name: Findings
+  - name: Freetrialinfo
+  - name: Members
+  - name: Organizationconfiguration
+  - name: Reporting
+  - name: Sbomexport
+  - name: Status
+  - name: Tags
+  - name: Usage
+  - name: Vulnerabilities

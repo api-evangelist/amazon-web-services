@@ -40,21 +40,29 @@ paths:
       summary: Amazon Web Services Listapplications
       description: Lists all applications in your Amazon Web Services account.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /applications/{ApplicationId}/configurationprofiles:
     GET:
       summary: Amazon Web Services Listconfigurationprofiles
       description: Lists the configuration profiles for an application.
       operationId: amazonWebServicesListConfigurationProfiles
+      tags:
+        - Applications
   /deploymentstrategies:
     GET:
       summary: Amazon Web Services Listdeploymentstrategies
       description: Lists deployment strategies.
       operationId: amazonWebServicesListDeploymentStrategies
+      tags:
+        - Deploymentstrategies
   /applications/{ApplicationId}/environments:
     GET:
       summary: Amazon Web Services Listenvironments
       description: Lists the environments for an application.
       operationId: amazonWebServicesListEnvironments
+      tags:
+        - Applications
   /extensions:
     GET:
       summary: Amazon Web Services Listextensions
@@ -63,6 +71,8 @@ paths:
         in the account. For more information about extensions, see Working with
         AppConfig extensions in the AppConfig User Guide.
       operationId: amazonWebServicesListExtensions
+      tags:
+        - Extensions
   /extensionassociations:
     GET:
       summary: Amazon Web Services Listextensionassociations
@@ -71,6 +81,8 @@ paths:
         information about extensions and associations, see Working with
         AppConfig extensions in the AppConfig User Guide.
       operationId: amazonWebServicesListExtensionAssociations
+      tags:
+        - Extensionassociations
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions:
     GET:
       summary: Amazon Web Services Listhostedconfigurationversions
@@ -78,16 +90,22 @@ paths:
         Lists configurations stored in the AppConfig hosted configuration store
         by version.
       operationId: amazonWebServicesListHostedConfigurationVersions
+      tags:
+        - Applications
   /applications/{ApplicationId}:
     PATCH:
       summary: Amazon Web Services Updateapplication
       description: Updates an application.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}:
     PATCH:
       summary: Amazon Web Services Updateconfigurationprofile
       description: Updates a configuration profile.
       operationId: amazonWebServicesUpdateConfigurationProfile
+      tags:
+        - Applications
   /deployementstrategies/{DeploymentStrategyId}:
     DELETE:
       summary: Amazon Web Services Deletedeploymentstrategy
@@ -95,11 +113,15 @@ paths:
         Deletes a deployment strategy. Deleting a deployment strategy does not
         delete a configuration from a host.
       operationId: amazonWebServicesDeleteDeploymentStrategy
+      tags:
+        - Deployementstrategies
   /applications/{ApplicationId}/environments/{EnvironmentId}:
     PATCH:
       summary: Amazon Web Services Updateenvironment
       description: Updates an environment.
       operationId: amazonWebServicesUpdateEnvironment
+      tags:
+        - Applications
   /extensions/{ExtensionIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateextension
@@ -107,6 +129,8 @@ paths:
         Updates an AppConfig extension. For more information about extensions,
         see Working with AppConfig extensions in the AppConfig User Guide.
       operationId: amazonWebServicesUpdateExtension
+      tags:
+        - Extensions
   /extensionassociations/{ExtensionAssociationId}:
     PATCH:
       summary: Amazon Web Services Updateextensionassociation
@@ -115,11 +139,15 @@ paths:
         associations, see Working with AppConfig extensions in the AppConfig
         User Guide.
       operationId: amazonWebServicesUpdateExtensionAssociation
+      tags:
+        - Extensionassociations
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}:
     GET:
       summary: Amazon Web Services Gethostedconfigurationversion
       description: Retrieves information about a specific configuration version.
       operationId: amazonWebServicesGetHostedConfigurationVersion
+      tags:
+        - Applications
   /applications/{Application}/environments/{Environment}/configurations/{Configuration}:
     GET:
       summary: Amazon Web Services Getconfiguration
@@ -130,6 +158,8 @@ paths:
         and GetLatestConfiguration APIs instead.     GetConfiguration is a
         priced call. For more information, see Pricing.   
       operationId: amazonWebServicesGetConfiguration
+      tags:
+        - Applications
   /applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}:
     DELETE:
       summary: Amazon Web Services Stopdeployment
@@ -138,21 +168,29 @@ paths:
         a status of DEPLOYING. This action moves the deployment to a status of
         ROLLED_BACK.
       operationId: amazonWebServicesStopDeployment
+      tags:
+        - Applications
   /deploymentstrategies/{DeploymentStrategyId}:
     PATCH:
       summary: Amazon Web Services Updatedeploymentstrategy
       description: Updates a deployment strategy.
       operationId: amazonWebServicesUpdateDeploymentStrategy
+      tags:
+        - Deploymentstrategies
   /applications/{ApplicationId}/environments/{EnvironmentId}/deployments:
     POST:
       summary: Amazon Web Services Startdeployment
       description: Starts a deployment.
       operationId: amazonWebServicesStartDeployment
+      tags:
+        - Applications
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes a tag key and value from an AppConfig resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators:
     POST:
       summary: Amazon Web Services Validateconfiguration
@@ -160,4 +198,12 @@ paths:
         Uses the validators in a configuration profile to validate a
         configuration.
       operationId: amazonWebServicesValidateConfiguration
-tags: []
+      tags:
+        - Applications
+tags:
+  - name: Applications
+  - name: Deployementstrategies
+  - name: Deploymentstrategies
+  - name: Extensionassociations
+  - name: Extensions
+  - name: Tags

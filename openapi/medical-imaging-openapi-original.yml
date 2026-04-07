@@ -109,21 +109,29 @@ paths:
       summary: Amazon Web Services Copyimageset
       description: Copy an image set.
       operationId: amazonWebServicesCopyImageSet
+      tags:
+        - Datastore
   /datastore:
     GET:
       summary: Amazon Web Services Listdatastores
       description: List data stores.
       operationId: amazonWebServicesListDatastores
+      tags:
+        - Datastore
   /datastore/{datastoreId}:
     GET:
       summary: Amazon Web Services Getdatastore
       description: Get data store properties.
       operationId: amazonWebServicesGetDatastore
+      tags:
+        - Datastore
   /datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet:
     POST:
       summary: Amazon Web Services Deleteimageset
       description: Delete an image set.
       operationId: amazonWebServicesDeleteImageSet
+      tags:
+        - Datastore
   /getDICOMImportJob/datastore/{datastoreId}/job/{jobId}:
     GET:
       summary: Amazon Web Services Getdicomimportjob
@@ -131,36 +139,50 @@ paths:
         Get the import job properties to learn more about the job or job
         progress.
       operationId: amazonWebServicesGetDICOMImportJob
+      tags:
+        - getDICOMImportJob
   /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame:
     POST:
       summary: Amazon Web Services Getimageframe
       description: Get an image frame (pixel data) for an image set.
       operationId: amazonWebServicesGetImageFrame
+      tags:
+        - Datastore
   /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet:
     POST:
       summary: Amazon Web Services Getimageset
       description: Get image set properties.
       operationId: amazonWebServicesGetImageSet
+      tags:
+        - Datastore
   /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata:
     POST:
       summary: Amazon Web Services Getimagesetmetadata
       description: Get metadata attributes for an image set.
       operationId: amazonWebServicesGetImageSetMetadata
+      tags:
+        - Datastore
   /listDICOMImportJobs/datastore/{datastoreId}:
     GET:
       summary: Amazon Web Services Listdicomimportjobs
       description: List import jobs created for a specific data store.
       operationId: amazonWebServicesListDICOMImportJobs
+      tags:
+        - listDICOMImportJobs
   /datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions:
     POST:
       summary: Amazon Web Services Listimagesetversions
       description: List image set versions.
       operationId: amazonWebServicesListImageSetVersions
+      tags:
+        - Datastore
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a medical imaging resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /datastore/{datastoreId}/searchImageSets:
     POST:
       summary: Amazon Web Services Searchimagesets
@@ -171,6 +193,8 @@ paths:
         must be input as (lowerBound, upperBound).  SearchImageSets uses the
         updatedAt field for sorting in decreasing order from latest to oldest. 
       operationId: amazonWebServicesSearchImageSets
+      tags:
+        - Datastore
   /startDICOMImportJob/datastore/{datastoreId}:
     POST:
       summary: Amazon Web Services Startdicomimportjob
@@ -180,9 +204,18 @@ paths:
         inputS3Uri parameter. The import job stores processing results in the
         file specified by the outputS3Uri parameter.
       operationId: amazonWebServicesStartDICOMImportJob
+      tags:
+        - startDICOMImportJob
   /datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata:
     POST:
       summary: Amazon Web Services Updateimagesetmetadata
       description: Update image set metadata attributes.
       operationId: amazonWebServicesUpdateImageSetMetadata
-tags: []
+      tags:
+        - Datastore
+tags:
+  - name: Datastore
+  - name: getDICOMImportJob
+  - name: listDICOMImportJobs
+  - name: startDICOMImportJob
+  - name: Tags

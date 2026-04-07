@@ -13,6 +13,8 @@ paths:
         can filter the jobs to return based on one or more criteria. For more
         information, see Custom models in the Bedrock User Guide.
       operationId: amazonWebServicesListModelCustomizationJobs
+      tags:
+        - Model Customization Jobs
   /provisioned-model-throughput:
     POST:
       summary: Amazon Web Services Createprovisionedmodelthroughput
@@ -21,6 +23,8 @@ paths:
         foundation model or a fine-tuned model. For more information, see
         Provisioned throughput in the Bedrock User Guide.
       operationId: amazonWebServicesCreateProvisionedModelThroughput
+      tags:
+        - Provisioned Model Throughput
   /custom-models/{modelIdentifier}:
     GET:
       summary: Amazon Web Services Getcustommodel
@@ -29,11 +33,15 @@ paths:
         you have created.For more information, see Custom models in the Bedrock
         User Guide.
       operationId: amazonWebServicesGetCustomModel
+      tags:
+        - Custom Models
   /logging/modelinvocations:
     PUT:
       summary: Amazon Web Services Putmodelinvocationloggingconfiguration
       description: Set the configuration values for model invocation logging.
       operationId: amazonWebServicesPutModelInvocationLoggingConfiguration
+      tags:
+        - Logging
   /provisioned-model-throughput/{provisionedModelId}:
     PATCH:
       summary: Amazon Web Services Updateprovisionedmodelthroughput
@@ -41,11 +49,15 @@ paths:
         Update a provisioned throughput. For more information, see Provisioned
         throughput in the Bedrock User Guide.
       operationId: amazonWebServicesUpdateProvisionedModelThroughput
+      tags:
+        - Provisioned Model Throughput
   /foundation-models/{modelIdentifier}:
     GET:
       summary: Amazon Web Services Getfoundationmodel
       description: Get details about a Amazon Bedrock foundation model.
       operationId: amazonWebServicesGetFoundationModel
+      tags:
+        - Foundation Models
   /model-customization-jobs/{jobIdentifier}:
     GET:
       summary: Amazon Web Services Getmodelcustomizationjob
@@ -54,6 +66,8 @@ paths:
         including the status of the job. For more information, see Custom models
         in the Bedrock User Guide.
       operationId: amazonWebServicesGetModelCustomizationJob
+      tags:
+        - Model Customization Jobs
   /custom-models:
     GET:
       summary: Amazon Web Services Listcustommodels
@@ -62,6 +76,8 @@ paths:
         CreateModelCustomizationJob operation. For more information, see Custom
         models in the Bedrock User Guide.
       operationId: amazonWebServicesListCustomModels
+      tags:
+        - Custom Models
   /foundation-models:
     GET:
       summary: Amazon Web Services Listfoundationmodels
@@ -69,6 +85,8 @@ paths:
         List of Amazon Bedrock foundation models that you can use. For more
         information, see Foundation models in the Bedrock User Guide.
       operationId: amazonWebServicesListFoundationModels
+      tags:
+        - Foundation Models
   /provisioned-model-throughputs:
     GET:
       summary: Amazon Web Services Listprovisionedmodelthroughputs
@@ -76,6 +94,8 @@ paths:
         List the provisioned capacities. For more information, see Provisioned
         throughput in the Bedrock User Guide.
       operationId: amazonWebServicesListProvisionedModelThroughputs
+      tags:
+        - Provisioned Model Throughputs
   /listTagsForResource:
     POST:
       summary: Amazon Web Services Listtagsforresource
@@ -83,6 +103,8 @@ paths:
         List the tags associated with the specified resource. For more
         information, see Tagging resources in the Bedrock User Guide.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - listTagsForResource
   /model-customization-jobs/{jobIdentifier}/stop:
     POST:
       summary: Amazon Web Services Stopmodelcustomizationjob
@@ -90,6 +112,8 @@ paths:
         Stops an active model customization job. For more information, see
         Custom models in the Bedrock User Guide.
       operationId: amazonWebServicesStopModelCustomizationJob
+      tags:
+        - Model Customization Jobs
   /tagResource:
     POST:
       summary: Amazon Web Services Tagresource
@@ -97,6 +121,8 @@ paths:
         Associate tags with a resource. For more information, see Tagging
         resources in the Bedrock User Guide.
       operationId: amazonWebServicesTagResource
+      tags:
+        - tagResource
   /untagResource:
     POST:
       summary: Amazon Web Services Untagresource
@@ -104,4 +130,15 @@ paths:
         Remove one or more tags from a resource. For more information, see
         Tagging resources in the Bedrock User Guide.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - untagResource
+tags:
+  - name: Custom Models
+  - name: Foundation Models
+  - name: listTagsForResource
+  - name: Logging
+  - name: Model Customization Jobs
+  - name: Provisioned Model Throughput
+  - name: Provisioned Model Throughputs
+  - name: tagResource
+  - name: untagResource

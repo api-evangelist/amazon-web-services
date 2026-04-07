@@ -27,6 +27,8 @@ paths:
         information about pipes, see  Amazon EventBridge Pipes in the Amazon
         EventBridge User Guide.
       operationId: amazonWebServicesUpdatePipe
+      tags:
+        - Pipes
   /v1/pipes:
     GET:
       summary: Amazon Web Services Listpipes
@@ -35,19 +37,29 @@ paths:
         pipes, see Amazon EventBridge Pipes in the Amazon EventBridge User
         Guide.
       operationId: amazonWebServicesListPipes
+      tags:
+        - Pipes
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified pipes.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/pipes/{Name}/start:
     POST:
       summary: Amazon Web Services Startpipe
       description: Start an existing pipe.
       operationId: amazonWebServicesStartPipe
+      tags:
+        - Pipes
   /v1/pipes/{Name}/stop:
     POST:
       summary: Amazon Web Services Stoppipe
       description: Stop an existing pipe.
       operationId: amazonWebServicesStopPipe
-tags: []
+      tags:
+        - Pipes
+tags:
+  - name: Pipes
+  - name: Tags

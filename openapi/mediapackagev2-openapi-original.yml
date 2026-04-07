@@ -31,6 +31,8 @@ paths:
         in AWS Elemental MediaPackage, including the origin endpoints that are
         associated with it.
       operationId: amazonWebServicesListChannels
+      tags:
+        - channelGroup
   /channelGroup:
     GET:
       summary: Amazon Web Services Listchannelgroups
@@ -39,6 +41,8 @@ paths:
         MediaPackage, including the channels and origin endpoints that are
         associated with it.
       operationId: amazonWebServicesListChannelGroups
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint:
     GET:
       summary: Amazon Web Services Listoriginendpoints
@@ -46,6 +50,8 @@ paths:
         Retrieves all origin endpoints in a specific channel that are configured
         in AWS Elemental MediaPackage.
       operationId: amazonWebServicesListOriginEndpoints
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}/channel/{ChannelName}/:
     PUT:
       summary: Amazon Web Services Updatechannel
@@ -57,6 +63,8 @@ paths:
         distribution details. Any edits you make that impact the video output
         may not be reflected for a few minutes.
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}:
     PUT:
       summary: Amazon Web Services Updatechannelgroup
@@ -67,6 +75,8 @@ paths:
         edits you make that impact the video output may not be reflected for a
         few minutes.
       operationId: amazonWebServicesUpdateChannelGroup
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy:
     PUT:
       summary: Amazon Web Services Putchannelpolicy
@@ -76,6 +86,8 @@ paths:
         perform on those resources. You can attach only one policy with each
         request.
       operationId: amazonWebServicesPutChannelPolicy
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}:
     PUT:
       summary: Amazon Web Services Updateoriginendpoint
@@ -85,6 +97,8 @@ paths:
         of the endpoint. Any edits you make that impact the video output may not
         be reflected for a few minutes.
       operationId: amazonWebServicesUpdateOriginEndpoint
+      tags:
+        - channelGroup
   /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy:
     POST:
       summary: Amazon Web Services Putoriginendpointpolicy
@@ -92,9 +106,15 @@ paths:
         Attaches an IAM policy to the specified origin endpoint. You can attach
         only one policy with each request.
       operationId: amazonWebServicesPutOriginEndpointPolicy
+      tags:
+        - channelGroup
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: channelGroup
+  - name: Tags

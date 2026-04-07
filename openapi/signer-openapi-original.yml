@@ -37,6 +37,8 @@ paths:
       summary: Amazon Web Services Listprofilepermissions
       description: Lists the cross-account permissions associated with a signing profile.
       operationId: amazonWebServicesListProfilePermissions
+      tags:
+        - Signing Profiles
   /signing-profiles/{profileName}:
     PUT:
       summary: Amazon Web Services Putsigningprofile
@@ -44,6 +46,8 @@ paths:
         Creates a signing profile. A signing profile is a code-signing template
         that can be used to carry out a pre-defined signing job. 
       operationId: amazonWebServicesPutSigningProfile
+      tags:
+        - Signing Profiles
   /signing-jobs/{jobId}:
     GET:
       summary: Amazon Web Services Describesigningjob
@@ -52,6 +56,8 @@ paths:
         job by using the jobId value that is returned by the StartSigningJob
         operation. 
       operationId: amazonWebServicesDescribeSigningJob
+      tags:
+        - Signing Jobs
   /revocations:
     GET:
       summary: Amazon Web Services Getrevocationstatus
@@ -59,11 +65,15 @@ paths:
         Retrieves the revocation status of one or more of the signing profile,
         signing job, and signing certificate.
       operationId: amazonWebServicesGetRevocationStatus
+      tags:
+        - Revocations
   /signing-platforms/{platformId}:
     GET:
       summary: Amazon Web Services Getsigningplatform
       description: Returns information on a specific signing platform.
       operationId: amazonWebServicesGetSigningPlatform
+      tags:
+        - Signing Platforms
   /signing-jobs:
     POST:
       summary: Amazon Web Services Startsigningjob
@@ -81,6 +91,8 @@ paths:
         and the ListSigningJobs actions after you call StartSigningJob. For a
         Java example that shows how to use this action, see StartSigningJob.
       operationId: amazonWebServicesStartSigningJob
+      tags:
+        - Signing Jobs
   /signing-platforms:
     GET:
       summary: Amazon Web Services Listsigningplatforms
@@ -93,6 +105,8 @@ paths:
         Signer returns in the nextToken parameter until all of your signing jobs
         have been returned.
       operationId: amazonWebServicesListSigningPlatforms
+      tags:
+        - Signing Platforms
   /signing-profiles:
     GET:
       summary: Amazon Web Services Listsigningprofiles
@@ -106,6 +120,8 @@ paths:
         Signer returns in the nextToken parameter until all of your signing jobs
         have been returned.
       operationId: amazonWebServicesListSigningProfiles
+      tags:
+        - Signing Profiles
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -113,11 +129,15 @@ paths:
         Removes one or more tags from a signing profile. To remove the tags,
         specify a list of tag keys.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /signing-profiles/{profileName}/permissions/{statementId}:
     DELETE:
       summary: Amazon Web Services Removeprofilepermission
       description: Removes cross-account permissions from a signing profile.
       operationId: amazonWebServicesRemoveProfilePermission
+      tags:
+        - Signing Profiles
   /signing-jobs/{jobId}/revoke:
     PUT:
       summary: Amazon Web Services Revokesignature
@@ -125,6 +145,8 @@ paths:
         Changes the state of a signing job to REVOKED. This indicates that the
         signature is no longer valid.
       operationId: amazonWebServicesRevokeSignature
+      tags:
+        - Signing Jobs
   /signing-profiles/{profileName}/revoke:
     PUT:
       summary: Amazon Web Services Revokesigningprofile
@@ -133,9 +155,18 @@ paths:
         signatures generated using the signing profile after an effective start
         date are no longer valid.
       operationId: amazonWebServicesRevokeSigningProfile
+      tags:
+        - Signing Profiles
   /signing-jobs/with-payload:
     POST:
       summary: Amazon Web Services Signpayload
       description: Signs a binary payload and returns a signature envelope.
       operationId: amazonWebServicesSignPayload
-tags: []
+      tags:
+        - Signing Jobs
+tags:
+  - name: Revocations
+  - name: Signing Jobs
+  - name: Signing Platforms
+  - name: Signing Profiles
+  - name: Tags

@@ -17,6 +17,8 @@ paths:
         Acknowledges one or more alarms. The alarms change to the ACKNOWLEDGED
         state after you acknowledge them.
       operationId: amazonWebServicesBatchAcknowledgeAlarm
+      tags:
+        - Alarms
   /detectors/delete:
     POST:
       summary: Amazon Web Services Batchdeletedetector
@@ -26,6 +28,8 @@ paths:
         the list of detectors. The deleted detector will no longer appear if
         referenced in the ListDetectors API call.
       operationId: amazonWebServicesBatchDeleteDetector
+      tags:
+        - Detectors
   /alarms/disable:
     POST:
       summary: Amazon Web Services Batchdisablealarm
@@ -33,6 +37,8 @@ paths:
         Disables one or more alarms. The alarms change to the DISABLED state
         after you disable them.
       operationId: amazonWebServicesBatchDisableAlarm
+      tags:
+        - Alarms
   /alarms/enable:
     POST:
       summary: Amazon Web Services Batchenablealarm
@@ -40,6 +46,8 @@ paths:
         Enables one or more alarms. The alarms change to the NORMAL state after
         you enable them.
       operationId: amazonWebServicesBatchEnableAlarm
+      tags:
+        - Alarms
   /inputs/messages:
     POST:
       summary: Amazon Web Services Batchputmessage
@@ -51,6 +59,8 @@ paths:
         guarantee ordering, you must send messages one at a time and wait for a
         successful response.
       operationId: amazonWebServicesBatchPutMessage
+      tags:
+        - Inputs
   /alarms/reset:
     POST:
       summary: Amazon Web Services Batchresetalarm
@@ -58,6 +68,8 @@ paths:
         Resets one or more alarms. The alarms return to the NORMAL state after
         you reset them.
       operationId: amazonWebServicesBatchResetAlarm
+      tags:
+        - Alarms
   /alarms/snooze:
     POST:
       summary: Amazon Web Services Batchsnoozealarm
@@ -65,6 +77,8 @@ paths:
         Changes one or more alarms to the snooze mode. The alarms change to the
         SNOOZE_DISABLED state after you set them to the snooze mode.
       operationId: amazonWebServicesBatchSnoozeAlarm
+      tags:
+        - Alarms
   /detectors:
     POST:
       summary: Amazon Web Services Batchupdatedetector
@@ -72,16 +86,22 @@ paths:
         Updates the state, variable values, and timer settings of one or more
         detectors (instances) of a specified detector model.
       operationId: amazonWebServicesBatchUpdateDetector
+      tags:
+        - Detectors
   /alarms/{alarmModelName}/keyValues/:
     GET:
       summary: Amazon Web Services Describealarm
       description: Retrieves information about an alarm.
       operationId: amazonWebServicesDescribeAlarm
+      tags:
+        - Alarms
   /detectors/{detectorModelName}/keyValues/:
     GET:
       summary: Amazon Web Services Describedetector
       description: Returns information about the specified detector (instance).
       operationId: amazonWebServicesDescribeDetector
+      tags:
+        - Detectors
   /alarms/{alarmModelName}:
     GET:
       summary: Amazon Web Services Listalarms
@@ -89,9 +109,16 @@ paths:
         Lists one or more alarms. The operation returns only the metadata
         associated with each alarm.
       operationId: amazonWebServicesListAlarms
+      tags:
+        - Alarms
   /detectors/{detectorModelName}:
     GET:
       summary: Amazon Web Services Listdetectors
       description: Lists detectors (the instances of a detector model).
       operationId: amazonWebServicesListDetectors
-tags: []
+      tags:
+        - Detectors
+tags:
+  - name: Alarms
+  - name: Detectors
+  - name: Inputs

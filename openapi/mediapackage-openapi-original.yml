@@ -8,41 +8,57 @@ paths:
       summary: Amazon Web Services Configurelogs
       description: Changes the Channel's properities to configure log subscription
       operationId: amazonWebServicesConfigureLogs
+      tags:
+        - Channels
   /channels:
     GET:
       summary: Amazon Web Services Listchannels
       description: Returns a collection of Channels.
       operationId: amazonWebServicesListChannels
+      tags:
+        - Channels
   /harvest_jobs:
     GET:
       summary: Amazon Web Services Listharvestjobs
       description: Returns a collection of HarvestJob records.
       operationId: amazonWebServicesListHarvestJobs
+      tags:
+        - Harvest Jobs
   /origin_endpoints:
     GET:
       summary: Amazon Web Services Listoriginendpoints
       description: Returns a collection of OriginEndpoint records.
       operationId: amazonWebServicesListOriginEndpoints
+      tags:
+        - Origin Endpoints
   /channels/{id}:
     PUT:
       summary: Amazon Web Services Updatechannel
       description: Updates an existing Channel.
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - Channels
   /origin_endpoints/{id}:
     PUT:
       summary: Amazon Web Services Updateoriginendpoint
       description: Updates an existing OriginEndpoint.
       operationId: amazonWebServicesUpdateOriginEndpoint
+      tags:
+        - Origin Endpoints
   /harvest_jobs/{id}:
     GET:
       summary: Amazon Web Services Describeharvestjob
       description: Gets details about an existing HarvestJob.
       operationId: amazonWebServicesDescribeHarvestJob
+      tags:
+        - Harvest Jobs
   /tags/{resource-arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Needs a more full description created.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /channels/{id}/credentials:
     PUT:
       summary: Amazon Web Services Rotatechannelcredentials
@@ -51,6 +67,8 @@ paths:
         WARNING - This API is deprecated. Please use
         RotateIngestEndpointCredentials instead
       operationId: amazonWebServicesRotateChannelCredentials
+      tags:
+        - Channels
   /channels/{id}/ingest_endpoints/{ingest_endpoint_id}/credentials:
     PUT:
       summary: Amazon Web Services Rotateingestendpointcredentials
@@ -58,4 +76,10 @@ paths:
         Rotate the IngestEndpoint's username and password, as specified by the
         IngestEndpoint's id.
       operationId: amazonWebServicesRotateIngestEndpointCredentials
-tags: []
+      tags:
+        - Channels
+tags:
+  - name: Channels
+  - name: Harvest Jobs
+  - name: Origin Endpoints
+  - name: Tags

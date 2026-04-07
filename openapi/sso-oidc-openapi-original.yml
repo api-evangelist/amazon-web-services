@@ -46,6 +46,8 @@ paths:
         fetch short-term credentials for the assigned AWS accounts or to access
         application APIs using bearer authentication.
       operationId: amazonWebServicesCreateToken
+      tags:
+        - Token
   /token?aws_iam=t:
     POST:
       summary: Amazon Web Services Createtokenwithiam
@@ -55,6 +57,8 @@ paths:
         can be used to fetch short-term credentials for the assigned AWS
         accounts or to access application APIs using bearer authentication.
       operationId: amazonWebServicesCreateTokenWithIAM
+      tags:
+        - Token?aws Iam=t
   /client/register:
     POST:
       summary: Amazon Web Services Registerclient
@@ -63,6 +67,8 @@ paths:
         initiate device authorization. The output should be persisted for reuse
         through many authentication requests.
       operationId: amazonWebServicesRegisterClient
+      tags:
+        - Client
   /device_authorization:
     POST:
       summary: Amazon Web Services Startdeviceauthorization
@@ -70,4 +76,10 @@ paths:
         Initiates device authorization by requesting a pair of verification
         codes from the authorization service.
       operationId: amazonWebServicesStartDeviceAuthorization
-tags: []
+      tags:
+        - Device Authorization
+tags:
+  - name: Client
+  - name: Device Authorization
+  - name: Token
+  - name: Token?aws Iam=t

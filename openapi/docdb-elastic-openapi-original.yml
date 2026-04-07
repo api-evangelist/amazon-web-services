@@ -10,11 +10,15 @@ paths:
         Creates a new Elastic DocumentDB cluster and returns its Cluster
         structure.
       operationId: amazonWebServicesCreateCluster
+      tags:
+        - Cluster
   /cluster-snapshot:
     POST:
       summary: Amazon Web Services Createclustersnapshot
       description: Creates a snapshot of a cluster.
       operationId: amazonWebServicesCreateClusterSnapshot
+      tags:
+        - Cluster Snapshot
   /cluster/{clusterArn}:
     PUT:
       summary: Amazon Web Services Updatecluster
@@ -23,11 +27,15 @@ paths:
         admin-username/password, upgrading API version setting up a backup
         window and maintenance window
       operationId: amazonWebServicesUpdateCluster
+      tags:
+        - Cluster
   /cluster-snapshot/{snapshotArn}:
     GET:
       summary: Amazon Web Services Getclustersnapshot
       description: Returns information about a specific Elastic DocumentDB snapshot
       operationId: amazonWebServicesGetClusterSnapshot
+      tags:
+        - Cluster Snapshot
   /cluster-snapshots:
     GET:
       summary: Amazon Web Services Listclustersnapshots
@@ -35,19 +43,32 @@ paths:
         Returns information about Elastic DocumentDB snapshots for a specified
         cluster.
       operationId: amazonWebServicesListClusterSnapshots
+      tags:
+        - Cluster Snapshots
   /clusters:
     GET:
       summary: Amazon Web Services Listclusters
       description: Returns information about provisioned Elastic DocumentDB clusters.
       operationId: amazonWebServicesListClusters
+      tags:
+        - Clusters
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes metadata tags to a Elastic DocumentDB resource
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /cluster-snapshot/{snapshotArn}/restore:
     POST:
       summary: Amazon Web Services Restoreclusterfromsnapshot
       description: Restores a Elastic DocumentDB cluster from a snapshot.
       operationId: amazonWebServicesRestoreClusterFromSnapshot
-tags: []
+      tags:
+        - Cluster Snapshot
+tags:
+  - name: Cluster
+  - name: Cluster Snapshot
+  - name: Cluster Snapshots
+  - name: Clusters
+  - name: Tags

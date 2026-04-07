@@ -10,6 +10,8 @@ paths:
       summary: Amazon Web Services Getapiassociation
       description: Retrieves an ApiAssociation object.
       operationId: amazonWebServicesGetApiAssociation
+      tags:
+        - Domainnames
   /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations:
     POST:
       summary: Amazon Web Services Associatemergedgraphqlapi
@@ -17,6 +19,8 @@ paths:
         Creates an association between a Merged API and source API using the
         source API's identifier.
       operationId: amazonWebServicesAssociateMergedGraphqlApi
+      tags:
+        - sourceApis
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations:
     POST:
       summary: Amazon Web Services Associatesourcegraphqlapi
@@ -24,11 +28,15 @@ paths:
         Creates an association between a Merged API and source API using the
         Merged API's identifier.
       operationId: amazonWebServicesAssociateSourceGraphqlApi
+      tags:
+        - mergedApis
   /v1/apis/{apiId}/ApiCaches:
     GET:
       summary: Amazon Web Services Getapicache
       description: Retrieves an ApiCache object.
       operationId: amazonWebServicesGetApiCache
+      tags:
+        - ApiCaches
   /v1/apis/{apiId}/apikeys:
     GET:
       summary: Amazon Web Services Listapikeys
@@ -39,21 +47,29 @@ paths:
         DeleteApiKey to manually delete a key before it's automatically
         deleted. 
       operationId: amazonWebServicesListApiKeys
+      tags:
+        - Apikeys
   /v1/apis/{apiId}/datasources:
     GET:
       summary: Amazon Web Services Listdatasources
       description: Lists the data sources for a given API.
       operationId: amazonWebServicesListDataSources
+      tags:
+        - Datasources
   /v1/domainnames:
     GET:
       summary: Amazon Web Services Listdomainnames
       description: Lists multiple custom domain names.
       operationId: amazonWebServicesListDomainNames
+      tags:
+        - Domainnames
   /v1/apis/{apiId}/functions:
     GET:
       summary: Amazon Web Services Listfunctions
       description: List multiple functions.
       operationId: amazonWebServicesListFunctions
+      tags:
+        - Functions
   /v1/apis:
     GET:
       summary: Amazon Web Services Listgraphqlapis
@@ -64,31 +80,43 @@ paths:
       summary: Amazon Web Services Listresolvers
       description: Lists the resolvers for a given API and type.
       operationId: amazonWebServicesListResolvers
+      tags:
+        - Types
   /v1/apis/{apiId}/types:
     GET:
       summary: Amazon Web Services Listtypes
       description: Lists the types for a given API.
       operationId: amazonWebServicesListTypes
+      tags:
+        - Types
   /v1/apis/{apiId}/apikeys/{id}:
     POST:
       summary: Amazon Web Services Updateapikey
       description: Updates an API key. You can update the key as long as it's not deleted.
       operationId: amazonWebServicesUpdateApiKey
+      tags:
+        - Apikeys
   /v1/apis/{apiId}/datasources/{name}:
     POST:
       summary: Amazon Web Services Updatedatasource
       description: Updates a DataSource object.
       operationId: amazonWebServicesUpdateDataSource
+      tags:
+        - Datasources
   /v1/domainnames/{domainName}:
     POST:
       summary: Amazon Web Services Updatedomainname
       description: Updates a custom DomainName object.
       operationId: amazonWebServicesUpdateDomainName
+      tags:
+        - Domainnames
   /v1/apis/{apiId}/functions/{functionId}:
     POST:
       summary: Amazon Web Services Updatefunction
       description: Updates a Function object.
       operationId: amazonWebServicesUpdateFunction
+      tags:
+        - Functions
   /v1/apis/{apiId}:
     POST:
       summary: Amazon Web Services Updategraphqlapi
@@ -99,11 +127,15 @@ paths:
       summary: Amazon Web Services Updateresolver
       description: Updates a Resolver object.
       operationId: amazonWebServicesUpdateResolver
+      tags:
+        - Types
   /v1/apis/{apiId}/types/{typeName}:
     POST:
       summary: Amazon Web Services Updatetype
       description: Updates a Type object.
       operationId: amazonWebServicesUpdateType
+      tags:
+        - Types
   /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}:
     DELETE:
       summary: Amazon Web Services Disassociatemergedgraphqlapi
@@ -111,6 +143,8 @@ paths:
         Deletes an association between a Merged API and source API using the
         source API's identifier and the association ID.
       operationId: amazonWebServicesDisassociateMergedGraphqlApi
+      tags:
+        - sourceApis
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}:
     POST:
       summary: Amazon Web Services Updatesourceapiassociation
@@ -118,6 +152,8 @@ paths:
         Updates some of the configuration choices of a particular source API
         association.
       operationId: amazonWebServicesUpdateSourceApiAssociation
+      tags:
+        - mergedApis
   /v1/dataplane-evaluatecode:
     POST:
       summary: Amazon Web Services Evaluatecode
@@ -130,6 +166,8 @@ paths:
         source operation. The response function interprets responses from the
         data source and maps it to the shape of the GraphQL field output type. 
       operationId: amazonWebServicesEvaluateCode
+      tags:
+        - Dataplane Evaluatecode
   /v1/dataplane-evaluatetemplate:
     POST:
       summary: Amazon Web Services Evaluatemappingtemplate
@@ -142,11 +180,15 @@ paths:
         to the shape of the GraphQL field output type. Mapping templates are
         written in the Apache Velocity Template Language (VTL).
       operationId: amazonWebServicesEvaluateMappingTemplate
+      tags:
+        - Dataplane Evaluatetemplate
   /v1/apis/{apiId}/FlushCache:
     DELETE:
       summary: Amazon Web Services Flushapicache
       description: Flushes an ApiCache object.
       operationId: amazonWebServicesFlushApiCache
+      tags:
+        - FlushCache
   /v1/datasources/introspections/{introspectionId}:
     GET:
       summary: Amazon Web Services Getdatasourceintrospection
@@ -156,6 +198,8 @@ paths:
         the retrieval fails the operation, an error message will be returned
         instead.
       operationId: amazonWebServicesGetDataSourceIntrospection
+      tags:
+        - Datasources
   /v1/apis/{apiId}/environmentVariables:
     PUT:
       summary: Amazon Web Services Putgraphqlapienvironmentvariables
@@ -180,11 +224,15 @@ paths:
         include all existing and new environmental variables in the list each
         time you call this action.
       operationId: amazonWebServicesPutGraphqlApiEnvironmentVariables
+      tags:
+        - environmentVariables
   /v1/apis/{apiId}/schema:
     GET:
       summary: Amazon Web Services Getintrospectionschema
       description: Retrieves the introspection schema for a GraphQL API.
       operationId: amazonWebServicesGetIntrospectionSchema
+      tags:
+        - Schema
   /v1/apis/{apiId}/schemacreation:
     POST:
       summary: Amazon Web Services Startschemacreation
@@ -192,26 +240,36 @@ paths:
         Adds a new schema to your GraphQL API. This operation is asynchronous.
         Use to determine when it has completed.
       operationId: amazonWebServicesStartSchemaCreation
+      tags:
+        - Schemacreation
   /v1/apis/{apiId}/functions/{functionId}/resolvers:
     GET:
       summary: Amazon Web Services Listresolversbyfunction
       description: List the resolvers that are associated with a specific function.
       operationId: amazonWebServicesListResolversByFunction
+      tags:
+        - Functions
   /v1/apis/{apiId}/sourceApiAssociations:
     GET:
       summary: Amazon Web Services Listsourceapiassociations
       description: Lists the SourceApiAssociationSummary data.
       operationId: amazonWebServicesListSourceApiAssociations
+      tags:
+        - sourceApiAssociations
   /v1/tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untags a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/types:
     GET:
       summary: Amazon Web Services Listtypesbyassociation
       description: Lists Type objects by the source API association ID.
       operationId: amazonWebServicesListTypesByAssociation
+      tags:
+        - mergedApis
   /v1/datasources/introspections:
     POST:
       summary: Amazon Web Services Startdatasourceintrospection
@@ -219,6 +277,8 @@ paths:
         Creates a new introspection. Returns the introspectionId of the new
         introspection after its creation. 
       operationId: amazonWebServicesStartDataSourceIntrospection
+      tags:
+        - Datasources
   /v1/mergedApis/{mergedApiIdentifier}/sourceApiAssociations/{associationId}/merge:
     POST:
       summary: Amazon Web Services Startschemamerge
@@ -226,9 +286,29 @@ paths:
         Initiates a merge operation. Returns a status that shows the result of
         the merge operation.
       operationId: amazonWebServicesStartSchemaMerge
+      tags:
+        - mergedApis
   /v1/apis/{apiId}/ApiCaches/update:
     POST:
       summary: Amazon Web Services Updateapicache
       description: Updates the cache for the GraphQL API.
       operationId: amazonWebServicesUpdateApiCache
-tags: []
+      tags:
+        - ApiCaches
+tags:
+  - name: ApiCaches
+  - name: Apikeys
+  - name: Dataplane Evaluatecode
+  - name: Dataplane Evaluatetemplate
+  - name: Datasources
+  - name: Domainnames
+  - name: environmentVariables
+  - name: FlushCache
+  - name: Functions
+  - name: mergedApis
+  - name: Schema
+  - name: Schemacreation
+  - name: sourceApiAssociations
+  - name: sourceApis
+  - name: Tags
+  - name: Types

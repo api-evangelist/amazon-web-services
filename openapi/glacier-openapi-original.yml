@@ -66,6 +66,8 @@ paths:
         (Multipart Upload) and Upload Part  in the Amazon Glacier Developer
         Guide.
       operationId: amazonWebServicesUploadMultipartPart
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/lock-policy:
     POST:
       summary: Amazon Web Services Initiatevaultlock
@@ -91,6 +93,8 @@ paths:
         state you must call AbortVaultLock before you can initiate a new vault
         lock policy. 
       operationId: amazonWebServicesInitiateVaultLock
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/tags?operation=add:
     POST:
       summary: Amazon Web Services Addtagstovault
@@ -103,6 +107,8 @@ paths:
         For more information about tags, see Tagging Amazon S3 Glacier
         Resources. 
       operationId: amazonWebServicesAddTagsToVault
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/lock-policy/{lockId}:
     POST:
       summary: Amazon Web Services Completevaultlock
@@ -121,6 +127,8 @@ paths:
         in the request when the vault lock is in the InProgress state, the
         operation throws an InvalidParameter error.
       operationId: amazonWebServicesCompleteVaultLock
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}:
     GET:
       summary: Amazon Web Services Describevault
@@ -143,6 +151,8 @@ paths:
         API, see Retrieving Vault Metadata in Amazon S3 Glacier and Describe
         Vault  in the Amazon Glacier Developer Guide. 
       operationId: amazonWebServicesDescribeVault
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/archives/{archiveId}:
     DELETE:
       summary: Amazon Web Services Deletearchive
@@ -164,6 +174,8 @@ paths:
         information and underlying REST API, see Deleting an Archive in Amazon
         Glacier and Delete Archive in the Amazon Glacier Developer Guide. 
       operationId: amazonWebServicesDeleteArchive
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/access-policy:
     PUT:
       summary: Amazon Web Services Setvaultaccesspolicy
@@ -176,6 +188,8 @@ paths:
         KB in size. For more information about vault access policies, see Amazon
         Glacier Access Control with Vault Access Policies. 
       operationId: amazonWebServicesSetVaultAccessPolicy
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/notification-configuration:
     PUT:
       summary: Amazon Web Services Setvaultnotifications
@@ -205,6 +219,8 @@ paths:
         Configuring Vault Notifications in Amazon S3 Glacier and Set Vault
         Notification Configuration  in the Amazon Glacier Developer Guide. 
       operationId: amazonWebServicesSetVaultNotifications
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Describejob
@@ -226,6 +242,8 @@ paths:
         using this operation, see the documentation for the underlying REST API
         Describe Job in the Amazon Glacier Developer Guide. 
       operationId: amazonWebServicesDescribeJob
+      tags:
+        - Vaults
   /{accountId}/policies/data-retrieval:
     PUT:
       summary: Amazon Web Services Setdataretrievalpolicy
@@ -238,6 +256,8 @@ paths:
         more information about data retrieval policies, see Amazon Glacier Data
         Retrieval Policies. 
       operationId: amazonWebServicesSetDataRetrievalPolicy
+      tags:
+        - Policies
   /{accountId}/vaults/{vaultName}/jobs/{jobId}/output:
     GET:
       summary: Amazon Web Services Getjoboutput
@@ -277,6 +297,8 @@ paths:
         REST API, see Downloading a Vault Inventory, Downloading an Archive, and
         Get Job Output  
       operationId: amazonWebServicesGetJobOutput
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/jobs:
     GET:
       summary: Amazon Web Services Listjobs
@@ -312,6 +334,8 @@ paths:
         For more information about using this operation, see the documentation
         for the underlying REST API List Jobs. 
       operationId: amazonWebServicesListJobs
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/multipart-uploads:
     GET:
       summary: Amazon Web Services Listmultipartuploads
@@ -341,6 +365,8 @@ paths:
         the underlying REST API, see Working with Archives in Amazon S3 Glacier
         and List Multipart Uploads  in the Amazon Glacier Developer Guide.
       operationId: amazonWebServicesListMultipartUploads
+      tags:
+        - Vaults
   /{accountId}/provisioned-capacity:
     POST:
       summary: Amazon Web Services Purchaseprovisionedcapacity
@@ -348,6 +374,8 @@ paths:
         This operation purchases a provisioned capacity unit for an AWS
         account. 
       operationId: amazonWebServicesPurchaseProvisionedCapacity
+      tags:
+        - Provisioned Capacity
   /{accountId}/vaults/{vaultName}/tags:
     GET:
       summary: Amazon Web Services Listtagsforvault
@@ -356,6 +384,8 @@ paths:
         returns an empty map if there are no tags. For more information about
         tags, see Tagging Amazon S3 Glacier Resources.
       operationId: amazonWebServicesListTagsForVault
+      tags:
+        - Vaults
   /{accountId}/vaults:
     GET:
       summary: Amazon Web Services Listvaults
@@ -378,6 +408,8 @@ paths:
         Metadata in Amazon S3 Glacier and List Vaults  in the Amazon Glacier
         Developer Guide. 
       operationId: amazonWebServicesListVaults
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/tags?operation=remove:
     POST:
       summary: Amazon Web Services Removetagsfromvault
@@ -387,6 +419,8 @@ paths:
         Resources. This operation is idempotent. The operation will be
         successful, even if there are no tags attached to the vault. 
       operationId: amazonWebServicesRemoveTagsFromVault
+      tags:
+        - Vaults
   /{accountId}/vaults/{vaultName}/archives:
     POST:
       summary: Amazon Web Services Uploadarchive
@@ -420,4 +454,9 @@ paths:
         Uploading an Archive in Amazon Glacier and Upload Archive in the Amazon
         Glacier Developer Guide. 
       operationId: amazonWebServicesUploadArchive
-tags: []
+      tags:
+        - Vaults
+tags:
+  - name: Policies
+  - name: Provisioned Capacity
+  - name: Vaults

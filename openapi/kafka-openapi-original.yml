@@ -10,31 +10,43 @@ paths:
         Returns a list of the Scram Secrets associated with an Amazon MSK
         cluster.
       operationId: amazonWebServicesListScramSecrets
+      tags:
+        - Clusters
   /v1/clusters:
     GET:
       summary: Amazon Web Services Listclusters
       description: Returns a list of all the MSK clusters in the current Region.
       operationId: amazonWebServicesListClusters
+      tags:
+        - Clusters
   /api/v2/clusters:
     GET:
       summary: Amazon Web Services Listclustersv2
       description: Returns a list of all the MSK clusters in the current Region.
       operationId: amazonWebServicesListClustersV2
+      tags:
+        - Clusters
   /replication/v1/replicators:
     GET:
       summary: Amazon Web Services Listreplicators
       description: Lists the replicators.
       operationId: amazonWebServicesListReplicators
+      tags:
+        - Replication
   /v1/configurations:
     GET:
       summary: Amazon Web Services Listconfigurations
       description: Returns a list of all the MSK configurations in this Region.
       operationId: amazonWebServicesListConfigurations
+      tags:
+        - Configurations
   /v1/vpc-connection:
     POST:
       summary: Amazon Web Services Createvpcconnection
       description: Creates a new Amazon MSK VPC connection.
       operationId: amazonWebServicesCreateVpcConnection
+      tags:
+        - Vpc Connection
   /v1/clusters/{clusterArn}:
     GET:
       summary: Amazon Web Services Describecluster
@@ -42,6 +54,8 @@ paths:
         Returns a description of the MSK cluster whose Amazon Resource Name
         (ARN) is specified in the request.
       operationId: amazonWebServicesDescribeCluster
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/policy:
     PUT:
       summary: Amazon Web Services Putclusterpolicy
@@ -49,6 +63,8 @@ paths:
         Creates or updates the specified MSK cluster policy. If updating the
         policy, the currentVersion field is required in the request payload.
       operationId: amazonWebServicesPutClusterPolicy
+      tags:
+        - Clusters
   /v1/configurations/{arn}:
     PUT:
       summary: Amazon Web Services Updateconfiguration
@@ -56,6 +72,8 @@ paths:
         Updates an existing MSK configuration. The configuration must be in the
         Active state.
       operationId: amazonWebServicesUpdateConfiguration
+      tags:
+        - Configurations
   /replication/v1/replicators/{replicatorArn}:
     GET:
       summary: Amazon Web Services Describereplicator
@@ -63,11 +81,15 @@ paths:
         Returns a description of the Kafka Replicator whose Amazon Resource Name
         (ARN) is specified in the request.
       operationId: amazonWebServicesDescribeReplicator
+      tags:
+        - Replication
   /v1/vpc-connection/{arn}:
     GET:
       summary: Amazon Web Services Describevpcconnection
       description: Displays information about the specified Amazon MSK VPC connection.
       operationId: amazonWebServicesDescribeVpcConnection
+      tags:
+        - Vpc Connection
   /api/v2/clusters/{clusterArn}:
     GET:
       summary: Amazon Web Services Describeclusterv2
@@ -76,36 +98,50 @@ paths:
         the serverless type whose Amazon Resource Name (ARN) is specified in the
         request.
       operationId: amazonWebServicesDescribeClusterV2
+      tags:
+        - Clusters
   /v1/operations/{clusterOperationArn}:
     GET:
       summary: Amazon Web Services Describeclusteroperation
       description: Returns a description of the cluster operation specified by the ARN.
       operationId: amazonWebServicesDescribeClusterOperation
+      tags:
+        - Operations
   /api/v2/operations/{clusterOperationArn}:
     GET:
       summary: Amazon Web Services Describeclusteroperationv2
       description: Returns a description of the cluster operation specified by the ARN.
       operationId: amazonWebServicesDescribeClusterOperationV2
+      tags:
+        - Operations
   /v1/configurations/{arn}/revisions/{revision}:
     GET:
       summary: Amazon Web Services Describeconfigurationrevision
       description: Returns a description of this revision of the configuration.
       operationId: amazonWebServicesDescribeConfigurationRevision
+      tags:
+        - Configurations
   /v1/clusters/{clusterArn}/bootstrap-brokers:
     GET:
       summary: Amazon Web Services Getbootstrapbrokers
       description: A list of brokers that a client application can use to bootstrap.
       operationId: amazonWebServicesGetBootstrapBrokers
+      tags:
+        - Clusters
   /v1/compatible-kafka-versions:
     GET:
       summary: Amazon Web Services Getcompatiblekafkaversions
       description: Gets the Apache Kafka versions to which you can update the MSK cluster.
       operationId: amazonWebServicesGetCompatibleKafkaVersions
+      tags:
+        - Compatible Kafka Versions
   /v1/clusters/{clusterArn}/client-vpc-connections:
     GET:
       summary: Amazon Web Services Listclientvpcconnections
       description: Displays a list of client VPC connections.
       operationId: amazonWebServicesListClientVpcConnections
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/operations:
     GET:
       summary: Amazon Web Services Listclusteroperations
@@ -113,6 +149,8 @@ paths:
         Returns a list of all the operations that have been performed on the
         specified MSK cluster.
       operationId: amazonWebServicesListClusterOperations
+      tags:
+        - Clusters
   /api/v2/clusters/{clusterArn}/operations:
     GET:
       summary: Amazon Web Services Listclusteroperationsv2
@@ -120,21 +158,29 @@ paths:
         Returns a list of all the operations that have been performed on the
         specified MSK cluster.
       operationId: amazonWebServicesListClusterOperationsV2
+      tags:
+        - Clusters
   /v1/configurations/{arn}/revisions:
     GET:
       summary: Amazon Web Services Listconfigurationrevisions
       description: Returns a list of all the revisions of an MSK configuration.
       operationId: amazonWebServicesListConfigurationRevisions
+      tags:
+        - Configurations
   /v1/kafka-versions:
     GET:
       summary: Amazon Web Services Listkafkaversions
       description: Returns a list of Apache Kafka versions.
       operationId: amazonWebServicesListKafkaVersions
+      tags:
+        - Kafka Versions
   /v1/clusters/{clusterArn}/nodes:
     GET:
       summary: Amazon Web Services Listnodes
       description: Returns a list of the broker nodes in the cluster.
       operationId: amazonWebServicesListNodes
+      tags:
+        - Clusters
   /v1/tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -142,16 +188,22 @@ paths:
         Removes the tags associated with the keys that are provided in the
         query.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/vpc-connections:
     GET:
       summary: Amazon Web Services Listvpcconnections
       description: Displays a list of Amazon MSK VPC connections.
       operationId: amazonWebServicesListVpcConnections
+      tags:
+        - Vpc Connections
   /v1/clusters/{clusterArn}/reboot-broker:
     PUT:
       summary: Amazon Web Services Rebootbroker
       description: Executes a reboot on a broker.
       operationId: amazonWebServicesRebootBroker
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/nodes/count:
     PUT:
       summary: Amazon Web Services Updatebrokercount
@@ -160,21 +212,29 @@ paths:
         operation to increase the number of brokers in an existing cluster. You
         can't decrease the number of brokers.
       operationId: amazonWebServicesUpdateBrokerCount
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/nodes/type:
     PUT:
       summary: Amazon Web Services Updatebrokertype
       description: Updates all the brokers in the cluster to the specified type.
       operationId: amazonWebServicesUpdateBrokerType
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/nodes/storage:
     PUT:
       summary: Amazon Web Services Updatebrokerstorage
       description: Updates the EBS storage associated with MSK brokers.
       operationId: amazonWebServicesUpdateBrokerStorage
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/connectivity:
     PUT:
       summary: Amazon Web Services Updateconnectivity
       description: Updates the connectivity configuration for the MSK cluster.
       operationId: amazonWebServicesUpdateConnectivity
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/configuration:
     PUT:
       summary: Amazon Web Services Updateclusterconfiguration
@@ -182,11 +242,15 @@ paths:
         Updates the cluster with the configuration that is specified in the
         request body.
       operationId: amazonWebServicesUpdateClusterConfiguration
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/version:
     PUT:
       summary: Amazon Web Services Updateclusterkafkaversion
       description: Updates the Apache Kafka version for the cluster.
       operationId: amazonWebServicesUpdateClusterKafkaVersion
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/monitoring:
     PUT:
       summary: Amazon Web Services Updatemonitoring
@@ -196,11 +260,15 @@ paths:
         send to Amazon CloudWatch. You can also specify settings for open
         monitoring with Prometheus.
       operationId: amazonWebServicesUpdateMonitoring
+      tags:
+        - Clusters
   /replication/v1/replicators/{replicatorArn}/replication-info:
     PUT:
       summary: Amazon Web Services Updatereplicationinfo
       description: Updates replication info of a replicator.
       operationId: amazonWebServicesUpdateReplicationInfo
+      tags:
+        - Replication
   /v1/clusters/{clusterArn}/security:
     PATCH:
       summary: Amazon Web Services Updatesecurity
@@ -208,6 +276,8 @@ paths:
         You can use this operation to update the encrypting and authentication
         settings for an existing cluster.
       operationId: amazonWebServicesUpdateSecurity
+      tags:
+        - Clusters
   /v1/clusters/{clusterArn}/storage:
     PUT:
       summary: Amazon Web Services Updatestorage
@@ -215,4 +285,15 @@ paths:
         Updates cluster broker volume size (or) sets cluster storage mode to
         TIERED.
       operationId: amazonWebServicesUpdateStorage
-tags: []
+      tags:
+        - Clusters
+tags:
+  - name: Clusters
+  - name: Compatible Kafka Versions
+  - name: Configurations
+  - name: Kafka Versions
+  - name: Operations
+  - name: Replication
+  - name: Tags
+  - name: Vpc Connection
+  - name: Vpc Connections

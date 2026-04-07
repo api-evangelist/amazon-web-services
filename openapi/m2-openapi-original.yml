@@ -15,6 +15,8 @@ paths:
       summary: Amazon Web Services Cancelbatchjobexecution
       description: Cancels the running of a specific batch job execution.
       operationId: amazonWebServicesCancelBatchJobExecution
+      tags:
+        - Applications
   /applications:
     GET:
       summary: Amazon Web Services Listapplications
@@ -24,11 +26,15 @@ paths:
         environment in a query parameter to see all applications associated with
         that environment.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /applications/{applicationId}/dataset-import-task:
     POST:
       summary: Amazon Web Services Createdatasetimporttask
       description: Starts a data set import task for a specific application.
       operationId: amazonWebServicesCreateDataSetImportTask
+      tags:
+        - Applications
   /applications/{applicationId}/deployments:
     GET:
       summary: Amazon Web Services Listdeployments
@@ -38,16 +44,22 @@ paths:
         version of that application. Each deployment is mapped to a particular
         application version.
       operationId: amazonWebServicesListDeployments
+      tags:
+        - Applications
   /environments:
     GET:
       summary: Amazon Web Services Listenvironments
       description: Lists the runtime environments.
       operationId: amazonWebServicesListEnvironments
+      tags:
+        - Environments
   /applications/{applicationId}:
     PATCH:
       summary: Amazon Web Services Updateapplication
       description: Updates an application and creates a new version.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /applications/{applicationId}/environment/{environmentId}:
     DELETE:
       summary: Amazon Web Services Deleteapplicationfromenvironment
@@ -58,16 +70,22 @@ paths:
         deployed to it. This API removes the association of the application with
         the runtime environment so you can delete the environment smoothly.
       operationId: amazonWebServicesDeleteApplicationFromEnvironment
+      tags:
+        - Applications
   /environments/{environmentId}:
     PATCH:
       summary: Amazon Web Services Updateenvironment
       description: Updates the configuration details for a specific runtime environment.
       operationId: amazonWebServicesUpdateEnvironment
+      tags:
+        - Environments
   /applications/{applicationId}/versions/{applicationVersion}:
     GET:
       summary: Amazon Web Services Getapplicationversion
       description: Returns details about a specific version of a specific application.
       operationId: amazonWebServicesGetApplicationVersion
+      tags:
+        - Applications
   /applications/{applicationId}/batch-job-executions/{executionId}:
     GET:
       summary: Amazon Web Services Getbatchjobexecution
@@ -75,11 +93,15 @@ paths:
         Gets the details of a specific batch job execution for a specific
         application.
       operationId: amazonWebServicesGetBatchJobExecution
+      tags:
+        - Applications
   /applications/{applicationId}/datasets/{dataSetName}:
     GET:
       summary: Amazon Web Services Getdatasetdetails
       description: Gets the details of a specific data set.
       operationId: amazonWebServicesGetDataSetDetails
+      tags:
+        - Applications
   /applications/{applicationId}/dataset-import-tasks/{taskId}:
     GET:
       summary: Amazon Web Services Getdatasetimporttask
@@ -87,6 +109,8 @@ paths:
         Gets the status of a data set import task initiated with the
         CreateDataSetImportTask operation.
       operationId: amazonWebServicesGetDataSetImportTask
+      tags:
+        - Applications
   /applications/{applicationId}/deployments/{deploymentId}:
     GET:
       summary: Amazon Web Services Getdeployment
@@ -94,6 +118,8 @@ paths:
         Gets details of a specific deployment with a given deployment
         identifier.
       operationId: amazonWebServicesGetDeployment
+      tags:
+        - Applications
   /signed-bi-url:
     GET:
       summary: Amazon Web Services Getsignedbluinsightsurl
@@ -101,11 +127,15 @@ paths:
         Gets a single sign-on URL that can be used to connect to AWS Blu
         Insights.
       operationId: amazonWebServicesGetSignedBluinsightsUrl
+      tags:
+        - Signed Bi Url
   /applications/{applicationId}/versions:
     GET:
       summary: Amazon Web Services Listapplicationversions
       description: Returns a list of the application versions for a specific application.
       operationId: amazonWebServicesListApplicationVersions
+      tags:
+        - Applications
   /applications/{applicationId}/batch-job-definitions:
     GET:
       summary: Amazon Web Services Listbatchjobdefinitions
@@ -114,6 +144,8 @@ paths:
         resources uploaded during the application creation. You can use the
         batch job definitions in the list to start a batch job.
       operationId: amazonWebServicesListBatchJobDefinitions
+      tags:
+        - Applications
   /applications/{applicationId}/batch-job-executions:
     GET:
       summary: Amazon Web Services Listbatchjobexecutions
@@ -121,11 +153,15 @@ paths:
         Lists historical, current, and scheduled batch job executions for a
         specific application.
       operationId: amazonWebServicesListBatchJobExecutions
+      tags:
+        - Applications
   /applications/{applicationId}/dataset-import-tasks:
     GET:
       summary: Amazon Web Services Listdatasetimporthistory
       description: Lists the data set imports for the specified application.
       operationId: amazonWebServicesListDataSetImportHistory
+      tags:
+        - Applications
   /applications/{applicationId}/datasets:
     GET:
       summary: Amazon Web Services Listdatasets
@@ -137,21 +173,29 @@ paths:
         Modernization can import data sets into catalogs using
         CreateDataSetImportTask.
       operationId: amazonWebServicesListDataSets
+      tags:
+        - Applications
   /engine-versions:
     GET:
       summary: Amazon Web Services Listengineversions
       description: Lists the available engine versions.
       operationId: amazonWebServicesListEngineVersions
+      tags:
+        - Engine Versions
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /applications/{applicationId}/start:
     POST:
       summary: Amazon Web Services Startapplication
       description: Starts an application that is currently stopped.
       operationId: amazonWebServicesStartApplication
+      tags:
+        - Applications
   /applications/{applicationId}/batch-job:
     POST:
       summary: Amazon Web Services Startbatchjob
@@ -160,9 +204,18 @@ paths:
         of the batch job. The associated application must be running in order to
         start the batch job.
       operationId: amazonWebServicesStartBatchJob
+      tags:
+        - Applications
   /applications/{applicationId}/stop:
     POST:
       summary: Amazon Web Services Stopapplication
       description: Stops a running application.
       operationId: amazonWebServicesStopApplication
-tags: []
+      tags:
+        - Applications
+tags:
+  - name: Applications
+  - name: Engine Versions
+  - name: Environments
+  - name: Signed Bi Url
+  - name: Tags

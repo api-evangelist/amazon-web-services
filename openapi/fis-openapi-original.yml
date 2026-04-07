@@ -13,6 +13,8 @@ paths:
       summary: Amazon Web Services Listexperimenttemplates
       description: Lists your experiment templates.
       operationId: amazonWebServicesListExperimentTemplates
+      tags:
+        - experimentTemplates
   /experimentTemplates/{id}/targetAccountConfigurations/{accountId}:
     PATCH:
       summary: Amazon Web Services Updatetargetaccountconfiguration
@@ -20,21 +22,29 @@ paths:
         Updates the target account configuration for the specified experiment
         template.
       operationId: amazonWebServicesUpdateTargetAccountConfiguration
+      tags:
+        - experimentTemplates
   /experimentTemplates/{id}:
     PATCH:
       summary: Amazon Web Services Updateexperimenttemplate
       description: Updates the specified experiment template.
       operationId: amazonWebServicesUpdateExperimentTemplate
+      tags:
+        - experimentTemplates
   /actions/{id}:
     GET:
       summary: Amazon Web Services Getaction
       description: Gets information about the specified FIS action.
       operationId: amazonWebServicesGetAction
+      tags:
+        - Actions
   /experiments/{id}:
     DELETE:
       summary: Amazon Web Services Stopexperiment
       description: Stops the specified experiment.
       operationId: amazonWebServicesStopExperiment
+      tags:
+        - Experiments
   /experiments/{id}/targetAccountConfigurations/{accountId}:
     GET:
       summary: Amazon Web Services Getexperimenttargetaccountconfiguration
@@ -42,36 +52,50 @@ paths:
         Gets information about the specified target account configuration of the
         experiment.
       operationId: amazonWebServicesGetExperimentTargetAccountConfiguration
+      tags:
+        - Experiments
   /targetResourceTypes/{resourceType}:
     GET:
       summary: Amazon Web Services Gettargetresourcetype
       description: Gets information about the specified resource type.
       operationId: amazonWebServicesGetTargetResourceType
+      tags:
+        - targetResourceTypes
   /actions:
     GET:
       summary: Amazon Web Services Listactions
       description: Lists the available FIS actions.
       operationId: amazonWebServicesListActions
+      tags:
+        - Actions
   /experiments/{id}/resolvedTargets:
     GET:
       summary: Amazon Web Services Listexperimentresolvedtargets
       description: Lists the resolved targets information of the specified experiment.
       operationId: amazonWebServicesListExperimentResolvedTargets
+      tags:
+        - Experiments
   /experiments/{id}/targetAccountConfigurations:
     GET:
       summary: Amazon Web Services Listexperimenttargetaccountconfigurations
       description: Lists the target account configurations of the specified experiment.
       operationId: amazonWebServicesListExperimentTargetAccountConfigurations
+      tags:
+        - Experiments
   /experiments:
     POST:
       summary: Amazon Web Services Startexperiment
       description: Starts running an experiment from the specified experiment template.
       operationId: amazonWebServicesStartExperiment
+      tags:
+        - Experiments
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /experimentTemplates/{id}/targetAccountConfigurations:
     GET:
       summary: Amazon Web Services Listtargetaccountconfigurations
@@ -79,9 +103,18 @@ paths:
         Lists the target account configurations of the specified experiment
         template.
       operationId: amazonWebServicesListTargetAccountConfigurations
+      tags:
+        - experimentTemplates
   /targetResourceTypes:
     GET:
       summary: Amazon Web Services Listtargetresourcetypes
       description: Lists the target resource types.
       operationId: amazonWebServicesListTargetResourceTypes
-tags: []
+      tags:
+        - targetResourceTypes
+tags:
+  - name: Actions
+  - name: Experiments
+  - name: experimentTemplates
+  - name: Tags
+  - name: targetResourceTypes

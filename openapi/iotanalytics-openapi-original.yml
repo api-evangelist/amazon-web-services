@@ -30,51 +30,71 @@ paths:
       summary: Amazon Web Services Batchputmessage
       description: Sends messages to a channel.
       operationId: amazonWebServicesBatchPutMessage
+      tags:
+        - Messages
   /pipelines/{pipelineName}/reprocessing/{reprocessingId}:
     DELETE:
       summary: Amazon Web Services Cancelpipelinereprocessing
       description: Cancels the reprocessing of data through the pipeline.
       operationId: amazonWebServicesCancelPipelineReprocessing
+      tags:
+        - Pipelines
   /channels:
     GET:
       summary: Amazon Web Services Listchannels
       description: Retrieves a list of channels.
       operationId: amazonWebServicesListChannels
+      tags:
+        - Channels
   /datasets:
     GET:
       summary: Amazon Web Services Listdatasets
       description: Retrieves information about datasets.
       operationId: amazonWebServicesListDatasets
+      tags:
+        - Datasets
   /datasets/{datasetName}/content:
     GET:
       summary: Amazon Web Services Getdatasetcontent
       description: Retrieves the contents of a dataset as presigned URIs.
       operationId: amazonWebServicesGetDatasetContent
+      tags:
+        - Datasets
   /datastores:
     GET:
       summary: Amazon Web Services Listdatastores
       description: Retrieves a list of data stores.
       operationId: amazonWebServicesListDatastores
+      tags:
+        - Datastores
   /pipelines:
     GET:
       summary: Amazon Web Services Listpipelines
       description: Retrieves a list of pipelines.
       operationId: amazonWebServicesListPipelines
+      tags:
+        - Pipelines
   /channels/{channelName}:
     PUT:
       summary: Amazon Web Services Updatechannel
       description: Used to update the settings of a channel.
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - Channels
   /datasets/{datasetName}:
     PUT:
       summary: Amazon Web Services Updatedataset
       description: Updates the settings of a dataset.
       operationId: amazonWebServicesUpdateDataset
+      tags:
+        - Datasets
   /datastores/{datastoreName}:
     PUT:
       summary: Amazon Web Services Updatedatastore
       description: Used to update the settings of a data store.
       operationId: amazonWebServicesUpdateDatastore
+      tags:
+        - Datastores
   /pipelines/{pipelineName}:
     PUT:
       summary: Amazon Web Services Updatepipeline
@@ -83,6 +103,8 @@ paths:
         a datastore activity and, optionally, as many as 23 additional
         activities in the pipelineActivities array.
       operationId: amazonWebServicesUpdatePipeline
+      tags:
+        - Pipelines
   /logging:
     PUT:
       summary: Amazon Web Services Putloggingoptions
@@ -94,16 +116,22 @@ paths:
         invalid policy), it takes up to five minutes for that change to take
         effect. 
       operationId: amazonWebServicesPutLoggingOptions
+      tags:
+        - Logging
   /datasets/{datasetName}/contents:
     GET:
       summary: Amazon Web Services Listdatasetcontents
       description: Lists information about dataset contents that have been created.
       operationId: amazonWebServicesListDatasetContents
+      tags:
+        - Datasets
   /tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the given tags (metadata) from the resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /pipelineactivities/run:
     POST:
       summary: Amazon Web Services Runpipelineactivity
@@ -111,6 +139,8 @@ paths:
         Simulates the results of running a pipeline activity on a message
         payload.
       operationId: amazonWebServicesRunPipelineActivity
+      tags:
+        - Pipelineactivities
   /channels/{channelName}/sample:
     GET:
       summary: Amazon Web Services Samplechanneldata
@@ -118,9 +148,21 @@ paths:
         Retrieves a sample of messages from the specified channel ingested
         during the specified timeframe. Up to 10 messages can be retrieved.
       operationId: amazonWebServicesSampleChannelData
+      tags:
+        - Channels
   /pipelines/{pipelineName}/reprocessing:
     POST:
       summary: Amazon Web Services Startpipelinereprocessing
       description: Starts the reprocessing of raw message data through the pipeline.
       operationId: amazonWebServicesStartPipelineReprocessing
-tags: []
+      tags:
+        - Pipelines
+tags:
+  - name: Channels
+  - name: Datasets
+  - name: Datastores
+  - name: Logging
+  - name: Messages
+  - name: Pipelineactivities
+  - name: Pipelines
+  - name: Tags

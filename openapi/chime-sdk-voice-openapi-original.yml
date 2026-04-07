@@ -15,6 +15,8 @@ paths:
         Associates phone numbers with the specified Amazon Chime SDK Voice
         Connector.
       operationId: amazonWebServicesAssociatePhoneNumbersWithVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}?operation=associate-phone-numbers:
     POST:
       summary: Amazon Web Services Associatephonenumberswithvoiceconnectorgroup
@@ -22,21 +24,29 @@ paths:
         Associates phone numbers with the specified Amazon Chime SDK Voice
         Connector group.
       operationId: amazonWebServicesAssociatePhoneNumbersWithVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /phone-numbers?operation=batch-delete:
     POST:
       summary: Amazon Web Services Batchdeletephonenumber
       description: ' Moves phone numbers into the Deletion queue. Phone numbers must be disassociated from any users or Amazon Chime SDK Voice Connectors before they can be deleted.   Phone numbers remain in the Deletion queue for 7 days before they are deleted permanently. '
       operationId: amazonWebServicesBatchDeletePhoneNumber
+      tags:
+        - Phone Numbers?operation=batch Delete
   /phone-numbers?operation=batch-update:
     POST:
       summary: Amazon Web Services Batchupdatephonenumber
       description: Updates one or more phone numbers.
       operationId: amazonWebServicesBatchUpdatePhoneNumber
+      tags:
+        - Phone Numbers?operation=batch Update
   /phone-number-orders:
     GET:
       summary: Amazon Web Services Listphonenumberorders
       description: Lists the phone numbers for an administrator's Amazon Chime SDK account.
       operationId: amazonWebServicesListPhoneNumberOrders
+      tags:
+        - Phone Number Orders
   /voice-connectors/{voiceConnectorId}/proxy-sessions:
     GET:
       summary: Amazon Web Services Listproxysessions
@@ -44,11 +54,15 @@ paths:
         Lists the proxy sessions for the specified Amazon Chime SDK Voice
         Connector.
       operationId: amazonWebServicesListProxySessions
+      tags:
+        - Voice Connectors
   /sip-media-applications:
     GET:
       summary: Amazon Web Services Listsipmediaapplications
       description: Lists the SIP media applications under the administrator's AWS account.
       operationId: amazonWebServicesListSipMediaApplications
+      tags:
+        - Sip Media Applications
   /sip-media-applications/{sipMediaApplicationId}/calls:
     POST:
       summary: Amazon Web Services Createsipmediaapplicationcall
@@ -57,11 +71,15 @@ paths:
         specified in the request, and it invokes the endpoint of the specified
         sipMediaApplicationId.
       operationId: amazonWebServicesCreateSipMediaApplicationCall
+      tags:
+        - Sip Media Applications
   /sip-rules:
     GET:
       summary: Amazon Web Services Listsiprules
       description: Lists the SIP rules under the administrator's AWS account.
       operationId: amazonWebServicesListSipRules
+      tags:
+        - Sip Rules
   /voice-connectors:
     GET:
       summary: Amazon Web Services Listvoiceconnectors
@@ -69,6 +87,8 @@ paths:
         Lists the Amazon Chime SDK Voice Connectors in the administrators AWS
         account.
       operationId: amazonWebServicesListVoiceConnectors
+      tags:
+        - Voice Connectors
   /voice-connector-groups:
     GET:
       summary: Amazon Web Services Listvoiceconnectorgroups
@@ -76,11 +96,15 @@ paths:
         Lists the Amazon Chime SDK Voice Connector groups in the administrator's
         AWS account.
       operationId: amazonWebServicesListVoiceConnectorGroups
+      tags:
+        - Voice Connector Groups
   /voice-profiles:
     GET:
       summary: Amazon Web Services Listvoiceprofiles
       description: Lists the voice profiles in a voice profile domain.
       operationId: amazonWebServicesListVoiceProfiles
+      tags:
+        - Voice Profiles
   /voice-profile-domains:
     GET:
       summary: Amazon Web Services Listvoiceprofiledomains
@@ -88,6 +112,8 @@ paths:
         Lists the specified voice profile domains in the administrator's AWS
         account. 
       operationId: amazonWebServicesListVoiceProfileDomains
+      tags:
+        - Voice Profile Domains
   /phone-numbers/{phoneNumberId}:
     POST:
       summary: Amazon Web Services Updatephonenumber
@@ -101,6 +127,8 @@ paths:
         to outbound calling names must be complete before you can request
         another update.
       operationId: amazonWebServicesUpdatePhoneNumber
+      tags:
+        - Phone Numbers
   /voice-connectors/{voiceConnectorId}/proxy-sessions/{proxySessionId}:
     POST:
       summary: Amazon Web Services Updateproxysession
@@ -108,26 +136,36 @@ paths:
         Updates the specified proxy session details, such as voice or SMS
         capabilities.
       operationId: amazonWebServicesUpdateProxySession
+      tags:
+        - Voice Connectors
   /sip-media-applications/{sipMediaApplicationId}:
     PUT:
       summary: Amazon Web Services Updatesipmediaapplication
       description: Updates the details of the specified SIP media application.
       operationId: amazonWebServicesUpdateSipMediaApplication
+      tags:
+        - Sip Media Applications
   /sip-rules/{sipRuleId}:
     PUT:
       summary: Amazon Web Services Updatesiprule
       description: Updates the details of the specified SIP rule.
       operationId: amazonWebServicesUpdateSipRule
+      tags:
+        - Sip Rules
   /voice-connectors/{voiceConnectorId}:
     PUT:
       summary: Amazon Web Services Updatevoiceconnector
       description: Updates the details for the specified Amazon Chime SDK Voice Connector.
       operationId: amazonWebServicesUpdateVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/emergency-calling-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectoremergencycallingconfiguration
       description: Updates a Voice Connector's emergency calling configuration.
       operationId: amazonWebServicesPutVoiceConnectorEmergencyCallingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}:
     PUT:
       summary: Amazon Web Services Updatevoiceconnectorgroup
@@ -135,11 +173,15 @@ paths:
         Updates the settings for the specified Amazon Chime SDK Voice Connector
         group.
       operationId: amazonWebServicesUpdateVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /voice-connectors/{voiceConnectorId}/origination:
     PUT:
       summary: Amazon Web Services Putvoiceconnectororigination
       description: Updates a Voice Connector's origination settings.
       operationId: amazonWebServicesPutVoiceConnectorOrigination
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/programmable-numbers/proxy:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorproxy
@@ -147,16 +189,22 @@ paths:
         Puts the specified proxy configuration to the specified Amazon Chime SDK
         Voice Connector.
       operationId: amazonWebServicesPutVoiceConnectorProxy
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/streaming-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorstreamingconfiguration
       description: Updates a Voice Connector's streaming configuration settings.
       operationId: amazonWebServicesPutVoiceConnectorStreamingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination:
     PUT:
       summary: Amazon Web Services Putvoiceconnectortermination
       description: Updates a Voice Connector's termination settings.
       operationId: amazonWebServicesPutVoiceConnectorTermination
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination/credentials?operation=delete:
     POST:
       summary: Amazon Web Services Deletevoiceconnectorterminationcredentials
@@ -164,6 +212,8 @@ paths:
         Deletes the specified SIP credentials used by your equipment to
         authenticate during call termination.
       operationId: amazonWebServicesDeleteVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /voice-profiles/{VoiceProfileId}:
     PUT:
       summary: Amazon Web Services Updatevoiceprofile
@@ -181,11 +231,15 @@ paths:
         service, as required under the terms of your agreement with AWS
         governing your use of the service. 
       operationId: amazonWebServicesUpdateVoiceProfile
+      tags:
+        - Voice Profiles
   /voice-profile-domains/{VoiceProfileDomainId}:
     PUT:
       summary: Amazon Web Services Updatevoiceprofiledomain
       description: Updates the settings for the specified voice profile domain.
       operationId: amazonWebServicesUpdateVoiceProfileDomain
+      tags:
+        - Voice Profile Domains
   /voice-connectors/{voiceConnectorId}?operation=disassociate-phone-numbers:
     POST:
       summary: Amazon Web Services Disassociatephonenumbersfromvoiceconnector
@@ -193,6 +247,8 @@ paths:
         Disassociates the specified phone numbers from the specified Amazon
         Chime SDK Voice Connector.
       operationId: amazonWebServicesDisassociatePhoneNumbersFromVoiceConnector
+      tags:
+        - Voice Connectors
   /voice-connector-groups/{voiceConnectorGroupId}?operation=disassociate-phone-numbers:
     POST:
       summary: Amazon Web Services Disassociatephonenumbersfromvoiceconnectorgroup
@@ -200,6 +256,8 @@ paths:
         Disassociates the specified phone numbers from the specified Amazon
         Chime SDK Voice Connector group.
       operationId: amazonWebServicesDisassociatePhoneNumbersFromVoiceConnectorGroup
+      tags:
+        - Voice Connector Groups
   /settings:
     PUT:
       summary: Amazon Web Services Updateglobalsettings
@@ -207,6 +265,8 @@ paths:
         Updates global settings for the Amazon Chime SDK Voice Connectors in an
         AWS account.
       operationId: amazonWebServicesUpdateGlobalSettings
+      tags:
+        - Settings
   /phone-number-orders/{phoneNumberOrderId}:
     GET:
       summary: Amazon Web Services Getphonenumberorder
@@ -215,6 +275,8 @@ paths:
         order creation timestamp, phone numbers in E.164 format, product type,
         and order status.
       operationId: amazonWebServicesGetPhoneNumberOrder
+      tags:
+        - Phone Number Orders
   /settings/phone-number:
     PUT:
       summary: Amazon Web Services Updatephonenumbersettings
@@ -224,11 +286,15 @@ paths:
         outbound calling name once every seven days. Outbound calling names can
         take up to 72 hours to update.
       operationId: amazonWebServicesUpdatePhoneNumberSettings
+      tags:
+        - Settings
   /sip-media-applications/{sipMediaApplicationId}/alexa-skill-configuration:
     PUT:
       summary: Amazon Web Services Putsipmediaapplicationalexaskillconfiguration
       description: Updates the Alexa Skill configuration for the SIP media application.
       operationId: amazonWebServicesPutSipMediaApplicationAlexaSkillConfiguration
+      tags:
+        - Sip Media Applications
   /sip-media-applications/{sipMediaApplicationId}/logging-configuration:
     PUT:
       summary: Amazon Web Services Putsipmediaapplicationloggingconfiguration
@@ -236,16 +302,22 @@ paths:
         Updates the logging configuration for the specified SIP media
         application.
       operationId: amazonWebServicesPutSipMediaApplicationLoggingConfiguration
+      tags:
+        - Sip Media Applications
   /voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}:
     GET:
       summary: Amazon Web Services Getspeakersearchtask
       description: Retrieves the details of the specified speaker search task.
       operationId: amazonWebServicesGetSpeakerSearchTask
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/logging-configuration:
     PUT:
       summary: Amazon Web Services Putvoiceconnectorloggingconfiguration
       description: Updates a Voice Connector's logging configuration.
       operationId: amazonWebServicesPutVoiceConnectorLoggingConfiguration
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination/health:
     GET:
       summary: Amazon Web Services Getvoiceconnectorterminationhealth
@@ -254,11 +326,15 @@ paths:
         received from your SIP infrastructure for the specified Amazon Chime SDK
         Voice Connector.
       operationId: amazonWebServicesGetVoiceConnectorTerminationHealth
+      tags:
+        - Voice Connectors
   /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}:
     GET:
       summary: Amazon Web Services Getvoicetoneanalysistask
       description: Retrieves the details of a voice tone analysis task.
       operationId: amazonWebServicesGetVoiceToneAnalysisTask
+      tags:
+        - Voice Connectors
   /voice-connector-regions:
     GET:
       summary: Amazon Web Services Listavailablevoiceconnectorregions
@@ -266,6 +342,8 @@ paths:
         Lists the available AWS Regions in which you can create an Amazon Chime
         SDK Voice Connector.
       operationId: amazonWebServicesListAvailableVoiceConnectorRegions
+      tags:
+        - Voice Connector Regions
   /phone-numbers:
     GET:
       summary: Amazon Web Services Listphonenumbers
@@ -274,16 +352,22 @@ paths:
         Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime
         SDK Voice Connector group.
       operationId: amazonWebServicesListPhoneNumbers
+      tags:
+        - Phone Numbers
   /phone-number-countries:
     GET:
       summary: Amazon Web Services Listsupportedphonenumbercountries
       description: Lists the countries that you can order phone numbers from.
       operationId: amazonWebServicesListSupportedPhoneNumberCountries
+      tags:
+        - Phone Number Countries
   /tags:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: Returns a list of the tags in a given resource.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags
   /voice-connectors/{voiceConnectorId}/termination/credentials:
     GET:
       summary: Amazon Web Services Listvoiceconnectorterminationcredentials
@@ -291,21 +375,29 @@ paths:
         Lists the SIP credentials for the specified Amazon Chime SDK Voice
         Connector.
       operationId: amazonWebServicesListVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /voice-connectors/{voiceConnectorId}/termination/credentials?operation=put:
     POST:
       summary: Amazon Web Services Putvoiceconnectorterminationcredentials
       description: Updates a Voice Connector's termination credentials.
       operationId: amazonWebServicesPutVoiceConnectorTerminationCredentials
+      tags:
+        - Voice Connectors
   /phone-numbers/{phoneNumberId}?operation=restore:
     POST:
       summary: Amazon Web Services Restorephonenumber
       description: Restores a deleted phone number.
       operationId: amazonWebServicesRestorePhoneNumber
+      tags:
+        - Phone Numbers
   /search?type=phone-numbers:
     GET:
       summary: Amazon Web Services Searchavailablephonenumbers
       description: Searches the provisioned phone numbers in an organization.
       operationId: amazonWebServicesSearchAvailablePhoneNumbers
+      tags:
+        - Search?type=phone Numbers
   /voice-connectors/{VoiceConnectorId}/speaker-search-tasks:
     POST:
       summary: Amazon Web Services Startspeakersearchtask
@@ -315,6 +407,8 @@ paths:
         required under applicable privacy and biometrics laws, and as required
         under the AWS service terms for the Amazon Chime SDK. 
       operationId: amazonWebServicesStartSpeakerSearchTask
+      tags:
+        - Voice Connectors
   /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks:
     POST:
       summary: Amazon Web Services Startvoicetoneanalysistask
@@ -326,26 +420,36 @@ paths:
         required under applicable privacy and biometrics laws, and as required
         under the AWS service terms for the Amazon Chime SDK. 
       operationId: amazonWebServicesStartVoiceToneAnalysisTask
+      tags:
+        - Voice Connectors
   /voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}?operation=stop:
     POST:
       summary: Amazon Web Services Stopspeakersearchtask
       description: Stops a speaker search task.
       operationId: amazonWebServicesStopSpeakerSearchTask
+      tags:
+        - Voice Connectors
   /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop:
     POST:
       summary: Amazon Web Services Stopvoicetoneanalysistask
       description: Stops a voice tone analysis task.
       operationId: amazonWebServicesStopVoiceToneAnalysisTask
+      tags:
+        - Voice Connectors
   /tags?operation=tag-resource:
     POST:
       summary: Amazon Web Services Tagresource
       description: Adds a tag to the specified resource.
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags?operation=tag Resource
   /tags?operation=untag-resource:
     POST:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags?operation=untag Resource
   /sip-media-applications/{sipMediaApplicationId}/calls/{transactionId}:
     POST:
       summary: Amazon Web Services Updatesipmediaapplicationcall
@@ -354,6 +458,8 @@ paths:
         application and transaction ID in an update request. The Lambda function
         can then return a new set of actions.
       operationId: amazonWebServicesUpdateSipMediaApplicationCall
+      tags:
+        - Sip Media Applications
   /emergency-calling/address:
     POST:
       summary: Amazon Web Services Validatee911address
@@ -364,4 +470,24 @@ paths:
         requests. That helps ensure that addresses are routed to the appropriate
         Public Safety Answering Point.
       operationId: amazonWebServicesValidateE911Address
-tags: []
+      tags:
+        - Emergency Calling
+tags:
+  - name: Emergency Calling
+  - name: Phone Number Countries
+  - name: Phone Number Orders
+  - name: Phone Numbers
+  - name: Phone Numbers?operation=batch Delete
+  - name: Phone Numbers?operation=batch Update
+  - name: Search?type=phone Numbers
+  - name: Settings
+  - name: Sip Media Applications
+  - name: Sip Rules
+  - name: Tags
+  - name: Tags?operation=tag Resource
+  - name: Tags?operation=untag Resource
+  - name: Voice Connector Groups
+  - name: Voice Connector Regions
+  - name: Voice Connectors
+  - name: Voice Profile Domains
+  - name: Voice Profiles

@@ -23,6 +23,8 @@ paths:
         Lists all the Amazon Web Services Migration Hub Refactor Spaces
         applications within an environment. 
       operationId: amazonWebServicesListApplications
+      tags:
+        - Environments
   /environments:
     GET:
       summary: Amazon Web Services Listenvironments
@@ -30,6 +32,8 @@ paths:
         Lists Amazon Web Services Migration Hub Refactor Spaces environments
         owned by a caller account or shared with the caller account. 
       operationId: amazonWebServicesListEnvironments
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes:
     GET:
       summary: Amazon Web Services Listroutes
@@ -37,6 +41,8 @@ paths:
         Lists all the Amazon Web Services Migration Hub Refactor Spaces routes
         within an application. 
       operationId: amazonWebServicesListRoutes
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services:
     GET:
       summary: Amazon Web Services Listservices
@@ -44,16 +50,22 @@ paths:
         Lists all the Amazon Web Services Migration Hub Refactor Spaces services
         within an application. 
       operationId: amazonWebServicesListServices
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}:
     GET:
       summary: Amazon Web Services Getapplication
       description: Gets an Amazon Web Services Migration Hub Refactor Spaces application.
       operationId: amazonWebServicesGetApplication
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}:
     GET:
       summary: Amazon Web Services Getenvironment
       description: Gets an Amazon Web Services Migration Hub Refactor Spaces environment.
       operationId: amazonWebServicesGetEnvironment
+      tags:
+        - Environments
   /resourcepolicy/{Identifier}:
     GET:
       summary: Amazon Web Services Getresourcepolicy
@@ -61,16 +73,22 @@ paths:
         Gets the resource-based permission policy that is set for the given
         environment. 
       operationId: amazonWebServicesGetResourcePolicy
+      tags:
+        - Resourcepolicy
   /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateroute
       description: ' Updates an Amazon Web Services Migration Hub Refactor Spaces route. '
       operationId: amazonWebServicesUpdateRoute
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}:
     GET:
       summary: Amazon Web Services Getservice
       description: 'Gets an Amazon Web Services Migration Hub Refactor Spaces service. '
       operationId: amazonWebServicesGetService
+      tags:
+        - Environments
   /environments/{EnvironmentIdentifier}/vpcs:
     GET:
       summary: Amazon Web Services Listenvironmentvpcs
@@ -78,6 +96,8 @@ paths:
         Lists all Amazon Web Services Migration Hub Refactor Spaces service
         virtual private clouds (VPCs) that are part of the environment. 
       operationId: amazonWebServicesListEnvironmentVpcs
+      tags:
+        - Environments
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -87,6 +107,8 @@ paths:
         account must be the same as the resource’s OwnerAccountId. Untagging
         resources across accounts is not supported. 
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /resourcepolicy:
     PUT:
       summary: Amazon Web Services Putresourcepolicy
@@ -98,4 +120,9 @@ paths:
         permission in Resource Access Manager. The policy must not contain new
         lines or blank lines. 
       operationId: amazonWebServicesPutResourcePolicy
-tags: []
+      tags:
+        - Resourcepolicy
+tags:
+  - name: Environments
+  - name: Resourcepolicy
+  - name: Tags

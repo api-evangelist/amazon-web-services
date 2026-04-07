@@ -33,6 +33,8 @@ paths:
         associated with another billing group. The maximum number of accounts
         that can be associated in one call is 30. 
       operationId: amazonWebServicesAssociateAccounts
+      tags:
+        - Associate Accounts
   /associate-pricing-rules:
     PUT:
       summary: Amazon Web Services Associatepricingrules
@@ -40,21 +42,29 @@ paths:
         Connects an array of PricingRuleArns to a defined PricingPlan. The
         maximum number PricingRuleArn that can be associated in one call is 30. 
       operationId: amazonWebServicesAssociatePricingRules
+      tags:
+        - Associate Pricing Rules
   /batch-associate-resources-to-custom-line-item:
     PUT:
       summary: Amazon Web Services Batchassociateresourcestocustomlineitem
       description: ' Associates a batch of resources to a percentage custom line item. '
       operationId: amazonWebServicesBatchAssociateResourcesToCustomLineItem
+      tags:
+        - Batch Associate Resources to Custom Line Item
   /batch-disassociate-resources-from-custom-line-item:
     PUT:
       summary: Amazon Web Services Batchdisassociateresourcesfromcustomlineitem
       description: ' Disassociates a batch of resources from a percentage custom line item. '
       operationId: amazonWebServicesBatchDisassociateResourcesFromCustomLineItem
+      tags:
+        - Batch Disassociate Resources From Custom Line Item
   /create-billing-group:
     POST:
       summary: Amazon Web Services Createbillinggroup
       description: ' Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation. '
       operationId: amazonWebServicesCreateBillingGroup
+      tags:
+        - Create Billing Group
   /create-custom-line-item:
     POST:
       summary: Amazon Web Services Createcustomlineitem
@@ -64,6 +74,8 @@ paths:
         previous billing period. The one-time fixed charge is either a fee or
         discount. 
       operationId: amazonWebServicesCreateCustomLineItem
+      tags:
+        - Create Custom Line Item
   /create-pricing-plan:
     POST:
       summary: Amazon Web Services Createpricingplan
@@ -71,21 +83,29 @@ paths:
         Creates a pricing plan that is used for computing Amazon Web Services
         charges for billing groups. 
       operationId: amazonWebServicesCreatePricingPlan
+      tags:
+        - Create Pricing Plan
   /create-pricing-rule:
     POST:
       summary: Amazon Web Services Createpricingrule
       description: ' Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans. '
       operationId: amazonWebServicesCreatePricingRule
+      tags:
+        - Create Pricing Rule
   /delete-billing-group:
     POST:
       summary: Amazon Web Services Deletebillinggroup
       description: ' Deletes a billing group. '
       operationId: amazonWebServicesDeleteBillingGroup
+      tags:
+        - Delete Billing Group
   /delete-custom-line-item:
     POST:
       summary: Amazon Web Services Deletecustomlineitem
       description: ' Deletes the custom line item identified by the given ARN in the current, or previous billing period. '
       operationId: amazonWebServicesDeleteCustomLineItem
+      tags:
+        - Delete Custom Line Item
   /delete-pricing-plan:
     POST:
       summary: Amazon Web Services Deletepricingplan
@@ -93,21 +113,29 @@ paths:
         Deletes a pricing plan. The pricing plan must not be associated with any
         billing groups to delete successfully.
       operationId: amazonWebServicesDeletePricingPlan
+      tags:
+        - Delete Pricing Plan
   /delete-pricing-rule:
     POST:
       summary: Amazon Web Services Deletepricingrule
       description: ' Deletes the pricing rule that''s identified by the input Amazon Resource Name (ARN). '
       operationId: amazonWebServicesDeletePricingRule
+      tags:
+        - Delete Pricing Rule
   /disassociate-accounts:
     POST:
       summary: Amazon Web Services Disassociateaccounts
       description: 'Removes the specified list of account IDs from the given billing group. '
       operationId: amazonWebServicesDisassociateAccounts
+      tags:
+        - Disassociate Accounts
   /disassociate-pricing-rules:
     PUT:
       summary: Amazon Web Services Disassociatepricingrules
       description: ' Disassociates a list of pricing rules from a pricing plan. '
       operationId: amazonWebServicesDisassociatePricingRules
+      tags:
+        - Disassociate Pricing Rules
   /get-billing-group-cost-report:
     POST:
       summary: Amazon Web Services Getbillinggroupcostreport
@@ -116,11 +144,15 @@ paths:
         Services cost and charged amount (pro forma cost) by Amazon Web Service
         for a specific billing group.
       operationId: amazonWebServicesGetBillingGroupCostReport
+      tags:
+        - Get Billing Group Cost Report
   /list-account-associations:
     POST:
       summary: Amazon Web Services Listaccountassociations
       description: ' This is a paginated call to list linked accounts that are linked to the payer account for the specified time period. If no information is provided, the current billing period is used. The response will optionally include the billing group that''s associated with the linked account.'
       operationId: amazonWebServicesListAccountAssociations
+      tags:
+        - List Account Associations
   /list-billing-group-cost-reports:
     POST:
       summary: Amazon Web Services Listbillinggroupcostreports
@@ -129,6 +161,8 @@ paths:
         Services charges and the calculated Amazon Web Services charges based on
         the associated pricing plan of a billing group.
       operationId: amazonWebServicesListBillingGroupCostReports
+      tags:
+        - List Billing Group Cost Reports
   /list-billing-groups:
     POST:
       summary: Amazon Web Services Listbillinggroups
@@ -137,16 +171,22 @@ paths:
         billing period. If you don't provide a billing group, the current
         billing period is used.
       operationId: amazonWebServicesListBillingGroups
+      tags:
+        - List Billing Groups
   /list-custom-line-item-versions:
     POST:
       summary: Amazon Web Services Listcustomlineitemversions
       description: A paginated call to get a list of all custom line item versions.
       operationId: amazonWebServicesListCustomLineItemVersions
+      tags:
+        - List Custom Line Item Versions
   /list-custom-line-items:
     POST:
       summary: Amazon Web Services Listcustomlineitems
       description: ' A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don''t provide a billing period, the current billing period is used. '
       operationId: amazonWebServicesListCustomLineItems
+      tags:
+        - List Custom Line Items
   /list-pricing-plans:
     POST:
       summary: Amazon Web Services Listpricingplans
@@ -154,49 +194,99 @@ paths:
         A paginated call to get pricing plans for the given billing period. If
         you don't provide a billing period, the current billing period is used. 
       operationId: amazonWebServicesListPricingPlans
+      tags:
+        - List Pricing Plans
   /list-pricing-plans-associated-with-pricing-rule:
     POST:
       summary: Amazon Web Services Listpricingplansassociatedwithpricingrule
       description: ' A list of the pricing plans that are associated with a pricing rule. '
       operationId: amazonWebServicesListPricingPlansAssociatedWithPricingRule
+      tags:
+        - List Pricing Plans Associated with Pricing Rule
   /list-pricing-rules:
     POST:
       summary: Amazon Web Services Listpricingrules
       description: ' Describes a pricing rule that can be associated to a pricing plan, or set of pricing plans. '
       operationId: amazonWebServicesListPricingRules
+      tags:
+        - List Pricing Rules
   /list-pricing-rules-associated-to-pricing-plan:
     POST:
       summary: Amazon Web Services Listpricingrulesassociatedtopricingplan
       description: ' Lists the pricing rules that are associated with a pricing plan. '
       operationId: amazonWebServicesListPricingRulesAssociatedToPricingPlan
+      tags:
+        - List Pricing Rules Associated to Pricing Plan
   /list-resources-associated-to-custom-line-item:
     POST:
       summary: Amazon Web Services Listresourcesassociatedtocustomlineitem
       description: ' List the resources that are associated to a custom line item. '
       operationId: amazonWebServicesListResourcesAssociatedToCustomLineItem
+      tags:
+        - List Resources Associated to Custom Line Item
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: ' Deletes specified tags from a resource. '
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /update-billing-group:
     POST:
       summary: Amazon Web Services Updatebillinggroup
       description: 'This updates an existing billing group. '
       operationId: amazonWebServicesUpdateBillingGroup
+      tags:
+        - Update Billing Group
   /update-custom-line-item:
     POST:
       summary: Amazon Web Services Updatecustomlineitem
       description: ' Update an existing custom line item in the current or previous billing period. '
       operationId: amazonWebServicesUpdateCustomLineItem
+      tags:
+        - Update Custom Line Item
   /update-pricing-plan:
     PUT:
       summary: Amazon Web Services Updatepricingplan
       description: 'This updates an existing pricing plan. '
       operationId: amazonWebServicesUpdatePricingPlan
+      tags:
+        - Update Pricing Plan
   /update-pricing-rule:
     PUT:
       summary: Amazon Web Services Updatepricingrule
       description: ' Updates an existing pricing rule. '
       operationId: amazonWebServicesUpdatePricingRule
-tags: []
+      tags:
+        - Update Pricing Rule
+tags:
+  - name: Associate Accounts
+  - name: Associate Pricing Rules
+  - name: Batch Associate Resources to Custom Line Item
+  - name: Batch Disassociate Resources From Custom Line Item
+  - name: Create Billing Group
+  - name: Create Custom Line Item
+  - name: Create Pricing Plan
+  - name: Create Pricing Rule
+  - name: Delete Billing Group
+  - name: Delete Custom Line Item
+  - name: Delete Pricing Plan
+  - name: Delete Pricing Rule
+  - name: Disassociate Accounts
+  - name: Disassociate Pricing Rules
+  - name: Get Billing Group Cost Report
+  - name: List Account Associations
+  - name: List Billing Group Cost Reports
+  - name: List Billing Groups
+  - name: List Custom Line Item Versions
+  - name: List Custom Line Items
+  - name: List Pricing Plans
+  - name: List Pricing Plans Associated with Pricing Rule
+  - name: List Pricing Rules
+  - name: List Pricing Rules Associated to Pricing Plan
+  - name: List Resources Associated to Custom Line Item
+  - name: Tags
+  - name: Update Billing Group
+  - name: Update Custom Line Item
+  - name: Update Pricing Plan
+  - name: Update Pricing Rule

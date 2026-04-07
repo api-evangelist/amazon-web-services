@@ -22,6 +22,8 @@ paths:
         Lists the Device Advisor test suites you have created. Requires
         permission to access the ListSuiteDefinitions action.
       operationId: amazonWebServicesListSuiteDefinitions
+      tags:
+        - suiteDefinitions
   /suiteDefinitions/{suiteDefinitionId}:
     PATCH:
       summary: Amazon Web Services Updatesuitedefinition
@@ -29,11 +31,15 @@ paths:
         Updates a Device Advisor test suite. Requires permission to access the
         UpdateSuiteDefinition action.
       operationId: amazonWebServicesUpdateSuiteDefinition
+      tags:
+        - suiteDefinitions
   /endpoint:
     GET:
       summary: Amazon Web Services Getendpoint
       description: Gets information about an Device Advisor endpoint.
       operationId: amazonWebServicesGetEndpoint
+      tags:
+        - Endpoint
   /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}:
     GET:
       summary: Amazon Web Services Getsuiterun
@@ -41,6 +47,8 @@ paths:
         Gets information about a Device Advisor test suite run. Requires
         permission to access the GetSuiteRun action.
       operationId: amazonWebServicesGetSuiteRun
+      tags:
+        - suiteDefinitions
   /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report:
     GET:
       summary: Amazon Web Services Getsuiterunreport
@@ -49,6 +57,8 @@ paths:
         test suite run. Requires permission to access the GetSuiteRunReport
         action.
       operationId: amazonWebServicesGetSuiteRunReport
+      tags:
+        - suiteDefinitions
   /suiteRuns:
     GET:
       summary: Amazon Web Services Listsuiteruns
@@ -57,6 +67,8 @@ paths:
         runs of the test suite, or the runs of a specific version of the test
         suite. Requires permission to access the ListSuiteRuns action.
       operationId: amazonWebServicesListSuiteRuns
+      tags:
+        - suiteRuns
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -64,6 +76,8 @@ paths:
         Removes tags from an IoT Device Advisor resource. Requires permission to
         access the UntagResource action.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /suiteDefinitions/{suiteDefinitionId}/suiteRuns:
     POST:
       summary: Amazon Web Services Startsuiterun
@@ -71,6 +85,8 @@ paths:
         Starts a Device Advisor test suite run. Requires permission to access
         the StartSuiteRun action.
       operationId: amazonWebServicesStartSuiteRun
+      tags:
+        - suiteDefinitions
   /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop:
     POST:
       summary: Amazon Web Services Stopsuiterun
@@ -78,4 +94,10 @@ paths:
         Stops a Device Advisor test suite run that is currently running.
         Requires permission to access the StopSuiteRun action.
       operationId: amazonWebServicesStopSuiteRun
-tags: []
+      tags:
+        - suiteDefinitions
+tags:
+  - name: Endpoint
+  - name: suiteDefinitions
+  - name: suiteRuns
+  - name: Tags

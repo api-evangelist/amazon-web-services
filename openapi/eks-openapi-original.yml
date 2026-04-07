@@ -20,6 +20,8 @@ paths:
       summary: Amazon Web Services Listassociatedaccesspolicies
       description: Lists the access policies associated with an access entry.
       operationId: amazonWebServicesListAssociatedAccessPolicies
+      tags:
+        - Clusters
   /clusters/{name}/encryption-config/associate:
     POST:
       summary: Amazon Web Services Associateencryptionconfig
@@ -30,6 +32,8 @@ paths:
         security strategy without migrating applications to new Amazon EKS
         clusters.
       operationId: amazonWebServicesAssociateEncryptionConfig
+      tags:
+        - Clusters
   /clusters/{name}/identity-provider-configs/associate:
     POST:
       summary: Amazon Web Services Associateidentityproviderconfig
@@ -43,16 +47,22 @@ paths:
         ClusterRoleBinding objects. For more information see Using RBAC
         Authorization in the Kubernetes documentation.
       operationId: amazonWebServicesAssociateIdentityProviderConfig
+      tags:
+        - Clusters
   /clusters/{name}/access-entries:
     GET:
       summary: Amazon Web Services Listaccessentries
       description: Lists the access entries for your cluster.
       operationId: amazonWebServicesListAccessEntries
+      tags:
+        - Clusters
   /clusters/{name}/addons:
     GET:
       summary: Amazon Web Services Listaddons
       description: Lists the installed add-ons.
       operationId: amazonWebServicesListAddons
+      tags:
+        - Clusters
   /clusters:
     GET:
       summary: Amazon Web Services Listclusters
@@ -60,11 +70,15 @@ paths:
         Lists the Amazon EKS clusters in your Amazon Web Services account in the
         specified Amazon Web Services Region.
       operationId: amazonWebServicesListClusters
+      tags:
+        - Clusters
   /eks-anywhere-subscriptions:
     GET:
       summary: Amazon Web Services Listeksanywheresubscriptions
       description: Displays the full description of the subscription.
       operationId: amazonWebServicesListEksAnywhereSubscriptions
+      tags:
+        - Eks Anywhere Subscriptions
   /clusters/{name}/fargate-profiles:
     GET:
       summary: Amazon Web Services Listfargateprofiles
@@ -72,6 +86,8 @@ paths:
         Lists the Fargate profiles associated with the specified cluster in your
         Amazon Web Services account in the specified Amazon Web Services Region.
       operationId: amazonWebServicesListFargateProfiles
+      tags:
+        - Clusters
   /clusters/{name}/node-groups:
     GET:
       summary: Amazon Web Services Listnodegroups
@@ -80,6 +96,8 @@ paths:
         your Amazon Web Services account in the specified Amazon Web Services
         Region. Self-managed node groups aren't listed.
       operationId: amazonWebServicesListNodegroups
+      tags:
+        - Clusters
   /clusters/{name}/pod-identity-associations:
     GET:
       summary: Amazon Web Services Listpodidentityassociations
@@ -88,16 +106,22 @@ paths:
         list by the namespace that the association is in or the service account
         that the association uses.
       operationId: amazonWebServicesListPodIdentityAssociations
+      tags:
+        - Clusters
   /clusters/{name}/access-entries/{principalArn}:
     POST:
       summary: Amazon Web Services Updateaccessentry
       description: Updates an access entry.
       operationId: amazonWebServicesUpdateAccessEntry
+      tags:
+        - Clusters
   /clusters/{name}/addons/{addonName}:
     GET:
       summary: Amazon Web Services Describeaddon
       description: Describes an Amazon EKS add-on.
       operationId: amazonWebServicesDescribeAddon
+      tags:
+        - Clusters
   /clusters/{name}:
     GET:
       summary: Amazon Web Services Describecluster
@@ -109,6 +133,8 @@ paths:
         EKS cluster.  The API server endpoint and certificate authority data
         aren't available until the cluster reaches the ACTIVE state. 
       operationId: amazonWebServicesDescribeCluster
+      tags:
+        - Clusters
   /eks-anywhere-subscriptions/{id}:
     POST:
       summary: Amazon Web Services Updateeksanywheresubscription
@@ -116,16 +142,22 @@ paths:
         Update an EKS Anywhere Subscription. Only auto renewal and tags can be
         updated after subscription creation.
       operationId: amazonWebServicesUpdateEksAnywhereSubscription
+      tags:
+        - Eks Anywhere Subscriptions
   /clusters/{name}/fargate-profiles/{fargateProfileName}:
     GET:
       summary: Amazon Web Services Describefargateprofile
       description: Describes an Fargate profile.
       operationId: amazonWebServicesDescribeFargateProfile
+      tags:
+        - Clusters
   /clusters/{name}/node-groups/{nodegroupName}:
     GET:
       summary: Amazon Web Services Describenodegroup
       description: Describes a managed node group.
       operationId: amazonWebServicesDescribeNodegroup
+      tags:
+        - Clusters
   /clusters/{name}/pod-identity-associations/{associationId}:
     POST:
       summary: Amazon Web Services Updatepodidentityassociation
@@ -136,6 +168,8 @@ paths:
         you need to delete the association and then create a new association
         with your desired settings.
       operationId: amazonWebServicesUpdatePodIdentityAssociation
+      tags:
+        - Clusters
   /cluster-registrations/{name}:
     DELETE:
       summary: Amazon Web Services Deregistercluster
@@ -144,11 +178,15 @@ paths:
         plane. A connected cluster is a Kubernetes cluster that you've connected
         to your control plane using the Amazon EKS Connector.
       operationId: amazonWebServicesDeregisterCluster
+      tags:
+        - Cluster Registrations
   /addons/configuration-schemas:
     GET:
       summary: Amazon Web Services Describeaddonconfiguration
       description: Returns configuration options.
       operationId: amazonWebServicesDescribeAddonConfiguration
+      tags:
+        - Addons
   /addons/supported-versions:
     GET:
       summary: Amazon Web Services Describeaddonversions
@@ -157,16 +195,22 @@ paths:
         versions that you can use the add-on with, the owner, publisher, and the
         type of the add-on are returned.
       operationId: amazonWebServicesDescribeAddonVersions
+      tags:
+        - Addons
   /clusters/{name}/identity-provider-configs/describe:
     POST:
       summary: Amazon Web Services Describeidentityproviderconfig
       description: Describes an identity provider configuration.
       operationId: amazonWebServicesDescribeIdentityProviderConfig
+      tags:
+        - Clusters
   /clusters/{name}/insights/{id}:
     GET:
       summary: Amazon Web Services Describeinsight
       description: Returns details about an insight that you specify using its ID.
       operationId: amazonWebServicesDescribeInsight
+      tags:
+        - Clusters
   /clusters/{name}/updates/{updateId}:
     GET:
       summary: Amazon Web Services Describeupdate
@@ -176,11 +220,15 @@ paths:
         status is Failed, and an error detail explains the reason for the
         failure.
       operationId: amazonWebServicesDescribeUpdate
+      tags:
+        - Clusters
   /clusters/{name}/access-entries/{principalArn}/access-policies/{policyArn}:
     DELETE:
       summary: Amazon Web Services Disassociateaccesspolicy
       description: Disassociates an access policy from an access entry.
       operationId: amazonWebServicesDisassociateAccessPolicy
+      tags:
+        - Clusters
   /clusters/{name}/identity-provider-configs/disassociate:
     POST:
       summary: Amazon Web Services Disassociateidentityproviderconfig
@@ -190,16 +238,22 @@ paths:
         the provider can no longer access the cluster. However, you can still
         access the cluster with IAM principals.
       operationId: amazonWebServicesDisassociateIdentityProviderConfig
+      tags:
+        - Clusters
   /access-policies:
     GET:
       summary: Amazon Web Services Listaccesspolicies
       description: 'Lists the available access policies. '
       operationId: amazonWebServicesListAccessPolicies
+      tags:
+        - Access Policies
   /clusters/{name}/identity-provider-configs:
     GET:
       summary: Amazon Web Services Listidentityproviderconfigs
       description: Lists the identity provider configurations for your cluster.
       operationId: amazonWebServicesListIdentityProviderConfigs
+      tags:
+        - Clusters
   /clusters/{name}/insights:
     POST:
       summary: Amazon Web Services Listinsights
@@ -208,11 +262,15 @@ paths:
         cluster. You can filter which insights are returned by category,
         associated Kubernetes version, and status.
       operationId: amazonWebServicesListInsights
+      tags:
+        - Clusters
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes specified tags from an Amazon EKS resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /clusters/{name}/updates:
     POST:
       summary: Amazon Web Services Updateclusterversion
@@ -229,6 +287,8 @@ paths:
         versions must match the cluster’s Kubernetes version in order to update
         the cluster to a new Kubernetes version.
       operationId: amazonWebServicesUpdateClusterVersion
+      tags:
+        - Clusters
   /cluster-registrations:
     POST:
       summary: Amazon Web Services Registercluster
@@ -245,11 +305,15 @@ paths:
         days, the connected cluster will no longer be visible and must be
         deregistered using DeregisterCluster.
       operationId: amazonWebServicesRegisterCluster
+      tags:
+        - Cluster Registrations
   /clusters/{name}/addons/{addonName}/update:
     POST:
       summary: Amazon Web Services Updateaddon
       description: Updates an Amazon EKS add-on.
       operationId: amazonWebServicesUpdateAddon
+      tags:
+        - Clusters
   /clusters/{name}/update-config:
     POST:
       summary: Amazon Web Services Updateclusterconfig
@@ -281,6 +345,8 @@ paths:
         When the update is complete (either Failed or Successful), the cluster
         status moves to Active.
       operationId: amazonWebServicesUpdateClusterConfig
+      tags:
+        - Clusters
   /clusters/{name}/node-groups/{nodegroupName}/update-config:
     POST:
       summary: Amazon Web Services Updatenodegroupconfig
@@ -291,6 +357,8 @@ paths:
         with the DescribeUpdate API operation. Currently you can update the
         Kubernetes labels for a node group or the scaling configuration.
       operationId: amazonWebServicesUpdateNodegroupConfig
+      tags:
+        - Clusters
   /clusters/{name}/node-groups/{nodegroupName}/update-version:
     POST:
       summary: Amazon Web Services Updatenodegroupversion
@@ -317,4 +385,12 @@ paths:
         do so. You can force the update if Amazon EKS is unable to drain the
         nodes as a result of a Pod disruption budget issue.
       operationId: amazonWebServicesUpdateNodegroupVersion
-tags: []
+      tags:
+        - Clusters
+tags:
+  - name: Access Policies
+  - name: Addons
+  - name: Cluster Registrations
+  - name: Clusters
+  - name: Eks Anywhere Subscriptions
+  - name: Tags

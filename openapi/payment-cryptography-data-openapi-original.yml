@@ -40,6 +40,8 @@ paths:
         in the Amazon Web Services Payment Cryptography User Guide.   Cross-account use: This operation can't be used across different Amazon
         Web Services accounts.  Related operations:     EncryptData     GetPublicCertificate     ImportKey   
       operationId: amazonWebServicesDecryptData
+      tags:
+        - Keys
   /keys/{KeyIdentifier}/encrypt:
     POST:
       summary: Amazon Web Services Encryptdata
@@ -64,6 +66,8 @@ paths:
         Guide.  Cross-account use: This operation can't be used across different
         Amazon Web Services accounts.  Related operations:     DecryptData     GetPublicCertificate     ImportKey     ReEncryptData   
       operationId: amazonWebServicesEncryptData
+      tags:
+        - Keys
   /cardvalidationdata/generate:
     POST:
       summary: Amazon Web Services Generatecardvalidationdata
@@ -86,6 +90,8 @@ paths:
         used across different Amazon Web Services accounts.  Related
         operations:     ImportKey     VerifyCardValidationData   
       operationId: amazonWebServicesGenerateCardValidationData
+      tags:
+        - Cardvalidationdata
   /mac/generate:
     POST:
       summary: Amazon Web Services Generatemac
@@ -106,6 +112,8 @@ paths:
         used across different Amazon Web Services accounts.  Related
         operations:     VerifyMac   
       operationId: amazonWebServicesGenerateMac
+      tags:
+        - Mac
   /pindata/generate:
     POST:
       summary: Amazon Web Services Generatepindata
@@ -124,6 +132,8 @@ paths:
         Services Payment Cryptography User Guide.  Cross-account use: This
         operation can't be used across different Amazon Web Services accounts.  Related operations:     GenerateCardValidationData     TranslatePinData     VerifyPinData   
       operationId: amazonWebServicesGeneratePinData
+      tags:
+        - Pindata
   /keys/{IncomingKeyIdentifier}/reencrypt:
     POST:
       summary: Amazon Web Services Reencryptdata
@@ -146,6 +156,8 @@ paths:
         Services Payment Cryptography User Guide.   Cross-account use: This
         operation can't be used across different Amazon Web Services accounts.  Related operations:     DecryptData     EncryptData     GetPublicCertificate     ImportKey   
       operationId: amazonWebServicesReEncryptData
+      tags:
+        - Keys
   /pindata/translate:
     POST:
       summary: Amazon Web Services Translatepindata
@@ -174,6 +186,8 @@ paths:
         Cryptography does not support translations to PIN format 4.   Cross-account use: This operation can't be used across different Amazon
         Web Services accounts.  Related operations:     GeneratePinData     VerifyPinData   
       operationId: amazonWebServicesTranslatePinData
+      tags:
+        - Pindata
   /cryptogram/verify:
     POST:
       summary: Amazon Web Services Verifyauthrequestcryptogram
@@ -197,6 +211,8 @@ paths:
         User Guide.  Cross-account use: This operation can't be used across
         different Amazon Web Services accounts.  Related operations:     VerifyCardValidationData     VerifyPinData   
       operationId: amazonWebServicesVerifyAuthRequestCryptogram
+      tags:
+        - Cryptogram
   /cardvalidationdata/verify:
     POST:
       summary: Amazon Web Services Verifycardvalidationdata
@@ -219,6 +235,8 @@ paths:
         User Guide.   Cross-account use: This operation can't be used across
         different Amazon Web Services accounts.  Related operations:     GenerateCardValidationData     VerifyAuthRequestCryptogram     VerifyPinData   
       operationId: amazonWebServicesVerifyCardValidationData
+      tags:
+        - Cardvalidationdata
   /mac/verify:
     POST:
       summary: Amazon Web Services Verifymac
@@ -237,6 +255,8 @@ paths:
         used across different Amazon Web Services accounts.  Related
         operations:     GenerateMac   
       operationId: amazonWebServicesVerifyMac
+      tags:
+        - Mac
   /pindata/verify:
     POST:
       summary: Amazon Web Services Verifypindata
@@ -255,4 +275,11 @@ paths:
         User Guide.   Cross-account use: This operation can't be used across
         different Amazon Web Services accounts.  Related operations:     GeneratePinData     TranslatePinData   
       operationId: amazonWebServicesVerifyPinData
-tags: []
+      tags:
+        - Pindata
+tags:
+  - name: Cardvalidationdata
+  - name: Cryptogram
+  - name: Keys
+  - name: Mac
+  - name: Pindata

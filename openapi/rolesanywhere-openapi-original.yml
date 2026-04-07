@@ -27,6 +27,8 @@ paths:
         Lists all profiles in the authenticated account and Amazon Web Services
         Region.  Required permissions:  rolesanywhere:ListProfiles. 
       operationId: amazonWebServicesListProfiles
+      tags:
+        - Profiles
   /trustanchors:
     GET:
       summary: Amazon Web Services Listtrustanchors
@@ -34,6 +36,8 @@ paths:
         Lists the trust anchors in the authenticated account and Amazon Web
         Services Region.  Required permissions:  rolesanywhere:ListTrustAnchors. 
       operationId: amazonWebServicesListTrustAnchors
+      tags:
+        - Trustanchors
   /crl/{crlId}:
     PATCH:
       summary: Amazon Web Services Updatecrl
@@ -43,6 +47,8 @@ paths:
         (CA). IAM Roles Anywhere validates against the CRL before issuing
         credentials.  Required permissions:  rolesanywhere:UpdateCrl. 
       operationId: amazonWebServicesUpdateCrl
+      tags:
+        - Crl
   /profile/{profileId}:
     PATCH:
       summary: Amazon Web Services Updateprofile
@@ -51,6 +57,8 @@ paths:
         is trusted to assume. You use profiles to intersect permissions with IAM
         managed policies.  Required permissions:  rolesanywhere:UpdateProfile. 
       operationId: amazonWebServicesUpdateProfile
+      tags:
+        - Profile
   /trustanchor/{trustAnchorId}:
     PATCH:
       summary: Amazon Web Services Updatetrustanchor
@@ -63,12 +71,16 @@ paths:
         certificates issued by the CA in exchange for temporary Amazon Web
         Services credentials.  Required permissions:  rolesanywhere:UpdateTrustAnchor. 
       operationId: amazonWebServicesUpdateTrustAnchor
+      tags:
+        - Trustanchor
   /crl/{crlId}/disable:
     POST:
       summary: Amazon Web Services Disablecrl
       description: >-
         Disables a certificate revocation list (CRL).  Required permissions:  rolesanywhere:DisableCrl. 
       operationId: amazonWebServicesDisableCrl
+      tags:
+        - Crl
   /profile/{profileId}/disable:
     POST:
       summary: Amazon Web Services Disableprofile
@@ -76,6 +88,8 @@ paths:
         Disables a profile. When disabled, temporary credential requests with
         this profile fail.  Required permissions:  rolesanywhere:DisableProfile. 
       operationId: amazonWebServicesDisableProfile
+      tags:
+        - Profile
   /trustanchor/{trustAnchorId}/disable:
     POST:
       summary: Amazon Web Services Disabletrustanchor
@@ -83,6 +97,8 @@ paths:
         Disables a trust anchor. When disabled, temporary credential requests
         specifying this trust anchor are unauthorized.  Required permissions:  rolesanywhere:DisableTrustAnchor. 
       operationId: amazonWebServicesDisableTrustAnchor
+      tags:
+        - Trustanchor
   /crl/{crlId}/enable:
     POST:
       summary: Amazon Web Services Enablecrl
@@ -90,6 +106,8 @@ paths:
         Enables a certificate revocation list (CRL). When enabled, certificates
         stored in the CRL are unauthorized to receive session credentials.  Required permissions:  rolesanywhere:EnableCrl. 
       operationId: amazonWebServicesEnableCrl
+      tags:
+        - Crl
   /profile/{profileId}/enable:
     POST:
       summary: Amazon Web Services Enableprofile
@@ -97,6 +115,8 @@ paths:
         Enables temporary credential requests for a profile.   Required
         permissions:  rolesanywhere:EnableProfile. 
       operationId: amazonWebServicesEnableProfile
+      tags:
+        - Profile
   /trustanchor/{trustAnchorId}/enable:
     POST:
       summary: Amazon Web Services Enabletrustanchor
@@ -104,6 +124,8 @@ paths:
         Enables a trust anchor. When enabled, certificates in the trust anchor
         chain are authorized for trust validation.   Required permissions:  rolesanywhere:EnableTrustAnchor. 
       operationId: amazonWebServicesEnableTrustAnchor
+      tags:
+        - Trustanchor
   /subject/{subjectId}:
     GET:
       summary: Amazon Web Services Getsubject
@@ -114,6 +136,8 @@ paths:
         in the attempt, and the last time the associated identity attempted
         authentication.   Required permissions:  rolesanywhere:GetSubject. 
       operationId: amazonWebServicesGetSubject
+      tags:
+        - Subject
   /crls:
     GET:
       summary: Amazon Web Services Listcrls
@@ -121,6 +145,8 @@ paths:
         Lists all certificate revocation lists (CRL) in the authenticated
         account and Amazon Web Services Region.  Required permissions:  rolesanywhere:ListCrls. 
       operationId: amazonWebServicesListCrls
+      tags:
+        - Crls
   /subjects:
     GET:
       summary: Amazon Web Services Listsubjects
@@ -128,12 +154,16 @@ paths:
         Lists the subjects in the authenticated account and Amazon Web Services
         Region.  Required permissions:  rolesanywhere:ListSubjects. 
       operationId: amazonWebServicesListSubjects
+      tags:
+        - Subjects
   /ListTagsForResource:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: >-
         Lists the tags attached to the resource.  Required permissions:  rolesanywhere:ListTagsForResource. 
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - ListTagsForResource
   /put-notifications-settings:
     PATCH:
       summary: Amazon Web Services Putnotificationsettings
@@ -143,6 +173,8 @@ paths:
         status of the notification setting, and the channel to notify.  Required
         permissions:  rolesanywhere:PutNotificationSettings. 
       operationId: amazonWebServicesPutNotificationSettings
+      tags:
+        - Put Notifications Settings
   /reset-notifications-settings:
     PATCH:
       summary: Amazon Web Services Resetnotificationsettings
@@ -150,16 +182,35 @@ paths:
         Resets the custom notification setting to IAM Roles Anywhere default
         setting.   Required permissions:  rolesanywhere:ResetNotificationSettings. 
       operationId: amazonWebServicesResetNotificationSettings
+      tags:
+        - Reset Notifications Settings
   /TagResource:
     POST:
       summary: Amazon Web Services Tagresource
       description: >-
         Attaches tags to a resource.  Required permissions:  rolesanywhere:TagResource. 
       operationId: amazonWebServicesTagResource
+      tags:
+        - TagResource
   /UntagResource:
     POST:
       summary: Amazon Web Services Untagresource
       description: >-
         Removes tags from the resource.  Required permissions:  rolesanywhere:UntagResource. 
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - UntagResource
+tags:
+  - name: Crl
+  - name: Crls
+  - name: ListTagsForResource
+  - name: Profile
+  - name: Profiles
+  - name: Put Notifications Settings
+  - name: Reset Notifications Settings
+  - name: Subject
+  - name: Subjects
+  - name: TagResource
+  - name: Trustanchor
+  - name: Trustanchors
+  - name: UntagResource

@@ -13,16 +13,22 @@ paths:
       summary: Amazon Web Services Acknowledgeorderreceipt
       description: Acknowledges that the specified network order was received.
       operationId: amazonWebServicesAcknowledgeOrderReceipt
+      tags:
+        - Orders
   /v1/device-identifiers/activate:
     POST:
       summary: Amazon Web Services Activatedeviceidentifier
       description: Activates the specified device identifier.
       operationId: amazonWebServicesActivateDeviceIdentifier
+      tags:
+        - Device Identifiers
   /v1/network-sites/activate:
     POST:
       summary: Amazon Web Services Activatenetworksite
       description: Activates the specified network site.
       operationId: amazonWebServicesActivateNetworkSite
+      tags:
+        - Network Sites
   /v1/network-resources/configure:
     POST:
       summary: Amazon Web Services Configureaccesspoint
@@ -33,46 +39,64 @@ paths:
         obtain spectrum grants. For more information, see Radio units in the
         Amazon Web Services Private 5G User Guide. 
       operationId: amazonWebServicesConfigureAccessPoint
+      tags:
+        - Network Resources
   /v1/networks:
     POST:
       summary: Amazon Web Services Createnetwork
       description: Creates a network.
       operationId: amazonWebServicesCreateNetwork
+      tags:
+        - Networks
   /v1/network-sites:
     POST:
       summary: Amazon Web Services Createnetworksite
       description: Creates a network site.
       operationId: amazonWebServicesCreateNetworkSite
+      tags:
+        - Network Sites
   /v1/device-identifiers/deactivate:
     POST:
       summary: Amazon Web Services Deactivatedeviceidentifier
       description: Deactivates the specified device identifier.
       operationId: amazonWebServicesDeactivateDeviceIdentifier
+      tags:
+        - Device Identifiers
   /v1/networks/{networkArn}:
     GET:
       summary: Amazon Web Services Getnetwork
       description: Gets the specified network.
       operationId: amazonWebServicesGetNetwork
+      tags:
+        - Networks
   /v1/network-sites/{networkSiteArn}:
     GET:
       summary: Amazon Web Services Getnetworksite
       description: Gets the specified network site.
       operationId: amazonWebServicesGetNetworkSite
+      tags:
+        - Network Sites
   /v1/device-identifiers/{deviceIdentifierArn}:
     GET:
       summary: Amazon Web Services Getdeviceidentifier
       description: Gets the specified device identifier.
       operationId: amazonWebServicesGetDeviceIdentifier
+      tags:
+        - Device Identifiers
   /v1/network-resources/{networkResourceArn}:
     GET:
       summary: Amazon Web Services Getnetworkresource
       description: Gets the specified network resource.
       operationId: amazonWebServicesGetNetworkResource
+      tags:
+        - Network Resources
   /v1/orders/{orderArn}:
     GET:
       summary: Amazon Web Services Getorder
       description: Gets the specified order.
       operationId: amazonWebServicesGetOrder
+      tags:
+        - Orders
   /v1/device-identifiers/list:
     POST:
       summary: Amazon Web Services Listdeviceidentifiers
@@ -84,6 +108,8 @@ paths:
         an OR, and the request returns results that match all of the specified
         filters.
       operationId: amazonWebServicesListDeviceIdentifiers
+      tags:
+        - Device Identifiers
   /v1/network-resources:
     POST:
       summary: Amazon Web Services Listnetworkresources
@@ -94,6 +120,8 @@ paths:
         multiple filters, filters are joined with an OR, and the request returns
         results that match all of the specified filters.
       operationId: amazonWebServicesListNetworkResources
+      tags:
+        - Network Resources
   /v1/network-sites/list:
     POST:
       summary: Amazon Web Services Listnetworksites
@@ -102,6 +130,8 @@ paths:
         specific list of results. Use filters to match the status of the network
         site.
       operationId: amazonWebServicesListNetworkSites
+      tags:
+        - Network Sites
   /v1/networks/list:
     POST:
       summary: Amazon Web Services Listnetworks
@@ -109,6 +139,8 @@ paths:
         Lists networks. Add filters to your request to return a more specific
         list of results. Use filters to match the status of the network.
       operationId: amazonWebServicesListNetworks
+      tags:
+        - Networks
   /v1/orders/list:
     POST:
       summary: Amazon Web Services Listorders
@@ -119,16 +151,22 @@ paths:
         filters, filters are joined with an OR, and the request returns results
         that match all of the specified filters.
       operationId: amazonWebServicesListOrders
+      tags:
+        - Orders
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /ping:
     GET:
       summary: Amazon Web Services Ping
       description: Checks the health of the service.
       operationId: amazonWebServicesPing
+      tags:
+        - Ping
   /v1/network-resources/update:
     POST:
       summary: Amazon Web Services Startnetworkresourceupdate
@@ -144,14 +182,27 @@ paths:
         status changes to DELETED. For more information, see Return a radio
         unit.
       operationId: amazonWebServicesStartNetworkResourceUpdate
+      tags:
+        - Network Resources
   /v1/network-sites/site:
     PUT:
       summary: Amazon Web Services Updatenetworksite
       description: Updates the specified network site.
       operationId: amazonWebServicesUpdateNetworkSite
+      tags:
+        - Network Sites
   /v1/network-sites/plan:
     PUT:
       summary: Amazon Web Services Updatenetworksiteplan
       description: Updates the specified network site plan.
       operationId: amazonWebServicesUpdateNetworkSitePlan
-tags: []
+      tags:
+        - Network Sites
+tags:
+  - name: Device Identifiers
+  - name: Network Resources
+  - name: Network Sites
+  - name: Networks
+  - name: Orders
+  - name: Ping
+  - name: Tags

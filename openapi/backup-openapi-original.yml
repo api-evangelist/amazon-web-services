@@ -14,6 +14,8 @@ paths:
         This action removes the specified legal hold on a recovery point. This
         action can only be performed by a user with sufficient permissions.
       operationId: amazonWebServicesCancelLegalHold
+      tags:
+        - Legal Holds
   /backup/plans/:
     GET:
       summary: Amazon Web Services Listbackupplans
@@ -23,6 +25,8 @@ paths:
         IDs, creation and deletion dates, version IDs, plan names, and creator
         request IDs.
       operationId: amazonWebServicesListBackupPlans
+      tags:
+        - Backup
   /backup/plans/{backupPlanId}/selections/:
     GET:
       summary: Amazon Web Services Listbackupselections
@@ -30,11 +34,15 @@ paths:
         Returns an array containing metadata of the resources associated with
         the target backup plan.
       operationId: amazonWebServicesListBackupSelections
+      tags:
+        - Backup
   /backup-vaults/{backupVaultName}:
     GET:
       summary: Amazon Web Services Describebackupvault
       description: Returns metadata about a backup vault specified by its name.
       operationId: amazonWebServicesDescribeBackupVault
+      tags:
+        - Backup Vaults
   /audit/frameworks:
     GET:
       summary: Amazon Web Services Listframeworks
@@ -42,11 +50,15 @@ paths:
         Returns a list of all frameworks for an Amazon Web Services account and
         Amazon Web Services Region.
       operationId: amazonWebServicesListFrameworks
+      tags:
+        - Audit
   /legal-holds/:
     GET:
       summary: Amazon Web Services Listlegalholds
       description: This action returns metadata about active and previous legal holds.
       operationId: amazonWebServicesListLegalHolds
+      tags:
+        - Legal Holds
   /logically-air-gapped-backup-vaults/{backupVaultName}:
     PUT:
       summary: Amazon Web Services Createlogicallyairgappedbackupvault
@@ -57,6 +69,8 @@ paths:
         include tags and a creator request ID.  Do not include sensitive data,
         such as passport numbers, in the name of a backup vault. 
       operationId: amazonWebServicesCreateLogicallyAirGappedBackupVault
+      tags:
+        - Logically Air Gapped Backup Vaults
   /audit/report-plans:
     GET:
       summary: Amazon Web Services Listreportplans
@@ -64,11 +78,15 @@ paths:
         Returns a list of your report plans. For detailed information about a
         single report plan, use DescribeReportPlan.
       operationId: amazonWebServicesListReportPlans
+      tags:
+        - Audit
   /restore-testing/plans:
     GET:
       summary: Amazon Web Services Listrestoretestingplans
       description: Returns a list of restore testing plans.
       operationId: amazonWebServicesListRestoreTestingPlans
+      tags:
+        - Restore Testing
   /restore-testing/plans/{RestoreTestingPlanName}/selections:
     GET:
       summary: Amazon Web Services Listrestoretestingselections
@@ -76,6 +94,8 @@ paths:
         Returns a list of restore testing selections. Can be filtered by
         MaxResults and RestoreTestingPlanName.
       operationId: amazonWebServicesListRestoreTestingSelections
+      tags:
+        - Restore Testing
   /backup/plans/{backupPlanId}:
     POST:
       summary: Amazon Web Services Updatebackupplan
@@ -84,6 +104,8 @@ paths:
         input document in JSON format. The new version is uniquely identified by
         a VersionId.
       operationId: amazonWebServicesUpdateBackupPlan
+      tags:
+        - Backup
   /backup/plans/{backupPlanId}/selections/{selectionId}:
     GET:
       summary: Amazon Web Services Getbackupselection
@@ -91,6 +113,8 @@ paths:
         Returns selection metadata and a document in JSON format that specifies
         a list of resources that are associated with a backup plan.
       operationId: amazonWebServicesGetBackupSelection
+      tags:
+        - Backup
   /backup-vaults/{backupVaultName}/access-policy:
     PUT:
       summary: Amazon Web Services Putbackupvaultaccesspolicy
@@ -99,6 +123,8 @@ paths:
         on the target backup vault. Requires a backup vault name and an access
         policy document in JSON format.
       operationId: amazonWebServicesPutBackupVaultAccessPolicy
+      tags:
+        - Backup Vaults
   /backup-vaults/{backupVaultName}/vault-lock:
     PUT:
       summary: Amazon Web Services Putbackupvaultlockconfiguration
@@ -113,6 +139,8 @@ paths:
         For more information about how Backup Vault Lock relates to these
         regulations, see the Cohasset Associates Compliance Assessment.  
       operationId: amazonWebServicesPutBackupVaultLockConfiguration
+      tags:
+        - Backup Vaults
   /backup-vaults/{backupVaultName}/notification-configuration:
     PUT:
       summary: Amazon Web Services Putbackupvaultnotifications
@@ -120,6 +148,8 @@ paths:
         Turns on notifications on a backup vault for the specified topic and
         events.
       operationId: amazonWebServicesPutBackupVaultNotifications
+      tags:
+        - Backup Vaults
   /audit/frameworks/{frameworkName}:
     PUT:
       summary: Amazon Web Services Updateframework
@@ -127,6 +157,8 @@ paths:
         Updates an existing framework identified by its FrameworkName with the
         input document in JSON format.
       operationId: amazonWebServicesUpdateFramework
+      tags:
+        - Audit
   /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}:
     POST:
       summary: Amazon Web Services Updaterecoverypointlifecycle
@@ -144,6 +176,8 @@ paths:
         resource table. Backup ignores this expression for other resource types.
         This operation does not support continuous backups.
       operationId: amazonWebServicesUpdateRecoveryPointLifecycle
+      tags:
+        - Backup Vaults
   /audit/report-plans/{reportPlanName}:
     PUT:
       summary: Amazon Web Services Updatereportplan
@@ -151,6 +185,8 @@ paths:
         Updates an existing report plan identified by its ReportPlanName with
         the input document in JSON format.
       operationId: amazonWebServicesUpdateReportPlan
+      tags:
+        - Audit
   /restore-testing/plans/{RestoreTestingPlanName}:
     PUT:
       summary: Amazon Web Services Updaterestoretestingplan
@@ -158,6 +194,8 @@ paths:
         This request will send changes to your specified restore testing plan.
         RestoreTestingPlanName cannot be updated after it is created.  RecoveryPointSelection can contain:    Algorithm     ExcludeVaults     IncludeVaults     RecoveryPointTypes     SelectionWindowDays   
       operationId: amazonWebServicesUpdateRestoreTestingPlan
+      tags:
+        - Restore Testing
   /restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}:
     PUT:
       summary: Amazon Web Services Updaterestoretestingselection
@@ -168,6 +206,8 @@ paths:
         ProtectedResourceArns, requesting an update with the parameter
         ProtectedResourceConditions will be unsuccessful.
       operationId: amazonWebServicesUpdateRestoreTestingSelection
+      tags:
+        - Restore Testing
   /backup-jobs/{backupJobId}:
     POST:
       summary: Amazon Web Services Stopbackupjob
@@ -178,11 +218,15 @@ paths:
         for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS,
         Amazon Aurora, and Amazon Neptune.
       operationId: amazonWebServicesStopBackupJob
+      tags:
+        - Backup Jobs
   /copy-jobs/{copyJobId}:
     GET:
       summary: Amazon Web Services Describecopyjob
       description: Returns metadata associated with creating a copy of a resource.
       operationId: amazonWebServicesDescribeCopyJob
+      tags:
+        - Copy Jobs
   /global-settings:
     PUT:
       summary: Amazon Web Services Updateglobalsettings
@@ -192,6 +236,8 @@ paths:
         Organizations management account. Use the DescribeGlobalSettings API to
         determine the current settings.
       operationId: amazonWebServicesUpdateGlobalSettings
+      tags:
+        - Global Settings
   /resources/{resourceArn}:
     GET:
       summary: Amazon Web Services Describeprotectedresource
@@ -200,6 +246,8 @@ paths:
         was backed up, its Amazon Resource Name (ARN), and the Amazon Web
         Services service type of the saved resource.
       operationId: amazonWebServicesDescribeProtectedResource
+      tags:
+        - Resources
   /account-settings:
     PUT:
       summary: Amazon Web Services Updateregionsettings
@@ -208,6 +256,8 @@ paths:
         DescribeRegionSettings API to determine the resource types that are
         supported.
       operationId: amazonWebServicesUpdateRegionSettings
+      tags:
+        - Account Settings
   /audit/report-jobs/{reportJobId}:
     GET:
       summary: Amazon Web Services Describereportjob
@@ -215,6 +265,8 @@ paths:
         Returns the details associated with creating a report as specified by
         its ReportJobId.
       operationId: amazonWebServicesDescribeReportJob
+      tags:
+        - Audit
   /restore-jobs/{restoreJobId}:
     GET:
       summary: Amazon Web Services Describerestorejob
@@ -222,6 +274,8 @@ paths:
         Returns metadata associated with a restore job that is specified by a
         job ID.
       operationId: amazonWebServicesDescribeRestoreJob
+      tags:
+        - Restore Jobs
   /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/disassociate:
     POST:
       summary: Amazon Web Services Disassociaterecoverypoint
@@ -232,6 +286,8 @@ paths:
         continuous backups using the lifecycle that you specified in your
         original backup plan. Does not support snapshot backup recovery points.
       operationId: amazonWebServicesDisassociateRecoveryPoint
+      tags:
+        - Backup Vaults
   /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/parentAssociation:
     DELETE:
       summary: Amazon Web Services Disassociaterecoverypointfromparent
@@ -240,6 +296,8 @@ paths:
         relationship between the specified recovery point and its parent
         (composite) recovery point.
       operationId: amazonWebServicesDisassociateRecoveryPointFromParent
+      tags:
+        - Backup Vaults
   /backup/plans/{backupPlanId}/toTemplate/:
     GET:
       summary: Amazon Web Services Exportbackupplantemplate
@@ -247,6 +305,8 @@ paths:
         Returns the backup plan that is specified by the plan ID as a backup
         template.
       operationId: amazonWebServicesExportBackupPlanTemplate
+      tags:
+        - Backup
   /backup/plans/{backupPlanId}/:
     GET:
       summary: Amazon Web Services Getbackupplan
@@ -255,16 +315,22 @@ paths:
         are the body of a backup plan in JSON format, in addition to plan
         metadata.
       operationId: amazonWebServicesGetBackupPlan
+      tags:
+        - Backup
   /backup/template/json/toPlan:
     POST:
       summary: Amazon Web Services Getbackupplanfromjson
       description: Returns a valid JSON document specifying a backup plan or an error.
       operationId: amazonWebServicesGetBackupPlanFromJSON
+      tags:
+        - Backup
   /backup/template/plans/{templateId}/toPlan:
     GET:
       summary: Amazon Web Services Getbackupplanfromtemplate
       description: Returns the template specified by its templateId as a backup plan.
       operationId: amazonWebServicesGetBackupPlanFromTemplate
+      tags:
+        - Backup
   /legal-holds/{legalHoldId}/:
     GET:
       summary: Amazon Web Services Getlegalhold
@@ -272,6 +338,8 @@ paths:
         This action returns details for a specified legal hold. The details are
         the body of a legal hold in JSON format, in addition to metadata.
       operationId: amazonWebServicesGetLegalHold
+      tags:
+        - Legal Holds
   /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/restore-metadata:
     GET:
       summary: Amazon Web Services Getrecoverypointrestoremetadata
@@ -279,11 +347,15 @@ paths:
         Returns a set of metadata key-value pairs that were used to create the
         backup.
       operationId: amazonWebServicesGetRecoveryPointRestoreMetadata
+      tags:
+        - Backup Vaults
   /restore-jobs/{restoreJobId}/metadata:
     GET:
       summary: Amazon Web Services Getrestorejobmetadata
       description: This request returns the metadata for the specified restore job.
       operationId: amazonWebServicesGetRestoreJobMetadata
+      tags:
+        - Restore Jobs
   /restore-testing/inferred-metadata:
     GET:
       summary: Amazon Web Services Getrestoretestinginferredmetadata
@@ -293,11 +365,15 @@ paths:
         RecoveryPointArn are required parameters. BackupVaultAccountId is an
         optional parameter.
       operationId: amazonWebServicesGetRestoreTestingInferredMetadata
+      tags:
+        - Restore Testing
   /supported-resource-types:
     GET:
       summary: Amazon Web Services Getsupportedresourcetypes
       description: Returns the Amazon Web Services resource types supported by Backup.
       operationId: amazonWebServicesGetSupportedResourceTypes
+      tags:
+        - Supported Resource Types
   /audit/backup-job-summaries:
     GET:
       summary: Amazon Web Services Listbackupjobsummaries
@@ -309,6 +385,8 @@ paths:
         contains Region, Account, State, ResourceType, MessageCategory,
         StartTime, EndTime, and Count of included jobs.
       operationId: amazonWebServicesListBackupJobSummaries
+      tags:
+        - Audit
   /backup-jobs/:
     GET:
       summary: Amazon Web Services Listbackupjobs
@@ -317,6 +395,8 @@ paths:
         the last 30 days. For a longer period of time, consider using these
         monitoring tools.
       operationId: amazonWebServicesListBackupJobs
+      tags:
+        - Backup Jobs
   /backup/template/plans:
     GET:
       summary: Amazon Web Services Listbackupplantemplates
@@ -324,6 +404,8 @@ paths:
         Returns metadata of your saved backup plan templates, including the
         template ID, name, and the creation and deletion dates.
       operationId: amazonWebServicesListBackupPlanTemplates
+      tags:
+        - Backup
   /backup/plans/{backupPlanId}/versions/:
     GET:
       summary: Amazon Web Services Listbackupplanversions
@@ -332,6 +414,8 @@ paths:
         Names (ARNs), backup plan IDs, creation and deletion dates, plan names,
         and version IDs.
       operationId: amazonWebServicesListBackupPlanVersions
+      tags:
+        - Backup
   /backup-vaults/:
     GET:
       summary: Amazon Web Services Listbackupvaults
@@ -339,6 +423,8 @@ paths:
         Returns a list of recovery point storage containers along with
         information about them.
       operationId: amazonWebServicesListBackupVaults
+      tags:
+        - Backup Vaults
   /audit/copy-job-summaries:
     GET:
       summary: Amazon Web Services Listcopyjobsummaries
@@ -350,11 +436,15 @@ paths:
         contains Region, Account, State, RestourceType, MessageCategory,
         StartTime, EndTime, and Count of included jobs.
       operationId: amazonWebServicesListCopyJobSummaries
+      tags:
+        - Audit
   /copy-jobs/:
     GET:
       summary: Amazon Web Services Listcopyjobs
       description: Returns metadata about your copy jobs.
       operationId: amazonWebServicesListCopyJobs
+      tags:
+        - Copy Jobs
   /resources/:
     GET:
       summary: Amazon Web Services Listprotectedresources
@@ -363,6 +453,8 @@ paths:
         including the time the resource was saved, an Amazon Resource Name (ARN)
         of the resource, and a resource type.
       operationId: amazonWebServicesListProtectedResources
+      tags:
+        - Resources
   /backup-vaults/{backupVaultName}/resources/:
     GET:
       summary: Amazon Web Services Listprotectedresourcesbybackupvault
@@ -370,6 +462,8 @@ paths:
         This request lists the protected resources corresponding to each backup
         vault.
       operationId: amazonWebServicesListProtectedResourcesByBackupVault
+      tags:
+        - Backup Vaults
   /backup-vaults/{backupVaultName}/recovery-points/:
     GET:
       summary: Amazon Web Services Listrecoverypointsbybackupvault
@@ -377,6 +471,8 @@ paths:
         Returns detailed information about the recovery points stored in a
         backup vault.
       operationId: amazonWebServicesListRecoveryPointsByBackupVault
+      tags:
+        - Backup Vaults
   /legal-holds/{legalHoldId}/recovery-points:
     GET:
       summary: Amazon Web Services Listrecoverypointsbylegalhold
@@ -384,6 +480,8 @@ paths:
         This action returns recovery point ARNs (Amazon Resource Names) of the
         specified legal hold.
       operationId: amazonWebServicesListRecoveryPointsByLegalHold
+      tags:
+        - Legal Holds
   /resources/{resourceArn}/recovery-points/:
     GET:
       summary: Amazon Web Services Listrecoverypointsbyresource
@@ -392,11 +490,15 @@ paths:
         specified by a resource Amazon Resource Name (ARN).  For Amazon EFS and
         Amazon EC2, this action only lists recovery points created by Backup. 
       operationId: amazonWebServicesListRecoveryPointsByResource
+      tags:
+        - Resources
   /audit/report-jobs:
     GET:
       summary: Amazon Web Services Listreportjobs
       description: Returns details about your report jobs.
       operationId: amazonWebServicesListReportJobs
+      tags:
+        - Audit
   /audit/restore-job-summaries:
     GET:
       summary: Amazon Web Services Listrestorejobsummaries
@@ -408,6 +510,8 @@ paths:
         Account, State, RestourceType, MessageCategory, StartTime, EndTime, and
         Count of included jobs.
       operationId: amazonWebServicesListRestoreJobSummaries
+      tags:
+        - Audit
   /restore-jobs/:
     GET:
       summary: Amazon Web Services Listrestorejobs
@@ -415,6 +519,8 @@ paths:
         Returns a list of jobs that Backup initiated to restore a saved
         resource, including details about the recovery process.
       operationId: amazonWebServicesListRestoreJobs
+      tags:
+        - Restore Jobs
   /resources/{resourceArn}/restore-jobs/:
     GET:
       summary: Amazon Web Services Listrestorejobsbyprotectedresource
@@ -424,6 +530,8 @@ paths:
         ByStatus, MaxResults, ByRecoveryPointCreationDateAfter , and
         ByRecoveryPointCreationDateBefore.
       operationId: amazonWebServicesListRestoreJobsByProtectedResource
+      tags:
+        - Resources
   /tags/{resourceArn}/:
     GET:
       summary: Amazon Web Services Listtags
@@ -434,6 +542,8 @@ paths:
         types are listed in the "Full Backup management" section of the  Feature
         availability by resource table.
       operationId: amazonWebServicesListTags
+      tags:
+        - Tags
   /restore-jobs/{restoreJobId}/validations:
     PUT:
       summary: Amazon Web Services Putrestorevalidationresult
@@ -442,11 +552,15 @@ paths:
         validation results. RestoreJobId and ValidationStatus are required.
         Optionally, you can input a ValidationStatusMessage.
       operationId: amazonWebServicesPutRestoreValidationResult
+      tags:
+        - Restore Jobs
   /backup-jobs:
     PUT:
       summary: Amazon Web Services Startbackupjob
       description: Starts an on-demand backup job for the specified resource.
       operationId: amazonWebServicesStartBackupJob
+      tags:
+        - Backup Jobs
   /copy-jobs:
     PUT:
       summary: Amazon Web Services Startcopyjob
@@ -454,16 +568,22 @@ paths:
         Starts a job to create a one-time copy of the specified resource. Does
         not support continuous backups.
       operationId: amazonWebServicesStartCopyJob
+      tags:
+        - Copy Jobs
   /audit/report-jobs/{reportPlanName}:
     POST:
       summary: Amazon Web Services Startreportjob
       description: Starts an on-demand report job for the specified report plan.
       operationId: amazonWebServicesStartReportJob
+      tags:
+        - Audit
   /restore-jobs:
     PUT:
       summary: Amazon Web Services Startrestorejob
       description: Recovers the saved resource identified by an Amazon Resource Name (ARN).
       operationId: amazonWebServicesStartRestoreJob
+      tags:
+        - Restore Jobs
   /tags/{resourceArn}:
     POST:
       summary: Amazon Web Services Tagresource
@@ -471,6 +591,8 @@ paths:
         Assigns a set of key-value pairs to a recovery point, backup plan, or
         backup vault identified by an Amazon Resource Name (ARN).
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tags
   /untag/{resourceArn}:
     POST:
       summary: Amazon Web Services Untagresource
@@ -478,4 +600,21 @@ paths:
         Removes a set of key-value pairs from a recovery point, backup plan, or
         backup vault identified by an Amazon Resource Name (ARN)
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Untag
+tags:
+  - name: Account Settings
+  - name: Audit
+  - name: Backup
+  - name: Backup Jobs
+  - name: Backup Vaults
+  - name: Copy Jobs
+  - name: Global Settings
+  - name: Legal Holds
+  - name: Logically Air Gapped Backup Vaults
+  - name: Resources
+  - name: Restore Jobs
+  - name: Restore Testing
+  - name: Supported Resource Types
+  - name: Tags
+  - name: Untag

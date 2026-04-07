@@ -41,21 +41,29 @@ paths:
         topics or Chatbot clients configured for Slack) where you want to
         receive them.
       operationId: amazonWebServicesCreateNotificationRule
+      tags:
+        - createNotificationRule
   /deleteNotificationRule:
     POST:
       summary: Amazon Web Services Deletenotificationrule
       description: Deletes a notification rule for a resource.
       operationId: amazonWebServicesDeleteNotificationRule
+      tags:
+        - deleteNotificationRule
   /deleteTarget:
     POST:
       summary: Amazon Web Services Deletetarget
       description: Deletes a specified target for notifications.
       operationId: amazonWebServicesDeleteTarget
+      tags:
+        - deleteTarget
   /describeNotificationRule:
     POST:
       summary: Amazon Web Services Describenotificationrule
       description: Returns information about a specified notification rule.
       operationId: amazonWebServicesDescribeNotificationRule
+      tags:
+        - describeNotificationRule
   /listEventTypes:
     POST:
       summary: Amazon Web Services Listeventtypes
@@ -63,6 +71,8 @@ paths:
         Returns information about the event types available for configuring
         notifications.
       operationId: amazonWebServicesListEventTypes
+      tags:
+        - listEventTypes
   /listNotificationRules:
     POST:
       summary: Amazon Web Services Listnotificationrules
@@ -70,11 +80,15 @@ paths:
         Returns a list of the notification rules for an Amazon Web Services
         account.
       operationId: amazonWebServicesListNotificationRules
+      tags:
+        - listNotificationRules
   /listTagsForResource:
     POST:
       summary: Amazon Web Services Listtagsforresource
       description: Returns a list of the tags associated with a notification rule.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - listTagsForResource
   /listTargets:
     POST:
       summary: Amazon Web Services Listtargets
@@ -82,6 +96,8 @@ paths:
         Returns a list of the notification rule targets for an Amazon Web
         Services account.
       operationId: amazonWebServicesListTargets
+      tags:
+        - listTargets
   /subscribe:
     POST:
       summary: Amazon Web Services Subscribe
@@ -90,11 +106,15 @@ paths:
         or Chatbot client so that the associated target can receive
         notifications when the events described in the rule are triggered.
       operationId: amazonWebServicesSubscribe
+      tags:
+        - Subscribe
   /tagResource:
     POST:
       summary: Amazon Web Services Tagresource
       description: Associates a set of provided tags with a notification rule.
       operationId: amazonWebServicesTagResource
+      tags:
+        - tagResource
   /unsubscribe:
     POST:
       summary: Amazon Web Services Unsubscribe
@@ -103,6 +123,8 @@ paths:
         so that subscribers to that topic stop receiving notifications when the
         events described in the rule are triggered.
       operationId: amazonWebServicesUnsubscribe
+      tags:
+        - Unsubscribe
   /untagResource/{resourceArn}:
     POST:
       summary: Amazon Web Services Untagresource
@@ -110,6 +132,8 @@ paths:
         Removes the association between one or more provided tags and a
         notification rule.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - untagResource
   /updateNotificationRule:
     POST:
       summary: Amazon Web Services Updatenotificationrule
@@ -119,4 +143,19 @@ paths:
         targets that receive the notifications.  To add or remove tags for a
         notification rule, you must use TagResource and UntagResource. 
       operationId: amazonWebServicesUpdateNotificationRule
-tags: []
+      tags:
+        - updateNotificationRule
+tags:
+  - name: createNotificationRule
+  - name: deleteNotificationRule
+  - name: deleteTarget
+  - name: describeNotificationRule
+  - name: listEventTypes
+  - name: listNotificationRules
+  - name: listTagsForResource
+  - name: listTargets
+  - name: Subscribe
+  - name: tagResource
+  - name: Unsubscribe
+  - name: untagResource
+  - name: updateNotificationRule

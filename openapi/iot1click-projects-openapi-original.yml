@@ -8,11 +8,15 @@ paths:
       summary: Amazon Web Services Disassociatedevicefromplacement
       description: Removes a physical device from a placement.
       operationId: amazonWebServicesDisassociateDeviceFromPlacement
+      tags:
+        - Projects
   /projects/{projectName}/placements:
     GET:
       summary: Amazon Web Services Listplacements
       description: Lists the placement(s) of a project.
       operationId: amazonWebServicesListPlacements
+      tags:
+        - Projects
   /projects:
     GET:
       summary: Amazon Web Services Listprojects
@@ -20,6 +24,8 @@ paths:
         Lists the AWS IoT 1-Click project(s) associated with your AWS account
         and region.
       operationId: amazonWebServicesListProjects
+      tags:
+        - Projects
   /projects/{projectName}/placements/{placementName}:
     PUT:
       summary: Amazon Web Services Updateplacement
@@ -27,6 +33,8 @@ paths:
         Updates a placement with the given attributes. To clear an attribute,
         pass an empty value (i.e., "").
       operationId: amazonWebServicesUpdatePlacement
+      tags:
+        - Projects
   /projects/{projectName}:
     PUT:
       summary: Amazon Web Services Updateproject
@@ -37,14 +45,22 @@ paths:
         values that are provided. To clear a value, pass the empty string (i.e.,
         "").
       operationId: amazonWebServicesUpdateProject
+      tags:
+        - Projects
   /projects/{projectName}/placements/{placementName}/devices:
     GET:
       summary: Amazon Web Services Getdevicesinplacement
       description: Returns an object enumerating the devices in a placement.
       operationId: amazonWebServicesGetDevicesInPlacement
+      tags:
+        - Projects
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags (metadata key/value pairs) from a resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Projects
+  - name: Tags

@@ -14,51 +14,71 @@ paths:
       summary: Amazon Web Services Batchputpropertyvalues
       description: Sets values for multiple time series properties.
       operationId: amazonWebServicesBatchPutPropertyValues
+      tags:
+        - Workspaces
   /metadata-transfer-jobs/{metadataTransferJobId}/cancel:
     PUT:
       summary: Amazon Web Services Cancelmetadatatransferjob
       description: Cancels the metadata transfer job.
       operationId: amazonWebServicesCancelMetadataTransferJob
+      tags:
+        - Metadata Transfer Jobs
   /workspaces/{workspaceId}/component-types/{componentTypeId}:
     PUT:
       summary: Amazon Web Services Updatecomponenttype
       description: Updates information in a component type.
       operationId: amazonWebServicesUpdateComponentType
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/entities:
     POST:
       summary: Amazon Web Services Createentity
       description: Creates an entity.
       operationId: amazonWebServicesCreateEntity
+      tags:
+        - Workspaces
   /metadata-transfer-jobs:
     POST:
       summary: Amazon Web Services Createmetadatatransferjob
       description: Creates a new metadata transfer job.
       operationId: amazonWebServicesCreateMetadataTransferJob
+      tags:
+        - Metadata Transfer Jobs
   /workspaces/{workspaceId}/scenes:
     POST:
       summary: Amazon Web Services Createscene
       description: Creates a scene.
       operationId: amazonWebServicesCreateScene
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/sync-jobs/{syncSource}:
     DELETE:
       summary: Amazon Web Services Deletesyncjob
       description: Delete the SyncJob.
       operationId: amazonWebServicesDeleteSyncJob
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}:
     PUT:
       summary: Amazon Web Services Updateworkspace
       description: Updates a workspace.
       operationId: amazonWebServicesUpdateWorkspace
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/entities/{entityId}:
     PUT:
       summary: Amazon Web Services Updateentity
       description: Updates an entity.
       operationId: amazonWebServicesUpdateEntity
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/scenes/{sceneId}:
     PUT:
       summary: Amazon Web Services Updatescene
       description: Updates a scene.
       operationId: amazonWebServicesUpdateScene
+      tags:
+        - Workspaces
   /queries/execution:
     POST:
       summary: Amazon Web Services Executequery
@@ -68,16 +88,22 @@ paths:
         Amazon Web Services Java SDK2. ExecuteQuery will not work with any
         Amazon Web Services Java SDK version &lt; 2.x. 
       operationId: amazonWebServicesExecuteQuery
+      tags:
+        - Queries
   /metadata-transfer-jobs/{metadataTransferJobId}:
     GET:
       summary: Amazon Web Services Getmetadatatransferjob
       description: Gets a nmetadata transfer job.
       operationId: amazonWebServicesGetMetadataTransferJob
+      tags:
+        - Metadata Transfer Jobs
   /pricingplan:
     POST:
       summary: Amazon Web Services Updatepricingplan
       description: Update the pricing plan.
       operationId: amazonWebServicesUpdatePricingPlan
+      tags:
+        - Pricingplan
   /workspaces/{workspaceId}/entity-properties/value:
     POST:
       summary: Amazon Web Services Getpropertyvalue
@@ -86,6 +112,8 @@ paths:
         workspace. You must specify a value for either componentName,
         componentTypeId, entityId, or workspaceId.
       operationId: amazonWebServicesGetPropertyValue
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/entity-properties/history:
     POST:
       summary: Amazon Web Services Getpropertyvaluehistory
@@ -96,64 +124,99 @@ paths:
         componentName and entityId. For cross-entity quries, specify a value for
         componentTypeId.
       operationId: amazonWebServicesGetPropertyValueHistory
+      tags:
+        - Workspaces
   /sync-jobs/{syncSource}:
     GET:
       summary: Amazon Web Services Getsyncjob
       description: Gets the SyncJob.
       operationId: amazonWebServicesGetSyncJob
+      tags:
+        - Sync Jobs
   /workspaces/{workspaceId}/component-types-list:
     POST:
       summary: Amazon Web Services Listcomponenttypes
       description: Lists all component types in a workspace.
       operationId: amazonWebServicesListComponentTypes
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/entities/{entityId}/components-list:
     POST:
       summary: Amazon Web Services Listcomponents
       description: This API lists the components of an entity.
       operationId: amazonWebServicesListComponents
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/entities-list:
     POST:
       summary: Amazon Web Services Listentities
       description: Lists all entities in a workspace.
       operationId: amazonWebServicesListEntities
+      tags:
+        - Workspaces
   /metadata-transfer-jobs-list:
     POST:
       summary: Amazon Web Services Listmetadatatransferjobs
       description: Lists the metadata transfer jobs.
       operationId: amazonWebServicesListMetadataTransferJobs
+      tags:
+        - Metadata Transfer Jobs List
   /workspaces/{workspaceId}/properties-list:
     POST:
       summary: Amazon Web Services Listproperties
       description: This API lists the properties of a component.
       operationId: amazonWebServicesListProperties
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/scenes-list:
     POST:
       summary: Amazon Web Services Listscenes
       description: Lists all scenes in a workspace.
       operationId: amazonWebServicesListScenes
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/sync-jobs-list:
     POST:
       summary: Amazon Web Services Listsyncjobs
       description: List all SyncJobs.
       operationId: amazonWebServicesListSyncJobs
+      tags:
+        - Workspaces
   /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list:
     POST:
       summary: Amazon Web Services Listsyncresources
       description: Lists the sync resources.
       operationId: amazonWebServicesListSyncResources
+      tags:
+        - Workspaces
   /tags-list:
     POST:
       summary: Amazon Web Services Listtagsforresource
       description: Lists all tags associated with a resource.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags List
   /workspaces-list:
     POST:
       summary: Amazon Web Services Listworkspaces
       description: Retrieves information about workspaces in the current account.
       operationId: amazonWebServicesListWorkspaces
+      tags:
+        - Workspaces List
   /tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Metadata Transfer Jobs
+  - name: Metadata Transfer Jobs List
+  - name: Pricingplan
+  - name: Queries
+  - name: Sync Jobs
+  - name: Tags
+  - name: Tags List
+  - name: Workspaces
+  - name: Workspaces List

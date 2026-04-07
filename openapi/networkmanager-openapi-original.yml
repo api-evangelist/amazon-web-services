@@ -14,11 +14,15 @@ paths:
         is accepted by a core network owner, the attachment is created and
         connected to a core network.
       operationId: amazonWebServicesAcceptAttachment
+      tags:
+        - Attachments
   /global-networks/{globalNetworkId}/connect-peer-associations:
     GET:
       summary: Amazon Web Services Getconnectpeerassociations
       description: Returns information about a core network Connect peer associations.
       operationId: amazonWebServicesGetConnectPeerAssociations
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/customer-gateway-associations:
     GET:
       summary: Amazon Web Services Getcustomergatewayassociations
@@ -26,6 +30,8 @@ paths:
         Gets the association information for customer gateways that are
         associated with devices and links in your global network.
       operationId: amazonWebServicesGetCustomerGatewayAssociations
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/link-associations:
     GET:
       summary: Amazon Web Services Getlinkassociations
@@ -33,6 +39,8 @@ paths:
         Gets the link associations for a device or a link. Either the device ID
         or the link ID must be specified.
       operationId: amazonWebServicesGetLinkAssociations
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations:
     GET:
       summary: Amazon Web Services Gettransitgatewayconnectpeerassociations
@@ -40,6 +48,8 @@ paths:
         Gets information about one or more of your transit gateway Connect peer
         associations in a global network.
       operationId: amazonWebServicesGetTransitGatewayConnectPeerAssociations
+      tags:
+        - Global Networks
   /connect-attachments:
     POST:
       summary: Amazon Web Services Createconnectattachment
@@ -50,11 +60,15 @@ paths:
         network and an appliance. A core network Connect attachment uses an
         existing VPC attachment as the underlying transport mechanism.
       operationId: amazonWebServicesCreateConnectAttachment
+      tags:
+        - Connect Attachments
   /connect-peers:
     GET:
       summary: Amazon Web Services Listconnectpeers
       description: Returns a list of core network Connect peers.
       operationId: amazonWebServicesListConnectPeers
+      tags:
+        - Connect Peers
   /global-networks/{globalNetworkId}/connections:
     GET:
       summary: Amazon Web Services Getconnections
@@ -62,16 +76,22 @@ paths:
         Gets information about one or more of your connections in a global
         network.
       operationId: amazonWebServicesGetConnections
+      tags:
+        - Global Networks
   /core-networks:
     GET:
       summary: Amazon Web Services Listcorenetworks
       description: Returns a list of owned and shared core networks.
       operationId: amazonWebServicesListCoreNetworks
+      tags:
+        - Core Networks
   /global-networks/{globalNetworkId}/devices:
     GET:
       summary: Amazon Web Services Getdevices
       description: Gets information about one or more of your devices in a global network.
       operationId: amazonWebServicesGetDevices
+      tags:
+        - Global Networks
   /global-networks:
     GET:
       summary: Amazon Web Services Describeglobalnetworks
@@ -81,6 +101,8 @@ paths:
         use the appropriate Get* action. For example, to list the transit
         gateways in your global network, use GetTransitGatewayRegistrations.
       operationId: amazonWebServicesDescribeGlobalNetworks
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/links:
     GET:
       summary: Amazon Web Services Getlinks
@@ -90,11 +112,15 @@ paths:
         the same request. You can specify the type and provider in the same
         request.
       operationId: amazonWebServicesGetLinks
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/sites:
     GET:
       summary: Amazon Web Services Getsites
       description: Gets information about one or more of your sites in a global network.
       operationId: amazonWebServicesGetSites
+      tags:
+        - Global Networks
   /site-to-site-vpn-attachments:
     POST:
       summary: Amazon Web Services Createsitetositevpnattachment
@@ -102,31 +128,43 @@ paths:
         Creates an Amazon Web Services site-to-site VPN attachment on an edge
         location of a core network.
       operationId: amazonWebServicesCreateSiteToSiteVpnAttachment
+      tags:
+        - Site to Site Vpn Attachments
   /transit-gateway-peerings:
     POST:
       summary: Amazon Web Services Createtransitgatewaypeering
       description: Creates a transit gateway peering connection.
       operationId: amazonWebServicesCreateTransitGatewayPeering
+      tags:
+        - Transit Gateway Peerings
   /transit-gateway-route-table-attachments:
     POST:
       summary: Amazon Web Services Createtransitgatewayroutetableattachment
       description: Creates a transit gateway route table attachment.
       operationId: amazonWebServicesCreateTransitGatewayRouteTableAttachment
+      tags:
+        - Transit Gateway Route Table Attachments
   /vpc-attachments:
     POST:
       summary: Amazon Web Services Createvpcattachment
       description: Creates a VPC attachment on an edge location of a core network.
       operationId: amazonWebServicesCreateVpcAttachment
+      tags:
+        - Vpc Attachments
   /attachments/{attachmentId}:
     DELETE:
       summary: Amazon Web Services Deleteattachment
       description: Deletes an attachment. Supports all attachment types.
       operationId: amazonWebServicesDeleteAttachment
+      tags:
+        - Attachments
   /connect-peers/{connectPeerId}:
     GET:
       summary: Amazon Web Services Getconnectpeer
       description: Returns information about a core network Connect peer.
       operationId: amazonWebServicesGetConnectPeer
+      tags:
+        - Connect Peers
   /global-networks/{globalNetworkId}/connections/{connectionId}:
     PATCH:
       summary: Amazon Web Services Updateconnection
@@ -134,11 +172,15 @@ paths:
         Updates the information for an existing connection. To remove
         information for any of the parameters, specify an empty string.
       operationId: amazonWebServicesUpdateConnection
+      tags:
+        - Global Networks
   /core-networks/{coreNetworkId}:
     PATCH:
       summary: Amazon Web Services Updatecorenetwork
       description: Updates the description of a core network.
       operationId: amazonWebServicesUpdateCoreNetwork
+      tags:
+        - Core Networks
   /core-networks/{coreNetworkId}/core-network-policy-versions/{policyVersionId}:
     DELETE:
       summary: Amazon Web Services Deletecorenetworkpolicyversion
@@ -146,6 +188,8 @@ paths:
         Deletes a policy version from a core network. You can't delete the
         current LIVE policy.
       operationId: amazonWebServicesDeleteCoreNetworkPolicyVersion
+      tags:
+        - Core Networks
   /global-networks/{globalNetworkId}/devices/{deviceId}:
     PATCH:
       summary: Amazon Web Services Updatedevice
@@ -153,6 +197,8 @@ paths:
         Updates the details for an existing device. To remove information for
         any of the parameters, specify an empty string.
       operationId: amazonWebServicesUpdateDevice
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}:
     PATCH:
       summary: Amazon Web Services Updateglobalnetwork
@@ -160,6 +206,8 @@ paths:
         Updates an existing global network. To remove information for any of the
         parameters, specify an empty string.
       operationId: amazonWebServicesUpdateGlobalNetwork
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/links/{linkId}:
     PATCH:
       summary: Amazon Web Services Updatelink
@@ -167,16 +215,22 @@ paths:
         Updates the details for an existing link. To remove information for any
         of the parameters, specify an empty string.
       operationId: amazonWebServicesUpdateLink
+      tags:
+        - Global Networks
   /peerings/{peeringId}:
     DELETE:
       summary: Amazon Web Services Deletepeering
       description: Deletes an existing peering connection.
       operationId: amazonWebServicesDeletePeering
+      tags:
+        - Peerings
   /resource-policy/{resourceArn}:
     POST:
       summary: Amazon Web Services Putresourcepolicy
       description: Creates or updates a resource policy.
       operationId: amazonWebServicesPutResourcePolicy
+      tags:
+        - Resource Policy
   /global-networks/{globalNetworkId}/sites/{siteId}:
     PATCH:
       summary: Amazon Web Services Updatesite
@@ -184,6 +238,8 @@ paths:
         Updates the information for an existing site. To remove information for
         any of the parameters, specify an empty string.
       operationId: amazonWebServicesUpdateSite
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/transit-gateway-registrations/{transitGatewayArn}:
     DELETE:
       summary: Amazon Web Services Deregistertransitgateway
@@ -192,21 +248,29 @@ paths:
         not delete your transit gateway, or modify any of its attachments. This
         action removes any customer gateway associations.
       operationId: amazonWebServicesDeregisterTransitGateway
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/connect-peer-associations/{connectPeerId}:
     DELETE:
       summary: Amazon Web Services Disassociateconnectpeer
       description: 'Disassociates a core network Connect peer from a device and a link. '
       operationId: amazonWebServicesDisassociateConnectPeer
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/customer-gateway-associations/{customerGatewayArn}:
     DELETE:
       summary: Amazon Web Services Disassociatecustomergateway
       description: Disassociates a customer gateway from a device and a link.
       operationId: amazonWebServicesDisassociateCustomerGateway
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations/{transitGatewayConnectPeerArn}:
     DELETE:
       summary: Amazon Web Services Disassociatetransitgatewayconnectpeer
       description: Disassociates a transit gateway Connect peer from a device and link.
       operationId: amazonWebServicesDisassociateTransitGatewayConnectPeer
+      tags:
+        - Global Networks
   /core-networks/{coreNetworkId}/core-network-change-sets/{policyVersionId}/execute:
     POST:
       summary: Amazon Web Services Executecorenetworkchangeset
@@ -214,16 +278,22 @@ paths:
         Executes a change set on your core network. Deploys changes globally
         based on the policy submitted..
       operationId: amazonWebServicesExecuteCoreNetworkChangeSet
+      tags:
+        - Core Networks
   /connect-attachments/{attachmentId}:
     GET:
       summary: Amazon Web Services Getconnectattachment
       description: Returns information about a core network Connect attachment.
       operationId: amazonWebServicesGetConnectAttachment
+      tags:
+        - Connect Attachments
   /core-networks/{coreNetworkId}/core-network-change-events/{policyVersionId}:
     GET:
       summary: Amazon Web Services Getcorenetworkchangeevents
       description: Returns information about a core network change event.
       operationId: amazonWebServicesGetCoreNetworkChangeEvents
+      tags:
+        - Core Networks
   /core-networks/{coreNetworkId}/core-network-change-sets/{policyVersionId}:
     GET:
       summary: Amazon Web Services Getcorenetworkchangeset
@@ -231,6 +301,8 @@ paths:
         Returns a change set between the LIVE core network policy and a
         submitted policy.
       operationId: amazonWebServicesGetCoreNetworkChangeSet
+      tags:
+        - Core Networks
   /core-networks/{coreNetworkId}/core-network-policy:
     POST:
       summary: Amazon Web Services Putcorenetworkpolicy
@@ -239,6 +311,8 @@ paths:
         change set is created showing the differences between the LIVE policy
         and the submitted policy.
       operationId: amazonWebServicesPutCoreNetworkPolicy
+      tags:
+        - Core Networks
   /global-networks/{globalNetworkId}/network-resource-count:
     GET:
       summary: Amazon Web Services Getnetworkresourcecounts
@@ -246,6 +320,8 @@ paths:
         Gets the count of network resources, by resource type, for the specified
         global network.
       operationId: amazonWebServicesGetNetworkResourceCounts
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/network-resource-relationships:
     GET:
       summary: Amazon Web Services Getnetworkresourcerelationships
@@ -253,6 +329,8 @@ paths:
         Gets the network resource relationships for the specified global
         network.
       operationId: amazonWebServicesGetNetworkResourceRelationships
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/network-resources:
     GET:
       summary: Amazon Web Services Getnetworkresources
@@ -261,31 +339,43 @@ paths:
         results include information from the corresponding Describe call for the
         resource, minus any sensitive information such as pre-shared keys.
       operationId: amazonWebServicesGetNetworkResources
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/network-routes:
     POST:
       summary: Amazon Web Services Getnetworkroutes
       description: Gets the network routes of the specified global network.
       operationId: amazonWebServicesGetNetworkRoutes
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/network-telemetry:
     GET:
       summary: Amazon Web Services Getnetworktelemetry
       description: Gets the network telemetry of the specified global network.
       operationId: amazonWebServicesGetNetworkTelemetry
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/route-analyses/{routeAnalysisId}:
     GET:
       summary: Amazon Web Services Getrouteanalysis
       description: Gets information about the specified route analysis.
       operationId: amazonWebServicesGetRouteAnalysis
+      tags:
+        - Global Networks
   /site-to-site-vpn-attachments/{attachmentId}:
     GET:
       summary: Amazon Web Services Getsitetositevpnattachment
       description: Returns information about a site-to-site VPN attachment.
       operationId: amazonWebServicesGetSiteToSiteVpnAttachment
+      tags:
+        - Site to Site Vpn Attachments
   /transit-gateway-peerings/{peeringId}:
     GET:
       summary: Amazon Web Services Gettransitgatewaypeering
       description: Returns information about a transit gateway peer.
       operationId: amazonWebServicesGetTransitGatewayPeering
+      tags:
+        - Transit Gateway Peerings
   /global-networks/{globalNetworkId}/transit-gateway-registrations:
     POST:
       summary: Amazon Web Services Registertransitgateway
@@ -299,26 +389,36 @@ paths:
         network. You cannot register a transit gateway in more than one global
         network.
       operationId: amazonWebServicesRegisterTransitGateway
+      tags:
+        - Global Networks
   /transit-gateway-route-table-attachments/{attachmentId}:
     GET:
       summary: Amazon Web Services Gettransitgatewayroutetableattachment
       description: Returns information about a transit gateway route table attachment.
       operationId: amazonWebServicesGetTransitGatewayRouteTableAttachment
+      tags:
+        - Transit Gateway Route Table Attachments
   /vpc-attachments/{attachmentId}:
     PATCH:
       summary: Amazon Web Services Updatevpcattachment
       description: Updates a VPC attachment.
       operationId: amazonWebServicesUpdateVpcAttachment
+      tags:
+        - Vpc Attachments
   /attachments:
     GET:
       summary: Amazon Web Services Listattachments
       description: Returns a list of core network attachments.
       operationId: amazonWebServicesListAttachments
+      tags:
+        - Attachments
   /core-networks/{coreNetworkId}/core-network-policy-versions:
     GET:
       summary: Amazon Web Services Listcorenetworkpolicyversions
       description: Returns a list of core network policy versions.
       operationId: amazonWebServicesListCoreNetworkPolicyVersions
+      tags:
+        - Core Networks
   /organizations/service-access:
     POST:
       summary: Amazon Web Services Startorganizationserviceaccessupdate
@@ -327,21 +427,29 @@ paths:
         Organization. This can only be called by a management account within the
         organization. 
       operationId: amazonWebServicesStartOrganizationServiceAccessUpdate
+      tags:
+        - Organizations
   /peerings:
     GET:
       summary: Amazon Web Services Listpeerings
       description: Lists the peerings for a core network.
       operationId: amazonWebServicesListPeerings
+      tags:
+        - Peerings
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /attachments/{attachmentId}/reject:
     POST:
       summary: Amazon Web Services Rejectattachment
       description: Rejects a core network attachment request.
       operationId: amazonWebServicesRejectAttachment
+      tags:
+        - Attachments
   /core-networks/{coreNetworkId}/core-network-policy-versions/{policyVersionId}/restore:
     POST:
       summary: Amazon Web Services Restorecorenetworkpolicyversion
@@ -350,6 +458,8 @@ paths:
         network policy. A subsequent change set is created showing the
         differences between the LIVE policy and restored policy.
       operationId: amazonWebServicesRestoreCoreNetworkPolicyVersion
+      tags:
+        - Core Networks
   /global-networks/{globalNetworkId}/route-analyses:
     POST:
       summary: Amazon Web Services Startrouteanalysis
@@ -357,9 +467,26 @@ paths:
         Starts analyzing the routing path between the specified source and
         destination. For more information, see Route Analyzer.
       operationId: amazonWebServicesStartRouteAnalysis
+      tags:
+        - Global Networks
   /global-networks/{globalNetworkId}/network-resources/{resourceArn}/metadata:
     PATCH:
       summary: Amazon Web Services Updatenetworkresourcemetadata
       description: Updates the resource metadata for the specified global network.
       operationId: amazonWebServicesUpdateNetworkResourceMetadata
-tags: []
+      tags:
+        - Global Networks
+tags:
+  - name: Attachments
+  - name: Connect Attachments
+  - name: Connect Peers
+  - name: Core Networks
+  - name: Global Networks
+  - name: Organizations
+  - name: Peerings
+  - name: Resource Policy
+  - name: Site to Site Vpn Attachments
+  - name: Tags
+  - name: Transit Gateway Peerings
+  - name: Transit Gateway Route Table Attachments
+  - name: Vpc Attachments

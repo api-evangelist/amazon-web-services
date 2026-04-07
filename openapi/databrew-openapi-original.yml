@@ -25,26 +25,36 @@ paths:
         deleted), then LATEST_WORKING will be listed as partial failure in the
         response.
       operationId: amazonWebServicesBatchDeleteRecipeVersion
+      tags:
+        - Recipes
   /datasets:
     GET:
       summary: Amazon Web Services Listdatasets
       description: Lists all of the DataBrew datasets.
       operationId: amazonWebServicesListDatasets
+      tags:
+        - Datasets
   /profileJobs:
     POST:
       summary: Amazon Web Services Createprofilejob
       description: Creates a new job to analyze a dataset and create its data profile.
       operationId: amazonWebServicesCreateProfileJob
+      tags:
+        - profileJobs
   /projects:
     GET:
       summary: Amazon Web Services Listprojects
       description: Lists all of the DataBrew projects that are defined.
       operationId: amazonWebServicesListProjects
+      tags:
+        - Projects
   /recipes:
     GET:
       summary: Amazon Web Services Listrecipes
       description: Lists all of the DataBrew recipes that are defined.
       operationId: amazonWebServicesListRecipes
+      tags:
+        - Recipes
   /recipeJobs:
     POST:
       summary: Amazon Web Services Createrecipejob
@@ -52,6 +62,8 @@ paths:
         Creates a new job to transform input data, using steps defined in an
         existing Glue DataBrew recipe
       operationId: amazonWebServicesCreateRecipeJob
+      tags:
+        - recipeJobs
   /rulesets:
     GET:
       summary: Amazon Web Services Listrulesets
@@ -59,46 +71,64 @@ paths:
         List all rulesets available in the current account or rulesets
         associated with a specific resource (dataset).
       operationId: amazonWebServicesListRulesets
+      tags:
+        - Rulesets
   /schedules:
     GET:
       summary: Amazon Web Services Listschedules
       description: Lists the DataBrew schedules that are defined.
       operationId: amazonWebServicesListSchedules
+      tags:
+        - Schedules
   /datasets/{name}:
     PUT:
       summary: Amazon Web Services Updatedataset
       description: Modifies the definition of an existing DataBrew dataset.
       operationId: amazonWebServicesUpdateDataset
+      tags:
+        - Datasets
   /jobs/{name}:
     GET:
       summary: Amazon Web Services Describejob
       description: Returns the definition of a specific DataBrew job.
       operationId: amazonWebServicesDescribeJob
+      tags:
+        - Jobs
   /projects/{name}:
     PUT:
       summary: Amazon Web Services Updateproject
       description: Modifies the definition of an existing DataBrew project.
       operationId: amazonWebServicesUpdateProject
+      tags:
+        - Projects
   /recipes/{name}/recipeVersion/{recipeVersion}:
     DELETE:
       summary: Amazon Web Services Deleterecipeversion
       description: Deletes a single version of a DataBrew recipe.
       operationId: amazonWebServicesDeleteRecipeVersion
+      tags:
+        - Recipes
   /rulesets/{name}:
     PUT:
       summary: Amazon Web Services Updateruleset
       description: Updates specified ruleset.
       operationId: amazonWebServicesUpdateRuleset
+      tags:
+        - Rulesets
   /schedules/{name}:
     PUT:
       summary: Amazon Web Services Updateschedule
       description: Modifies the definition of an existing DataBrew schedule.
       operationId: amazonWebServicesUpdateSchedule
+      tags:
+        - Schedules
   /jobs/{name}/jobRun/{runId}:
     GET:
       summary: Amazon Web Services Describejobrun
       description: Represents one run of a DataBrew job.
       operationId: amazonWebServicesDescribeJobRun
+      tags:
+        - Jobs
   /recipes/{name}:
     PUT:
       summary: Amazon Web Services Updaterecipe
@@ -106,16 +136,22 @@ paths:
         Modifies the definition of the LATEST_WORKING version of a DataBrew
         recipe.
       operationId: amazonWebServicesUpdateRecipe
+      tags:
+        - Recipes
   /jobs/{name}/jobRuns:
     GET:
       summary: Amazon Web Services Listjobruns
       description: Lists all of the previous runs of a particular DataBrew job.
       operationId: amazonWebServicesListJobRuns
+      tags:
+        - Jobs
   /jobs:
     GET:
       summary: Amazon Web Services Listjobs
       description: Lists all of the DataBrew jobs that are defined.
       operationId: amazonWebServicesListJobs
+      tags:
+        - Jobs
   /recipeVersions:
     GET:
       summary: Amazon Web Services Listrecipeversions
@@ -123,16 +159,22 @@ paths:
         Lists the versions of a particular DataBrew recipe, except for
         LATEST_WORKING.
       operationId: amazonWebServicesListRecipeVersions
+      tags:
+        - recipeVersions
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes metadata tags from a DataBrew resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /recipes/{name}/publishRecipe:
     POST:
       summary: Amazon Web Services Publishrecipe
       description: Publishes a new version of a DataBrew recipe.
       operationId: amazonWebServicesPublishRecipe
+      tags:
+        - Recipes
   /projects/{name}/sendProjectSessionAction:
     PUT:
       summary: Amazon Web Services Sendprojectsessionaction
@@ -140,11 +182,15 @@ paths:
         Performs a recipe step within an interactive DataBrew session that's
         currently open.
       operationId: amazonWebServicesSendProjectSessionAction
+      tags:
+        - Projects
   /jobs/{name}/startJobRun:
     POST:
       summary: Amazon Web Services Startjobrun
       description: Runs a DataBrew job.
       operationId: amazonWebServicesStartJobRun
+      tags:
+        - Jobs
   /projects/{name}/startProjectSession:
     PUT:
       summary: Amazon Web Services Startprojectsession
@@ -152,19 +198,37 @@ paths:
         Creates an interactive session, enabling you to manipulate data in a
         DataBrew project.
       operationId: amazonWebServicesStartProjectSession
+      tags:
+        - Projects
   /jobs/{name}/jobRun/{runId}/stopJobRun:
     POST:
       summary: Amazon Web Services Stopjobrun
       description: Stops a particular run of a job.
       operationId: amazonWebServicesStopJobRun
+      tags:
+        - Jobs
   /profileJobs/{name}:
     PUT:
       summary: Amazon Web Services Updateprofilejob
       description: Modifies the definition of an existing profile job.
       operationId: amazonWebServicesUpdateProfileJob
+      tags:
+        - profileJobs
   /recipeJobs/{name}:
     PUT:
       summary: Amazon Web Services Updaterecipejob
       description: Modifies the definition of an existing DataBrew recipe job.
       operationId: amazonWebServicesUpdateRecipeJob
-tags: []
+      tags:
+        - recipeJobs
+tags:
+  - name: Datasets
+  - name: Jobs
+  - name: profileJobs
+  - name: Projects
+  - name: recipeJobs
+  - name: Recipes
+  - name: recipeVersions
+  - name: Rulesets
+  - name: Schedules
+  - name: Tags

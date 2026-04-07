@@ -15,11 +15,15 @@ paths:
       summary: Amazon Web Services Cancelorder
       description: Cancels the specified order for an Outpost.
       operationId: amazonWebServicesCancelOrder
+      tags:
+        - Orders
   /orders:
     POST:
       summary: Amazon Web Services Createorder
       description: Creates an order for an Outpost.
       operationId: amazonWebServicesCreateOrder
+      tags:
+        - Orders
   /outposts:
     GET:
       summary: Amazon Web Services Listoutposts
@@ -30,6 +34,8 @@ paths:
         a filter where you can specify multiple values, the results include
         items that match any of the values that you specify for the filter.
       operationId: amazonWebServicesListOutposts
+      tags:
+        - Outposts
   /sites:
     GET:
       summary: Amazon Web Services Listsites
@@ -41,36 +47,50 @@ paths:
         you can specify multiple values, the results include items that match
         any of the values that you specify for the filter.
       operationId: amazonWebServicesListSites
+      tags:
+        - Sites
   /outposts/{OutpostId}:
     PATCH:
       summary: Amazon Web Services Updateoutpost
       description: ' Updates an Outpost. '
       operationId: amazonWebServicesUpdateOutpost
+      tags:
+        - Outposts
   /sites/{SiteId}:
     PATCH:
       summary: Amazon Web Services Updatesite
       description: Updates the specified site.
       operationId: amazonWebServicesUpdateSite
+      tags:
+        - Sites
   /catalog/item/{CatalogItemId}:
     GET:
       summary: Amazon Web Services Getcatalogitem
       description: Gets information about the specified catalog item.
       operationId: amazonWebServicesGetCatalogItem
+      tags:
+        - Catalog
   /connections/{ConnectionId}:
     GET:
       summary: Amazon Web Services Getconnection
       description: '  Amazon Web Services uses this action to install Outpost servers.   Gets information about the specified connection.   Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For more information, see  Amazon Web Services managed policies for Amazon Web Services Outposts and  Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail in the Amazon Web Services Outposts User Guide. '
       operationId: amazonWebServicesGetConnection
+      tags:
+        - Connections
   /orders/{OrderId}:
     GET:
       summary: Amazon Web Services Getorder
       description: Gets information about the specified order.
       operationId: amazonWebServicesGetOrder
+      tags:
+        - Orders
   /outposts/{OutpostId}/instanceTypes:
     GET:
       summary: Amazon Web Services Getoutpostinstancetypes
       description: Gets the instance types for the specified Outpost.
       operationId: amazonWebServicesGetOutpostInstanceTypes
+      tags:
+        - Outposts
   /sites/{SiteId}/address:
     PUT:
       summary: Amazon Web Services Updatesiteaddress
@@ -81,6 +101,8 @@ paths:
         before you place an order at the site, or after all Outposts that belong
         to the site have been deactivated.
       operationId: amazonWebServicesUpdateSiteAddress
+      tags:
+        - Sites
   /outposts/{OutpostId}/assets:
     GET:
       summary: Amazon Web Services Listassets
@@ -91,6 +113,8 @@ paths:
         a filter where you can specify multiple values, the results include
         items that match any of the values that you specify for the filter.
       operationId: amazonWebServicesListAssets
+      tags:
+        - Outposts
   /catalog/items:
     GET:
       summary: Amazon Web Services Listcatalogitems
@@ -101,21 +125,29 @@ paths:
         specify multiple values, the results include items that match any of the
         values that you specify for the filter.
       operationId: amazonWebServicesListCatalogItems
+      tags:
+        - Catalog
   /list-orders:
     GET:
       summary: Amazon Web Services Listorders
       description: Lists the Outpost orders for your Amazon Web Services account.
       operationId: amazonWebServicesListOrders
+      tags:
+        - List Orders
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /connections:
     POST:
       summary: Amazon Web Services Startconnection
       description: '  Amazon Web Services uses this action to install Outpost servers.   Starts the connection required for Outpost server installation.   Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For more information, see  Amazon Web Services managed policies for Amazon Web Services Outposts and  Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail in the Amazon Web Services Outposts User Guide. '
       operationId: amazonWebServicesStartConnection
+      tags:
+        - Connections
   /sites/{SiteId}/rackPhysicalProperties:
     PATCH:
       summary: Amazon Web Services Updatesiterackphysicalproperties
@@ -126,4 +158,13 @@ paths:
         update a rack at a site with an order of IN_PROGRESS, you must wait for
         the order to complete or cancel the order.
       operationId: amazonWebServicesUpdateSiteRackPhysicalProperties
-tags: []
+      tags:
+        - Sites
+tags:
+  - name: Catalog
+  - name: Connections
+  - name: List Orders
+  - name: Orders
+  - name: Outposts
+  - name: Sites
+  - name: Tags

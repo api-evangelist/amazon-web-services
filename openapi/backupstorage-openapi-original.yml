@@ -8,36 +8,50 @@ paths:
       summary: Amazon Web Services Startobject
       description: Start upload containing one or many chunks.
       operationId: amazonWebServicesStartObject
+      tags:
+        - Backup Jobs
   /restore-jobs/{jobId}/chunk/{chunkToken}:
     GET:
       summary: Amazon Web Services Getchunk
       description: Gets the specified object's chunk.
       operationId: amazonWebServicesGetChunk
+      tags:
+        - Restore Jobs
   /restore-jobs/{jobId}/object/{objectToken}/metadata:
     GET:
       summary: Amazon Web Services Getobjectmetadata
       description: Get metadata associated with an Object.
       operationId: amazonWebServicesGetObjectMetadata
+      tags:
+        - Restore Jobs
   /restore-jobs/{jobId}/chunks/{objectToken}/list:
     GET:
       summary: Amazon Web Services Listchunks
       description: List chunks in a given Object
       operationId: amazonWebServicesListChunks
+      tags:
+        - Restore Jobs
   /restore-jobs/{jobId}/objects/list:
     GET:
       summary: Amazon Web Services Listobjects
       description: List all Objects in a given Backup.
       operationId: amazonWebServicesListObjects
+      tags:
+        - Restore Jobs
   /backup-jobs/{jobId}/object/{uploadId}/complete:
     PUT:
       summary: Amazon Web Services Notifyobjectcomplete
       description: Complete upload
       operationId: amazonWebServicesNotifyObjectComplete
+      tags:
+        - Backup Jobs
   /backup-jobs/{jobId}/chunk/{uploadId}/{chunkIndex}:
     PUT:
       summary: Amazon Web Services Putchunk
       description: Upload chunk.
       operationId: amazonWebServicesPutChunk
+      tags:
+        - Backup Jobs
   /backup-jobs/{jobId}/object/{objectName}/put-object:
     PUT:
       summary: Amazon Web Services Putobject
@@ -45,4 +59,8 @@ paths:
         Upload object that can store object metadata String and data blob in
         single API call using inline chunk field.
       operationId: amazonWebServicesPutObject
-tags: []
+      tags:
+        - Backup Jobs
+tags:
+  - name: Backup Jobs
+  - name: Restore Jobs

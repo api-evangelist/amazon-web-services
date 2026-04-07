@@ -12,6 +12,8 @@ paths:
       summary: Amazon Web Services Getimporttask
       description: Retrieves a specified import task.
       operationId: amazonWebServicesGetImportTask
+      tags:
+        - Importtasks
   /queries/{queryId}:
     GET:
       summary: Amazon Web Services Getquery
@@ -21,59 +23,89 @@ paths:
         the request must have the neptune-graph:GetQueryStatus IAM action
         attached.  
       operationId: amazonWebServicesGetQuery
+      tags:
+        - Queries
   /graphs:
     GET:
       summary: Amazon Web Services Listgraphs
       description: Lists available Neptune Analytics graphs.
       operationId: amazonWebServicesListGraphs
+      tags:
+        - Graphs
   /snapshots:
     GET:
       summary: Amazon Web Services Listgraphsnapshots
       description: Lists available snapshots of a specified Neptune Analytics graph.
       operationId: amazonWebServicesListGraphSnapshots
+      tags:
+        - Snapshots
   /importtasks:
     GET:
       summary: Amazon Web Services Listimporttasks
       description: Lists import tasks.
       operationId: amazonWebServicesListImportTasks
+      tags:
+        - Importtasks
   /graphs/{graphIdentifier}/endpoints/:
     GET:
       summary: Amazon Web Services Listprivategraphendpoints
       description: Lists private endpoints for a specified Neptune Analytics graph.
       operationId: amazonWebServicesListPrivateGraphEndpoints
+      tags:
+        - Graphs
   /graphs/{graphIdentifier}:
     PATCH:
       summary: Amazon Web Services Updategraph
       description: Updates the configuration of a specified Neptune Analytics graph
       operationId: amazonWebServicesUpdateGraph
+      tags:
+        - Graphs
   /snapshots/{snapshotIdentifier}:
     GET:
       summary: Amazon Web Services Getgraphsnapshot
       description: Retrieves a specified graph snapshot.
       operationId: amazonWebServicesGetGraphSnapshot
+      tags:
+        - Snapshots
   /graphs/{graphIdentifier}/endpoints/{vpcId}:
     GET:
       summary: Amazon Web Services Getprivategraphendpoint
       description: Retrieves information about a specified private endpoint.
       operationId: amazonWebServicesGetPrivateGraphEndpoint
+      tags:
+        - Graphs
   /queries:
     GET:
       summary: Amazon Web Services Listqueries
       description: Lists active openCypher queries.
       operationId: amazonWebServicesListQueries
+      tags:
+        - Queries
   /summary:
     GET:
       summary: Amazon Web Services Getgraphsummary
       description: Gets a graph summary for a property graph.
       operationId: amazonWebServicesGetGraphSummary
+      tags:
+        - Summary
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /snapshots/{snapshotIdentifier}/restore:
     POST:
       summary: Amazon Web Services Restoregraphfromsnapshot
       description: Restores a graph from a snapshot.
       operationId: amazonWebServicesRestoreGraphFromSnapshot
-tags: []
+      tags:
+        - Snapshots
+tags:
+  - name: Graphs
+  - name: Importtasks
+  - name: Queries
+  - name: Snapshots
+  - name: Summary
+  - name: Tags

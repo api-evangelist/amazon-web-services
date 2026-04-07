@@ -17,6 +17,8 @@ paths:
         This operation cancels a specified job. Only the job owner can cancel
         it. The operation fails if the job has already started or is complete.
       operationId: amazonWebServicesCancelJob
+      tags:
+        - ?Operation=CancelJob
   /?Operation=CreateJob:
     POST:
       summary: Amazon Web Services Createjob
@@ -28,6 +30,8 @@ paths:
         identify your storage device, and the address where you should ship your
         storage device.
       operationId: amazonWebServicesCreateJob
+      tags:
+        - ?Operation=CreateJob
   /?Operation=GetShippingLabel:
     POST:
       summary: Amazon Web Services Getshippinglabel
@@ -35,6 +39,8 @@ paths:
         This operation generates a pre-paid UPS shipping label that you will use
         to ship your device to AWS for processing.
       operationId: amazonWebServicesGetShippingLabel
+      tags:
+        - ?Operation=GetShippingLabel
   /?Operation=GetStatus:
     POST:
       summary: Amazon Web Services Getstatus
@@ -44,6 +50,8 @@ paths:
         signature value associated with the job. You can only return information
         about jobs you own.
       operationId: amazonWebServicesGetStatus
+      tags:
+        - ?Operation=GetStatus
   /?Operation=ListJobs:
     POST:
       summary: Amazon Web Services Listjobs
@@ -54,6 +62,8 @@ paths:
         Test2 was created 2010Feb05, the ListJobs operation would return Test2
         followed by Test1.
       operationId: amazonWebServicesListJobs
+      tags:
+        - ?Operation=ListJobs
   /?Operation=UpdateJob:
     POST:
       summary: Amazon Web Services Updatejob
@@ -64,4 +74,12 @@ paths:
         can only use the operation after a CreateJob request but before the data
         transfer starts and you can only use it on jobs you own.
       operationId: amazonWebServicesUpdateJob
-tags: []
+      tags:
+        - ?Operation=UpdateJob
+tags:
+  - name: ?Operation=CancelJob
+  - name: ?Operation=CreateJob
+  - name: ?Operation=GetShippingLabel
+  - name: ?Operation=GetStatus
+  - name: ?Operation=ListJobs
+  - name: ?Operation=UpdateJob

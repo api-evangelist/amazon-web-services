@@ -21,6 +21,8 @@ paths:
         number of additional keys that can be used to identify the profile that
         it belongs to.
       operationId: amazonWebServicesAddProfileKey
+      tags:
+        - Domains
   /domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}:
     PUT:
       summary: Amazon Web Services Updatecalculatedattributedefinition
@@ -30,6 +32,8 @@ paths:
         attribute will not trigger inclusion of historical data greater than the
         current date range.
       operationId: amazonWebServicesUpdateCalculatedAttributeDefinition
+      tags:
+        - Domains
   /domains/{DomainName}:
     PUT:
       summary: Amazon Web Services Updatedomain
@@ -42,6 +46,8 @@ paths:
         sample policies that you should apply.  To add or remove tags on an
         existing Domain, see TagResource/UntagResource.
       operationId: amazonWebServicesUpdateDomain
+      tags:
+        - Domains
   /domains/{DomainName}/event-streams/{EventStreamName}:
     GET:
       summary: Amazon Web Services Geteventstream
@@ -49,11 +55,15 @@ paths:
         Returns information about the specified event stream in a specific
         domain.
       operationId: amazonWebServicesGetEventStream
+      tags:
+        - Domains
   /domains/{DomainName}/workflows/integrations:
     POST:
       summary: Amazon Web Services Createintegrationworkflow
       description: ' Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo. '
       operationId: amazonWebServicesCreateIntegrationWorkflow
+      tags:
+        - Domains
   /domains/{DomainName}/profiles:
     PUT:
       summary: Amazon Web Services Updateprofile
@@ -64,11 +74,15 @@ paths:
         removed. Not specifying a string value means that any value already
         there will be kept.
       operationId: amazonWebServicesUpdateProfile
+      tags:
+        - Domains
   /domains/{DomainName}/integrations/delete:
     POST:
       summary: Amazon Web Services Deleteintegration
       description: Removes an integration from a specific domain.
       operationId: amazonWebServicesDeleteIntegration
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/delete:
     POST:
       summary: Amazon Web Services Deleteprofile
@@ -76,11 +90,15 @@ paths:
         Deletes the standard customer profile and all data pertaining to the
         profile.
       operationId: amazonWebServicesDeleteProfile
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/keys/delete:
     POST:
       summary: Amazon Web Services Deleteprofilekey
       description: Removes a searchable key from a customer profile.
       operationId: amazonWebServicesDeleteProfileKey
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/objects/delete:
     POST:
       summary: Amazon Web Services Deleteprofileobject
@@ -88,6 +106,8 @@ paths:
         Removes an object associated with a profile of a given
         ProfileObjectType.
       operationId: amazonWebServicesDeleteProfileObject
+      tags:
+        - Domains
   /domains/{DomainName}/object-types/{ObjectTypeName}:
     PUT:
       summary: Amazon Web Services Putprofileobjecttype
@@ -95,11 +115,15 @@ paths:
         Defines a ProfileObjectType. To add or remove tags on an existing
         ObjectType, see  TagResource/UntagResource.
       operationId: amazonWebServicesPutProfileObjectType
+      tags:
+        - Domains
   /domains/{DomainName}/workflows/{WorkflowId}:
     GET:
       summary: Amazon Web Services Getworkflow
       description: Get details of specified workflow.
       operationId: amazonWebServicesGetWorkflow
+      tags:
+        - Domains
   /domains/{DomainName}/detect/object-types:
     POST:
       summary: Amazon Web Services Detectprofileobjecttype
@@ -107,6 +131,8 @@ paths:
         The process of detecting profile object type mapping by using given
         objects.
       operationId: amazonWebServicesDetectProfileObjectType
+      tags:
+        - Domains
   /domains/{DomainName}/identity-resolution-jobs/auto-merging-preview:
     POST:
       summary: Amazon Web Services Getautomergingpreview
@@ -125,11 +151,15 @@ paths:
         be a large number of matches. This increases the chances of erroneous
         merges. 
       operationId: amazonWebServicesGetAutoMergingPreview
+      tags:
+        - Domains
   /domains/{DomainName}/profile/{ProfileId}/calculated-attributes/{CalculatedAttributeName}:
     GET:
       summary: Amazon Web Services Getcalculatedattributeforprofile
       description: Retrieve a calculated attribute for a customer profile.
       operationId: amazonWebServicesGetCalculatedAttributeForProfile
+      tags:
+        - Domains
   /domains/{DomainName}/identity-resolution-jobs/{JobId}:
     GET:
       summary: Amazon Web Services Getidentityresolutionjob
@@ -139,6 +169,8 @@ paths:
         admin console. For more information, see Use Identity Resolution to
         consolidate similar profiles.
       operationId: amazonWebServicesGetIdentityResolutionJob
+      tags:
+        - Domains
   /domains/{DomainName}/integrations:
     PUT:
       summary: Amazon Web Services Putintegration
@@ -147,6 +179,8 @@ paths:
         includes Amazon AppFlow and Amazon Connect. An integration can belong to
         only one domain. To add or remove tags on an existing Integration, see  TagResource / UntagResource.
       operationId: amazonWebServicesPutIntegration
+      tags:
+        - Domains
   /domains/{DomainName}/matches:
     POST:
       summary: Amazon Web Services Getsimilarprofiles
@@ -156,6 +190,8 @@ paths:
         you want for finding similar profiles using either RULE_BASED_MATCHING
         or ML_BASED_MATCHING.
       operationId: amazonWebServicesGetSimilarProfiles
+      tags:
+        - Domains
   /templates/{TemplateId}:
     GET:
       summary: Amazon Web Services Getprofileobjecttypetemplate
@@ -166,11 +202,15 @@ paths:
         PutProfileObject API, with an ObjectTypeName that matches one of the
         TemplateIds, it uses the mappings from the template.
       operationId: amazonWebServicesGetProfileObjectTypeTemplate
+      tags:
+        - Templates
   /domains/{DomainName}/workflows/{WorkflowId}/steps:
     GET:
       summary: Amazon Web Services Getworkflowsteps
       description: Get granular list of steps in workflow.
       operationId: amazonWebServicesGetWorkflowSteps
+      tags:
+        - Domains
   /integrations:
     POST:
       summary: Amazon Web Services Listaccountintegrations
@@ -178,16 +218,22 @@ paths:
         Lists all of the integrations associated to a specific URI in the AWS
         account.
       operationId: amazonWebServicesListAccountIntegrations
+      tags:
+        - Integrations
   /domains/{DomainName}/calculated-attributes:
     GET:
       summary: Amazon Web Services Listcalculatedattributedefinitions
       description: Lists calculated attribute definitions for Customer Profiles
       operationId: amazonWebServicesListCalculatedAttributeDefinitions
+      tags:
+        - Domains
   /domains/{DomainName}/profile/{ProfileId}/calculated-attributes:
     GET:
       summary: Amazon Web Services Listcalculatedattributesforprofile
       description: Retrieve a list of calculated attributes for a customer profile.
       operationId: amazonWebServicesListCalculatedAttributesForProfile
+      tags:
+        - Domains
   /domains:
     GET:
       summary: Amazon Web Services Listdomains
@@ -195,11 +241,15 @@ paths:
         Returns a list of all the domains for an AWS account that have been
         created.
       operationId: amazonWebServicesListDomains
+      tags:
+        - Domains
   /domains/{DomainName}/event-streams:
     GET:
       summary: Amazon Web Services Listeventstreams
       description: Returns a list of all the event streams in a specific domain.
       operationId: amazonWebServicesListEventStreams
+      tags:
+        - Domains
   /domains/{DomainName}/identity-resolution-jobs:
     GET:
       summary: Amazon Web Services Listidentityresolutionjobs
@@ -207,16 +257,22 @@ paths:
         Lists all of the Identity Resolution Jobs in your domain. The response
         sorts the list by JobStartTime.
       operationId: amazonWebServicesListIdentityResolutionJobs
+      tags:
+        - Domains
   /templates:
     GET:
       summary: Amazon Web Services Listprofileobjecttypetemplates
       description: Lists all of the template information for object types.
       operationId: amazonWebServicesListProfileObjectTypeTemplates
+      tags:
+        - Templates
   /domains/{DomainName}/object-types:
     GET:
       summary: Amazon Web Services Listprofileobjecttypes
       description: Lists all of the templates available within the service.
       operationId: amazonWebServicesListProfileObjectTypes
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/objects:
     PUT:
       summary: Amazon Web Services Putprofileobject
@@ -232,11 +288,15 @@ paths:
         on the ProfileObjectType definition. PutProfileObject needs an
         ObjectType, which can be created using PutProfileObjectType.
       operationId: amazonWebServicesPutProfileObject
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/ruleBasedMatches:
     GET:
       summary: Amazon Web Services Listrulebasedmatches
       description: Returns a set of MatchIds that belong to the given domain.
       operationId: amazonWebServicesListRuleBasedMatches
+      tags:
+        - Domains
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -245,11 +305,15 @@ paths:
         Profiles resource. In Connect Customer Profiles, domains, profile object
         types, and integrations can be tagged.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /domains/{DomainName}/workflows:
     POST:
       summary: Amazon Web Services Listworkflows
       description: Query to list all workflows.
       operationId: amazonWebServicesListWorkflows
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/objects/merge:
     POST:
       summary: Amazon Web Services Mergeprofiles
@@ -269,6 +333,8 @@ paths:
         system. After profiles have been merged, they cannot be separated
         (unmerged).
       operationId: amazonWebServicesMergeProfiles
+      tags:
+        - Domains
   /domains/{DomainName}/profiles/search:
     POST:
       summary: Amazon Web Services Searchprofiles
@@ -280,4 +346,10 @@ paths:
         for profiles with a minimum of 1 key-value(s) pair and up to 5
         key-value(s) pairs using either AND or OR logic.
       operationId: amazonWebServicesSearchProfiles
-tags: []
+      tags:
+        - Domains
+tags:
+  - name: Domains
+  - name: Integrations
+  - name: Tags
+  - name: Templates

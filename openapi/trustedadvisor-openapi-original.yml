@@ -10,16 +10,22 @@ paths:
         Get a specific recommendation within an AWS Organizations organization.
         This API supports only prioritized recommendations. 
       operationId: amazonWebServicesGetOrganizationRecommendation
+      tags:
+        - Organization Recommendations
   /v1/recommendations/{recommendationIdentifier}:
     GET:
       summary: Amazon Web Services Getrecommendation
       description: Get a specific Recommendation
       operationId: amazonWebServicesGetRecommendation
+      tags:
+        - Recommendations
   /v1/checks:
     GET:
       summary: Amazon Web Services Listchecks
       description: List a filterable set of Checks
       operationId: amazonWebServicesListChecks
+      tags:
+        - Checks
   /v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts:
     GET:
       summary: Amazon Web Services Listorganizationrecommendationaccounts
@@ -27,6 +33,8 @@ paths:
         Lists the accounts that own the resources for an organization aggregate
         recommendation. This API only supports prioritized recommendations. 
       operationId: amazonWebServicesListOrganizationRecommendationAccounts
+      tags:
+        - Organization Recommendations
   /v1/organization-recommendations/{organizationRecommendationIdentifier}/resources:
     GET:
       summary: Amazon Web Services Listorganizationrecommendationresources
@@ -34,6 +42,8 @@ paths:
         List Resources of a Recommendation within an Organization. This API only
         supports prioritized recommendations. 
       operationId: amazonWebServicesListOrganizationRecommendationResources
+      tags:
+        - Organization Recommendations
   /v1/organization-recommendations:
     GET:
       summary: Amazon Web Services Listorganizationrecommendations
@@ -41,16 +51,22 @@ paths:
         List a filterable set of Recommendations within an Organization. This
         API only supports prioritized recommendations. 
       operationId: amazonWebServicesListOrganizationRecommendations
+      tags:
+        - Organization Recommendations
   /v1/recommendations/{recommendationIdentifier}/resources:
     GET:
       summary: Amazon Web Services Listrecommendationresources
       description: List Resources of a Recommendation
       operationId: amazonWebServicesListRecommendationResources
+      tags:
+        - Recommendations
   /v1/recommendations:
     GET:
       summary: Amazon Web Services Listrecommendations
       description: List a filterable set of Recommendations
       operationId: amazonWebServicesListRecommendations
+      tags:
+        - Recommendations
   /v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle:
     PUT:
       summary: Amazon Web Services Updateorganizationrecommendationlifecycle
@@ -58,6 +74,8 @@ paths:
         Update the lifecyle of a Recommendation within an Organization. This API
         only supports prioritized recommendations. 
       operationId: amazonWebServicesUpdateOrganizationRecommendationLifecycle
+      tags:
+        - Organization Recommendations
   /v1/recommendations/{recommendationIdentifier}/lifecycle:
     PUT:
       summary: Amazon Web Services Updaterecommendationlifecycle
@@ -65,4 +83,9 @@ paths:
         Update the lifecyle of a Recommendation. This API only supports
         prioritized recommendations.
       operationId: amazonWebServicesUpdateRecommendationLifecycle
-tags: []
+      tags:
+        - Recommendations
+tags:
+  - name: Checks
+  - name: Organization Recommendations
+  - name: Recommendations

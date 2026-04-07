@@ -50,6 +50,8 @@ paths:
         configuration set to an email, all of the rules in that configuration
         set are applied to the email.
       operationId: amazonWebServicesListConfigurationSets
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/event-destinations:
     GET:
       summary: Amazon Web Services Getconfigurationseteventdestinations
@@ -62,6 +64,8 @@ paths:
         when you receive bounces or complaints, or you can use Amazon Kinesis
         Data Firehose to stream data to Amazon S3 for long-term storage.
       operationId: amazonWebServicesGetConfigurationSetEventDestinations
+      tags:
+        - Email
   /v1/email/dedicated-ip-pools:
     GET:
       summary: Amazon Web Services Listdedicatedippools
@@ -69,6 +73,8 @@ paths:
         List all of the dedicated IP pools that exist in your Amazon Pinpoint
         account in the current AWS Region.
       operationId: amazonWebServicesListDedicatedIpPools
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/test:
     POST:
       summary: Amazon Web Services Createdeliverabilitytestreport
@@ -83,6 +89,8 @@ paths:
         the GetDeliverabilityTestReport operation to view the results of the
         test.
       operationId: amazonWebServicesCreateDeliverabilityTestReport
+      tags:
+        - Email
   /v1/email/identities:
     GET:
       summary: Amazon Web Services Listemailidentities
@@ -92,6 +100,8 @@ paths:
         or a domain. This operation returns identities that are verified as well
         as those that aren't.
       operationId: amazonWebServicesListEmailIdentities
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}:
     GET:
       summary: Amazon Web Services Getconfigurationset
@@ -105,6 +115,8 @@ paths:
         configuration set to an email, all of the rules in that configuration
         set are applied to the email.
       operationId: amazonWebServicesGetConfigurationSet
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}:
     PUT:
       summary: Amazon Web Services Updateconfigurationseteventdestination
@@ -117,11 +129,15 @@ paths:
         receive bounces or complaints, or you can use Amazon Kinesis Data
         Firehose to stream data to Amazon S3 for long-term storage.
       operationId: amazonWebServicesUpdateConfigurationSetEventDestination
+      tags:
+        - Email
   /v1/email/dedicated-ip-pools/{PoolName}:
     DELETE:
       summary: Amazon Web Services Deletededicatedippool
       description: Delete a dedicated IP pool.
       operationId: amazonWebServicesDeleteDedicatedIpPool
+      tags:
+        - Email
   /v1/email/identities/{EmailIdentity}:
     GET:
       summary: Amazon Web Services Getemailidentity
@@ -130,6 +146,8 @@ paths:
         Amazon Pinpoint account, including the identity's verification status,
         its DKIM authentication status, and its custom Mail-From settings.
       operationId: amazonWebServicesGetEmailIdentity
+      tags:
+        - Email
   /v1/email/account:
     GET:
       summary: Amazon Web Services Getaccount
@@ -137,6 +155,8 @@ paths:
         Obtain information about the email-sending status and capabilities of
         your Amazon Pinpoint account in the current AWS Region.
       operationId: amazonWebServicesGetAccount
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/blacklist-report:
     GET:
       summary: Amazon Web Services Getblacklistreports
@@ -144,6 +164,8 @@ paths:
         Retrieve a list of the blacklists that your dedicated IP addresses
         appear on.
       operationId: amazonWebServicesGetBlacklistReports
+      tags:
+        - Email
   /v1/email/dedicated-ips/{IP}:
     GET:
       summary: Amazon Web Services Getdedicatedip
@@ -152,6 +174,8 @@ paths:
         dedicated IP pool that it's associated with, as well information about
         the automatic warm-up process for the address.
       operationId: amazonWebServicesGetDedicatedIp
+      tags:
+        - Email
   /v1/email/dedicated-ips:
     GET:
       summary: Amazon Web Services Getdedicatedips
@@ -159,6 +183,8 @@ paths:
         List the dedicated IP addresses that are associated with your Amazon
         Pinpoint account.
       operationId: amazonWebServicesGetDedicatedIps
+      tags:
+        - Email
   /v1/email/deliverability-dashboard:
     PUT:
       summary: Amazon Web Services Putdeliverabilitydashboardoption
@@ -173,11 +199,15 @@ paths:
         more information about the features and cost of a Deliverability
         dashboard subscription, see Amazon Pinpoint Pricing.
       operationId: amazonWebServicesPutDeliverabilityDashboardOption
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/test-reports/{ReportId}:
     GET:
       summary: Amazon Web Services Getdeliverabilitytestreport
       description: Retrieve the results of a predictive inbox placement test.
       operationId: amazonWebServicesGetDeliverabilityTestReport
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/campaigns/{CampaignId}:
     GET:
       summary: Amazon Web Services Getdomaindeliverabilitycampaign
@@ -187,6 +217,8 @@ paths:
         domain that the Deliverability dashboard is enabled for
         (PutDeliverabilityDashboardOption operation).
       operationId: amazonWebServicesGetDomainDeliverabilityCampaign
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/statistics-report/{Domain}:
     GET:
       summary: Amazon Web Services Getdomainstatisticsreport
@@ -194,6 +226,8 @@ paths:
         Retrieve inbox placement and engagement rates for the domains that you
         use to send email.
       operationId: amazonWebServicesGetDomainStatisticsReport
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/test-reports:
     GET:
       summary: Amazon Web Services Listdeliverabilitytestreports
@@ -203,6 +237,8 @@ paths:
         tests that are complete, you can use the GetDeliverabilityTestReport
         operation to view the results.
       operationId: amazonWebServicesListDeliverabilityTestReports
+      tags:
+        - Email
   /v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns:
     GET:
       summary: Amazon Web Services Listdomaindeliverabilitycampaigns
@@ -212,11 +248,15 @@ paths:
         available for a domain only if you enabled the Deliverability dashboard
         (PutDeliverabilityDashboardOption operation) for the domain.
       operationId: amazonWebServicesListDomainDeliverabilityCampaigns
+      tags:
+        - Email
   /v1/email/tags:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Remove one or more tags (keys and values) from a specified resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Email
   /v1/email/account/dedicated-ips/warmup:
     PUT:
       summary: Amazon Web Services Putaccountdedicatedipwarmupattributes
@@ -224,11 +264,15 @@ paths:
         Enable or disable the automatic warm-up feature for dedicated IP
         addresses.
       operationId: amazonWebServicesPutAccountDedicatedIpWarmupAttributes
+      tags:
+        - Email
   /v1/email/account/sending:
     PUT:
       summary: Amazon Web Services Putaccountsendingattributes
       description: Enable or disable the ability of your account to send email.
       operationId: amazonWebServicesPutAccountSendingAttributes
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/delivery-options:
     PUT:
       summary: Amazon Web Services Putconfigurationsetdeliveryoptions
@@ -237,6 +281,8 @@ paths:
         dedicated IP pools to create groups of dedicated IP addresses for
         sending specific types of email.
       operationId: amazonWebServicesPutConfigurationSetDeliveryOptions
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/reputation-options:
     PUT:
       summary: Amazon Web Services Putconfigurationsetreputationoptions
@@ -244,6 +290,8 @@ paths:
         Enable or disable collection of reputation metrics for emails that you
         send using a particular configuration set in a specific AWS Region.
       operationId: amazonWebServicesPutConfigurationSetReputationOptions
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/sending:
     PUT:
       summary: Amazon Web Services Putconfigurationsetsendingoptions
@@ -251,6 +299,8 @@ paths:
         Enable or disable email sending for messages that use a particular
         configuration set in a specific AWS Region.
       operationId: amazonWebServicesPutConfigurationSetSendingOptions
+      tags:
+        - Email
   /v1/email/configuration-sets/{ConfigurationSetName}/tracking-options:
     PUT:
       summary: Amazon Web Services Putconfigurationsettrackingoptions
@@ -258,6 +308,8 @@ paths:
         Specify a custom domain to use for open and click tracking elements in
         email that you send using Amazon Pinpoint.
       operationId: amazonWebServicesPutConfigurationSetTrackingOptions
+      tags:
+        - Email
   /v1/email/dedicated-ips/{IP}/pool:
     PUT:
       summary: Amazon Web Services Putdedicatedipinpool
@@ -268,16 +320,22 @@ paths:
         specify must already exist. You can create a new pool by using the
         CreateDedicatedIpPool operation. 
       operationId: amazonWebServicesPutDedicatedIpInPool
+      tags:
+        - Email
   /v1/email/dedicated-ips/{IP}/warmup:
     PUT:
       summary: Amazon Web Services Putdedicatedipwarmupattributes
       description: ''
       operationId: amazonWebServicesPutDedicatedIpWarmupAttributes
+      tags:
+        - Email
   /v1/email/identities/{EmailIdentity}/dkim:
     PUT:
       summary: Amazon Web Services Putemailidentitydkimattributes
       description: Used to enable or disable DKIM authentication for an email identity.
       operationId: amazonWebServicesPutEmailIdentityDkimAttributes
+      tags:
+        - Email
   /v1/email/identities/{EmailIdentity}/feedback:
     PUT:
       summary: Amazon Web Services Putemailidentityfeedbackattributes
@@ -296,6 +354,8 @@ paths:
         an email notification when these events occur (even if this setting is
         disabled).
       operationId: amazonWebServicesPutEmailIdentityFeedbackAttributes
+      tags:
+        - Email
   /v1/email/identities/{EmailIdentity}/mail-from:
     PUT:
       summary: Amazon Web Services Putemailidentitymailfromattributes
@@ -303,6 +363,8 @@ paths:
         Used to enable or disable the custom Mail-From domain configuration for
         an email identity.
       operationId: amazonWebServicesPutEmailIdentityMailFromAttributes
+      tags:
+        - Email
   /v1/email/outbound-emails:
     POST:
       summary: Amazon Web Services Sendemail
@@ -317,4 +379,7 @@ paths:
         contain attachments. The message that you specify has to be a valid MIME
         message.  
       operationId: amazonWebServicesSendEmail
-tags: []
+      tags:
+        - Email
+tags:
+  - name: Email

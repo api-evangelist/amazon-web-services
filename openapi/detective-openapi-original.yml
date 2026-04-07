@@ -60,16 +60,22 @@ paths:
         account.  The request provides the ARN of behavior graph. The member
         account status in the graph must be INVITED.
       operationId: amazonWebServicesAcceptInvitation
+      tags:
+        - Invitation
   /graph/datasources/get:
     POST:
       summary: Amazon Web Services Batchgetgraphmemberdatasources
       description: Gets data source package information for the behavior graph.
       operationId: amazonWebServicesBatchGetGraphMemberDatasources
+      tags:
+        - Graph
   /membership/datasources/get:
     POST:
       summary: Amazon Web Services Batchgetmembershipdatasources
       description: Gets information on the data source package history for an account.
       operationId: amazonWebServicesBatchGetMembershipDatasources
+      tags:
+        - Membership
   /graph:
     POST:
       summary: Amazon Web Services Creategraph
@@ -91,11 +97,15 @@ paths:
         administrator account, it always returns the same behavior graph ARN. It
         does not create a new behavior graph.
       operationId: amazonWebServicesCreateGraph
+      tags:
+        - Graph
   /graph/members:
     POST:
       summary: Amazon Web Services Createmembers
       description: ' CreateMembers is used to send invitations to accounts. For the organization behavior graph, the Detective administrator account uses CreateMembers to enable organization accounts as member accounts. For invited accounts, CreateMembers sends a request to invite the specified Amazon Web Services accounts to be member accounts in the behavior graph. This operation can only be called by the administrator account for a behavior graph.   CreateMembers verifies the accounts and then invites the verified accounts. The administrator can optionally specify to not send invitation emails to the member accounts. This would be used when the administrator manages their member accounts centrally. For organization accounts in the organization behavior graph, CreateMembers attempts to enable the accounts. The organization accounts do not receive invitations. The request provides the behavior graph ARN and the list of accounts to invite or to enable. The response separates the requested accounts into two lists:   The accounts that CreateMembers was able to process. For invited accounts, includes member accounts that are being verified, that have passed verification and are to be invited, and that have failed verification. For organization accounts in the organization behavior graph, includes accounts that can be enabled and that cannot be enabled.   The accounts that CreateMembers was unable to process. This list includes accounts that were already invited to be member accounts in the behavior graph.  '
       operationId: amazonWebServicesCreateMembers
+      tags:
+        - Graph
   /graph/removal:
     POST:
       summary: Amazon Web Services Deletegraph
@@ -105,6 +115,8 @@ paths:
         behavior graphs.  DeleteGraph can only be called by the administrator
         account for a behavior graph.
       operationId: amazonWebServicesDeleteGraph
+      tags:
+        - Graph
   /graph/members/removal:
     POST:
       summary: Amazon Web Services Deletemembers
@@ -123,6 +135,8 @@ paths:
         account from the behavior graph. To disable a behavior graph, the
         administrator account uses the DeleteGraph API method.
       operationId: amazonWebServicesDeleteMembers
+      tags:
+        - Graph
   /orgs/describeOrganizationConfiguration:
     POST:
       summary: Amazon Web Services Describeorganizationconfiguration
@@ -132,6 +146,8 @@ paths:
         organization accounts as member accounts. Can only be called by the
         Detective administrator account for the organization. 
       operationId: amazonWebServicesDescribeOrganizationConfiguration
+      tags:
+        - Orgs
   /orgs/disableAdminAccount:
     POST:
       summary: Amazon Web Services Disableorganizationadminaccount
@@ -146,6 +162,8 @@ paths:
         account in all Regions, except for Regions where the Detective
         administrator account is the organization management account.
       operationId: amazonWebServicesDisableOrganizationAdminAccount
+      tags:
+        - Orgs
   /membership/removal:
     POST:
       summary: Amazon Web Services Disassociatemembership
@@ -158,6 +176,8 @@ paths:
         determines which organization accounts to enable or disable as member
         accounts.
       operationId: amazonWebServicesDisassociateMembership
+      tags:
+        - Membership
   /orgs/enableAdminAccount:
     POST:
       summary: Amazon Web Services Enableorganizationadminaccount
@@ -176,6 +196,8 @@ paths:
         administrator account for Detective. The organization management account
         cannot be the delegated administrator account.
       operationId: amazonWebServicesEnableOrganizationAdminAccount
+      tags:
+        - Orgs
   /investigations/getInvestigation:
     POST:
       summary: Amazon Web Services Getinvestigation
@@ -183,6 +205,8 @@ paths:
         Returns the investigation results of an investigation for a behavior
         graph. 
       operationId: amazonWebServicesGetInvestigation
+      tags:
+        - Investigations
   /graph/members/get:
     POST:
       summary: Amazon Web Services Getmembers
@@ -190,11 +214,15 @@ paths:
         Returns the membership details for specified member accounts for a
         behavior graph.
       operationId: amazonWebServicesGetMembers
+      tags:
+        - Graph
   /graph/datasources/list:
     POST:
       summary: Amazon Web Services Listdatasourcepackages
       description: Lists data source packages in the behavior graph.
       operationId: amazonWebServicesListDatasourcePackages
+      tags:
+        - Graph
   /graphs/list:
     POST:
       summary: Amazon Web Services Listgraphs
@@ -205,16 +233,22 @@ paths:
         administrator of one behavior graph within a Region, the results always
         contain a single behavior graph.
       operationId: amazonWebServicesListGraphs
+      tags:
+        - Graphs
   /investigations/listIndicators:
     POST:
       summary: Amazon Web Services Listindicators
       description: Get the indicators from an investigation
       operationId: amazonWebServicesListIndicators
+      tags:
+        - Investigations
   /investigations/listInvestigations:
     POST:
       summary: Amazon Web Services Listinvestigations
       description: List all Investigations.
       operationId: amazonWebServicesListInvestigations
+      tags:
+        - Investigations
   /invitations/list:
     POST:
       summary: Amazon Web Services Listinvitations
@@ -227,6 +261,8 @@ paths:
         not include behavior graphs that the member account resigned from or was
         removed from.
       operationId: amazonWebServicesListInvitations
+      tags:
+        - Invitations
   /graph/members/list:
     POST:
       summary: Amazon Web Services Listmembers
@@ -237,6 +273,8 @@ paths:
         results do not include organization accounts that the Detective
         administrator account has not enabled as member accounts.
       operationId: amazonWebServicesListMembers
+      tags:
+        - Graph
   /orgs/adminAccountslist:
     POST:
       summary: Amazon Web Services Listorganizationadminaccounts
@@ -244,11 +282,15 @@ paths:
         Returns information about the Detective administrator account for an
         organization. Can only be called by the organization management account.
       operationId: amazonWebServicesListOrganizationAdminAccounts
+      tags:
+        - Orgs
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a behavior graph.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /invitation/removal:
     POST:
       summary: Amazon Web Services Rejectinvitation
@@ -260,11 +302,15 @@ paths:
         organization behavior graph, organization accounts do not receive an
         invitation.
       operationId: amazonWebServicesRejectInvitation
+      tags:
+        - Invitation
   /investigations/startInvestigation:
     POST:
       summary: Amazon Web Services Startinvestigation
       description: initiate an investigation on an entity in a graph
       operationId: amazonWebServicesStartInvestigation
+      tags:
+        - Investigations
   /graph/member/monitoringstate:
     POST:
       summary: Amazon Web Services Startmonitoringmember
@@ -275,16 +321,22 @@ paths:
         the new status is ENABLED.   If Detective cannot enable the member
         account, the status remains ACCEPTED_BUT_DISABLED.   
       operationId: amazonWebServicesStartMonitoringMember
+      tags:
+        - Graph
   /graph/datasources/update:
     POST:
       summary: Amazon Web Services Updatedatasourcepackages
       description: Starts a data source packages for the behavior graph.
       operationId: amazonWebServicesUpdateDatasourcePackages
+      tags:
+        - Graph
   /investigations/updateInvestigationState:
     POST:
       summary: Amazon Web Services Updateinvestigationstate
       description: Update the state of an investigation.
       operationId: amazonWebServicesUpdateInvestigationState
+      tags:
+        - Investigations
   /orgs/updateOrganizationConfiguration:
     POST:
       summary: Amazon Web Services Updateorganizationconfiguration
@@ -293,4 +345,14 @@ paths:
         current Region. Can only be called by the Detective administrator
         account for the organization.
       operationId: amazonWebServicesUpdateOrganizationConfiguration
-tags: []
+      tags:
+        - Orgs
+tags:
+  - name: Graph
+  - name: Graphs
+  - name: Investigations
+  - name: Invitation
+  - name: Invitations
+  - name: Membership
+  - name: Orgs
+  - name: Tags

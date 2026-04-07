@@ -10,6 +10,8 @@ paths:
         Create a batch of custom vocabulary items for a given bot locale's
         custom vocabulary.
       operationId: amazonWebServicesBatchCreateCustomVocabularyItem
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete:
     POST:
       summary: Amazon Web Services Batchdeletecustomvocabularyitem
@@ -17,6 +19,8 @@ paths:
         Delete a batch of custom vocabulary items for a given bot locale's
         custom vocabulary.
       operationId: amazonWebServicesBatchDeleteCustomVocabularyItem
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate:
     PUT:
       summary: Amazon Web Services Batchupdatecustomvocabularyitem
@@ -24,31 +28,43 @@ paths:
         Update a batch of custom vocabulary items for a given bot locale's
         custom vocabulary.
       operationId: amazonWebServicesBatchUpdateCustomVocabularyItem
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/:
     PUT:
       summary: Amazon Web Services Updatebotlocale
       description: Updates the settings that a bot has for a specific locale.
       operationId: amazonWebServicesUpdateBotLocale
+      tags:
+        - Bots
   /bots/:
     POST:
       summary: Amazon Web Services Listbots
       description: Gets a list of available bots.
       operationId: amazonWebServicesListBots
+      tags:
+        - Bots
   /bots/{botId}/botaliases/:
     POST:
       summary: Amazon Web Services Listbotaliases
       description: Gets a list of aliases for the specified bot.
       operationId: amazonWebServicesListBotAliases
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/:
     POST:
       summary: Amazon Web Services Listbotlocales
       description: Gets a list of locales for the specified bot.
       operationId: amazonWebServicesListBotLocales
+      tags:
+        - Bots
   /bots/{botId}/replicas/:
     POST:
       summary: Amazon Web Services Listbotreplicas
       description: The action to list the replicated bots.
       operationId: amazonWebServicesListBotReplicas
+      tags:
+        - Bots
   /bots/{botId}/botversions/:
     POST:
       summary: Amazon Web Services Listbotversions
@@ -60,6 +76,8 @@ paths:
         version. The ListBotVersions operation always returns at least one
         version, the DRAFT version.
       operationId: amazonWebServicesListBotVersions
+      tags:
+        - Bots
   /exports/:
     POST:
       summary: Amazon Web Services Listexports
@@ -67,11 +85,15 @@ paths:
         Lists the exports for a bot, bot locale, or custom vocabulary. Exports
         are kept in the list for 7 days.
       operationId: amazonWebServicesListExports
+      tags:
+        - Exports
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/:
     POST:
       summary: Amazon Web Services Listintents
       description: Get a list of intents that meet the specified criteria.
       operationId: amazonWebServicesListIntents
+      tags:
+        - Bots
   /policy/{resourceArn}/:
     PUT:
       summary: Amazon Web Services Updateresourcepolicy
@@ -79,6 +101,8 @@ paths:
         Replaces the existing resource policy for a bot or bot alias with a new
         one. If the policy doesn't exist, Amazon Lex returns an exception.
       operationId: amazonWebServicesUpdateResourcePolicy
+      tags:
+        - Policy
   /policy/{resourceArn}/statements/:
     POST:
       summary: Amazon Web Services Createresourcepolicystatement
@@ -88,16 +112,22 @@ paths:
         policy. If a policy doesn't exist, a new policy is created. You can't
         create a resource policy statement that allows cross-account access.
       operationId: amazonWebServicesCreateResourcePolicyStatement
+      tags:
+        - Policy
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/:
     POST:
       summary: Amazon Web Services Listslots
       description: Gets a list of slots that match the specified criteria.
       operationId: amazonWebServicesListSlots
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/:
     POST:
       summary: Amazon Web Services Listslottypes
       description: Gets a list of slot types that match the specified criteria.
       operationId: amazonWebServicesListSlotTypes
+      tags:
+        - Bots
   /testsets/{testSetId}/testsetdiscrepancy:
     POST:
       summary: Amazon Web Services Createtestsetdiscrepancyreport
@@ -105,6 +135,8 @@ paths:
         Create a report that describes the differences between the bot and the
         test set.
       operationId: amazonWebServicesCreateTestSetDiscrepancyReport
+      tags:
+        - Testsets
   /createuploadurl/:
     POST:
       summary: Amazon Web Services Createuploadurl
@@ -112,26 +144,36 @@ paths:
         Gets a pre-signed S3 write URL that you use to upload the zip archive
         when importing a bot or a bot locale. 
       operationId: amazonWebServicesCreateUploadUrl
+      tags:
+        - Createuploadurl
   /bots/{botId}/:
     PUT:
       summary: Amazon Web Services Updatebot
       description: 'Updates the configuration of an existing bot. '
       operationId: amazonWebServicesUpdateBot
+      tags:
+        - Bots
   /bots/{botId}/botaliases/{botAliasId}/:
     PUT:
       summary: Amazon Web Services Updatebotalias
       description: Updates the configuration of an existing bot alias.
       operationId: amazonWebServicesUpdateBotAlias
+      tags:
+        - Bots
   /bots/{botId}/replicas/{replicaRegion}/:
     GET:
       summary: Amazon Web Services Describebotreplica
       description: Monitors the bot replication status through the UI console.
       operationId: amazonWebServicesDescribeBotReplica
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/:
     GET:
       summary: Amazon Web Services Describebotversion
       description: Provides metadata about a version of a bot.
       operationId: amazonWebServicesDescribeBotVersion
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary:
     DELETE:
       summary: Amazon Web Services Deletecustomvocabulary
@@ -139,6 +181,8 @@ paths:
         Removes a custom vocabulary from the specified locale in the specified
         bot.
       operationId: amazonWebServicesDeleteCustomVocabulary
+      tags:
+        - Bots
   /exports/{exportId}/:
     PUT:
       summary: Amazon Web Services Updateexport
@@ -149,16 +193,22 @@ paths:
         is available at the pre-signed S3 URL provided by the DescribeExport
         operation.
       operationId: amazonWebServicesUpdateExport
+      tags:
+        - Exports
   /imports/{importId}/:
     GET:
       summary: Amazon Web Services Describeimport
       description: Gets information about a specific import.
       operationId: amazonWebServicesDescribeImport
+      tags:
+        - Imports
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/:
     PUT:
       summary: Amazon Web Services Updateintent
       description: Updates the settings for an intent.
       operationId: amazonWebServicesUpdateIntent
+      tags:
+        - Bots
   /policy/{resourceArn}/statements/{statementId}/:
     DELETE:
       summary: Amazon Web Services Deleteresourcepolicystatement
@@ -168,21 +218,29 @@ paths:
         statement ID that doesn't exist in the policy, or if the bot or bot
         alias doesn't have a policy attached, Amazon Lex returns an exception.
       operationId: amazonWebServicesDeleteResourcePolicyStatement
+      tags:
+        - Policy
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}/:
     PUT:
       summary: Amazon Web Services Updateslot
       description: Updates the settings for a slot.
       operationId: amazonWebServicesUpdateSlot
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}/:
     PUT:
       summary: Amazon Web Services Updateslottype
       description: Updates the configuration of an existing slot type.
       operationId: amazonWebServicesUpdateSlotType
+      tags:
+        - Bots
   /testsets/{testSetId}:
     PUT:
       summary: Amazon Web Services Updatetestset
       description: The action to update the test set.
       operationId: amazonWebServicesUpdateTestSet
+      tags:
+        - Testsets
   /bots/{botId}/utterances/:
     DELETE:
       summary: Amazon Web Services Deleteutterances
@@ -197,11 +255,15 @@ paths:
         immediately. Utterances stored for use with the ListAggregatedUtterances
         operation are deleted after 15 days.
       operationId: amazonWebServicesDeleteUtterances
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/:
     PUT:
       summary: Amazon Web Services Updatebotrecommendation
       description: Updates an existing bot recommendation request.
       operationId: amazonWebServicesUpdateBotRecommendation
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}:
     GET:
       summary: Amazon Web Services Describebotresourcegeneration
@@ -212,31 +274,43 @@ paths:
         bot locale configuration. You can then modify and import this
         configuration.
       operationId: amazonWebServicesDescribeBotResourceGeneration
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/metadata:
     GET:
       summary: Amazon Web Services Describecustomvocabularymetadata
       description: Provides metadata information about a custom vocabulary.
       operationId: amazonWebServicesDescribeCustomVocabularyMetadata
+      tags:
+        - Bots
   /testexecutions/{testExecutionId}:
     GET:
       summary: Amazon Web Services Describetestexecution
       description: Gets metadata information about the test execution.
       operationId: amazonWebServicesDescribeTestExecution
+      tags:
+        - Testexecutions
   /testsetdiscrepancy/{testSetDiscrepancyReportId}:
     GET:
       summary: Amazon Web Services Describetestsetdiscrepancyreport
       description: Gets metadata information about the test set discrepancy report.
       operationId: amazonWebServicesDescribeTestSetDiscrepancyReport
+      tags:
+        - Testsetdiscrepancy
   /testsetgenerations/{testSetGenerationId}:
     GET:
       summary: Amazon Web Services Describetestsetgeneration
       description: Gets metadata information about the test set generation.
       operationId: amazonWebServicesDescribeTestSetGeneration
+      tags:
+        - Testsetgenerations
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate:
     POST:
       summary: Amazon Web Services Generatebotelement
       description: Generates sample utterances for an intent.
       operationId: amazonWebServicesGenerateBotElement
+      tags:
+        - Bots
   /testexecutions/{testExecutionId}/artifacturl:
     GET:
       summary: Amazon Web Services Gettestexecutionartifactsurl
@@ -244,6 +318,8 @@ paths:
         The pre-signed Amazon S3 URL to download the test execution result
         artifacts.
       operationId: amazonWebServicesGetTestExecutionArtifactsUrl
+      tags:
+        - Testexecutions
   /bots/{botId}/aggregatedutterances/:
     POST:
       summary: Amazon Web Services Listaggregatedutterances
@@ -262,6 +338,8 @@ paths:
         with one or more slots.   You opted out of participating in improving
         Amazon Lex.  
       operationId: amazonWebServicesListAggregatedUtterances
+      tags:
+        - Bots
   /bots/{botId}/replicas/{replicaRegion}/botaliases/:
     POST:
       summary: Amazon Web Services Listbotaliasreplicas
@@ -269,6 +347,8 @@ paths:
         The action to list the replicated bots created from the source bot
         alias.
       operationId: amazonWebServicesListBotAliasReplicas
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/:
     PUT:
       summary: Amazon Web Services Startbotrecommendation
@@ -276,11 +356,15 @@ paths:
         Use this to provide your transcript data, and to start the bot
         recommendation process.
       operationId: amazonWebServicesStartBotRecommendation
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations:
     POST:
       summary: Amazon Web Services Listbotresourcegenerations
       description: Lists the generation requests made for a bot locale.
       operationId: amazonWebServicesListBotResourceGenerations
+      tags:
+        - Bots
   /bots/{botId}/replicas/{replicaRegion}/botversions/:
     POST:
       summary: Amazon Web Services Listbotversionreplicas
@@ -288,6 +372,8 @@ paths:
         Contains information about all the versions replication statuses
         applicable for Global Resiliency.
       operationId: amazonWebServicesListBotVersionReplicas
+      tags:
+        - Bots
   /builtins/locales/{localeId}/intents/:
     POST:
       summary: Amazon Web Services Listbuiltinintents
@@ -298,11 +384,15 @@ paths:
         parentIntentSignature parameter when you call the CreateIntent
         operation. For more information, see CreateIntent.
       operationId: amazonWebServicesListBuiltInIntents
+      tags:
+        - Builtins
   /builtins/locales/{localeId}/slottypes/:
     POST:
       summary: Amazon Web Services Listbuiltinslottypes
       description: Gets a list of built-in slot types that meet the specified criteria.
       operationId: amazonWebServicesListBuiltInSlotTypes
+      tags:
+        - Builtins
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list:
     POST:
       summary: Amazon Web Services Listcustomvocabularyitems
@@ -310,6 +400,8 @@ paths:
         Paginated list of custom vocabulary items for a given bot locale's
         custom vocabulary.
       operationId: amazonWebServicesListCustomVocabularyItems
+      tags:
+        - Bots
   /imports/:
     PUT:
       summary: Amazon Web Services Startimport
@@ -317,6 +409,8 @@ paths:
         Starts importing a bot, bot locale, or custom vocabulary from a zip
         archive that you uploaded to an S3 bucket.
       operationId: amazonWebServicesStartImport
+      tags:
+        - Imports
   /bots/{botId}/analytics/intentmetrics:
     POST:
       summary: Amazon Web Services Listintentmetrics
@@ -338,6 +432,8 @@ paths:
         results.   Note that an order field exists in both binBy and metrics.
         You can specify only one order in a given request.
       operationId: amazonWebServicesListIntentMetrics
+      tags:
+        - Bots
   /bots/{botId}/analytics/intentpaths:
     POST:
       summary: Amazon Web Services Listintentpaths
@@ -351,6 +447,8 @@ paths:
         BookCar and BookHotel intents in that order.   Use the optional filters
         field to filter the results.
       operationId: amazonWebServicesListIntentPaths
+      tags:
+        - Bots
   /bots/{botId}/analytics/intentstagemetrics:
     POST:
       summary: Amazon Web Services Listintentstagemetrics
@@ -372,6 +470,8 @@ paths:
         results.   Note that an order field exists in both binBy and metrics.
         You can only specify one order in a given request.
       operationId: amazonWebServicesListIntentStageMetrics
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents:
     POST:
       summary: Amazon Web Services Listrecommendedintents
@@ -380,6 +480,8 @@ paths:
         that you can use in your bot. Intents in the response are ordered by
         relevance.
       operationId: amazonWebServicesListRecommendedIntents
+      tags:
+        - Bots
   /bots/{botId}/analytics/sessions:
     POST:
       summary: Amazon Web Services Listsessionanalyticsdata
@@ -393,6 +495,8 @@ paths:
         the nextToken field to return the next batch of results if the response
         does not return the full set of results.  
       operationId: amazonWebServicesListSessionAnalyticsData
+      tags:
+        - Bots
   /bots/{botId}/analytics/sessionmetrics:
     POST:
       summary: Amazon Web Services Listsessionmetrics
@@ -413,46 +517,64 @@ paths:
         results.   Note that an order field exists in both binBy and metrics.
         Currently, you can specify it in either field, but not in both.
       operationId: amazonWebServicesListSessionMetrics
+      tags:
+        - Bots
   /tags/{resourceARN}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a bot, bot alias, or bot channel.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /testexecutions/{testExecutionId}/results:
     POST:
       summary: Amazon Web Services Listtestexecutionresultitems
       description: Gets a list of test execution result items.
       operationId: amazonWebServicesListTestExecutionResultItems
+      tags:
+        - Testexecutions
   /testexecutions:
     POST:
       summary: Amazon Web Services Listtestexecutions
       description: The list of test set executions.
       operationId: amazonWebServicesListTestExecutions
+      tags:
+        - Testexecutions
   /testsets/{testSetId}/records:
     POST:
       summary: Amazon Web Services Listtestsetrecords
       description: The list of test set records.
       operationId: amazonWebServicesListTestSetRecords
+      tags:
+        - Testsets
   /testsets:
     POST:
       summary: Amazon Web Services Listtestsets
       description: The list of the test sets
       operationId: amazonWebServicesListTestSets
+      tags:
+        - Testsets
   /bots/{botId}/analytics/utterances:
     POST:
       summary: Amazon Web Services Listutteranceanalyticsdata
       description: ' To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results and the sortBy field to specify the values by which to sort the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.  '
       operationId: amazonWebServicesListUtteranceAnalyticsData
+      tags:
+        - Bots
   /bots/{botId}/analytics/utterancemetrics:
     POST:
       summary: Amazon Web Services Listutterancemetrics
       description: ' To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves summary metrics for the utterances in your bot. The following fields are required:    metrics – A list of AnalyticsUtteranceMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both.'
       operationId: amazonWebServicesListUtteranceMetrics
+      tags:
+        - Bots
   ? /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts
   : POST:
       summary: Amazon Web Services Searchassociatedtranscripts
       description: Search for associated transcripts that meet the specified criteria.
       operationId: amazonWebServicesSearchAssociatedTranscripts
+      tags:
+        - Bots
   /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration:
     PUT:
       summary: Amazon Web Services Startbotresourcegeneration
@@ -465,19 +587,38 @@ paths:
         containing the bot locale configuration. You can then modify and import
         this configuration.
       operationId: amazonWebServicesStartBotResourceGeneration
+      tags:
+        - Bots
   /testsets/{testSetId}/testexecutions:
     POST:
       summary: Amazon Web Services Starttestexecution
       description: The action to start test set execution.
       operationId: amazonWebServicesStartTestExecution
+      tags:
+        - Testsets
   /testsetgenerations:
     PUT:
       summary: Amazon Web Services Starttestsetgeneration
       description: The action to start the generation of test set.
       operationId: amazonWebServicesStartTestSetGeneration
+      tags:
+        - Testsetgenerations
   ? /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation
   : PUT:
       summary: Amazon Web Services Stopbotrecommendation
       description: Stop an already running Bot Recommendation request.
       operationId: amazonWebServicesStopBotRecommendation
-tags: []
+      tags:
+        - Bots
+tags:
+  - name: Bots
+  - name: Builtins
+  - name: Createuploadurl
+  - name: Exports
+  - name: Imports
+  - name: Policy
+  - name: Tags
+  - name: Testexecutions
+  - name: Testsetdiscrepancy
+  - name: Testsetgenerations
+  - name: Testsets

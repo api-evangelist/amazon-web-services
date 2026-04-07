@@ -29,26 +29,36 @@ paths:
       summary: Amazon Web Services Listapplications
       description: Lists applications owned by the requester.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /applications/{applicationId}/versions/{semanticVersion}:
     PUT:
       summary: Amazon Web Services Createapplicationversion
       description: Creates an application version.
       operationId: amazonWebServicesCreateApplicationVersion
+      tags:
+        - Applications
   /applications/{applicationId}/changesets:
     POST:
       summary: Amazon Web Services Createcloudformationchangeset
       description: Creates an AWS CloudFormation change set for the given application.
       operationId: amazonWebServicesCreateCloudFormationChangeSet
+      tags:
+        - Applications
   /applications/{applicationId}/templates:
     POST:
       summary: Amazon Web Services Createcloudformationtemplate
       description: Creates an AWS CloudFormation template.
       operationId: amazonWebServicesCreateCloudFormationTemplate
+      tags:
+        - Applications
   /applications/{applicationId}:
     PATCH:
       summary: Amazon Web Services Updateapplication
       description: Updates the specified application.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /applications/{applicationId}/policy:
     PUT:
       summary: Amazon Web Services Putapplicationpolicy
@@ -56,21 +66,29 @@ paths:
         Sets the permission policy for an application. For the list of actions
         supported for this operation, see<br> Application <br> Permissions<br> .
       operationId: amazonWebServicesPutApplicationPolicy
+      tags:
+        - Applications
   /applications/{applicationId}/templates/{templateId}:
     GET:
       summary: Amazon Web Services Getcloudformationtemplate
       description: Gets the specified AWS CloudFormation template.
       operationId: amazonWebServicesGetCloudFormationTemplate
+      tags:
+        - Applications
   /applications/{applicationId}/dependencies:
     GET:
       summary: Amazon Web Services Listapplicationdependencies
       description: Retrieves the list of applications nested in the containing application.
       operationId: amazonWebServicesListApplicationDependencies
+      tags:
+        - Applications
   /applications/{applicationId}/versions:
     GET:
       summary: Amazon Web Services Listapplicationversions
       description: Lists versions for the specified application.
       operationId: amazonWebServicesListApplicationVersions
+      tags:
+        - Applications
   /applications/{applicationId}/unshare:
     POST:
       summary: Amazon Web Services Unshareapplication
@@ -78,4 +96,7 @@ paths:
         Unshares an application from an AWS Organization.This operation can be
         called only from the organization's master account.
       operationId: amazonWebServicesUnshareApplication
-tags: []
+      tags:
+        - Applications
+tags:
+  - name: Applications

@@ -12,34 +12,53 @@ paths:
       summary: Amazon Web Services Listprojects
       description: ' Lists projects in AWS Mobile Hub. '
       operationId: amazonWebServicesListProjects
+      tags:
+        - Projects
   /projects/{projectId}:
     DELETE:
       summary: Amazon Web Services Deleteproject
       description: ' Delets a project in AWS Mobile Hub. '
       operationId: amazonWebServicesDeleteProject
+      tags:
+        - Projects
   /bundles/{bundleId}:
     POST:
       summary: Amazon Web Services Exportbundle
       description: ' Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources. '
       operationId: amazonWebServicesExportBundle
+      tags:
+        - Bundles
   /project:
     GET:
       summary: Amazon Web Services Describeproject
       description: ' Gets details about a project in AWS Mobile Hub. '
       operationId: amazonWebServicesDescribeProject
+      tags:
+        - Project
   /exports/{projectId}:
     POST:
       summary: Amazon Web Services Exportproject
       description: ' Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account. '
       operationId: amazonWebServicesExportProject
+      tags:
+        - Exports
   /bundles:
     GET:
       summary: Amazon Web Services Listbundles
       description: ' List all available bundles. '
       operationId: amazonWebServicesListBundles
+      tags:
+        - Bundles
   /update:
     POST:
       summary: Amazon Web Services Updateproject
       description: ' Update an existing project. '
       operationId: amazonWebServicesUpdateProject
-tags: []
+      tags:
+        - Update
+tags:
+  - name: Bundles
+  - name: Exports
+  - name: Project
+  - name: Projects
+  - name: Update

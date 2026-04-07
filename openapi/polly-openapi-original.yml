@@ -19,6 +19,8 @@ paths:
         available to the SynthesizeSpeech operation. For more information, see
         Managing Lexicons.
       operationId: amazonWebServicesPutLexicon
+      tags:
+        - Lexicons
   /v1/voices:
     GET:
       summary: Amazon Web Services Describevoices
@@ -37,6 +39,8 @@ paths:
         English voices.  This operation requires permissions to perform the
         polly:DescribeVoices action.
       operationId: amazonWebServicesDescribeVoices
+      tags:
+        - Voices
   /v1/synthesisTasks/{TaskId}:
     GET:
       summary: Amazon Web Services Getspeechsynthesistask
@@ -46,6 +50,8 @@ paths:
         including the status of the task, and a link to the S3 bucket containing
         the output of the task.
       operationId: amazonWebServicesGetSpeechSynthesisTask
+      tags:
+        - synthesisTasks
   /v1/lexicons:
     GET:
       summary: Amazon Web Services Listlexicons
@@ -53,6 +59,8 @@ paths:
         Returns a list of pronunciation lexicons stored in an Amazon Web
         Services Region. For more information, see Managing Lexicons.
       operationId: amazonWebServicesListLexicons
+      tags:
+        - Lexicons
   /v1/synthesisTasks:
     POST:
       summary: Amazon Web Services Startspeechsynthesistask
@@ -67,6 +75,8 @@ paths:
         task as well as the current status. The SpeechSynthesisTask object is
         available for 72 hours after starting the asynchronous synthesis task.
       operationId: amazonWebServicesStartSpeechSynthesisTask
+      tags:
+        - synthesisTasks
   /v1/speech:
     POST:
       summary: Amazon Web Services Synthesizespeech
@@ -77,4 +87,10 @@ paths:
         at all by English voices) unless phoneme mapping is used. For more
         information, see How it Works.
       operationId: amazonWebServicesSynthesizeSpeech
-tags: []
+      tags:
+        - Speech
+tags:
+  - name: Lexicons
+  - name: Speech
+  - name: synthesisTasks
+  - name: Voices

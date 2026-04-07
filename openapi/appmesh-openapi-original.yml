@@ -26,36 +26,50 @@ paths:
         Returns a list of existing gateway routes that are associated to a
         virtual gateway.
       operationId: amazonWebServicesListGatewayRoutes
+      tags:
+        - Meshes
   /v20190125/meshes:
     GET:
       summary: Amazon Web Services Listmeshes
       description: Returns a list of existing service meshes.
       operationId: amazonWebServicesListMeshes
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes:
     GET:
       summary: Amazon Web Services Listroutes
       description: Returns a list of existing routes in a service mesh.
       operationId: amazonWebServicesListRoutes
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualGateways:
     GET:
       summary: Amazon Web Services Listvirtualgateways
       description: Returns a list of existing virtual gateways in a service mesh.
       operationId: amazonWebServicesListVirtualGateways
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualNodes:
     GET:
       summary: Amazon Web Services Listvirtualnodes
       description: Returns a list of existing virtual nodes.
       operationId: amazonWebServicesListVirtualNodes
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualRouters:
     GET:
       summary: Amazon Web Services Listvirtualrouters
       description: Returns a list of existing virtual routers in a service mesh.
       operationId: amazonWebServicesListVirtualRouters
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualServices:
     GET:
       summary: Amazon Web Services Listvirtualservices
       description: Returns a list of existing virtual services in a service mesh.
       operationId: amazonWebServicesListVirtualServices
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}:
     PUT:
       summary: Amazon Web Services Updategatewayroute
@@ -63,11 +77,15 @@ paths:
         Updates an existing gateway route that is associated to a specified
         virtual gateway in a service mesh.
       operationId: amazonWebServicesUpdateGatewayRoute
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}:
     PUT:
       summary: Amazon Web Services Updatemesh
       description: Updates an existing service mesh.
       operationId: amazonWebServicesUpdateMesh
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}:
     PUT:
       summary: Amazon Web Services Updateroute
@@ -75,31 +93,43 @@ paths:
         Updates an existing route for a specified service mesh and virtual
         router.
       operationId: amazonWebServicesUpdateRoute
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}:
     PUT:
       summary: Amazon Web Services Updatevirtualgateway
       description: Updates an existing virtual gateway in a specified service mesh.
       operationId: amazonWebServicesUpdateVirtualGateway
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}:
     PUT:
       summary: Amazon Web Services Updatevirtualnode
       description: Updates an existing virtual node in a specified service mesh.
       operationId: amazonWebServicesUpdateVirtualNode
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}:
     PUT:
       summary: Amazon Web Services Updatevirtualrouter
       description: Updates an existing virtual router in a specified service mesh.
       operationId: amazonWebServicesUpdateVirtualRouter
+      tags:
+        - Meshes
   /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}:
     PUT:
       summary: Amazon Web Services Updatevirtualservice
       description: Updates an existing virtual service in a specified service mesh.
       operationId: amazonWebServicesUpdateVirtualService
+      tags:
+        - Meshes
   /v20190125/tags:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: List the tags for an App Mesh resource.
       operationId: amazonWebServicesListTagsForResource
+      tags:
+        - Tags
   /v20190125/tag:
     PUT:
       summary: Amazon Web Services Tagresource
@@ -109,9 +139,17 @@ paths:
         request parameters, they aren't changed. When a resource is deleted, the
         tags associated with that resource are also deleted.
       operationId: amazonWebServicesTagResource
+      tags:
+        - Tag
   /v20190125/untag:
     PUT:
       summary: Amazon Web Services Untagresource
       description: Deletes specified tags from a resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Untag
+tags:
+  - name: Meshes
+  - name: Tag
+  - name: Tags
+  - name: Untag

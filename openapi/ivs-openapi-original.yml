@@ -180,11 +180,15 @@ paths:
       summary: Amazon Web Services Batchgetchannel
       description: Performs GetChannel on multiple ARNs simultaneously.
       operationId: amazonWebServicesBatchGetChannel
+      tags:
+        - BatchGetChannel
   /BatchGetStreamKey:
     POST:
       summary: Amazon Web Services Batchgetstreamkey
       description: Performs GetStreamKey on multiple ARNs simultaneously.
       operationId: amazonWebServicesBatchGetStreamKey
+      tags:
+        - BatchGetStreamKey
   /BatchStartViewerSessionRevocation:
     POST:
       summary: Amazon Web Services Batchstartviewersessionrevocation
@@ -192,11 +196,15 @@ paths:
         Performs StartViewerSessionRevocation on multiple channel ARN and viewer
         ID pairs simultaneously.
       operationId: amazonWebServicesBatchStartViewerSessionRevocation
+      tags:
+        - BatchStartViewerSessionRevocation
   /CreateChannel:
     POST:
       summary: Amazon Web Services Createchannel
       description: Creates a new channel and an associated stream key to start streaming.
       operationId: amazonWebServicesCreateChannel
+      tags:
+        - CreateChannel
   /CreatePlaybackRestrictionPolicy:
     POST:
       summary: Amazon Web Services Createplaybackrestrictionpolicy
@@ -204,6 +212,8 @@ paths:
         Creates a new playback restriction policy, for constraining playback by
         countries and/or origins.
       operationId: amazonWebServicesCreatePlaybackRestrictionPolicy
+      tags:
+        - CreatePlaybackRestrictionPolicy
   /CreateRecordingConfiguration:
     POST:
       summary: Amazon Web Services Createrecordingconfiguration
@@ -220,6 +230,8 @@ paths:
         recording configuration and create a new one with an S3 bucket from the
         correct region.
       operationId: amazonWebServicesCreateRecordingConfiguration
+      tags:
+        - CreateRecordingConfiguration
   /CreateStreamKey:
     POST:
       summary: Amazon Web Services Createstreamkey
@@ -231,6 +243,8 @@ paths:
         per channel. To reset the stream key on a channel, use DeleteStreamKey
         and then CreateStreamKey.
       operationId: amazonWebServicesCreateStreamKey
+      tags:
+        - CreateStreamKey
   /DeleteChannel:
     POST:
       summary: Amazon Web Services Deletechannel
@@ -242,6 +256,8 @@ paths:
         longer Live), then call DeleteChannel. (See  Using EventBridge with
         Amazon IVS.) 
       operationId: amazonWebServicesDeleteChannel
+      tags:
+        - DeleteChannel
   /DeletePlaybackKeyPair:
     POST:
       summary: Amazon Web Services Deleteplaybackkeypair
@@ -251,11 +267,15 @@ paths:
         information, see Setting Up Private Channels in the Amazon IVS User
         Guide.
       operationId: amazonWebServicesDeletePlaybackKeyPair
+      tags:
+        - DeletePlaybackKeyPair
   /DeletePlaybackRestrictionPolicy:
     POST:
       summary: Amazon Web Services Deleteplaybackrestrictionpolicy
       description: Deletes the specified playback restriction policy.
       operationId: amazonWebServicesDeletePlaybackRestrictionPolicy
+      tags:
+        - DeletePlaybackRestrictionPolicy
   /DeleteRecordingConfiguration:
     POST:
       summary: Amazon Web Services Deleterecordingconfiguration
@@ -267,6 +287,8 @@ paths:
         UpdateChannel to set the recordingConfigurationArn field to an empty
         string, then use DeleteRecordingConfiguration.
       operationId: amazonWebServicesDeleteRecordingConfiguration
+      tags:
+        - DeleteRecordingConfiguration
   /DeleteStreamKey:
     POST:
       summary: Amazon Web Services Deletestreamkey
@@ -274,6 +296,8 @@ paths:
         Deletes the stream key for the specified ARN, so it can no longer be
         used to stream.
       operationId: amazonWebServicesDeleteStreamKey
+      tags:
+        - DeleteStreamKey
   /GetChannel:
     POST:
       summary: Amazon Web Services Getchannel
@@ -281,6 +305,8 @@ paths:
         Gets the channel configuration for the specified channel ARN. See also
         BatchGetChannel.
       operationId: amazonWebServicesGetChannel
+      tags:
+        - GetChannel
   /GetPlaybackKeyPair:
     POST:
       summary: Amazon Web Services Getplaybackkeypair
@@ -291,31 +317,43 @@ paths:
         channels. For more information, see Setting Up Private Channels in the
         Amazon IVS User Guide.
       operationId: amazonWebServicesGetPlaybackKeyPair
+      tags:
+        - GetPlaybackKeyPair
   /GetPlaybackRestrictionPolicy:
     POST:
       summary: Amazon Web Services Getplaybackrestrictionpolicy
       description: Gets the specified playback restriction policy.
       operationId: amazonWebServicesGetPlaybackRestrictionPolicy
+      tags:
+        - GetPlaybackRestrictionPolicy
   /GetRecordingConfiguration:
     POST:
       summary: Amazon Web Services Getrecordingconfiguration
       description: Gets the recording configuration for the specified ARN.
       operationId: amazonWebServicesGetRecordingConfiguration
+      tags:
+        - GetRecordingConfiguration
   /GetStream:
     POST:
       summary: Amazon Web Services Getstream
       description: Gets information about the active (live) stream on a specified channel.
       operationId: amazonWebServicesGetStream
+      tags:
+        - GetStream
   /GetStreamKey:
     POST:
       summary: Amazon Web Services Getstreamkey
       description: Gets stream-key information for a specified ARN.
       operationId: amazonWebServicesGetStreamKey
+      tags:
+        - GetStreamKey
   /GetStreamSession:
     POST:
       summary: Amazon Web Services Getstreamsession
       description: Gets metadata on a specified stream.
       operationId: amazonWebServicesGetStreamSession
+      tags:
+        - GetStreamSession
   /ImportPlaybackKeyPair:
     POST:
       summary: Amazon Web Services Importplaybackkeypair
@@ -326,6 +364,8 @@ paths:
         more information, see Setting Up Private Channels in the Amazon IVS User
         Guide.
       operationId: amazonWebServicesImportPlaybackKeyPair
+      tags:
+        - ImportPlaybackKeyPair
   /ListChannels:
     POST:
       summary: Amazon Web Services Listchannels
@@ -336,6 +376,8 @@ paths:
         ARN. Filters are mutually exclusive and cannot be used together. If you
         try to use both filters, you will get an error (409 ConflictException).
       operationId: amazonWebServicesListChannels
+      tags:
+        - ListChannels
   /ListPlaybackKeyPairs:
     POST:
       summary: Amazon Web Services Listplaybackkeypairs
@@ -343,11 +385,15 @@ paths:
         Gets summary information about playback key pairs. For more information,
         see Setting Up Private Channels in the Amazon IVS User Guide.
       operationId: amazonWebServicesListPlaybackKeyPairs
+      tags:
+        - ListPlaybackKeyPairs
   /ListPlaybackRestrictionPolicies:
     POST:
       summary: Amazon Web Services Listplaybackrestrictionpolicies
       description: Gets summary information about playback restriction policies.
       operationId: amazonWebServicesListPlaybackRestrictionPolicies
+      tags:
+        - ListPlaybackRestrictionPolicies
   /ListRecordingConfigurations:
     POST:
       summary: Amazon Web Services Listrecordingconfigurations
@@ -356,11 +402,15 @@ paths:
         account, in the Amazon Web Services region where the API request is
         processed.
       operationId: amazonWebServicesListRecordingConfigurations
+      tags:
+        - ListRecordingConfigurations
   /ListStreamKeys:
     POST:
       summary: Amazon Web Services Liststreamkeys
       description: Gets summary information about stream keys for the specified channel.
       operationId: amazonWebServicesListStreamKeys
+      tags:
+        - ListStreamKeys
   /ListStreamSessions:
     POST:
       summary: Amazon Web Services Liststreamsessions
@@ -368,6 +418,8 @@ paths:
         Gets a summary of current and previous streams for a specified channel
         in your account, in the AWS region where the API request is processed.
       operationId: amazonWebServicesListStreamSessions
+      tags:
+        - ListStreamSessions
   /ListStreams:
     POST:
       summary: Amazon Web Services Liststreams
@@ -375,11 +427,15 @@ paths:
         Gets summary information about live streams in your account, in the
         Amazon Web Services region where the API request is processed.
       operationId: amazonWebServicesListStreams
+      tags:
+        - ListStreams
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from the resource with the specified ARN.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /PutMetadata:
     POST:
       summary: Amazon Web Services Putmetadata
@@ -391,6 +447,8 @@ paths:
         per second per account are allowed. Also see Embedding Metadata within a
         Video Stream in the Amazon IVS User Guide.
       operationId: amazonWebServicesPutMetadata
+      tags:
+        - PutMetadata
   /StartViewerSessionRevocation:
     POST:
       summary: Amazon Web Services Startviewersessionrevocation
@@ -401,6 +459,8 @@ paths:
         For instructions on associating a viewer ID with a viewer session, see
         Setting Up Private Channels.
       operationId: amazonWebServicesStartViewerSessionRevocation
+      tags:
+        - StartViewerSessionRevocation
   /StopStream:
     POST:
       summary: Amazon Web Services Stopstream
@@ -411,6 +471,8 @@ paths:
         reconnect a dropped RTMPS session, so to stop the stream permanently,
         you may want to first revoke the streamKey attached to the channel. 
       operationId: amazonWebServicesStopStream
+      tags:
+        - StopStream
   /UpdateChannel:
     POST:
       summary: Amazon Web Services Updatechannel
@@ -419,9 +481,46 @@ paths:
         must stop the ongoing stream, update the channel, and restart the stream
         for the changes to take effect.
       operationId: amazonWebServicesUpdateChannel
+      tags:
+        - UpdateChannel
   /UpdatePlaybackRestrictionPolicy:
     POST:
       summary: Amazon Web Services Updateplaybackrestrictionpolicy
       description: Updates a specified playback restriction policy.
       operationId: amazonWebServicesUpdatePlaybackRestrictionPolicy
-tags: []
+      tags:
+        - UpdatePlaybackRestrictionPolicy
+tags:
+  - name: BatchGetChannel
+  - name: BatchGetStreamKey
+  - name: BatchStartViewerSessionRevocation
+  - name: CreateChannel
+  - name: CreatePlaybackRestrictionPolicy
+  - name: CreateRecordingConfiguration
+  - name: CreateStreamKey
+  - name: DeleteChannel
+  - name: DeletePlaybackKeyPair
+  - name: DeletePlaybackRestrictionPolicy
+  - name: DeleteRecordingConfiguration
+  - name: DeleteStreamKey
+  - name: GetChannel
+  - name: GetPlaybackKeyPair
+  - name: GetPlaybackRestrictionPolicy
+  - name: GetRecordingConfiguration
+  - name: GetStream
+  - name: GetStreamKey
+  - name: GetStreamSession
+  - name: ImportPlaybackKeyPair
+  - name: ListChannels
+  - name: ListPlaybackKeyPairs
+  - name: ListPlaybackRestrictionPolicies
+  - name: ListRecordingConfigurations
+  - name: ListStreamKeys
+  - name: ListStreams
+  - name: ListStreamSessions
+  - name: PutMetadata
+  - name: StartViewerSessionRevocation
+  - name: StopStream
+  - name: Tags
+  - name: UpdateChannel
+  - name: UpdatePlaybackRestrictionPolicy

@@ -98,6 +98,8 @@ paths:
       summary: Amazon Web Services Createencoderconfiguration
       description: Creates an EncoderConfiguration object.
       operationId: amazonWebServicesCreateEncoderConfiguration
+      tags:
+        - CreateEncoderConfiguration
   /CreateParticipantToken:
     POST:
       summary: Amazon Web Services Createparticipanttoken
@@ -107,11 +109,15 @@ paths:
         the stage for which they are created. Encryption keys are owned by
         Amazon IVS and never used directly by your application.
       operationId: amazonWebServicesCreateParticipantToken
+      tags:
+        - CreateParticipantToken
   /CreateStage:
     POST:
       summary: Amazon Web Services Createstage
       description: Creates a new stage (and optionally participant tokens).
       operationId: amazonWebServicesCreateStage
+      tags:
+        - CreateStage
   /CreateStorageConfiguration:
     POST:
       summary: Amazon Web Services Createstorageconfiguration
@@ -121,6 +127,8 @@ paths:
         bucketPolicy of the provided bucket. This will ensure that IVS has
         sufficient permissions to write content to the provided bucket.
       operationId: amazonWebServicesCreateStorageConfiguration
+      tags:
+        - CreateStorageConfiguration
   /DeleteEncoderConfiguration:
     POST:
       summary: Amazon Web Services Deleteencoderconfiguration
@@ -128,6 +136,8 @@ paths:
         Deletes an EncoderConfiguration resource. Ensures that no Compositions
         are using this template; otherwise, returns an error.
       operationId: amazonWebServicesDeleteEncoderConfiguration
+      tags:
+        - DeleteEncoderConfiguration
   /DeleteStage:
     POST:
       summary: Amazon Web Services Deletestage
@@ -135,6 +145,8 @@ paths:
         Shuts down and deletes the specified stage (disconnecting all
         participants).
       operationId: amazonWebServicesDeleteStage
+      tags:
+        - DeleteStage
   /DeleteStorageConfiguration:
     POST:
       summary: Amazon Web Services Deletestorageconfiguration
@@ -146,6 +158,8 @@ paths:
         StopComposition and wait for it to complete, then use
         DeleteStorageConfiguration.
       operationId: amazonWebServicesDeleteStorageConfiguration
+      tags:
+        - DeleteStorageConfiguration
   /DisconnectParticipant:
     POST:
       summary: Amazon Web Services Disconnectparticipant
@@ -153,36 +167,50 @@ paths:
         Disconnects a specified participant and revokes the participant
         permanently from a specified stage.
       operationId: amazonWebServicesDisconnectParticipant
+      tags:
+        - DisconnectParticipant
   /GetComposition:
     POST:
       summary: Amazon Web Services Getcomposition
       description: Get information about the specified Composition resource.
       operationId: amazonWebServicesGetComposition
+      tags:
+        - GetComposition
   /GetEncoderConfiguration:
     POST:
       summary: Amazon Web Services Getencoderconfiguration
       description: 'Gets information about the specified EncoderConfiguration resource. '
       operationId: amazonWebServicesGetEncoderConfiguration
+      tags:
+        - GetEncoderConfiguration
   /GetParticipant:
     POST:
       summary: Amazon Web Services Getparticipant
       description: Gets information about the specified participant token.
       operationId: amazonWebServicesGetParticipant
+      tags:
+        - GetParticipant
   /GetStage:
     POST:
       summary: Amazon Web Services Getstage
       description: Gets information for the specified stage.
       operationId: amazonWebServicesGetStage
+      tags:
+        - GetStage
   /GetStageSession:
     POST:
       summary: Amazon Web Services Getstagesession
       description: Gets information for the specified stage session.
       operationId: amazonWebServicesGetStageSession
+      tags:
+        - GetStageSession
   /GetStorageConfiguration:
     POST:
       summary: Amazon Web Services Getstorageconfiguration
       description: Gets the storage configuration for the specified ARN.
       operationId: amazonWebServicesGetStorageConfiguration
+      tags:
+        - GetStorageConfiguration
   /ListCompositions:
     POST:
       summary: Amazon Web Services Listcompositions
@@ -190,6 +218,8 @@ paths:
         Gets summary information about all Compositions in your account, in the
         AWS region where the API request is processed. 
       operationId: amazonWebServicesListCompositions
+      tags:
+        - ListCompositions
   /ListEncoderConfigurations:
     POST:
       summary: Amazon Web Services Listencoderconfigurations
@@ -197,6 +227,8 @@ paths:
         Gets summary information about all EncoderConfigurations in your
         account, in the AWS region where the API request is processed.
       operationId: amazonWebServicesListEncoderConfigurations
+      tags:
+        - ListEncoderConfigurations
   /ListParticipantEvents:
     POST:
       summary: Amazon Web Services Listparticipantevents
@@ -204,16 +236,22 @@ paths:
         Lists events for a specified participant that occurred during a
         specified stage session.
       operationId: amazonWebServicesListParticipantEvents
+      tags:
+        - ListParticipantEvents
   /ListParticipants:
     POST:
       summary: Amazon Web Services Listparticipants
       description: Lists all participants in a specified stage session.
       operationId: amazonWebServicesListParticipants
+      tags:
+        - ListParticipants
   /ListStageSessions:
     POST:
       summary: Amazon Web Services Liststagesessions
       description: Gets all sessions for a specified stage.
       operationId: amazonWebServicesListStageSessions
+      tags:
+        - ListStageSessions
   /ListStages:
     POST:
       summary: Amazon Web Services Liststages
@@ -221,6 +259,8 @@ paths:
         Gets summary information about all stages in your account, in the AWS
         region where the API request is processed.
       operationId: amazonWebServicesListStages
+      tags:
+        - ListStages
   /ListStorageConfigurations:
     POST:
       summary: Amazon Web Services Liststorageconfigurations
@@ -228,11 +268,15 @@ paths:
         Gets summary information about all storage configurations in your
         account, in the AWS region where the API request is processed.
       operationId: amazonWebServicesListStorageConfigurations
+      tags:
+        - ListStorageConfigurations
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from the resource with the specified ARN.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /StartComposition:
     POST:
       summary: Amazon Web Services Startcomposition
@@ -247,6 +291,8 @@ paths:
         and all retries are exhausted.   When broadcasting is disconnected and
         all attempts to reconnect are exhausted.  
       operationId: amazonWebServicesStartComposition
+      tags:
+        - StartComposition
   /StopComposition:
     POST:
       summary: Amazon Web Services Stopcomposition
@@ -254,9 +300,38 @@ paths:
         Stops and deletes a Composition resource. Any broadcast from the
         Composition resource is stopped.
       operationId: amazonWebServicesStopComposition
+      tags:
+        - StopComposition
   /UpdateStage:
     POST:
       summary: Amazon Web Services Updatestage
       description: Updates a stage’s configuration.
       operationId: amazonWebServicesUpdateStage
-tags: []
+      tags:
+        - UpdateStage
+tags:
+  - name: CreateEncoderConfiguration
+  - name: CreateParticipantToken
+  - name: CreateStage
+  - name: CreateStorageConfiguration
+  - name: DeleteEncoderConfiguration
+  - name: DeleteStage
+  - name: DeleteStorageConfiguration
+  - name: DisconnectParticipant
+  - name: GetComposition
+  - name: GetEncoderConfiguration
+  - name: GetParticipant
+  - name: GetStage
+  - name: GetStageSession
+  - name: GetStorageConfiguration
+  - name: ListCompositions
+  - name: ListEncoderConfigurations
+  - name: ListParticipantEvents
+  - name: ListParticipants
+  - name: ListStages
+  - name: ListStageSessions
+  - name: ListStorageConfigurations
+  - name: StartComposition
+  - name: StopComposition
+  - name: Tags
+  - name: UpdateStage

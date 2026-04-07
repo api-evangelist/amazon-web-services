@@ -43,6 +43,8 @@ paths:
         Creates a CLI token for the Airflow CLI. To learn more, see Creating an
         Apache Airflow CLI token.
       operationId: amazonWebServicesCreateCliToken
+      tags:
+        - Clitoken
   /environments/{Name}:
     PATCH:
       summary: Amazon Web Services Updateenvironment
@@ -50,6 +52,8 @@ paths:
         Updates an Amazon Managed Workflows for Apache Airflow (MWAA)
         environment.
       operationId: amazonWebServicesUpdateEnvironment
+      tags:
+        - Environments
   /webtoken/{Name}:
     POST:
       summary: Amazon Web Services Createweblogintoken
@@ -57,6 +61,8 @@ paths:
         Creates a web login token for the Airflow Web UI. To learn more, see
         Creating an Apache Airflow web login token.
       operationId: amazonWebServicesCreateWebLoginToken
+      tags:
+        - Webtoken
   /environments:
     GET:
       summary: Amazon Web Services Listenvironments
@@ -64,6 +70,8 @@ paths:
         Lists the Amazon Managed Workflows for Apache Airflow (MWAA)
         environments.
       operationId: amazonWebServicesListEnvironments
+      tags:
+        - Environments
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -72,9 +80,18 @@ paths:
         for Apache Airflow (MWAA) environment. For example, "Environment":
         "Staging".
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /metrics/environments/{EnvironmentName}:
     POST:
       summary: Amazon Web Services Publishmetrics
       description: ' Internal only. Publishes environment health metrics to Amazon CloudWatch.'
       operationId: amazonWebServicesPublishMetrics
-tags: []
+      tags:
+        - Metrics
+tags:
+  - name: Clitoken
+  - name: Environments
+  - name: Metrics
+  - name: Tags
+  - name: Webtoken

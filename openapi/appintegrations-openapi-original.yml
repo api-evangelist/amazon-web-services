@@ -18,6 +18,8 @@ paths:
         This API is in preview release and subject to change. Lists applications
         in the account.
       operationId: amazonWebServicesListApplications
+      tags:
+        - Applications
   /dataIntegrations:
     GET:
       summary: Amazon Web Services Listdataintegrations
@@ -27,11 +29,15 @@ paths:
         previously associated. Use a different DataIntegration, or recreate the
         DataIntegration using the CreateDataIntegration API. 
       operationId: amazonWebServicesListDataIntegrations
+      tags:
+        - dataIntegrations
   /eventIntegrations:
     GET:
       summary: Amazon Web Services Listeventintegrations
       description: Returns a paginated list of event integrations in the account.
       operationId: amazonWebServicesListEventIntegrations
+      tags:
+        - eventIntegrations
   /applications/{ApplicationIdentifier}:
     PATCH:
       summary: Amazon Web Services Updateapplication
@@ -39,6 +45,8 @@ paths:
         This API is in preview release and subject to change. Updates and
         persists an Application resource.
       operationId: amazonWebServicesUpdateApplication
+      tags:
+        - Applications
   /dataIntegrations/{Identifier}:
     PATCH:
       summary: Amazon Web Services Updatedataintegration
@@ -48,16 +56,22 @@ paths:
         previously associated. Use a different DataIntegration, or recreate the
         DataIntegration using the CreateDataIntegration API. 
       operationId: amazonWebServicesUpdateDataIntegration
+      tags:
+        - dataIntegrations
   /eventIntegrations/{Name}:
     PATCH:
       summary: Amazon Web Services Updateeventintegration
       description: Updates the description of an event integration.
       operationId: amazonWebServicesUpdateEventIntegration
+      tags:
+        - eventIntegrations
   /applications/{ApplicationIdentifier}/associations:
     GET:
       summary: Amazon Web Services Listapplicationassociations
       description: Returns a paginated list of application associations for an application.
       operationId: amazonWebServicesListApplicationAssociations
+      tags:
+        - Applications
   /dataIntegrations/{Identifier}/associations:
     GET:
       summary: Amazon Web Services Listdataintegrationassociations
@@ -68,6 +82,8 @@ paths:
         DataIntegration, or recreate the DataIntegration using the
         CreateDataIntegration API. 
       operationId: amazonWebServicesListDataIntegrationAssociations
+      tags:
+        - dataIntegrations
   /eventIntegrations/{Name}/associations:
     GET:
       summary: Amazon Web Services Listeventintegrationassociations
@@ -75,9 +91,17 @@ paths:
         Returns a paginated list of event integration associations in the
         account. 
       operationId: amazonWebServicesListEventIntegrationAssociations
+      tags:
+        - eventIntegrations
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the specified tags from the specified resource.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Applications
+  - name: dataIntegrations
+  - name: eventIntegrations
+  - name: Tags

@@ -55,26 +55,36 @@ paths:
         Amazon AppFlow apply. For the pricing information, see Amazon AppFlow
         pricing. 
       operationId: amazonWebServicesCancelFlowExecutions
+      tags:
+        - Cancel Flow Executions
   /create-connector-profile:
     POST:
       summary: Amazon Web Services Createconnectorprofile
       description: ' Creates a new connector profile associated with your Amazon Web Services account. There is a soft quota of 100 connector profiles per Amazon Web Services account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.'
       operationId: amazonWebServicesCreateConnectorProfile
+      tags:
+        - Create Connector Profile
   /create-flow:
     POST:
       summary: Amazon Web Services Createflow
       description: ' Enables your application to create a new flow using Amazon AppFlow. You must create a connector profile before calling this API. Please note that the Request Syntax below shows syntax for multiple destinations, however, you can only transfer data to one item in this list at a time. Amazon AppFlow does not currently support flows to multiple destinations at once. '
       operationId: amazonWebServicesCreateFlow
+      tags:
+        - Create Flow
   /delete-connector-profile:
     POST:
       summary: Amazon Web Services Deleteconnectorprofile
       description: ' Enables you to delete an existing connector profile. '
       operationId: amazonWebServicesDeleteConnectorProfile
+      tags:
+        - Delete Connector Profile
   /delete-flow:
     POST:
       summary: Amazon Web Services Deleteflow
       description: ' Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can delete flows one at a time. '
       operationId: amazonWebServicesDeleteFlow
+      tags:
+        - Delete Flow
   /describe-connector:
     POST:
       summary: Amazon Web Services Describeconnector
@@ -83,36 +93,50 @@ paths:
         Services account. This API can be used for custom connectors that are
         registered in your account and also for Amazon authored connectors.
       operationId: amazonWebServicesDescribeConnector
+      tags:
+        - Describe Connector
   /describe-connector-entity:
     POST:
       summary: Amazon Web Services Describeconnectorentity
       description: ' Provides details regarding the entity used with the connector, with a description of the data model for each field in that entity. '
       operationId: amazonWebServicesDescribeConnectorEntity
+      tags:
+        - Describe Connector Entity
   /describe-connector-profiles:
     POST:
       summary: Amazon Web Services Describeconnectorprofiles
       description: ' Returns a list of connector-profile details matching the provided connector-profile names and connector-types. Both input lists are optional, and you can use them to filter the result.  If no names or connector-types are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.'
       operationId: amazonWebServicesDescribeConnectorProfiles
+      tags:
+        - Describe Connector Profiles
   /describe-connectors:
     POST:
       summary: Amazon Web Services Describeconnectors
       description: ' Describes the connectors vended by Amazon AppFlow for specified connector types. If you don''t specify a connector type, this operation describes all connectors vended by Amazon AppFlow. If there are more connectors than can be returned in one page, the response contains a nextToken object, which can be be passed in to the next call to the DescribeConnectors API operation to retrieve the next page. '
       operationId: amazonWebServicesDescribeConnectors
+      tags:
+        - Describe Connectors
   /describe-flow:
     POST:
       summary: Amazon Web Services Describeflow
       description: ' Provides a description of the specified flow. '
       operationId: amazonWebServicesDescribeFlow
+      tags:
+        - Describe Flow
   /describe-flow-execution-records:
     POST:
       summary: Amazon Web Services Describeflowexecutionrecords
       description: ' Fetches the execution history of the flow. '
       operationId: amazonWebServicesDescribeFlowExecutionRecords
+      tags:
+        - Describe Flow Execution Records
   /list-connector-entities:
     POST:
       summary: Amazon Web Services Listconnectorentities
       description: ' Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for Account and Opportunity entities, or query ServiceNow for the Incident entity. '
       operationId: amazonWebServicesListConnectorEntities
+      tags:
+        - List Connector Entities
   /list-connectors:
     POST:
       summary: Amazon Web Services Listconnectors
@@ -121,16 +145,22 @@ paths:
         Services account. This API lists only custom connectors registered in
         this account, not the Amazon Web Services authored connectors. 
       operationId: amazonWebServicesListConnectors
+      tags:
+        - List Connectors
   /list-flows:
     POST:
       summary: Amazon Web Services Listflows
       description: ' Lists all of the flows associated with your account. '
       operationId: amazonWebServicesListFlows
+      tags:
+        - List Flows
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: ' Removes a tag from the specified flow. '
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /register-connector:
     POST:
       summary: Amazon Web Services Registerconnector
@@ -139,6 +169,8 @@ paths:
         Before you can register the connector, you must deploy the associated
         AWS lambda function in your account.
       operationId: amazonWebServicesRegisterConnector
+      tags:
+        - Register Connector
   /reset-connector-metadata-cache:
     POST:
       summary: Amazon Web Services Resetconnectormetadatacache
@@ -153,16 +185,22 @@ paths:
         AppFlow automatically resets the cache once every hour, but you can use
         this action when you want to get the latest metadata right away.
       operationId: amazonWebServicesResetConnectorMetadataCache
+      tags:
+        - Reset Connector Metadata Cache
   /start-flow:
     POST:
       summary: Amazon Web Services Startflow
       description: ' Activates an existing flow. For on-demand flows, this operation runs the flow immediately. For schedule and event-triggered flows, this operation activates the flow. '
       operationId: amazonWebServicesStartFlow
+      tags:
+        - Start Flow
   /stop-flow:
     POST:
       summary: Amazon Web Services Stopflow
       description: ' Deactivates the existing flow. For on-demand flows, this operation returns an unsupportedOperationException error message. For schedule and event-triggered flows, this operation deactivates the flow. '
       operationId: amazonWebServicesStopFlow
+      tags:
+        - Stop Flow
   /unregister-connector:
     POST:
       summary: Amazon Web Services Unregisterconnector
@@ -170,11 +208,15 @@ paths:
         Unregisters the custom connector registered in your account that matches
         the connector label provided in the request.
       operationId: amazonWebServicesUnregisterConnector
+      tags:
+        - Unregister Connector
   /update-connector-profile:
     POST:
       summary: Amazon Web Services Updateconnectorprofile
       description: ' Updates a given connector profile associated with your account. '
       operationId: amazonWebServicesUpdateConnectorProfile
+      tags:
+        - Update Connector Profile
   /update-connector-registration:
     POST:
       summary: Amazon Web Services Updateconnectorregistration
@@ -184,9 +226,36 @@ paths:
         version of the AWS Lambda function that's assigned to the connector   A
         new AWS Lambda function that you specify  
       operationId: amazonWebServicesUpdateConnectorRegistration
+      tags:
+        - Update Connector Registration
   /update-flow:
     POST:
       summary: Amazon Web Services Updateflow
       description: ' Updates an existing flow. '
       operationId: amazonWebServicesUpdateFlow
-tags: []
+      tags:
+        - Update Flow
+tags:
+  - name: Cancel Flow Executions
+  - name: Create Connector Profile
+  - name: Create Flow
+  - name: Delete Connector Profile
+  - name: Delete Flow
+  - name: Describe Connector
+  - name: Describe Connector Entity
+  - name: Describe Connector Profiles
+  - name: Describe Connectors
+  - name: Describe Flow
+  - name: Describe Flow Execution Records
+  - name: List Connector Entities
+  - name: List Connectors
+  - name: List Flows
+  - name: Register Connector
+  - name: Reset Connector Metadata Cache
+  - name: Start Flow
+  - name: Stop Flow
+  - name: Tags
+  - name: Unregister Connector
+  - name: Update Connector Profile
+  - name: Update Connector Registration
+  - name: Update Flow

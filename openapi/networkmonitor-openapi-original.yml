@@ -22,6 +22,8 @@ paths:
       summary: Amazon Web Services Listmonitors
       description: Returns a list of all of your monitors.
       operationId: amazonWebServicesListMonitors
+      tags:
+        - Monitors
   /monitors/{monitorName}/probes:
     POST:
       summary: Amazon Web Services Createprobe
@@ -30,6 +32,8 @@ paths:
         monitoring your network traffic, you'll incur billing charges for that
         probe. 
       operationId: amazonWebServicesCreateProbe
+      tags:
+        - Monitors
   /monitors/{monitorName}:
     PATCH:
       summary: Amazon Web Services Updatemonitor
@@ -37,6 +41,8 @@ paths:
         Updates the aggregationPeriod for a monitor. Monitors support an
         aggregationPeriod of either 30 or 60 seconds.
       operationId: amazonWebServicesUpdateMonitor
+      tags:
+        - Monitors
   /monitors/{monitorName}/probes/{probeId}:
     PATCH:
       summary: Amazon Web Services Updateprobe
@@ -45,9 +51,15 @@ paths:
         probeId parameters. Run ListMonitors to get a list of monitor names. Run
         GetMonitor to get a list of probes and probe IDs. 
       operationId: amazonWebServicesUpdateProbe
+      tags:
+        - Monitors
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a key-value pair from a monitor or probe.
       operationId: amazonWebServicesUntagResource
-tags: []
+      tags:
+        - Tags
+tags:
+  - name: Monitors
+  - name: Tags

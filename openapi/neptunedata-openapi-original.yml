@@ -21,6 +21,8 @@ paths:
         in the policy document to restrict the use of Gremlin queries (see
         Condition keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesGetGremlinQueryStatus
+      tags:
+        - Gremlin
   /loader/{loadId}:
     GET:
       summary: Amazon Web Services Getloaderjobstatus
@@ -33,6 +35,8 @@ paths:
         have a policy attached that allows the neptune-db:GetLoaderJobStatus IAM
         action in that cluster..
       operationId: amazonWebServicesGetLoaderJobStatus
+      tags:
+        - Loader
   /ml/dataprocessing/{id}:
     GET:
       summary: Amazon Web Services Getmldataprocessingjob
@@ -44,6 +48,8 @@ paths:
         neptune-db:neptune-db:GetMLDataProcessingJobStatus IAM action in that
         cluster.
       operationId: amazonWebServicesGetMLDataProcessingJob
+      tags:
+        - Ml
   /ml/modeltraining/{id}:
     GET:
       summary: Amazon Web Services Getmlmodeltrainingjob
@@ -54,6 +60,8 @@ paths:
         or role making the request must have a policy attached that allows the
         neptune-db:GetMLModelTrainingJobStatus IAM action in that cluster.
       operationId: amazonWebServicesGetMLModelTrainingJob
+      tags:
+        - Ml
   /ml/modeltransform/{id}:
     GET:
       summary: Amazon Web Services Getmlmodeltransformjob
@@ -65,6 +73,8 @@ paths:
         allows the neptune-db:GetMLModelTransformJobStatus IAM action in that
         cluster.
       operationId: amazonWebServicesGetMLModelTransformJob
+      tags:
+        - Ml
   /opencypher/status/{queryId}:
     GET:
       summary: Amazon Web Services Getopencypherquerystatus
@@ -78,6 +88,8 @@ paths:
         (see Condition keys available in Neptune IAM data-access policy
         statements).
       operationId: amazonWebServicesGetOpenCypherQueryStatus
+      tags:
+        - Opencypher
   /ml/endpoints:
     GET:
       summary: Amazon Web Services Listmlendpoints
@@ -88,6 +100,8 @@ paths:
         the request must have a policy attached that allows the
         neptune-db:ListMLEndpoints IAM action in that cluster.
       operationId: amazonWebServicesListMLEndpoints
+      tags:
+        - Ml
   /ml/endpoints/{id}:
     GET:
       summary: Amazon Web Services Getmlendpoint
@@ -98,6 +112,8 @@ paths:
         role making the request must have a policy attached that allows the
         neptune-db:GetMLEndpointStatus IAM action in that cluster.
       operationId: amazonWebServicesGetMLEndpoint
+      tags:
+        - Ml
   /propertygraph/statistics:
     POST:
       summary: Amazon Web Services Managepropertygraphstatistics
@@ -108,6 +124,8 @@ paths:
         attached that allows the neptune-db:ManageStatistics IAM action in that
         cluster.
       operationId: amazonWebServicesManagePropertygraphStatistics
+      tags:
+        - Propertygraph
   /sparql/statistics:
     POST:
       summary: Amazon Web Services Managesparqlstatistics
@@ -117,6 +135,8 @@ paths:
         the IAM user or role making the request must have a policy attached that
         allows the neptune-db:ManageStatistics IAM action in that cluster.
       operationId: amazonWebServicesManageSparqlStatistics
+      tags:
+        - Sparql
   /system:
     POST:
       summary: Amazon Web Services Executefastreset
@@ -132,6 +152,8 @@ paths:
         must have a policy attached that allows the neptune-db:ResetDatabase IAM
         action in that cluster.
       operationId: amazonWebServicesExecuteFastReset
+      tags:
+        - System
   /gremlin/explain:
     POST:
       summary: Amazon Web Services Executegremlinexplainquery
@@ -153,6 +175,8 @@ paths:
         in the policy document to restrict the use of Gremlin queries (see
         Condition keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteGremlinExplainQuery
+      tags:
+        - Gremlin
   /gremlin/profile:
     POST:
       summary: Amazon Web Services Executegremlinprofilequery
@@ -167,6 +191,8 @@ paths:
         in the policy document to restrict the use of Gremlin queries (see
         Condition keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteGremlinProfileQuery
+      tags:
+        - Gremlin
   /gremlin:
     POST:
       summary: Amazon Web Services Executegremlinquery
@@ -183,6 +209,8 @@ paths:
         policy document to restrict the use of Gremlin queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteGremlinQuery
+      tags:
+        - Gremlin
   /opencypher/explain:
     POST:
       summary: Amazon Web Services Executeopencypherexplainquery
@@ -196,6 +224,8 @@ paths:
         policy document to restrict the use of openCypher queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteOpenCypherExplainQuery
+      tags:
+        - Opencypher
   /opencypher:
     POST:
       summary: Amazon Web Services Executeopencypherquery
@@ -217,6 +247,8 @@ paths:
         policy document to restrict the use of openCypher queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesExecuteOpenCypherQuery
+      tags:
+        - Opencypher
   /status:
     GET:
       summary: Amazon Web Services Getenginestatus
@@ -226,6 +258,8 @@ paths:
         the IAM user or role making the request must have a policy attached that
         allows the neptune-db:GetEngineStatus IAM action in that cluster.
       operationId: amazonWebServicesGetEngineStatus
+      tags:
+        - Status
   /propertygraph/stream:
     GET:
       summary: Amazon Web Services Getpropertygraphstream
@@ -247,6 +281,8 @@ paths:
         restrict property-graph queries using the following IAM context keys:    neptune-db:QueryLanguage:Gremlin     neptune-db:QueryLanguage:OpenCypher    See Condition keys available in
         Neptune IAM data-access policy statements).
       operationId: amazonWebServicesGetPropertygraphStream
+      tags:
+        - Propertygraph
   /propertygraph/statistics/summary:
     GET:
       summary: Amazon Web Services Getpropertygraphsummary
@@ -256,6 +292,8 @@ paths:
         or role making the request must have a policy attached that allows the
         neptune-db:GetGraphSummary IAM action in that cluster.
       operationId: amazonWebServicesGetPropertygraphSummary
+      tags:
+        - Propertygraph
   /rdf/statistics/summary:
     GET:
       summary: Amazon Web Services Getrdfgraphsummary
@@ -265,6 +303,8 @@ paths:
         role making the request must have a policy attached that allows the
         neptune-db:GetGraphSummary IAM action in that cluster.
       operationId: amazonWebServicesGetRDFGraphSummary
+      tags:
+        - Rdf
   /sparql/stream:
     GET:
       summary: Amazon Web Services Getsparqlstream
@@ -284,6 +324,8 @@ paths:
         (see Condition keys available in Neptune IAM data-access policy
         statements).
       operationId: amazonWebServicesGetSparqlStream
+      tags:
+        - Sparql
   /gremlin/status:
     GET:
       summary: Amazon Web Services Listgremlinqueries
@@ -297,6 +339,8 @@ paths:
         policy document to restrict the use of Gremlin queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesListGremlinQueries
+      tags:
+        - Gremlin
   /loader:
     POST:
       summary: Amazon Web Services Startloaderjob
@@ -308,6 +352,8 @@ paths:
         have a policy attached that allows the neptune-db:StartLoaderJob IAM
         action in that cluster.
       operationId: amazonWebServicesStartLoaderJob
+      tags:
+        - Loader
   /ml/dataprocessing:
     POST:
       summary: Amazon Web Services Startmldataprocessingjob
@@ -319,6 +365,8 @@ paths:
         have a policy attached that allows the
         neptune-db:StartMLModelDataProcessingJob IAM action in that cluster.
       operationId: amazonWebServicesStartMLDataProcessingJob
+      tags:
+        - Ml
   /ml/modeltraining:
     POST:
       summary: Amazon Web Services Startmlmodeltrainingjob
@@ -329,6 +377,8 @@ paths:
         the request must have a policy attached that allows the
         neptune-db:StartMLModelTrainingJob IAM action in that cluster.
       operationId: amazonWebServicesStartMLModelTrainingJob
+      tags:
+        - Ml
   /ml/modeltransform:
     POST:
       summary: Amazon Web Services Startmlmodeltransformjob
@@ -339,6 +389,8 @@ paths:
         request must have a policy attached that allows the
         neptune-db:StartMLModelTransformJob IAM action in that cluster.
       operationId: amazonWebServicesStartMLModelTransformJob
+      tags:
+        - Ml
   /opencypher/status:
     GET:
       summary: Amazon Web Services Listopencypherqueries
@@ -352,4 +404,15 @@ paths:
         policy document to restrict the use of openCypher queries (see Condition
         keys available in Neptune IAM data-access policy statements).
       operationId: amazonWebServicesListOpenCypherQueries
-tags: []
+      tags:
+        - Opencypher
+tags:
+  - name: Gremlin
+  - name: Loader
+  - name: Ml
+  - name: Opencypher
+  - name: Propertygraph
+  - name: Rdf
+  - name: Sparql
+  - name: Status
+  - name: System

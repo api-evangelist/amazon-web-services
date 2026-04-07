@@ -24,6 +24,8 @@ paths:
         Retrieves a list of components for a specified Amplify app and backend
         environment.
       operationId: amazonWebServicesListComponents
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/forms:
     GET:
       summary: Amazon Web Services Listforms
@@ -31,6 +33,8 @@ paths:
         Retrieves a list of forms for a specified Amplify app and backend
         environment.
       operationId: amazonWebServicesListForms
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/themes:
     GET:
       summary: Amazon Web Services Listthemes
@@ -38,26 +42,36 @@ paths:
         Retrieves a list of themes for a specified Amplify app and backend
         environment.
       operationId: amazonWebServicesListThemes
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/components/{id}:
     PATCH:
       summary: Amazon Web Services Updatecomponent
       description: Updates an existing component.
       operationId: amazonWebServicesUpdateComponent
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/forms/{id}:
     PATCH:
       summary: Amazon Web Services Updateform
       description: Updates an existing form.
       operationId: amazonWebServicesUpdateForm
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/themes/{id}:
     PATCH:
       summary: Amazon Web Services Updatetheme
       description: Updates an existing theme.
       operationId: amazonWebServicesUpdateTheme
+      tags:
+        - App
   /tokens/{provider}:
     POST:
       summary: Amazon Web Services Exchangecodefortoken
       description: ' This is for internal use.  Amplify uses this action to exchange an access code for a token.'
       operationId: amazonWebServicesExchangeCodeForToken
+      tags:
+        - Tokens
   /export/app/{appId}/environment/{environmentName}/components:
     GET:
       summary: Amazon Web Services Exportcomponents
@@ -65,6 +79,8 @@ paths:
         Exports component configurations to code that is ready to integrate into
         an Amplify app.
       operationId: amazonWebServicesExportComponents
+      tags:
+        - Export
   /export/app/{appId}/environment/{environmentName}/forms:
     GET:
       summary: Amazon Web Services Exportforms
@@ -72,6 +88,8 @@ paths:
         Exports form configurations to code that is ready to integrate into an
         Amplify app.
       operationId: amazonWebServicesExportForms
+      tags:
+        - Export
   /export/app/{appId}/environment/{environmentName}/themes:
     GET:
       summary: Amazon Web Services Exportthemes
@@ -79,16 +97,22 @@ paths:
         Exports theme configurations to code that is ready to integrate into an
         Amplify app.
       operationId: amazonWebServicesExportThemes
+      tags:
+        - Export
   /app/{appId}/environment/{environmentName}/codegen-jobs/{id}:
     GET:
       summary: Amazon Web Services Getcodegenjob
       description: Returns an existing code generation job.
       operationId: amazonWebServicesGetCodegenJob
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/metadata:
     GET:
       summary: Amazon Web Services Getmetadata
       description: Returns existing metadata for an Amplify app.
       operationId: amazonWebServicesGetMetadata
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/codegen-jobs:
     POST:
       summary: Amazon Web Services Startcodegenjob
@@ -96,14 +120,23 @@ paths:
         Starts a code generation job for a specified Amplify app and backend
         environment.
       operationId: amazonWebServicesStartCodegenJob
+      tags:
+        - App
   /app/{appId}/environment/{environmentName}/metadata/features/{featureName}:
     PUT:
       summary: Amazon Web Services Putmetadataflag
       description: Stores the metadata information about a feature on a form.
       operationId: amazonWebServicesPutMetadataFlag
+      tags:
+        - App
   /tokens/{provider}/refresh:
     POST:
       summary: Amazon Web Services Refreshtoken
       description: ' This is for internal use.  Amplify uses this action to refresh a previously issued access token that might have expired.'
       operationId: amazonWebServicesRefreshToken
-tags: []
+      tags:
+        - Tokens
+tags:
+  - name: App
+  - name: Export
+  - name: Tokens

@@ -16,16 +16,22 @@ paths:
       summary: Amazon Web Services Listapps
       description: 'Returns a list of the existing Amplify apps. '
       operationId: amazonWebServicesListApps
+      tags:
+        - Apps
   /apps/{appId}/backendenvironments:
     GET:
       summary: Amazon Web Services Listbackendenvironments
       description: 'Lists the backend environments for an Amplify app. '
       operationId: amazonWebServicesListBackendEnvironments
+      tags:
+        - Apps
   /apps/{appId}/branches:
     GET:
       summary: Amazon Web Services Listbranches
       description: ' Lists the branches of an Amplify app. '
       operationId: amazonWebServicesListBranches
+      tags:
+        - Apps
   /apps/{appId}/branches/{branchName}/deployments:
     POST:
       summary: Amazon Web Services Createdeployment
@@ -36,46 +42,64 @@ paths:
         exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment
         call and the associated Job will fail.
       operationId: amazonWebServicesCreateDeployment
+      tags:
+        - Apps
   /apps/{appId}/domains:
     GET:
       summary: Amazon Web Services Listdomainassociations
       description: ' Returns the domain associations for an Amplify app. '
       operationId: amazonWebServicesListDomainAssociations
+      tags:
+        - Apps
   /apps/{appId}/webhooks:
     GET:
       summary: Amazon Web Services Listwebhooks
       description: 'Returns a list of webhooks for an Amplify app. '
       operationId: amazonWebServicesListWebhooks
+      tags:
+        - Apps
   /apps/{appId}:
     POST:
       summary: Amazon Web Services Updateapp
       description: 'Updates an existing Amplify app. '
       operationId: amazonWebServicesUpdateApp
+      tags:
+        - Apps
   /apps/{appId}/backendenvironments/{environmentName}:
     GET:
       summary: Amazon Web Services Getbackendenvironment
       description: 'Returns a backend environment for an Amplify app. '
       operationId: amazonWebServicesGetBackendEnvironment
+      tags:
+        - Apps
   /apps/{appId}/branches/{branchName}:
     POST:
       summary: Amazon Web Services Updatebranch
       description: ' Updates a branch for an Amplify app. '
       operationId: amazonWebServicesUpdateBranch
+      tags:
+        - Apps
   /apps/{appId}/domains/{domainName}:
     POST:
       summary: Amazon Web Services Updatedomainassociation
       description: ' Creates a new domain association for an Amplify app.'
       operationId: amazonWebServicesUpdateDomainAssociation
+      tags:
+        - Apps
   /apps/{appId}/branches/{branchName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Getjob
       description: ' Returns a job for a branch of an Amplify app. '
       operationId: amazonWebServicesGetJob
+      tags:
+        - Apps
   /webhooks/{webhookId}:
     POST:
       summary: Amazon Web Services Updatewebhook
       description: 'Updates a webhook. '
       operationId: amazonWebServicesUpdateWebhook
+      tags:
+        - Webhooks
   /apps/{appId}/accesslogs:
     POST:
       summary: Amazon Web Services Generateaccesslogs
@@ -83,26 +107,36 @@ paths:
         Returns the website access logs for a specific time range using a
         presigned URL. 
       operationId: amazonWebServicesGenerateAccessLogs
+      tags:
+        - Apps
   /artifacts/{artifactId}:
     GET:
       summary: Amazon Web Services Getartifacturl
       description: 'Returns the artifact info that corresponds to an artifact id. '
       operationId: amazonWebServicesGetArtifactUrl
+      tags:
+        - Artifacts
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts:
     GET:
       summary: Amazon Web Services Listartifacts
       description: 'Returns a list of artifacts for a specified app, branch, and job. '
       operationId: amazonWebServicesListArtifacts
+      tags:
+        - Apps
   /apps/{appId}/branches/{branchName}/jobs:
     POST:
       summary: Amazon Web Services Startjob
       description: ' Starts a new job for a branch of an Amplify app. '
       operationId: amazonWebServicesStartJob
+      tags:
+        - Apps
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untags a resource with a specified Amazon Resource Name (ARN).
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /apps/{appId}/branches/{branchName}/deployments/start:
     POST:
       summary: Amazon Web Services Startdeployment
@@ -113,9 +147,17 @@ paths:
         hours. If the duration exceeds 8 hours, the StartDeployment call and the
         associated Job will fail.
       operationId: amazonWebServicesStartDeployment
+      tags:
+        - Apps
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/stop:
     DELETE:
       summary: Amazon Web Services Stopjob
       description: ' Stops a job that is in progress for a branch of an Amplify app. '
       operationId: amazonWebServicesStopJob
-tags: []
+      tags:
+        - Apps
+tags:
+  - name: Apps
+  - name: Artifacts
+  - name: Tags
+  - name: Webhooks

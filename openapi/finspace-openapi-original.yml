@@ -10,76 +10,106 @@ paths:
       summary: Amazon Web Services Listenvironments
       description: A list of all of your FinSpace environments.
       operationId: amazonWebServicesListEnvironments
+      tags:
+        - Environment
   /kx/environments/{environmentId}/databases/{databaseName}/changesets:
     GET:
       summary: Amazon Web Services Listkxchangesets
       description: Returns a list of all the changesets for a database.
       operationId: amazonWebServicesListKxChangesets
+      tags:
+        - Kx
   /kx/environments/{environmentId}/clusters:
     GET:
       summary: Amazon Web Services Listkxclusters
       description: Returns a list of clusters.
       operationId: amazonWebServicesListKxClusters
+      tags:
+        - Kx
   /kx/environments/{environmentId}/databases:
     GET:
       summary: Amazon Web Services Listkxdatabases
       description: Returns a list of all the databases in the kdb environment.
       operationId: amazonWebServicesListKxDatabases
+      tags:
+        - Kx
   /kx/environments/{environmentId}/databases/{databaseName}/dataviews:
     GET:
       summary: Amazon Web Services Listkxdataviews
       description: ' Returns a list of all the dataviews in the database.'
       operationId: amazonWebServicesListKxDataviews
+      tags:
+        - Kx
   /kx/environments:
     GET:
       summary: Amazon Web Services Listkxenvironments
       description: Returns a list of kdb environments created in an account.
       operationId: amazonWebServicesListKxEnvironments
+      tags:
+        - Kx
   /kx/environments/{environmentId}/scalingGroups:
     GET:
       summary: Amazon Web Services Listkxscalinggroups
       description: ' Returns a list of scaling groups in a kdb environment.'
       operationId: amazonWebServicesListKxScalingGroups
+      tags:
+        - Kx
   /kx/environments/{environmentId}/users:
     GET:
       summary: Amazon Web Services Listkxusers
       description: Lists all the users in a kdb environment.
       operationId: amazonWebServicesListKxUsers
+      tags:
+        - Kx
   /kx/environments/{environmentId}/kxvolumes:
     GET:
       summary: Amazon Web Services Listkxvolumes
       description: ' Lists all the volumes in a kdb environment. '
       operationId: amazonWebServicesListKxVolumes
+      tags:
+        - Kx
   /environment/{environmentId}:
     PUT:
       summary: Amazon Web Services Updateenvironment
       description: Update your FinSpace environment.
       operationId: amazonWebServicesUpdateEnvironment
+      tags:
+        - Environment
   /kx/environments/{environmentId}/clusters/{clusterName}:
     GET:
       summary: Amazon Web Services Getkxcluster
       description: Retrieves information about a kdb cluster.
       operationId: amazonWebServicesGetKxCluster
+      tags:
+        - Kx
   /kx/environments/{environmentId}/databases/{databaseName}:
     PUT:
       summary: Amazon Web Services Updatekxdatabase
       description: Updates information for the given kdb database.
       operationId: amazonWebServicesUpdateKxDatabase
+      tags:
+        - Kx
   /kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}:
     PUT:
       summary: Amazon Web Services Updatekxdataview
       description: ' Updates the specified dataview. The dataviews get automatically updated when any new changesets are ingested. Each update of the dataview creates a new version, including changeset details and cache configurations'
       operationId: amazonWebServicesUpdateKxDataview
+      tags:
+        - Kx
   /kx/environments/{environmentId}:
     PUT:
       summary: Amazon Web Services Updatekxenvironment
       description: Updates information for the given kdb environment.
       operationId: amazonWebServicesUpdateKxEnvironment
+      tags:
+        - Kx
   /kx/environments/{environmentId}/scalingGroups/{scalingGroupName}:
     GET:
       summary: Amazon Web Services Getkxscalinggroup
       description: ' Retrieves details of a scaling group.'
       operationId: amazonWebServicesGetKxScalingGroup
+      tags:
+        - Kx
   /kx/environments/{environmentId}/users/{userName}:
     PUT:
       summary: Amazon Web Services Updatekxuser
@@ -87,16 +117,22 @@ paths:
         Updates the user details. You can only update the IAM role associated
         with a user.
       operationId: amazonWebServicesUpdateKxUser
+      tags:
+        - Kx
   /kx/environments/{environmentId}/kxvolumes/{volumeName}:
     PATCH:
       summary: Amazon Web Services Updatekxvolume
       description: ' Updates the throughput or capacity of a volume. During the update process, the filesystem might be unavailable for a few minutes. You can retry any operations after the update is complete. '
       operationId: amazonWebServicesUpdateKxVolume
+      tags:
+        - Kx
   /kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}:
     GET:
       summary: Amazon Web Services Getkxchangeset
       description: Returns information about a kdb changeset.
       operationId: amazonWebServicesGetKxChangeset
+      tags:
+        - Kx
   /kx/environments/{environmentId}/connectionString:
     GET:
       summary: Amazon Web Services Getkxconnectionstring
@@ -105,21 +141,29 @@ paths:
         You must call this API using the same role that you have defined while
         creating a user. 
       operationId: amazonWebServicesGetKxConnectionString
+      tags:
+        - Kx
   /kx/environments/{environmentId}/clusters/{clusterName}/nodes:
     GET:
       summary: Amazon Web Services Listkxclusternodes
       description: Lists all the nodes in a kdb cluster.
       operationId: amazonWebServicesListKxClusterNodes
+      tags:
+        - Kx
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes metadata tags from a FinSpace resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /kx/environments/{environmentId}/clusters/{clusterName}/configuration/code:
     PUT:
       summary: Amazon Web Services Updatekxclustercodeconfiguration
       description: ' Allows you to update code configuration on a running cluster. By using this API you can update the code, the initialization script path, and the command line arguments for a specific cluster. The configuration that you want to update will override any existing configurations on the cluster. '
       operationId: amazonWebServicesUpdateKxClusterCodeConfiguration
+      tags:
+        - Kx
   /kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases:
     PUT:
       summary: Amazon Web Services Updatekxclusterdatabases
@@ -130,6 +174,8 @@ paths:
         without one.  Using this API you can point a cluster to a different
         changeset and modify a list of partitions being cached.
       operationId: amazonWebServicesUpdateKxClusterDatabases
+      tags:
+        - Kx
   /kx/environments/{environmentId}/network:
     PUT:
       summary: Amazon Web Services Updatekxenvironmentnetwork
@@ -141,4 +187,9 @@ paths:
         network, you cannot change it again. Network update might require
         termination of any clusters that are running in the existing network.
       operationId: amazonWebServicesUpdateKxEnvironmentNetwork
-tags: []
+      tags:
+        - Kx
+tags:
+  - name: Environment
+  - name: Kx
+  - name: Tags

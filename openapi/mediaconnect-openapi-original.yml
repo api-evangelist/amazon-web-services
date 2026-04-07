@@ -8,11 +8,15 @@ paths:
       summary: Amazon Web Services Addbridgeoutputs
       description: Adds outputs to an existing bridge.
       operationId: amazonWebServicesAddBridgeOutputs
+      tags:
+        - Bridges
   /v1/bridges/{bridgeArn}/sources:
     POST:
       summary: Amazon Web Services Addbridgesources
       description: Adds sources to an existing bridge.
       operationId: amazonWebServicesAddBridgeSources
+      tags:
+        - Bridges
   /v1/flows/{flowArn}/mediaStreams:
     POST:
       summary: Amazon Web Services Addflowmediastreams
@@ -21,6 +25,8 @@ paths:
         a flow, you can associate it with a source and/or an output that uses
         the ST 2110 JPEG XS or CDI protocol.
       operationId: amazonWebServicesAddFlowMediaStreams
+      tags:
+        - Flows
   /v1/flows/{flowArn}/outputs:
     POST:
       summary: Amazon Web Services Addflowoutputs
@@ -28,16 +34,22 @@ paths:
         Adds outputs to an existing flow. You can create up to 50 outputs per
         flow.
       operationId: amazonWebServicesAddFlowOutputs
+      tags:
+        - Flows
   /v1/flows/{flowArn}/source:
     POST:
       summary: Amazon Web Services Addflowsources
       description: Adds Sources to flow
       operationId: amazonWebServicesAddFlowSources
+      tags:
+        - Flows
   /v1/flows/{flowArn}/vpcInterfaces:
     POST:
       summary: Amazon Web Services Addflowvpcinterfaces
       description: Adds VPC interfaces to flow
       operationId: amazonWebServicesAddFlowVpcInterfaces
+      tags:
+        - Flows
   /v1/bridges:
     GET:
       summary: Amazon Web Services Listbridges
@@ -45,6 +57,8 @@ paths:
         Displays a list of bridges that are associated with this account and an
         optionally specified Arn. This request returns a paginated result.
       operationId: amazonWebServicesListBridges
+      tags:
+        - Bridges
   /v1/flows:
     GET:
       summary: Amazon Web Services Listflows
@@ -52,6 +66,8 @@ paths:
         Displays a list of flows that are associated with this account. This
         request returns a paginated result.
       operationId: amazonWebServicesListFlows
+      tags:
+        - Flows
   /v1/gateways:
     GET:
       summary: Amazon Web Services Listgateways
@@ -59,16 +75,22 @@ paths:
         Displays a list of gateways that are associated with this account. This
         request returns a paginated result.
       operationId: amazonWebServicesListGateways
+      tags:
+        - Gateways
   /v1/bridges/{bridgeArn}:
     PUT:
       summary: Amazon Web Services Updatebridge
       description: Updates the bridge
       operationId: amazonWebServicesUpdateBridge
+      tags:
+        - Bridges
   /v1/flows/{flowArn}:
     PUT:
       summary: Amazon Web Services Updateflow
       description: Updates flow
       operationId: amazonWebServicesUpdateFlow
+      tags:
+        - Flows
   /v1/gateways/{gatewayArn}:
     GET:
       summary: Amazon Web Services Describegateway
@@ -76,11 +98,15 @@ paths:
         Displays the details of a gateway. The response includes the gateway
         ARN, name, and CIDR blocks, as well as details about the networks.
       operationId: amazonWebServicesDescribeGateway
+      tags:
+        - Gateways
   /v1/gateway-instances/{gatewayInstanceArn}:
     PUT:
       summary: Amazon Web Services Updategatewayinstance
       description: Updates the configuration of an existing Gateway Instance.
       operationId: amazonWebServicesUpdateGatewayInstance
+      tags:
+        - Gateway Instances
   /v1/flows/{flowArn}/source-metadata:
     GET:
       summary: Amazon Web Services Describeflowsourcemetadata
@@ -88,6 +114,8 @@ paths:
         Displays details of the flow's source stream. The response contains
         information about the contents of the stream and its programs.
       operationId: amazonWebServicesDescribeFlowSourceMetadata
+      tags:
+        - Flows
   /v1/offerings/{offeringArn}:
     POST:
       summary: Amazon Web Services Purchaseoffering
@@ -95,6 +123,8 @@ paths:
         Submits a request to purchase an offering. If you already have an active
         reservation, you can't purchase another offering.
       operationId: amazonWebServicesPurchaseOffering
+      tags:
+        - Offerings
   /v1/reservations/{reservationArn}:
     GET:
       summary: Amazon Web Services Describereservation
@@ -104,11 +134,15 @@ paths:
         offering that make up the rest of the reservation (such as price,
         duration, and outbound bandwidth).
       operationId: amazonWebServicesDescribeReservation
+      tags:
+        - Reservations
   /v1/flows/{flowArn}/entitlements:
     POST:
       summary: Amazon Web Services Grantflowentitlements
       description: Grants entitlements to an existing flow.
       operationId: amazonWebServicesGrantFlowEntitlements
+      tags:
+        - Flows
   /v1/entitlements:
     GET:
       summary: Amazon Web Services Listentitlements
@@ -116,6 +150,8 @@ paths:
         Displays a list of all entitlements that have been granted to this
         account. This request returns 20 results per page.
       operationId: amazonWebServicesListEntitlements
+      tags:
+        - Entitlements
   /v1/gateway-instances:
     GET:
       summary: Amazon Web Services Listgatewayinstances
@@ -125,6 +161,8 @@ paths:
         to display only the instances associated with the selected Gateway
         Amazon Resource Name (ARN).
       operationId: amazonWebServicesListGatewayInstances
+      tags:
+        - Gateway Instances
   /v1/offerings:
     GET:
       summary: Amazon Web Services Listofferings
@@ -134,6 +172,8 @@ paths:
         you've purchased an offering that has already started and hasn't expired
         yet), your account isn't eligible for other offerings.
       operationId: amazonWebServicesListOfferings
+      tags:
+        - Offerings
   /v1/reservations:
     GET:
       summary: Amazon Web Services Listreservations
@@ -142,36 +182,50 @@ paths:
         account in the current AWS Region. This list includes all reservations
         in all states (such as active and expired).
       operationId: amazonWebServicesListReservations
+      tags:
+        - Reservations
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes specified tags from a resource.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /v1/bridges/{bridgeArn}/outputs/{outputName}:
     PUT:
       summary: Amazon Web Services Updatebridgeoutput
       description: Updates an existing bridge output.
       operationId: amazonWebServicesUpdateBridgeOutput
+      tags:
+        - Bridges
   /v1/bridges/{bridgeArn}/sources/{sourceName}:
     PUT:
       summary: Amazon Web Services Updatebridgesource
       description: Updates an existing bridge source.
       operationId: amazonWebServicesUpdateBridgeSource
+      tags:
+        - Bridges
   /v1/flows/{flowArn}/mediaStreams/{mediaStreamName}:
     PUT:
       summary: Amazon Web Services Updateflowmediastream
       description: Updates an existing media stream.
       operationId: amazonWebServicesUpdateFlowMediaStream
+      tags:
+        - Flows
   /v1/flows/{flowArn}/outputs/{outputArn}:
     PUT:
       summary: Amazon Web Services Updateflowoutput
       description: Updates an existing flow output.
       operationId: amazonWebServicesUpdateFlowOutput
+      tags:
+        - Flows
   /v1/flows/{flowArn}/source/{sourceArn}:
     PUT:
       summary: Amazon Web Services Updateflowsource
       description: Updates the source of a flow.
       operationId: amazonWebServicesUpdateFlowSource
+      tags:
+        - Flows
   /v1/flows/{flowArn}/vpcInterfaces/{vpcInterfaceName}:
     DELETE:
       summary: Amazon Web Services Removeflowvpcinterface
@@ -182,6 +236,8 @@ paths:
         must first delete or update the Source or Output to no longer reference
         the VPC interface.
       operationId: amazonWebServicesRemoveFlowVpcInterface
+      tags:
+        - Flows
   /v1/flows/{flowArn}/entitlements/{entitlementArn}:
     PUT:
       summary: Amazon Web Services Updateflowentitlement
@@ -190,19 +246,35 @@ paths:
         encryption. If you change the subscribers, the service will remove the
         outputs that are are used by the subscribers that are removed.
       operationId: amazonWebServicesUpdateFlowEntitlement
+      tags:
+        - Flows
   /v1/flows/start/{flowArn}:
     POST:
       summary: Amazon Web Services Startflow
       description: Starts a flow.
       operationId: amazonWebServicesStartFlow
+      tags:
+        - Flows
   /v1/flows/stop/{flowArn}:
     POST:
       summary: Amazon Web Services Stopflow
       description: Stops a flow.
       operationId: amazonWebServicesStopFlow
+      tags:
+        - Flows
   /v1/bridges/{bridgeArn}/state:
     PUT:
       summary: Amazon Web Services Updatebridgestate
       description: Updates the bridge state
       operationId: amazonWebServicesUpdateBridgeState
-tags: []
+      tags:
+        - Bridges
+tags:
+  - name: Bridges
+  - name: Entitlements
+  - name: Flows
+  - name: Gateway Instances
+  - name: Gateways
+  - name: Offerings
+  - name: Reservations
+  - name: Tags

@@ -10,6 +10,8 @@ paths:
       summary: Amazon Web Services Getearthobservationjob
       description: Get the details for a previously initiated Earth Observation job.
       operationId: amazonWebServicesGetEarthObservationJob
+      tags:
+        - Earth Observation Jobs
   /vector-enrichment-jobs/{Arn}:
     GET:
       summary: Amazon Web Services Getvectorenrichmentjob
@@ -17,6 +19,8 @@ paths:
         Retrieves details of a Vector Enrichment Job for a given job Amazon
         Resource Name (ARN).
       operationId: amazonWebServicesGetVectorEnrichmentJob
+      tags:
+        - Vector Enrichment Jobs
   /export-earth-observation-job:
     POST:
       summary: Amazon Web Services Exportearthobservationjob
@@ -25,6 +29,8 @@ paths:
         optionally source images used as input to the EOJ to an Amazon S3
         location.
       operationId: amazonWebServicesExportEarthObservationJob
+      tags:
+        - Export Earth Observation Job
   /export-vector-enrichment-jobs:
     POST:
       summary: Amazon Web Services Exportvectorenrichmentjob
@@ -32,16 +38,22 @@ paths:
         Use this operation to copy results of a Vector Enrichment job to an
         Amazon S3 location.
       operationId: amazonWebServicesExportVectorEnrichmentJob
+      tags:
+        - Export Vector Enrichment Jobs
   /raster-data-collection/{Arn}:
     GET:
       summary: Amazon Web Services Getrasterdatacollection
       description: Use this operation to get details of a specific raster data collection.
       operationId: amazonWebServicesGetRasterDataCollection
+      tags:
+        - Raster Data Collection
   /tile/{z}/{x}/{y}:
     GET:
       summary: Amazon Web Services Gettile
       description: Gets a web mercator tile for the given Earth Observation job.
       operationId: amazonWebServicesGetTile
+      tags:
+        - Tile
   /list-earth-observation-jobs:
     POST:
       summary: Amazon Web Services Listearthobservationjobs
@@ -49,21 +61,29 @@ paths:
         Use this operation to get a list of the Earth Observation jobs
         associated with the calling Amazon Web Services account.
       operationId: amazonWebServicesListEarthObservationJobs
+      tags:
+        - List Earth Observation Jobs
   /raster-data-collections:
     GET:
       summary: Amazon Web Services Listrasterdatacollections
       description: Use this operation to get raster data collections.
       operationId: amazonWebServicesListRasterDataCollections
+      tags:
+        - Raster Data Collections
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: The resource you want to untag.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /list-vector-enrichment-jobs:
     POST:
       summary: Amazon Web Services Listvectorenrichmentjobs
       description: Retrieves a list of vector enrichment jobs.
       operationId: amazonWebServicesListVectorEnrichmentJobs
+      tags:
+        - List Vector Enrichment Jobs
   /search-raster-data-collection:
     POST:
       summary: Amazon Web Services Searchrasterdatacollection
@@ -71,11 +91,15 @@ paths:
         Allows you run image query on a specific raster data collection to get a
         list of the satellite imagery matching the selected filters.
       operationId: amazonWebServicesSearchRasterDataCollection
+      tags:
+        - Search Raster Data Collection
   /earth-observation-jobs:
     POST:
       summary: Amazon Web Services Startearthobservationjob
       description: Use this operation to create an Earth observation job.
       operationId: amazonWebServicesStartEarthObservationJob
+      tags:
+        - Earth Observation Jobs
   /vector-enrichment-jobs:
     POST:
       summary: Amazon Web Services Startvectorenrichmentjob
@@ -83,14 +107,31 @@ paths:
         Creates a Vector Enrichment job for the supplied job type. Currently,
         there are two supported job types: reverse geocoding and map matching.
       operationId: amazonWebServicesStartVectorEnrichmentJob
+      tags:
+        - Vector Enrichment Jobs
   /earth-observation-jobs/stop:
     POST:
       summary: Amazon Web Services Stopearthobservationjob
       description: Use this operation to stop an existing earth observation job.
       operationId: amazonWebServicesStopEarthObservationJob
+      tags:
+        - Earth Observation Jobs
   /vector-enrichment-jobs/stop:
     POST:
       summary: Amazon Web Services Stopvectorenrichmentjob
       description: Stops the Vector Enrichment job for a given job ARN.
       operationId: amazonWebServicesStopVectorEnrichmentJob
-tags: []
+      tags:
+        - Vector Enrichment Jobs
+tags:
+  - name: Earth Observation Jobs
+  - name: Export Earth Observation Job
+  - name: Export Vector Enrichment Jobs
+  - name: List Earth Observation Jobs
+  - name: List Vector Enrichment Jobs
+  - name: Raster Data Collection
+  - name: Raster Data Collections
+  - name: Search Raster Data Collection
+  - name: Tags
+  - name: Tile
+  - name: Vector Enrichment Jobs

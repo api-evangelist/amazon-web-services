@@ -24,6 +24,8 @@ paths:
         are containers that have the information required for token based access
         to your Ethereum nodes.
       operationId: amazonWebServicesListAccessors
+      tags:
+        - Accessors
   /networks/{networkId}/members:
     GET:
       summary: Amazon Web Services Listmembers
@@ -31,6 +33,8 @@ paths:
         Returns a list of the members in a network and properties of their
         configurations. Applies only to Hyperledger Fabric.
       operationId: amazonWebServicesListMembers
+      tags:
+        - Networks
   /networks:
     GET:
       summary: Amazon Web Services Listnetworks
@@ -39,6 +43,8 @@ paths:
         Services account participates. Applies to Hyperledger Fabric and
         Ethereum.
       operationId: amazonWebServicesListNetworks
+      tags:
+        - Networks
   /networks/{networkId}/nodes:
     GET:
       summary: Amazon Web Services Listnodes
@@ -46,6 +52,8 @@ paths:
         Returns information about the nodes within a network. Applies to
         Hyperledger Fabric and Ethereum.
       operationId: amazonWebServicesListNodes
+      tags:
+        - Networks
   /networks/{networkId}/proposals:
     GET:
       summary: Amazon Web Services Listproposals
@@ -53,6 +61,8 @@ paths:
         Returns a list of proposals for the network. Applies only to Hyperledger
         Fabric.
       operationId: amazonWebServicesListProposals
+      tags:
+        - Networks
   /accessors/{AccessorId}:
     GET:
       summary: Amazon Web Services Getaccessor
@@ -61,6 +71,8 @@ paths:
         container that has the information required for token based access to
         your Ethereum nodes.
       operationId: amazonWebServicesGetAccessor
+      tags:
+        - Accessors
   /networks/{networkId}/members/{memberId}:
     PATCH:
       summary: Amazon Web Services Updatemember
@@ -68,6 +80,8 @@ paths:
         Updates a member configuration with new parameters. Applies only to
         Hyperledger Fabric.
       operationId: amazonWebServicesUpdateMember
+      tags:
+        - Networks
   /networks/{networkId}/nodes/{nodeId}:
     PATCH:
       summary: Amazon Web Services Updatenode
@@ -75,6 +89,8 @@ paths:
         Updates a node configuration with new parameters. Applies only to
         Hyperledger Fabric.
       operationId: amazonWebServicesUpdateNode
+      tags:
+        - Networks
   /networks/{networkId}:
     GET:
       summary: Amazon Web Services Getnetwork
@@ -82,6 +98,8 @@ paths:
         Returns detailed information about a network. Applies to Hyperledger
         Fabric and Ethereum.
       operationId: amazonWebServicesGetNetwork
+      tags:
+        - Networks
   /networks/{networkId}/proposals/{proposalId}:
     GET:
       summary: Amazon Web Services Getproposal
@@ -89,6 +107,8 @@ paths:
         Returns detailed information about a proposal. Applies only to
         Hyperledger Fabric.
       operationId: amazonWebServicesGetProposal
+      tags:
+        - Networks
   /invitations:
     GET:
       summary: Amazon Web Services Listinvitations
@@ -96,6 +116,8 @@ paths:
         Returns a list of all invitations for the current Amazon Web Services
         account. Applies only to Hyperledger Fabric.
       operationId: amazonWebServicesListInvitations
+      tags:
+        - Invitations
   /networks/{networkId}/proposals/{proposalId}/votes:
     POST:
       summary: Amazon Web Services Voteonproposal
@@ -105,6 +127,8 @@ paths:
         Amazon Web Services account as the principal that calls the action.
         Applies only to Hyperledger Fabric.
       operationId: amazonWebServicesVoteOnProposal
+      tags:
+        - Networks
   /tags/{resourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -114,6 +138,8 @@ paths:
         Managed Blockchain Ethereum Developer Guide, or Tagging Resources in the
         Amazon Managed Blockchain Hyperledger Fabric Developer Guide.
       operationId: amazonWebServicesUntagResource
+      tags:
+        - Tags
   /invitations/{invitationId}:
     DELETE:
       summary: Amazon Web Services Rejectinvitation
@@ -123,4 +149,10 @@ paths:
         invitation to create a member and join a network. Applies only to
         Hyperledger Fabric.
       operationId: amazonWebServicesRejectInvitation
-tags: []
+      tags:
+        - Invitations
+tags:
+  - name: Accessors
+  - name: Invitations
+  - name: Networks
+  - name: Tags
