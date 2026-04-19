@@ -1,0 +1,59 @@
+extends: spectral:oas
+rules:
+  info-title-required:
+    description: Info title must be present.
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+  info-description-required:
+    description: Info description must be present.
+    severity: warn
+    given: "$.info"
+    then:
+      field: description
+      function: truthy
+  operation-summary-required:
+    description: Every operation must have a summary.
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+  operation-summary-prefix:
+    description: Operation summaries must start with 'Amazon Web Services'.
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Amazon Web Services"
+  operation-operationId-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+  operation-tags-required:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+  parameter-description-required:
+    description: Every parameter must have a description.
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy
+  security-schemes-defined:
+    description: Security schemes must be defined.
+    severity: warn
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy
