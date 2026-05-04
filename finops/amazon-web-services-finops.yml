@@ -1,0 +1,80 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Amazon Web Services (AWS)
+providerId: amazon-web-services
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Cloud Infrastructure
+description: FOCUS-aligned FinOps for Amazon Web Services (AWS).
+sources:
+  - https://aws.amazon.com/pricing/
+  - https://focus.finops.org/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Amazon Web Services (AWS)
+serviceCategory: Cloud Infrastructure
+billingModel:
+  pricingCategory: Pay-As-You-Go + Committed Use
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: Amazon Web Services (AWS)
+  ServiceCategory: Cloud Infrastructure
+  ProviderName: Amazon Web Services (AWS)
+  PublisherName: Amazon Web Services (AWS)
+  BillingCurrency: USD
+meters:
+  - name: compute_hours
+    unit: instance-hour
+    aggregation: sum
+    dimensions:
+      - service
+      - region
+      - instance_type
+      - tenant
+  - name: storage
+    unit: GB-month
+    aggregation: max
+    dimensions:
+      - service
+      - tier
+  - name: data_transfer
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - egress_type
+      - region_pair
+  - name: api_requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - service
+      - operation
+  - name: managed_services
+    unit: varies
+    aggregation: sum
+    dimensions:
+      - service
+principles:
+  - name: Visibility
+    description: Track Amazon Web Services (AWS) consumption monthly.
+  - name: Allocation
+    description: Tag usage to teams/cost centers for chargeback.
+  - name: Optimization
+    description: Right-size; reclaim unused entitlements.
+  - name: Accountability
+    description: Set spend alerts; quarterly review.
+  - name: AWS Cost Explorer
+    description: Use Cost Explorer + Cost Anomaly Detection + Trusted Advisor for spend visibility and
+      rightsizing.
+  - name: Savings Plans + RIs
+    description: 1-yr or 3-yr commitments offer 27-72% off on-demand for EC2/RDS/Lambda/SageMaker.
