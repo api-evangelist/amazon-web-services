@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotevents-data — Alarms
+  description: 'Amazon Web Services iotevents-data — Alarms. 7 operations. Lead operation: Amazon Web Services Batchacknowledgealarm.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Alarms
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotevents-data-alarms
+    baseUri: ''
+    description: Amazon Web Services iotevents-data — Alarms business capability. Self-contained, no shared references.
+    resources:
+    - name: alarms-acknowledge
+      path: /alarms/acknowledge
+      operations:
+      - name: amazonwebservicesbatchacknowledgealarm
+        method: POST
+        description: Amazon Web Services Batchacknowledgealarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-disable
+      path: /alarms/disable
+      operations:
+      - name: amazonwebservicesbatchdisablealarm
+        method: POST
+        description: Amazon Web Services Batchdisablealarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-enable
+      path: /alarms/enable
+      operations:
+      - name: amazonwebservicesbatchenablealarm
+        method: POST
+        description: Amazon Web Services Batchenablealarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-reset
+      path: /alarms/reset
+      operations:
+      - name: amazonwebservicesbatchresetalarm
+        method: POST
+        description: Amazon Web Services Batchresetalarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-snooze
+      path: /alarms/snooze
+      operations:
+      - name: amazonwebservicesbatchsnoozealarm
+        method: POST
+        description: Amazon Web Services Batchsnoozealarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-alarmModelName
+      path: /alarms/{alarmModelName}
+      operations:
+      - name: amazonwebserviceslistalarms
+        method: GET
+        description: Amazon Web Services Listalarms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: alarms-alarmModelName-keyValues
+      path: /alarms/{alarmModelName}/keyValues/
+      operations:
+      - name: amazonwebservicesdescribealarm
+        method: GET
+        description: Amazon Web Services Describealarm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotevents-data-alarms-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotevents-data — Alarms. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/alarms/acknowledge
+      name: alarms-acknowledge
+      description: REST surface for alarms-acknowledge.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchacknowledgealarm
+        description: Amazon Web Services Batchacknowledgealarm
+        call: iotevents-data-alarms.amazonwebservicesbatchacknowledgealarm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/disable
+      name: alarms-disable
+      description: REST surface for alarms-disable.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdisablealarm
+        description: Amazon Web Services Batchdisablealarm
+        call: iotevents-data-alarms.amazonwebservicesbatchdisablealarm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/enable
+      name: alarms-enable
+      description: REST surface for alarms-enable.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchenablealarm
+        description: Amazon Web Services Batchenablealarm
+        call: iotevents-data-alarms.amazonwebservicesbatchenablealarm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/reset
+      name: alarms-reset
+      description: REST surface for alarms-reset.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchresetalarm
+        description: Amazon Web Services Batchresetalarm
+        call: iotevents-data-alarms.amazonwebservicesbatchresetalarm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/snooze
+      name: alarms-snooze
+      description: REST surface for alarms-snooze.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchsnoozealarm
+        description: Amazon Web Services Batchsnoozealarm
+        call: iotevents-data-alarms.amazonwebservicesbatchsnoozealarm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/{alarmmodelname}
+      name: alarms-alarmmodelname
+      description: REST surface for alarms-alarmModelName.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistalarms
+        description: Amazon Web Services Listalarms
+        call: iotevents-data-alarms.amazonwebserviceslistalarms
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/alarms/{alarmmodelname}/keyvalues
+      name: alarms-alarmmodelname-keyvalues
+      description: REST surface for alarms-alarmModelName-keyValues.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribealarm
+        description: Amazon Web Services Describealarm
+        call: iotevents-data-alarms.amazonwebservicesdescribealarm
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotevents-data-alarms-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotevents-data — Alarms. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchacknowledgealarm
+      description: Amazon Web Services Batchacknowledgealarm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-alarms.amazonwebservicesbatchacknowledgealarm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdisablealarm
+      description: Amazon Web Services Batchdisablealarm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-alarms.amazonwebservicesbatchdisablealarm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchenablealarm
+      description: Amazon Web Services Batchenablealarm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-alarms.amazonwebservicesbatchenablealarm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchresetalarm
+      description: Amazon Web Services Batchresetalarm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-alarms.amazonwebservicesbatchresetalarm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchsnoozealarm
+      description: Amazon Web Services Batchsnoozealarm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-alarms.amazonwebservicesbatchsnoozealarm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listalarms
+      description: Amazon Web Services Listalarms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-data-alarms.amazonwebserviceslistalarms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describealarm
+      description: Amazon Web Services Describealarm
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-data-alarms.amazonwebservicesdescribealarm
+      outputParameters:
+      - type: object
+        mapping: $.

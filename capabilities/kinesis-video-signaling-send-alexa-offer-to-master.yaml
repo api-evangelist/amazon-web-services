@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesis-video-signaling — Send Alexa Offer to Master
+  description: 'Amazon Web Services kinesis-video-signaling — Send Alexa Offer to Master. 1 operations. Lead operation: Amazon
+    Web Services Sendalexaoffertomaster. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Send Alexa Offer to Master
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesis-video-signaling-send-alexa-offer-to-master
+    baseUri: ''
+    description: Amazon Web Services kinesis-video-signaling — Send Alexa Offer to Master business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: v1-send-alexa-offer-to-master
+      path: /v1/send-alexa-offer-to-master
+      operations:
+      - name: amazonwebservicessendalexaoffertomaster
+        method: POST
+        description: Amazon Web Services Sendalexaoffertomaster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesis-video-signaling-send-alexa-offer-to-master-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesis-video-signaling — Send Alexa Offer to Master. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/send-alexa-offer-to-master
+      name: v1-send-alexa-offer-to-master
+      description: REST surface for v1-send-alexa-offer-to-master.
+      operations:
+      - method: POST
+        name: amazonwebservicessendalexaoffertomaster
+        description: Amazon Web Services Sendalexaoffertomaster
+        call: kinesis-video-signaling-send-alexa-offer-to-master.amazonwebservicessendalexaoffertomaster
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesis-video-signaling-send-alexa-offer-to-master-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesis-video-signaling — Send Alexa Offer to Master. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-sendalexaoffertomaster
+      description: Amazon Web Services Sendalexaoffertomaster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis-video-signaling-send-alexa-offer-to-master.amazonwebservicessendalexaoffertomaster
+      outputParameters:
+      - type: object
+        mapping: $.

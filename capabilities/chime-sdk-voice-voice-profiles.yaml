@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-voice — Voice Profiles
+  description: 'Amazon Web Services chime-sdk-voice — Voice Profiles. 2 operations. Lead operation: Amazon Web Services Listvoiceprofiles.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Voice Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-voice-voice-profiles
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-voice — Voice Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: voice-profiles
+      path: /voice-profiles
+      operations:
+      - name: amazonwebserviceslistvoiceprofiles
+        method: GET
+        description: Amazon Web Services Listvoiceprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: voice-profiles-VoiceProfileId
+      path: /voice-profiles/{VoiceProfileId}
+      operations:
+      - name: amazonwebservicesupdatevoiceprofile
+        method: PUT
+        description: Amazon Web Services Updatevoiceprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-voice-voice-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-voice — Voice Profiles. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/voice-profiles
+      name: voice-profiles
+      description: REST surface for voice-profiles.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvoiceprofiles
+        description: Amazon Web Services Listvoiceprofiles
+        call: chime-sdk-voice-voice-profiles.amazonwebserviceslistvoiceprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/voice-profiles/{voiceprofileid}
+      name: voice-profiles-voiceprofileid
+      description: REST surface for voice-profiles-VoiceProfileId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevoiceprofile
+        description: Amazon Web Services Updatevoiceprofile
+        call: chime-sdk-voice-voice-profiles.amazonwebservicesupdatevoiceprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-voice-voice-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-voice — Voice Profiles. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listvoiceprofiles
+      description: Amazon Web Services Listvoiceprofiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-voice-voice-profiles.amazonwebserviceslistvoiceprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevoiceprofile
+      description: Amazon Web Services Updatevoiceprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-sdk-voice-voice-profiles.amazonwebservicesupdatevoiceprofile
+      outputParameters:
+      - type: object
+        mapping: $.

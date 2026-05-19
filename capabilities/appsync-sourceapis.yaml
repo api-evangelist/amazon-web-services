@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — sourceApis
+  description: 'Amazon Web Services appsync — sourceApis. 2 operations. Lead operation: Amazon Web Services Associatemergedgraphqlapi.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - sourceApis
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-sourceapis
+    baseUri: ''
+    description: Amazon Web Services appsync — sourceApis business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-sourceApis-sourceApiIdentifier-mergedApiAssociations
+      path: /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations
+      operations:
+      - name: amazonwebservicesassociatemergedgraphqlapi
+        method: POST
+        description: Amazon Web Services Associatemergedgraphqlapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-sourceApis-sourceApiIdentifier-mergedApiAssociations-associationId
+      path: /v1/sourceApis/{sourceApiIdentifier}/mergedApiAssociations/{associationId}
+      operations:
+      - name: amazonwebservicesdisassociatemergedgraphqlapi
+        method: DELETE
+        description: Amazon Web Services Disassociatemergedgraphqlapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-sourceapis-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — sourceApis. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/sourceapis/{sourceapiidentifier}/mergedapiassociations
+      name: v1-sourceapis-sourceapiidentifier-mergedapiassociations
+      description: REST surface for v1-sourceApis-sourceApiIdentifier-mergedApiAssociations.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociatemergedgraphqlapi
+        description: Amazon Web Services Associatemergedgraphqlapi
+        call: appsync-sourceapis.amazonwebservicesassociatemergedgraphqlapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/sourceapis/{sourceapiidentifier}/mergedapiassociations/{associationid}
+      name: v1-sourceapis-sourceapiidentifier-mergedapiassociations-associationid
+      description: REST surface for v1-sourceApis-sourceApiIdentifier-mergedApiAssociations-associationId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatemergedgraphqlapi
+        description: Amazon Web Services Disassociatemergedgraphqlapi
+        call: appsync-sourceapis.amazonwebservicesdisassociatemergedgraphqlapi
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-sourceapis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — sourceApis. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-associatemergedgraphqlapi
+      description: Amazon Web Services Associatemergedgraphqlapi
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-sourceapis.amazonwebservicesassociatemergedgraphqlapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatemergedgraphqlapi
+      description: Amazon Web Services Disassociatemergedgraphqlapi
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: appsync-sourceapis.amazonwebservicesdisassociatemergedgraphqlapi
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services launch-wizard — deleteDeployment
+  description: 'Amazon Web Services launch-wizard — deleteDeployment. 1 operations. Lead operation: Amazon Web Services Deletedeployment.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteDeployment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launch-wizard-deletedeployment
+    baseUri: ''
+    description: Amazon Web Services launch-wizard — deleteDeployment business capability. Self-contained, no shared references.
+    resources:
+    - name: deleteDeployment
+      path: /deleteDeployment
+      operations:
+      - name: amazonwebservicesdeletedeployment
+        method: POST
+        description: Amazon Web Services Deletedeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: launch-wizard-deletedeployment-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services launch-wizard — deleteDeployment. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletedeployment
+      name: deletedeployment
+      description: REST surface for deleteDeployment.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletedeployment
+        description: Amazon Web Services Deletedeployment
+        call: launch-wizard-deletedeployment.amazonwebservicesdeletedeployment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launch-wizard-deletedeployment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services launch-wizard — deleteDeployment. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletedeployment
+      description: Amazon Web Services Deletedeployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: launch-wizard-deletedeployment.amazonwebservicesdeletedeployment
+      outputParameters:
+      - type: object
+        mapping: $.

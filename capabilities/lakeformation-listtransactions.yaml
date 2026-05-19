@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — ListTransactions
+  description: 'Amazon Web Services lakeformation — ListTransactions. 1 operations. Lead operation: Amazon Web Services Listtransactions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListTransactions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-listtransactions
+    baseUri: ''
+    description: Amazon Web Services lakeformation — ListTransactions business capability. Self-contained, no shared references.
+    resources:
+    - name: ListTransactions
+      path: /ListTransactions
+      operations:
+      - name: amazonwebserviceslisttransactions
+        method: POST
+        description: Amazon Web Services Listtransactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-listtransactions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — ListTransactions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listtransactions
+      name: listtransactions
+      description: REST surface for ListTransactions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslisttransactions
+        description: Amazon Web Services Listtransactions
+        call: lakeformation-listtransactions.amazonwebserviceslisttransactions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-listtransactions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — ListTransactions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtransactions
+      description: Amazon Web Services Listtransactions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-listtransactions.amazonwebserviceslisttransactions
+      outputParameters:
+      - type: object
+        mapping: $.

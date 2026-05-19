@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services entityresolution — Schemas
+  description: 'Amazon Web Services entityresolution — Schemas. 2 operations. Lead operation: Amazon Web Services Listschemamappings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Schemas
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: entityresolution-schemas
+    baseUri: ''
+    description: Amazon Web Services entityresolution — Schemas business capability. Self-contained, no shared references.
+    resources:
+    - name: schemas
+      path: /schemas
+      operations:
+      - name: amazonwebserviceslistschemamappings
+        method: GET
+        description: Amazon Web Services Listschemamappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: schemas-schemaName
+      path: /schemas/{schemaName}
+      operations:
+      - name: amazonwebservicesupdateschemamapping
+        method: PUT
+        description: Amazon Web Services Updateschemamapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: entityresolution-schemas-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services entityresolution — Schemas. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/schemas
+      name: schemas
+      description: REST surface for schemas.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistschemamappings
+        description: Amazon Web Services Listschemamappings
+        call: entityresolution-schemas.amazonwebserviceslistschemamappings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schemas/{schemaname}
+      name: schemas-schemaname
+      description: REST surface for schemas-schemaName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateschemamapping
+        description: Amazon Web Services Updateschemamapping
+        call: entityresolution-schemas.amazonwebservicesupdateschemamapping
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: entityresolution-schemas-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services entityresolution — Schemas. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listschemamappings
+      description: Amazon Web Services Listschemamappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: entityresolution-schemas.amazonwebserviceslistschemamappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateschemamapping
+      description: Amazon Web Services Updateschemamapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: entityresolution-schemas.amazonwebservicesupdateschemamapping
+      outputParameters:
+      - type: object
+        mapping: $.

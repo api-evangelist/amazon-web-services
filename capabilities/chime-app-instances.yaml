@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — App Instances
+  description: 'Amazon Web Services chime — App Instances. 6 operations. Lead operation: Amazon Web Services Listappinstances.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - App Instances
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-app-instances
+    baseUri: ''
+    description: Amazon Web Services chime — App Instances business capability. Self-contained, no shared references.
+    resources:
+    - name: app-instances
+      path: /app-instances
+      operations:
+      - name: amazonwebserviceslistappinstances
+        method: GET
+        description: Amazon Web Services Listappinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-instances-appInstanceArn
+      path: /app-instances/{appInstanceArn}
+      operations:
+      - name: amazonwebservicesupdateappinstance
+        method: PUT
+        description: Amazon Web Services Updateappinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-instances-appInstanceArn-admins
+      path: /app-instances/{appInstanceArn}/admins
+      operations:
+      - name: amazonwebserviceslistappinstanceadmins
+        method: GET
+        description: Amazon Web Services Listappinstanceadmins
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-instances-appInstanceArn-admins-appInstanceAdminArn
+      path: /app-instances/{appInstanceArn}/admins/{appInstanceAdminArn}
+      operations:
+      - name: amazonwebservicesdescribeappinstanceadmin
+        method: GET
+        description: Amazon Web Services Describeappinstanceadmin
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-instances-appInstanceArn-retention-settings
+      path: /app-instances/{appInstanceArn}/retention-settings
+      operations:
+      - name: amazonwebservicesputappinstanceretentionsettings
+        method: PUT
+        description: Amazon Web Services Putappinstanceretentionsettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-instances-appInstanceArn-streaming-configurations
+      path: /app-instances/{appInstanceArn}/streaming-configurations
+      operations:
+      - name: amazonwebservicesputappinstancestreamingconfigurations
+        method: PUT
+        description: Amazon Web Services Putappinstancestreamingconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-app-instances-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — App Instances. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/app-instances
+      name: app-instances
+      description: REST surface for app-instances.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistappinstances
+        description: Amazon Web Services Listappinstances
+        call: chime-app-instances.amazonwebserviceslistappinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app-instances/{appinstancearn}
+      name: app-instances-appinstancearn
+      description: REST surface for app-instances-appInstanceArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateappinstance
+        description: Amazon Web Services Updateappinstance
+        call: chime-app-instances.amazonwebservicesupdateappinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app-instances/{appinstancearn}/admins
+      name: app-instances-appinstancearn-admins
+      description: REST surface for app-instances-appInstanceArn-admins.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistappinstanceadmins
+        description: Amazon Web Services Listappinstanceadmins
+        call: chime-app-instances.amazonwebserviceslistappinstanceadmins
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app-instances/{appinstancearn}/admins/{appinstanceadminarn}
+      name: app-instances-appinstancearn-admins-appinstanceadminarn
+      description: REST surface for app-instances-appInstanceArn-admins-appInstanceAdminArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeappinstanceadmin
+        description: Amazon Web Services Describeappinstanceadmin
+        call: chime-app-instances.amazonwebservicesdescribeappinstanceadmin
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app-instances/{appinstancearn}/retention-settings
+      name: app-instances-appinstancearn-retention-settings
+      description: REST surface for app-instances-appInstanceArn-retention-settings.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputappinstanceretentionsettings
+        description: Amazon Web Services Putappinstanceretentionsettings
+        call: chime-app-instances.amazonwebservicesputappinstanceretentionsettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app-instances/{appinstancearn}/streaming-configurations
+      name: app-instances-appinstancearn-streaming-configurations
+      description: REST surface for app-instances-appInstanceArn-streaming-configurations.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputappinstancestreamingconfigurations
+        description: Amazon Web Services Putappinstancestreamingconfigurations
+        call: chime-app-instances.amazonwebservicesputappinstancestreamingconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-app-instances-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — App Instances. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listappinstances
+      description: Amazon Web Services Listappinstances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebserviceslistappinstances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateappinstance
+      description: Amazon Web Services Updateappinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebservicesupdateappinstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listappinstanceadmins
+      description: Amazon Web Services Listappinstanceadmins
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebserviceslistappinstanceadmins
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeappinstanceadmin
+      description: Amazon Web Services Describeappinstanceadmin
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebservicesdescribeappinstanceadmin
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putappinstanceretentionsettings
+      description: Amazon Web Services Putappinstanceretentionsettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebservicesputappinstanceretentionsettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putappinstancestreamingconfigurations
+      description: Amazon Web Services Putappinstancestreamingconfigurations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-app-instances.amazonwebservicesputappinstancestreamingconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.

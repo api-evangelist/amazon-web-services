@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — PutComponentPolicy
+  description: 'Amazon Web Services imagebuilder — PutComponentPolicy. 1 operations. Lead operation: Amazon Web Services Putcomponentpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutComponentPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-putcomponentpolicy
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — PutComponentPolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: PutComponentPolicy
+      path: /PutComponentPolicy
+      operations:
+      - name: amazonwebservicesputcomponentpolicy
+        method: PUT
+        description: Amazon Web Services Putcomponentpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-putcomponentpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — PutComponentPolicy. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/putcomponentpolicy
+      name: putcomponentpolicy
+      description: REST surface for PutComponentPolicy.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputcomponentpolicy
+        description: Amazon Web Services Putcomponentpolicy
+        call: imagebuilder-putcomponentpolicy.amazonwebservicesputcomponentpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-putcomponentpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — PutComponentPolicy. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putcomponentpolicy
+      description: Amazon Web Services Putcomponentpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-putcomponentpolicy.amazonwebservicesputcomponentpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

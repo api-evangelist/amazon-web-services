@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securitylake — Datalakes
+  description: 'Amazon Web Services securitylake — Datalakes. 1 operations. Lead operation: Amazon Web Services Listdatalakes.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Datalakes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securitylake-datalakes
+    baseUri: ''
+    description: Amazon Web Services securitylake — Datalakes business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-datalakes
+      path: /v1/datalakes
+      operations:
+      - name: amazonwebserviceslistdatalakes
+        method: GET
+        description: Amazon Web Services Listdatalakes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securitylake-datalakes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securitylake — Datalakes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/datalakes
+      name: v1-datalakes
+      description: REST surface for v1-datalakes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdatalakes
+        description: Amazon Web Services Listdatalakes
+        call: securitylake-datalakes.amazonwebserviceslistdatalakes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securitylake-datalakes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securitylake — Datalakes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdatalakes
+      description: Amazon Web Services Listdatalakes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securitylake-datalakes.amazonwebserviceslistdatalakes
+      outputParameters:
+      - type: object
+        mapping: $.

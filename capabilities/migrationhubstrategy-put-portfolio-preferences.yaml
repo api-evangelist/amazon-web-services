@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Put Portfolio Preferences
+  description: 'Amazon Web Services migrationhubstrategy — Put Portfolio Preferences. 1 operations. Lead operation: Amazon
+    Web Services Putportfoliopreferences. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Put Portfolio Preferences
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-put-portfolio-preferences
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Put Portfolio Preferences business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: put-portfolio-preferences
+      path: /put-portfolio-preferences
+      operations:
+      - name: amazonwebservicesputportfoliopreferences
+        method: POST
+        description: Amazon Web Services Putportfoliopreferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-put-portfolio-preferences-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Put Portfolio Preferences. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/put-portfolio-preferences
+      name: put-portfolio-preferences
+      description: REST surface for put-portfolio-preferences.
+      operations:
+      - method: POST
+        name: amazonwebservicesputportfoliopreferences
+        description: Amazon Web Services Putportfoliopreferences
+        call: migrationhubstrategy-put-portfolio-preferences.amazonwebservicesputportfoliopreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-put-portfolio-preferences-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Put Portfolio Preferences. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putportfoliopreferences
+      description: Amazon Web Services Putportfoliopreferences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: migrationhubstrategy-put-portfolio-preferences.amazonwebservicesputportfoliopreferences
+      outputParameters:
+      - type: object
+        mapping: $.

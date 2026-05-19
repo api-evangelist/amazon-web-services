@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — shareInvitations
+  description: 'Amazon Web Services wellarchitected — shareInvitations. 2 operations. Lead operation: Amazon Web Services
+    Listshareinvitations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - shareInvitations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-shareinvitations
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — shareInvitations business capability. Self-contained, no shared references.
+    resources:
+    - name: shareInvitations
+      path: /shareInvitations
+      operations:
+      - name: amazonwebserviceslistshareinvitations
+        method: GET
+        description: Amazon Web Services Listshareinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shareInvitations-ShareInvitationId
+      path: /shareInvitations/{ShareInvitationId}
+      operations:
+      - name: amazonwebservicesupdateshareinvitation
+        method: PATCH
+        description: Amazon Web Services Updateshareinvitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-shareinvitations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — shareInvitations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/shareinvitations
+      name: shareinvitations
+      description: REST surface for shareInvitations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistshareinvitations
+        description: Amazon Web Services Listshareinvitations
+        call: wellarchitected-shareinvitations.amazonwebserviceslistshareinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/shareinvitations/{shareinvitationid}
+      name: shareinvitations-shareinvitationid
+      description: REST surface for shareInvitations-ShareInvitationId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateshareinvitation
+        description: Amazon Web Services Updateshareinvitation
+        call: wellarchitected-shareinvitations.amazonwebservicesupdateshareinvitation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-shareinvitations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — shareInvitations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listshareinvitations
+      description: Amazon Web Services Listshareinvitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-shareinvitations.amazonwebserviceslistshareinvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateshareinvitation
+      description: Amazon Web Services Updateshareinvitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-shareinvitations.amazonwebservicesupdateshareinvitation
+      outputParameters:
+      - type: object
+        mapping: $.

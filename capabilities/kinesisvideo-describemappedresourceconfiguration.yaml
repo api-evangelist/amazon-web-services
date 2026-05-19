@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — describeMappedResourceConfiguration
+  description: 'Amazon Web Services kinesisvideo — describeMappedResourceConfiguration. 1 operations. Lead operation: Amazon
+    Web Services Describemappedresourceconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - describeMappedResourceConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-describemappedresourceconfiguration
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — describeMappedResourceConfiguration business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: describeMappedResourceConfiguration
+      path: /describeMappedResourceConfiguration
+      operations:
+      - name: amazonwebservicesdescribemappedresourceconfiguration
+        method: POST
+        description: Amazon Web Services Describemappedresourceconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-describemappedresourceconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — describeMappedResourceConfiguration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describemappedresourceconfiguration
+      name: describemappedresourceconfiguration
+      description: REST surface for describeMappedResourceConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribemappedresourceconfiguration
+        description: Amazon Web Services Describemappedresourceconfiguration
+        call: kinesisvideo-describemappedresourceconfiguration.amazonwebservicesdescribemappedresourceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-describemappedresourceconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — describeMappedResourceConfiguration. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describemappedresourceconfiguration
+      description: Amazon Web Services Describemappedresourceconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-describemappedresourceconfiguration.amazonwebservicesdescribemappedresourceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

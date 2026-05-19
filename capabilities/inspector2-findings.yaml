@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector2 — Findings
+  description: 'Amazon Web Services inspector2 — Findings. 3 operations. Lead operation: Amazon Web Services Listfindingaggregations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Findings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector2-findings
+    baseUri: ''
+    description: Amazon Web Services inspector2 — Findings business capability. Self-contained, no shared references.
+    resources:
+    - name: findings-aggregation-list
+      path: /findings/aggregation/list
+      operations:
+      - name: amazonwebserviceslistfindingaggregations
+        method: POST
+        description: Amazon Web Services Listfindingaggregations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-details-batch-get
+      path: /findings/details/batch/get
+      operations:
+      - name: amazonwebservicesbatchgetfindingdetails
+        method: POST
+        description: Amazon Web Services Batchgetfindingdetails
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-list
+      path: /findings/list
+      operations:
+      - name: amazonwebserviceslistfindings
+        method: POST
+        description: Amazon Web Services Listfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector2-findings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector2 — Findings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/findings/aggregation/list
+      name: findings-aggregation-list
+      description: REST surface for findings-aggregation-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfindingaggregations
+        description: Amazon Web Services Listfindingaggregations
+        call: inspector2-findings.amazonwebserviceslistfindingaggregations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/details/batch/get
+      name: findings-details-batch-get
+      description: REST surface for findings-details-batch-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetfindingdetails
+        description: Amazon Web Services Batchgetfindingdetails
+        call: inspector2-findings.amazonwebservicesbatchgetfindingdetails
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/list
+      name: findings-list
+      description: REST surface for findings-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfindings
+        description: Amazon Web Services Listfindings
+        call: inspector2-findings.amazonwebserviceslistfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector2-findings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector2 — Findings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listfindingaggregations
+      description: Amazon Web Services Listfindingaggregations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-findings.amazonwebserviceslistfindingaggregations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetfindingdetails
+      description: Amazon Web Services Batchgetfindingdetails
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-findings.amazonwebservicesbatchgetfindingdetails
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfindings
+      description: Amazon Web Services Listfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-findings.amazonwebserviceslistfindings
+      outputParameters:
+      - type: object
+        mapping: $.

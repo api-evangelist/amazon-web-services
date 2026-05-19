@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services networkmanager — Transit Gateway Peerings
+  description: 'Amazon Web Services networkmanager — Transit Gateway Peerings. 2 operations. Lead operation: Amazon Web Services
+    Createtransitgatewaypeering. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Transit Gateway Peerings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: networkmanager-transit-gateway-peerings
+    baseUri: ''
+    description: Amazon Web Services networkmanager — Transit Gateway Peerings business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: transit-gateway-peerings
+      path: /transit-gateway-peerings
+      operations:
+      - name: amazonwebservicescreatetransitgatewaypeering
+        method: POST
+        description: Amazon Web Services Createtransitgatewaypeering
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transit-gateway-peerings-peeringId
+      path: /transit-gateway-peerings/{peeringId}
+      operations:
+      - name: amazonwebservicesgettransitgatewaypeering
+        method: GET
+        description: Amazon Web Services Gettransitgatewaypeering
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: networkmanager-transit-gateway-peerings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services networkmanager — Transit Gateway Peerings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/transit-gateway-peerings
+      name: transit-gateway-peerings
+      description: REST surface for transit-gateway-peerings.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatetransitgatewaypeering
+        description: Amazon Web Services Createtransitgatewaypeering
+        call: networkmanager-transit-gateway-peerings.amazonwebservicescreatetransitgatewaypeering
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transit-gateway-peerings/{peeringid}
+      name: transit-gateway-peerings-peeringid
+      description: REST surface for transit-gateway-peerings-peeringId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettransitgatewaypeering
+        description: Amazon Web Services Gettransitgatewaypeering
+        call: networkmanager-transit-gateway-peerings.amazonwebservicesgettransitgatewaypeering
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: networkmanager-transit-gateway-peerings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services networkmanager — Transit Gateway Peerings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createtransitgatewaypeering
+      description: Amazon Web Services Createtransitgatewaypeering
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: networkmanager-transit-gateway-peerings.amazonwebservicescreatetransitgatewaypeering
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettransitgatewaypeering
+      description: Amazon Web Services Gettransitgatewaypeering
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-transit-gateway-peerings.amazonwebservicesgettransitgatewaypeering
+      outputParameters:
+      - type: object
+        mapping: $.

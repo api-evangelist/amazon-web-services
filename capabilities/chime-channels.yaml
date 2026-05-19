@@ -1,0 +1,515 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Channels
+  description: 'Amazon Web Services chime — Channels. 15 operations. Lead operation: Amazon Web Services Listchannels. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-channels
+    baseUri: ''
+    description: Amazon Web Services chime — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: channels
+      path: /channels
+      operations:
+      - name: amazonwebserviceslistchannels
+        method: GET
+        description: Amazon Web Services Listchannels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn
+      path: /channels/{channelArn}
+      operations:
+      - name: amazonwebservicesupdatechannel
+        method: PUT
+        description: Amazon Web Services Updatechannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-bans
+      path: /channels/{channelArn}/bans
+      operations:
+      - name: amazonwebserviceslistchannelbans
+        method: GET
+        description: Amazon Web Services Listchannelbans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-bans-memberArn
+      path: /channels/{channelArn}/bans/{memberArn}
+      operations:
+      - name: amazonwebservicesdescribechannelban
+        method: GET
+        description: Amazon Web Services Describechannelban
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-memberships
+      path: /channels/{channelArn}/memberships
+      operations:
+      - name: amazonwebserviceslistchannelmemberships
+        method: GET
+        description: Amazon Web Services Listchannelmemberships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-memberships-memberArn
+      path: /channels/{channelArn}/memberships/{memberArn}
+      operations:
+      - name: amazonwebservicesdescribechannelmembership
+        method: GET
+        description: Amazon Web Services Describechannelmembership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-memberships?operation=batch-create
+      path: /channels/{channelArn}/memberships?operation=batch-create
+      operations:
+      - name: amazonwebservicesbatchcreatechannelmembership
+        method: POST
+        description: Amazon Web Services Batchcreatechannelmembership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-messages
+      path: /channels/{channelArn}/messages
+      operations:
+      - name: amazonwebservicessendchannelmessage
+        method: POST
+        description: Amazon Web Services Sendchannelmessage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-messages-messageId
+      path: /channels/{channelArn}/messages/{messageId}
+      operations:
+      - name: amazonwebservicesupdatechannelmessage
+        method: PUT
+        description: Amazon Web Services Updatechannelmessage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-messages-messageId}?operation=redact
+      path: /channels/{channelArn}/messages/{messageId}?operation=redact
+      operations:
+      - name: amazonwebservicesredactchannelmessage
+        method: POST
+        description: Amazon Web Services Redactchannelmessage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-moderators
+      path: /channels/{channelArn}/moderators
+      operations:
+      - name: amazonwebserviceslistchannelmoderators
+        method: GET
+        description: Amazon Web Services Listchannelmoderators
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-moderators-channelModeratorArn
+      path: /channels/{channelArn}/moderators/{channelModeratorArn}
+      operations:
+      - name: amazonwebservicesdescribechannelmoderator
+        method: GET
+        description: Amazon Web Services Describechannelmoderator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn-readMarker
+      path: /channels/{channelArn}/readMarker
+      operations:
+      - name: amazonwebservicesupdatechannelreadmarker
+        method: PUT
+        description: Amazon Web Services Updatechannelreadmarker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn}?scope=app-instance-user-membership
+      path: /channels/{channelArn}?scope=app-instance-user-membership
+      operations:
+      - name: amazonwebservicesdescribechannelmembershipforappinstanceuser
+        method: GET
+        description: Amazon Web Services Describechannelmembershipforappinstanceuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelArn}?scope=app-instance-user-moderated-channel
+      path: /channels/{channelArn}?scope=app-instance-user-moderated-channel
+      operations:
+      - name: amazonwebservicesdescribechannelmoderatedbyappinstanceuser
+        method: GET
+        description: Amazon Web Services Describechannelmoderatedbyappinstanceuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-channels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Channels. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/channels
+      name: channels
+      description: REST surface for channels.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannels
+        description: Amazon Web Services Listchannels
+        call: chime-channels.amazonwebserviceslistchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}
+      name: channels-channelarn
+      description: REST surface for channels-channelArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatechannel
+        description: Amazon Web Services Updatechannel
+        call: chime-channels.amazonwebservicesupdatechannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/bans
+      name: channels-channelarn-bans
+      description: REST surface for channels-channelArn-bans.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannelbans
+        description: Amazon Web Services Listchannelbans
+        call: chime-channels.amazonwebserviceslistchannelbans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/bans/{memberarn}
+      name: channels-channelarn-bans-memberarn
+      description: REST surface for channels-channelArn-bans-memberArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribechannelban
+        description: Amazon Web Services Describechannelban
+        call: chime-channels.amazonwebservicesdescribechannelban
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/memberships
+      name: channels-channelarn-memberships
+      description: REST surface for channels-channelArn-memberships.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannelmemberships
+        description: Amazon Web Services Listchannelmemberships
+        call: chime-channels.amazonwebserviceslistchannelmemberships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/memberships/{memberarn}
+      name: channels-channelarn-memberships-memberarn
+      description: REST surface for channels-channelArn-memberships-memberArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribechannelmembership
+        description: Amazon Web Services Describechannelmembership
+        call: chime-channels.amazonwebservicesdescribechannelmembership
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/memberships-operation-batch-create
+      name: channels-channelarn-memberships-operation-batch-create
+      description: REST surface for channels-channelArn-memberships?operation=batch-create.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchcreatechannelmembership
+        description: Amazon Web Services Batchcreatechannelmembership
+        call: chime-channels.amazonwebservicesbatchcreatechannelmembership
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/messages
+      name: channels-channelarn-messages
+      description: REST surface for channels-channelArn-messages.
+      operations:
+      - method: POST
+        name: amazonwebservicessendchannelmessage
+        description: Amazon Web Services Sendchannelmessage
+        call: chime-channels.amazonwebservicessendchannelmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/messages/{messageid}
+      name: channels-channelarn-messages-messageid
+      description: REST surface for channels-channelArn-messages-messageId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatechannelmessage
+        description: Amazon Web Services Updatechannelmessage
+        call: chime-channels.amazonwebservicesupdatechannelmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/messages/messageid-operation-redact
+      name: channels-channelarn-messages-messageid-operation-redact
+      description: REST surface for channels-channelArn-messages-messageId}?operation=redact.
+      operations:
+      - method: POST
+        name: amazonwebservicesredactchannelmessage
+        description: Amazon Web Services Redactchannelmessage
+        call: chime-channels.amazonwebservicesredactchannelmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/moderators
+      name: channels-channelarn-moderators
+      description: REST surface for channels-channelArn-moderators.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannelmoderators
+        description: Amazon Web Services Listchannelmoderators
+        call: chime-channels.amazonwebserviceslistchannelmoderators
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/moderators/{channelmoderatorarn}
+      name: channels-channelarn-moderators-channelmoderatorarn
+      description: REST surface for channels-channelArn-moderators-channelModeratorArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribechannelmoderator
+        description: Amazon Web Services Describechannelmoderator
+        call: chime-channels.amazonwebservicesdescribechannelmoderator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelarn}/readmarker
+      name: channels-channelarn-readmarker
+      description: REST surface for channels-channelArn-readMarker.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatechannelreadmarker
+        description: Amazon Web Services Updatechannelreadmarker
+        call: chime-channels.amazonwebservicesupdatechannelreadmarker
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/channelarn-scope-app-instance-user-membership
+      name: channels-channelarn-scope-app-instance-user-membership
+      description: REST surface for channels-channelArn}?scope=app-instance-user-membership.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribechannelmembershipforappinstanceuser
+        description: Amazon Web Services Describechannelmembershipforappinstanceuser
+        call: chime-channels.amazonwebservicesdescribechannelmembershipforappinstanceuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/channelarn-scope-app-instance-user-moderated-channel
+      name: channels-channelarn-scope-app-instance-user-moderated-channel
+      description: REST surface for channels-channelArn}?scope=app-instance-user-moderated-channel.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribechannelmoderatedbyappinstanceuser
+        description: Amazon Web Services Describechannelmoderatedbyappinstanceuser
+        call: chime-channels.amazonwebservicesdescribechannelmoderatedbyappinstanceuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Channels. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchannels
+      description: Amazon Web Services Listchannels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebserviceslistchannels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatechannel
+      description: Amazon Web Services Updatechannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesupdatechannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listchannelbans
+      description: Amazon Web Services Listchannelbans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebserviceslistchannelbans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describechannelban
+      description: Amazon Web Services Describechannelban
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesdescribechannelban
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listchannelmemberships
+      description: Amazon Web Services Listchannelmemberships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebserviceslistchannelmemberships
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describechannelmembership
+      description: Amazon Web Services Describechannelmembership
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesdescribechannelmembership
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchcreatechannelmembership
+      description: Amazon Web Services Batchcreatechannelmembership
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-channels.amazonwebservicesbatchcreatechannelmembership
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendchannelmessage
+      description: Amazon Web Services Sendchannelmessage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-channels.amazonwebservicessendchannelmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatechannelmessage
+      description: Amazon Web Services Updatechannelmessage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesupdatechannelmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-redactchannelmessage
+      description: Amazon Web Services Redactchannelmessage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-channels.amazonwebservicesredactchannelmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listchannelmoderators
+      description: Amazon Web Services Listchannelmoderators
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebserviceslistchannelmoderators
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describechannelmoderator
+      description: Amazon Web Services Describechannelmoderator
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesdescribechannelmoderator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatechannelreadmarker
+      description: Amazon Web Services Updatechannelreadmarker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesupdatechannelreadmarker
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describechannelmembershipforappinstanceuser
+      description: Amazon Web Services Describechannelmembershipforappinstanceuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesdescribechannelmembershipforappinstanceuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describechannelmoderatedbyappinstanceuser
+      description: Amazon Web Services Describechannelmoderatedbyappinstanceuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-channels.amazonwebservicesdescribechannelmoderatedbyappinstanceuser
+      outputParameters:
+      - type: object
+        mapping: $.

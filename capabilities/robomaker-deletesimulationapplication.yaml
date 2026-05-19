@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — deleteSimulationApplication
+  description: 'Amazon Web Services robomaker — deleteSimulationApplication. 1 operations. Lead operation: Amazon Web Services
+    Deletesimulationapplication. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteSimulationApplication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-deletesimulationapplication
+    baseUri: ''
+    description: Amazon Web Services robomaker — deleteSimulationApplication business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: deleteSimulationApplication
+      path: /deleteSimulationApplication
+      operations:
+      - name: amazonwebservicesdeletesimulationapplication
+        method: POST
+        description: Amazon Web Services Deletesimulationapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-deletesimulationapplication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — deleteSimulationApplication. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletesimulationapplication
+      name: deletesimulationapplication
+      description: REST surface for deleteSimulationApplication.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletesimulationapplication
+        description: Amazon Web Services Deletesimulationapplication
+        call: robomaker-deletesimulationapplication.amazonwebservicesdeletesimulationapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-deletesimulationapplication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — deleteSimulationApplication. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletesimulationapplication
+      description: Amazon Web Services Deletesimulationapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-deletesimulationapplication.amazonwebservicesdeletesimulationapplication
+      outputParameters:
+      - type: object
+        mapping: $.

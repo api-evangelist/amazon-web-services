@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Object Lock Configuration
+  description: 'Amazon Web Services AWS S3 — Object Lock Configuration. 1 operations. Lead operation: Amazon Web Services
+    Put Object Lock Configuration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Object Lock Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-object-lock-configuration
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Object Lock Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?object-lock
+      path: /{Bucket}?object-lock
+      operations:
+      - name: putobjectlockconfiguration
+        method: PUT
+        description: Amazon Web Services Put Object Lock Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-object-lock-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Object Lock Configuration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-object-lock
+      name: bucket-object-lock
+      description: REST surface for Bucket}?object-lock.
+      operations:
+      - method: PUT
+        name: putobjectlockconfiguration
+        description: Amazon Web Services Put Object Lock Configuration
+        call: s3-object-lock-configuration.putobjectlockconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-object-lock-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Object Lock Configuration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-object
+      description: Amazon Web Services Put Object Lock Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-object-lock-configuration.putobjectlockconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

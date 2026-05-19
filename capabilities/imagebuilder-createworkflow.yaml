@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — CreateWorkflow
+  description: 'Amazon Web Services imagebuilder — CreateWorkflow. 1 operations. Lead operation: Amazon Web Services Createworkflow.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateWorkflow
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-createworkflow
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — CreateWorkflow business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateWorkflow
+      path: /CreateWorkflow
+      operations:
+      - name: amazonwebservicescreateworkflow
+        method: PUT
+        description: Amazon Web Services Createworkflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-createworkflow-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — CreateWorkflow. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/createworkflow
+      name: createworkflow
+      description: REST surface for CreateWorkflow.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreateworkflow
+        description: Amazon Web Services Createworkflow
+        call: imagebuilder-createworkflow.amazonwebservicescreateworkflow
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-createworkflow-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — CreateWorkflow. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createworkflow
+      description: Amazon Web Services Createworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-createworkflow.amazonwebservicescreateworkflow
+      outputParameters:
+      - type: object
+        mapping: $.

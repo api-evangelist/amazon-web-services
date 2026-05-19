@@ -1,0 +1,483 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cleanrooms — Memberships
+  description: 'Amazon Web Services cleanrooms — Memberships. 14 operations. Lead operation: Amazon Web Services Listmemberships.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Memberships
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cleanrooms-memberships
+    baseUri: ''
+    description: Amazon Web Services cleanrooms — Memberships business capability. Self-contained, no shared references.
+    resources:
+    - name: memberships
+      path: /memberships
+      operations:
+      - name: amazonwebserviceslistmemberships
+        method: GET
+        description: Amazon Web Services Listmemberships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier
+      path: /memberships/{membershipIdentifier}
+      operations:
+      - name: amazonwebservicesupdatemembership
+        method: PATCH
+        description: Amazon Web Services Updatemembership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-analysistemplates
+      path: /memberships/{membershipIdentifier}/analysistemplates
+      operations:
+      - name: amazonwebserviceslistanalysistemplates
+        method: GET
+        description: Amazon Web Services Listanalysistemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-analysistemplates-analysisTemplateIdentifier
+      path: /memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}
+      operations:
+      - name: amazonwebservicesupdateanalysistemplate
+        method: PATCH
+        description: Amazon Web Services Updateanalysistemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-configuredTableAssociations
+      path: /memberships/{membershipIdentifier}/configuredTableAssociations
+      operations:
+      - name: amazonwebserviceslistconfiguredtableassociations
+        method: GET
+        description: Amazon Web Services Listconfiguredtableassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-configuredTableAssociations-configuredTableAsso
+      path: /memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}
+      operations:
+      - name: amazonwebservicesupdateconfiguredtableassociation
+        method: PATCH
+        description: Amazon Web Services Updateconfiguredtableassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-configuredaudiencemodelassociations
+      path: /memberships/{membershipIdentifier}/configuredaudiencemodelassociations
+      operations:
+      - name: amazonwebserviceslistconfiguredaudiencemodelassociations
+        method: GET
+        description: Amazon Web Services Listconfiguredaudiencemodelassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-configuredaudiencemodelassociations-configuredA
+      path: /memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}
+      operations:
+      - name: amazonwebservicesupdateconfiguredaudiencemodelassociation
+        method: PATCH
+        description: Amazon Web Services Updateconfiguredaudiencemodelassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-previewprivacyimpact
+      path: /memberships/{membershipIdentifier}/previewprivacyimpact
+      operations:
+      - name: amazonwebservicespreviewprivacyimpact
+        method: POST
+        description: Amazon Web Services Previewprivacyimpact
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-privacybudgets
+      path: /memberships/{membershipIdentifier}/privacybudgets
+      operations:
+      - name: amazonwebserviceslistprivacybudgets
+        method: GET
+        description: Amazon Web Services Listprivacybudgets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-privacybudgettemplates
+      path: /memberships/{membershipIdentifier}/privacybudgettemplates
+      operations:
+      - name: amazonwebserviceslistprivacybudgettemplates
+        method: GET
+        description: Amazon Web Services Listprivacybudgettemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-privacybudgettemplates-privacyBudgetTemplateIde
+      path: /memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}
+      operations:
+      - name: amazonwebservicesupdateprivacybudgettemplate
+        method: PATCH
+        description: Amazon Web Services Updateprivacybudgettemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-protectedQueries
+      path: /memberships/{membershipIdentifier}/protectedQueries
+      operations:
+      - name: amazonwebservicesstartprotectedquery
+        method: POST
+        description: Amazon Web Services Startprotectedquery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: memberships-membershipIdentifier-protectedQueries-protectedQueryIdentifier
+      path: /memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}
+      operations:
+      - name: amazonwebservicesupdateprotectedquery
+        method: PATCH
+        description: Amazon Web Services Updateprotectedquery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cleanrooms-memberships-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cleanrooms — Memberships. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/memberships
+      name: memberships
+      description: REST surface for memberships.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmemberships
+        description: Amazon Web Services Listmemberships
+        call: cleanrooms-memberships.amazonwebserviceslistmemberships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}
+      name: memberships-membershipidentifier
+      description: REST surface for memberships-membershipIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatemembership
+        description: Amazon Web Services Updatemembership
+        call: cleanrooms-memberships.amazonwebservicesupdatemembership
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/analysistemplates
+      name: memberships-membershipidentifier-analysistemplates
+      description: REST surface for memberships-membershipIdentifier-analysistemplates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistanalysistemplates
+        description: Amazon Web Services Listanalysistemplates
+        call: cleanrooms-memberships.amazonwebserviceslistanalysistemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/analysistemplates/{analysistemplateidentifier}
+      name: memberships-membershipidentifier-analysistemplates-analysistemplateidentifier
+      description: REST surface for memberships-membershipIdentifier-analysistemplates-analysisTemplateIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateanalysistemplate
+        description: Amazon Web Services Updateanalysistemplate
+        call: cleanrooms-memberships.amazonwebservicesupdateanalysistemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/configuredtableassociations
+      name: memberships-membershipidentifier-configuredtableassociations
+      description: REST surface for memberships-membershipIdentifier-configuredTableAssociations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfiguredtableassociations
+        description: Amazon Web Services Listconfiguredtableassociations
+        call: cleanrooms-memberships.amazonwebserviceslistconfiguredtableassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/configuredtableassociations/{configuredtableassociationidentifier}
+      name: memberships-membershipidentifier-configuredtableassociations-configuredtableasso
+      description: REST surface for memberships-membershipIdentifier-configuredTableAssociations-configuredTableAsso.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconfiguredtableassociation
+        description: Amazon Web Services Updateconfiguredtableassociation
+        call: cleanrooms-memberships.amazonwebservicesupdateconfiguredtableassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/configuredaudiencemodelassociations
+      name: memberships-membershipidentifier-configuredaudiencemodelassociations
+      description: REST surface for memberships-membershipIdentifier-configuredaudiencemodelassociations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfiguredaudiencemodelassociations
+        description: Amazon Web Services Listconfiguredaudiencemodelassociations
+        call: cleanrooms-memberships.amazonwebserviceslistconfiguredaudiencemodelassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/configuredaudiencemodelassociations/{configuredaudiencemodelassociationidentifier}
+      name: memberships-membershipidentifier-configuredaudiencemodelassociations-configureda
+      description: REST surface for memberships-membershipIdentifier-configuredaudiencemodelassociations-configuredA.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconfiguredaudiencemodelassociation
+        description: Amazon Web Services Updateconfiguredaudiencemodelassociation
+        call: cleanrooms-memberships.amazonwebservicesupdateconfiguredaudiencemodelassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/previewprivacyimpact
+      name: memberships-membershipidentifier-previewprivacyimpact
+      description: REST surface for memberships-membershipIdentifier-previewprivacyimpact.
+      operations:
+      - method: POST
+        name: amazonwebservicespreviewprivacyimpact
+        description: Amazon Web Services Previewprivacyimpact
+        call: cleanrooms-memberships.amazonwebservicespreviewprivacyimpact
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/privacybudgets
+      name: memberships-membershipidentifier-privacybudgets
+      description: REST surface for memberships-membershipIdentifier-privacybudgets.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprivacybudgets
+        description: Amazon Web Services Listprivacybudgets
+        call: cleanrooms-memberships.amazonwebserviceslistprivacybudgets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/privacybudgettemplates
+      name: memberships-membershipidentifier-privacybudgettemplates
+      description: REST surface for memberships-membershipIdentifier-privacybudgettemplates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprivacybudgettemplates
+        description: Amazon Web Services Listprivacybudgettemplates
+        call: cleanrooms-memberships.amazonwebserviceslistprivacybudgettemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/privacybudgettemplates/{privacybudgettemplateidentifier}
+      name: memberships-membershipidentifier-privacybudgettemplates-privacybudgettemplateide
+      description: REST surface for memberships-membershipIdentifier-privacybudgettemplates-privacyBudgetTemplateIde.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateprivacybudgettemplate
+        description: Amazon Web Services Updateprivacybudgettemplate
+        call: cleanrooms-memberships.amazonwebservicesupdateprivacybudgettemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/protectedqueries
+      name: memberships-membershipidentifier-protectedqueries
+      description: REST surface for memberships-membershipIdentifier-protectedQueries.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartprotectedquery
+        description: Amazon Web Services Startprotectedquery
+        call: cleanrooms-memberships.amazonwebservicesstartprotectedquery
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/memberships/{membershipidentifier}/protectedqueries/{protectedqueryidentifier}
+      name: memberships-membershipidentifier-protectedqueries-protectedqueryidentifier
+      description: REST surface for memberships-membershipIdentifier-protectedQueries-protectedQueryIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateprotectedquery
+        description: Amazon Web Services Updateprotectedquery
+        call: cleanrooms-memberships.amazonwebservicesupdateprotectedquery
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cleanrooms-memberships-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cleanrooms — Memberships. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmemberships
+      description: Amazon Web Services Listmemberships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistmemberships
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemembership
+      description: Amazon Web Services Updatemembership
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdatemembership
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listanalysistemplates
+      description: Amazon Web Services Listanalysistemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistanalysistemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateanalysistemplate
+      description: Amazon Web Services Updateanalysistemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdateanalysistemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfiguredtableassociations
+      description: Amazon Web Services Listconfiguredtableassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistconfiguredtableassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfiguredtableassociation
+      description: Amazon Web Services Updateconfiguredtableassociation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdateconfiguredtableassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfiguredaudiencemodelassociations
+      description: Amazon Web Services Listconfiguredaudiencemodelassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistconfiguredaudiencemodelassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfiguredaudiencemodelassociation
+      description: Amazon Web Services Updateconfiguredaudiencemodelassociation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdateconfiguredaudiencemodelassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-previewprivacyimpact
+      description: Amazon Web Services Previewprivacyimpact
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cleanrooms-memberships.amazonwebservicespreviewprivacyimpact
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprivacybudgets
+      description: Amazon Web Services Listprivacybudgets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistprivacybudgets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprivacybudgettemplates
+      description: Amazon Web Services Listprivacybudgettemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebserviceslistprivacybudgettemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprivacybudgettemplate
+      description: Amazon Web Services Updateprivacybudgettemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdateprivacybudgettemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startprotectedquery
+      description: Amazon Web Services Startprotectedquery
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cleanrooms-memberships.amazonwebservicesstartprotectedquery
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprotectedquery
+      description: Amazon Web Services Updateprotectedquery
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-memberships.amazonwebservicesupdateprotectedquery
+      outputParameters:
+      - type: object
+        mapping: $.

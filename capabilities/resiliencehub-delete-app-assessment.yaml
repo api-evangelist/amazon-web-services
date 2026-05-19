@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Delete App Assessment
+  description: 'Amazon Web Services resiliencehub — Delete App Assessment. 1 operations. Lead operation: Amazon Web Services
+    Deleteappassessment. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete App Assessment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-delete-app-assessment
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Delete App Assessment business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: delete-app-assessment
+      path: /delete-app-assessment
+      operations:
+      - name: amazonwebservicesdeleteappassessment
+        method: POST
+        description: Amazon Web Services Deleteappassessment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-delete-app-assessment-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Delete App Assessment. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-app-assessment
+      name: delete-app-assessment
+      description: REST surface for delete-app-assessment.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteappassessment
+        description: Amazon Web Services Deleteappassessment
+        call: resiliencehub-delete-app-assessment.amazonwebservicesdeleteappassessment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-delete-app-assessment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Delete App Assessment. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteappassessment
+      description: Amazon Web Services Deleteappassessment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-delete-app-assessment.amazonwebservicesdeleteappassessment
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigatewayv2 — Models
+  description: 'Amazon Web Services apigatewayv2 — Models. 3 operations. Lead operation: Amazon Web Services Getmodels. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigatewayv2-models
+    baseUri: ''
+    description: Amazon Web Services apigatewayv2 — Models business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-apis-apiId-models
+      path: /v2/apis/{apiId}/models
+      operations:
+      - name: amazonwebservicesgetmodels
+        method: GET
+        description: Amazon Web Services Getmodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-models-modelId
+      path: /v2/apis/{apiId}/models/{modelId}
+      operations:
+      - name: amazonwebservicesupdatemodel
+        method: PATCH
+        description: Amazon Web Services Updatemodel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-models-modelId-template
+      path: /v2/apis/{apiId}/models/{modelId}/template
+      operations:
+      - name: amazonwebservicesgetmodeltemplate
+        method: GET
+        description: Amazon Web Services Getmodeltemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigatewayv2-models-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigatewayv2 — Models. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/apis/{apiid}/models
+      name: v2-apis-apiid-models
+      description: REST surface for v2-apis-apiId-models.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmodels
+        description: Amazon Web Services Getmodels
+        call: apigatewayv2-models.amazonwebservicesgetmodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/models/{modelid}
+      name: v2-apis-apiid-models-modelid
+      description: REST surface for v2-apis-apiId-models-modelId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatemodel
+        description: Amazon Web Services Updatemodel
+        call: apigatewayv2-models.amazonwebservicesupdatemodel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/models/{modelid}/template
+      name: v2-apis-apiid-models-modelid-template
+      description: REST surface for v2-apis-apiId-models-modelId-template.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmodeltemplate
+        description: Amazon Web Services Getmodeltemplate
+        call: apigatewayv2-models.amazonwebservicesgetmodeltemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigatewayv2-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigatewayv2 — Models. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getmodels
+      description: Amazon Web Services Getmodels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-models.amazonwebservicesgetmodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemodel
+      description: Amazon Web Services Updatemodel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-models.amazonwebservicesupdatemodel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmodeltemplate
+      description: Amazon Web Services Getmodeltemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-models.amazonwebservicesgetmodeltemplate
+      outputParameters:
+      - type: object
+        mapping: $.

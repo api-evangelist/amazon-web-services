@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services amp — Workspaces
+  description: 'Amazon Web Services amp — Workspaces. 7 operations. Lead operation: Amazon Web Services Listworkspaces. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Workspaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amp-workspaces
+    baseUri: ''
+    description: Amazon Web Services amp — Workspaces business capability. Self-contained, no shared references.
+    resources:
+    - name: workspaces
+      path: /workspaces
+      operations:
+      - name: amazonwebserviceslistworkspaces
+        method: GET
+        description: Amazon Web Services Listworkspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId
+      path: /workspaces/{workspaceId}
+      operations:
+      - name: amazonwebservicesdescribeworkspace
+        method: GET
+        description: Amazon Web Services Describeworkspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-alertmanager-definition
+      path: /workspaces/{workspaceId}/alertmanager/definition
+      operations:
+      - name: amazonwebservicesputalertmanagerdefinition
+        method: PUT
+        description: Amazon Web Services Putalertmanagerdefinition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-alias
+      path: /workspaces/{workspaceId}/alias
+      operations:
+      - name: amazonwebservicesupdateworkspacealias
+        method: POST
+        description: Amazon Web Services Updateworkspacealias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-logging
+      path: /workspaces/{workspaceId}/logging
+      operations:
+      - name: amazonwebservicesupdateloggingconfiguration
+        method: PUT
+        description: Amazon Web Services Updateloggingconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-rulegroupsnamespaces
+      path: /workspaces/{workspaceId}/rulegroupsnamespaces
+      operations:
+      - name: amazonwebserviceslistrulegroupsnamespaces
+        method: GET
+        description: Amazon Web Services Listrulegroupsnamespaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-rulegroupsnamespaces-name
+      path: /workspaces/{workspaceId}/rulegroupsnamespaces/{name}
+      operations:
+      - name: amazonwebservicesputrulegroupsnamespace
+        method: PUT
+        description: Amazon Web Services Putrulegroupsnamespace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: amp-workspaces-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services amp — Workspaces. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/workspaces
+      name: workspaces
+      description: REST surface for workspaces.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistworkspaces
+        description: Amazon Web Services Listworkspaces
+        call: amp-workspaces.amazonwebserviceslistworkspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}
+      name: workspaces-workspaceid
+      description: REST surface for workspaces-workspaceId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeworkspace
+        description: Amazon Web Services Describeworkspace
+        call: amp-workspaces.amazonwebservicesdescribeworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/alertmanager/definition
+      name: workspaces-workspaceid-alertmanager-definition
+      description: REST surface for workspaces-workspaceId-alertmanager-definition.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputalertmanagerdefinition
+        description: Amazon Web Services Putalertmanagerdefinition
+        call: amp-workspaces.amazonwebservicesputalertmanagerdefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/alias
+      name: workspaces-workspaceid-alias
+      description: REST surface for workspaces-workspaceId-alias.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateworkspacealias
+        description: Amazon Web Services Updateworkspacealias
+        call: amp-workspaces.amazonwebservicesupdateworkspacealias
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/logging
+      name: workspaces-workspaceid-logging
+      description: REST surface for workspaces-workspaceId-logging.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateloggingconfiguration
+        description: Amazon Web Services Updateloggingconfiguration
+        call: amp-workspaces.amazonwebservicesupdateloggingconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/rulegroupsnamespaces
+      name: workspaces-workspaceid-rulegroupsnamespaces
+      description: REST surface for workspaces-workspaceId-rulegroupsnamespaces.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrulegroupsnamespaces
+        description: Amazon Web Services Listrulegroupsnamespaces
+        call: amp-workspaces.amazonwebserviceslistrulegroupsnamespaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/rulegroupsnamespaces/{name}
+      name: workspaces-workspaceid-rulegroupsnamespaces-name
+      description: REST surface for workspaces-workspaceId-rulegroupsnamespaces-name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputrulegroupsnamespace
+        description: Amazon Web Services Putrulegroupsnamespace
+        call: amp-workspaces.amazonwebservicesputrulegroupsnamespace
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amp-workspaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services amp — Workspaces. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkspaces
+      description: Amazon Web Services Listworkspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebserviceslistworkspaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeworkspace
+      description: Amazon Web Services Describeworkspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebservicesdescribeworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putalertmanagerdefinition
+      description: Amazon Web Services Putalertmanagerdefinition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebservicesputalertmanagerdefinition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateworkspacealias
+      description: Amazon Web Services Updateworkspacealias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amp-workspaces.amazonwebservicesupdateworkspacealias
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateloggingconfiguration
+      description: Amazon Web Services Updateloggingconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebservicesupdateloggingconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrulegroupsnamespaces
+      description: Amazon Web Services Listrulegroupsnamespaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebserviceslistrulegroupsnamespaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putrulegroupsnamespace
+      description: Amazon Web Services Putrulegroupsnamespace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amp-workspaces.amazonwebservicesputrulegroupsnamespace
+      outputParameters:
+      - type: object
+        mapping: $.

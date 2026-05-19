@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services medical-imaging — getDICOMImportJob
+  description: 'Amazon Web Services medical-imaging — getDICOMImportJob. 1 operations. Lead operation: Amazon Web Services
+    Getdicomimportjob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - getDICOMImportJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: medical-imaging-getdicomimportjob
+    baseUri: ''
+    description: Amazon Web Services medical-imaging — getDICOMImportJob business capability. Self-contained, no shared references.
+    resources:
+    - name: getDICOMImportJob-datastore-datastoreId-job-jobId
+      path: /getDICOMImportJob/datastore/{datastoreId}/job/{jobId}
+      operations:
+      - name: amazonwebservicesgetdicomimportjob
+        method: GET
+        description: Amazon Web Services Getdicomimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: medical-imaging-getdicomimportjob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services medical-imaging — getDICOMImportJob. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getdicomimportjob/datastore/{datastoreid}/job/{jobid}
+      name: getdicomimportjob-datastore-datastoreid-job-jobid
+      description: REST surface for getDICOMImportJob-datastore-datastoreId-job-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdicomimportjob
+        description: Amazon Web Services Getdicomimportjob
+        call: medical-imaging-getdicomimportjob.amazonwebservicesgetdicomimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: medical-imaging-getdicomimportjob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services medical-imaging — getDICOMImportJob. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getdicomimportjob
+      description: Amazon Web Services Getdicomimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: medical-imaging-getdicomimportjob.amazonwebservicesgetdicomimportjob
+      outputParameters:
+      - type: object
+        mapping: $.

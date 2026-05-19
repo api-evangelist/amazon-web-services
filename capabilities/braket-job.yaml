@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services braket — Job
+  description: 'Amazon Web Services braket — Job. 3 operations. Lead operation: Amazon Web Services Createjob. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Job
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: braket-job
+    baseUri: ''
+    description: Amazon Web Services braket — Job business capability. Self-contained, no shared references.
+    resources:
+    - name: job
+      path: /job
+      operations:
+      - name: amazonwebservicescreatejob
+        method: POST
+        description: Amazon Web Services Createjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: job-jobArn
+      path: /job/{jobArn}
+      operations:
+      - name: amazonwebservicesgetjob
+        method: GET
+        description: Amazon Web Services Getjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: job-jobArn-cancel
+      path: /job/{jobArn}/cancel
+      operations:
+      - name: amazonwebservicescanceljob
+        method: PUT
+        description: Amazon Web Services Canceljob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: braket-job-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services braket — Job. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/job
+      name: job
+      description: REST surface for job.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatejob
+        description: Amazon Web Services Createjob
+        call: braket-job.amazonwebservicescreatejob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/job/{jobarn}
+      name: job-jobarn
+      description: REST surface for job-jobArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetjob
+        description: Amazon Web Services Getjob
+        call: braket-job.amazonwebservicesgetjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/job/{jobarn}/cancel
+      name: job-jobarn-cancel
+      description: REST surface for job-jobArn-cancel.
+      operations:
+      - method: PUT
+        name: amazonwebservicescanceljob
+        description: Amazon Web Services Canceljob
+        call: braket-job.amazonwebservicescanceljob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: braket-job-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services braket — Job. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createjob
+      description: Amazon Web Services Createjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: braket-job.amazonwebservicescreatejob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getjob
+      description: Amazon Web Services Getjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: braket-job.amazonwebservicesgetjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceljob
+      description: Amazon Web Services Canceljob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: braket-job.amazonwebservicescanceljob
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — List Applicationcomponents
+  description: 'Amazon Web Services migrationhubstrategy — List Applicationcomponents. 1 operations. Lead operation: Amazon
+    Web Services Listapplicationcomponents. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Applicationcomponents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-list-applicationcomponents
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — List Applicationcomponents business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: list-applicationcomponents
+      path: /list-applicationcomponents
+      operations:
+      - name: amazonwebserviceslistapplicationcomponents
+        method: POST
+        description: Amazon Web Services Listapplicationcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-list-applicationcomponents-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — List Applicationcomponents. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-applicationcomponents
+      name: list-applicationcomponents
+      description: REST surface for list-applicationcomponents.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistapplicationcomponents
+        description: Amazon Web Services Listapplicationcomponents
+        call: migrationhubstrategy-list-applicationcomponents.amazonwebserviceslistapplicationcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-list-applicationcomponents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — List Applicationcomponents. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listapplicationcomponents
+      description: Amazon Web Services Listapplicationcomponents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: migrationhubstrategy-list-applicationcomponents.amazonwebserviceslistapplicationcomponents
+      outputParameters:
+      - type: object
+        mapping: $.

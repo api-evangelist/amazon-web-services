@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services trustedadvisor — Recommendations
+  description: 'Amazon Web Services trustedadvisor — Recommendations. 4 operations. Lead operation: Amazon Web Services Listrecommendations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Recommendations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: trustedadvisor-recommendations
+    baseUri: ''
+    description: Amazon Web Services trustedadvisor — Recommendations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-recommendations
+      path: /v1/recommendations
+      operations:
+      - name: amazonwebserviceslistrecommendations
+        method: GET
+        description: Amazon Web Services Listrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-recommendations-recommendationIdentifier
+      path: /v1/recommendations/{recommendationIdentifier}
+      operations:
+      - name: amazonwebservicesgetrecommendation
+        method: GET
+        description: Amazon Web Services Getrecommendation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-recommendations-recommendationIdentifier-lifecycle
+      path: /v1/recommendations/{recommendationIdentifier}/lifecycle
+      operations:
+      - name: amazonwebservicesupdaterecommendationlifecycle
+        method: PUT
+        description: Amazon Web Services Updaterecommendationlifecycle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-recommendations-recommendationIdentifier-resources
+      path: /v1/recommendations/{recommendationIdentifier}/resources
+      operations:
+      - name: amazonwebserviceslistrecommendationresources
+        method: GET
+        description: Amazon Web Services Listrecommendationresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: trustedadvisor-recommendations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services trustedadvisor — Recommendations. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/recommendations
+      name: v1-recommendations
+      description: REST surface for v1-recommendations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecommendations
+        description: Amazon Web Services Listrecommendations
+        call: trustedadvisor-recommendations.amazonwebserviceslistrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/recommendations/{recommendationidentifier}
+      name: v1-recommendations-recommendationidentifier
+      description: REST surface for v1-recommendations-recommendationIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrecommendation
+        description: Amazon Web Services Getrecommendation
+        call: trustedadvisor-recommendations.amazonwebservicesgetrecommendation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/recommendations/{recommendationidentifier}/lifecycle
+      name: v1-recommendations-recommendationidentifier-lifecycle
+      description: REST surface for v1-recommendations-recommendationIdentifier-lifecycle.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdaterecommendationlifecycle
+        description: Amazon Web Services Updaterecommendationlifecycle
+        call: trustedadvisor-recommendations.amazonwebservicesupdaterecommendationlifecycle
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/recommendations/{recommendationidentifier}/resources
+      name: v1-recommendations-recommendationidentifier-resources
+      description: REST surface for v1-recommendations-recommendationIdentifier-resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecommendationresources
+        description: Amazon Web Services Listrecommendationresources
+        call: trustedadvisor-recommendations.amazonwebserviceslistrecommendationresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: trustedadvisor-recommendations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services trustedadvisor — Recommendations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrecommendations
+      description: Amazon Web Services Listrecommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-recommendations.amazonwebserviceslistrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getrecommendation
+      description: Amazon Web Services Getrecommendation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-recommendations.amazonwebservicesgetrecommendation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterecommendationlifecycle
+      description: Amazon Web Services Updaterecommendationlifecycle
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-recommendations.amazonwebservicesupdaterecommendationlifecycle
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrecommendationresources
+      description: Amazon Web Services Listrecommendationresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-recommendations.amazonwebserviceslistrecommendationresources
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — batchDescribeSimulationJob
+  description: 'Amazon Web Services robomaker — batchDescribeSimulationJob. 1 operations. Lead operation: Amazon Web Services
+    Batchdescribesimulationjob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - batchDescribeSimulationJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-batchdescribesimulationjob
+    baseUri: ''
+    description: Amazon Web Services robomaker — batchDescribeSimulationJob business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: batchDescribeSimulationJob
+      path: /batchDescribeSimulationJob
+      operations:
+      - name: amazonwebservicesbatchdescribesimulationjob
+        method: POST
+        description: Amazon Web Services Batchdescribesimulationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-batchdescribesimulationjob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — batchDescribeSimulationJob. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/batchdescribesimulationjob
+      name: batchdescribesimulationjob
+      description: REST surface for batchDescribeSimulationJob.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdescribesimulationjob
+        description: Amazon Web Services Batchdescribesimulationjob
+        call: robomaker-batchdescribesimulationjob.amazonwebservicesbatchdescribesimulationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-batchdescribesimulationjob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — batchDescribeSimulationJob. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchdescribesimulationjob
+      description: Amazon Web Services Batchdescribesimulationjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-batchdescribesimulationjob.amazonwebservicesbatchdescribesimulationjob
+      outputParameters:
+      - type: object
+        mapping: $.

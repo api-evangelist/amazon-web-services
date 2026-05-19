@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services privatenetworks — Network Sites
+  description: 'Amazon Web Services privatenetworks — Network Sites. 6 operations. Lead operation: Amazon Web Services Createnetworksite.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Network Sites
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: privatenetworks-network-sites
+    baseUri: ''
+    description: Amazon Web Services privatenetworks — Network Sites business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-network-sites
+      path: /v1/network-sites
+      operations:
+      - name: amazonwebservicescreatenetworksite
+        method: POST
+        description: Amazon Web Services Createnetworksite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-sites-activate
+      path: /v1/network-sites/activate
+      operations:
+      - name: amazonwebservicesactivatenetworksite
+        method: POST
+        description: Amazon Web Services Activatenetworksite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-sites-list
+      path: /v1/network-sites/list
+      operations:
+      - name: amazonwebserviceslistnetworksites
+        method: POST
+        description: Amazon Web Services Listnetworksites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-sites-plan
+      path: /v1/network-sites/plan
+      operations:
+      - name: amazonwebservicesupdatenetworksiteplan
+        method: PUT
+        description: Amazon Web Services Updatenetworksiteplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-sites-site
+      path: /v1/network-sites/site
+      operations:
+      - name: amazonwebservicesupdatenetworksite
+        method: PUT
+        description: Amazon Web Services Updatenetworksite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-sites-networkSiteArn
+      path: /v1/network-sites/{networkSiteArn}
+      operations:
+      - name: amazonwebservicesgetnetworksite
+        method: GET
+        description: Amazon Web Services Getnetworksite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: privatenetworks-network-sites-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services privatenetworks — Network Sites. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/network-sites
+      name: v1-network-sites
+      description: REST surface for v1-network-sites.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatenetworksite
+        description: Amazon Web Services Createnetworksite
+        call: privatenetworks-network-sites.amazonwebservicescreatenetworksite
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-sites/activate
+      name: v1-network-sites-activate
+      description: REST surface for v1-network-sites-activate.
+      operations:
+      - method: POST
+        name: amazonwebservicesactivatenetworksite
+        description: Amazon Web Services Activatenetworksite
+        call: privatenetworks-network-sites.amazonwebservicesactivatenetworksite
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-sites/list
+      name: v1-network-sites-list
+      description: REST surface for v1-network-sites-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistnetworksites
+        description: Amazon Web Services Listnetworksites
+        call: privatenetworks-network-sites.amazonwebserviceslistnetworksites
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-sites/plan
+      name: v1-network-sites-plan
+      description: REST surface for v1-network-sites-plan.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatenetworksiteplan
+        description: Amazon Web Services Updatenetworksiteplan
+        call: privatenetworks-network-sites.amazonwebservicesupdatenetworksiteplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-sites/site
+      name: v1-network-sites-site
+      description: REST surface for v1-network-sites-site.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatenetworksite
+        description: Amazon Web Services Updatenetworksite
+        call: privatenetworks-network-sites.amazonwebservicesupdatenetworksite
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-sites/{networksitearn}
+      name: v1-network-sites-networksitearn
+      description: REST surface for v1-network-sites-networkSiteArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworksite
+        description: Amazon Web Services Getnetworksite
+        call: privatenetworks-network-sites.amazonwebservicesgetnetworksite
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: privatenetworks-network-sites-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services privatenetworks — Network Sites. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createnetworksite
+      description: Amazon Web Services Createnetworksite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-sites.amazonwebservicescreatenetworksite
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-activatenetworksite
+      description: Amazon Web Services Activatenetworksite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-sites.amazonwebservicesactivatenetworksite
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listnetworksites
+      description: Amazon Web Services Listnetworksites
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-sites.amazonwebserviceslistnetworksites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatenetworksiteplan
+      description: Amazon Web Services Updatenetworksiteplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: privatenetworks-network-sites.amazonwebservicesupdatenetworksiteplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatenetworksite
+      description: Amazon Web Services Updatenetworksite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: privatenetworks-network-sites.amazonwebservicesupdatenetworksite
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworksite
+      description: Amazon Web Services Getnetworksite
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: privatenetworks-network-sites.amazonwebservicesgetnetworksite
+      outputParameters:
+      - type: object
+        mapping: $.

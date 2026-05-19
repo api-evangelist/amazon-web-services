@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — actionTargets
+  description: 'Amazon Web Services securityhub — actionTargets. 3 operations. Lead operation: Amazon Web Services Createactiontarget.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - actionTargets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-actiontargets
+    baseUri: ''
+    description: Amazon Web Services securityhub — actionTargets business capability. Self-contained, no shared references.
+    resources:
+    - name: actionTargets
+      path: /actionTargets
+      operations:
+      - name: amazonwebservicescreateactiontarget
+        method: POST
+        description: Amazon Web Services Createactiontarget
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: actionTargets-get
+      path: /actionTargets/get
+      operations:
+      - name: amazonwebservicesdescribeactiontargets
+        method: POST
+        description: Amazon Web Services Describeactiontargets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: actionTargets-ActionTargetArn+
+      path: /actionTargets/{ActionTargetArn+}
+      operations:
+      - name: amazonwebservicesupdateactiontarget
+        method: PATCH
+        description: Amazon Web Services Updateactiontarget
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-actiontargets-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — actionTargets. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/actiontargets
+      name: actiontargets
+      description: REST surface for actionTargets.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateactiontarget
+        description: Amazon Web Services Createactiontarget
+        call: securityhub-actiontargets.amazonwebservicescreateactiontarget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/actiontargets/get
+      name: actiontargets-get
+      description: REST surface for actionTargets-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeactiontargets
+        description: Amazon Web Services Describeactiontargets
+        call: securityhub-actiontargets.amazonwebservicesdescribeactiontargets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/actiontargets/{actiontargetarn}
+      name: actiontargets-actiontargetarn
+      description: REST surface for actionTargets-ActionTargetArn+.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateactiontarget
+        description: Amazon Web Services Updateactiontarget
+        call: securityhub-actiontargets.amazonwebservicesupdateactiontarget
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-actiontargets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — actionTargets. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createactiontarget
+      description: Amazon Web Services Createactiontarget
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-actiontargets.amazonwebservicescreateactiontarget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeactiontargets
+      description: Amazon Web Services Describeactiontargets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-actiontargets.amazonwebservicesdescribeactiontargets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateactiontarget
+      description: Amazon Web Services Updateactiontarget
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-actiontargets.amazonwebservicesupdateactiontarget
+      outputParameters:
+      - type: object
+        mapping: $.

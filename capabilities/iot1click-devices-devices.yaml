@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot1click-devices — Devices
+  description: 'Amazon Web Services iot1click-devices — Devices. 8 operations. Lead operation: Amazon Web Services Listdevices.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Devices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot1click-devices-devices
+    baseUri: ''
+    description: Amazon Web Services iot1click-devices — Devices business capability. Self-contained, no shared references.
+    resources:
+    - name: devices
+      path: /devices
+      operations:
+      - name: amazonwebserviceslistdevices
+        method: GET
+        description: Amazon Web Services Listdevices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId
+      path: /devices/{deviceId}
+      operations:
+      - name: amazonwebservicesdescribedevice
+        method: GET
+        description: Amazon Web Services Describedevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-events
+      path: /devices/{deviceId}/events
+      operations:
+      - name: amazonwebserviceslistdeviceevents
+        method: GET
+        description: Amazon Web Services Listdeviceevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-finalize-claim
+      path: /devices/{deviceId}/finalize-claim
+      operations:
+      - name: amazonwebservicesfinalizedeviceclaim
+        method: PUT
+        description: Amazon Web Services Finalizedeviceclaim
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-initiate-claim
+      path: /devices/{deviceId}/initiate-claim
+      operations:
+      - name: amazonwebservicesinitiatedeviceclaim
+        method: PUT
+        description: Amazon Web Services Initiatedeviceclaim
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-methods
+      path: /devices/{deviceId}/methods
+      operations:
+      - name: amazonwebservicesinvokedevicemethod
+        method: POST
+        description: Amazon Web Services Invokedevicemethod
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-state
+      path: /devices/{deviceId}/state
+      operations:
+      - name: amazonwebservicesupdatedevicestate
+        method: PUT
+        description: Amazon Web Services Updatedevicestate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-deviceId-unclaim
+      path: /devices/{deviceId}/unclaim
+      operations:
+      - name: amazonwebservicesunclaimdevice
+        method: PUT
+        description: Amazon Web Services Unclaimdevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot1click-devices-devices-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot1click-devices — Devices. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/devices
+      name: devices
+      description: REST surface for devices.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdevices
+        description: Amazon Web Services Listdevices
+        call: iot1click-devices-devices.amazonwebserviceslistdevices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}
+      name: devices-deviceid
+      description: REST surface for devices-deviceId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedevice
+        description: Amazon Web Services Describedevice
+        call: iot1click-devices-devices.amazonwebservicesdescribedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/events
+      name: devices-deviceid-events
+      description: REST surface for devices-deviceId-events.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdeviceevents
+        description: Amazon Web Services Listdeviceevents
+        call: iot1click-devices-devices.amazonwebserviceslistdeviceevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/finalize-claim
+      name: devices-deviceid-finalize-claim
+      description: REST surface for devices-deviceId-finalize-claim.
+      operations:
+      - method: PUT
+        name: amazonwebservicesfinalizedeviceclaim
+        description: Amazon Web Services Finalizedeviceclaim
+        call: iot1click-devices-devices.amazonwebservicesfinalizedeviceclaim
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/initiate-claim
+      name: devices-deviceid-initiate-claim
+      description: REST surface for devices-deviceId-initiate-claim.
+      operations:
+      - method: PUT
+        name: amazonwebservicesinitiatedeviceclaim
+        description: Amazon Web Services Initiatedeviceclaim
+        call: iot1click-devices-devices.amazonwebservicesinitiatedeviceclaim
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/methods
+      name: devices-deviceid-methods
+      description: REST surface for devices-deviceId-methods.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvokedevicemethod
+        description: Amazon Web Services Invokedevicemethod
+        call: iot1click-devices-devices.amazonwebservicesinvokedevicemethod
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/state
+      name: devices-deviceid-state
+      description: REST surface for devices-deviceId-state.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatedevicestate
+        description: Amazon Web Services Updatedevicestate
+        call: iot1click-devices-devices.amazonwebservicesupdatedevicestate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{deviceid}/unclaim
+      name: devices-deviceid-unclaim
+      description: REST surface for devices-deviceId-unclaim.
+      operations:
+      - method: PUT
+        name: amazonwebservicesunclaimdevice
+        description: Amazon Web Services Unclaimdevice
+        call: iot1click-devices-devices.amazonwebservicesunclaimdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot1click-devices-devices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot1click-devices — Devices. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdevices
+      description: Amazon Web Services Listdevices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebserviceslistdevices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedevice
+      description: Amazon Web Services Describedevice
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebservicesdescribedevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdeviceevents
+      description: Amazon Web Services Listdeviceevents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebserviceslistdeviceevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-finalizedeviceclaim
+      description: Amazon Web Services Finalizedeviceclaim
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebservicesfinalizedeviceclaim
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-initiatedeviceclaim
+      description: Amazon Web Services Initiatedeviceclaim
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebservicesinitiatedeviceclaim
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-invokedevicemethod
+      description: Amazon Web Services Invokedevicemethod
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot1click-devices-devices.amazonwebservicesinvokedevicemethod
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedevicestate
+      description: Amazon Web Services Updatedevicestate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebservicesupdatedevicestate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-unclaimdevice
+      description: Amazon Web Services Unclaimdevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-devices.amazonwebservicesunclaimdevice
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Queues
+  description: 'Amazon Web Services connect — Queues. 10 operations. Lead operation: Amazon Web Services Createqueue. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Queues
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-queues
+    baseUri: ''
+    description: Amazon Web Services connect — Queues business capability. Self-contained, no shared references.
+    resources:
+    - name: queues-InstanceId
+      path: /queues/{InstanceId}
+      operations:
+      - name: amazonwebservicescreatequeue
+        method: PUT
+        description: Amazon Web Services Createqueue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId
+      path: /queues/{InstanceId}/{QueueId}
+      operations:
+      - name: amazonwebservicesdescribequeue
+        method: GET
+        description: Amazon Web Services Describequeue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-associate-quick-connects
+      path: /queues/{InstanceId}/{QueueId}/associate-quick-connects
+      operations:
+      - name: amazonwebservicesassociatequeuequickconnects
+        method: POST
+        description: Amazon Web Services Associatequeuequickconnects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-disassociate-quick-connects
+      path: /queues/{InstanceId}/{QueueId}/disassociate-quick-connects
+      operations:
+      - name: amazonwebservicesdisassociatequeuequickconnects
+        method: POST
+        description: Amazon Web Services Disassociatequeuequickconnects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-hours-of-operation
+      path: /queues/{InstanceId}/{QueueId}/hours-of-operation
+      operations:
+      - name: amazonwebservicesupdatequeuehoursofoperation
+        method: POST
+        description: Amazon Web Services Updatequeuehoursofoperation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-max-contacts
+      path: /queues/{InstanceId}/{QueueId}/max-contacts
+      operations:
+      - name: amazonwebservicesupdatequeuemaxcontacts
+        method: POST
+        description: Amazon Web Services Updatequeuemaxcontacts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-name
+      path: /queues/{InstanceId}/{QueueId}/name
+      operations:
+      - name: amazonwebservicesupdatequeuename
+        method: POST
+        description: Amazon Web Services Updatequeuename
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-outbound-caller-config
+      path: /queues/{InstanceId}/{QueueId}/outbound-caller-config
+      operations:
+      - name: amazonwebservicesupdatequeueoutboundcallerconfig
+        method: POST
+        description: Amazon Web Services Updatequeueoutboundcallerconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-quick-connects
+      path: /queues/{InstanceId}/{QueueId}/quick-connects
+      operations:
+      - name: amazonwebserviceslistqueuequickconnects
+        method: GET
+        description: Amazon Web Services Listqueuequickconnects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queues-InstanceId-QueueId-status
+      path: /queues/{InstanceId}/{QueueId}/status
+      operations:
+      - name: amazonwebservicesupdatequeuestatus
+        method: POST
+        description: Amazon Web Services Updatequeuestatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-queues-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Queues. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/queues/{instanceid}
+      name: queues-instanceid
+      description: REST surface for queues-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreatequeue
+        description: Amazon Web Services Createqueue
+        call: connect-queues.amazonwebservicescreatequeue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}
+      name: queues-instanceid-queueid
+      description: REST surface for queues-InstanceId-QueueId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribequeue
+        description: Amazon Web Services Describequeue
+        call: connect-queues.amazonwebservicesdescribequeue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/associate-quick-connects
+      name: queues-instanceid-queueid-associate-quick-connects
+      description: REST surface for queues-InstanceId-QueueId-associate-quick-connects.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociatequeuequickconnects
+        description: Amazon Web Services Associatequeuequickconnects
+        call: connect-queues.amazonwebservicesassociatequeuequickconnects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/disassociate-quick-connects
+      name: queues-instanceid-queueid-disassociate-quick-connects
+      description: REST surface for queues-InstanceId-QueueId-disassociate-quick-connects.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatequeuequickconnects
+        description: Amazon Web Services Disassociatequeuequickconnects
+        call: connect-queues.amazonwebservicesdisassociatequeuequickconnects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/hours-of-operation
+      name: queues-instanceid-queueid-hours-of-operation
+      description: REST surface for queues-InstanceId-QueueId-hours-of-operation.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequeuehoursofoperation
+        description: Amazon Web Services Updatequeuehoursofoperation
+        call: connect-queues.amazonwebservicesupdatequeuehoursofoperation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/max-contacts
+      name: queues-instanceid-queueid-max-contacts
+      description: REST surface for queues-InstanceId-QueueId-max-contacts.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequeuemaxcontacts
+        description: Amazon Web Services Updatequeuemaxcontacts
+        call: connect-queues.amazonwebservicesupdatequeuemaxcontacts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/name
+      name: queues-instanceid-queueid-name
+      description: REST surface for queues-InstanceId-QueueId-name.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequeuename
+        description: Amazon Web Services Updatequeuename
+        call: connect-queues.amazonwebservicesupdatequeuename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/outbound-caller-config
+      name: queues-instanceid-queueid-outbound-caller-config
+      description: REST surface for queues-InstanceId-QueueId-outbound-caller-config.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequeueoutboundcallerconfig
+        description: Amazon Web Services Updatequeueoutboundcallerconfig
+        call: connect-queues.amazonwebservicesupdatequeueoutboundcallerconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/quick-connects
+      name: queues-instanceid-queueid-quick-connects
+      description: REST surface for queues-InstanceId-QueueId-quick-connects.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistqueuequickconnects
+        description: Amazon Web Services Listqueuequickconnects
+        call: connect-queues.amazonwebserviceslistqueuequickconnects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queues/{instanceid}/{queueid}/status
+      name: queues-instanceid-queueid-status
+      description: REST surface for queues-InstanceId-QueueId-status.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequeuestatus
+        description: Amazon Web Services Updatequeuestatus
+        call: connect-queues.amazonwebservicesupdatequeuestatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-queues-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Queues. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createqueue
+      description: Amazon Web Services Createqueue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-queues.amazonwebservicescreatequeue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describequeue
+      description: Amazon Web Services Describequeue
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-queues.amazonwebservicesdescribequeue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-associatequeuequickconnects
+      description: Amazon Web Services Associatequeuequickconnects
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesassociatequeuequickconnects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatequeuequickconnects
+      description: Amazon Web Services Disassociatequeuequickconnects
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesdisassociatequeuequickconnects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequeuehoursofoperation
+      description: Amazon Web Services Updatequeuehoursofoperation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesupdatequeuehoursofoperation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequeuemaxcontacts
+      description: Amazon Web Services Updatequeuemaxcontacts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesupdatequeuemaxcontacts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequeuename
+      description: Amazon Web Services Updatequeuename
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesupdatequeuename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequeueoutboundcallerconfig
+      description: Amazon Web Services Updatequeueoutboundcallerconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesupdatequeueoutboundcallerconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listqueuequickconnects
+      description: Amazon Web Services Listqueuequickconnects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-queues.amazonwebserviceslistqueuequickconnects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequeuestatus
+      description: Amazon Web Services Updatequeuestatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-queues.amazonwebservicesupdatequeuestatus
+      outputParameters:
+      - type: object
+        mapping: $.

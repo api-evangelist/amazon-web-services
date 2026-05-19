@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — Insights
+  description: 'Amazon Web Services auditmanager — Insights. 6 operations. Lead operation: Amazon Web Services Getinsights.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Insights
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-insights
+    baseUri: ''
+    description: Amazon Web Services auditmanager — Insights business capability. Self-contained, no shared references.
+    resources:
+    - name: insights
+      path: /insights
+      operations:
+      - name: amazonwebservicesgetinsights
+        method: GET
+        description: Amazon Web Services Getinsights
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights-assessments-assessmentId
+      path: /insights/assessments/{assessmentId}
+      operations:
+      - name: amazonwebservicesgetinsightsbyassessment
+        method: GET
+        description: Amazon Web Services Getinsightsbyassessment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights-control-domains
+      path: /insights/control-domains
+      operations:
+      - name: amazonwebserviceslistcontroldomaininsights
+        method: GET
+        description: Amazon Web Services Listcontroldomaininsights
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights-control-domains-by-assessment
+      path: /insights/control-domains-by-assessment
+      operations:
+      - name: amazonwebserviceslistcontroldomaininsightsbyassessment
+        method: GET
+        description: Amazon Web Services Listcontroldomaininsightsbyassessment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights-controls
+      path: /insights/controls
+      operations:
+      - name: amazonwebserviceslistcontrolinsightsbycontroldomain
+        method: GET
+        description: Amazon Web Services Listcontrolinsightsbycontroldomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights-controls-by-assessment
+      path: /insights/controls-by-assessment
+      operations:
+      - name: amazonwebserviceslistassessmentcontrolinsightsbycontroldomain
+        method: GET
+        description: Amazon Web Services Listassessmentcontrolinsightsbycontroldomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-insights-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — Insights. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/insights
+      name: insights
+      description: REST surface for insights.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetinsights
+        description: Amazon Web Services Getinsights
+        call: auditmanager-insights.amazonwebservicesgetinsights
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/insights/assessments/{assessmentid}
+      name: insights-assessments-assessmentid
+      description: REST surface for insights-assessments-assessmentId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetinsightsbyassessment
+        description: Amazon Web Services Getinsightsbyassessment
+        call: auditmanager-insights.amazonwebservicesgetinsightsbyassessment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/insights/control-domains
+      name: insights-control-domains
+      description: REST surface for insights-control-domains.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcontroldomaininsights
+        description: Amazon Web Services Listcontroldomaininsights
+        call: auditmanager-insights.amazonwebserviceslistcontroldomaininsights
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/insights/control-domains-by-assessment
+      name: insights-control-domains-by-assessment
+      description: REST surface for insights-control-domains-by-assessment.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcontroldomaininsightsbyassessment
+        description: Amazon Web Services Listcontroldomaininsightsbyassessment
+        call: auditmanager-insights.amazonwebserviceslistcontroldomaininsightsbyassessment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/insights/controls
+      name: insights-controls
+      description: REST surface for insights-controls.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcontrolinsightsbycontroldomain
+        description: Amazon Web Services Listcontrolinsightsbycontroldomain
+        call: auditmanager-insights.amazonwebserviceslistcontrolinsightsbycontroldomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/insights/controls-by-assessment
+      name: insights-controls-by-assessment
+      description: REST surface for insights-controls-by-assessment.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassessmentcontrolinsightsbycontroldomain
+        description: Amazon Web Services Listassessmentcontrolinsightsbycontroldomain
+        call: auditmanager-insights.amazonwebserviceslistassessmentcontrolinsightsbycontroldomain
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-insights-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — Insights. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getinsights
+      description: Amazon Web Services Getinsights
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebservicesgetinsights
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getinsightsbyassessment
+      description: Amazon Web Services Getinsightsbyassessment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebservicesgetinsightsbyassessment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcontroldomaininsights
+      description: Amazon Web Services Listcontroldomaininsights
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebserviceslistcontroldomaininsights
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcontroldomaininsightsbyassessment
+      description: Amazon Web Services Listcontroldomaininsightsbyassessment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebserviceslistcontroldomaininsightsbyassessment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcontrolinsightsbycontroldomain
+      description: Amazon Web Services Listcontrolinsightsbycontroldomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebserviceslistcontrolinsightsbycontroldomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassessmentcontrolinsightsbycontroldomain
+      description: Amazon Web Services Listassessmentcontrolinsightsbycontroldomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-insights.amazonwebserviceslistassessmentcontrolinsightsbycontroldomain
+      outputParameters:
+      - type: object
+        mapping: $.

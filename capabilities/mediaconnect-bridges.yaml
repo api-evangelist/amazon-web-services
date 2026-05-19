@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediaconnect — Bridges
+  description: 'Amazon Web Services mediaconnect — Bridges. 7 operations. Lead operation: Amazon Web Services Listbridges.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bridges
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediaconnect-bridges
+    baseUri: ''
+    description: Amazon Web Services mediaconnect — Bridges business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-bridges
+      path: /v1/bridges
+      operations:
+      - name: amazonwebserviceslistbridges
+        method: GET
+        description: Amazon Web Services Listbridges
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn
+      path: /v1/bridges/{bridgeArn}
+      operations:
+      - name: amazonwebservicesupdatebridge
+        method: PUT
+        description: Amazon Web Services Updatebridge
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn-outputs
+      path: /v1/bridges/{bridgeArn}/outputs
+      operations:
+      - name: amazonwebservicesaddbridgeoutputs
+        method: POST
+        description: Amazon Web Services Addbridgeoutputs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn-outputs-outputName
+      path: /v1/bridges/{bridgeArn}/outputs/{outputName}
+      operations:
+      - name: amazonwebservicesupdatebridgeoutput
+        method: PUT
+        description: Amazon Web Services Updatebridgeoutput
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn-sources
+      path: /v1/bridges/{bridgeArn}/sources
+      operations:
+      - name: amazonwebservicesaddbridgesources
+        method: POST
+        description: Amazon Web Services Addbridgesources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn-sources-sourceName
+      path: /v1/bridges/{bridgeArn}/sources/{sourceName}
+      operations:
+      - name: amazonwebservicesupdatebridgesource
+        method: PUT
+        description: Amazon Web Services Updatebridgesource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-bridges-bridgeArn-state
+      path: /v1/bridges/{bridgeArn}/state
+      operations:
+      - name: amazonwebservicesupdatebridgestate
+        method: PUT
+        description: Amazon Web Services Updatebridgestate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediaconnect-bridges-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediaconnect — Bridges. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/bridges
+      name: v1-bridges
+      description: REST surface for v1-bridges.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbridges
+        description: Amazon Web Services Listbridges
+        call: mediaconnect-bridges.amazonwebserviceslistbridges
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}
+      name: v1-bridges-bridgearn
+      description: REST surface for v1-bridges-bridgeArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatebridge
+        description: Amazon Web Services Updatebridge
+        call: mediaconnect-bridges.amazonwebservicesupdatebridge
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}/outputs
+      name: v1-bridges-bridgearn-outputs
+      description: REST surface for v1-bridges-bridgeArn-outputs.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddbridgeoutputs
+        description: Amazon Web Services Addbridgeoutputs
+        call: mediaconnect-bridges.amazonwebservicesaddbridgeoutputs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}/outputs/{outputname}
+      name: v1-bridges-bridgearn-outputs-outputname
+      description: REST surface for v1-bridges-bridgeArn-outputs-outputName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatebridgeoutput
+        description: Amazon Web Services Updatebridgeoutput
+        call: mediaconnect-bridges.amazonwebservicesupdatebridgeoutput
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}/sources
+      name: v1-bridges-bridgearn-sources
+      description: REST surface for v1-bridges-bridgeArn-sources.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddbridgesources
+        description: Amazon Web Services Addbridgesources
+        call: mediaconnect-bridges.amazonwebservicesaddbridgesources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}/sources/{sourcename}
+      name: v1-bridges-bridgearn-sources-sourcename
+      description: REST surface for v1-bridges-bridgeArn-sources-sourceName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatebridgesource
+        description: Amazon Web Services Updatebridgesource
+        call: mediaconnect-bridges.amazonwebservicesupdatebridgesource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/bridges/{bridgearn}/state
+      name: v1-bridges-bridgearn-state
+      description: REST surface for v1-bridges-bridgeArn-state.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatebridgestate
+        description: Amazon Web Services Updatebridgestate
+        call: mediaconnect-bridges.amazonwebservicesupdatebridgestate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediaconnect-bridges-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediaconnect — Bridges. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listbridges
+      description: Amazon Web Services Listbridges
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-bridges.amazonwebserviceslistbridges
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebridge
+      description: Amazon Web Services Updatebridge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-bridges.amazonwebservicesupdatebridge
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addbridgeoutputs
+      description: Amazon Web Services Addbridgeoutputs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-bridges.amazonwebservicesaddbridgeoutputs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebridgeoutput
+      description: Amazon Web Services Updatebridgeoutput
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-bridges.amazonwebservicesupdatebridgeoutput
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addbridgesources
+      description: Amazon Web Services Addbridgesources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-bridges.amazonwebservicesaddbridgesources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebridgesource
+      description: Amazon Web Services Updatebridgesource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-bridges.amazonwebservicesupdatebridgesource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebridgestate
+      description: Amazon Web Services Updatebridgestate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-bridges.amazonwebservicesupdatebridgestate
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — DeletePlaybackRestrictionPolicy
+  description: 'Amazon Web Services ivs — DeletePlaybackRestrictionPolicy. 1 operations. Lead operation: Amazon Web Services
+    Deleteplaybackrestrictionpolicy. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeletePlaybackRestrictionPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-deleteplaybackrestrictionpolicy
+    baseUri: ''
+    description: Amazon Web Services ivs — DeletePlaybackRestrictionPolicy business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: DeletePlaybackRestrictionPolicy
+      path: /DeletePlaybackRestrictionPolicy
+      operations:
+      - name: amazonwebservicesdeleteplaybackrestrictionpolicy
+        method: POST
+        description: Amazon Web Services Deleteplaybackrestrictionpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-deleteplaybackrestrictionpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — DeletePlaybackRestrictionPolicy. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleteplaybackrestrictionpolicy
+      name: deleteplaybackrestrictionpolicy
+      description: REST surface for DeletePlaybackRestrictionPolicy.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteplaybackrestrictionpolicy
+        description: Amazon Web Services Deleteplaybackrestrictionpolicy
+        call: ivs-deleteplaybackrestrictionpolicy.amazonwebservicesdeleteplaybackrestrictionpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-deleteplaybackrestrictionpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — DeletePlaybackRestrictionPolicy. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteplaybackrestrictionpolicy
+      description: Amazon Web Services Deleteplaybackrestrictionpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-deleteplaybackrestrictionpolicy.amazonwebservicesdeleteplaybackrestrictionpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

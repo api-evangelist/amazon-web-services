@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services entitlement.marketplace
+  description: 'Amazon Web Services entitlement.marketplace. 1 operations. Lead operation: Amazon Web Services Getentitlements.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services entitlement.marketplace
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: entitlementmarketplace
+    baseUri: ''
+    description: Amazon Web Services entitlement.marketplace business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesgetentitlements
+        method: POST
+        description: Amazon Web Services Getentitlements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: entitlementmarketplace-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services entitlement.marketplace. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetentitlements
+        description: Amazon Web Services Getentitlements
+        call: entitlementmarketplace.amazonwebservicesgetentitlements
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: entitlementmarketplace-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services entitlement.marketplace. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getentitlements
+      description: Amazon Web Services Getentitlements
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: entitlementmarketplace.amazonwebservicesgetentitlements
+      outputParameters:
+      - type: object
+        mapping: $.

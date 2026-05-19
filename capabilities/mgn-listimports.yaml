@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ListImports
+  description: 'Amazon Web Services mgn — ListImports. 1 operations. Lead operation: Amazon Web Services Listimports. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListImports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-listimports
+    baseUri: ''
+    description: Amazon Web Services mgn — ListImports business capability. Self-contained, no shared references.
+    resources:
+    - name: ListImports
+      path: /ListImports
+      operations:
+      - name: amazonwebserviceslistimports
+        method: POST
+        description: Amazon Web Services Listimports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-listimports-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ListImports. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listimports
+      name: listimports
+      description: REST surface for ListImports.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimports
+        description: Amazon Web Services Listimports
+        call: mgn-listimports.amazonwebserviceslistimports
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-listimports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ListImports. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimports
+      description: Amazon Web Services Listimports
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-listimports.amazonwebserviceslistimports
+      outputParameters:
+      - type: object
+        mapping: $.

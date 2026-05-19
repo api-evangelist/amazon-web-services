@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Principal Policies
+  description: 'Amazon Web Services iot — Principal Policies. 2 operations. Lead operation: Amazon Web Services Listprincipalpolicies.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Principal Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-principal-policies
+    baseUri: ''
+    description: Amazon Web Services iot — Principal Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: principal-policies
+      path: /principal-policies
+      operations:
+      - name: amazonwebserviceslistprincipalpolicies
+        method: GET
+        description: Amazon Web Services Listprincipalpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: principal-policies-policyName
+      path: /principal-policies/{policyName}
+      operations:
+      - name: amazonwebservicesdetachprincipalpolicy
+        method: DELETE
+        description: Amazon Web Services Detachprincipalpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-principal-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Principal Policies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/principal-policies
+      name: principal-policies
+      description: REST surface for principal-policies.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprincipalpolicies
+        description: Amazon Web Services Listprincipalpolicies
+        call: iot-principal-policies.amazonwebserviceslistprincipalpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/principal-policies/{policyname}
+      name: principal-policies-policyname
+      description: REST surface for principal-policies-policyName.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdetachprincipalpolicy
+        description: Amazon Web Services Detachprincipalpolicy
+        call: iot-principal-policies.amazonwebservicesdetachprincipalpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-principal-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Principal Policies. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprincipalpolicies
+      description: Amazon Web Services Listprincipalpolicies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-principal-policies.amazonwebserviceslistprincipalpolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-detachprincipalpolicy
+      description: Amazon Web Services Detachprincipalpolicy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: iot-principal-policies.amazonwebservicesdetachprincipalpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

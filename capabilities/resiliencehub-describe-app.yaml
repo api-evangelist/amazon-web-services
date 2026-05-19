@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Describe App
+  description: 'Amazon Web Services resiliencehub — Describe App. 1 operations. Lead operation: Amazon Web Services Describeapp.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe App
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-describe-app
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Describe App business capability. Self-contained, no shared references.
+    resources:
+    - name: describe-app
+      path: /describe-app
+      operations:
+      - name: amazonwebservicesdescribeapp
+        method: POST
+        description: Amazon Web Services Describeapp
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-describe-app-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Describe App. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-app
+      name: describe-app
+      description: REST surface for describe-app.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeapp
+        description: Amazon Web Services Describeapp
+        call: resiliencehub-describe-app.amazonwebservicesdescribeapp
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-describe-app-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Describe App. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeapp
+      description: Amazon Web Services Describeapp
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-describe-app.amazonwebservicesdescribeapp
+      outputParameters:
+      - type: object
+        mapping: $.

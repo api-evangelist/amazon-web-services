@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Queues Summary
+  description: 'Amazon Web Services connect — Queues Summary. 1 operations. Lead operation: Amazon Web Services Listqueues.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Queues Summary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-queues-summary
+    baseUri: ''
+    description: Amazon Web Services connect — Queues Summary business capability. Self-contained, no shared references.
+    resources:
+    - name: queues-summary-InstanceId
+      path: /queues-summary/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistqueues
+        method: GET
+        description: Amazon Web Services Listqueues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-queues-summary-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Queues Summary. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/queues-summary/{instanceid}
+      name: queues-summary-instanceid
+      description: REST surface for queues-summary-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistqueues
+        description: Amazon Web Services Listqueues
+        call: connect-queues-summary.amazonwebserviceslistqueues
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-queues-summary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Queues Summary. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listqueues
+      description: Amazon Web Services Listqueues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-queues-summary.amazonwebserviceslistqueues
+      outputParameters:
+      - type: object
+        mapping: $.

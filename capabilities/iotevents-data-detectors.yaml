@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotevents-data — Detectors
+  description: 'Amazon Web Services iotevents-data — Detectors. 4 operations. Lead operation: Amazon Web Services Batchupdatedetector.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Detectors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotevents-data-detectors
+    baseUri: ''
+    description: Amazon Web Services iotevents-data — Detectors business capability. Self-contained, no shared references.
+    resources:
+    - name: detectors
+      path: /detectors
+      operations:
+      - name: amazonwebservicesbatchupdatedetector
+        method: POST
+        description: Amazon Web Services Batchupdatedetector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detectors-delete
+      path: /detectors/delete
+      operations:
+      - name: amazonwebservicesbatchdeletedetector
+        method: POST
+        description: Amazon Web Services Batchdeletedetector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detectors-detectorModelName
+      path: /detectors/{detectorModelName}
+      operations:
+      - name: amazonwebserviceslistdetectors
+        method: GET
+        description: Amazon Web Services Listdetectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detectors-detectorModelName-keyValues
+      path: /detectors/{detectorModelName}/keyValues/
+      operations:
+      - name: amazonwebservicesdescribedetector
+        method: GET
+        description: Amazon Web Services Describedetector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotevents-data-detectors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotevents-data — Detectors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/detectors
+      name: detectors
+      description: REST surface for detectors.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchupdatedetector
+        description: Amazon Web Services Batchupdatedetector
+        call: iotevents-data-detectors.amazonwebservicesbatchupdatedetector
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detectors/delete
+      name: detectors-delete
+      description: REST surface for detectors-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdeletedetector
+        description: Amazon Web Services Batchdeletedetector
+        call: iotevents-data-detectors.amazonwebservicesbatchdeletedetector
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detectors/{detectormodelname}
+      name: detectors-detectormodelname
+      description: REST surface for detectors-detectorModelName.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdetectors
+        description: Amazon Web Services Listdetectors
+        call: iotevents-data-detectors.amazonwebserviceslistdetectors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detectors/{detectormodelname}/keyvalues
+      name: detectors-detectormodelname-keyvalues
+      description: REST surface for detectors-detectorModelName-keyValues.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedetector
+        description: Amazon Web Services Describedetector
+        call: iotevents-data-detectors.amazonwebservicesdescribedetector
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotevents-data-detectors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotevents-data — Detectors. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchupdatedetector
+      description: Amazon Web Services Batchupdatedetector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-detectors.amazonwebservicesbatchupdatedetector
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdeletedetector
+      description: Amazon Web Services Batchdeletedetector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-data-detectors.amazonwebservicesbatchdeletedetector
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdetectors
+      description: Amazon Web Services Listdetectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-data-detectors.amazonwebserviceslistdetectors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedetector
+      description: Amazon Web Services Describedetector
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-data-detectors.amazonwebservicesdescribedetector
+      outputParameters:
+      - type: object
+        mapping: $.

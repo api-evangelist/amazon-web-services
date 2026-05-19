@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services omics — Referencestore
+  description: 'Amazon Web Services omics — Referencestore. 8 operations. Lead operation: Amazon Web Services Createreferencestore.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Referencestore
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: omics-referencestore
+    baseUri: ''
+    description: Amazon Web Services omics — Referencestore business capability. Self-contained, no shared references.
+    resources:
+    - name: referencestore
+      path: /referencestore
+      operations:
+      - name: amazonwebservicescreatereferencestore
+        method: POST
+        description: Amazon Web Services Createreferencestore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-id
+      path: /referencestore/{id}
+      operations:
+      - name: amazonwebservicesgetreferencestore
+        method: GET
+        description: Amazon Web Services Getreferencestore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-importjob
+      path: /referencestore/{referenceStoreId}/importjob
+      operations:
+      - name: amazonwebservicesstartreferenceimportjob
+        method: POST
+        description: Amazon Web Services Startreferenceimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-importjob-id
+      path: /referencestore/{referenceStoreId}/importjob/{id}
+      operations:
+      - name: amazonwebservicesgetreferenceimportjob
+        method: GET
+        description: Amazon Web Services Getreferenceimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-importjobs
+      path: /referencestore/{referenceStoreId}/importjobs
+      operations:
+      - name: amazonwebserviceslistreferenceimportjobs
+        method: POST
+        description: Amazon Web Services Listreferenceimportjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-reference-id
+      path: /referencestore/{referenceStoreId}/reference/{id}
+      operations:
+      - name: amazonwebservicesgetreference
+        method: GET
+        description: Amazon Web Services Getreference
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-reference-id-metadata
+      path: /referencestore/{referenceStoreId}/reference/{id}/metadata
+      operations:
+      - name: amazonwebservicesgetreferencemetadata
+        method: GET
+        description: Amazon Web Services Getreferencemetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: referencestore-referenceStoreId-references
+      path: /referencestore/{referenceStoreId}/references
+      operations:
+      - name: amazonwebserviceslistreferences
+        method: POST
+        description: Amazon Web Services Listreferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: omics-referencestore-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services omics — Referencestore. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/referencestore
+      name: referencestore
+      description: REST surface for referencestore.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatereferencestore
+        description: Amazon Web Services Createreferencestore
+        call: omics-referencestore.amazonwebservicescreatereferencestore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{id}
+      name: referencestore-id
+      description: REST surface for referencestore-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreferencestore
+        description: Amazon Web Services Getreferencestore
+        call: omics-referencestore.amazonwebservicesgetreferencestore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/importjob
+      name: referencestore-referencestoreid-importjob
+      description: REST surface for referencestore-referenceStoreId-importjob.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartreferenceimportjob
+        description: Amazon Web Services Startreferenceimportjob
+        call: omics-referencestore.amazonwebservicesstartreferenceimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/importjob/{id}
+      name: referencestore-referencestoreid-importjob-id
+      description: REST surface for referencestore-referenceStoreId-importjob-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreferenceimportjob
+        description: Amazon Web Services Getreferenceimportjob
+        call: omics-referencestore.amazonwebservicesgetreferenceimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/importjobs
+      name: referencestore-referencestoreid-importjobs
+      description: REST surface for referencestore-referenceStoreId-importjobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreferenceimportjobs
+        description: Amazon Web Services Listreferenceimportjobs
+        call: omics-referencestore.amazonwebserviceslistreferenceimportjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/reference/{id}
+      name: referencestore-referencestoreid-reference-id
+      description: REST surface for referencestore-referenceStoreId-reference-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreference
+        description: Amazon Web Services Getreference
+        call: omics-referencestore.amazonwebservicesgetreference
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/reference/{id}/metadata
+      name: referencestore-referencestoreid-reference-id-metadata
+      description: REST surface for referencestore-referenceStoreId-reference-id-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreferencemetadata
+        description: Amazon Web Services Getreferencemetadata
+        call: omics-referencestore.amazonwebservicesgetreferencemetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/referencestore/{referencestoreid}/references
+      name: referencestore-referencestoreid-references
+      description: REST surface for referencestore-referenceStoreId-references.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreferences
+        description: Amazon Web Services Listreferences
+        call: omics-referencestore.amazonwebserviceslistreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: omics-referencestore-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services omics — Referencestore. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createreferencestore
+      description: Amazon Web Services Createreferencestore
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-referencestore.amazonwebservicescreatereferencestore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreferencestore
+      description: Amazon Web Services Getreferencestore
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-referencestore.amazonwebservicesgetreferencestore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startreferenceimportjob
+      description: Amazon Web Services Startreferenceimportjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-referencestore.amazonwebservicesstartreferenceimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreferenceimportjob
+      description: Amazon Web Services Getreferenceimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-referencestore.amazonwebservicesgetreferenceimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreferenceimportjobs
+      description: Amazon Web Services Listreferenceimportjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-referencestore.amazonwebserviceslistreferenceimportjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreference
+      description: Amazon Web Services Getreference
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-referencestore.amazonwebservicesgetreference
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreferencemetadata
+      description: Amazon Web Services Getreferencemetadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-referencestore.amazonwebservicesgetreferencemetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreferences
+      description: Amazon Web Services Listreferences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-referencestore.amazonwebserviceslistreferences
+      outputParameters:
+      - type: object
+        mapping: $.

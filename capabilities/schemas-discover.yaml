@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services schemas — Discover
+  description: 'Amazon Web Services schemas — Discover. 1 operations. Lead operation: Amazon Web Services Getdiscoveredschema.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Discover
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: schemas-discover
+    baseUri: ''
+    description: Amazon Web Services schemas — Discover business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-discover
+      path: /v1/discover
+      operations:
+      - name: amazonwebservicesgetdiscoveredschema
+        method: POST
+        description: Amazon Web Services Getdiscoveredschema
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: schemas-discover-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services schemas — Discover. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/discover
+      name: v1-discover
+      description: REST surface for v1-discover.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetdiscoveredschema
+        description: Amazon Web Services Getdiscoveredschema
+        call: schemas-discover.amazonwebservicesgetdiscoveredschema
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: schemas-discover-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services schemas — Discover. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getdiscoveredschema
+      description: Amazon Web Services Getdiscoveredschema
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: schemas-discover.amazonwebservicesgetdiscoveredschema
+      outputParameters:
+      - type: object
+        mapping: $.

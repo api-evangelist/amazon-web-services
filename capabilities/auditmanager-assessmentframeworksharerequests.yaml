@@ -1,0 +1,101 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — assessmentFrameworkShareRequests
+  description: 'Amazon Web Services auditmanager — assessmentFrameworkShareRequests. 2 operations. Lead operation: Amazon
+    Web Services Listassessmentframeworksharerequests. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - assessmentFrameworkShareRequests
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-assessmentframeworksharerequests
+    baseUri: ''
+    description: Amazon Web Services auditmanager — assessmentFrameworkShareRequests business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: assessmentFrameworkShareRequests
+      path: /assessmentFrameworkShareRequests
+      operations:
+      - name: amazonwebserviceslistassessmentframeworksharerequests
+        method: GET
+        description: Amazon Web Services Listassessmentframeworksharerequests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assessmentFrameworkShareRequests-requestId
+      path: /assessmentFrameworkShareRequests/{requestId}
+      operations:
+      - name: amazonwebservicesupdateassessmentframeworkshare
+        method: PUT
+        description: Amazon Web Services Updateassessmentframeworkshare
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-assessmentframeworksharerequests-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — assessmentFrameworkShareRequests. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/assessmentframeworksharerequests
+      name: assessmentframeworksharerequests
+      description: REST surface for assessmentFrameworkShareRequests.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassessmentframeworksharerequests
+        description: Amazon Web Services Listassessmentframeworksharerequests
+        call: auditmanager-assessmentframeworksharerequests.amazonwebserviceslistassessmentframeworksharerequests
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessmentframeworksharerequests/{requestid}
+      name: assessmentframeworksharerequests-requestid
+      description: REST surface for assessmentFrameworkShareRequests-requestId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateassessmentframeworkshare
+        description: Amazon Web Services Updateassessmentframeworkshare
+        call: auditmanager-assessmentframeworksharerequests.amazonwebservicesupdateassessmentframeworkshare
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-assessmentframeworksharerequests-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — assessmentFrameworkShareRequests. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listassessmentframeworksharerequests
+      description: Amazon Web Services Listassessmentframeworksharerequests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-assessmentframeworksharerequests.amazonwebserviceslistassessmentframeworksharerequests
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateassessmentframeworkshare
+      description: Amazon Web Services Updateassessmentframeworkshare
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: auditmanager-assessmentframeworksharerequests.amazonwebservicesupdateassessmentframeworkshare
+      outputParameters:
+      - type: object
+        mapping: $.

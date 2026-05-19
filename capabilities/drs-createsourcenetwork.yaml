@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — CreateSourceNetwork
+  description: 'Amazon Web Services drs — CreateSourceNetwork. 1 operations. Lead operation: Amazon Web Services Createsourcenetwork.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateSourceNetwork
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-createsourcenetwork
+    baseUri: ''
+    description: Amazon Web Services drs — CreateSourceNetwork business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateSourceNetwork
+      path: /CreateSourceNetwork
+      operations:
+      - name: amazonwebservicescreatesourcenetwork
+        method: POST
+        description: Amazon Web Services Createsourcenetwork
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-createsourcenetwork-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — CreateSourceNetwork. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/createsourcenetwork
+      name: createsourcenetwork
+      description: REST surface for CreateSourceNetwork.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesourcenetwork
+        description: Amazon Web Services Createsourcenetwork
+        call: drs-createsourcenetwork.amazonwebservicescreatesourcenetwork
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-createsourcenetwork-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — CreateSourceNetwork. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsourcenetwork
+      description: Amazon Web Services Createsourcenetwork
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-createsourcenetwork.amazonwebservicescreatesourcenetwork
+      outputParameters:
+      - type: object
+        mapping: $.

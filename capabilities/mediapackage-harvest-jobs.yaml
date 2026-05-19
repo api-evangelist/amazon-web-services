@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediapackage — Harvest Jobs
+  description: 'Amazon Web Services mediapackage — Harvest Jobs. 2 operations. Lead operation: Amazon Web Services Listharvestjobs.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Harvest Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediapackage-harvest-jobs
+    baseUri: ''
+    description: Amazon Web Services mediapackage — Harvest Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: harvest_jobs
+      path: /harvest_jobs
+      operations:
+      - name: amazonwebserviceslistharvestjobs
+        method: GET
+        description: Amazon Web Services Listharvestjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: harvest_jobs-id
+      path: /harvest_jobs/{id}
+      operations:
+      - name: amazonwebservicesdescribeharvestjob
+        method: GET
+        description: Amazon Web Services Describeharvestjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediapackage-harvest-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediapackage — Harvest Jobs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/harvest-jobs
+      name: harvest-jobs
+      description: REST surface for harvest_jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistharvestjobs
+        description: Amazon Web Services Listharvestjobs
+        call: mediapackage-harvest-jobs.amazonwebserviceslistharvestjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/harvest-jobs/{id}
+      name: harvest-jobs-id
+      description: REST surface for harvest_jobs-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeharvestjob
+        description: Amazon Web Services Describeharvestjob
+        call: mediapackage-harvest-jobs.amazonwebservicesdescribeharvestjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediapackage-harvest-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediapackage — Harvest Jobs. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listharvestjobs
+      description: Amazon Web Services Listharvestjobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediapackage-harvest-jobs.amazonwebserviceslistharvestjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeharvestjob
+      description: Amazon Web Services Describeharvestjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediapackage-harvest-jobs.amazonwebservicesdescribeharvestjob
+      outputParameters:
+      - type: object
+        mapping: $.

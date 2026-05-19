@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Datasources
+  description: 'Amazon Web Services macie2 — Datasources. 3 operations. Lead operation: Amazon Web Services Describebuckets.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Datasources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-datasources
+    baseUri: ''
+    description: Amazon Web Services macie2 — Datasources business capability. Self-contained, no shared references.
+    resources:
+    - name: datasources-s3
+      path: /datasources/s3
+      operations:
+      - name: amazonwebservicesdescribebuckets
+        method: POST
+        description: Amazon Web Services Describebuckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasources-s3-statistics
+      path: /datasources/s3/statistics
+      operations:
+      - name: amazonwebservicesgetbucketstatistics
+        method: POST
+        description: Amazon Web Services Getbucketstatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasources-search-resources
+      path: /datasources/search-resources
+      operations:
+      - name: amazonwebservicessearchresources
+        method: POST
+        description: Amazon Web Services Searchresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-datasources-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Datasources. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/datasources/s3
+      name: datasources-s3
+      description: REST surface for datasources-s3.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribebuckets
+        description: Amazon Web Services Describebuckets
+        call: macie2-datasources.amazonwebservicesdescribebuckets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/s3/statistics
+      name: datasources-s3-statistics
+      description: REST surface for datasources-s3-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbucketstatistics
+        description: Amazon Web Services Getbucketstatistics
+        call: macie2-datasources.amazonwebservicesgetbucketstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasources/search-resources
+      name: datasources-search-resources
+      description: REST surface for datasources-search-resources.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchresources
+        description: Amazon Web Services Searchresources
+        call: macie2-datasources.amazonwebservicessearchresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-datasources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Datasources. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describebuckets
+      description: Amazon Web Services Describebuckets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-datasources.amazonwebservicesdescribebuckets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbucketstatistics
+      description: Amazon Web Services Getbucketstatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-datasources.amazonwebservicesgetbucketstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchresources
+      description: Amazon Web Services Searchresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: macie2-datasources.amazonwebservicessearchresources
+      outputParameters:
+      - type: object
+        mapping: $.

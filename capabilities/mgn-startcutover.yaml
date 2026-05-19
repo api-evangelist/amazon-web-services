@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — StartCutover
+  description: 'Amazon Web Services mgn — StartCutover. 1 operations. Lead operation: Amazon Web Services Startcutover. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - StartCutover
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-startcutover
+    baseUri: ''
+    description: Amazon Web Services mgn — StartCutover business capability. Self-contained, no shared references.
+    resources:
+    - name: StartCutover
+      path: /StartCutover
+      operations:
+      - name: amazonwebservicesstartcutover
+        method: POST
+        description: Amazon Web Services Startcutover
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-startcutover-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — StartCutover. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/startcutover
+      name: startcutover
+      description: REST surface for StartCutover.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartcutover
+        description: Amazon Web Services Startcutover
+        call: mgn-startcutover.amazonwebservicesstartcutover
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-startcutover-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — StartCutover. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startcutover
+      description: Amazon Web Services Startcutover
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-startcutover.amazonwebservicesstartcutover
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Findings Publication Configuration
+  description: 'Amazon Web Services macie2 — Findings Publication Configuration. 1 operations. Lead operation: Amazon Web
+    Services Putfindingspublicationconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Findings Publication Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-findings-publication-configuration
+    baseUri: ''
+    description: Amazon Web Services macie2 — Findings Publication Configuration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: findings-publication-configuration
+      path: /findings-publication-configuration
+      operations:
+      - name: amazonwebservicesputfindingspublicationconfiguration
+        method: PUT
+        description: Amazon Web Services Putfindingspublicationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-findings-publication-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Findings Publication Configuration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/findings-publication-configuration
+      name: findings-publication-configuration
+      description: REST surface for findings-publication-configuration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputfindingspublicationconfiguration
+        description: Amazon Web Services Putfindingspublicationconfiguration
+        call: macie2-findings-publication-configuration.amazonwebservicesputfindingspublicationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-findings-publication-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Findings Publication Configuration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putfindingspublicationconfiguration
+      description: Amazon Web Services Putfindingspublicationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: macie2-findings-publication-configuration.amazonwebservicesputfindingspublicationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

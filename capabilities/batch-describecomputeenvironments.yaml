@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Describecomputeenvironments
+  description: 'Amazon Web Services batch — Describecomputeenvironments. 1 operations. Lead operation: Amazon Web Services
+    Describecomputeenvironments. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describecomputeenvironments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-describecomputeenvironments
+    baseUri: ''
+    description: Amazon Web Services batch — Describecomputeenvironments business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-describecomputeenvironments
+      path: /v1/describecomputeenvironments
+      operations:
+      - name: amazonwebservicesdescribecomputeenvironments
+        method: POST
+        description: Amazon Web Services Describecomputeenvironments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-describecomputeenvironments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Describecomputeenvironments. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/describecomputeenvironments
+      name: v1-describecomputeenvironments
+      description: REST surface for v1-describecomputeenvironments.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribecomputeenvironments
+        description: Amazon Web Services Describecomputeenvironments
+        call: batch-describecomputeenvironments.amazonwebservicesdescribecomputeenvironments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-describecomputeenvironments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Describecomputeenvironments. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describecomputeenvironments
+      description: Amazon Web Services Describecomputeenvironments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-describecomputeenvironments.amazonwebservicesdescribecomputeenvironments
+      outputParameters:
+      - type: object
+        mapping: $.

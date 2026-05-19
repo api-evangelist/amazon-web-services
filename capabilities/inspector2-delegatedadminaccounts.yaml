@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector2 — Delegatedadminaccounts
+  description: 'Amazon Web Services inspector2 — Delegatedadminaccounts. 4 operations. Lead operation: Amazon Web Services
+    Disabledelegatedadminaccount. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delegatedadminaccounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector2-delegatedadminaccounts
+    baseUri: ''
+    description: Amazon Web Services inspector2 — Delegatedadminaccounts business capability. Self-contained, no shared references.
+    resources:
+    - name: delegatedadminaccounts-disable
+      path: /delegatedadminaccounts/disable
+      operations:
+      - name: amazonwebservicesdisabledelegatedadminaccount
+        method: POST
+        description: Amazon Web Services Disabledelegatedadminaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delegatedadminaccounts-enable
+      path: /delegatedadminaccounts/enable
+      operations:
+      - name: amazonwebservicesenabledelegatedadminaccount
+        method: POST
+        description: Amazon Web Services Enabledelegatedadminaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delegatedadminaccounts-get
+      path: /delegatedadminaccounts/get
+      operations:
+      - name: amazonwebservicesgetdelegatedadminaccount
+        method: POST
+        description: Amazon Web Services Getdelegatedadminaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: delegatedadminaccounts-list
+      path: /delegatedadminaccounts/list
+      operations:
+      - name: amazonwebserviceslistdelegatedadminaccounts
+        method: POST
+        description: Amazon Web Services Listdelegatedadminaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector2-delegatedadminaccounts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector2 — Delegatedadminaccounts. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delegatedadminaccounts/disable
+      name: delegatedadminaccounts-disable
+      description: REST surface for delegatedadminaccounts-disable.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisabledelegatedadminaccount
+        description: Amazon Web Services Disabledelegatedadminaccount
+        call: inspector2-delegatedadminaccounts.amazonwebservicesdisabledelegatedadminaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/delegatedadminaccounts/enable
+      name: delegatedadminaccounts-enable
+      description: REST surface for delegatedadminaccounts-enable.
+      operations:
+      - method: POST
+        name: amazonwebservicesenabledelegatedadminaccount
+        description: Amazon Web Services Enabledelegatedadminaccount
+        call: inspector2-delegatedadminaccounts.amazonwebservicesenabledelegatedadminaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/delegatedadminaccounts/get
+      name: delegatedadminaccounts-get
+      description: REST surface for delegatedadminaccounts-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetdelegatedadminaccount
+        description: Amazon Web Services Getdelegatedadminaccount
+        call: inspector2-delegatedadminaccounts.amazonwebservicesgetdelegatedadminaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/delegatedadminaccounts/list
+      name: delegatedadminaccounts-list
+      description: REST surface for delegatedadminaccounts-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdelegatedadminaccounts
+        description: Amazon Web Services Listdelegatedadminaccounts
+        call: inspector2-delegatedadminaccounts.amazonwebserviceslistdelegatedadminaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector2-delegatedadminaccounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector2 — Delegatedadminaccounts. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-disabledelegatedadminaccount
+      description: Amazon Web Services Disabledelegatedadminaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-delegatedadminaccounts.amazonwebservicesdisabledelegatedadminaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-enabledelegatedadminaccount
+      description: Amazon Web Services Enabledelegatedadminaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-delegatedadminaccounts.amazonwebservicesenabledelegatedadminaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdelegatedadminaccount
+      description: Amazon Web Services Getdelegatedadminaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-delegatedadminaccounts.amazonwebservicesgetdelegatedadminaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdelegatedadminaccounts
+      description: Amazon Web Services Listdelegatedadminaccounts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-delegatedadminaccounts.amazonwebserviceslistdelegatedadminaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

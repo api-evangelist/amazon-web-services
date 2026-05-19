@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Voice Connector Groups
+  description: 'Amazon Web Services chime — Voice Connector Groups. 4 operations. Lead operation: Amazon Web Services Listvoiceconnectorgroups.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Voice Connector Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-voice-connector-groups
+    baseUri: ''
+    description: Amazon Web Services chime — Voice Connector Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: voice-connector-groups
+      path: /voice-connector-groups
+      operations:
+      - name: amazonwebserviceslistvoiceconnectorgroups
+        method: GET
+        description: Amazon Web Services Listvoiceconnectorgroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: voice-connector-groups-voiceConnectorGroupId
+      path: /voice-connector-groups/{voiceConnectorGroupId}
+      operations:
+      - name: amazonwebservicesupdatevoiceconnectorgroup
+        method: PUT
+        description: Amazon Web Services Updatevoiceconnectorgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: voice-connector-groups-voiceConnectorGroupId}?operation=associate-phone-numbers
+      path: /voice-connector-groups/{voiceConnectorGroupId}?operation=associate-phone-numbers
+      operations:
+      - name: amazonwebservicesassociatephonenumberswithvoiceconnectorgroup
+        method: POST
+        description: Amazon Web Services Associatephonenumberswithvoiceconnectorgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: voice-connector-groups-voiceConnectorGroupId}?operation=disassociate-phone-numbe
+      path: /voice-connector-groups/{voiceConnectorGroupId}?operation=disassociate-phone-numbers
+      operations:
+      - name: amazonwebservicesdisassociatephonenumbersfromvoiceconnectorgroup
+        method: POST
+        description: Amazon Web Services Disassociatephonenumbersfromvoiceconnectorgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-voice-connector-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Voice Connector Groups. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/voice-connector-groups
+      name: voice-connector-groups
+      description: REST surface for voice-connector-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvoiceconnectorgroups
+        description: Amazon Web Services Listvoiceconnectorgroups
+        call: chime-voice-connector-groups.amazonwebserviceslistvoiceconnectorgroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/voice-connector-groups/{voiceconnectorgroupid}
+      name: voice-connector-groups-voiceconnectorgroupid
+      description: REST surface for voice-connector-groups-voiceConnectorGroupId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevoiceconnectorgroup
+        description: Amazon Web Services Updatevoiceconnectorgroup
+        call: chime-voice-connector-groups.amazonwebservicesupdatevoiceconnectorgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/voice-connector-groups/voiceconnectorgroupid-operation-associate-phone-numbers
+      name: voice-connector-groups-voiceconnectorgroupid-operation-associate-phone-numbers
+      description: REST surface for voice-connector-groups-voiceConnectorGroupId}?operation=associate-phone-numbers.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociatephonenumberswithvoiceconnectorgroup
+        description: Amazon Web Services Associatephonenumberswithvoiceconnectorgroup
+        call: chime-voice-connector-groups.amazonwebservicesassociatephonenumberswithvoiceconnectorgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/voice-connector-groups/voiceconnectorgroupid-operation-disassociate-phone-numbers
+      name: voice-connector-groups-voiceconnectorgroupid-operation-disassociate-phone-numbe
+      description: REST surface for voice-connector-groups-voiceConnectorGroupId}?operation=disassociate-phone-numbe.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatephonenumbersfromvoiceconnectorgroup
+        description: Amazon Web Services Disassociatephonenumbersfromvoiceconnectorgroup
+        call: chime-voice-connector-groups.amazonwebservicesdisassociatephonenumbersfromvoiceconnectorgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-voice-connector-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Voice Connector Groups. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listvoiceconnectorgroups
+      description: Amazon Web Services Listvoiceconnectorgroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-voice-connector-groups.amazonwebserviceslistvoiceconnectorgroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevoiceconnectorgroup
+      description: Amazon Web Services Updatevoiceconnectorgroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-voice-connector-groups.amazonwebservicesupdatevoiceconnectorgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-associatephonenumberswithvoiceconnectorgroup
+      description: Amazon Web Services Associatephonenumberswithvoiceconnectorgroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-voice-connector-groups.amazonwebservicesassociatephonenumberswithvoiceconnectorgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatephonenumbersfromvoiceconnectorgroup
+      description: Amazon Web Services Disassociatephonenumbersfromvoiceconnectorgroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-voice-connector-groups.amazonwebservicesdisassociatephonenumbersfromvoiceconnectorgroup
+      outputParameters:
+      - type: object
+        mapping: $.

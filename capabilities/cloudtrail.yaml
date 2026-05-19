@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cloudtrail
+  description: 'Amazon Web Services cloudtrail. 1 operations. Lead operation: Amazon Web Services Updatetrail. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services cloudtrail
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloudtrail
+    baseUri: ''
+    description: Amazon Web Services cloudtrail business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatetrail
+        method: POST
+        description: Amazon Web Services Updatetrail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cloudtrail-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cloudtrail. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetrail
+        description: Amazon Web Services Updatetrail
+        call: cloudtrail.amazonwebservicesupdatetrail
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloudtrail-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cloudtrail. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetrail
+      description: Amazon Web Services Updatetrail
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloudtrail.amazonwebservicesupdatetrail
+      outputParameters:
+      - type: object
+        mapping: $.

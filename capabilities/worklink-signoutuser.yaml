@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services worklink — signOutUser
+  description: 'Amazon Web Services worklink — signOutUser. 1 operations. Lead operation: Amazon Web Services Signoutuser.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - signOutUser
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: worklink-signoutuser
+    baseUri: ''
+    description: Amazon Web Services worklink — signOutUser business capability. Self-contained, no shared references.
+    resources:
+    - name: signOutUser
+      path: /signOutUser
+      operations:
+      - name: amazonwebservicessignoutuser
+        method: POST
+        description: Amazon Web Services Signoutuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: worklink-signoutuser-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services worklink — signOutUser. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/signoutuser
+      name: signoutuser
+      description: REST surface for signOutUser.
+      operations:
+      - method: POST
+        name: amazonwebservicessignoutuser
+        description: Amazon Web Services Signoutuser
+        call: worklink-signoutuser.amazonwebservicessignoutuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: worklink-signoutuser-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services worklink — signOutUser. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-signoutuser
+      description: Amazon Web Services Signoutuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: worklink-signoutuser.amazonwebservicessignoutuser
+      outputParameters:
+      - type: object
+        mapping: $.

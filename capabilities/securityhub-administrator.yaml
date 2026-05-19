@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — Administrator
+  description: 'Amazon Web Services securityhub — Administrator. 2 operations. Lead operation: Amazon Web Services Getadministratoraccount.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Administrator
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-administrator
+    baseUri: ''
+    description: Amazon Web Services securityhub — Administrator business capability. Self-contained, no shared references.
+    resources:
+    - name: administrator
+      path: /administrator
+      operations:
+      - name: amazonwebservicesgetadministratoraccount
+        method: GET
+        description: Amazon Web Services Getadministratoraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: administrator-disassociate
+      path: /administrator/disassociate
+      operations:
+      - name: amazonwebservicesdisassociatefromadministratoraccount
+        method: POST
+        description: Amazon Web Services Disassociatefromadministratoraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-administrator-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — Administrator. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/administrator
+      name: administrator
+      description: REST surface for administrator.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetadministratoraccount
+        description: Amazon Web Services Getadministratoraccount
+        call: securityhub-administrator.amazonwebservicesgetadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/administrator/disassociate
+      name: administrator-disassociate
+      description: REST surface for administrator-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatefromadministratoraccount
+        description: Amazon Web Services Disassociatefromadministratoraccount
+        call: securityhub-administrator.amazonwebservicesdisassociatefromadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-administrator-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — Administrator. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getadministratoraccount
+      description: Amazon Web Services Getadministratoraccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-administrator.amazonwebservicesgetadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatefromadministratoraccount
+      description: Amazon Web Services Disassociatefromadministratoraccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-administrator.amazonwebservicesdisassociatefromadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.

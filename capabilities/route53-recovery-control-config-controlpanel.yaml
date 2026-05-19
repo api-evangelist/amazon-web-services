@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services route53-recovery-control-config — Controlpanel
+  description: 'Amazon Web Services route53-recovery-control-config — Controlpanel. 4 operations. Lead operation: Amazon Web
+    Services Updatecontrolpanel. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Controlpanel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: route53-recovery-control-config-controlpanel
+    baseUri: ''
+    description: Amazon Web Services route53-recovery-control-config — Controlpanel business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: controlpanel
+      path: /controlpanel
+      operations:
+      - name: amazonwebservicesupdatecontrolpanel
+        method: PUT
+        description: Amazon Web Services Updatecontrolpanel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: controlpanel-ControlPanelArn
+      path: /controlpanel/{ControlPanelArn}
+      operations:
+      - name: amazonwebservicesdescribecontrolpanel
+        method: GET
+        description: Amazon Web Services Describecontrolpanel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: controlpanel-ControlPanelArn-routingcontrols
+      path: /controlpanel/{ControlPanelArn}/routingcontrols
+      operations:
+      - name: amazonwebserviceslistroutingcontrols
+        method: GET
+        description: Amazon Web Services Listroutingcontrols
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: controlpanel-ControlPanelArn-safetyrules
+      path: /controlpanel/{ControlPanelArn}/safetyrules
+      operations:
+      - name: amazonwebserviceslistsafetyrules
+        method: GET
+        description: Amazon Web Services Listsafetyrules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: route53-recovery-control-config-controlpanel-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services route53-recovery-control-config — Controlpanel. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/controlpanel
+      name: controlpanel
+      description: REST surface for controlpanel.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatecontrolpanel
+        description: Amazon Web Services Updatecontrolpanel
+        call: route53-recovery-control-config-controlpanel.amazonwebservicesupdatecontrolpanel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/controlpanel/{controlpanelarn}
+      name: controlpanel-controlpanelarn
+      description: REST surface for controlpanel-ControlPanelArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribecontrolpanel
+        description: Amazon Web Services Describecontrolpanel
+        call: route53-recovery-control-config-controlpanel.amazonwebservicesdescribecontrolpanel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/controlpanel/{controlpanelarn}/routingcontrols
+      name: controlpanel-controlpanelarn-routingcontrols
+      description: REST surface for controlpanel-ControlPanelArn-routingcontrols.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistroutingcontrols
+        description: Amazon Web Services Listroutingcontrols
+        call: route53-recovery-control-config-controlpanel.amazonwebserviceslistroutingcontrols
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/controlpanel/{controlpanelarn}/safetyrules
+      name: controlpanel-controlpanelarn-safetyrules
+      description: REST surface for controlpanel-ControlPanelArn-safetyrules.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsafetyrules
+        description: Amazon Web Services Listsafetyrules
+        call: route53-recovery-control-config-controlpanel.amazonwebserviceslistsafetyrules
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: route53-recovery-control-config-controlpanel-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services route53-recovery-control-config — Controlpanel. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatecontrolpanel
+      description: Amazon Web Services Updatecontrolpanel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-controlpanel.amazonwebservicesupdatecontrolpanel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describecontrolpanel
+      description: Amazon Web Services Describecontrolpanel
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-controlpanel.amazonwebservicesdescribecontrolpanel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listroutingcontrols
+      description: Amazon Web Services Listroutingcontrols
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-controlpanel.amazonwebserviceslistroutingcontrols
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsafetyrules
+      description: Amazon Web Services Listsafetyrules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-controlpanel.amazonwebserviceslistsafetyrules
+      outputParameters:
+      - type: object
+        mapping: $.

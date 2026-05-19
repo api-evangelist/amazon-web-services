@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Asset Models
+  description: 'Amazon Web Services iotsitewise — Asset Models. 6 operations. Lead operation: Amazon Web Services Listassetmodels.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Asset Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-asset-models
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Asset Models business capability. Self-contained, no shared references.
+    resources:
+    - name: asset-models
+      path: /asset-models
+      operations:
+      - name: amazonwebserviceslistassetmodels
+        method: GET
+        description: Amazon Web Services Listassetmodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: asset-models-assetModelId
+      path: /asset-models/{assetModelId}
+      operations:
+      - name: amazonwebservicesupdateassetmodel
+        method: PUT
+        description: Amazon Web Services Updateassetmodel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: asset-models-assetModelId-composite-models
+      path: /asset-models/{assetModelId}/composite-models
+      operations:
+      - name: amazonwebserviceslistassetmodelcompositemodels
+        method: GET
+        description: Amazon Web Services Listassetmodelcompositemodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: asset-models-assetModelId-composite-models-assetModelCompositeModelId
+      path: /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}
+      operations:
+      - name: amazonwebservicesupdateassetmodelcompositemodel
+        method: PUT
+        description: Amazon Web Services Updateassetmodelcompositemodel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: asset-models-assetModelId-composition-relationships
+      path: /asset-models/{assetModelId}/composition-relationships
+      operations:
+      - name: amazonwebserviceslistcompositionrelationships
+        method: GET
+        description: Amazon Web Services Listcompositionrelationships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: asset-models-assetModelId-properties
+      path: /asset-models/{assetModelId}/properties
+      operations:
+      - name: amazonwebserviceslistassetmodelproperties
+        method: GET
+        description: Amazon Web Services Listassetmodelproperties
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-asset-models-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Asset Models. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/asset-models
+      name: asset-models
+      description: REST surface for asset-models.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassetmodels
+        description: Amazon Web Services Listassetmodels
+        call: iotsitewise-asset-models.amazonwebserviceslistassetmodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/asset-models/{assetmodelid}
+      name: asset-models-assetmodelid
+      description: REST surface for asset-models-assetModelId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateassetmodel
+        description: Amazon Web Services Updateassetmodel
+        call: iotsitewise-asset-models.amazonwebservicesupdateassetmodel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/asset-models/{assetmodelid}/composite-models
+      name: asset-models-assetmodelid-composite-models
+      description: REST surface for asset-models-assetModelId-composite-models.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassetmodelcompositemodels
+        description: Amazon Web Services Listassetmodelcompositemodels
+        call: iotsitewise-asset-models.amazonwebserviceslistassetmodelcompositemodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/asset-models/{assetmodelid}/composite-models/{assetmodelcompositemodelid}
+      name: asset-models-assetmodelid-composite-models-assetmodelcompositemodelid
+      description: REST surface for asset-models-assetModelId-composite-models-assetModelCompositeModelId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateassetmodelcompositemodel
+        description: Amazon Web Services Updateassetmodelcompositemodel
+        call: iotsitewise-asset-models.amazonwebservicesupdateassetmodelcompositemodel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/asset-models/{assetmodelid}/composition-relationships
+      name: asset-models-assetmodelid-composition-relationships
+      description: REST surface for asset-models-assetModelId-composition-relationships.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcompositionrelationships
+        description: Amazon Web Services Listcompositionrelationships
+        call: iotsitewise-asset-models.amazonwebserviceslistcompositionrelationships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/asset-models/{assetmodelid}/properties
+      name: asset-models-assetmodelid-properties
+      description: REST surface for asset-models-assetModelId-properties.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassetmodelproperties
+        description: Amazon Web Services Listassetmodelproperties
+        call: iotsitewise-asset-models.amazonwebserviceslistassetmodelproperties
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-asset-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Asset Models. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listassetmodels
+      description: Amazon Web Services Listassetmodels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebserviceslistassetmodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateassetmodel
+      description: Amazon Web Services Updateassetmodel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebservicesupdateassetmodel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassetmodelcompositemodels
+      description: Amazon Web Services Listassetmodelcompositemodels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebserviceslistassetmodelcompositemodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateassetmodelcompositemodel
+      description: Amazon Web Services Updateassetmodelcompositemodel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebservicesupdateassetmodelcompositemodel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcompositionrelationships
+      description: Amazon Web Services Listcompositionrelationships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebserviceslistcompositionrelationships
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassetmodelproperties
+      description: Amazon Web Services Listassetmodelproperties
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-asset-models.amazonwebserviceslistassetmodelproperties
+      outputParameters:
+      - type: object
+        mapping: $.

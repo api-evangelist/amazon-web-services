@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lambda — 2014 11 13
+  description: 'Amazon Web Services lambda — 2014 11 13. 1 operations. Lead operation: Amazon Web Services Invokeasync. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2014 11 13
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lambda-2014-11-13
+    baseUri: ''
+    description: Amazon Web Services lambda — 2014 11 13 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2014-11-13-functions-FunctionName-invoke-async
+      path: /2014-11-13/functions/{FunctionName}/invoke-async/
+      operations:
+      - name: amazonwebservicesinvokeasync
+        method: POST
+        description: Amazon Web Services Invokeasync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lambda-2014-11-13-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lambda — 2014 11 13. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2014-11-13/functions/{functionname}/invoke-async
+      name: 2014-11-13-functions-functionname-invoke-async
+      description: REST surface for 2014-11-13-functions-FunctionName-invoke-async.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvokeasync
+        description: Amazon Web Services Invokeasync
+        call: lambda-2014-11-13.amazonwebservicesinvokeasync
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lambda-2014-11-13-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lambda — 2014 11 13. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-invokeasync
+      description: Amazon Web Services Invokeasync
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lambda-2014-11-13.amazonwebservicesinvokeasync
+      outputParameters:
+      - type: object
+        mapping: $.

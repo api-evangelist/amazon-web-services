@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesis-video-archived-media — getMediaForFragmentList
+  description: 'Amazon Web Services kinesis-video-archived-media — getMediaForFragmentList. 1 operations. Lead operation:
+    Amazon Web Services Getmediaforfragmentlist. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - getMediaForFragmentList
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesis-video-archived-media-getmediaforfragmentlist
+    baseUri: ''
+    description: Amazon Web Services kinesis-video-archived-media — getMediaForFragmentList business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: getMediaForFragmentList
+      path: /getMediaForFragmentList
+      operations:
+      - name: amazonwebservicesgetmediaforfragmentlist
+        method: POST
+        description: Amazon Web Services Getmediaforfragmentlist
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesis-video-archived-media-getmediaforfragmentlist-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesis-video-archived-media — getMediaForFragmentList. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getmediaforfragmentlist
+      name: getmediaforfragmentlist
+      description: REST surface for getMediaForFragmentList.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmediaforfragmentlist
+        description: Amazon Web Services Getmediaforfragmentlist
+        call: kinesis-video-archived-media-getmediaforfragmentlist.amazonwebservicesgetmediaforfragmentlist
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesis-video-archived-media-getmediaforfragmentlist-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesis-video-archived-media — getMediaForFragmentList. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getmediaforfragmentlist
+      description: Amazon Web Services Getmediaforfragmentlist
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis-video-archived-media-getmediaforfragmentlist.amazonwebservicesgetmediaforfragmentlist
+      outputParameters:
+      - type: object
+        mapping: $.

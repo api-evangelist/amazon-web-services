@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot-data — Things
+  description: 'Amazon Web Services iot-data — Things. 2 operations. Lead operation: Amazon Web Services Listnamedshadowsforthing.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Things
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-data-things
+    baseUri: ''
+    description: Amazon Web Services iot-data — Things business capability. Self-contained, no shared references.
+    resources:
+    - name: api-things-shadow-ListNamedShadowsForThing-thingName
+      path: /api/things/shadow/ListNamedShadowsForThing/{thingName}
+      operations:
+      - name: amazonwebserviceslistnamedshadowsforthing
+        method: GET
+        description: Amazon Web Services Listnamedshadowsforthing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-shadow
+      path: /things/{thingName}/shadow
+      operations:
+      - name: amazonwebservicesupdatethingshadow
+        method: POST
+        description: Amazon Web Services Updatethingshadow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-data-things-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot-data — Things. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/things/shadow/listnamedshadowsforthing/{thingname}
+      name: api-things-shadow-listnamedshadowsforthing-thingname
+      description: REST surface for api-things-shadow-ListNamedShadowsForThing-thingName.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistnamedshadowsforthing
+        description: Amazon Web Services Listnamedshadowsforthing
+        call: iot-data-things.amazonwebserviceslistnamedshadowsforthing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/shadow
+      name: things-thingname-shadow
+      description: REST surface for things-thingName-shadow.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatethingshadow
+        description: Amazon Web Services Updatethingshadow
+        call: iot-data-things.amazonwebservicesupdatethingshadow
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-data-things-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot-data — Things. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listnamedshadowsforthing
+      description: Amazon Web Services Listnamedshadowsforthing
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-data-things.amazonwebserviceslistnamedshadowsforthing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatethingshadow
+      description: Amazon Web Services Updatethingshadow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-data-things.amazonwebservicesupdatethingshadow
+      outputParameters:
+      - type: object
+        mapping: $.

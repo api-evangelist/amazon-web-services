@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services groundstation — Satellite
+  description: 'Amazon Web Services groundstation — Satellite. 2 operations. Lead operation: Amazon Web Services Listsatellites.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Satellite
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: groundstation-satellite
+    baseUri: ''
+    description: Amazon Web Services groundstation — Satellite business capability. Self-contained, no shared references.
+    resources:
+    - name: satellite
+      path: /satellite
+      operations:
+      - name: amazonwebserviceslistsatellites
+        method: GET
+        description: Amazon Web Services Listsatellites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: satellite-satelliteId
+      path: /satellite/{satelliteId}
+      operations:
+      - name: amazonwebservicesgetsatellite
+        method: GET
+        description: Amazon Web Services Getsatellite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: groundstation-satellite-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services groundstation — Satellite. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/satellite
+      name: satellite
+      description: REST surface for satellite.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsatellites
+        description: Amazon Web Services Listsatellites
+        call: groundstation-satellite.amazonwebserviceslistsatellites
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/satellite/{satelliteid}
+      name: satellite-satelliteid
+      description: REST surface for satellite-satelliteId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsatellite
+        description: Amazon Web Services Getsatellite
+        call: groundstation-satellite.amazonwebservicesgetsatellite
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: groundstation-satellite-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services groundstation — Satellite. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsatellites
+      description: Amazon Web Services Listsatellites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: groundstation-satellite.amazonwebserviceslistsatellites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsatellite
+      description: Amazon Web Services Getsatellite
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: groundstation-satellite.amazonwebservicesgetsatellite
+      outputParameters:
+      - type: object
+        mapping: $.

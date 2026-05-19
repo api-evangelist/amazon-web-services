@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workspaces-web — ipAccessSettings
+  description: 'Amazon Web Services workspaces-web — ipAccessSettings. 2 operations. Lead operation: Amazon Web Services Listipaccesssettings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ipAccessSettings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workspaces-web-ipaccesssettings
+    baseUri: ''
+    description: Amazon Web Services workspaces-web — ipAccessSettings business capability. Self-contained, no shared references.
+    resources:
+    - name: ipAccessSettings
+      path: /ipAccessSettings
+      operations:
+      - name: amazonwebserviceslistipaccesssettings
+        method: GET
+        description: Amazon Web Services Listipaccesssettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ipAccessSettings-ipAccessSettingsArn+
+      path: /ipAccessSettings/{ipAccessSettingsArn+}
+      operations:
+      - name: amazonwebservicesupdateipaccesssettings
+        method: PATCH
+        description: Amazon Web Services Updateipaccesssettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workspaces-web-ipaccesssettings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workspaces-web — ipAccessSettings. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/ipaccesssettings
+      name: ipaccesssettings
+      description: REST surface for ipAccessSettings.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistipaccesssettings
+        description: Amazon Web Services Listipaccesssettings
+        call: workspaces-web-ipaccesssettings.amazonwebserviceslistipaccesssettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ipaccesssettings/{ipaccesssettingsarn}
+      name: ipaccesssettings-ipaccesssettingsarn
+      description: REST surface for ipAccessSettings-ipAccessSettingsArn+.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateipaccesssettings
+        description: Amazon Web Services Updateipaccesssettings
+        call: workspaces-web-ipaccesssettings.amazonwebservicesupdateipaccesssettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workspaces-web-ipaccesssettings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workspaces-web — ipAccessSettings. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listipaccesssettings
+      description: Amazon Web Services Listipaccesssettings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-ipaccesssettings.amazonwebserviceslistipaccesssettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateipaccesssettings
+      description: Amazon Web Services Updateipaccesssettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workspaces-web-ipaccesssettings.amazonwebservicesupdateipaccesssettings
+      outputParameters:
+      - type: object
+        mapping: $.

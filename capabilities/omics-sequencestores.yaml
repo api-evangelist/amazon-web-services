@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services omics — Sequencestores
+  description: 'Amazon Web Services omics — Sequencestores. 1 operations. Lead operation: Amazon Web Services Listsequencestores.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sequencestores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: omics-sequencestores
+    baseUri: ''
+    description: Amazon Web Services omics — Sequencestores business capability. Self-contained, no shared references.
+    resources:
+    - name: sequencestores
+      path: /sequencestores
+      operations:
+      - name: amazonwebserviceslistsequencestores
+        method: POST
+        description: Amazon Web Services Listsequencestores
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: omics-sequencestores-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services omics — Sequencestores. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sequencestores
+      name: sequencestores
+      description: REST surface for sequencestores.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistsequencestores
+        description: Amazon Web Services Listsequencestores
+        call: omics-sequencestores.amazonwebserviceslistsequencestores
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: omics-sequencestores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services omics — Sequencestores. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsequencestores
+      description: Amazon Web Services Listsequencestores
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestores.amazonwebserviceslistsequencestores
+      outputParameters:
+      - type: object
+        mapping: $.

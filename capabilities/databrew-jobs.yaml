@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services databrew — Jobs
+  description: 'Amazon Web Services databrew — Jobs. 6 operations. Lead operation: Amazon Web Services Listjobs. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: databrew-jobs
+    baseUri: ''
+    description: Amazon Web Services databrew — Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: jobs
+      path: /jobs
+      operations:
+      - name: amazonwebserviceslistjobs
+        method: GET
+        description: Amazon Web Services Listjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-name
+      path: /jobs/{name}
+      operations:
+      - name: amazonwebservicesdescribejob
+        method: GET
+        description: Amazon Web Services Describejob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-name-jobRun-runId
+      path: /jobs/{name}/jobRun/{runId}
+      operations:
+      - name: amazonwebservicesdescribejobrun
+        method: GET
+        description: Amazon Web Services Describejobrun
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-name-jobRun-runId-stopJobRun
+      path: /jobs/{name}/jobRun/{runId}/stopJobRun
+      operations:
+      - name: amazonwebservicesstopjobrun
+        method: POST
+        description: Amazon Web Services Stopjobrun
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-name-jobRuns
+      path: /jobs/{name}/jobRuns
+      operations:
+      - name: amazonwebserviceslistjobruns
+        method: GET
+        description: Amazon Web Services Listjobruns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-name-startJobRun
+      path: /jobs/{name}/startJobRun
+      operations:
+      - name: amazonwebservicesstartjobrun
+        method: POST
+        description: Amazon Web Services Startjobrun
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: databrew-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services databrew — Jobs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/jobs
+      name: jobs
+      description: REST surface for jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistjobs
+        description: Amazon Web Services Listjobs
+        call: databrew-jobs.amazonwebserviceslistjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{name}
+      name: jobs-name
+      description: REST surface for jobs-name.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribejob
+        description: Amazon Web Services Describejob
+        call: databrew-jobs.amazonwebservicesdescribejob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{name}/jobrun/{runid}
+      name: jobs-name-jobrun-runid
+      description: REST surface for jobs-name-jobRun-runId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribejobrun
+        description: Amazon Web Services Describejobrun
+        call: databrew-jobs.amazonwebservicesdescribejobrun
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{name}/jobrun/{runid}/stopjobrun
+      name: jobs-name-jobrun-runid-stopjobrun
+      description: REST surface for jobs-name-jobRun-runId-stopJobRun.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopjobrun
+        description: Amazon Web Services Stopjobrun
+        call: databrew-jobs.amazonwebservicesstopjobrun
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{name}/jobruns
+      name: jobs-name-jobruns
+      description: REST surface for jobs-name-jobRuns.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistjobruns
+        description: Amazon Web Services Listjobruns
+        call: databrew-jobs.amazonwebserviceslistjobruns
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{name}/startjobrun
+      name: jobs-name-startjobrun
+      description: REST surface for jobs-name-startJobRun.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartjobrun
+        description: Amazon Web Services Startjobrun
+        call: databrew-jobs.amazonwebservicesstartjobrun
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: databrew-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services databrew — Jobs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listjobs
+      description: Amazon Web Services Listjobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-jobs.amazonwebserviceslistjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describejob
+      description: Amazon Web Services Describejob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-jobs.amazonwebservicesdescribejob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describejobrun
+      description: Amazon Web Services Describejobrun
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-jobs.amazonwebservicesdescribejobrun
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopjobrun
+      description: Amazon Web Services Stopjobrun
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: databrew-jobs.amazonwebservicesstopjobrun
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listjobruns
+      description: Amazon Web Services Listjobruns
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-jobs.amazonwebserviceslistjobruns
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startjobrun
+      description: Amazon Web Services Startjobrun
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: databrew-jobs.amazonwebservicesstartjobrun
+      outputParameters:
+      - type: object
+        mapping: $.

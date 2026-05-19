@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — UpdateApplication
+  description: 'Amazon Web Services mgn — UpdateApplication. 1 operations. Lead operation: Amazon Web Services Updateapplication.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateApplication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-updateapplication
+    baseUri: ''
+    description: Amazon Web Services mgn — UpdateApplication business capability. Self-contained, no shared references.
+    resources:
+    - name: UpdateApplication
+      path: /UpdateApplication
+      operations:
+      - name: amazonwebservicesupdateapplication
+        method: POST
+        description: Amazon Web Services Updateapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-updateapplication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — UpdateApplication. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateapplication
+      name: updateapplication
+      description: REST surface for UpdateApplication.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateapplication
+        description: Amazon Web Services Updateapplication
+        call: mgn-updateapplication.amazonwebservicesupdateapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-updateapplication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — UpdateApplication. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateapplication
+      description: Amazon Web Services Updateapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-updateapplication.amazonwebservicesupdateapplication
+      outputParameters:
+      - type: object
+        mapping: $.

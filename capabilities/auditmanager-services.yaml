@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — Services
+  description: 'Amazon Web Services auditmanager — Services. 1 operations. Lead operation: Amazon Web Services Getservicesinscope.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Services
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-services
+    baseUri: ''
+    description: Amazon Web Services auditmanager — Services business capability. Self-contained, no shared references.
+    resources:
+    - name: services
+      path: /services
+      operations:
+      - name: amazonwebservicesgetservicesinscope
+        method: GET
+        description: Amazon Web Services Getservicesinscope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-services-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — Services. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/services
+      name: services
+      description: REST surface for services.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetservicesinscope
+        description: Amazon Web Services Getservicesinscope
+        call: auditmanager-services.amazonwebservicesgetservicesinscope
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-services-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — Services. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getservicesinscope
+      description: Amazon Web Services Getservicesinscope
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-services.amazonwebservicesgetservicesinscope
+      outputParameters:
+      - type: object
+        mapping: $.

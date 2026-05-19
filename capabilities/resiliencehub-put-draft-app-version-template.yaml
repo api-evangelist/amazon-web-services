@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Put Draft App Version Template
+  description: 'Amazon Web Services resiliencehub — Put Draft App Version Template. 1 operations. Lead operation: Amazon Web
+    Services Putdraftappversiontemplate. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Put Draft App Version Template
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-put-draft-app-version-template
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Put Draft App Version Template business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: put-draft-app-version-template
+      path: /put-draft-app-version-template
+      operations:
+      - name: amazonwebservicesputdraftappversiontemplate
+        method: POST
+        description: Amazon Web Services Putdraftappversiontemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-put-draft-app-version-template-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Put Draft App Version Template. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/put-draft-app-version-template
+      name: put-draft-app-version-template
+      description: REST surface for put-draft-app-version-template.
+      operations:
+      - method: POST
+        name: amazonwebservicesputdraftappversiontemplate
+        description: Amazon Web Services Putdraftappversiontemplate
+        call: resiliencehub-put-draft-app-version-template.amazonwebservicesputdraftappversiontemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-put-draft-app-version-template-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Put Draft App Version Template. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putdraftappversiontemplate
+      description: Amazon Web Services Putdraftappversiontemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-put-draft-app-version-template.amazonwebservicesputdraftappversiontemplate
+      outputParameters:
+      - type: object
+        mapping: $.

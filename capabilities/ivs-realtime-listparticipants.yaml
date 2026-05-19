@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs-realtime — ListParticipants
+  description: 'Amazon Web Services ivs-realtime — ListParticipants. 1 operations. Lead operation: Amazon Web Services Listparticipants.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListParticipants
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-realtime-listparticipants
+    baseUri: ''
+    description: Amazon Web Services ivs-realtime — ListParticipants business capability. Self-contained, no shared references.
+    resources:
+    - name: ListParticipants
+      path: /ListParticipants
+      operations:
+      - name: amazonwebserviceslistparticipants
+        method: POST
+        description: Amazon Web Services Listparticipants
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-realtime-listparticipants-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs-realtime — ListParticipants. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listparticipants
+      name: listparticipants
+      description: REST surface for ListParticipants.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistparticipants
+        description: Amazon Web Services Listparticipants
+        call: ivs-realtime-listparticipants.amazonwebserviceslistparticipants
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-realtime-listparticipants-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs-realtime — ListParticipants. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listparticipants
+      description: Amazon Web Services Listparticipants
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-realtime-listparticipants.amazonwebserviceslistparticipants
+      outputParameters:
+      - type: object
+        mapping: $.

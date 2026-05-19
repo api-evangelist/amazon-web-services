@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — DeleteLaunchAction
+  description: 'Amazon Web Services drs — DeleteLaunchAction. 1 operations. Lead operation: Amazon Web Services Deletelaunchaction.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteLaunchAction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-deletelaunchaction
+    baseUri: ''
+    description: Amazon Web Services drs — DeleteLaunchAction business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteLaunchAction
+      path: /DeleteLaunchAction
+      operations:
+      - name: amazonwebservicesdeletelaunchaction
+        method: POST
+        description: Amazon Web Services Deletelaunchaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-deletelaunchaction-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — DeleteLaunchAction. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletelaunchaction
+      name: deletelaunchaction
+      description: REST surface for DeleteLaunchAction.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletelaunchaction
+        description: Amazon Web Services Deletelaunchaction
+        call: drs-deletelaunchaction.amazonwebservicesdeletelaunchaction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-deletelaunchaction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — DeleteLaunchAction. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletelaunchaction
+      description: Amazon Web Services Deletelaunchaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-deletelaunchaction.amazonwebservicesdeletelaunchaction
+      outputParameters:
+      - type: object
+        mapping: $.

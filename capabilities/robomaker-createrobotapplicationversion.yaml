@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — createRobotApplicationVersion
+  description: 'Amazon Web Services robomaker — createRobotApplicationVersion. 1 operations. Lead operation: Amazon Web Services
+    Createrobotapplicationversion. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - createRobotApplicationVersion
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-createrobotapplicationversion
+    baseUri: ''
+    description: Amazon Web Services robomaker — createRobotApplicationVersion business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: createRobotApplicationVersion
+      path: /createRobotApplicationVersion
+      operations:
+      - name: amazonwebservicescreaterobotapplicationversion
+        method: POST
+        description: Amazon Web Services Createrobotapplicationversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-createrobotapplicationversion-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — createRobotApplicationVersion. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createrobotapplicationversion
+      name: createrobotapplicationversion
+      description: REST surface for createRobotApplicationVersion.
+      operations:
+      - method: POST
+        name: amazonwebservicescreaterobotapplicationversion
+        description: Amazon Web Services Createrobotapplicationversion
+        call: robomaker-createrobotapplicationversion.amazonwebservicescreaterobotapplicationversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-createrobotapplicationversion-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — createRobotApplicationVersion. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createrobotapplicationversion
+      description: Amazon Web Services Createrobotapplicationversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-createrobotapplicationversion.amazonwebservicescreaterobotapplicationversion
+      outputParameters:
+      - type: object
+        mapping: $.

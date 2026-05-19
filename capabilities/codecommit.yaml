@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codecommit
+  description: 'Amazon Web Services codecommit. 1 operations. Lead operation: Amazon Web Services Updaterepositoryname. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services codecommit
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codecommit
+    baseUri: ''
+    description: Amazon Web Services codecommit business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdaterepositoryname
+        method: POST
+        description: Amazon Web Services Updaterepositoryname
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codecommit-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codecommit. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdaterepositoryname
+        description: Amazon Web Services Updaterepositoryname
+        call: codecommit.amazonwebservicesupdaterepositoryname
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codecommit-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codecommit. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updaterepositoryname
+      description: Amazon Web Services Updaterepositoryname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codecommit.amazonwebservicesupdaterepositoryname
+      outputParameters:
+      - type: object
+        mapping: $.

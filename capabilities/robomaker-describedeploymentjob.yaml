@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — describeDeploymentJob
+  description: 'Amazon Web Services robomaker — describeDeploymentJob. 1 operations. Lead operation: Amazon Web Services Describedeploymentjob.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - describeDeploymentJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-describedeploymentjob
+    baseUri: ''
+    description: Amazon Web Services robomaker — describeDeploymentJob business capability. Self-contained, no shared references.
+    resources:
+    - name: describeDeploymentJob
+      path: /describeDeploymentJob
+      operations:
+      - name: amazonwebservicesdescribedeploymentjob
+        method: POST
+        description: Amazon Web Services Describedeploymentjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-describedeploymentjob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — describeDeploymentJob. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describedeploymentjob
+      name: describedeploymentjob
+      description: REST surface for describeDeploymentJob.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribedeploymentjob
+        description: Amazon Web Services Describedeploymentjob
+        call: robomaker-describedeploymentjob.amazonwebservicesdescribedeploymentjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-describedeploymentjob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — describeDeploymentJob. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describedeploymentjob
+      description: Amazon Web Services Describedeploymentjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-describedeploymentjob.amazonwebservicesdescribedeploymentjob
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — Subject
+  description: 'Amazon Web Services rolesanywhere — Subject. 1 operations. Lead operation: Amazon Web Services Getsubject.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Subject
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-subject
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — Subject business capability. Self-contained, no shared references.
+    resources:
+    - name: subject-subjectId
+      path: /subject/{subjectId}
+      operations:
+      - name: amazonwebservicesgetsubject
+        method: GET
+        description: Amazon Web Services Getsubject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-subject-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — Subject. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subject/{subjectid}
+      name: subject-subjectid
+      description: REST surface for subject-subjectId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsubject
+        description: Amazon Web Services Getsubject
+        call: rolesanywhere-subject.amazonwebservicesgetsubject
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-subject-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — Subject. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getsubject
+      description: Amazon Web Services Getsubject
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-subject.amazonwebservicesgetsubject
+      outputParameters:
+      - type: object
+        mapping: $.

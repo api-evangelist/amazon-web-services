@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeguru-security — Findings
+  description: 'Amazon Web Services codeguru-security — Findings. 1 operations. Lead operation: Amazon Web Services Getfindings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Findings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeguru-security-findings
+    baseUri: ''
+    description: Amazon Web Services codeguru-security — Findings business capability. Self-contained, no shared references.
+    resources:
+    - name: findings-scanName
+      path: /findings/{scanName}
+      operations:
+      - name: amazonwebservicesgetfindings
+        method: GET
+        description: Amazon Web Services Getfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeguru-security-findings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeguru-security — Findings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/findings/{scanname}
+      name: findings-scanname
+      description: REST surface for findings-scanName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfindings
+        description: Amazon Web Services Getfindings
+        call: codeguru-security-findings.amazonwebservicesgetfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeguru-security-findings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeguru-security — Findings. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getfindings
+      description: Amazon Web Services Getfindings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-security-findings.amazonwebservicesgetfindings
+      outputParameters:
+      - type: object
+        mapping: $.

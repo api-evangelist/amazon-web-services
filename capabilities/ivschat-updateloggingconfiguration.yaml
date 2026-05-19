@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivschat — UpdateLoggingConfiguration
+  description: 'Amazon Web Services ivschat — UpdateLoggingConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Updateloggingconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateLoggingConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivschat-updateloggingconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivschat — UpdateLoggingConfiguration business capability. Self-contained, no shared references.
+    resources:
+    - name: UpdateLoggingConfiguration
+      path: /UpdateLoggingConfiguration
+      operations:
+      - name: amazonwebservicesupdateloggingconfiguration
+        method: POST
+        description: Amazon Web Services Updateloggingconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivschat-updateloggingconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivschat — UpdateLoggingConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateloggingconfiguration
+      name: updateloggingconfiguration
+      description: REST surface for UpdateLoggingConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateloggingconfiguration
+        description: Amazon Web Services Updateloggingconfiguration
+        call: ivschat-updateloggingconfiguration.amazonwebservicesupdateloggingconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivschat-updateloggingconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivschat — UpdateLoggingConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateloggingconfiguration
+      description: Amazon Web Services Updateloggingconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivschat-updateloggingconfiguration.amazonwebservicesupdateloggingconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Access Preview
+  description: 'Amazon Web Services accessanalyzer — Access Preview. 2 operations. Lead operation: Amazon Web Services Listaccesspreviews.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Access Preview
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-access-preview
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Access Preview business capability. Self-contained, no shared references.
+    resources:
+    - name: access-preview
+      path: /access-preview
+      operations:
+      - name: amazonwebserviceslistaccesspreviews
+        method: GET
+        description: Amazon Web Services Listaccesspreviews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: access-preview-accessPreviewId
+      path: /access-preview/{accessPreviewId}
+      operations:
+      - name: amazonwebserviceslistaccesspreviewfindings
+        method: POST
+        description: Amazon Web Services Listaccesspreviewfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-access-preview-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Access Preview. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/access-preview
+      name: access-preview
+      description: REST surface for access-preview.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistaccesspreviews
+        description: Amazon Web Services Listaccesspreviews
+        call: accessanalyzer-access-preview.amazonwebserviceslistaccesspreviews
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/access-preview/{accesspreviewid}
+      name: access-preview-accesspreviewid
+      description: REST surface for access-preview-accessPreviewId.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistaccesspreviewfindings
+        description: Amazon Web Services Listaccesspreviewfindings
+        call: accessanalyzer-access-preview.amazonwebserviceslistaccesspreviewfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-access-preview-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Access Preview. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listaccesspreviews
+      description: Amazon Web Services Listaccesspreviews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-access-preview.amazonwebserviceslistaccesspreviews
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listaccesspreviewfindings
+      description: Amazon Web Services Listaccesspreviewfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-access-preview.amazonwebserviceslistaccesspreviewfindings
+      outputParameters:
+      - type: object
+        mapping: $.

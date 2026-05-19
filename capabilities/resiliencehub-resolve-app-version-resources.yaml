@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Resolve App Version Resources
+  description: 'Amazon Web Services resiliencehub — Resolve App Version Resources. 1 operations. Lead operation: Amazon Web
+    Services Resolveappversionresources. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Resolve App Version Resources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-resolve-app-version-resources
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Resolve App Version Resources business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: resolve-app-version-resources
+      path: /resolve-app-version-resources
+      operations:
+      - name: amazonwebservicesresolveappversionresources
+        method: POST
+        description: Amazon Web Services Resolveappversionresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-resolve-app-version-resources-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Resolve App Version Resources. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/resolve-app-version-resources
+      name: resolve-app-version-resources
+      description: REST surface for resolve-app-version-resources.
+      operations:
+      - method: POST
+        name: amazonwebservicesresolveappversionresources
+        description: Amazon Web Services Resolveappversionresources
+        call: resiliencehub-resolve-app-version-resources.amazonwebservicesresolveappversionresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-resolve-app-version-resources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Resolve App Version Resources. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-resolveappversionresources
+      description: Amazon Web Services Resolveappversionresources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-resolve-app-version-resources.amazonwebservicesresolveappversionresources
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Custom Data Identifiers
+  description: 'Amazon Web Services macie2 — Custom Data Identifiers. 5 operations. Lead operation: Amazon Web Services Createcustomdataidentifier.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Custom Data Identifiers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-custom-data-identifiers
+    baseUri: ''
+    description: Amazon Web Services macie2 — Custom Data Identifiers business capability. Self-contained, no shared references.
+    resources:
+    - name: custom-data-identifiers
+      path: /custom-data-identifiers
+      operations:
+      - name: amazonwebservicescreatecustomdataidentifier
+        method: POST
+        description: Amazon Web Services Createcustomdataidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-data-identifiers-get
+      path: /custom-data-identifiers/get
+      operations:
+      - name: amazonwebservicesbatchgetcustomdataidentifiers
+        method: POST
+        description: Amazon Web Services Batchgetcustomdataidentifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-data-identifiers-list
+      path: /custom-data-identifiers/list
+      operations:
+      - name: amazonwebserviceslistcustomdataidentifiers
+        method: POST
+        description: Amazon Web Services Listcustomdataidentifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-data-identifiers-test
+      path: /custom-data-identifiers/test
+      operations:
+      - name: amazonwebservicestestcustomdataidentifier
+        method: POST
+        description: Amazon Web Services Testcustomdataidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-data-identifiers-id
+      path: /custom-data-identifiers/{id}
+      operations:
+      - name: amazonwebservicesgetcustomdataidentifier
+        method: GET
+        description: Amazon Web Services Getcustomdataidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-custom-data-identifiers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Custom Data Identifiers. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/custom-data-identifiers
+      name: custom-data-identifiers
+      description: REST surface for custom-data-identifiers.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecustomdataidentifier
+        description: Amazon Web Services Createcustomdataidentifier
+        call: macie2-custom-data-identifiers.amazonwebservicescreatecustomdataidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/get
+      name: custom-data-identifiers-get
+      description: REST surface for custom-data-identifiers-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetcustomdataidentifiers
+        description: Amazon Web Services Batchgetcustomdataidentifiers
+        call: macie2-custom-data-identifiers.amazonwebservicesbatchgetcustomdataidentifiers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/list
+      name: custom-data-identifiers-list
+      description: REST surface for custom-data-identifiers-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcustomdataidentifiers
+        description: Amazon Web Services Listcustomdataidentifiers
+        call: macie2-custom-data-identifiers.amazonwebserviceslistcustomdataidentifiers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/test
+      name: custom-data-identifiers-test
+      description: REST surface for custom-data-identifiers-test.
+      operations:
+      - method: POST
+        name: amazonwebservicestestcustomdataidentifier
+        description: Amazon Web Services Testcustomdataidentifier
+        call: macie2-custom-data-identifiers.amazonwebservicestestcustomdataidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-data-identifiers/{id}
+      name: custom-data-identifiers-id
+      description: REST surface for custom-data-identifiers-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcustomdataidentifier
+        description: Amazon Web Services Getcustomdataidentifier
+        call: macie2-custom-data-identifiers.amazonwebservicesgetcustomdataidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-custom-data-identifiers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Custom Data Identifiers. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createcustomdataidentifier
+      description: Amazon Web Services Createcustomdataidentifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-custom-data-identifiers.amazonwebservicescreatecustomdataidentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetcustomdataidentifiers
+      description: Amazon Web Services Batchgetcustomdataidentifiers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-custom-data-identifiers.amazonwebservicesbatchgetcustomdataidentifiers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcustomdataidentifiers
+      description: Amazon Web Services Listcustomdataidentifiers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-custom-data-identifiers.amazonwebserviceslistcustomdataidentifiers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-testcustomdataidentifier
+      description: Amazon Web Services Testcustomdataidentifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-custom-data-identifiers.amazonwebservicestestcustomdataidentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcustomdataidentifier
+      description: Amazon Web Services Getcustomdataidentifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-custom-data-identifiers.amazonwebservicesgetcustomdataidentifier
+      outputParameters:
+      - type: object
+        mapping: $.

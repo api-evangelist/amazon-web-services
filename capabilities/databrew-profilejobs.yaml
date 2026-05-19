@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services databrew — profileJobs
+  description: 'Amazon Web Services databrew — profileJobs. 2 operations. Lead operation: Amazon Web Services Createprofilejob.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - profileJobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: databrew-profilejobs
+    baseUri: ''
+    description: Amazon Web Services databrew — profileJobs business capability. Self-contained, no shared references.
+    resources:
+    - name: profileJobs
+      path: /profileJobs
+      operations:
+      - name: amazonwebservicescreateprofilejob
+        method: POST
+        description: Amazon Web Services Createprofilejob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profileJobs-name
+      path: /profileJobs/{name}
+      operations:
+      - name: amazonwebservicesupdateprofilejob
+        method: PUT
+        description: Amazon Web Services Updateprofilejob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: databrew-profilejobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services databrew — profileJobs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/profilejobs
+      name: profilejobs
+      description: REST surface for profileJobs.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateprofilejob
+        description: Amazon Web Services Createprofilejob
+        call: databrew-profilejobs.amazonwebservicescreateprofilejob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilejobs/{name}
+      name: profilejobs-name
+      description: REST surface for profileJobs-name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateprofilejob
+        description: Amazon Web Services Updateprofilejob
+        call: databrew-profilejobs.amazonwebservicesupdateprofilejob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: databrew-profilejobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services databrew — profileJobs. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createprofilejob
+      description: Amazon Web Services Createprofilejob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: databrew-profilejobs.amazonwebservicescreateprofilejob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprofilejob
+      description: Amazon Web Services Updateprofilejob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: databrew-profilejobs.amazonwebservicesupdateprofilejob
+      outputParameters:
+      - type: object
+        mapping: $.

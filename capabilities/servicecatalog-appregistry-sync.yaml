@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services servicecatalog-appregistry — Sync
+  description: 'Amazon Web Services servicecatalog-appregistry — Sync. 1 operations. Lead operation: Amazon Web Services Syncresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sync
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: servicecatalog-appregistry-sync
+    baseUri: ''
+    description: Amazon Web Services servicecatalog-appregistry — Sync business capability. Self-contained, no shared references.
+    resources:
+    - name: sync-resourceType-resource
+      path: /sync/{resourceType}/{resource}
+      operations:
+      - name: amazonwebservicessyncresource
+        method: POST
+        description: Amazon Web Services Syncresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: servicecatalog-appregistry-sync-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services servicecatalog-appregistry — Sync. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sync/{resourcetype}/{resource}
+      name: sync-resourcetype-resource
+      description: REST surface for sync-resourceType-resource.
+      operations:
+      - method: POST
+        name: amazonwebservicessyncresource
+        description: Amazon Web Services Syncresource
+        call: servicecatalog-appregistry-sync.amazonwebservicessyncresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: servicecatalog-appregistry-sync-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services servicecatalog-appregistry — Sync. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-syncresource
+      description: Amazon Web Services Syncresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: servicecatalog-appregistry-sync.amazonwebservicessyncresource
+      outputParameters:
+      - type: object
+        mapping: $.

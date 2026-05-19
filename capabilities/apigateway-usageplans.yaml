@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigateway — Usageplans
+  description: 'Amazon Web Services apigateway — Usageplans. 6 operations. Lead operation: Amazon Web Services Getusageplans.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Usageplans
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigateway-usageplans
+    baseUri: ''
+    description: Amazon Web Services apigateway — Usageplans business capability. Self-contained, no shared references.
+    resources:
+    - name: usageplans
+      path: /usageplans
+      operations:
+      - name: amazonwebservicesgetusageplans
+        method: GET
+        description: Amazon Web Services Getusageplans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usageplans-usageplanId
+      path: /usageplans/{usageplanId}
+      operations:
+      - name: amazonwebservicesupdateusageplan
+        method: PATCH
+        description: Amazon Web Services Updateusageplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usageplans-usageplanId-keys
+      path: /usageplans/{usageplanId}/keys
+      operations:
+      - name: amazonwebservicesgetusageplankeys
+        method: GET
+        description: Amazon Web Services Getusageplankeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usageplans-usageplanId-keys-keyId
+      path: /usageplans/{usageplanId}/keys/{keyId}
+      operations:
+      - name: amazonwebservicesgetusageplankey
+        method: GET
+        description: Amazon Web Services Getusageplankey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usageplans-usageplanId-keys-keyId-usage
+      path: /usageplans/{usageplanId}/keys/{keyId}/usage
+      operations:
+      - name: amazonwebservicesupdateusage
+        method: PATCH
+        description: Amazon Web Services Updateusage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usageplans-usageplanId-usage
+      path: /usageplans/{usageplanId}/usage
+      operations:
+      - name: amazonwebservicesgetusage
+        method: GET
+        description: Amazon Web Services Getusage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigateway-usageplans-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigateway — Usageplans. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/usageplans
+      name: usageplans
+      description: REST surface for usageplans.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetusageplans
+        description: Amazon Web Services Getusageplans
+        call: apigateway-usageplans.amazonwebservicesgetusageplans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageplans/{usageplanid}
+      name: usageplans-usageplanid
+      description: REST surface for usageplans-usageplanId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateusageplan
+        description: Amazon Web Services Updateusageplan
+        call: apigateway-usageplans.amazonwebservicesupdateusageplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageplans/{usageplanid}/keys
+      name: usageplans-usageplanid-keys
+      description: REST surface for usageplans-usageplanId-keys.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetusageplankeys
+        description: Amazon Web Services Getusageplankeys
+        call: apigateway-usageplans.amazonwebservicesgetusageplankeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageplans/{usageplanid}/keys/{keyid}
+      name: usageplans-usageplanid-keys-keyid
+      description: REST surface for usageplans-usageplanId-keys-keyId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetusageplankey
+        description: Amazon Web Services Getusageplankey
+        call: apigateway-usageplans.amazonwebservicesgetusageplankey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageplans/{usageplanid}/keys/{keyid}/usage
+      name: usageplans-usageplanid-keys-keyid-usage
+      description: REST surface for usageplans-usageplanId-keys-keyId-usage.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateusage
+        description: Amazon Web Services Updateusage
+        call: apigateway-usageplans.amazonwebservicesupdateusage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usageplans/{usageplanid}/usage
+      name: usageplans-usageplanid-usage
+      description: REST surface for usageplans-usageplanId-usage.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetusage
+        description: Amazon Web Services Getusage
+        call: apigateway-usageplans.amazonwebservicesgetusage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigateway-usageplans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigateway — Usageplans. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getusageplans
+      description: Amazon Web Services Getusageplans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesgetusageplans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateusageplan
+      description: Amazon Web Services Updateusageplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesupdateusageplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getusageplankeys
+      description: Amazon Web Services Getusageplankeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesgetusageplankeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getusageplankey
+      description: Amazon Web Services Getusageplankey
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesgetusageplankey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateusage
+      description: Amazon Web Services Updateusage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesupdateusage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getusage
+      description: Amazon Web Services Getusage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigateway-usageplans.amazonwebservicesgetusage
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ListExportErrors
+  description: 'Amazon Web Services mgn — ListExportErrors. 1 operations. Lead operation: Amazon Web Services Listexporterrors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListExportErrors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-listexporterrors
+    baseUri: ''
+    description: Amazon Web Services mgn — ListExportErrors business capability. Self-contained, no shared references.
+    resources:
+    - name: ListExportErrors
+      path: /ListExportErrors
+      operations:
+      - name: amazonwebserviceslistexporterrors
+        method: POST
+        description: Amazon Web Services Listexporterrors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-listexporterrors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ListExportErrors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listexporterrors
+      name: listexporterrors
+      description: REST surface for ListExportErrors.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistexporterrors
+        description: Amazon Web Services Listexporterrors
+        call: mgn-listexporterrors.amazonwebserviceslistexporterrors
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-listexporterrors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ListExportErrors. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listexporterrors
+      description: Amazon Web Services Listexporterrors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-listexporterrors.amazonwebserviceslistexporterrors
+      outputParameters:
+      - type: object
+        mapping: $.

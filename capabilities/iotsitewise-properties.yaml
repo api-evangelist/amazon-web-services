@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Properties
+  description: 'Amazon Web Services iotsitewise — Properties. 8 operations. Lead operation: Amazon Web Services Batchputassetpropertyvalue.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Properties
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-properties
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Properties business capability. Self-contained, no shared references.
+    resources:
+    - name: properties
+      path: /properties
+      operations:
+      - name: amazonwebservicesbatchputassetpropertyvalue
+        method: POST
+        description: Amazon Web Services Batchputassetpropertyvalue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-aggregates
+      path: /properties/aggregates
+      operations:
+      - name: amazonwebservicesgetassetpropertyaggregates
+        method: GET
+        description: Amazon Web Services Getassetpropertyaggregates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-batch-aggregates
+      path: /properties/batch/aggregates
+      operations:
+      - name: amazonwebservicesbatchgetassetpropertyaggregates
+        method: POST
+        description: Amazon Web Services Batchgetassetpropertyaggregates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-batch-history
+      path: /properties/batch/history
+      operations:
+      - name: amazonwebservicesbatchgetassetpropertyvaluehistory
+        method: POST
+        description: Amazon Web Services Batchgetassetpropertyvaluehistory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-batch-latest
+      path: /properties/batch/latest
+      operations:
+      - name: amazonwebservicesbatchgetassetpropertyvalue
+        method: POST
+        description: Amazon Web Services Batchgetassetpropertyvalue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-history
+      path: /properties/history
+      operations:
+      - name: amazonwebservicesgetassetpropertyvaluehistory
+        method: GET
+        description: Amazon Web Services Getassetpropertyvaluehistory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-interpolated
+      path: /properties/interpolated
+      operations:
+      - name: amazonwebservicesgetinterpolatedassetpropertyvalues
+        method: GET
+        description: Amazon Web Services Getinterpolatedassetpropertyvalues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: properties-latest
+      path: /properties/latest
+      operations:
+      - name: amazonwebservicesgetassetpropertyvalue
+        method: GET
+        description: Amazon Web Services Getassetpropertyvalue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-properties-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Properties. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/properties
+      name: properties
+      description: REST surface for properties.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchputassetpropertyvalue
+        description: Amazon Web Services Batchputassetpropertyvalue
+        call: iotsitewise-properties.amazonwebservicesbatchputassetpropertyvalue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/aggregates
+      name: properties-aggregates
+      description: REST surface for properties-aggregates.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetassetpropertyaggregates
+        description: Amazon Web Services Getassetpropertyaggregates
+        call: iotsitewise-properties.amazonwebservicesgetassetpropertyaggregates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/batch/aggregates
+      name: properties-batch-aggregates
+      description: REST surface for properties-batch-aggregates.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetassetpropertyaggregates
+        description: Amazon Web Services Batchgetassetpropertyaggregates
+        call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyaggregates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/batch/history
+      name: properties-batch-history
+      description: REST surface for properties-batch-history.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetassetpropertyvaluehistory
+        description: Amazon Web Services Batchgetassetpropertyvaluehistory
+        call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyvaluehistory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/batch/latest
+      name: properties-batch-latest
+      description: REST surface for properties-batch-latest.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetassetpropertyvalue
+        description: Amazon Web Services Batchgetassetpropertyvalue
+        call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyvalue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/history
+      name: properties-history
+      description: REST surface for properties-history.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetassetpropertyvaluehistory
+        description: Amazon Web Services Getassetpropertyvaluehistory
+        call: iotsitewise-properties.amazonwebservicesgetassetpropertyvaluehistory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/interpolated
+      name: properties-interpolated
+      description: REST surface for properties-interpolated.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetinterpolatedassetpropertyvalues
+        description: Amazon Web Services Getinterpolatedassetpropertyvalues
+        call: iotsitewise-properties.amazonwebservicesgetinterpolatedassetpropertyvalues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/properties/latest
+      name: properties-latest
+      description: REST surface for properties-latest.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetassetpropertyvalue
+        description: Amazon Web Services Getassetpropertyvalue
+        call: iotsitewise-properties.amazonwebservicesgetassetpropertyvalue
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-properties-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Properties. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchputassetpropertyvalue
+      description: Amazon Web Services Batchputassetpropertyvalue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-properties.amazonwebservicesbatchputassetpropertyvalue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getassetpropertyaggregates
+      description: Amazon Web Services Getassetpropertyaggregates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-properties.amazonwebservicesgetassetpropertyaggregates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetassetpropertyaggregates
+      description: Amazon Web Services Batchgetassetpropertyaggregates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyaggregates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetassetpropertyvaluehistory
+      description: Amazon Web Services Batchgetassetpropertyvaluehistory
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyvaluehistory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetassetpropertyvalue
+      description: Amazon Web Services Batchgetassetpropertyvalue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-properties.amazonwebservicesbatchgetassetpropertyvalue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getassetpropertyvaluehistory
+      description: Amazon Web Services Getassetpropertyvaluehistory
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-properties.amazonwebservicesgetassetpropertyvaluehistory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getinterpolatedassetpropertyvalues
+      description: Amazon Web Services Getinterpolatedassetpropertyvalues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-properties.amazonwebservicesgetinterpolatedassetpropertyvalues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getassetpropertyvalue
+      description: Amazon Web Services Getassetpropertyvalue
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-properties.amazonwebservicesgetassetpropertyvalue
+      outputParameters:
+      - type: object
+        mapping: $.

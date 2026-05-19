@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Contact Flows
+  description: 'Amazon Web Services connect — Contact Flows. 5 operations. Lead operation: Amazon Web Services Createcontactflow.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Contact Flows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-contact-flows
+    baseUri: ''
+    description: Amazon Web Services connect — Contact Flows business capability. Self-contained, no shared references.
+    resources:
+    - name: contact-flows-InstanceId
+      path: /contact-flows/{InstanceId}
+      operations:
+      - name: amazonwebservicescreatecontactflow
+        method: PUT
+        description: Amazon Web Services Createcontactflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-flows-InstanceId-ContactFlowId
+      path: /contact-flows/{InstanceId}/{ContactFlowId}
+      operations:
+      - name: amazonwebservicesdescribecontactflow
+        method: GET
+        description: Amazon Web Services Describecontactflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-flows-InstanceId-ContactFlowId-content
+      path: /contact-flows/{InstanceId}/{ContactFlowId}/content
+      operations:
+      - name: amazonwebservicesupdatecontactflowcontent
+        method: POST
+        description: Amazon Web Services Updatecontactflowcontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-flows-InstanceId-ContactFlowId-metadata
+      path: /contact-flows/{InstanceId}/{ContactFlowId}/metadata
+      operations:
+      - name: amazonwebservicesupdatecontactflowmetadata
+        method: POST
+        description: Amazon Web Services Updatecontactflowmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-flows-InstanceId-ContactFlowId-name
+      path: /contact-flows/{InstanceId}/{ContactFlowId}/name
+      operations:
+      - name: amazonwebservicesupdatecontactflowname
+        method: POST
+        description: Amazon Web Services Updatecontactflowname
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-contact-flows-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Contact Flows. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/contact-flows/{instanceid}
+      name: contact-flows-instanceid
+      description: REST surface for contact-flows-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreatecontactflow
+        description: Amazon Web Services Createcontactflow
+        call: connect-contact-flows.amazonwebservicescreatecontactflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-flows/{instanceid}/{contactflowid}
+      name: contact-flows-instanceid-contactflowid
+      description: REST surface for contact-flows-InstanceId-ContactFlowId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribecontactflow
+        description: Amazon Web Services Describecontactflow
+        call: connect-contact-flows.amazonwebservicesdescribecontactflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-flows/{instanceid}/{contactflowid}/content
+      name: contact-flows-instanceid-contactflowid-content
+      description: REST surface for contact-flows-InstanceId-ContactFlowId-content.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecontactflowcontent
+        description: Amazon Web Services Updatecontactflowcontent
+        call: connect-contact-flows.amazonwebservicesupdatecontactflowcontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-flows/{instanceid}/{contactflowid}/metadata
+      name: contact-flows-instanceid-contactflowid-metadata
+      description: REST surface for contact-flows-InstanceId-ContactFlowId-metadata.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecontactflowmetadata
+        description: Amazon Web Services Updatecontactflowmetadata
+        call: connect-contact-flows.amazonwebservicesupdatecontactflowmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-flows/{instanceid}/{contactflowid}/name
+      name: contact-flows-instanceid-contactflowid-name
+      description: REST surface for contact-flows-InstanceId-ContactFlowId-name.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecontactflowname
+        description: Amazon Web Services Updatecontactflowname
+        call: connect-contact-flows.amazonwebservicesupdatecontactflowname
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-contact-flows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Contact Flows. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createcontactflow
+      description: Amazon Web Services Createcontactflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-contact-flows.amazonwebservicescreatecontactflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describecontactflow
+      description: Amazon Web Services Describecontactflow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-contact-flows.amazonwebservicesdescribecontactflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontactflowcontent
+      description: Amazon Web Services Updatecontactflowcontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-flows.amazonwebservicesupdatecontactflowcontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontactflowmetadata
+      description: Amazon Web Services Updatecontactflowmetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-flows.amazonwebservicesupdatecontactflowmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontactflowname
+      description: Amazon Web Services Updatecontactflowname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-flows.amazonwebservicesupdatecontactflowname
+      outputParameters:
+      - type: object
+        mapping: $.

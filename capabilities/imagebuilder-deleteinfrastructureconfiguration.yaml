@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — DeleteInfrastructureConfiguration
+  description: 'Amazon Web Services imagebuilder — DeleteInfrastructureConfiguration. 1 operations. Lead operation: Amazon
+    Web Services Deleteinfrastructureconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteInfrastructureConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-deleteinfrastructureconfiguration
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — DeleteInfrastructureConfiguration business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: DeleteInfrastructureConfiguration
+      path: /DeleteInfrastructureConfiguration
+      operations:
+      - name: amazonwebservicesdeleteinfrastructureconfiguration
+        method: DELETE
+        description: Amazon Web Services Deleteinfrastructureconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-deleteinfrastructureconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — DeleteInfrastructureConfiguration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleteinfrastructureconfiguration
+      name: deleteinfrastructureconfiguration
+      description: REST surface for DeleteInfrastructureConfiguration.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteinfrastructureconfiguration
+        description: Amazon Web Services Deleteinfrastructureconfiguration
+        call: imagebuilder-deleteinfrastructureconfiguration.amazonwebservicesdeleteinfrastructureconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-deleteinfrastructureconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — DeleteInfrastructureConfiguration. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteinfrastructureconfiguration
+      description: Amazon Web Services Deleteinfrastructureconfiguration
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: imagebuilder-deleteinfrastructureconfiguration.amazonwebservicesdeleteinfrastructureconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

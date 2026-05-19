@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Describeschedulingpolicies
+  description: 'Amazon Web Services batch — Describeschedulingpolicies. 1 operations. Lead operation: Amazon Web Services
+    Describeschedulingpolicies. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describeschedulingpolicies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-describeschedulingpolicies
+    baseUri: ''
+    description: Amazon Web Services batch — Describeschedulingpolicies business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-describeschedulingpolicies
+      path: /v1/describeschedulingpolicies
+      operations:
+      - name: amazonwebservicesdescribeschedulingpolicies
+        method: POST
+        description: Amazon Web Services Describeschedulingpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-describeschedulingpolicies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Describeschedulingpolicies. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/describeschedulingpolicies
+      name: v1-describeschedulingpolicies
+      description: REST surface for v1-describeschedulingpolicies.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeschedulingpolicies
+        description: Amazon Web Services Describeschedulingpolicies
+        call: batch-describeschedulingpolicies.amazonwebservicesdescribeschedulingpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-describeschedulingpolicies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Describeschedulingpolicies. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeschedulingpolicies
+      description: Amazon Web Services Describeschedulingpolicies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-describeschedulingpolicies.amazonwebservicesdescribeschedulingpolicies
+      outputParameters:
+      - type: object
+        mapping: $.

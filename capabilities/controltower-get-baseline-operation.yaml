@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Get Baseline Operation
+  description: 'Amazon Web Services controltower — Get Baseline Operation. 1 operations. Lead operation: Amazon Web Services
+    Getbaselineoperation. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Baseline Operation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-get-baseline-operation
+    baseUri: ''
+    description: Amazon Web Services controltower — Get Baseline Operation business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: get-baseline-operation
+      path: /get-baseline-operation
+      operations:
+      - name: amazonwebservicesgetbaselineoperation
+        method: POST
+        description: Amazon Web Services Getbaselineoperation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-get-baseline-operation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Get Baseline Operation. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-baseline-operation
+      name: get-baseline-operation
+      description: REST surface for get-baseline-operation.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbaselineoperation
+        description: Amazon Web Services Getbaselineoperation
+        call: controltower-get-baseline-operation.amazonwebservicesgetbaselineoperation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-get-baseline-operation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Get Baseline Operation. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getbaselineoperation
+      description: Amazon Web Services Getbaselineoperation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-get-baseline-operation.amazonwebservicesgetbaselineoperation
+      outputParameters:
+      - type: object
+        mapping: $.

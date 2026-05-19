@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector-scan — Scan
+  description: 'Amazon Web Services inspector-scan — Scan. 1 operations. Lead operation: Amazon Web Services Scansbom. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Scan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector-scan-scan
+    baseUri: ''
+    description: Amazon Web Services inspector-scan — Scan business capability. Self-contained, no shared references.
+    resources:
+    - name: scan-sbom
+      path: /scan/sbom
+      operations:
+      - name: amazonwebservicesscansbom
+        method: POST
+        description: Amazon Web Services Scansbom
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector-scan-scan-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector-scan — Scan. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/scan/sbom
+      name: scan-sbom
+      description: REST surface for scan-sbom.
+      operations:
+      - method: POST
+        name: amazonwebservicesscansbom
+        description: Amazon Web Services Scansbom
+        call: inspector-scan-scan.amazonwebservicesscansbom
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector-scan-scan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector-scan — Scan. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-scansbom
+      description: Amazon Web Services Scansbom
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector-scan-scan.amazonwebservicesscansbom
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Update App Version App Component
+  description: 'Amazon Web Services resiliencehub — Update App Version App Component. 1 operations. Lead operation: Amazon
+    Web Services Updateappversionappcomponent. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Update App Version App Component
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-update-app-version-app-component
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Update App Version App Component business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: update-app-version-app-component
+      path: /update-app-version-app-component
+      operations:
+      - name: amazonwebservicesupdateappversionappcomponent
+        method: POST
+        description: Amazon Web Services Updateappversionappcomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-update-app-version-app-component-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Update App Version App Component. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/update-app-version-app-component
+      name: update-app-version-app-component
+      description: REST surface for update-app-version-app-component.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateappversionappcomponent
+        description: Amazon Web Services Updateappversionappcomponent
+        call: resiliencehub-update-app-version-app-component.amazonwebservicesupdateappversionappcomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-update-app-version-app-component-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Update App Version App Component. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateappversionappcomponent
+      description: Amazon Web Services Updateappversionappcomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-update-app-version-app-component.amazonwebservicesupdateappversionappcomponent
+      outputParameters:
+      - type: object
+        mapping: $.

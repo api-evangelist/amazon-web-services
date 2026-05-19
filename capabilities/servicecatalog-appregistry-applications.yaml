@@ -1,0 +1,260 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services servicecatalog-appregistry — Applications
+  description: 'Amazon Web Services servicecatalog-appregistry — Applications. 7 operations. Lead operation: Amazon Web Services
+    Listapplications. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: servicecatalog-appregistry-applications
+    baseUri: ''
+    description: Amazon Web Services servicecatalog-appregistry — Applications business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: amazonwebserviceslistapplications
+        method: GET
+        description: Amazon Web Services Listapplications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application
+      path: /applications/{application}
+      operations:
+      - name: amazonwebservicesupdateapplication
+        method: PATCH
+        description: Amazon Web Services Updateapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application-attribute-group-details
+      path: /applications/{application}/attribute-group-details
+      operations:
+      - name: amazonwebserviceslistattributegroupsforapplication
+        method: GET
+        description: Amazon Web Services Listattributegroupsforapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application-attribute-groups
+      path: /applications/{application}/attribute-groups
+      operations:
+      - name: amazonwebserviceslistassociatedattributegroups
+        method: GET
+        description: Amazon Web Services Listassociatedattributegroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application-attribute-groups-attributeGroup
+      path: /applications/{application}/attribute-groups/{attributeGroup}
+      operations:
+      - name: amazonwebservicesdisassociateattributegroup
+        method: DELETE
+        description: Amazon Web Services Disassociateattributegroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application-resources
+      path: /applications/{application}/resources
+      operations:
+      - name: amazonwebserviceslistassociatedresources
+        method: GET
+        description: Amazon Web Services Listassociatedresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-application-resources-resourceType-resource
+      path: /applications/{application}/resources/{resourceType}/{resource}
+      operations:
+      - name: amazonwebservicesgetassociatedresource
+        method: GET
+        description: Amazon Web Services Getassociatedresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: servicecatalog-appregistry-applications-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services servicecatalog-appregistry — Applications. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplications
+        description: Amazon Web Services Listapplications
+        call: servicecatalog-appregistry-applications.amazonwebserviceslistapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}
+      name: applications-application
+      description: REST surface for applications-application.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateapplication
+        description: Amazon Web Services Updateapplication
+        call: servicecatalog-appregistry-applications.amazonwebservicesupdateapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}/attribute-group-details
+      name: applications-application-attribute-group-details
+      description: REST surface for applications-application-attribute-group-details.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistattributegroupsforapplication
+        description: Amazon Web Services Listattributegroupsforapplication
+        call: servicecatalog-appregistry-applications.amazonwebserviceslistattributegroupsforapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}/attribute-groups
+      name: applications-application-attribute-groups
+      description: REST surface for applications-application-attribute-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassociatedattributegroups
+        description: Amazon Web Services Listassociatedattributegroups
+        call: servicecatalog-appregistry-applications.amazonwebserviceslistassociatedattributegroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}/attribute-groups/{attributegroup}
+      name: applications-application-attribute-groups-attributegroup
+      description: REST surface for applications-application-attribute-groups-attributeGroup.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateattributegroup
+        description: Amazon Web Services Disassociateattributegroup
+        call: servicecatalog-appregistry-applications.amazonwebservicesdisassociateattributegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}/resources
+      name: applications-application-resources
+      description: REST surface for applications-application-resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassociatedresources
+        description: Amazon Web Services Listassociatedresources
+        call: servicecatalog-appregistry-applications.amazonwebserviceslistassociatedresources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application}/resources/{resourcetype}/{resource}
+      name: applications-application-resources-resourcetype-resource
+      description: REST surface for applications-application-resources-resourceType-resource.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetassociatedresource
+        description: Amazon Web Services Getassociatedresource
+        call: servicecatalog-appregistry-applications.amazonwebservicesgetassociatedresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: servicecatalog-appregistry-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services servicecatalog-appregistry — Applications. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listapplications
+      description: Amazon Web Services Listapplications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebserviceslistapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateapplication
+      description: Amazon Web Services Updateapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebservicesupdateapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listattributegroupsforapplication
+      description: Amazon Web Services Listattributegroupsforapplication
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebserviceslistattributegroupsforapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassociatedattributegroups
+      description: Amazon Web Services Listassociatedattributegroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebserviceslistassociatedattributegroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateattributegroup
+      description: Amazon Web Services Disassociateattributegroup
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebservicesdisassociateattributegroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassociatedresources
+      description: Amazon Web Services Listassociatedresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebserviceslistassociatedresources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getassociatedresource
+      description: Amazon Web Services Getassociatedresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: servicecatalog-appregistry-applications.amazonwebservicesgetassociatedresource
+      outputParameters:
+      - type: object
+        mapping: $.

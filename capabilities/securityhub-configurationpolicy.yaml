@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — configurationPolicy
+  description: 'Amazon Web Services securityhub — configurationPolicy. 4 operations. Lead operation: Amazon Web Services Createconfigurationpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - configurationPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-configurationpolicy
+    baseUri: ''
+    description: Amazon Web Services securityhub — configurationPolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: configurationPolicy-create
+      path: /configurationPolicy/create
+      operations:
+      - name: amazonwebservicescreateconfigurationpolicy
+        method: POST
+        description: Amazon Web Services Createconfigurationpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicy-get-Identifier
+      path: /configurationPolicy/get/{Identifier}
+      operations:
+      - name: amazonwebservicesgetconfigurationpolicy
+        method: GET
+        description: Amazon Web Services Getconfigurationpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicy-list
+      path: /configurationPolicy/list
+      operations:
+      - name: amazonwebserviceslistconfigurationpolicies
+        method: GET
+        description: Amazon Web Services Listconfigurationpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicy-Identifier
+      path: /configurationPolicy/{Identifier}
+      operations:
+      - name: amazonwebservicesupdateconfigurationpolicy
+        method: PATCH
+        description: Amazon Web Services Updateconfigurationpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-configurationpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — configurationPolicy. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/configurationpolicy/create
+      name: configurationpolicy-create
+      description: REST surface for configurationPolicy-create.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateconfigurationpolicy
+        description: Amazon Web Services Createconfigurationpolicy
+        call: securityhub-configurationpolicy.amazonwebservicescreateconfigurationpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicy/get/{identifier}
+      name: configurationpolicy-get-identifier
+      description: REST surface for configurationPolicy-get-Identifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconfigurationpolicy
+        description: Amazon Web Services Getconfigurationpolicy
+        call: securityhub-configurationpolicy.amazonwebservicesgetconfigurationpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicy/list
+      name: configurationpolicy-list
+      description: REST surface for configurationPolicy-list.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfigurationpolicies
+        description: Amazon Web Services Listconfigurationpolicies
+        call: securityhub-configurationpolicy.amazonwebserviceslistconfigurationpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicy/{identifier}
+      name: configurationpolicy-identifier
+      description: REST surface for configurationPolicy-Identifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconfigurationpolicy
+        description: Amazon Web Services Updateconfigurationpolicy
+        call: securityhub-configurationpolicy.amazonwebservicesupdateconfigurationpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-configurationpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — configurationPolicy. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createconfigurationpolicy
+      description: Amazon Web Services Createconfigurationpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicy.amazonwebservicescreateconfigurationpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconfigurationpolicy
+      description: Amazon Web Services Getconfigurationpolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-configurationpolicy.amazonwebservicesgetconfigurationpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfigurationpolicies
+      description: Amazon Web Services Listconfigurationpolicies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-configurationpolicy.amazonwebserviceslistconfigurationpolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfigurationpolicy
+      description: Amazon Web Services Updateconfigurationpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-configurationpolicy.amazonwebservicesupdateconfigurationpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

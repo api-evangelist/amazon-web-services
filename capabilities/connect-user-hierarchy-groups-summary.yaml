@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — User Hierarchy Groups Summary
+  description: 'Amazon Web Services connect — User Hierarchy Groups Summary. 1 operations. Lead operation: Amazon Web Services
+    Listuserhierarchygroups. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - User Hierarchy Groups Summary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-user-hierarchy-groups-summary
+    baseUri: ''
+    description: Amazon Web Services connect — User Hierarchy Groups Summary business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: user-hierarchy-groups-summary-InstanceId
+      path: /user-hierarchy-groups-summary/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistuserhierarchygroups
+        method: GET
+        description: Amazon Web Services Listuserhierarchygroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-user-hierarchy-groups-summary-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — User Hierarchy Groups Summary. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/user-hierarchy-groups-summary/{instanceid}
+      name: user-hierarchy-groups-summary-instanceid
+      description: REST surface for user-hierarchy-groups-summary-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistuserhierarchygroups
+        description: Amazon Web Services Listuserhierarchygroups
+        call: connect-user-hierarchy-groups-summary.amazonwebserviceslistuserhierarchygroups
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-user-hierarchy-groups-summary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — User Hierarchy Groups Summary. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listuserhierarchygroups
+      description: Amazon Web Services Listuserhierarchygroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-user-hierarchy-groups-summary.amazonwebserviceslistuserhierarchygroups
+      outputParameters:
+      - type: object
+        mapping: $.

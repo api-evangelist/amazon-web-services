@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — ServiceGraph
+  description: 'Amazon Web Services xray — ServiceGraph. 1 operations. Lead operation: Amazon Web Services Getservicegraph.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ServiceGraph
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-servicegraph
+    baseUri: ''
+    description: Amazon Web Services xray — ServiceGraph business capability. Self-contained, no shared references.
+    resources:
+    - name: ServiceGraph
+      path: /ServiceGraph
+      operations:
+      - name: amazonwebservicesgetservicegraph
+        method: POST
+        description: Amazon Web Services Getservicegraph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-servicegraph-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — ServiceGraph. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/servicegraph
+      name: servicegraph
+      description: REST surface for ServiceGraph.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetservicegraph
+        description: Amazon Web Services Getservicegraph
+        call: xray-servicegraph.amazonwebservicesgetservicegraph
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-servicegraph-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — ServiceGraph. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getservicegraph
+      description: Amazon Web Services Getservicegraph
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-servicegraph.amazonwebservicesgetservicegraph
+      outputParameters:
+      - type: object
+        mapping: $.

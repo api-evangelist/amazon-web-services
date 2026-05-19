@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Analyzer
+  description: 'Amazon Web Services accessanalyzer — Analyzer. 4 operations. Lead operation: Amazon Web Services Listanalyzers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Analyzer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-analyzer
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Analyzer business capability. Self-contained, no shared references.
+    resources:
+    - name: analyzer
+      path: /analyzer
+      operations:
+      - name: amazonwebserviceslistanalyzers
+        method: GET
+        description: Amazon Web Services Listanalyzers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analyzer-analyzerName
+      path: /analyzer/{analyzerName}
+      operations:
+      - name: amazonwebservicesgetanalyzer
+        method: GET
+        description: Amazon Web Services Getanalyzer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analyzer-analyzerName-archive-rule
+      path: /analyzer/{analyzerName}/archive-rule
+      operations:
+      - name: amazonwebserviceslistarchiverules
+        method: GET
+        description: Amazon Web Services Listarchiverules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analyzer-analyzerName-archive-rule-ruleName
+      path: /analyzer/{analyzerName}/archive-rule/{ruleName}
+      operations:
+      - name: amazonwebservicesupdatearchiverule
+        method: PUT
+        description: Amazon Web Services Updatearchiverule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-analyzer-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Analyzer. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/analyzer
+      name: analyzer
+      description: REST surface for analyzer.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistanalyzers
+        description: Amazon Web Services Listanalyzers
+        call: accessanalyzer-analyzer.amazonwebserviceslistanalyzers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}
+      name: analyzer-analyzername
+      description: REST surface for analyzer-analyzerName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetanalyzer
+        description: Amazon Web Services Getanalyzer
+        call: accessanalyzer-analyzer.amazonwebservicesgetanalyzer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}/archive-rule
+      name: analyzer-analyzername-archive-rule
+      description: REST surface for analyzer-analyzerName-archive-rule.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistarchiverules
+        description: Amazon Web Services Listarchiverules
+        call: accessanalyzer-analyzer.amazonwebserviceslistarchiverules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analyzer/{analyzername}/archive-rule/{rulename}
+      name: analyzer-analyzername-archive-rule-rulename
+      description: REST surface for analyzer-analyzerName-archive-rule-ruleName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatearchiverule
+        description: Amazon Web Services Updatearchiverule
+        call: accessanalyzer-analyzer.amazonwebservicesupdatearchiverule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-analyzer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Analyzer. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listanalyzers
+      description: Amazon Web Services Listanalyzers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-analyzer.amazonwebserviceslistanalyzers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getanalyzer
+      description: Amazon Web Services Getanalyzer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-analyzer.amazonwebservicesgetanalyzer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listarchiverules
+      description: Amazon Web Services Listarchiverules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-analyzer.amazonwebserviceslistarchiverules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatearchiverule
+      description: Amazon Web Services Updatearchiverule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-analyzer.amazonwebservicesupdatearchiverule
+      outputParameters:
+      - type: object
+        mapping: $.

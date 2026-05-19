@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services groundstation — Missionprofile
+  description: 'Amazon Web Services groundstation — Missionprofile. 2 operations. Lead operation: Amazon Web Services Listmissionprofiles.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Missionprofile
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: groundstation-missionprofile
+    baseUri: ''
+    description: Amazon Web Services groundstation — Missionprofile business capability. Self-contained, no shared references.
+    resources:
+    - name: missionprofile
+      path: /missionprofile
+      operations:
+      - name: amazonwebserviceslistmissionprofiles
+        method: GET
+        description: Amazon Web Services Listmissionprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: missionprofile-missionProfileId
+      path: /missionprofile/{missionProfileId}
+      operations:
+      - name: amazonwebservicesupdatemissionprofile
+        method: PUT
+        description: Amazon Web Services Updatemissionprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: groundstation-missionprofile-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services groundstation — Missionprofile. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/missionprofile
+      name: missionprofile
+      description: REST surface for missionprofile.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmissionprofiles
+        description: Amazon Web Services Listmissionprofiles
+        call: groundstation-missionprofile.amazonwebserviceslistmissionprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/missionprofile/{missionprofileid}
+      name: missionprofile-missionprofileid
+      description: REST surface for missionprofile-missionProfileId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatemissionprofile
+        description: Amazon Web Services Updatemissionprofile
+        call: groundstation-missionprofile.amazonwebservicesupdatemissionprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: groundstation-missionprofile-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services groundstation — Missionprofile. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmissionprofiles
+      description: Amazon Web Services Listmissionprofiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: groundstation-missionprofile.amazonwebserviceslistmissionprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemissionprofile
+      description: Amazon Web Services Updatemissionprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: groundstation-missionprofile.amazonwebservicesupdatemissionprofile
+      outputParameters:
+      - type: object
+        mapping: $.

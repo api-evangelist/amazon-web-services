@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services vpc-lattice — Services
+  description: 'Amazon Web Services vpc-lattice — Services. 6 operations. Lead operation: Amazon Web Services Listservices.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Services
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vpc-lattice-services
+    baseUri: ''
+    description: Amazon Web Services vpc-lattice — Services business capability. Self-contained, no shared references.
+    resources:
+    - name: services
+      path: /services
+      operations:
+      - name: amazonwebserviceslistservices
+        method: GET
+        description: Amazon Web Services Listservices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-serviceIdentifier
+      path: /services/{serviceIdentifier}
+      operations:
+      - name: amazonwebservicesupdateservice
+        method: PATCH
+        description: Amazon Web Services Updateservice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-serviceIdentifier-listeners
+      path: /services/{serviceIdentifier}/listeners
+      operations:
+      - name: amazonwebserviceslistlisteners
+        method: GET
+        description: Amazon Web Services Listlisteners
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-serviceIdentifier-listeners-listenerIdentifier
+      path: /services/{serviceIdentifier}/listeners/{listenerIdentifier}
+      operations:
+      - name: amazonwebservicesupdatelistener
+        method: PATCH
+        description: Amazon Web Services Updatelistener
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-serviceIdentifier-listeners-listenerIdentifier-rules
+      path: /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules
+      operations:
+      - name: amazonwebserviceslistrules
+        method: GET
+        description: Amazon Web Services Listrules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: services-serviceIdentifier-listeners-listenerIdentifier-rules-ruleIdentifier
+      path: /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules/{ruleIdentifier}
+      operations:
+      - name: amazonwebservicesupdaterule
+        method: PATCH
+        description: Amazon Web Services Updaterule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: vpc-lattice-services-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services vpc-lattice — Services. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/services
+      name: services
+      description: REST surface for services.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistservices
+        description: Amazon Web Services Listservices
+        call: vpc-lattice-services.amazonwebserviceslistservices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/{serviceidentifier}
+      name: services-serviceidentifier
+      description: REST surface for services-serviceIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateservice
+        description: Amazon Web Services Updateservice
+        call: vpc-lattice-services.amazonwebservicesupdateservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/{serviceidentifier}/listeners
+      name: services-serviceidentifier-listeners
+      description: REST surface for services-serviceIdentifier-listeners.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistlisteners
+        description: Amazon Web Services Listlisteners
+        call: vpc-lattice-services.amazonwebserviceslistlisteners
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/{serviceidentifier}/listeners/{listeneridentifier}
+      name: services-serviceidentifier-listeners-listeneridentifier
+      description: REST surface for services-serviceIdentifier-listeners-listenerIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatelistener
+        description: Amazon Web Services Updatelistener
+        call: vpc-lattice-services.amazonwebservicesupdatelistener
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/{serviceidentifier}/listeners/{listeneridentifier}/rules
+      name: services-serviceidentifier-listeners-listeneridentifier-rules
+      description: REST surface for services-serviceIdentifier-listeners-listenerIdentifier-rules.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrules
+        description: Amazon Web Services Listrules
+        call: vpc-lattice-services.amazonwebserviceslistrules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/services/{serviceidentifier}/listeners/{listeneridentifier}/rules/{ruleidentifier}
+      name: services-serviceidentifier-listeners-listeneridentifier-rules-ruleidentifier
+      description: REST surface for services-serviceIdentifier-listeners-listenerIdentifier-rules-ruleIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdaterule
+        description: Amazon Web Services Updaterule
+        call: vpc-lattice-services.amazonwebservicesupdaterule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vpc-lattice-services-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services vpc-lattice — Services. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listservices
+      description: Amazon Web Services Listservices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebserviceslistservices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateservice
+      description: Amazon Web Services Updateservice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebservicesupdateservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listlisteners
+      description: Amazon Web Services Listlisteners
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebserviceslistlisteners
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatelistener
+      description: Amazon Web Services Updatelistener
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebservicesupdatelistener
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrules
+      description: Amazon Web Services Listrules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebserviceslistrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterule
+      description: Amazon Web Services Updaterule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-services.amazonwebservicesupdaterule
+      outputParameters:
+      - type: object
+        mapping: $.

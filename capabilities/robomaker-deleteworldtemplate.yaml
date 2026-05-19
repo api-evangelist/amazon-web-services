@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — deleteWorldTemplate
+  description: 'Amazon Web Services robomaker — deleteWorldTemplate. 1 operations. Lead operation: Amazon Web Services Deleteworldtemplate.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteWorldTemplate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-deleteworldtemplate
+    baseUri: ''
+    description: Amazon Web Services robomaker — deleteWorldTemplate business capability. Self-contained, no shared references.
+    resources:
+    - name: deleteWorldTemplate
+      path: /deleteWorldTemplate
+      operations:
+      - name: amazonwebservicesdeleteworldtemplate
+        method: POST
+        description: Amazon Web Services Deleteworldtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-deleteworldtemplate-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — deleteWorldTemplate. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleteworldtemplate
+      name: deleteworldtemplate
+      description: REST surface for deleteWorldTemplate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteworldtemplate
+        description: Amazon Web Services Deleteworldtemplate
+        call: robomaker-deleteworldtemplate.amazonwebservicesdeleteworldtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-deleteworldtemplate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — deleteWorldTemplate. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteworldtemplate
+      description: Amazon Web Services Deleteworldtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-deleteworldtemplate.amazonwebservicesdeleteworldtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

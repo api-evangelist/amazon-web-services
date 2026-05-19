@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Behavior Model Training
+  description: 'Amazon Web Services iot — Behavior Model Training. 1 operations. Lead operation: Amazon Web Services Getbehaviormodeltrainingsummaries.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Behavior Model Training
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-behavior-model-training
+    baseUri: ''
+    description: Amazon Web Services iot — Behavior Model Training business capability. Self-contained, no shared references.
+    resources:
+    - name: behavior-model-training-summaries
+      path: /behavior-model-training/summaries
+      operations:
+      - name: amazonwebservicesgetbehaviormodeltrainingsummaries
+        method: GET
+        description: Amazon Web Services Getbehaviormodeltrainingsummaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-behavior-model-training-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Behavior Model Training. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/behavior-model-training/summaries
+      name: behavior-model-training-summaries
+      description: REST surface for behavior-model-training-summaries.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbehaviormodeltrainingsummaries
+        description: Amazon Web Services Getbehaviormodeltrainingsummaries
+        call: iot-behavior-model-training.amazonwebservicesgetbehaviormodeltrainingsummaries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-behavior-model-training-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Behavior Model Training. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getbehaviormodeltrainingsummaries
+      description: Amazon Web Services Getbehaviormodeltrainingsummaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-behavior-model-training.amazonwebservicesgetbehaviormodeltrainingsummaries
+      outputParameters:
+      - type: object
+        mapping: $.

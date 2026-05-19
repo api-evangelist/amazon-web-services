@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services route53-recovery-readiness — Readinesschecks
+  description: 'Amazon Web Services route53-recovery-readiness — Readinesschecks. 4 operations. Lead operation: Amazon Web
+    Services Listreadinesschecks. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Readinesschecks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: route53-recovery-readiness-readinesschecks
+    baseUri: ''
+    description: Amazon Web Services route53-recovery-readiness — Readinesschecks business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: readinesschecks
+      path: /readinesschecks
+      operations:
+      - name: amazonwebserviceslistreadinesschecks
+        method: GET
+        description: Amazon Web Services Listreadinesschecks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readinesschecks-readinessCheckName
+      path: /readinesschecks/{readinessCheckName}
+      operations:
+      - name: amazonwebservicesupdatereadinesscheck
+        method: PUT
+        description: Amazon Web Services Updatereadinesscheck
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readinesschecks-readinessCheckName-resource-resourceIdentifier-status
+      path: /readinesschecks/{readinessCheckName}/resource/{resourceIdentifier}/status
+      operations:
+      - name: amazonwebservicesgetreadinesscheckresourcestatus
+        method: GET
+        description: Amazon Web Services Getreadinesscheckresourcestatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: readinesschecks-readinessCheckName-status
+      path: /readinesschecks/{readinessCheckName}/status
+      operations:
+      - name: amazonwebservicesgetreadinesscheckstatus
+        method: GET
+        description: Amazon Web Services Getreadinesscheckstatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: route53-recovery-readiness-readinesschecks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services route53-recovery-readiness — Readinesschecks. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/readinesschecks
+      name: readinesschecks
+      description: REST surface for readinesschecks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistreadinesschecks
+        description: Amazon Web Services Listreadinesschecks
+        call: route53-recovery-readiness-readinesschecks.amazonwebserviceslistreadinesschecks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/readinesschecks/{readinesscheckname}
+      name: readinesschecks-readinesscheckname
+      description: REST surface for readinesschecks-readinessCheckName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatereadinesscheck
+        description: Amazon Web Services Updatereadinesscheck
+        call: route53-recovery-readiness-readinesschecks.amazonwebservicesupdatereadinesscheck
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/readinesschecks/{readinesscheckname}/resource/{resourceidentifier}/status
+      name: readinesschecks-readinesscheckname-resource-resourceidentifier-status
+      description: REST surface for readinesschecks-readinessCheckName-resource-resourceIdentifier-status.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadinesscheckresourcestatus
+        description: Amazon Web Services Getreadinesscheckresourcestatus
+        call: route53-recovery-readiness-readinesschecks.amazonwebservicesgetreadinesscheckresourcestatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/readinesschecks/{readinesscheckname}/status
+      name: readinesschecks-readinesscheckname-status
+      description: REST surface for readinesschecks-readinessCheckName-status.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadinesscheckstatus
+        description: Amazon Web Services Getreadinesscheckstatus
+        call: route53-recovery-readiness-readinesschecks.amazonwebservicesgetreadinesscheckstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: route53-recovery-readiness-readinesschecks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services route53-recovery-readiness — Readinesschecks. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listreadinesschecks
+      description: Amazon Web Services Listreadinesschecks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-readiness-readinesschecks.amazonwebserviceslistreadinesschecks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereadinesscheck
+      description: Amazon Web Services Updatereadinesscheck
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: route53-recovery-readiness-readinesschecks.amazonwebservicesupdatereadinesscheck
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadinesscheckresourcestatus
+      description: Amazon Web Services Getreadinesscheckresourcestatus
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-readiness-readinesschecks.amazonwebservicesgetreadinesscheckresourcestatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadinesscheckstatus
+      description: Amazon Web Services Getreadinesscheckstatus
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-readiness-readinesschecks.amazonwebservicesgetreadinesscheckstatus
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Phone Number Orders
+  description: 'Amazon Web Services chime — Phone Number Orders. 2 operations. Lead operation: Amazon Web Services Listphonenumberorders.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Phone Number Orders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-phone-number-orders
+    baseUri: ''
+    description: Amazon Web Services chime — Phone Number Orders business capability. Self-contained, no shared references.
+    resources:
+    - name: phone-number-orders
+      path: /phone-number-orders
+      operations:
+      - name: amazonwebserviceslistphonenumberorders
+        method: GET
+        description: Amazon Web Services Listphonenumberorders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: phone-number-orders-phoneNumberOrderId
+      path: /phone-number-orders/{phoneNumberOrderId}
+      operations:
+      - name: amazonwebservicesgetphonenumberorder
+        method: GET
+        description: Amazon Web Services Getphonenumberorder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-phone-number-orders-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Phone Number Orders. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/phone-number-orders
+      name: phone-number-orders
+      description: REST surface for phone-number-orders.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistphonenumberorders
+        description: Amazon Web Services Listphonenumberorders
+        call: chime-phone-number-orders.amazonwebserviceslistphonenumberorders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/phone-number-orders/{phonenumberorderid}
+      name: phone-number-orders-phonenumberorderid
+      description: REST surface for phone-number-orders-phoneNumberOrderId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetphonenumberorder
+        description: Amazon Web Services Getphonenumberorder
+        call: chime-phone-number-orders.amazonwebservicesgetphonenumberorder
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-phone-number-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Phone Number Orders. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listphonenumberorders
+      description: Amazon Web Services Listphonenumberorders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-phone-number-orders.amazonwebserviceslistphonenumberorders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getphonenumberorder
+      description: Amazon Web Services Getphonenumberorder
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-phone-number-orders.amazonwebservicesgetphonenumberorder
+      outputParameters:
+      - type: object
+        mapping: $.

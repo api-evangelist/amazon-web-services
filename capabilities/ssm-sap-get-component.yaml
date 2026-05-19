@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-sap — Get Component
+  description: 'Amazon Web Services ssm-sap — Get Component. 1 operations. Lead operation: Amazon Web Services Getcomponent.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Component
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-sap-get-component
+    baseUri: ''
+    description: Amazon Web Services ssm-sap — Get Component business capability. Self-contained, no shared references.
+    resources:
+    - name: get-component
+      path: /get-component
+      operations:
+      - name: amazonwebservicesgetcomponent
+        method: POST
+        description: Amazon Web Services Getcomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-sap-get-component-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-sap — Get Component. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-component
+      name: get-component
+      description: REST surface for get-component.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcomponent
+        description: Amazon Web Services Getcomponent
+        call: ssm-sap-get-component.amazonwebservicesgetcomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-sap-get-component-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-sap — Get Component. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getcomponent
+      description: Amazon Web Services Getcomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-sap-get-component.amazonwebservicesgetcomponent
+      outputParameters:
+      - type: object
+        mapping: $.

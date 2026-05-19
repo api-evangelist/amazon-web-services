@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services launch-wizard — listWorkloadDeploymentPatterns
+  description: 'Amazon Web Services launch-wizard — listWorkloadDeploymentPatterns. 1 operations. Lead operation: Amazon Web
+    Services Listworkloaddeploymentpatterns. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listWorkloadDeploymentPatterns
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launch-wizard-listworkloaddeploymentpatterns
+    baseUri: ''
+    description: Amazon Web Services launch-wizard — listWorkloadDeploymentPatterns business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: listWorkloadDeploymentPatterns
+      path: /listWorkloadDeploymentPatterns
+      operations:
+      - name: amazonwebserviceslistworkloaddeploymentpatterns
+        method: POST
+        description: Amazon Web Services Listworkloaddeploymentpatterns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: launch-wizard-listworkloaddeploymentpatterns-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services launch-wizard — listWorkloadDeploymentPatterns. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listworkloaddeploymentpatterns
+      name: listworkloaddeploymentpatterns
+      description: REST surface for listWorkloadDeploymentPatterns.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistworkloaddeploymentpatterns
+        description: Amazon Web Services Listworkloaddeploymentpatterns
+        call: launch-wizard-listworkloaddeploymentpatterns.amazonwebserviceslistworkloaddeploymentpatterns
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launch-wizard-listworkloaddeploymentpatterns-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services launch-wizard — listWorkloadDeploymentPatterns. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkloaddeploymentpatterns
+      description: Amazon Web Services Listworkloaddeploymentpatterns
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: launch-wizard-listworkloaddeploymentpatterns.amazonwebserviceslistworkloaddeploymentpatterns
+      outputParameters:
+      - type: object
+        mapping: $.

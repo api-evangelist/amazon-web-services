@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Analyzed Resource
+  description: 'Amazon Web Services accessanalyzer — Analyzed Resource. 1 operations. Lead operation: Amazon Web Services
+    Listanalyzedresources. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Analyzed Resource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-analyzed-resource
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Analyzed Resource business capability. Self-contained, no shared references.
+    resources:
+    - name: analyzed-resource
+      path: /analyzed-resource
+      operations:
+      - name: amazonwebserviceslistanalyzedresources
+        method: POST
+        description: Amazon Web Services Listanalyzedresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-analyzed-resource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Analyzed Resource. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/analyzed-resource
+      name: analyzed-resource
+      description: REST surface for analyzed-resource.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistanalyzedresources
+        description: Amazon Web Services Listanalyzedresources
+        call: accessanalyzer-analyzed-resource.amazonwebserviceslistanalyzedresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-analyzed-resource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Analyzed Resource. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listanalyzedresources
+      description: Amazon Web Services Listanalyzedresources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-analyzed-resource.amazonwebserviceslistanalyzedresources
+      outputParameters:
+      - type: object
+        mapping: $.

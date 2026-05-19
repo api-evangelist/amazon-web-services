@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kafka — Vpc Connections
+  description: 'Amazon Web Services kafka — Vpc Connections. 1 operations. Lead operation: Amazon Web Services Listvpcconnections.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Vpc Connections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kafka-vpc-connections
+    baseUri: ''
+    description: Amazon Web Services kafka — Vpc Connections business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-vpc-connections
+      path: /v1/vpc-connections
+      operations:
+      - name: amazonwebserviceslistvpcconnections
+        method: GET
+        description: Amazon Web Services Listvpcconnections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kafka-vpc-connections-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kafka — Vpc Connections. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/vpc-connections
+      name: v1-vpc-connections
+      description: REST surface for v1-vpc-connections.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvpcconnections
+        description: Amazon Web Services Listvpcconnections
+        call: kafka-vpc-connections.amazonwebserviceslistvpcconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kafka-vpc-connections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kafka — Vpc Connections. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listvpcconnections
+      description: Amazon Web Services Listvpcconnections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafka-vpc-connections.amazonwebserviceslistvpcconnections
+      outputParameters:
+      - type: object
+        mapping: $.

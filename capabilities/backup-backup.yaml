@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services backup — Backup
+  description: 'Amazon Web Services backup — Backup. 10 operations. Lead operation: Amazon Web Services Listbackupplans. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Backup
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: backup-backup
+    baseUri: ''
+    description: Amazon Web Services backup — Backup business capability. Self-contained, no shared references.
+    resources:
+    - name: backup-plans
+      path: /backup/plans/
+      operations:
+      - name: amazonwebserviceslistbackupplans
+        method: GET
+        description: Amazon Web Services Listbackupplans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId
+      path: /backup/plans/{backupPlanId}
+      operations:
+      - name: amazonwebservicesupdatebackupplan
+        method: POST
+        description: Amazon Web Services Updatebackupplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId
+      path: /backup/plans/{backupPlanId}/
+      operations:
+      - name: amazonwebservicesgetbackupplan
+        method: GET
+        description: Amazon Web Services Getbackupplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId-selections
+      path: /backup/plans/{backupPlanId}/selections/
+      operations:
+      - name: amazonwebserviceslistbackupselections
+        method: GET
+        description: Amazon Web Services Listbackupselections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId-selections-selectionId
+      path: /backup/plans/{backupPlanId}/selections/{selectionId}
+      operations:
+      - name: amazonwebservicesgetbackupselection
+        method: GET
+        description: Amazon Web Services Getbackupselection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId-toTemplate
+      path: /backup/plans/{backupPlanId}/toTemplate/
+      operations:
+      - name: amazonwebservicesexportbackupplantemplate
+        method: GET
+        description: Amazon Web Services Exportbackupplantemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-plans-backupPlanId-versions
+      path: /backup/plans/{backupPlanId}/versions/
+      operations:
+      - name: amazonwebserviceslistbackupplanversions
+        method: GET
+        description: Amazon Web Services Listbackupplanversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-template-json-toPlan
+      path: /backup/template/json/toPlan
+      operations:
+      - name: amazonwebservicesgetbackupplanfromjson
+        method: POST
+        description: Amazon Web Services Getbackupplanfromjson
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-template-plans
+      path: /backup/template/plans
+      operations:
+      - name: amazonwebserviceslistbackupplantemplates
+        method: GET
+        description: Amazon Web Services Listbackupplantemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-template-plans-templateId-toPlan
+      path: /backup/template/plans/{templateId}/toPlan
+      operations:
+      - name: amazonwebservicesgetbackupplanfromtemplate
+        method: GET
+        description: Amazon Web Services Getbackupplanfromtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: backup-backup-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services backup — Backup. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/backup/plans
+      name: backup-plans
+      description: REST surface for backup-plans.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbackupplans
+        description: Amazon Web Services Listbackupplans
+        call: backup-backup.amazonwebserviceslistbackupplans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}
+      name: backup-plans-backupplanid
+      description: REST surface for backup-plans-backupPlanId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackupplan
+        description: Amazon Web Services Updatebackupplan
+        call: backup-backup.amazonwebservicesupdatebackupplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}
+      name: backup-plans-backupplanid
+      description: REST surface for backup-plans-backupPlanId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbackupplan
+        description: Amazon Web Services Getbackupplan
+        call: backup-backup.amazonwebservicesgetbackupplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}/selections
+      name: backup-plans-backupplanid-selections
+      description: REST surface for backup-plans-backupPlanId-selections.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbackupselections
+        description: Amazon Web Services Listbackupselections
+        call: backup-backup.amazonwebserviceslistbackupselections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}/selections/{selectionid}
+      name: backup-plans-backupplanid-selections-selectionid
+      description: REST surface for backup-plans-backupPlanId-selections-selectionId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbackupselection
+        description: Amazon Web Services Getbackupselection
+        call: backup-backup.amazonwebservicesgetbackupselection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}/totemplate
+      name: backup-plans-backupplanid-totemplate
+      description: REST surface for backup-plans-backupPlanId-toTemplate.
+      operations:
+      - method: GET
+        name: amazonwebservicesexportbackupplantemplate
+        description: Amazon Web Services Exportbackupplantemplate
+        call: backup-backup.amazonwebservicesexportbackupplantemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/plans/{backupplanid}/versions
+      name: backup-plans-backupplanid-versions
+      description: REST surface for backup-plans-backupPlanId-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbackupplanversions
+        description: Amazon Web Services Listbackupplanversions
+        call: backup-backup.amazonwebserviceslistbackupplanversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/template/json/toplan
+      name: backup-template-json-toplan
+      description: REST surface for backup-template-json-toPlan.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackupplanfromjson
+        description: Amazon Web Services Getbackupplanfromjson
+        call: backup-backup.amazonwebservicesgetbackupplanfromjson
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/template/plans
+      name: backup-template-plans
+      description: REST surface for backup-template-plans.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbackupplantemplates
+        description: Amazon Web Services Listbackupplantemplates
+        call: backup-backup.amazonwebserviceslistbackupplantemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup/template/plans/{templateid}/toplan
+      name: backup-template-plans-templateid-toplan
+      description: REST surface for backup-template-plans-templateId-toPlan.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbackupplanfromtemplate
+        description: Amazon Web Services Getbackupplanfromtemplate
+        call: backup-backup.amazonwebservicesgetbackupplanfromtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: backup-backup-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services backup — Backup. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listbackupplans
+      description: Amazon Web Services Listbackupplans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebserviceslistbackupplans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackupplan
+      description: Amazon Web Services Updatebackupplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: backup-backup.amazonwebservicesupdatebackupplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackupplan
+      description: Amazon Web Services Getbackupplan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebservicesgetbackupplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listbackupselections
+      description: Amazon Web Services Listbackupselections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebserviceslistbackupselections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackupselection
+      description: Amazon Web Services Getbackupselection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebservicesgetbackupselection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-exportbackupplantemplate
+      description: Amazon Web Services Exportbackupplantemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebservicesexportbackupplantemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listbackupplanversions
+      description: Amazon Web Services Listbackupplanversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebserviceslistbackupplanversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackupplanfromjson
+      description: Amazon Web Services Getbackupplanfromjson
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: backup-backup.amazonwebservicesgetbackupplanfromjson
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listbackupplantemplates
+      description: Amazon Web Services Listbackupplantemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebserviceslistbackupplantemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackupplanfromtemplate
+      description: Amazon Web Services Getbackupplanfromtemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup.amazonwebservicesgetbackupplanfromtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

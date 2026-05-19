@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot-jobs-data — Things
+  description: 'Amazon Web Services iot-jobs-data — Things. 3 operations. Lead operation: Amazon Web Services Getpendingjobexecutions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Things
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-jobs-data-things
+    baseUri: ''
+    description: Amazon Web Services iot-jobs-data — Things business capability. Self-contained, no shared references.
+    resources:
+    - name: things-thingName-jobs
+      path: /things/{thingName}/jobs
+      operations:
+      - name: amazonwebservicesgetpendingjobexecutions
+        method: GET
+        description: Amazon Web Services Getpendingjobexecutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs-$next
+      path: /things/{thingName}/jobs/$next
+      operations:
+      - name: amazonwebservicesstartnextpendingjobexecution
+        method: PUT
+        description: Amazon Web Services Startnextpendingjobexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs-jobId
+      path: /things/{thingName}/jobs/{jobId}
+      operations:
+      - name: amazonwebservicesupdatejobexecution
+        method: POST
+        description: Amazon Web Services Updatejobexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-jobs-data-things-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot-jobs-data — Things. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/things/{thingname}/jobs
+      name: things-thingname-jobs
+      description: REST surface for things-thingName-jobs.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpendingjobexecutions
+        description: Amazon Web Services Getpendingjobexecutions
+        call: iot-jobs-data-things.amazonwebservicesgetpendingjobexecutions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs/next
+      name: things-thingname-jobs-next
+      description: REST surface for things-thingName-jobs-$next.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartnextpendingjobexecution
+        description: Amazon Web Services Startnextpendingjobexecution
+        call: iot-jobs-data-things.amazonwebservicesstartnextpendingjobexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs/{jobid}
+      name: things-thingname-jobs-jobid
+      description: REST surface for things-thingName-jobs-jobId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatejobexecution
+        description: Amazon Web Services Updatejobexecution
+        call: iot-jobs-data-things.amazonwebservicesupdatejobexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-jobs-data-things-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot-jobs-data — Things. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getpendingjobexecutions
+      description: Amazon Web Services Getpendingjobexecutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-jobs-data-things.amazonwebservicesgetpendingjobexecutions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startnextpendingjobexecution
+      description: Amazon Web Services Startnextpendingjobexecution
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-jobs-data-things.amazonwebservicesstartnextpendingjobexecution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatejobexecution
+      description: Amazon Web Services Updatejobexecution
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-jobs-data-things.amazonwebservicesupdatejobexecution
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appintegrations — Applications
+  description: 'Amazon Web Services appintegrations — Applications. 3 operations. Lead operation: Amazon Web Services Listapplications.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appintegrations-applications
+    baseUri: ''
+    description: Amazon Web Services appintegrations — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: amazonwebserviceslistapplications
+        method: GET
+        description: Amazon Web Services Listapplications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-ApplicationIdentifier
+      path: /applications/{ApplicationIdentifier}
+      operations:
+      - name: amazonwebservicesupdateapplication
+        method: PATCH
+        description: Amazon Web Services Updateapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-ApplicationIdentifier-associations
+      path: /applications/{ApplicationIdentifier}/associations
+      operations:
+      - name: amazonwebserviceslistapplicationassociations
+        method: GET
+        description: Amazon Web Services Listapplicationassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appintegrations-applications-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appintegrations — Applications. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplications
+        description: Amazon Web Services Listapplications
+        call: appintegrations-applications.amazonwebserviceslistapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationidentifier}
+      name: applications-applicationidentifier
+      description: REST surface for applications-ApplicationIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateapplication
+        description: Amazon Web Services Updateapplication
+        call: appintegrations-applications.amazonwebservicesupdateapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationidentifier}/associations
+      name: applications-applicationidentifier-associations
+      description: REST surface for applications-ApplicationIdentifier-associations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplicationassociations
+        description: Amazon Web Services Listapplicationassociations
+        call: appintegrations-applications.amazonwebserviceslistapplicationassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appintegrations-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appintegrations — Applications. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listapplications
+      description: Amazon Web Services Listapplications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appintegrations-applications.amazonwebserviceslistapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateapplication
+      description: Amazon Web Services Updateapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appintegrations-applications.amazonwebservicesupdateapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listapplicationassociations
+      description: Amazon Web Services Listapplicationassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appintegrations-applications.amazonwebserviceslistapplicationassociations
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services databrew — Projects
+  description: 'Amazon Web Services databrew — Projects. 4 operations. Lead operation: Amazon Web Services Listprojects. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: databrew-projects
+    baseUri: ''
+    description: Amazon Web Services databrew — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: projects
+      path: /projects
+      operations:
+      - name: amazonwebserviceslistprojects
+        method: GET
+        description: Amazon Web Services Listprojects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-name
+      path: /projects/{name}
+      operations:
+      - name: amazonwebservicesupdateproject
+        method: PUT
+        description: Amazon Web Services Updateproject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-name-sendProjectSessionAction
+      path: /projects/{name}/sendProjectSessionAction
+      operations:
+      - name: amazonwebservicessendprojectsessionaction
+        method: PUT
+        description: Amazon Web Services Sendprojectsessionaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-name-startProjectSession
+      path: /projects/{name}/startProjectSession
+      operations:
+      - name: amazonwebservicesstartprojectsession
+        method: PUT
+        description: Amazon Web Services Startprojectsession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: databrew-projects-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services databrew — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects
+      name: projects
+      description: REST surface for projects.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprojects
+        description: Amazon Web Services Listprojects
+        call: databrew-projects.amazonwebserviceslistprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{name}
+      name: projects-name
+      description: REST surface for projects-name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateproject
+        description: Amazon Web Services Updateproject
+        call: databrew-projects.amazonwebservicesupdateproject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{name}/sendprojectsessionaction
+      name: projects-name-sendprojectsessionaction
+      description: REST surface for projects-name-sendProjectSessionAction.
+      operations:
+      - method: PUT
+        name: amazonwebservicessendprojectsessionaction
+        description: Amazon Web Services Sendprojectsessionaction
+        call: databrew-projects.amazonwebservicessendprojectsessionaction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{name}/startprojectsession
+      name: projects-name-startprojectsession
+      description: REST surface for projects-name-startProjectSession.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartprojectsession
+        description: Amazon Web Services Startprojectsession
+        call: databrew-projects.amazonwebservicesstartprojectsession
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: databrew-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services databrew — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprojects
+      description: Amazon Web Services Listprojects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-projects.amazonwebserviceslistprojects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateproject
+      description: Amazon Web Services Updateproject
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: databrew-projects.amazonwebservicesupdateproject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendprojectsessionaction
+      description: Amazon Web Services Sendprojectsessionaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: databrew-projects.amazonwebservicessendprojectsessionaction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startprojectsession
+      description: Amazon Web Services Startprojectsession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: databrew-projects.amazonwebservicesstartprojectsession
+      outputParameters:
+      - type: object
+        mapping: $.

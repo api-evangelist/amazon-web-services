@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Policy Status
+  description: 'Amazon Web Services AWS S3 — Bucket Policy Status. 1 operations. Lead operation: Amazon Web Services Get Bucket
+    Policy Status. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Policy Status
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-policy-status
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Policy Status business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?policyStatus
+      path: /{Bucket}?policyStatus
+      operations:
+      - name: getbucketpolicystatus
+        method: GET
+        description: Amazon Web Services Get Bucket Policy Status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-policy-status-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Policy Status. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-policystatus
+      name: bucket-policystatus
+      description: REST surface for Bucket}?policyStatus.
+      operations:
+      - method: GET
+        name: getbucketpolicystatus
+        description: Amazon Web Services Get Bucket Policy Status
+        call: s3-bucket-policy-status.getbucketpolicystatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-policy-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Policy Status. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-get-bucket
+      description: Amazon Web Services Get Bucket Policy Status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-bucket-policy-status.getbucketpolicystatus
+      outputParameters:
+      - type: object
+        mapping: $.

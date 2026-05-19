@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — productSubscriptions
+  description: 'Amazon Web Services securityhub — productSubscriptions. 2 operations. Lead operation: Amazon Web Services
+    Listenabledproductsforimport. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - productSubscriptions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-productsubscriptions
+    baseUri: ''
+    description: Amazon Web Services securityhub — productSubscriptions business capability. Self-contained, no shared references.
+    resources:
+    - name: productSubscriptions
+      path: /productSubscriptions
+      operations:
+      - name: amazonwebserviceslistenabledproductsforimport
+        method: GET
+        description: Amazon Web Services Listenabledproductsforimport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: productSubscriptions-ProductSubscriptionArn+
+      path: /productSubscriptions/{ProductSubscriptionArn+}
+      operations:
+      - name: amazonwebservicesdisableimportfindingsforproduct
+        method: DELETE
+        description: Amazon Web Services Disableimportfindingsforproduct
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-productsubscriptions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — productSubscriptions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/productsubscriptions
+      name: productsubscriptions
+      description: REST surface for productSubscriptions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistenabledproductsforimport
+        description: Amazon Web Services Listenabledproductsforimport
+        call: securityhub-productsubscriptions.amazonwebserviceslistenabledproductsforimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/productsubscriptions/{productsubscriptionarn}
+      name: productsubscriptions-productsubscriptionarn
+      description: REST surface for productSubscriptions-ProductSubscriptionArn+.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisableimportfindingsforproduct
+        description: Amazon Web Services Disableimportfindingsforproduct
+        call: securityhub-productsubscriptions.amazonwebservicesdisableimportfindingsforproduct
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-productsubscriptions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — productSubscriptions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listenabledproductsforimport
+      description: Amazon Web Services Listenabledproductsforimport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-productsubscriptions.amazonwebserviceslistenabledproductsforimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disableimportfindingsforproduct
+      description: Amazon Web Services Disableimportfindingsforproduct
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: securityhub-productsubscriptions.amazonwebservicesdisableimportfindingsforproduct
+      outputParameters:
+      - type: object
+        mapping: $.

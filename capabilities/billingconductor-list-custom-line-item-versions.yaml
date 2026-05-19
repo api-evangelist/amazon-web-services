@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — List Custom Line Item Versions
+  description: 'Amazon Web Services billingconductor — List Custom Line Item Versions. 1 operations. Lead operation: Amazon
+    Web Services Listcustomlineitemversions. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Custom Line Item Versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-list-custom-line-item-versions
+    baseUri: ''
+    description: Amazon Web Services billingconductor — List Custom Line Item Versions business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: list-custom-line-item-versions
+      path: /list-custom-line-item-versions
+      operations:
+      - name: amazonwebserviceslistcustomlineitemversions
+        method: POST
+        description: Amazon Web Services Listcustomlineitemversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-list-custom-line-item-versions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — List Custom Line Item Versions. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-custom-line-item-versions
+      name: list-custom-line-item-versions
+      description: REST surface for list-custom-line-item-versions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcustomlineitemversions
+        description: Amazon Web Services Listcustomlineitemversions
+        call: billingconductor-list-custom-line-item-versions.amazonwebserviceslistcustomlineitemversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-list-custom-line-item-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — List Custom Line Item Versions. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcustomlineitemversions
+      description: Amazon Web Services Listcustomlineitemversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: billingconductor-list-custom-line-item-versions.amazonwebserviceslistcustomlineitemversions
+      outputParameters:
+      - type: object
+        mapping: $.

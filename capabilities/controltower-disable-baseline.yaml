@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Disable Baseline
+  description: 'Amazon Web Services controltower — Disable Baseline. 1 operations. Lead operation: Amazon Web Services Disablebaseline.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Disable Baseline
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-disable-baseline
+    baseUri: ''
+    description: Amazon Web Services controltower — Disable Baseline business capability. Self-contained, no shared references.
+    resources:
+    - name: disable-baseline
+      path: /disable-baseline
+      operations:
+      - name: amazonwebservicesdisablebaseline
+        method: POST
+        description: Amazon Web Services Disablebaseline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-disable-baseline-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Disable Baseline. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/disable-baseline
+      name: disable-baseline
+      description: REST surface for disable-baseline.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisablebaseline
+        description: Amazon Web Services Disablebaseline
+        call: controltower-disable-baseline.amazonwebservicesdisablebaseline
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-disable-baseline-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Disable Baseline. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-disablebaseline
+      description: Amazon Web Services Disablebaseline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-disable-baseline.amazonwebservicesdisablebaseline
+      outputParameters:
+      - type: object
+        mapping: $.

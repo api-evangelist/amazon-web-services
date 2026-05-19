@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhuborchestrator — Migrationworkflows
+  description: 'Amazon Web Services migrationhuborchestrator — Migrationworkflows. 1 operations. Lead operation: Amazon Web
+    Services Listworkflows. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Migrationworkflows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhuborchestrator-migrationworkflows
+    baseUri: ''
+    description: Amazon Web Services migrationhuborchestrator — Migrationworkflows business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: migrationworkflows
+      path: /migrationworkflows
+      operations:
+      - name: amazonwebserviceslistworkflows
+        method: GET
+        description: Amazon Web Services Listworkflows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhuborchestrator-migrationworkflows-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhuborchestrator — Migrationworkflows. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/migrationworkflows
+      name: migrationworkflows
+      description: REST surface for migrationworkflows.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistworkflows
+        description: Amazon Web Services Listworkflows
+        call: migrationhuborchestrator-migrationworkflows.amazonwebserviceslistworkflows
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhuborchestrator-migrationworkflows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhuborchestrator — Migrationworkflows. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkflows
+      description: Amazon Web Services Listworkflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhuborchestrator-migrationworkflows.amazonwebserviceslistworkflows
+      outputParameters:
+      - type: object
+        mapping: $.

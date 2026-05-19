@@ -1,0 +1,899 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services nimble — 2020 08 01
+  description: 'Amazon Web Services nimble — 2020 08 01. 27 operations. Lead operation: Amazon Web Services Listeulas. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2020 08 01
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nimble-2020-08-01
+    baseUri: ''
+    description: Amazon Web Services nimble — 2020 08 01 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2020-08-01-eulas
+      path: /2020-08-01/eulas
+      operations:
+      - name: amazonwebserviceslisteulas
+        method: GET
+        description: Amazon Web Services Listeulas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-eulas-eulaId
+      path: /2020-08-01/eulas/{eulaId}
+      operations:
+      - name: amazonwebservicesgeteula
+        method: GET
+        description: Amazon Web Services Geteula
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios
+      path: /2020-08-01/studios
+      operations:
+      - name: amazonwebservicesliststudios
+        method: GET
+        description: Amazon Web Services Liststudios
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId
+      path: /2020-08-01/studios/{studioId}
+      operations:
+      - name: amazonwebservicesupdatestudio
+        method: PATCH
+        description: Amazon Web Services Updatestudio
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-eula-acceptances
+      path: /2020-08-01/studios/{studioId}/eula-acceptances
+      operations:
+      - name: amazonwebserviceslisteulaacceptances
+        method: GET
+        description: Amazon Web Services Listeulaacceptances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles
+      path: /2020-08-01/studios/{studioId}/launch-profiles
+      operations:
+      - name: amazonwebserviceslistlaunchprofiles
+        method: GET
+        description: Amazon Web Services Listlaunchprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles-launchProfileId
+      path: /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}
+      operations:
+      - name: amazonwebservicesupdatelaunchprofile
+        method: PATCH
+        description: Amazon Web Services Updatelaunchprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles-launchProfileId-details
+      path: /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details
+      operations:
+      - name: amazonwebservicesgetlaunchprofiledetails
+        method: GET
+        description: Amazon Web Services Getlaunchprofiledetails
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles-launchProfileId-init
+      path: /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init
+      operations:
+      - name: amazonwebservicesgetlaunchprofileinitialization
+        method: GET
+        description: Amazon Web Services Getlaunchprofileinitialization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles-launchProfileId-membership
+      path: /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership
+      operations:
+      - name: amazonwebservicesputlaunchprofilemembers
+        method: POST
+        description: Amazon Web Services Putlaunchprofilemembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-launch-profiles-launchProfileId-membership-principal
+      path: /2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}
+      operations:
+      - name: amazonwebservicesupdatelaunchprofilemember
+        method: PATCH
+        description: Amazon Web Services Updatelaunchprofilemember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-membership
+      path: /2020-08-01/studios/{studioId}/membership
+      operations:
+      - name: amazonwebservicesputstudiomembers
+        method: POST
+        description: Amazon Web Services Putstudiomembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-membership-principalId
+      path: /2020-08-01/studios/{studioId}/membership/{principalId}
+      operations:
+      - name: amazonwebservicesgetstudiomember
+        method: GET
+        description: Amazon Web Services Getstudiomember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-sso-configuration
+      path: /2020-08-01/studios/{studioId}/sso-configuration
+      operations:
+      - name: amazonwebservicesstartstudiossoconfigurationrepair
+        method: PUT
+        description: Amazon Web Services Startstudiossoconfigurationrepair
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-images
+      path: /2020-08-01/studios/{studioId}/streaming-images
+      operations:
+      - name: amazonwebservicesliststreamingimages
+        method: GET
+        description: Amazon Web Services Liststreamingimages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-images-streamingImageId
+      path: /2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}
+      operations:
+      - name: amazonwebservicesupdatestreamingimage
+        method: PATCH
+        description: Amazon Web Services Updatestreamingimage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-session-backups
+      path: /2020-08-01/studios/{studioId}/streaming-session-backups
+      operations:
+      - name: amazonwebservicesliststreamingsessionbackups
+        method: GET
+        description: Amazon Web Services Liststreamingsessionbackups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-session-backups-backupId
+      path: /2020-08-01/studios/{studioId}/streaming-session-backups/{backupId}
+      operations:
+      - name: amazonwebservicesgetstreamingsessionbackup
+        method: GET
+        description: Amazon Web Services Getstreamingsessionbackup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions
+      path: /2020-08-01/studios/{studioId}/streaming-sessions
+      operations:
+      - name: amazonwebservicesliststreamingsessions
+        method: GET
+        description: Amazon Web Services Liststreamingsessions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions-sessionId
+      path: /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}
+      operations:
+      - name: amazonwebservicesgetstreamingsession
+        method: GET
+        description: Amazon Web Services Getstreamingsession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions-sessionId-start
+      path: /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/start
+      operations:
+      - name: amazonwebservicesstartstreamingsession
+        method: POST
+        description: Amazon Web Services Startstreamingsession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions-sessionId-stop
+      path: /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/stop
+      operations:
+      - name: amazonwebservicesstopstreamingsession
+        method: POST
+        description: Amazon Web Services Stopstreamingsession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions-sessionId-streams
+      path: /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams
+      operations:
+      - name: amazonwebservicescreatestreamingsessionstream
+        method: POST
+        description: Amazon Web Services Createstreamingsessionstream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-streaming-sessions-sessionId-streams-streamId
+      path: /2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}
+      operations:
+      - name: amazonwebservicesgetstreamingsessionstream
+        method: GET
+        description: Amazon Web Services Getstreamingsessionstream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-studio-components
+      path: /2020-08-01/studios/{studioId}/studio-components
+      operations:
+      - name: amazonwebservicesliststudiocomponents
+        method: GET
+        description: Amazon Web Services Liststudiocomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-studios-studioId-studio-components-studioComponentId
+      path: /2020-08-01/studios/{studioId}/studio-components/{studioComponentId}
+      operations:
+      - name: amazonwebservicesupdatestudiocomponent
+        method: PATCH
+        description: Amazon Web Services Updatestudiocomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2020-08-01-tags-resourceArn
+      path: /2020-08-01/tags/{resourceArn}
+      operations:
+      - name: amazonwebservicesuntagresource
+        method: DELETE
+        description: Amazon Web Services Untagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: nimble-2020-08-01-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services nimble — 2020 08 01. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2020-08-01/eulas
+      name: 2020-08-01-eulas
+      description: REST surface for 2020-08-01-eulas.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisteulas
+        description: Amazon Web Services Listeulas
+        call: nimble-2020-08-01.amazonwebserviceslisteulas
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/eulas/{eulaid}
+      name: 2020-08-01-eulas-eulaid
+      description: REST surface for 2020-08-01-eulas-eulaId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgeteula
+        description: Amazon Web Services Geteula
+        call: nimble-2020-08-01.amazonwebservicesgeteula
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios
+      name: 2020-08-01-studios
+      description: REST surface for 2020-08-01-studios.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststudios
+        description: Amazon Web Services Liststudios
+        call: nimble-2020-08-01.amazonwebservicesliststudios
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}
+      name: 2020-08-01-studios-studioid
+      description: REST surface for 2020-08-01-studios-studioId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatestudio
+        description: Amazon Web Services Updatestudio
+        call: nimble-2020-08-01.amazonwebservicesupdatestudio
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/eula-acceptances
+      name: 2020-08-01-studios-studioid-eula-acceptances
+      description: REST surface for 2020-08-01-studios-studioId-eula-acceptances.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisteulaacceptances
+        description: Amazon Web Services Listeulaacceptances
+        call: nimble-2020-08-01.amazonwebserviceslisteulaacceptances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles
+      name: 2020-08-01-studios-studioid-launch-profiles
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistlaunchprofiles
+        description: Amazon Web Services Listlaunchprofiles
+        call: nimble-2020-08-01.amazonwebserviceslistlaunchprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles/{launchprofileid}
+      name: 2020-08-01-studios-studioid-launch-profiles-launchprofileid
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles-launchProfileId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatelaunchprofile
+        description: Amazon Web Services Updatelaunchprofile
+        call: nimble-2020-08-01.amazonwebservicesupdatelaunchprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles/{launchprofileid}/details
+      name: 2020-08-01-studios-studioid-launch-profiles-launchprofileid-details
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles-launchProfileId-details.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlaunchprofiledetails
+        description: Amazon Web Services Getlaunchprofiledetails
+        call: nimble-2020-08-01.amazonwebservicesgetlaunchprofiledetails
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles/{launchprofileid}/init
+      name: 2020-08-01-studios-studioid-launch-profiles-launchprofileid-init
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles-launchProfileId-init.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlaunchprofileinitialization
+        description: Amazon Web Services Getlaunchprofileinitialization
+        call: nimble-2020-08-01.amazonwebservicesgetlaunchprofileinitialization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles/{launchprofileid}/membership
+      name: 2020-08-01-studios-studioid-launch-profiles-launchprofileid-membership
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles-launchProfileId-membership.
+      operations:
+      - method: POST
+        name: amazonwebservicesputlaunchprofilemembers
+        description: Amazon Web Services Putlaunchprofilemembers
+        call: nimble-2020-08-01.amazonwebservicesputlaunchprofilemembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/launch-profiles/{launchprofileid}/membership/{principalid}
+      name: 2020-08-01-studios-studioid-launch-profiles-launchprofileid-membership-principal
+      description: REST surface for 2020-08-01-studios-studioId-launch-profiles-launchProfileId-membership-principal.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatelaunchprofilemember
+        description: Amazon Web Services Updatelaunchprofilemember
+        call: nimble-2020-08-01.amazonwebservicesupdatelaunchprofilemember
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/membership
+      name: 2020-08-01-studios-studioid-membership
+      description: REST surface for 2020-08-01-studios-studioId-membership.
+      operations:
+      - method: POST
+        name: amazonwebservicesputstudiomembers
+        description: Amazon Web Services Putstudiomembers
+        call: nimble-2020-08-01.amazonwebservicesputstudiomembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/membership/{principalid}
+      name: 2020-08-01-studios-studioid-membership-principalid
+      description: REST surface for 2020-08-01-studios-studioId-membership-principalId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetstudiomember
+        description: Amazon Web Services Getstudiomember
+        call: nimble-2020-08-01.amazonwebservicesgetstudiomember
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/sso-configuration
+      name: 2020-08-01-studios-studioid-sso-configuration
+      description: REST surface for 2020-08-01-studios-studioId-sso-configuration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartstudiossoconfigurationrepair
+        description: Amazon Web Services Startstudiossoconfigurationrepair
+        call: nimble-2020-08-01.amazonwebservicesstartstudiossoconfigurationrepair
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-images
+      name: 2020-08-01-studios-studioid-streaming-images
+      description: REST surface for 2020-08-01-studios-studioId-streaming-images.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststreamingimages
+        description: Amazon Web Services Liststreamingimages
+        call: nimble-2020-08-01.amazonwebservicesliststreamingimages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-images/{streamingimageid}
+      name: 2020-08-01-studios-studioid-streaming-images-streamingimageid
+      description: REST surface for 2020-08-01-studios-studioId-streaming-images-streamingImageId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatestreamingimage
+        description: Amazon Web Services Updatestreamingimage
+        call: nimble-2020-08-01.amazonwebservicesupdatestreamingimage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-session-backups
+      name: 2020-08-01-studios-studioid-streaming-session-backups
+      description: REST surface for 2020-08-01-studios-studioId-streaming-session-backups.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststreamingsessionbackups
+        description: Amazon Web Services Liststreamingsessionbackups
+        call: nimble-2020-08-01.amazonwebservicesliststreamingsessionbackups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-session-backups/{backupid}
+      name: 2020-08-01-studios-studioid-streaming-session-backups-backupid
+      description: REST surface for 2020-08-01-studios-studioId-streaming-session-backups-backupId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetstreamingsessionbackup
+        description: Amazon Web Services Getstreamingsessionbackup
+        call: nimble-2020-08-01.amazonwebservicesgetstreamingsessionbackup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions
+      name: 2020-08-01-studios-studioid-streaming-sessions
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststreamingsessions
+        description: Amazon Web Services Liststreamingsessions
+        call: nimble-2020-08-01.amazonwebservicesliststreamingsessions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions/{sessionid}
+      name: 2020-08-01-studios-studioid-streaming-sessions-sessionid
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions-sessionId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetstreamingsession
+        description: Amazon Web Services Getstreamingsession
+        call: nimble-2020-08-01.amazonwebservicesgetstreamingsession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions/{sessionid}/start
+      name: 2020-08-01-studios-studioid-streaming-sessions-sessionid-start
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions-sessionId-start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartstreamingsession
+        description: Amazon Web Services Startstreamingsession
+        call: nimble-2020-08-01.amazonwebservicesstartstreamingsession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions/{sessionid}/stop
+      name: 2020-08-01-studios-studioid-streaming-sessions-sessionid-stop
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions-sessionId-stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopstreamingsession
+        description: Amazon Web Services Stopstreamingsession
+        call: nimble-2020-08-01.amazonwebservicesstopstreamingsession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions/{sessionid}/streams
+      name: 2020-08-01-studios-studioid-streaming-sessions-sessionid-streams
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions-sessionId-streams.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatestreamingsessionstream
+        description: Amazon Web Services Createstreamingsessionstream
+        call: nimble-2020-08-01.amazonwebservicescreatestreamingsessionstream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/streaming-sessions/{sessionid}/streams/{streamid}
+      name: 2020-08-01-studios-studioid-streaming-sessions-sessionid-streams-streamid
+      description: REST surface for 2020-08-01-studios-studioId-streaming-sessions-sessionId-streams-streamId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetstreamingsessionstream
+        description: Amazon Web Services Getstreamingsessionstream
+        call: nimble-2020-08-01.amazonwebservicesgetstreamingsessionstream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/studio-components
+      name: 2020-08-01-studios-studioid-studio-components
+      description: REST surface for 2020-08-01-studios-studioId-studio-components.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststudiocomponents
+        description: Amazon Web Services Liststudiocomponents
+        call: nimble-2020-08-01.amazonwebservicesliststudiocomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/studios/{studioid}/studio-components/{studiocomponentid}
+      name: 2020-08-01-studios-studioid-studio-components-studiocomponentid
+      description: REST surface for 2020-08-01-studios-studioId-studio-components-studioComponentId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatestudiocomponent
+        description: Amazon Web Services Updatestudiocomponent
+        call: nimble-2020-08-01.amazonwebservicesupdatestudiocomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2020-08-01/tags/{resourcearn}
+      name: 2020-08-01-tags-resourcearn
+      description: REST surface for 2020-08-01-tags-resourceArn.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesuntagresource
+        description: Amazon Web Services Untagresource
+        call: nimble-2020-08-01.amazonwebservicesuntagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nimble-2020-08-01-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services nimble — 2020 08 01. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listeulas
+      description: Amazon Web Services Listeulas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebserviceslisteulas
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-geteula
+      description: Amazon Web Services Geteula
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgeteula
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-liststudios
+      description: Amazon Web Services Liststudios
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesliststudios
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatestudio
+      description: Amazon Web Services Updatestudio
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesupdatestudio
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listeulaacceptances
+      description: Amazon Web Services Listeulaacceptances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebserviceslisteulaacceptances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listlaunchprofiles
+      description: Amazon Web Services Listlaunchprofiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebserviceslistlaunchprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatelaunchprofile
+      description: Amazon Web Services Updatelaunchprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesupdatelaunchprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getlaunchprofiledetails
+      description: Amazon Web Services Getlaunchprofiledetails
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetlaunchprofiledetails
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getlaunchprofileinitialization
+      description: Amazon Web Services Getlaunchprofileinitialization
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetlaunchprofileinitialization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putlaunchprofilemembers
+      description: Amazon Web Services Putlaunchprofilemembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nimble-2020-08-01.amazonwebservicesputlaunchprofilemembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatelaunchprofilemember
+      description: Amazon Web Services Updatelaunchprofilemember
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesupdatelaunchprofilemember
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putstudiomembers
+      description: Amazon Web Services Putstudiomembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nimble-2020-08-01.amazonwebservicesputstudiomembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getstudiomember
+      description: Amazon Web Services Getstudiomember
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetstudiomember
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startstudiossoconfigurationrepair
+      description: Amazon Web Services Startstudiossoconfigurationrepair
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesstartstudiossoconfigurationrepair
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-liststreamingimages
+      description: Amazon Web Services Liststreamingimages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesliststreamingimages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatestreamingimage
+      description: Amazon Web Services Updatestreamingimage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesupdatestreamingimage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-liststreamingsessionbackups
+      description: Amazon Web Services Liststreamingsessionbackups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesliststreamingsessionbackups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getstreamingsessionbackup
+      description: Amazon Web Services Getstreamingsessionbackup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetstreamingsessionbackup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-liststreamingsessions
+      description: Amazon Web Services Liststreamingsessions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesliststreamingsessions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getstreamingsession
+      description: Amazon Web Services Getstreamingsession
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetstreamingsession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startstreamingsession
+      description: Amazon Web Services Startstreamingsession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nimble-2020-08-01.amazonwebservicesstartstreamingsession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopstreamingsession
+      description: Amazon Web Services Stopstreamingsession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nimble-2020-08-01.amazonwebservicesstopstreamingsession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createstreamingsessionstream
+      description: Amazon Web Services Createstreamingsessionstream
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: nimble-2020-08-01.amazonwebservicescreatestreamingsessionstream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getstreamingsessionstream
+      description: Amazon Web Services Getstreamingsessionstream
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesgetstreamingsessionstream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-liststudiocomponents
+      description: Amazon Web Services Liststudiocomponents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesliststudiocomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatestudiocomponent
+      description: Amazon Web Services Updatestudiocomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesupdatestudiocomponent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-untagresource
+      description: Amazon Web Services Untagresource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: nimble-2020-08-01.amazonwebservicesuntagresource
+      outputParameters:
+      - type: object
+        mapping: $.

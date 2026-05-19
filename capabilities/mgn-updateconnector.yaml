@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — UpdateConnector
+  description: 'Amazon Web Services mgn — UpdateConnector. 1 operations. Lead operation: Amazon Web Services Updateconnector.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateConnector
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-updateconnector
+    baseUri: ''
+    description: Amazon Web Services mgn — UpdateConnector business capability. Self-contained, no shared references.
+    resources:
+    - name: UpdateConnector
+      path: /UpdateConnector
+      operations:
+      - name: amazonwebservicesupdateconnector
+        method: POST
+        description: Amazon Web Services Updateconnector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-updateconnector-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — UpdateConnector. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateconnector
+      name: updateconnector
+      description: REST surface for UpdateConnector.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateconnector
+        description: Amazon Web Services Updateconnector
+        call: mgn-updateconnector.amazonwebservicesupdateconnector
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-updateconnector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — UpdateConnector. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateconnector
+      description: Amazon Web Services Updateconnector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-updateconnector.amazonwebservicesupdateconnector
+      outputParameters:
+      - type: object
+        mapping: $.

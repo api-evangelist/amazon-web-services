@@ -1,0 +1,707 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services finspace — Kx
+  description: 'Amazon Web Services finspace — Kx. 21 operations. Lead operation: Amazon Web Services Listkxenvironments.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Kx
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finspace-kx
+    baseUri: ''
+    description: Amazon Web Services finspace — Kx business capability. Self-contained, no shared references.
+    resources:
+    - name: kx-environments
+      path: /kx/environments
+      operations:
+      - name: amazonwebserviceslistkxenvironments
+        method: GET
+        description: Amazon Web Services Listkxenvironments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId
+      path: /kx/environments/{environmentId}
+      operations:
+      - name: amazonwebservicesupdatekxenvironment
+        method: PUT
+        description: Amazon Web Services Updatekxenvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-clusters
+      path: /kx/environments/{environmentId}/clusters
+      operations:
+      - name: amazonwebserviceslistkxclusters
+        method: GET
+        description: Amazon Web Services Listkxclusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-clusters-clusterName
+      path: /kx/environments/{environmentId}/clusters/{clusterName}
+      operations:
+      - name: amazonwebservicesgetkxcluster
+        method: GET
+        description: Amazon Web Services Getkxcluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-clusters-clusterName-configuration-code
+      path: /kx/environments/{environmentId}/clusters/{clusterName}/configuration/code
+      operations:
+      - name: amazonwebservicesupdatekxclustercodeconfiguration
+        method: PUT
+        description: Amazon Web Services Updatekxclustercodeconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-clusters-clusterName-configuration-databases
+      path: /kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases
+      operations:
+      - name: amazonwebservicesupdatekxclusterdatabases
+        method: PUT
+        description: Amazon Web Services Updatekxclusterdatabases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-clusters-clusterName-nodes
+      path: /kx/environments/{environmentId}/clusters/{clusterName}/nodes
+      operations:
+      - name: amazonwebserviceslistkxclusternodes
+        method: GET
+        description: Amazon Web Services Listkxclusternodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-connectionString
+      path: /kx/environments/{environmentId}/connectionString
+      operations:
+      - name: amazonwebservicesgetkxconnectionstring
+        method: GET
+        description: Amazon Web Services Getkxconnectionstring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases
+      path: /kx/environments/{environmentId}/databases
+      operations:
+      - name: amazonwebserviceslistkxdatabases
+        method: GET
+        description: Amazon Web Services Listkxdatabases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases-databaseName
+      path: /kx/environments/{environmentId}/databases/{databaseName}
+      operations:
+      - name: amazonwebservicesupdatekxdatabase
+        method: PUT
+        description: Amazon Web Services Updatekxdatabase
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases-databaseName-changesets
+      path: /kx/environments/{environmentId}/databases/{databaseName}/changesets
+      operations:
+      - name: amazonwebserviceslistkxchangesets
+        method: GET
+        description: Amazon Web Services Listkxchangesets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases-databaseName-changesets-changesetId
+      path: /kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}
+      operations:
+      - name: amazonwebservicesgetkxchangeset
+        method: GET
+        description: Amazon Web Services Getkxchangeset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases-databaseName-dataviews
+      path: /kx/environments/{environmentId}/databases/{databaseName}/dataviews
+      operations:
+      - name: amazonwebserviceslistkxdataviews
+        method: GET
+        description: Amazon Web Services Listkxdataviews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-databases-databaseName-dataviews-dataviewName
+      path: /kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}
+      operations:
+      - name: amazonwebservicesupdatekxdataview
+        method: PUT
+        description: Amazon Web Services Updatekxdataview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-kxvolumes
+      path: /kx/environments/{environmentId}/kxvolumes
+      operations:
+      - name: amazonwebserviceslistkxvolumes
+        method: GET
+        description: Amazon Web Services Listkxvolumes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-kxvolumes-volumeName
+      path: /kx/environments/{environmentId}/kxvolumes/{volumeName}
+      operations:
+      - name: amazonwebservicesupdatekxvolume
+        method: PATCH
+        description: Amazon Web Services Updatekxvolume
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-network
+      path: /kx/environments/{environmentId}/network
+      operations:
+      - name: amazonwebservicesupdatekxenvironmentnetwork
+        method: PUT
+        description: Amazon Web Services Updatekxenvironmentnetwork
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-scalingGroups
+      path: /kx/environments/{environmentId}/scalingGroups
+      operations:
+      - name: amazonwebserviceslistkxscalinggroups
+        method: GET
+        description: Amazon Web Services Listkxscalinggroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-scalingGroups-scalingGroupName
+      path: /kx/environments/{environmentId}/scalingGroups/{scalingGroupName}
+      operations:
+      - name: amazonwebservicesgetkxscalinggroup
+        method: GET
+        description: Amazon Web Services Getkxscalinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-users
+      path: /kx/environments/{environmentId}/users
+      operations:
+      - name: amazonwebserviceslistkxusers
+        method: GET
+        description: Amazon Web Services Listkxusers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kx-environments-environmentId-users-userName
+      path: /kx/environments/{environmentId}/users/{userName}
+      operations:
+      - name: amazonwebservicesupdatekxuser
+        method: PUT
+        description: Amazon Web Services Updatekxuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: finspace-kx-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services finspace — Kx. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/kx/environments
+      name: kx-environments
+      description: REST surface for kx-environments.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxenvironments
+        description: Amazon Web Services Listkxenvironments
+        call: finspace-kx.amazonwebserviceslistkxenvironments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}
+      name: kx-environments-environmentid
+      description: REST surface for kx-environments-environmentId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxenvironment
+        description: Amazon Web Services Updatekxenvironment
+        call: finspace-kx.amazonwebservicesupdatekxenvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/clusters
+      name: kx-environments-environmentid-clusters
+      description: REST surface for kx-environments-environmentId-clusters.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxclusters
+        description: Amazon Web Services Listkxclusters
+        call: finspace-kx.amazonwebserviceslistkxclusters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/clusters/{clustername}
+      name: kx-environments-environmentid-clusters-clustername
+      description: REST surface for kx-environments-environmentId-clusters-clusterName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetkxcluster
+        description: Amazon Web Services Getkxcluster
+        call: finspace-kx.amazonwebservicesgetkxcluster
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/clusters/{clustername}/configuration/code
+      name: kx-environments-environmentid-clusters-clustername-configuration-code
+      description: REST surface for kx-environments-environmentId-clusters-clusterName-configuration-code.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxclustercodeconfiguration
+        description: Amazon Web Services Updatekxclustercodeconfiguration
+        call: finspace-kx.amazonwebservicesupdatekxclustercodeconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/clusters/{clustername}/configuration/databases
+      name: kx-environments-environmentid-clusters-clustername-configuration-databases
+      description: REST surface for kx-environments-environmentId-clusters-clusterName-configuration-databases.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxclusterdatabases
+        description: Amazon Web Services Updatekxclusterdatabases
+        call: finspace-kx.amazonwebservicesupdatekxclusterdatabases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/clusters/{clustername}/nodes
+      name: kx-environments-environmentid-clusters-clustername-nodes
+      description: REST surface for kx-environments-environmentId-clusters-clusterName-nodes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxclusternodes
+        description: Amazon Web Services Listkxclusternodes
+        call: finspace-kx.amazonwebserviceslistkxclusternodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/connectionstring
+      name: kx-environments-environmentid-connectionstring
+      description: REST surface for kx-environments-environmentId-connectionString.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetkxconnectionstring
+        description: Amazon Web Services Getkxconnectionstring
+        call: finspace-kx.amazonwebservicesgetkxconnectionstring
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases
+      name: kx-environments-environmentid-databases
+      description: REST surface for kx-environments-environmentId-databases.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxdatabases
+        description: Amazon Web Services Listkxdatabases
+        call: finspace-kx.amazonwebserviceslistkxdatabases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases/{databasename}
+      name: kx-environments-environmentid-databases-databasename
+      description: REST surface for kx-environments-environmentId-databases-databaseName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxdatabase
+        description: Amazon Web Services Updatekxdatabase
+        call: finspace-kx.amazonwebservicesupdatekxdatabase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases/{databasename}/changesets
+      name: kx-environments-environmentid-databases-databasename-changesets
+      description: REST surface for kx-environments-environmentId-databases-databaseName-changesets.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxchangesets
+        description: Amazon Web Services Listkxchangesets
+        call: finspace-kx.amazonwebserviceslistkxchangesets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases/{databasename}/changesets/{changesetid}
+      name: kx-environments-environmentid-databases-databasename-changesets-changesetid
+      description: REST surface for kx-environments-environmentId-databases-databaseName-changesets-changesetId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetkxchangeset
+        description: Amazon Web Services Getkxchangeset
+        call: finspace-kx.amazonwebservicesgetkxchangeset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases/{databasename}/dataviews
+      name: kx-environments-environmentid-databases-databasename-dataviews
+      description: REST surface for kx-environments-environmentId-databases-databaseName-dataviews.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxdataviews
+        description: Amazon Web Services Listkxdataviews
+        call: finspace-kx.amazonwebserviceslistkxdataviews
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/databases/{databasename}/dataviews/{dataviewname}
+      name: kx-environments-environmentid-databases-databasename-dataviews-dataviewname
+      description: REST surface for kx-environments-environmentId-databases-databaseName-dataviews-dataviewName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxdataview
+        description: Amazon Web Services Updatekxdataview
+        call: finspace-kx.amazonwebservicesupdatekxdataview
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/kxvolumes
+      name: kx-environments-environmentid-kxvolumes
+      description: REST surface for kx-environments-environmentId-kxvolumes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxvolumes
+        description: Amazon Web Services Listkxvolumes
+        call: finspace-kx.amazonwebserviceslistkxvolumes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/kxvolumes/{volumename}
+      name: kx-environments-environmentid-kxvolumes-volumename
+      description: REST surface for kx-environments-environmentId-kxvolumes-volumeName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatekxvolume
+        description: Amazon Web Services Updatekxvolume
+        call: finspace-kx.amazonwebservicesupdatekxvolume
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/network
+      name: kx-environments-environmentid-network
+      description: REST surface for kx-environments-environmentId-network.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxenvironmentnetwork
+        description: Amazon Web Services Updatekxenvironmentnetwork
+        call: finspace-kx.amazonwebservicesupdatekxenvironmentnetwork
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/scalinggroups
+      name: kx-environments-environmentid-scalinggroups
+      description: REST surface for kx-environments-environmentId-scalingGroups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxscalinggroups
+        description: Amazon Web Services Listkxscalinggroups
+        call: finspace-kx.amazonwebserviceslistkxscalinggroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/scalinggroups/{scalinggroupname}
+      name: kx-environments-environmentid-scalinggroups-scalinggroupname
+      description: REST surface for kx-environments-environmentId-scalingGroups-scalingGroupName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetkxscalinggroup
+        description: Amazon Web Services Getkxscalinggroup
+        call: finspace-kx.amazonwebservicesgetkxscalinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/users
+      name: kx-environments-environmentid-users
+      description: REST surface for kx-environments-environmentId-users.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkxusers
+        description: Amazon Web Services Listkxusers
+        call: finspace-kx.amazonwebserviceslistkxusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kx/environments/{environmentid}/users/{username}
+      name: kx-environments-environmentid-users-username
+      description: REST surface for kx-environments-environmentId-users-userName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatekxuser
+        description: Amazon Web Services Updatekxuser
+        call: finspace-kx.amazonwebservicesupdatekxuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finspace-kx-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services finspace — Kx. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listkxenvironments
+      description: Amazon Web Services Listkxenvironments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxenvironments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxenvironment
+      description: Amazon Web Services Updatekxenvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxenvironment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxclusters
+      description: Amazon Web Services Listkxclusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxclusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getkxcluster
+      description: Amazon Web Services Getkxcluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesgetkxcluster
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxclustercodeconfiguration
+      description: Amazon Web Services Updatekxclustercodeconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxclustercodeconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxclusterdatabases
+      description: Amazon Web Services Updatekxclusterdatabases
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxclusterdatabases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxclusternodes
+      description: Amazon Web Services Listkxclusternodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxclusternodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getkxconnectionstring
+      description: Amazon Web Services Getkxconnectionstring
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesgetkxconnectionstring
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxdatabases
+      description: Amazon Web Services Listkxdatabases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxdatabases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxdatabase
+      description: Amazon Web Services Updatekxdatabase
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxdatabase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxchangesets
+      description: Amazon Web Services Listkxchangesets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxchangesets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getkxchangeset
+      description: Amazon Web Services Getkxchangeset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesgetkxchangeset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxdataviews
+      description: Amazon Web Services Listkxdataviews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxdataviews
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxdataview
+      description: Amazon Web Services Updatekxdataview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxdataview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxvolumes
+      description: Amazon Web Services Listkxvolumes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxvolumes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxvolume
+      description: Amazon Web Services Updatekxvolume
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxvolume
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxenvironmentnetwork
+      description: Amazon Web Services Updatekxenvironmentnetwork
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxenvironmentnetwork
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxscalinggroups
+      description: Amazon Web Services Listkxscalinggroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxscalinggroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getkxscalinggroup
+      description: Amazon Web Services Getkxscalinggroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesgetkxscalinggroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkxusers
+      description: Amazon Web Services Listkxusers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebserviceslistkxusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekxuser
+      description: Amazon Web Services Updatekxuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-kx.amazonwebservicesupdatekxuser
+      outputParameters:
+      - type: object
+        mapping: $.

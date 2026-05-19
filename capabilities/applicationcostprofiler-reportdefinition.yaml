@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services applicationcostprofiler — reportDefinition
+  description: 'Amazon Web Services applicationcostprofiler — reportDefinition. 2 operations. Lead operation: Amazon Web Services
+    Putreportdefinition. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - reportDefinition
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: applicationcostprofiler-reportdefinition
+    baseUri: ''
+    description: Amazon Web Services applicationcostprofiler — reportDefinition business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: reportDefinition
+      path: /reportDefinition
+      operations:
+      - name: amazonwebservicesputreportdefinition
+        method: POST
+        description: Amazon Web Services Putreportdefinition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reportDefinition-reportId
+      path: /reportDefinition/{reportId}
+      operations:
+      - name: amazonwebservicesupdatereportdefinition
+        method: PUT
+        description: Amazon Web Services Updatereportdefinition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: applicationcostprofiler-reportdefinition-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services applicationcostprofiler — reportDefinition. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/reportdefinition
+      name: reportdefinition
+      description: REST surface for reportDefinition.
+      operations:
+      - method: POST
+        name: amazonwebservicesputreportdefinition
+        description: Amazon Web Services Putreportdefinition
+        call: applicationcostprofiler-reportdefinition.amazonwebservicesputreportdefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reportdefinition/{reportid}
+      name: reportdefinition-reportid
+      description: REST surface for reportDefinition-reportId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatereportdefinition
+        description: Amazon Web Services Updatereportdefinition
+        call: applicationcostprofiler-reportdefinition.amazonwebservicesupdatereportdefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: applicationcostprofiler-reportdefinition-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services applicationcostprofiler — reportDefinition. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putreportdefinition
+      description: Amazon Web Services Putreportdefinition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: applicationcostprofiler-reportdefinition.amazonwebservicesputreportdefinition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereportdefinition
+      description: Amazon Web Services Updatereportdefinition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: applicationcostprofiler-reportdefinition.amazonwebservicesupdatereportdefinition
+      outputParameters:
+      - type: object
+        mapping: $.

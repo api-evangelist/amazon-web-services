@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — v2LoggingOptions
+  description: 'Amazon Web Services iot — v2LoggingOptions. 1 operations. Lead operation: Amazon Web Services Setv2loggingoptions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - v2LoggingOptions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-v2loggingoptions
+    baseUri: ''
+    description: Amazon Web Services iot — v2LoggingOptions business capability. Self-contained, no shared references.
+    resources:
+    - name: v2LoggingOptions
+      path: /v2LoggingOptions
+      operations:
+      - name: amazonwebservicessetv2loggingoptions
+        method: POST
+        description: Amazon Web Services Setv2loggingoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-v2loggingoptions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — v2LoggingOptions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2loggingoptions
+      name: v2loggingoptions
+      description: REST surface for v2LoggingOptions.
+      operations:
+      - method: POST
+        name: amazonwebservicessetv2loggingoptions
+        description: Amazon Web Services Setv2loggingoptions
+        call: iot-v2loggingoptions.amazonwebservicessetv2loggingoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-v2loggingoptions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — v2LoggingOptions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-setv2loggingoptions
+      description: Amazon Web Services Setv2loggingoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-v2loggingoptions.amazonwebservicessetv2loggingoptions
+      outputParameters:
+      - type: object
+        mapping: $.

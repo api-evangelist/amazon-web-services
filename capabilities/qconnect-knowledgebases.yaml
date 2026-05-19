@@ -1,0 +1,451 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services qconnect — knowledgeBases
+  description: 'Amazon Web Services qconnect — knowledgeBases. 13 operations. Lead operation: Amazon Web Services Listknowledgebases.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - knowledgeBases
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: qconnect-knowledgebases
+    baseUri: ''
+    description: Amazon Web Services qconnect — knowledgeBases business capability. Self-contained, no shared references.
+    resources:
+    - name: knowledgeBases
+      path: /knowledgeBases
+      operations:
+      - name: amazonwebserviceslistknowledgebases
+        method: GET
+        description: Amazon Web Services Listknowledgebases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId
+      path: /knowledgeBases/{knowledgeBaseId}
+      operations:
+      - name: amazonwebservicesgetknowledgebase
+        method: GET
+        description: Amazon Web Services Getknowledgebase
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-contents
+      path: /knowledgeBases/{knowledgeBaseId}/contents
+      operations:
+      - name: amazonwebserviceslistcontents
+        method: GET
+        description: Amazon Web Services Listcontents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-contents-contentId
+      path: /knowledgeBases/{knowledgeBaseId}/contents/{contentId}
+      operations:
+      - name: amazonwebservicesupdatecontent
+        method: POST
+        description: Amazon Web Services Updatecontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-contents-contentId-summary
+      path: /knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary
+      operations:
+      - name: amazonwebservicesgetcontentsummary
+        method: GET
+        description: Amazon Web Services Getcontentsummary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-importJobs
+      path: /knowledgeBases/{knowledgeBaseId}/importJobs
+      operations:
+      - name: amazonwebservicesstartimportjob
+        method: POST
+        description: Amazon Web Services Startimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-importJobs-importJobId
+      path: /knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}
+      operations:
+      - name: amazonwebservicesgetimportjob
+        method: GET
+        description: Amazon Web Services Getimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-quickResponses
+      path: /knowledgeBases/{knowledgeBaseId}/quickResponses
+      operations:
+      - name: amazonwebserviceslistquickresponses
+        method: GET
+        description: Amazon Web Services Listquickresponses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-quickResponses-quickResponseId
+      path: /knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}
+      operations:
+      - name: amazonwebservicesupdatequickresponse
+        method: POST
+        description: Amazon Web Services Updatequickresponse
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-search
+      path: /knowledgeBases/{knowledgeBaseId}/search
+      operations:
+      - name: amazonwebservicessearchcontent
+        method: POST
+        description: Amazon Web Services Searchcontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-search-quickResponses
+      path: /knowledgeBases/{knowledgeBaseId}/search/quickResponses
+      operations:
+      - name: amazonwebservicessearchquickresponses
+        method: POST
+        description: Amazon Web Services Searchquickresponses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-templateUri
+      path: /knowledgeBases/{knowledgeBaseId}/templateUri
+      operations:
+      - name: amazonwebservicesupdateknowledgebasetemplateuri
+        method: POST
+        description: Amazon Web Services Updateknowledgebasetemplateuri
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgeBases-knowledgeBaseId-upload
+      path: /knowledgeBases/{knowledgeBaseId}/upload
+      operations:
+      - name: amazonwebservicesstartcontentupload
+        method: POST
+        description: Amazon Web Services Startcontentupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: qconnect-knowledgebases-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services qconnect — knowledgeBases. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/knowledgebases
+      name: knowledgebases
+      description: REST surface for knowledgeBases.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistknowledgebases
+        description: Amazon Web Services Listknowledgebases
+        call: qconnect-knowledgebases.amazonwebserviceslistknowledgebases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}
+      name: knowledgebases-knowledgebaseid
+      description: REST surface for knowledgeBases-knowledgeBaseId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetknowledgebase
+        description: Amazon Web Services Getknowledgebase
+        call: qconnect-knowledgebases.amazonwebservicesgetknowledgebase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/contents
+      name: knowledgebases-knowledgebaseid-contents
+      description: REST surface for knowledgeBases-knowledgeBaseId-contents.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcontents
+        description: Amazon Web Services Listcontents
+        call: qconnect-knowledgebases.amazonwebserviceslistcontents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/contents/{contentid}
+      name: knowledgebases-knowledgebaseid-contents-contentid
+      description: REST surface for knowledgeBases-knowledgeBaseId-contents-contentId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecontent
+        description: Amazon Web Services Updatecontent
+        call: qconnect-knowledgebases.amazonwebservicesupdatecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/contents/{contentid}/summary
+      name: knowledgebases-knowledgebaseid-contents-contentid-summary
+      description: REST surface for knowledgeBases-knowledgeBaseId-contents-contentId-summary.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcontentsummary
+        description: Amazon Web Services Getcontentsummary
+        call: qconnect-knowledgebases.amazonwebservicesgetcontentsummary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/importjobs
+      name: knowledgebases-knowledgebaseid-importjobs
+      description: REST surface for knowledgeBases-knowledgeBaseId-importJobs.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartimportjob
+        description: Amazon Web Services Startimportjob
+        call: qconnect-knowledgebases.amazonwebservicesstartimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/importjobs/{importjobid}
+      name: knowledgebases-knowledgebaseid-importjobs-importjobid
+      description: REST surface for knowledgeBases-knowledgeBaseId-importJobs-importJobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetimportjob
+        description: Amazon Web Services Getimportjob
+        call: qconnect-knowledgebases.amazonwebservicesgetimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/quickresponses
+      name: knowledgebases-knowledgebaseid-quickresponses
+      description: REST surface for knowledgeBases-knowledgeBaseId-quickResponses.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistquickresponses
+        description: Amazon Web Services Listquickresponses
+        call: qconnect-knowledgebases.amazonwebserviceslistquickresponses
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/quickresponses/{quickresponseid}
+      name: knowledgebases-knowledgebaseid-quickresponses-quickresponseid
+      description: REST surface for knowledgeBases-knowledgeBaseId-quickResponses-quickResponseId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatequickresponse
+        description: Amazon Web Services Updatequickresponse
+        call: qconnect-knowledgebases.amazonwebservicesupdatequickresponse
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/search
+      name: knowledgebases-knowledgebaseid-search
+      description: REST surface for knowledgeBases-knowledgeBaseId-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchcontent
+        description: Amazon Web Services Searchcontent
+        call: qconnect-knowledgebases.amazonwebservicessearchcontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/search/quickresponses
+      name: knowledgebases-knowledgebaseid-search-quickresponses
+      description: REST surface for knowledgeBases-knowledgeBaseId-search-quickResponses.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchquickresponses
+        description: Amazon Web Services Searchquickresponses
+        call: qconnect-knowledgebases.amazonwebservicessearchquickresponses
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/templateuri
+      name: knowledgebases-knowledgebaseid-templateuri
+      description: REST surface for knowledgeBases-knowledgeBaseId-templateUri.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateknowledgebasetemplateuri
+        description: Amazon Web Services Updateknowledgebasetemplateuri
+        call: qconnect-knowledgebases.amazonwebservicesupdateknowledgebasetemplateuri
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/upload
+      name: knowledgebases-knowledgebaseid-upload
+      description: REST surface for knowledgeBases-knowledgeBaseId-upload.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartcontentupload
+        description: Amazon Web Services Startcontentupload
+        call: qconnect-knowledgebases.amazonwebservicesstartcontentupload
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: qconnect-knowledgebases-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services qconnect — knowledgeBases. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listknowledgebases
+      description: Amazon Web Services Listknowledgebases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebserviceslistknowledgebases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getknowledgebase
+      description: Amazon Web Services Getknowledgebase
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebservicesgetknowledgebase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcontents
+      description: Amazon Web Services Listcontents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebserviceslistcontents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontent
+      description: Amazon Web Services Updatecontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicesupdatecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcontentsummary
+      description: Amazon Web Services Getcontentsummary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebservicesgetcontentsummary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startimportjob
+      description: Amazon Web Services Startimportjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicesstartimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getimportjob
+      description: Amazon Web Services Getimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebservicesgetimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listquickresponses
+      description: Amazon Web Services Listquickresponses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qconnect-knowledgebases.amazonwebserviceslistquickresponses
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatequickresponse
+      description: Amazon Web Services Updatequickresponse
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicesupdatequickresponse
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchcontent
+      description: Amazon Web Services Searchcontent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicessearchcontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchquickresponses
+      description: Amazon Web Services Searchquickresponses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicessearchquickresponses
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateknowledgebasetemplateuri
+      description: Amazon Web Services Updateknowledgebasetemplateuri
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicesupdateknowledgebasetemplateuri
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startcontentupload
+      description: Amazon Web Services Startcontentupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qconnect-knowledgebases.amazonwebservicesstartcontentupload
+      outputParameters:
+      - type: object
+        mapping: $.

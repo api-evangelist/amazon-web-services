@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — CancelImageCreation
+  description: 'Amazon Web Services imagebuilder — CancelImageCreation. 1 operations. Lead operation: Amazon Web Services
+    Cancelimagecreation. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CancelImageCreation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-cancelimagecreation
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — CancelImageCreation business capability. Self-contained, no shared references.
+    resources:
+    - name: CancelImageCreation
+      path: /CancelImageCreation
+      operations:
+      - name: amazonwebservicescancelimagecreation
+        method: PUT
+        description: Amazon Web Services Cancelimagecreation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-cancelimagecreation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — CancelImageCreation. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/cancelimagecreation
+      name: cancelimagecreation
+      description: REST surface for CancelImageCreation.
+      operations:
+      - method: PUT
+        name: amazonwebservicescancelimagecreation
+        description: Amazon Web Services Cancelimagecreation
+        call: imagebuilder-cancelimagecreation.amazonwebservicescancelimagecreation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-cancelimagecreation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — CancelImageCreation. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-cancelimagecreation
+      description: Amazon Web Services Cancelimagecreation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-cancelimagecreation.amazonwebservicescancelimagecreation
+      outputParameters:
+      - type: object
+        mapping: $.

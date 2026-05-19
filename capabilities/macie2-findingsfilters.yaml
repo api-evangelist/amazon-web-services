@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Findingsfilters
+  description: 'Amazon Web Services macie2 — Findingsfilters. 2 operations. Lead operation: Amazon Web Services Listfindingsfilters.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Findingsfilters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-findingsfilters
+    baseUri: ''
+    description: Amazon Web Services macie2 — Findingsfilters business capability. Self-contained, no shared references.
+    resources:
+    - name: findingsfilters
+      path: /findingsfilters
+      operations:
+      - name: amazonwebserviceslistfindingsfilters
+        method: GET
+        description: Amazon Web Services Listfindingsfilters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findingsfilters-id
+      path: /findingsfilters/{id}
+      operations:
+      - name: amazonwebservicesupdatefindingsfilter
+        method: PATCH
+        description: Amazon Web Services Updatefindingsfilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-findingsfilters-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Findingsfilters. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/findingsfilters
+      name: findingsfilters
+      description: REST surface for findingsfilters.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfindingsfilters
+        description: Amazon Web Services Listfindingsfilters
+        call: macie2-findingsfilters.amazonwebserviceslistfindingsfilters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingsfilters/{id}
+      name: findingsfilters-id
+      description: REST surface for findingsfilters-id.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatefindingsfilter
+        description: Amazon Web Services Updatefindingsfilter
+        call: macie2-findingsfilters.amazonwebservicesupdatefindingsfilter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-findingsfilters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Findingsfilters. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listfindingsfilters
+      description: Amazon Web Services Listfindingsfilters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-findingsfilters.amazonwebserviceslistfindingsfilters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefindingsfilter
+      description: Amazon Web Services Updatefindingsfilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: macie2-findingsfilters.amazonwebservicesupdatefindingsfilter
+      outputParameters:
+      - type: object
+        mapping: $.

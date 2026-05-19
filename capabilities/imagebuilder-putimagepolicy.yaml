@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — PutImagePolicy
+  description: 'Amazon Web Services imagebuilder — PutImagePolicy. 1 operations. Lead operation: Amazon Web Services Putimagepolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutImagePolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-putimagepolicy
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — PutImagePolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: PutImagePolicy
+      path: /PutImagePolicy
+      operations:
+      - name: amazonwebservicesputimagepolicy
+        method: PUT
+        description: Amazon Web Services Putimagepolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-putimagepolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — PutImagePolicy. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/putimagepolicy
+      name: putimagepolicy
+      description: REST surface for PutImagePolicy.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputimagepolicy
+        description: Amazon Web Services Putimagepolicy
+        call: imagebuilder-putimagepolicy.amazonwebservicesputimagepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-putimagepolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — PutImagePolicy. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putimagepolicy
+      description: Amazon Web Services Putimagepolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-putimagepolicy.amazonwebservicesputimagepolicy
+      outputParameters:
+      - type: object
+        mapping: $.

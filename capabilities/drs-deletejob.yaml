@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — DeleteJob
+  description: 'Amazon Web Services drs — DeleteJob. 1 operations. Lead operation: Amazon Web Services Deletejob. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-deletejob
+    baseUri: ''
+    description: Amazon Web Services drs — DeleteJob business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteJob
+      path: /DeleteJob
+      operations:
+      - name: amazonwebservicesdeletejob
+        method: POST
+        description: Amazon Web Services Deletejob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-deletejob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — DeleteJob. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/deletejob
+      name: deletejob
+      description: REST surface for DeleteJob.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletejob
+        description: Amazon Web Services Deletejob
+        call: drs-deletejob.amazonwebservicesdeletejob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-deletejob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — DeleteJob. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletejob
+      description: Amazon Web Services Deletejob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-deletejob.amazonwebservicesdeletejob
+      outputParameters:
+      - type: object
+        mapping: $.

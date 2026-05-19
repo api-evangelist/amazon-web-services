@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — GetContainerRecipePolicy
+  description: 'Amazon Web Services imagebuilder — GetContainerRecipePolicy. 1 operations. Lead operation: Amazon Web Services
+    Getcontainerrecipepolicy. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetContainerRecipePolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-getcontainerrecipepolicy
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — GetContainerRecipePolicy business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: GetContainerRecipePolicy
+      path: /GetContainerRecipePolicy
+      operations:
+      - name: amazonwebservicesgetcontainerrecipepolicy
+        method: GET
+        description: Amazon Web Services Getcontainerrecipepolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-getcontainerrecipepolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — GetContainerRecipePolicy. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getcontainerrecipepolicy
+      name: getcontainerrecipepolicy
+      description: REST surface for GetContainerRecipePolicy.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcontainerrecipepolicy
+        description: Amazon Web Services Getcontainerrecipepolicy
+        call: imagebuilder-getcontainerrecipepolicy.amazonwebservicesgetcontainerrecipepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-getcontainerrecipepolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — GetContainerRecipePolicy. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getcontainerrecipepolicy
+      description: Amazon Web Services Getcontainerrecipepolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: imagebuilder-getcontainerrecipepolicy.amazonwebservicesgetcontainerrecipepolicy
+      outputParameters:
+      - type: object
+        mapping: $.

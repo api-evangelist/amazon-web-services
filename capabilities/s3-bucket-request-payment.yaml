@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Request Payment
+  description: 'Amazon Web Services AWS S3 — Bucket Request Payment. 1 operations. Lead operation: Amazon Web Services Put
+    Bucket Request Payment. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Request Payment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-request-payment
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Request Payment business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?requestPayment
+      path: /{Bucket}?requestPayment
+      operations:
+      - name: putbucketrequestpayment
+        method: PUT
+        description: Amazon Web Services Put Bucket Request Payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-request-payment-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Request Payment. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-requestpayment
+      name: bucket-requestpayment
+      description: REST surface for Bucket}?requestPayment.
+      operations:
+      - method: PUT
+        name: putbucketrequestpayment
+        description: Amazon Web Services Put Bucket Request Payment
+        call: s3-bucket-request-payment.putbucketrequestpayment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-request-payment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Request Payment. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Request Payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-request-payment.putbucketrequestpayment
+      outputParameters:
+      - type: object
+        mapping: $.

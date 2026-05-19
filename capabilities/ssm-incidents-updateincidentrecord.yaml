@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-incidents — updateIncidentRecord
+  description: 'Amazon Web Services ssm-incidents — updateIncidentRecord. 1 operations. Lead operation: Amazon Web Services
+    Updateincidentrecord. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - updateIncidentRecord
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-incidents-updateincidentrecord
+    baseUri: ''
+    description: Amazon Web Services ssm-incidents — updateIncidentRecord business capability. Self-contained, no shared references.
+    resources:
+    - name: updateIncidentRecord
+      path: /updateIncidentRecord
+      operations:
+      - name: amazonwebservicesupdateincidentrecord
+        method: POST
+        description: Amazon Web Services Updateincidentrecord
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-incidents-updateincidentrecord-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-incidents — updateIncidentRecord. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateincidentrecord
+      name: updateincidentrecord
+      description: REST surface for updateIncidentRecord.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateincidentrecord
+        description: Amazon Web Services Updateincidentrecord
+        call: ssm-incidents-updateincidentrecord.amazonwebservicesupdateincidentrecord
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-incidents-updateincidentrecord-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-incidents — updateIncidentRecord. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateincidentrecord
+      description: Amazon Web Services Updateincidentrecord
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-incidents-updateincidentrecord.amazonwebservicesupdateincidentrecord
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appflow — Update Connector Registration
+  description: 'Amazon Web Services appflow — Update Connector Registration. 1 operations. Lead operation: Amazon Web Services
+    Updateconnectorregistration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Update Connector Registration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appflow-update-connector-registration
+    baseUri: ''
+    description: Amazon Web Services appflow — Update Connector Registration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: update-connector-registration
+      path: /update-connector-registration
+      operations:
+      - name: amazonwebservicesupdateconnectorregistration
+        method: POST
+        description: Amazon Web Services Updateconnectorregistration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appflow-update-connector-registration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appflow — Update Connector Registration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/update-connector-registration
+      name: update-connector-registration
+      description: REST surface for update-connector-registration.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateconnectorregistration
+        description: Amazon Web Services Updateconnectorregistration
+        call: appflow-update-connector-registration.amazonwebservicesupdateconnectorregistration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appflow-update-connector-registration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appflow — Update Connector Registration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateconnectorregistration
+      description: Amazon Web Services Updateconnectorregistration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appflow-update-connector-registration.amazonwebservicesupdateconnectorregistration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — GetFeedback
+  description: 'Amazon Web Services lookoutmetrics — GetFeedback. 1 operations. Lead operation: Amazon Web Services Getfeedback.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetFeedback
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-getfeedback
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — GetFeedback business capability. Self-contained, no shared references.
+    resources:
+    - name: GetFeedback
+      path: /GetFeedback
+      operations:
+      - name: amazonwebservicesgetfeedback
+        method: POST
+        description: Amazon Web Services Getfeedback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-getfeedback-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — GetFeedback. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getfeedback
+      name: getfeedback
+      description: REST surface for GetFeedback.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfeedback
+        description: Amazon Web Services Getfeedback
+        call: lookoutmetrics-getfeedback.amazonwebservicesgetfeedback
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-getfeedback-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — GetFeedback. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getfeedback
+      description: Amazon Web Services Getfeedback
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-getfeedback.amazonwebservicesgetfeedback
+      outputParameters:
+      - type: object
+        mapping: $.

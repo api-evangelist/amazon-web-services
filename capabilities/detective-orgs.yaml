@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services detective — Orgs
+  description: 'Amazon Web Services detective — Orgs. 5 operations. Lead operation: Amazon Web Services Listorganizationadminaccounts.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Orgs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: detective-orgs
+    baseUri: ''
+    description: Amazon Web Services detective — Orgs business capability. Self-contained, no shared references.
+    resources:
+    - name: orgs-adminAccountslist
+      path: /orgs/adminAccountslist
+      operations:
+      - name: amazonwebserviceslistorganizationadminaccounts
+        method: POST
+        description: Amazon Web Services Listorganizationadminaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: orgs-describeOrganizationConfiguration
+      path: /orgs/describeOrganizationConfiguration
+      operations:
+      - name: amazonwebservicesdescribeorganizationconfiguration
+        method: POST
+        description: Amazon Web Services Describeorganizationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: orgs-disableAdminAccount
+      path: /orgs/disableAdminAccount
+      operations:
+      - name: amazonwebservicesdisableorganizationadminaccount
+        method: POST
+        description: Amazon Web Services Disableorganizationadminaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: orgs-enableAdminAccount
+      path: /orgs/enableAdminAccount
+      operations:
+      - name: amazonwebservicesenableorganizationadminaccount
+        method: POST
+        description: Amazon Web Services Enableorganizationadminaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: orgs-updateOrganizationConfiguration
+      path: /orgs/updateOrganizationConfiguration
+      operations:
+      - name: amazonwebservicesupdateorganizationconfiguration
+        method: POST
+        description: Amazon Web Services Updateorganizationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: detective-orgs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services detective — Orgs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/orgs/adminaccountslist
+      name: orgs-adminaccountslist
+      description: REST surface for orgs-adminAccountslist.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistorganizationadminaccounts
+        description: Amazon Web Services Listorganizationadminaccounts
+        call: detective-orgs.amazonwebserviceslistorganizationadminaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/describeorganizationconfiguration
+      name: orgs-describeorganizationconfiguration
+      description: REST surface for orgs-describeOrganizationConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeorganizationconfiguration
+        description: Amazon Web Services Describeorganizationconfiguration
+        call: detective-orgs.amazonwebservicesdescribeorganizationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/disableadminaccount
+      name: orgs-disableadminaccount
+      description: REST surface for orgs-disableAdminAccount.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisableorganizationadminaccount
+        description: Amazon Web Services Disableorganizationadminaccount
+        call: detective-orgs.amazonwebservicesdisableorganizationadminaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/enableadminaccount
+      name: orgs-enableadminaccount
+      description: REST surface for orgs-enableAdminAccount.
+      operations:
+      - method: POST
+        name: amazonwebservicesenableorganizationadminaccount
+        description: Amazon Web Services Enableorganizationadminaccount
+        call: detective-orgs.amazonwebservicesenableorganizationadminaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/orgs/updateorganizationconfiguration
+      name: orgs-updateorganizationconfiguration
+      description: REST surface for orgs-updateOrganizationConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateorganizationconfiguration
+        description: Amazon Web Services Updateorganizationconfiguration
+        call: detective-orgs.amazonwebservicesupdateorganizationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: detective-orgs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services detective — Orgs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listorganizationadminaccounts
+      description: Amazon Web Services Listorganizationadminaccounts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-orgs.amazonwebserviceslistorganizationadminaccounts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeorganizationconfiguration
+      description: Amazon Web Services Describeorganizationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-orgs.amazonwebservicesdescribeorganizationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disableorganizationadminaccount
+      description: Amazon Web Services Disableorganizationadminaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-orgs.amazonwebservicesdisableorganizationadminaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-enableorganizationadminaccount
+      description: Amazon Web Services Enableorganizationadminaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-orgs.amazonwebservicesenableorganizationadminaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateorganizationconfiguration
+      description: Amazon Web Services Updateorganizationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-orgs.amazonwebservicesupdateorganizationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workdocs — Search
+  description: 'Amazon Web Services workdocs — Search. 1 operations. Lead operation: Amazon Web Services Searchresources.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workdocs-search
+    baseUri: ''
+    description: Amazon Web Services workdocs — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-search
+      path: /api/v1/search
+      operations:
+      - name: amazonwebservicessearchresources
+        method: POST
+        description: Amazon Web Services Searchresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workdocs-search-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workdocs — Search. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/search
+      name: api-v1-search
+      description: REST surface for api-v1-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchresources
+        description: Amazon Web Services Searchresources
+        call: workdocs-search.amazonwebservicessearchresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workdocs-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workdocs — Search. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-searchresources
+      description: Amazon Web Services Searchresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: workdocs-search.amazonwebservicessearchresources
+      outputParameters:
+      - type: object
+        mapping: $.

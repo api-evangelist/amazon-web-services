@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — UpdateSourceServerReplicationType
+  description: 'Amazon Web Services mgn — UpdateSourceServerReplicationType. 1 operations. Lead operation: Amazon Web Services
+    Updatesourceserverreplicationtype. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateSourceServerReplicationType
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-updatesourceserverreplicationtype
+    baseUri: ''
+    description: Amazon Web Services mgn — UpdateSourceServerReplicationType business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: UpdateSourceServerReplicationType
+      path: /UpdateSourceServerReplicationType
+      operations:
+      - name: amazonwebservicesupdatesourceserverreplicationtype
+        method: POST
+        description: Amazon Web Services Updatesourceserverreplicationtype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-updatesourceserverreplicationtype-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — UpdateSourceServerReplicationType. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatesourceserverreplicationtype
+      name: updatesourceserverreplicationtype
+      description: REST surface for UpdateSourceServerReplicationType.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatesourceserverreplicationtype
+        description: Amazon Web Services Updatesourceserverreplicationtype
+        call: mgn-updatesourceserverreplicationtype.amazonwebservicesupdatesourceserverreplicationtype
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-updatesourceserverreplicationtype-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — UpdateSourceServerReplicationType. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatesourceserverreplicationtype
+      description: Amazon Web Services Updatesourceserverreplicationtype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-updatesourceserverreplicationtype.amazonwebservicesupdatesourceserverreplicationtype
+      outputParameters:
+      - type: object
+        mapping: $.

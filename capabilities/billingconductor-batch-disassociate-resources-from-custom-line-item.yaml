@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — Batch Disassociate Resources From Custom Line Item
+  description: 'Amazon Web Services billingconductor — Batch Disassociate Resources From Custom Line Item. 1 operations. Lead
+    operation: Amazon Web Services Batchdisassociateresourcesfromcustomlineitem. Self-contained Naftiko capability covering
+    one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Batch Disassociate Resources From Custom Line Item
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-batch-disassociate-resources-from-custom-line-item
+    baseUri: ''
+    description: Amazon Web Services billingconductor — Batch Disassociate Resources From Custom Line Item business capability.
+      Self-contained, no shared references.
+    resources:
+    - name: batch-disassociate-resources-from-custom-line-item
+      path: /batch-disassociate-resources-from-custom-line-item
+      operations:
+      - name: amazonwebservicesbatchdisassociateresourcesfromcustomlineitem
+        method: PUT
+        description: Amazon Web Services Batchdisassociateresourcesfromcustomlineitem
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-batch-disassociate-resources-from-custom-line-item-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — Batch Disassociate Resources From Custom Line Item.
+      One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/batch-disassociate-resources-from-custom-line-item
+      name: batch-disassociate-resources-from-custom-line-item
+      description: REST surface for batch-disassociate-resources-from-custom-line-item.
+      operations:
+      - method: PUT
+        name: amazonwebservicesbatchdisassociateresourcesfromcustomlineitem
+        description: Amazon Web Services Batchdisassociateresourcesfromcustomlineitem
+        call: billingconductor-batch-disassociate-resources-from-custom-line-item.amazonwebservicesbatchdisassociateresourcesfromcustomlineitem
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-batch-disassociate-resources-from-custom-line-item-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — Batch Disassociate Resources From Custom Line Item.
+      One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchdisassociateresourcesfromcustomlineitem
+      description: Amazon Web Services Batchdisassociateresourcesfromcustomlineitem
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: billingconductor-batch-disassociate-resources-from-custom-line-item.amazonwebservicesbatchdisassociateresourcesfromcustomlineitem
+      outputParameters:
+      - type: object
+        mapping: $.

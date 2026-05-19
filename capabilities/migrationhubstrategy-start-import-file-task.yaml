@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Start Import File Task
+  description: 'Amazon Web Services migrationhubstrategy — Start Import File Task. 1 operations. Lead operation: Amazon Web
+    Services Startimportfiletask. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Start Import File Task
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-start-import-file-task
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Start Import File Task business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: start-import-file-task
+      path: /start-import-file-task
+      operations:
+      - name: amazonwebservicesstartimportfiletask
+        method: POST
+        description: Amazon Web Services Startimportfiletask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-start-import-file-task-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Start Import File Task. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/start-import-file-task
+      name: start-import-file-task
+      description: REST surface for start-import-file-task.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartimportfiletask
+        description: Amazon Web Services Startimportfiletask
+        call: migrationhubstrategy-start-import-file-task.amazonwebservicesstartimportfiletask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-start-import-file-task-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Start Import File Task. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startimportfiletask
+      description: Amazon Web Services Startimportfiletask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: migrationhubstrategy-start-import-file-task.amazonwebservicesstartimportfiletask
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — CreateComponent
+  description: 'Amazon Web Services imagebuilder — CreateComponent. 1 operations. Lead operation: Amazon Web Services Createcomponent.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateComponent
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-createcomponent
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — CreateComponent business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateComponent
+      path: /CreateComponent
+      operations:
+      - name: amazonwebservicescreatecomponent
+        method: PUT
+        description: Amazon Web Services Createcomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-createcomponent-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — CreateComponent. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createcomponent
+      name: createcomponent
+      description: REST surface for CreateComponent.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreatecomponent
+        description: Amazon Web Services Createcomponent
+        call: imagebuilder-createcomponent.amazonwebservicescreatecomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-createcomponent-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — CreateComponent. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createcomponent
+      description: Amazon Web Services Createcomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-createcomponent.amazonwebservicescreatecomponent
+      outputParameters:
+      - type: object
+        mapping: $.

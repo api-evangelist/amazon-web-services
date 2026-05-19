@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Resource Profiles
+  description: 'Amazon Web Services macie2 — Resource Profiles. 3 operations. Lead operation: Amazon Web Services Updateresourceprofile.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Resource Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-resource-profiles
+    baseUri: ''
+    description: Amazon Web Services macie2 — Resource Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: resource-profiles
+      path: /resource-profiles
+      operations:
+      - name: amazonwebservicesupdateresourceprofile
+        method: PATCH
+        description: Amazon Web Services Updateresourceprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resource-profiles-artifacts
+      path: /resource-profiles/artifacts
+      operations:
+      - name: amazonwebserviceslistresourceprofileartifacts
+        method: GET
+        description: Amazon Web Services Listresourceprofileartifacts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resource-profiles-detections
+      path: /resource-profiles/detections
+      operations:
+      - name: amazonwebservicesupdateresourceprofiledetections
+        method: PATCH
+        description: Amazon Web Services Updateresourceprofiledetections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-resource-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Resource Profiles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/resource-profiles
+      name: resource-profiles
+      description: REST surface for resource-profiles.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateresourceprofile
+        description: Amazon Web Services Updateresourceprofile
+        call: macie2-resource-profiles.amazonwebservicesupdateresourceprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource-profiles/artifacts
+      name: resource-profiles-artifacts
+      description: REST surface for resource-profiles-artifacts.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistresourceprofileartifacts
+        description: Amazon Web Services Listresourceprofileartifacts
+        call: macie2-resource-profiles.amazonwebserviceslistresourceprofileartifacts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource-profiles/detections
+      name: resource-profiles-detections
+      description: REST surface for resource-profiles-detections.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateresourceprofiledetections
+        description: Amazon Web Services Updateresourceprofiledetections
+        call: macie2-resource-profiles.amazonwebservicesupdateresourceprofiledetections
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-resource-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Resource Profiles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateresourceprofile
+      description: Amazon Web Services Updateresourceprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: macie2-resource-profiles.amazonwebservicesupdateresourceprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listresourceprofileartifacts
+      description: Amazon Web Services Listresourceprofileartifacts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-resource-profiles.amazonwebserviceslistresourceprofileartifacts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateresourceprofiledetections
+      description: Amazon Web Services Updateresourceprofiledetections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: macie2-resource-profiles.amazonwebservicesupdateresourceprofiledetections
+      outputParameters:
+      - type: object
+        mapping: $.

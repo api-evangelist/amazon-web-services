@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — DeleteApplication
+  description: 'Amazon Web Services mgn — DeleteApplication. 1 operations. Lead operation: Amazon Web Services Deleteapplication.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteApplication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-deleteapplication
+    baseUri: ''
+    description: Amazon Web Services mgn — DeleteApplication business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteApplication
+      path: /DeleteApplication
+      operations:
+      - name: amazonwebservicesdeleteapplication
+        method: POST
+        description: Amazon Web Services Deleteapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-deleteapplication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — DeleteApplication. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleteapplication
+      name: deleteapplication
+      description: REST surface for DeleteApplication.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteapplication
+        description: Amazon Web Services Deleteapplication
+        call: mgn-deleteapplication.amazonwebservicesdeleteapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-deleteapplication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — DeleteApplication. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteapplication
+      description: Amazon Web Services Deleteapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-deleteapplication.amazonwebservicesdeleteapplication
+      outputParameters:
+      - type: object
+        mapping: $.

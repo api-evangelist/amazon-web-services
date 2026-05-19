@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Policy
+  description: 'Amazon Web Services accessanalyzer — Policy. 5 operations. Lead operation: Amazon Web Services Checkaccessnotgranted.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Policy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-policy
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Policy business capability. Self-contained, no shared references.
+    resources:
+    - name: policy-check-access-not-granted
+      path: /policy/check-access-not-granted
+      operations:
+      - name: amazonwebservicescheckaccessnotgranted
+        method: POST
+        description: Amazon Web Services Checkaccessnotgranted
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policy-check-no-new-access
+      path: /policy/check-no-new-access
+      operations:
+      - name: amazonwebserviceschecknonewaccess
+        method: POST
+        description: Amazon Web Services Checknonewaccess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policy-generation
+      path: /policy/generation
+      operations:
+      - name: amazonwebservicesstartpolicygeneration
+        method: PUT
+        description: Amazon Web Services Startpolicygeneration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policy-generation-jobId
+      path: /policy/generation/{jobId}
+      operations:
+      - name: amazonwebservicesgetgeneratedpolicy
+        method: GET
+        description: Amazon Web Services Getgeneratedpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: policy-validation
+      path: /policy/validation
+      operations:
+      - name: amazonwebservicesvalidatepolicy
+        method: POST
+        description: Amazon Web Services Validatepolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-policy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Policy. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/policy/check-access-not-granted
+      name: policy-check-access-not-granted
+      description: REST surface for policy-check-access-not-granted.
+      operations:
+      - method: POST
+        name: amazonwebservicescheckaccessnotgranted
+        description: Amazon Web Services Checkaccessnotgranted
+        call: accessanalyzer-policy.amazonwebservicescheckaccessnotgranted
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/check-no-new-access
+      name: policy-check-no-new-access
+      description: REST surface for policy-check-no-new-access.
+      operations:
+      - method: POST
+        name: amazonwebserviceschecknonewaccess
+        description: Amazon Web Services Checknonewaccess
+        call: accessanalyzer-policy.amazonwebserviceschecknonewaccess
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/generation
+      name: policy-generation
+      description: REST surface for policy-generation.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartpolicygeneration
+        description: Amazon Web Services Startpolicygeneration
+        call: accessanalyzer-policy.amazonwebservicesstartpolicygeneration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/generation/{jobid}
+      name: policy-generation-jobid
+      description: REST surface for policy-generation-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetgeneratedpolicy
+        description: Amazon Web Services Getgeneratedpolicy
+        call: accessanalyzer-policy.amazonwebservicesgetgeneratedpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/policy/validation
+      name: policy-validation
+      description: REST surface for policy-validation.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidatepolicy
+        description: Amazon Web Services Validatepolicy
+        call: accessanalyzer-policy.amazonwebservicesvalidatepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-policy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Policy. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-checkaccessnotgranted
+      description: Amazon Web Services Checkaccessnotgranted
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-policy.amazonwebservicescheckaccessnotgranted
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-checknonewaccess
+      description: Amazon Web Services Checknonewaccess
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-policy.amazonwebserviceschecknonewaccess
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startpolicygeneration
+      description: Amazon Web Services Startpolicygeneration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-policy.amazonwebservicesstartpolicygeneration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getgeneratedpolicy
+      description: Amazon Web Services Getgeneratedpolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-policy.amazonwebservicesgetgeneratedpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-validatepolicy
+      description: Amazon Web Services Validatepolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-policy.amazonwebservicesvalidatepolicy
+      outputParameters:
+      - type: object
+        mapping: $.

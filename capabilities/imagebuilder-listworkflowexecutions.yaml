@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListWorkflowExecutions
+  description: 'Amazon Web Services imagebuilder — ListWorkflowExecutions. 1 operations. Lead operation: Amazon Web Services
+    Listworkflowexecutions. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListWorkflowExecutions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listworkflowexecutions
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListWorkflowExecutions business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: ListWorkflowExecutions
+      path: /ListWorkflowExecutions
+      operations:
+      - name: amazonwebserviceslistworkflowexecutions
+        method: POST
+        description: Amazon Web Services Listworkflowexecutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listworkflowexecutions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListWorkflowExecutions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listworkflowexecutions
+      name: listworkflowexecutions
+      description: REST surface for ListWorkflowExecutions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistworkflowexecutions
+        description: Amazon Web Services Listworkflowexecutions
+        call: imagebuilder-listworkflowexecutions.amazonwebserviceslistworkflowexecutions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listworkflowexecutions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListWorkflowExecutions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkflowexecutions
+      description: Amazon Web Services Listworkflowexecutions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listworkflowexecutions.amazonwebserviceslistworkflowexecutions
+      outputParameters:
+      - type: object
+        mapping: $.

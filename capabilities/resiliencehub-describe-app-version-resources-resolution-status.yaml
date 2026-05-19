@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Describe App Version Resources Resolution Status
+  description: 'Amazon Web Services resiliencehub — Describe App Version Resources Resolution Status. 1 operations. Lead operation:
+    Amazon Web Services Describeappversionresourcesresolutionstatus. Self-contained Naftiko capability covering one Amazon
+    Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe App Version Resources Resolution Status
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-describe-app-version-resources-resolution-status
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Describe App Version Resources Resolution Status business capability.
+      Self-contained, no shared references.
+    resources:
+    - name: describe-app-version-resources-resolution-status
+      path: /describe-app-version-resources-resolution-status
+      operations:
+      - name: amazonwebservicesdescribeappversionresourcesresolutionstatus
+        method: POST
+        description: Amazon Web Services Describeappversionresourcesresolutionstatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-describe-app-version-resources-resolution-status-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Describe App Version Resources Resolution Status. One
+      Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-app-version-resources-resolution-status
+      name: describe-app-version-resources-resolution-status
+      description: REST surface for describe-app-version-resources-resolution-status.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeappversionresourcesresolutionstatus
+        description: Amazon Web Services Describeappversionresourcesresolutionstatus
+        call: resiliencehub-describe-app-version-resources-resolution-status.amazonwebservicesdescribeappversionresourcesresolutionstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-describe-app-version-resources-resolution-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Describe App Version Resources Resolution Status. One
+      tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeappversionresourcesresolutionstatus
+      description: Amazon Web Services Describeappversionresourcesresolutionstatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-describe-app-version-resources-resolution-status.amazonwebservicesdescribeappversionresourcesresolutionstatus
+      outputParameters:
+      - type: object
+        mapping: $.

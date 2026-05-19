@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services emr-containers — Virtualclusters
+  description: 'Amazon Web Services emr-containers — Virtualclusters. 7 operations. Lead operation: Amazon Web Services Listvirtualclusters.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Virtualclusters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: emr-containers-virtualclusters
+    baseUri: ''
+    description: Amazon Web Services emr-containers — Virtualclusters business capability. Self-contained, no shared references.
+    resources:
+    - name: virtualclusters
+      path: /virtualclusters
+      operations:
+      - name: amazonwebserviceslistvirtualclusters
+        method: GET
+        description: Amazon Web Services Listvirtualclusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId
+      path: /virtualclusters/{virtualClusterId}
+      operations:
+      - name: amazonwebservicesdescribevirtualcluster
+        method: GET
+        description: Amazon Web Services Describevirtualcluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId-endpoints
+      path: /virtualclusters/{virtualClusterId}/endpoints
+      operations:
+      - name: amazonwebserviceslistmanagedendpoints
+        method: GET
+        description: Amazon Web Services Listmanagedendpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId-endpoints-endpointId
+      path: /virtualclusters/{virtualClusterId}/endpoints/{endpointId}
+      operations:
+      - name: amazonwebservicesdescribemanagedendpoint
+        method: GET
+        description: Amazon Web Services Describemanagedendpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId-endpoints-endpointId-credentials
+      path: /virtualclusters/{virtualClusterId}/endpoints/{endpointId}/credentials
+      operations:
+      - name: amazonwebservicesgetmanagedendpointsessioncredentials
+        method: POST
+        description: Amazon Web Services Getmanagedendpointsessioncredentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId-jobruns
+      path: /virtualclusters/{virtualClusterId}/jobruns
+      operations:
+      - name: amazonwebservicesstartjobrun
+        method: POST
+        description: Amazon Web Services Startjobrun
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtualclusters-virtualClusterId-jobruns-jobRunId
+      path: /virtualclusters/{virtualClusterId}/jobruns/{jobRunId}
+      operations:
+      - name: amazonwebservicesdescribejobrun
+        method: GET
+        description: Amazon Web Services Describejobrun
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: emr-containers-virtualclusters-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services emr-containers — Virtualclusters. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/virtualclusters
+      name: virtualclusters
+      description: REST surface for virtualclusters.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvirtualclusters
+        description: Amazon Web Services Listvirtualclusters
+        call: emr-containers-virtualclusters.amazonwebserviceslistvirtualclusters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}
+      name: virtualclusters-virtualclusterid
+      description: REST surface for virtualclusters-virtualClusterId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribevirtualcluster
+        description: Amazon Web Services Describevirtualcluster
+        call: emr-containers-virtualclusters.amazonwebservicesdescribevirtualcluster
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}/endpoints
+      name: virtualclusters-virtualclusterid-endpoints
+      description: REST surface for virtualclusters-virtualClusterId-endpoints.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmanagedendpoints
+        description: Amazon Web Services Listmanagedendpoints
+        call: emr-containers-virtualclusters.amazonwebserviceslistmanagedendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}/endpoints/{endpointid}
+      name: virtualclusters-virtualclusterid-endpoints-endpointid
+      description: REST surface for virtualclusters-virtualClusterId-endpoints-endpointId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribemanagedendpoint
+        description: Amazon Web Services Describemanagedendpoint
+        call: emr-containers-virtualclusters.amazonwebservicesdescribemanagedendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}/endpoints/{endpointid}/credentials
+      name: virtualclusters-virtualclusterid-endpoints-endpointid-credentials
+      description: REST surface for virtualclusters-virtualClusterId-endpoints-endpointId-credentials.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmanagedendpointsessioncredentials
+        description: Amazon Web Services Getmanagedendpointsessioncredentials
+        call: emr-containers-virtualclusters.amazonwebservicesgetmanagedendpointsessioncredentials
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}/jobruns
+      name: virtualclusters-virtualclusterid-jobruns
+      description: REST surface for virtualclusters-virtualClusterId-jobruns.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartjobrun
+        description: Amazon Web Services Startjobrun
+        call: emr-containers-virtualclusters.amazonwebservicesstartjobrun
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/virtualclusters/{virtualclusterid}/jobruns/{jobrunid}
+      name: virtualclusters-virtualclusterid-jobruns-jobrunid
+      description: REST surface for virtualclusters-virtualClusterId-jobruns-jobRunId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribejobrun
+        description: Amazon Web Services Describejobrun
+        call: emr-containers-virtualclusters.amazonwebservicesdescribejobrun
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: emr-containers-virtualclusters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services emr-containers — Virtualclusters. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listvirtualclusters
+      description: Amazon Web Services Listvirtualclusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: emr-containers-virtualclusters.amazonwebserviceslistvirtualclusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describevirtualcluster
+      description: Amazon Web Services Describevirtualcluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: emr-containers-virtualclusters.amazonwebservicesdescribevirtualcluster
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listmanagedendpoints
+      description: Amazon Web Services Listmanagedendpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: emr-containers-virtualclusters.amazonwebserviceslistmanagedendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describemanagedendpoint
+      description: Amazon Web Services Describemanagedendpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: emr-containers-virtualclusters.amazonwebservicesdescribemanagedendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmanagedendpointsessioncredentials
+      description: Amazon Web Services Getmanagedendpointsessioncredentials
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: emr-containers-virtualclusters.amazonwebservicesgetmanagedendpointsessioncredentials
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startjobrun
+      description: Amazon Web Services Startjobrun
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: emr-containers-virtualclusters.amazonwebservicesstartjobrun
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describejobrun
+      description: Amazon Web Services Describejobrun
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: emr-containers-virtualclusters.amazonwebservicesdescribejobrun
+      outputParameters:
+      - type: object
+        mapping: $.

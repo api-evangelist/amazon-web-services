@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services scheduler — Schedule Groups
+  description: 'Amazon Web Services scheduler — Schedule Groups. 2 operations. Lead operation: Amazon Web Services Listschedulegroups.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Schedule Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scheduler-schedule-groups
+    baseUri: ''
+    description: Amazon Web Services scheduler — Schedule Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: schedule-groups
+      path: /schedule-groups
+      operations:
+      - name: amazonwebserviceslistschedulegroups
+        method: GET
+        description: Amazon Web Services Listschedulegroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: schedule-groups-Name
+      path: /schedule-groups/{Name}
+      operations:
+      - name: amazonwebservicesgetschedulegroup
+        method: GET
+        description: Amazon Web Services Getschedulegroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: scheduler-schedule-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services scheduler — Schedule Groups. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/schedule-groups
+      name: schedule-groups
+      description: REST surface for schedule-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistschedulegroups
+        description: Amazon Web Services Listschedulegroups
+        call: scheduler-schedule-groups.amazonwebserviceslistschedulegroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule-groups/{name}
+      name: schedule-groups-name
+      description: REST surface for schedule-groups-Name.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetschedulegroup
+        description: Amazon Web Services Getschedulegroup
+        call: scheduler-schedule-groups.amazonwebservicesgetschedulegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scheduler-schedule-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services scheduler — Schedule Groups. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listschedulegroups
+      description: Amazon Web Services Listschedulegroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scheduler-schedule-groups.amazonwebserviceslistschedulegroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getschedulegroup
+      description: Amazon Web Services Getschedulegroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scheduler-schedule-groups.amazonwebservicesgetschedulegroup
+      outputParameters:
+      - type: object
+        mapping: $.

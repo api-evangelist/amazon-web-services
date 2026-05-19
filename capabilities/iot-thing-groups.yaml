@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Thing Groups
+  description: 'Amazon Web Services iot — Thing Groups. 6 operations. Lead operation: Amazon Web Services Listthinggroups.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Thing Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-thing-groups
+    baseUri: ''
+    description: Amazon Web Services iot — Thing Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: thing-groups
+      path: /thing-groups
+      operations:
+      - name: amazonwebserviceslistthinggroups
+        method: GET
+        description: Amazon Web Services Listthinggroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: thing-groups-addThingToThingGroup
+      path: /thing-groups/addThingToThingGroup
+      operations:
+      - name: amazonwebservicesaddthingtothinggroup
+        method: PUT
+        description: Amazon Web Services Addthingtothinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: thing-groups-removeThingFromThingGroup
+      path: /thing-groups/removeThingFromThingGroup
+      operations:
+      - name: amazonwebservicesremovethingfromthinggroup
+        method: PUT
+        description: Amazon Web Services Removethingfromthinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: thing-groups-updateThingGroupsForThing
+      path: /thing-groups/updateThingGroupsForThing
+      operations:
+      - name: amazonwebservicesupdatethinggroupsforthing
+        method: PUT
+        description: Amazon Web Services Updatethinggroupsforthing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: thing-groups-thingGroupName
+      path: /thing-groups/{thingGroupName}
+      operations:
+      - name: amazonwebservicesupdatethinggroup
+        method: PATCH
+        description: Amazon Web Services Updatethinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: thing-groups-thingGroupName-things
+      path: /thing-groups/{thingGroupName}/things
+      operations:
+      - name: amazonwebserviceslistthingsinthinggroup
+        method: GET
+        description: Amazon Web Services Listthingsinthinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-thing-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Thing Groups. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/thing-groups
+      name: thing-groups
+      description: REST surface for thing-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthinggroups
+        description: Amazon Web Services Listthinggroups
+        call: iot-thing-groups.amazonwebserviceslistthinggroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/thing-groups/addthingtothinggroup
+      name: thing-groups-addthingtothinggroup
+      description: REST surface for thing-groups-addThingToThingGroup.
+      operations:
+      - method: PUT
+        name: amazonwebservicesaddthingtothinggroup
+        description: Amazon Web Services Addthingtothinggroup
+        call: iot-thing-groups.amazonwebservicesaddthingtothinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/thing-groups/removethingfromthinggroup
+      name: thing-groups-removethingfromthinggroup
+      description: REST surface for thing-groups-removeThingFromThingGroup.
+      operations:
+      - method: PUT
+        name: amazonwebservicesremovethingfromthinggroup
+        description: Amazon Web Services Removethingfromthinggroup
+        call: iot-thing-groups.amazonwebservicesremovethingfromthinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/thing-groups/updatethinggroupsforthing
+      name: thing-groups-updatethinggroupsforthing
+      description: REST surface for thing-groups-updateThingGroupsForThing.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatethinggroupsforthing
+        description: Amazon Web Services Updatethinggroupsforthing
+        call: iot-thing-groups.amazonwebservicesupdatethinggroupsforthing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/thing-groups/{thinggroupname}
+      name: thing-groups-thinggroupname
+      description: REST surface for thing-groups-thingGroupName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatethinggroup
+        description: Amazon Web Services Updatethinggroup
+        call: iot-thing-groups.amazonwebservicesupdatethinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/thing-groups/{thinggroupname}/things
+      name: thing-groups-thinggroupname-things
+      description: REST surface for thing-groups-thingGroupName-things.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthingsinthinggroup
+        description: Amazon Web Services Listthingsinthinggroup
+        call: iot-thing-groups.amazonwebserviceslistthingsinthinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-thing-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Thing Groups. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listthinggroups
+      description: Amazon Web Services Listthinggroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebserviceslistthinggroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addthingtothinggroup
+      description: Amazon Web Services Addthingtothinggroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebservicesaddthingtothinggroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removethingfromthinggroup
+      description: Amazon Web Services Removethingfromthinggroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebservicesremovethingfromthinggroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatethinggroupsforthing
+      description: Amazon Web Services Updatethinggroupsforthing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebservicesupdatethinggroupsforthing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatethinggroup
+      description: Amazon Web Services Updatethinggroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebservicesupdatethinggroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listthingsinthinggroup
+      description: Amazon Web Services Listthingsinthinggroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-thing-groups.amazonwebserviceslistthingsinthinggroup
+      outputParameters:
+      - type: object
+        mapping: $.

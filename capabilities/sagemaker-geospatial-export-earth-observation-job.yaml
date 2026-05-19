@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-geospatial — Export Earth Observation Job
+  description: 'Amazon Web Services sagemaker-geospatial — Export Earth Observation Job. 1 operations. Lead operation: Amazon
+    Web Services Exportearthobservationjob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Export Earth Observation Job
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-geospatial-export-earth-observation-job
+    baseUri: ''
+    description: Amazon Web Services sagemaker-geospatial — Export Earth Observation Job business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: export-earth-observation-job
+      path: /export-earth-observation-job
+      operations:
+      - name: amazonwebservicesexportearthobservationjob
+        method: POST
+        description: Amazon Web Services Exportearthobservationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-geospatial-export-earth-observation-job-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-geospatial — Export Earth Observation Job. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/export-earth-observation-job
+      name: export-earth-observation-job
+      description: REST surface for export-earth-observation-job.
+      operations:
+      - method: POST
+        name: amazonwebservicesexportearthobservationjob
+        description: Amazon Web Services Exportearthobservationjob
+        call: sagemaker-geospatial-export-earth-observation-job.amazonwebservicesexportearthobservationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-geospatial-export-earth-observation-job-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-geospatial — Export Earth Observation Job. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-exportearthobservationjob
+      description: Amazon Web Services Exportearthobservationjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-geospatial-export-earth-observation-job.amazonwebservicesexportearthobservationjob
+      outputParameters:
+      - type: object
+        mapping: $.

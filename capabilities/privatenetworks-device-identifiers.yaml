@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services privatenetworks — Device Identifiers
+  description: 'Amazon Web Services privatenetworks — Device Identifiers. 4 operations. Lead operation: Amazon Web Services
+    Activatedeviceidentifier. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Device Identifiers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: privatenetworks-device-identifiers
+    baseUri: ''
+    description: Amazon Web Services privatenetworks — Device Identifiers business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-device-identifiers-activate
+      path: /v1/device-identifiers/activate
+      operations:
+      - name: amazonwebservicesactivatedeviceidentifier
+        method: POST
+        description: Amazon Web Services Activatedeviceidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-device-identifiers-deactivate
+      path: /v1/device-identifiers/deactivate
+      operations:
+      - name: amazonwebservicesdeactivatedeviceidentifier
+        method: POST
+        description: Amazon Web Services Deactivatedeviceidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-device-identifiers-list
+      path: /v1/device-identifiers/list
+      operations:
+      - name: amazonwebserviceslistdeviceidentifiers
+        method: POST
+        description: Amazon Web Services Listdeviceidentifiers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-device-identifiers-deviceIdentifierArn
+      path: /v1/device-identifiers/{deviceIdentifierArn}
+      operations:
+      - name: amazonwebservicesgetdeviceidentifier
+        method: GET
+        description: Amazon Web Services Getdeviceidentifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: privatenetworks-device-identifiers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services privatenetworks — Device Identifiers. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/device-identifiers/activate
+      name: v1-device-identifiers-activate
+      description: REST surface for v1-device-identifiers-activate.
+      operations:
+      - method: POST
+        name: amazonwebservicesactivatedeviceidentifier
+        description: Amazon Web Services Activatedeviceidentifier
+        call: privatenetworks-device-identifiers.amazonwebservicesactivatedeviceidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/device-identifiers/deactivate
+      name: v1-device-identifiers-deactivate
+      description: REST surface for v1-device-identifiers-deactivate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeactivatedeviceidentifier
+        description: Amazon Web Services Deactivatedeviceidentifier
+        call: privatenetworks-device-identifiers.amazonwebservicesdeactivatedeviceidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/device-identifiers/list
+      name: v1-device-identifiers-list
+      description: REST surface for v1-device-identifiers-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdeviceidentifiers
+        description: Amazon Web Services Listdeviceidentifiers
+        call: privatenetworks-device-identifiers.amazonwebserviceslistdeviceidentifiers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/device-identifiers/{deviceidentifierarn}
+      name: v1-device-identifiers-deviceidentifierarn
+      description: REST surface for v1-device-identifiers-deviceIdentifierArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdeviceidentifier
+        description: Amazon Web Services Getdeviceidentifier
+        call: privatenetworks-device-identifiers.amazonwebservicesgetdeviceidentifier
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: privatenetworks-device-identifiers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services privatenetworks — Device Identifiers. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-activatedeviceidentifier
+      description: Amazon Web Services Activatedeviceidentifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-device-identifiers.amazonwebservicesactivatedeviceidentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deactivatedeviceidentifier
+      description: Amazon Web Services Deactivatedeviceidentifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-device-identifiers.amazonwebservicesdeactivatedeviceidentifier
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdeviceidentifiers
+      description: Amazon Web Services Listdeviceidentifiers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-device-identifiers.amazonwebserviceslistdeviceidentifiers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdeviceidentifier
+      description: Amazon Web Services Getdeviceidentifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: privatenetworks-device-identifiers.amazonwebservicesgetdeviceidentifier
+      outputParameters:
+      - type: object
+        mapping: $.

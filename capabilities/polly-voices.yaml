@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services polly — Voices
+  description: 'Amazon Web Services polly — Voices. 1 operations. Lead operation: Amazon Web Services Describevoices. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Voices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: polly-voices
+    baseUri: ''
+    description: Amazon Web Services polly — Voices business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-voices
+      path: /v1/voices
+      operations:
+      - name: amazonwebservicesdescribevoices
+        method: GET
+        description: Amazon Web Services Describevoices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: polly-voices-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services polly — Voices. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/voices
+      name: v1-voices
+      description: REST surface for v1-voices.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribevoices
+        description: Amazon Web Services Describevoices
+        call: polly-voices.amazonwebservicesdescribevoices
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: polly-voices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services polly — Voices. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describevoices
+      description: Amazon Web Services Describevoices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: polly-voices.amazonwebservicesdescribevoices
+      outputParameters:
+      - type: object
+        mapping: $.

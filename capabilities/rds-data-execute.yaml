@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rds-data — Execute
+  description: 'Amazon Web Services rds-data — Execute. 1 operations. Lead operation: Amazon Web Services Executestatement.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Execute
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rds-data-execute
+    baseUri: ''
+    description: Amazon Web Services rds-data — Execute business capability. Self-contained, no shared references.
+    resources:
+    - name: Execute
+      path: /Execute
+      operations:
+      - name: amazonwebservicesexecutestatement
+        method: POST
+        description: Amazon Web Services Executestatement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rds-data-execute-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rds-data — Execute. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/execute
+      name: execute
+      description: REST surface for Execute.
+      operations:
+      - method: POST
+        name: amazonwebservicesexecutestatement
+        description: Amazon Web Services Executestatement
+        call: rds-data-execute.amazonwebservicesexecutestatement
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rds-data-execute-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rds-data — Execute. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-executestatement
+      description: Amazon Web Services Executestatement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rds-data-execute.amazonwebservicesexecutestatement
+      outputParameters:
+      - type: object
+        mapping: $.

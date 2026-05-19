@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Search?type=phone Numbers
+  description: 'Amazon Web Services chime — Search?type=phone Numbers. 1 operations. Lead operation: Amazon Web Services Searchavailablephonenumbers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Search?type=phone Numbers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-search-type-phone-numbers
+    baseUri: ''
+    description: Amazon Web Services chime — Search?type=phone Numbers business capability. Self-contained, no shared references.
+    resources:
+    - name: search?type=phone-numbers
+      path: /search?type=phone-numbers
+      operations:
+      - name: amazonwebservicessearchavailablephonenumbers
+        method: GET
+        description: Amazon Web Services Searchavailablephonenumbers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-search-type-phone-numbers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Search?type=phone Numbers. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/search-type-phone-numbers
+      name: search-type-phone-numbers
+      description: REST surface for search?type=phone-numbers.
+      operations:
+      - method: GET
+        name: amazonwebservicessearchavailablephonenumbers
+        description: Amazon Web Services Searchavailablephonenumbers
+        call: chime-search-type-phone-numbers.amazonwebservicessearchavailablephonenumbers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-search-type-phone-numbers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Search?type=phone Numbers. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-searchavailablephonenumbers
+      description: Amazon Web Services Searchavailablephonenumbers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-search-type-phone-numbers.amazonwebservicessearchavailablephonenumbers
+      outputParameters:
+      - type: object
+        mapping: $.

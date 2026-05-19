@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services marketplace-catalog — TagResource
+  description: 'Amazon Web Services marketplace-catalog — TagResource. 1 operations. Lead operation: Amazon Web Services Tagresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - TagResource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marketplace-catalog-tagresource
+    baseUri: ''
+    description: Amazon Web Services marketplace-catalog — TagResource business capability. Self-contained, no shared references.
+    resources:
+    - name: TagResource
+      path: /TagResource
+      operations:
+      - name: amazonwebservicestagresource
+        method: POST
+        description: Amazon Web Services Tagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: marketplace-catalog-tagresource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services marketplace-catalog — TagResource. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tagresource
+      name: tagresource
+      description: REST surface for TagResource.
+      operations:
+      - method: POST
+        name: amazonwebservicestagresource
+        description: Amazon Web Services Tagresource
+        call: marketplace-catalog-tagresource.amazonwebservicestagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marketplace-catalog-tagresource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services marketplace-catalog — TagResource. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-tagresource
+      description: Amazon Web Services Tagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: marketplace-catalog-tagresource.amazonwebservicestagresource
+      outputParameters:
+      - type: object
+        mapping: $.

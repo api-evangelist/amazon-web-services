@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kafkaconnect — Worker Configurations
+  description: 'Amazon Web Services kafkaconnect — Worker Configurations. 2 operations. Lead operation: Amazon Web Services
+    Listworkerconfigurations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Worker Configurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kafkaconnect-worker-configurations
+    baseUri: ''
+    description: Amazon Web Services kafkaconnect — Worker Configurations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-worker-configurations
+      path: /v1/worker-configurations
+      operations:
+      - name: amazonwebserviceslistworkerconfigurations
+        method: GET
+        description: Amazon Web Services Listworkerconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-worker-configurations-workerConfigurationArn
+      path: /v1/worker-configurations/{workerConfigurationArn}
+      operations:
+      - name: amazonwebservicesdescribeworkerconfiguration
+        method: GET
+        description: Amazon Web Services Describeworkerconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kafkaconnect-worker-configurations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kafkaconnect — Worker Configurations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/worker-configurations
+      name: v1-worker-configurations
+      description: REST surface for v1-worker-configurations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistworkerconfigurations
+        description: Amazon Web Services Listworkerconfigurations
+        call: kafkaconnect-worker-configurations.amazonwebserviceslistworkerconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/worker-configurations/{workerconfigurationarn}
+      name: v1-worker-configurations-workerconfigurationarn
+      description: REST surface for v1-worker-configurations-workerConfigurationArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeworkerconfiguration
+        description: Amazon Web Services Describeworkerconfiguration
+        call: kafkaconnect-worker-configurations.amazonwebservicesdescribeworkerconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kafkaconnect-worker-configurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kafkaconnect — Worker Configurations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkerconfigurations
+      description: Amazon Web Services Listworkerconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafkaconnect-worker-configurations.amazonwebserviceslistworkerconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeworkerconfiguration
+      description: Amazon Web Services Describeworkerconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafkaconnect-worker-configurations.amazonwebservicesdescribeworkerconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

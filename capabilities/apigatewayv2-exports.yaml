@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigatewayv2 — Exports
+  description: 'Amazon Web Services apigatewayv2 — Exports. 1 operations. Lead operation: Amazon Web Services Exportapi. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Exports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigatewayv2-exports
+    baseUri: ''
+    description: Amazon Web Services apigatewayv2 — Exports business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-apis-apiId-exports-specification
+      path: /v2/apis/{apiId}/exports/{specification}
+      operations:
+      - name: amazonwebservicesexportapi
+        method: GET
+        description: Amazon Web Services Exportapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigatewayv2-exports-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigatewayv2 — Exports. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/apis/{apiid}/exports/{specification}
+      name: v2-apis-apiid-exports-specification
+      description: REST surface for v2-apis-apiId-exports-specification.
+      operations:
+      - method: GET
+        name: amazonwebservicesexportapi
+        description: Amazon Web Services Exportapi
+        call: apigatewayv2-exports.amazonwebservicesexportapi
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigatewayv2-exports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigatewayv2 — Exports. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-exportapi
+      description: Amazon Web Services Exportapi
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-exports.amazonwebservicesexportapi
+      outputParameters:
+      - type: object
+        mapping: $.

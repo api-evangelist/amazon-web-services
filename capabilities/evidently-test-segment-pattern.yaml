@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services evidently — Test Segment Pattern
+  description: 'Amazon Web Services evidently — Test Segment Pattern. 1 operations. Lead operation: Amazon Web Services Testsegmentpattern.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Test Segment Pattern
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: evidently-test-segment-pattern
+    baseUri: ''
+    description: Amazon Web Services evidently — Test Segment Pattern business capability. Self-contained, no shared references.
+    resources:
+    - name: test-segment-pattern
+      path: /test-segment-pattern
+      operations:
+      - name: amazonwebservicestestsegmentpattern
+        method: POST
+        description: Amazon Web Services Testsegmentpattern
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: evidently-test-segment-pattern-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services evidently — Test Segment Pattern. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/test-segment-pattern
+      name: test-segment-pattern
+      description: REST surface for test-segment-pattern.
+      operations:
+      - method: POST
+        name: amazonwebservicestestsegmentpattern
+        description: Amazon Web Services Testsegmentpattern
+        call: evidently-test-segment-pattern.amazonwebservicestestsegmentpattern
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: evidently-test-segment-pattern-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services evidently — Test Segment Pattern. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-testsegmentpattern
+      description: Amazon Web Services Testsegmentpattern
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: evidently-test-segment-pattern.amazonwebservicestestsegmentpattern
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codestar-notifications — createNotificationRule
+  description: 'Amazon Web Services codestar-notifications — createNotificationRule. 1 operations. Lead operation: Amazon
+    Web Services Createnotificationrule. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - createNotificationRule
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codestar-notifications-createnotificationrule
+    baseUri: ''
+    description: Amazon Web Services codestar-notifications — createNotificationRule business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: createNotificationRule
+      path: /createNotificationRule
+      operations:
+      - name: amazonwebservicescreatenotificationrule
+        method: POST
+        description: Amazon Web Services Createnotificationrule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codestar-notifications-createnotificationrule-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codestar-notifications — createNotificationRule. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createnotificationrule
+      name: createnotificationrule
+      description: REST surface for createNotificationRule.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatenotificationrule
+        description: Amazon Web Services Createnotificationrule
+        call: codestar-notifications-createnotificationrule.amazonwebservicescreatenotificationrule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codestar-notifications-createnotificationrule-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codestar-notifications — createNotificationRule. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createnotificationrule
+      description: Amazon Web Services Createnotificationrule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codestar-notifications-createnotificationrule.amazonwebservicescreatenotificationrule
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Authorizers
+  description: 'Amazon Web Services iot — Authorizers. 1 operations. Lead operation: Amazon Web Services Listauthorizers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Authorizers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-authorizers
+    baseUri: ''
+    description: Amazon Web Services iot — Authorizers business capability. Self-contained, no shared references.
+    resources:
+    - name: authorizers
+      path: /authorizers/
+      operations:
+      - name: amazonwebserviceslistauthorizers
+        method: GET
+        description: Amazon Web Services Listauthorizers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-authorizers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Authorizers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/authorizers
+      name: authorizers
+      description: REST surface for authorizers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistauthorizers
+        description: Amazon Web Services Listauthorizers
+        call: iot-authorizers.amazonwebserviceslistauthorizers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-authorizers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Authorizers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listauthorizers
+      description: Amazon Web Services Listauthorizers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-authorizers.amazonwebserviceslistauthorizers
+      outputParameters:
+      - type: object
+        mapping: $.

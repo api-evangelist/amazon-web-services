@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Object Versions
+  description: 'Amazon Web Services AWS S3 — Object Versions. 1 operations. Lead operation: Amazon Web Services List Object
+    Versions. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Object Versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-object-versions
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Object Versions business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?versions
+      path: /{Bucket}?versions
+      operations:
+      - name: listobjectversions
+        method: GET
+        description: Amazon Web Services List Object Versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-object-versions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Object Versions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-versions
+      name: bucket-versions
+      description: REST surface for Bucket}?versions.
+      operations:
+      - method: GET
+        name: listobjectversions
+        description: Amazon Web Services List Object Versions
+        call: s3-object-versions.listobjectversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-object-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Object Versions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-list-object
+      description: Amazon Web Services List Object Versions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-object-versions.listobjectversions
+      outputParameters:
+      - type: object
+        mapping: $.

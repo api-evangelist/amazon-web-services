@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Policy Principals
+  description: 'Amazon Web Services iot — Policy Principals. 1 operations. Lead operation: Amazon Web Services Listpolicyprincipals.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Policy Principals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-policy-principals
+    baseUri: ''
+    description: Amazon Web Services iot — Policy Principals business capability. Self-contained, no shared references.
+    resources:
+    - name: policy-principals
+      path: /policy-principals
+      operations:
+      - name: amazonwebserviceslistpolicyprincipals
+        method: GET
+        description: Amazon Web Services Listpolicyprincipals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-policy-principals-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Policy Principals. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/policy-principals
+      name: policy-principals
+      description: REST surface for policy-principals.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpolicyprincipals
+        description: Amazon Web Services Listpolicyprincipals
+        call: iot-policy-principals.amazonwebserviceslistpolicyprincipals
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-policy-principals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Policy Principals. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpolicyprincipals
+      description: Amazon Web Services Listpolicyprincipals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-policy-principals.amazonwebserviceslistpolicyprincipals
+      outputParameters:
+      - type: object
+        mapping: $.

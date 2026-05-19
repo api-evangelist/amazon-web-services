@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Directory Buckets
+  description: 'Amazon Web Services AWS S3 — Directory Buckets. 1 operations. Lead operation: Amazon Web Services List Directory
+    Buckets. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Directory Buckets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-directory-buckets
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Directory Buckets business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: listdirectorybuckets
+        method: GET
+        description: Amazon Web Services List Directory Buckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-directory-buckets-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Directory Buckets. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: listdirectorybuckets
+        description: Amazon Web Services List Directory Buckets
+        call: s3-directory-buckets.listdirectorybuckets
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-directory-buckets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Directory Buckets. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-list-directory
+      description: Amazon Web Services List Directory Buckets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-directory-buckets.listdirectorybuckets
+      outputParameters:
+      - type: object
+        mapping: $.

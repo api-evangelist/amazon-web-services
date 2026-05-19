@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connectcases — Domains List
+  description: 'Amazon Web Services connectcases — Domains List. 1 operations. Lead operation: Amazon Web Services Listdomains.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domains List
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connectcases-domains-list
+    baseUri: ''
+    description: Amazon Web Services connectcases — Domains List business capability. Self-contained, no shared references.
+    resources:
+    - name: domains-list
+      path: /domains-list
+      operations:
+      - name: amazonwebserviceslistdomains
+        method: POST
+        description: Amazon Web Services Listdomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connectcases-domains-list-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connectcases — Domains List. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/domains-list
+      name: domains-list
+      description: REST surface for domains-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdomains
+        description: Amazon Web Services Listdomains
+        call: connectcases-domains-list.amazonwebserviceslistdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connectcases-domains-list-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connectcases — Domains List. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomains
+      description: Amazon Web Services Listdomains
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains-list.amazonwebserviceslistdomains
+      outputParameters:
+      - type: object
+        mapping: $.

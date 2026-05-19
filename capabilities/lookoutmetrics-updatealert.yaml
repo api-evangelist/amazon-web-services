@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — UpdateAlert
+  description: 'Amazon Web Services lookoutmetrics — UpdateAlert. 1 operations. Lead operation: Amazon Web Services Updatealert.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateAlert
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-updatealert
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — UpdateAlert business capability. Self-contained, no shared references.
+    resources:
+    - name: UpdateAlert
+      path: /UpdateAlert
+      operations:
+      - name: amazonwebservicesupdatealert
+        method: POST
+        description: Amazon Web Services Updatealert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-updatealert-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — UpdateAlert. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatealert
+      name: updatealert
+      description: REST surface for UpdateAlert.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatealert
+        description: Amazon Web Services Updatealert
+        call: lookoutmetrics-updatealert.amazonwebservicesupdatealert
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-updatealert-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — UpdateAlert. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatealert
+      description: Amazon Web Services Updatealert
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-updatealert.amazonwebservicesupdatealert
+      outputParameters:
+      - type: object
+        mapping: $.

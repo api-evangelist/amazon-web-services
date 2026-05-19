@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services models.lex.v2 — Testsetdiscrepancy
+  description: 'Amazon Web Services models.lex.v2 — Testsetdiscrepancy. 1 operations. Lead operation: Amazon Web Services
+    Describetestsetdiscrepancyreport. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Testsetdiscrepancy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: modelslexv2-testsetdiscrepancy
+    baseUri: ''
+    description: Amazon Web Services models.lex.v2 — Testsetdiscrepancy business capability. Self-contained, no shared references.
+    resources:
+    - name: testsetdiscrepancy-testSetDiscrepancyReportId
+      path: /testsetdiscrepancy/{testSetDiscrepancyReportId}
+      operations:
+      - name: amazonwebservicesdescribetestsetdiscrepancyreport
+        method: GET
+        description: Amazon Web Services Describetestsetdiscrepancyreport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: modelslexv2-testsetdiscrepancy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services models.lex.v2 — Testsetdiscrepancy. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/testsetdiscrepancy/{testsetdiscrepancyreportid}
+      name: testsetdiscrepancy-testsetdiscrepancyreportid
+      description: REST surface for testsetdiscrepancy-testSetDiscrepancyReportId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribetestsetdiscrepancyreport
+        description: Amazon Web Services Describetestsetdiscrepancyreport
+        call: modelslexv2-testsetdiscrepancy.amazonwebservicesdescribetestsetdiscrepancyreport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: modelslexv2-testsetdiscrepancy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services models.lex.v2 — Testsetdiscrepancy. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describetestsetdiscrepancyreport
+      description: Amazon Web Services Describetestsetdiscrepancyreport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: modelslexv2-testsetdiscrepancy.amazonwebservicesdescribetestsetdiscrepancyreport
+      outputParameters:
+      - type: object
+        mapping: $.

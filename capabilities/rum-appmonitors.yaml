@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rum — Appmonitors
+  description: 'Amazon Web Services rum — Appmonitors. 2 operations. Lead operation: Amazon Web Services Listappmonitors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Appmonitors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rum-appmonitors
+    baseUri: ''
+    description: Amazon Web Services rum — Appmonitors business capability. Self-contained, no shared references.
+    resources:
+    - name: appmonitors
+      path: /appmonitors
+      operations:
+      - name: amazonwebserviceslistappmonitors
+        method: POST
+        description: Amazon Web Services Listappmonitors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: appmonitors-Id
+      path: /appmonitors/{Id}/
+      operations:
+      - name: amazonwebservicesputrumevents
+        method: POST
+        description: Amazon Web Services Putrumevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rum-appmonitors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rum — Appmonitors. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/appmonitors
+      name: appmonitors
+      description: REST surface for appmonitors.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistappmonitors
+        description: Amazon Web Services Listappmonitors
+        call: rum-appmonitors.amazonwebserviceslistappmonitors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/appmonitors/{id}
+      name: appmonitors-id
+      description: REST surface for appmonitors-Id.
+      operations:
+      - method: POST
+        name: amazonwebservicesputrumevents
+        description: Amazon Web Services Putrumevents
+        call: rum-appmonitors.amazonwebservicesputrumevents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rum-appmonitors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rum — Appmonitors. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listappmonitors
+      description: Amazon Web Services Listappmonitors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rum-appmonitors.amazonwebserviceslistappmonitors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putrumevents
+      description: Amazon Web Services Putrumevents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rum-appmonitors.amazonwebservicesputrumevents
+      outputParameters:
+      - type: object
+        mapping: $.

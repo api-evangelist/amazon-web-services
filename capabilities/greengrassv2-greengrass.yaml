@@ -1,0 +1,643 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services greengrassv2 — Greengrass
+  description: 'Amazon Web Services greengrassv2 — Greengrass. 19 operations. Lead operation: Amazon Web Services Getserviceroleforaccount.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Greengrass
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: greengrassv2-greengrass
+    baseUri: ''
+    description: Amazon Web Services greengrassv2 — Greengrass business capability. Self-contained, no shared references.
+    resources:
+    - name: greengrass-servicerole
+      path: /greengrass/servicerole
+      operations:
+      - name: amazonwebservicesgetserviceroleforaccount
+        method: GET
+        description: Amazon Web Services Getserviceroleforaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-things-thingName-connectivityInfo
+      path: /greengrass/things/{thingName}/connectivityInfo
+      operations:
+      - name: amazonwebservicesupdateconnectivityinfo
+        method: PUT
+        description: Amazon Web Services Updateconnectivityinfo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-components
+      path: /greengrass/v2/components
+      operations:
+      - name: amazonwebserviceslistcomponents
+        method: GET
+        description: Amazon Web Services Listcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-components-arn
+      path: /greengrass/v2/components/{arn}
+      operations:
+      - name: amazonwebservicesgetcomponent
+        method: GET
+        description: Amazon Web Services Getcomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-components-arn-artifacts-artifactName+
+      path: /greengrass/v2/components/{arn}/artifacts/{artifactName+}
+      operations:
+      - name: amazonwebservicesgetcomponentversionartifact
+        method: GET
+        description: Amazon Web Services Getcomponentversionartifact
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-components-arn-metadata
+      path: /greengrass/v2/components/{arn}/metadata
+      operations:
+      - name: amazonwebservicesdescribecomponent
+        method: GET
+        description: Amazon Web Services Describecomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-components-arn-versions
+      path: /greengrass/v2/components/{arn}/versions
+      operations:
+      - name: amazonwebserviceslistcomponentversions
+        method: GET
+        description: Amazon Web Services Listcomponentversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices
+      path: /greengrass/v2/coreDevices
+      operations:
+      - name: amazonwebserviceslistcoredevices
+        method: GET
+        description: Amazon Web Services Listcoredevices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}
+      operations:
+      - name: amazonwebservicesgetcoredevice
+        method: GET
+        description: Amazon Web Services Getcoredevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName-associateClientDevices
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices
+      operations:
+      - name: amazonwebservicesbatchassociateclientdevicewithcoredevice
+        method: POST
+        description: Amazon Web Services Batchassociateclientdevicewithcoredevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName-associatedClientDevices
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices
+      operations:
+      - name: amazonwebserviceslistclientdevicesassociatedwithcoredevice
+        method: GET
+        description: Amazon Web Services Listclientdevicesassociatedwithcoredevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName-disassociateClientDevices
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices
+      operations:
+      - name: amazonwebservicesbatchdisassociateclientdevicefromcoredevice
+        method: POST
+        description: Amazon Web Services Batchdisassociateclientdevicefromcoredevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName-effectiveDeployments
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments
+      operations:
+      - name: amazonwebserviceslisteffectivedeployments
+        method: GET
+        description: Amazon Web Services Listeffectivedeployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-coreDevices-coreDeviceThingName-installedComponents
+      path: /greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents
+      operations:
+      - name: amazonwebserviceslistinstalledcomponents
+        method: GET
+        description: Amazon Web Services Listinstalledcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-createComponentVersion
+      path: /greengrass/v2/createComponentVersion
+      operations:
+      - name: amazonwebservicescreatecomponentversion
+        method: POST
+        description: Amazon Web Services Createcomponentversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-deployments
+      path: /greengrass/v2/deployments
+      operations:
+      - name: amazonwebserviceslistdeployments
+        method: GET
+        description: Amazon Web Services Listdeployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-deployments-deploymentId
+      path: /greengrass/v2/deployments/{deploymentId}
+      operations:
+      - name: amazonwebservicesgetdeployment
+        method: GET
+        description: Amazon Web Services Getdeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-deployments-deploymentId-cancel
+      path: /greengrass/v2/deployments/{deploymentId}/cancel
+      operations:
+      - name: amazonwebservicescanceldeployment
+        method: POST
+        description: Amazon Web Services Canceldeployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: greengrass-v2-resolveComponentCandidates
+      path: /greengrass/v2/resolveComponentCandidates
+      operations:
+      - name: amazonwebservicesresolvecomponentcandidates
+        method: POST
+        description: Amazon Web Services Resolvecomponentcandidates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: greengrassv2-greengrass-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services greengrassv2 — Greengrass. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/greengrass/servicerole
+      name: greengrass-servicerole
+      description: REST surface for greengrass-servicerole.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetserviceroleforaccount
+        description: Amazon Web Services Getserviceroleforaccount
+        call: greengrassv2-greengrass.amazonwebservicesgetserviceroleforaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/things/{thingname}/connectivityinfo
+      name: greengrass-things-thingname-connectivityinfo
+      description: REST surface for greengrass-things-thingName-connectivityInfo.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateconnectivityinfo
+        description: Amazon Web Services Updateconnectivityinfo
+        call: greengrassv2-greengrass.amazonwebservicesupdateconnectivityinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/components
+      name: greengrass-v2-components
+      description: REST surface for greengrass-v2-components.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcomponents
+        description: Amazon Web Services Listcomponents
+        call: greengrassv2-greengrass.amazonwebserviceslistcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/components/{arn}
+      name: greengrass-v2-components-arn
+      description: REST surface for greengrass-v2-components-arn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcomponent
+        description: Amazon Web Services Getcomponent
+        call: greengrassv2-greengrass.amazonwebservicesgetcomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/components/{arn}/artifacts/{artifactname}
+      name: greengrass-v2-components-arn-artifacts-artifactname
+      description: REST surface for greengrass-v2-components-arn-artifacts-artifactName+.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcomponentversionartifact
+        description: Amazon Web Services Getcomponentversionartifact
+        call: greengrassv2-greengrass.amazonwebservicesgetcomponentversionartifact
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/components/{arn}/metadata
+      name: greengrass-v2-components-arn-metadata
+      description: REST surface for greengrass-v2-components-arn-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribecomponent
+        description: Amazon Web Services Describecomponent
+        call: greengrassv2-greengrass.amazonwebservicesdescribecomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/components/{arn}/versions
+      name: greengrass-v2-components-arn-versions
+      description: REST surface for greengrass-v2-components-arn-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcomponentversions
+        description: Amazon Web Services Listcomponentversions
+        call: greengrassv2-greengrass.amazonwebserviceslistcomponentversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices
+      name: greengrass-v2-coredevices
+      description: REST surface for greengrass-v2-coreDevices.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcoredevices
+        description: Amazon Web Services Listcoredevices
+        call: greengrassv2-greengrass.amazonwebserviceslistcoredevices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}
+      name: greengrass-v2-coredevices-coredevicethingname
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcoredevice
+        description: Amazon Web Services Getcoredevice
+        call: greengrassv2-greengrass.amazonwebservicesgetcoredevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}/associateclientdevices
+      name: greengrass-v2-coredevices-coredevicethingname-associateclientdevices
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName-associateClientDevices.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchassociateclientdevicewithcoredevice
+        description: Amazon Web Services Batchassociateclientdevicewithcoredevice
+        call: greengrassv2-greengrass.amazonwebservicesbatchassociateclientdevicewithcoredevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}/associatedclientdevices
+      name: greengrass-v2-coredevices-coredevicethingname-associatedclientdevices
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName-associatedClientDevices.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistclientdevicesassociatedwithcoredevice
+        description: Amazon Web Services Listclientdevicesassociatedwithcoredevice
+        call: greengrassv2-greengrass.amazonwebserviceslistclientdevicesassociatedwithcoredevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}/disassociateclientdevices
+      name: greengrass-v2-coredevices-coredevicethingname-disassociateclientdevices
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName-disassociateClientDevices.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdisassociateclientdevicefromcoredevice
+        description: Amazon Web Services Batchdisassociateclientdevicefromcoredevice
+        call: greengrassv2-greengrass.amazonwebservicesbatchdisassociateclientdevicefromcoredevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}/effectivedeployments
+      name: greengrass-v2-coredevices-coredevicethingname-effectivedeployments
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName-effectiveDeployments.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisteffectivedeployments
+        description: Amazon Web Services Listeffectivedeployments
+        call: greengrassv2-greengrass.amazonwebserviceslisteffectivedeployments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/coredevices/{coredevicethingname}/installedcomponents
+      name: greengrass-v2-coredevices-coredevicethingname-installedcomponents
+      description: REST surface for greengrass-v2-coreDevices-coreDeviceThingName-installedComponents.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistinstalledcomponents
+        description: Amazon Web Services Listinstalledcomponents
+        call: greengrassv2-greengrass.amazonwebserviceslistinstalledcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/createcomponentversion
+      name: greengrass-v2-createcomponentversion
+      description: REST surface for greengrass-v2-createComponentVersion.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecomponentversion
+        description: Amazon Web Services Createcomponentversion
+        call: greengrassv2-greengrass.amazonwebservicescreatecomponentversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/deployments
+      name: greengrass-v2-deployments
+      description: REST surface for greengrass-v2-deployments.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdeployments
+        description: Amazon Web Services Listdeployments
+        call: greengrassv2-greengrass.amazonwebserviceslistdeployments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/deployments/{deploymentid}
+      name: greengrass-v2-deployments-deploymentid
+      description: REST surface for greengrass-v2-deployments-deploymentId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdeployment
+        description: Amazon Web Services Getdeployment
+        call: greengrassv2-greengrass.amazonwebservicesgetdeployment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/deployments/{deploymentid}/cancel
+      name: greengrass-v2-deployments-deploymentid-cancel
+      description: REST surface for greengrass-v2-deployments-deploymentId-cancel.
+      operations:
+      - method: POST
+        name: amazonwebservicescanceldeployment
+        description: Amazon Web Services Canceldeployment
+        call: greengrassv2-greengrass.amazonwebservicescanceldeployment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/greengrass/v2/resolvecomponentcandidates
+      name: greengrass-v2-resolvecomponentcandidates
+      description: REST surface for greengrass-v2-resolveComponentCandidates.
+      operations:
+      - method: POST
+        name: amazonwebservicesresolvecomponentcandidates
+        description: Amazon Web Services Resolvecomponentcandidates
+        call: greengrassv2-greengrass.amazonwebservicesresolvecomponentcandidates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: greengrassv2-greengrass-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services greengrassv2 — Greengrass. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getserviceroleforaccount
+      description: Amazon Web Services Getserviceroleforaccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesgetserviceroleforaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconnectivityinfo
+      description: Amazon Web Services Updateconnectivityinfo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesupdateconnectivityinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcomponents
+      description: Amazon Web Services Listcomponents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistcomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcomponent
+      description: Amazon Web Services Getcomponent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesgetcomponent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcomponentversionartifact
+      description: Amazon Web Services Getcomponentversionartifact
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesgetcomponentversionartifact
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describecomponent
+      description: Amazon Web Services Describecomponent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesdescribecomponent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcomponentversions
+      description: Amazon Web Services Listcomponentversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistcomponentversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcoredevices
+      description: Amazon Web Services Listcoredevices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistcoredevices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcoredevice
+      description: Amazon Web Services Getcoredevice
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesgetcoredevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchassociateclientdevicewithcoredevice
+      description: Amazon Web Services Batchassociateclientdevicewithcoredevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: greengrassv2-greengrass.amazonwebservicesbatchassociateclientdevicewithcoredevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listclientdevicesassociatedwithcoredevice
+      description: Amazon Web Services Listclientdevicesassociatedwithcoredevice
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistclientdevicesassociatedwithcoredevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdisassociateclientdevicefromcoredevice
+      description: Amazon Web Services Batchdisassociateclientdevicefromcoredevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: greengrassv2-greengrass.amazonwebservicesbatchdisassociateclientdevicefromcoredevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listeffectivedeployments
+      description: Amazon Web Services Listeffectivedeployments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslisteffectivedeployments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listinstalledcomponents
+      description: Amazon Web Services Listinstalledcomponents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistinstalledcomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createcomponentversion
+      description: Amazon Web Services Createcomponentversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: greengrassv2-greengrass.amazonwebservicescreatecomponentversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdeployments
+      description: Amazon Web Services Listdeployments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebserviceslistdeployments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdeployment
+      description: Amazon Web Services Getdeployment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: greengrassv2-greengrass.amazonwebservicesgetdeployment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceldeployment
+      description: Amazon Web Services Canceldeployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: greengrassv2-greengrass.amazonwebservicescanceldeployment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-resolvecomponentcandidates
+      description: Amazon Web Services Resolvecomponentcandidates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: greengrassv2-greengrass.amazonwebservicesresolvecomponentcandidates
+      outputParameters:
+      - type: object
+        mapping: $.

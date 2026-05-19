@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services location — Geofencing
+  description: 'Amazon Web Services location — Geofencing. 8 operations. Lead operation: Amazon Web Services Creategeofencecollection.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Geofencing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: location-geofencing
+    baseUri: ''
+    description: Amazon Web Services location — Geofencing business capability. Self-contained, no shared references.
+    resources:
+    - name: geofencing-v0-collections
+      path: /geofencing/v0/collections
+      operations:
+      - name: amazonwebservicescreategeofencecollection
+        method: POST
+        description: Amazon Web Services Creategeofencecollection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName
+      path: /geofencing/v0/collections/{CollectionName}
+      operations:
+      - name: amazonwebservicesupdategeofencecollection
+        method: PATCH
+        description: Amazon Web Services Updategeofencecollection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName-delete-geofences
+      path: /geofencing/v0/collections/{CollectionName}/delete-geofences
+      operations:
+      - name: amazonwebservicesbatchdeletegeofence
+        method: POST
+        description: Amazon Web Services Batchdeletegeofence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName-geofences-GeofenceId
+      path: /geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}
+      operations:
+      - name: amazonwebservicesputgeofence
+        method: PUT
+        description: Amazon Web Services Putgeofence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName-list-geofences
+      path: /geofencing/v0/collections/{CollectionName}/list-geofences
+      operations:
+      - name: amazonwebserviceslistgeofences
+        method: POST
+        description: Amazon Web Services Listgeofences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName-positions
+      path: /geofencing/v0/collections/{CollectionName}/positions
+      operations:
+      - name: amazonwebservicesbatchevaluategeofences
+        method: POST
+        description: Amazon Web Services Batchevaluategeofences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-collections-CollectionName-put-geofences
+      path: /geofencing/v0/collections/{CollectionName}/put-geofences
+      operations:
+      - name: amazonwebservicesbatchputgeofence
+        method: POST
+        description: Amazon Web Services Batchputgeofence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: geofencing-v0-list-collections
+      path: /geofencing/v0/list-collections
+      operations:
+      - name: amazonwebserviceslistgeofencecollections
+        method: POST
+        description: Amazon Web Services Listgeofencecollections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: location-geofencing-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services location — Geofencing. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/geofencing/v0/collections
+      name: geofencing-v0-collections
+      description: REST surface for geofencing-v0-collections.
+      operations:
+      - method: POST
+        name: amazonwebservicescreategeofencecollection
+        description: Amazon Web Services Creategeofencecollection
+        call: location-geofencing.amazonwebservicescreategeofencecollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}
+      name: geofencing-v0-collections-collectionname
+      description: REST surface for geofencing-v0-collections-CollectionName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdategeofencecollection
+        description: Amazon Web Services Updategeofencecollection
+        call: location-geofencing.amazonwebservicesupdategeofencecollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}/delete-geofences
+      name: geofencing-v0-collections-collectionname-delete-geofences
+      description: REST surface for geofencing-v0-collections-CollectionName-delete-geofences.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdeletegeofence
+        description: Amazon Web Services Batchdeletegeofence
+        call: location-geofencing.amazonwebservicesbatchdeletegeofence
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}/geofences/{geofenceid}
+      name: geofencing-v0-collections-collectionname-geofences-geofenceid
+      description: REST surface for geofencing-v0-collections-CollectionName-geofences-GeofenceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputgeofence
+        description: Amazon Web Services Putgeofence
+        call: location-geofencing.amazonwebservicesputgeofence
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}/list-geofences
+      name: geofencing-v0-collections-collectionname-list-geofences
+      description: REST surface for geofencing-v0-collections-CollectionName-list-geofences.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistgeofences
+        description: Amazon Web Services Listgeofences
+        call: location-geofencing.amazonwebserviceslistgeofences
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}/positions
+      name: geofencing-v0-collections-collectionname-positions
+      description: REST surface for geofencing-v0-collections-CollectionName-positions.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchevaluategeofences
+        description: Amazon Web Services Batchevaluategeofences
+        call: location-geofencing.amazonwebservicesbatchevaluategeofences
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/collections/{collectionname}/put-geofences
+      name: geofencing-v0-collections-collectionname-put-geofences
+      description: REST surface for geofencing-v0-collections-CollectionName-put-geofences.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchputgeofence
+        description: Amazon Web Services Batchputgeofence
+        call: location-geofencing.amazonwebservicesbatchputgeofence
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/geofencing/v0/list-collections
+      name: geofencing-v0-list-collections
+      description: REST surface for geofencing-v0-list-collections.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistgeofencecollections
+        description: Amazon Web Services Listgeofencecollections
+        call: location-geofencing.amazonwebserviceslistgeofencecollections
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: location-geofencing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services location — Geofencing. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-creategeofencecollection
+      description: Amazon Web Services Creategeofencecollection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebservicescreategeofencecollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategeofencecollection
+      description: Amazon Web Services Updategeofencecollection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: location-geofencing.amazonwebservicesupdategeofencecollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdeletegeofence
+      description: Amazon Web Services Batchdeletegeofence
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebservicesbatchdeletegeofence
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putgeofence
+      description: Amazon Web Services Putgeofence
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: location-geofencing.amazonwebservicesputgeofence
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listgeofences
+      description: Amazon Web Services Listgeofences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebserviceslistgeofences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchevaluategeofences
+      description: Amazon Web Services Batchevaluategeofences
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebservicesbatchevaluategeofences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchputgeofence
+      description: Amazon Web Services Batchputgeofence
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebservicesbatchputgeofence
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listgeofencecollections
+      description: Amazon Web Services Listgeofencecollections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-geofencing.amazonwebserviceslistgeofencecollections
+      outputParameters:
+      - type: object
+        mapping: $.

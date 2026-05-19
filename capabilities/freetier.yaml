@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services freetier
+  description: 'Amazon Web Services freetier. 1 operations. Lead operation: Amazon Web Services Getfreetierusage. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services freetier
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: freetier
+    baseUri: ''
+    description: Amazon Web Services freetier business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesgetfreetierusage
+        method: POST
+        description: Amazon Web Services Getfreetierusage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: freetier-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services freetier. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfreetierusage
+        description: Amazon Web Services Getfreetierusage
+        call: freetier.amazonwebservicesgetfreetierusage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: freetier-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services freetier. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-getfreetierusage
+      description: Amazon Web Services Getfreetierusage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: freetier.amazonwebservicesgetfreetierusage
+      outputParameters:
+      - type: object
+        mapping: $.

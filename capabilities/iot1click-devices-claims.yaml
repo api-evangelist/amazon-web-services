@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot1click-devices — Claims
+  description: 'Amazon Web Services iot1click-devices — Claims. 1 operations. Lead operation: Amazon Web Services Claimdevicesbyclaimcode.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Claims
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot1click-devices-claims
+    baseUri: ''
+    description: Amazon Web Services iot1click-devices — Claims business capability. Self-contained, no shared references.
+    resources:
+    - name: claims-claimCode
+      path: /claims/{claimCode}
+      operations:
+      - name: amazonwebservicesclaimdevicesbyclaimcode
+        method: PUT
+        description: Amazon Web Services Claimdevicesbyclaimcode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot1click-devices-claims-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot1click-devices — Claims. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/claims/{claimcode}
+      name: claims-claimcode
+      description: REST surface for claims-claimCode.
+      operations:
+      - method: PUT
+        name: amazonwebservicesclaimdevicesbyclaimcode
+        description: Amazon Web Services Claimdevicesbyclaimcode
+        call: iot1click-devices-claims.amazonwebservicesclaimdevicesbyclaimcode
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot1click-devices-claims-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot1click-devices — Claims. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-claimdevicesbyclaimcode
+      description: Amazon Web Services Claimdevicesbyclaimcode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot1click-devices-claims.amazonwebservicesclaimdevicesbyclaimcode
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-incidents — getIncidentRecord
+  description: 'Amazon Web Services ssm-incidents — getIncidentRecord. 1 operations. Lead operation: Amazon Web Services Getincidentrecord.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - getIncidentRecord
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-incidents-getincidentrecord
+    baseUri: ''
+    description: Amazon Web Services ssm-incidents — getIncidentRecord business capability. Self-contained, no shared references.
+    resources:
+    - name: getIncidentRecord
+      path: /getIncidentRecord
+      operations:
+      - name: amazonwebservicesgetincidentrecord
+        method: GET
+        description: Amazon Web Services Getincidentrecord
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-incidents-getincidentrecord-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-incidents — getIncidentRecord. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getincidentrecord
+      name: getincidentrecord
+      description: REST surface for getIncidentRecord.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetincidentrecord
+        description: Amazon Web Services Getincidentrecord
+        call: ssm-incidents-getincidentrecord.amazonwebservicesgetincidentrecord
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-incidents-getincidentrecord-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-incidents — getIncidentRecord. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getincidentrecord
+      description: Amazon Web Services Getincidentrecord
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ssm-incidents-getincidentrecord.amazonwebservicesgetincidentrecord
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — GetDataLakeSettings
+  description: 'Amazon Web Services lakeformation — GetDataLakeSettings. 1 operations. Lead operation: Amazon Web Services
+    Getdatalakesettings. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetDataLakeSettings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-getdatalakesettings
+    baseUri: ''
+    description: Amazon Web Services lakeformation — GetDataLakeSettings business capability. Self-contained, no shared references.
+    resources:
+    - name: GetDataLakeSettings
+      path: /GetDataLakeSettings
+      operations:
+      - name: amazonwebservicesgetdatalakesettings
+        method: POST
+        description: Amazon Web Services Getdatalakesettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-getdatalakesettings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — GetDataLakeSettings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getdatalakesettings
+      name: getdatalakesettings
+      description: REST surface for GetDataLakeSettings.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetdatalakesettings
+        description: Amazon Web Services Getdatalakesettings
+        call: lakeformation-getdatalakesettings.amazonwebservicesgetdatalakesettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-getdatalakesettings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — GetDataLakeSettings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getdatalakesettings
+      description: Amazon Web Services Getdatalakesettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-getdatalakesettings.amazonwebservicesgetdatalakesettings
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Configuration
+  description: 'Amazon Web Services iotsitewise — Configuration. 2 operations. Lead operation: Amazon Web Services Putdefaultencryptionconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-configuration
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: configuration-account-encryption
+      path: /configuration/account/encryption
+      operations:
+      - name: amazonwebservicesputdefaultencryptionconfiguration
+        method: POST
+        description: Amazon Web Services Putdefaultencryptionconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configuration-account-storage
+      path: /configuration/account/storage
+      operations:
+      - name: amazonwebservicesputstorageconfiguration
+        method: POST
+        description: Amazon Web Services Putstorageconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Configuration. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/configuration/account/encryption
+      name: configuration-account-encryption
+      description: REST surface for configuration-account-encryption.
+      operations:
+      - method: POST
+        name: amazonwebservicesputdefaultencryptionconfiguration
+        description: Amazon Web Services Putdefaultencryptionconfiguration
+        call: iotsitewise-configuration.amazonwebservicesputdefaultencryptionconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configuration/account/storage
+      name: configuration-account-storage
+      description: REST surface for configuration-account-storage.
+      operations:
+      - method: POST
+        name: amazonwebservicesputstorageconfiguration
+        description: Amazon Web Services Putstorageconfiguration
+        call: iotsitewise-configuration.amazonwebservicesputstorageconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Configuration. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putdefaultencryptionconfiguration
+      description: Amazon Web Services Putdefaultencryptionconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-configuration.amazonwebservicesputdefaultencryptionconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putstorageconfiguration
+      description: Amazon Web Services Putstorageconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-configuration.amazonwebservicesputstorageconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

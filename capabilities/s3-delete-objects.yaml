@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Delete Objects.
+  description: 'Amazon Web Services AWS S3 — Delete Objects.. 1 operations. Lead operation: Amazon Web Services Delete Objects.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete Objects.
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-delete-objects
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Delete Objects. business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?delete
+      path: /{Bucket}?delete
+      operations:
+      - name: deleteobjects
+        method: POST
+        description: Amazon Web Services Delete Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-delete-objects-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Delete Objects.. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-delete
+      name: bucket-delete
+      description: REST surface for Bucket}?delete.
+      operations:
+      - method: POST
+        name: deleteobjects
+        description: Amazon Web Services Delete Objects
+        call: s3-delete-objects.deleteobjects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-delete-objects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Delete Objects.. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-delete-objects
+      description: Amazon Web Services Delete Objects
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: s3-delete-objects.deleteobjects
+      outputParameters:
+      - type: object
+        mapping: $.

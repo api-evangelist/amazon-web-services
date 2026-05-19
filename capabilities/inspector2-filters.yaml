@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector2 — Filters
+  description: 'Amazon Web Services inspector2 — Filters. 4 operations. Lead operation: Amazon Web Services Createfilter.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Filters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector2-filters
+    baseUri: ''
+    description: Amazon Web Services inspector2 — Filters business capability. Self-contained, no shared references.
+    resources:
+    - name: filters-create
+      path: /filters/create
+      operations:
+      - name: amazonwebservicescreatefilter
+        method: POST
+        description: Amazon Web Services Createfilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: filters-delete
+      path: /filters/delete
+      operations:
+      - name: amazonwebservicesdeletefilter
+        method: POST
+        description: Amazon Web Services Deletefilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: filters-list
+      path: /filters/list
+      operations:
+      - name: amazonwebserviceslistfilters
+        method: POST
+        description: Amazon Web Services Listfilters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: filters-update
+      path: /filters/update
+      operations:
+      - name: amazonwebservicesupdatefilter
+        method: POST
+        description: Amazon Web Services Updatefilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector2-filters-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector2 — Filters. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/filters/create
+      name: filters-create
+      description: REST surface for filters-create.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatefilter
+        description: Amazon Web Services Createfilter
+        call: inspector2-filters.amazonwebservicescreatefilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/filters/delete
+      name: filters-delete
+      description: REST surface for filters-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletefilter
+        description: Amazon Web Services Deletefilter
+        call: inspector2-filters.amazonwebservicesdeletefilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/filters/list
+      name: filters-list
+      description: REST surface for filters-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfilters
+        description: Amazon Web Services Listfilters
+        call: inspector2-filters.amazonwebserviceslistfilters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/filters/update
+      name: filters-update
+      description: REST surface for filters-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatefilter
+        description: Amazon Web Services Updatefilter
+        call: inspector2-filters.amazonwebservicesupdatefilter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector2-filters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector2 — Filters. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createfilter
+      description: Amazon Web Services Createfilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-filters.amazonwebservicescreatefilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletefilter
+      description: Amazon Web Services Deletefilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-filters.amazonwebservicesdeletefilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfilters
+      description: Amazon Web Services Listfilters
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-filters.amazonwebserviceslistfilters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefilter
+      description: Amazon Web Services Updatefilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-filters.amazonwebservicesupdatefilter
+      outputParameters:
+      - type: object
+        mapping: $.

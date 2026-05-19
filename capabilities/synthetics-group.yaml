@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services synthetics — Group
+  description: 'Amazon Web Services synthetics — Group. 5 operations. Lead operation: Amazon Web Services Creategroup. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Group
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: synthetics-group
+    baseUri: ''
+    description: Amazon Web Services synthetics — Group business capability. Self-contained, no shared references.
+    resources:
+    - name: group
+      path: /group
+      operations:
+      - name: amazonwebservicescreategroup
+        method: POST
+        description: Amazon Web Services Creategroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: group-groupIdentifier
+      path: /group/{groupIdentifier}
+      operations:
+      - name: amazonwebservicesgetgroup
+        method: GET
+        description: Amazon Web Services Getgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: group-groupIdentifier-associate
+      path: /group/{groupIdentifier}/associate
+      operations:
+      - name: amazonwebservicesassociateresource
+        method: PATCH
+        description: Amazon Web Services Associateresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: group-groupIdentifier-disassociate
+      path: /group/{groupIdentifier}/disassociate
+      operations:
+      - name: amazonwebservicesdisassociateresource
+        method: PATCH
+        description: Amazon Web Services Disassociateresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: group-groupIdentifier-resources
+      path: /group/{groupIdentifier}/resources
+      operations:
+      - name: amazonwebserviceslistgroupresources
+        method: POST
+        description: Amazon Web Services Listgroupresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: synthetics-group-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services synthetics — Group. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/group
+      name: group
+      description: REST surface for group.
+      operations:
+      - method: POST
+        name: amazonwebservicescreategroup
+        description: Amazon Web Services Creategroup
+        call: synthetics-group.amazonwebservicescreategroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/group/{groupidentifier}
+      name: group-groupidentifier
+      description: REST surface for group-groupIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetgroup
+        description: Amazon Web Services Getgroup
+        call: synthetics-group.amazonwebservicesgetgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/group/{groupidentifier}/associate
+      name: group-groupidentifier-associate
+      description: REST surface for group-groupIdentifier-associate.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesassociateresource
+        description: Amazon Web Services Associateresource
+        call: synthetics-group.amazonwebservicesassociateresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/group/{groupidentifier}/disassociate
+      name: group-groupidentifier-disassociate
+      description: REST surface for group-groupIdentifier-disassociate.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesdisassociateresource
+        description: Amazon Web Services Disassociateresource
+        call: synthetics-group.amazonwebservicesdisassociateresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/group/{groupidentifier}/resources
+      name: group-groupidentifier-resources
+      description: REST surface for group-groupIdentifier-resources.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistgroupresources
+        description: Amazon Web Services Listgroupresources
+        call: synthetics-group.amazonwebserviceslistgroupresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: synthetics-group-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services synthetics — Group. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-creategroup
+      description: Amazon Web Services Creategroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: synthetics-group.amazonwebservicescreategroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getgroup
+      description: Amazon Web Services Getgroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: synthetics-group.amazonwebservicesgetgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-associateresource
+      description: Amazon Web Services Associateresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: synthetics-group.amazonwebservicesassociateresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateresource
+      description: Amazon Web Services Disassociateresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: synthetics-group.amazonwebservicesdisassociateresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listgroupresources
+      description: Amazon Web Services Listgroupresources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: synthetics-group.amazonwebserviceslistgroupresources
+      outputParameters:
+      - type: object
+        mapping: $.

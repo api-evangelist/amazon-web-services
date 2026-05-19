@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services snow-device-management — Managed Device
+  description: 'Amazon Web Services snow-device-management — Managed Device. 3 operations. Lead operation: Amazon Web Services
+    Describedevice. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Managed Device
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: snow-device-management-managed-device
+    baseUri: ''
+    description: Amazon Web Services snow-device-management — Managed Device business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: managed-device-managedDeviceId-describe
+      path: /managed-device/{managedDeviceId}/describe
+      operations:
+      - name: amazonwebservicesdescribedevice
+        method: POST
+        description: Amazon Web Services Describedevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: managed-device-managedDeviceId-resources
+      path: /managed-device/{managedDeviceId}/resources
+      operations:
+      - name: amazonwebserviceslistdeviceresources
+        method: GET
+        description: Amazon Web Services Listdeviceresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: managed-device-managedDeviceId-resources-ec2-describe
+      path: /managed-device/{managedDeviceId}/resources/ec2/describe
+      operations:
+      - name: amazonwebservicesdescribedeviceec2instances
+        method: POST
+        description: Amazon Web Services Describedeviceec2instances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: snow-device-management-managed-device-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services snow-device-management — Managed Device. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/managed-device/{manageddeviceid}/describe
+      name: managed-device-manageddeviceid-describe
+      description: REST surface for managed-device-managedDeviceId-describe.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribedevice
+        description: Amazon Web Services Describedevice
+        call: snow-device-management-managed-device.amazonwebservicesdescribedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/managed-device/{manageddeviceid}/resources
+      name: managed-device-manageddeviceid-resources
+      description: REST surface for managed-device-managedDeviceId-resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdeviceresources
+        description: Amazon Web Services Listdeviceresources
+        call: snow-device-management-managed-device.amazonwebserviceslistdeviceresources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/managed-device/{manageddeviceid}/resources/ec2/describe
+      name: managed-device-manageddeviceid-resources-ec2-describe
+      description: REST surface for managed-device-managedDeviceId-resources-ec2-describe.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribedeviceec2instances
+        description: Amazon Web Services Describedeviceec2instances
+        call: snow-device-management-managed-device.amazonwebservicesdescribedeviceec2instances
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: snow-device-management-managed-device-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services snow-device-management — Managed Device. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describedevice
+      description: Amazon Web Services Describedevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-managed-device.amazonwebservicesdescribedevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdeviceresources
+      description: Amazon Web Services Listdeviceresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: snow-device-management-managed-device.amazonwebserviceslistdeviceresources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedeviceec2instances
+      description: Amazon Web Services Describedeviceec2instances
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-managed-device.amazonwebservicesdescribedeviceec2instances
+      outputParameters:
+      - type: object
+        mapping: $.

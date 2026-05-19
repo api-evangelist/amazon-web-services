@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Describejobdefinitions
+  description: 'Amazon Web Services batch — Describejobdefinitions. 1 operations. Lead operation: Amazon Web Services Describejobdefinitions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describejobdefinitions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-describejobdefinitions
+    baseUri: ''
+    description: Amazon Web Services batch — Describejobdefinitions business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-describejobdefinitions
+      path: /v1/describejobdefinitions
+      operations:
+      - name: amazonwebservicesdescribejobdefinitions
+        method: POST
+        description: Amazon Web Services Describejobdefinitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-describejobdefinitions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Describejobdefinitions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/describejobdefinitions
+      name: v1-describejobdefinitions
+      description: REST surface for v1-describejobdefinitions.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribejobdefinitions
+        description: Amazon Web Services Describejobdefinitions
+        call: batch-describejobdefinitions.amazonwebservicesdescribejobdefinitions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-describejobdefinitions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Describejobdefinitions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describejobdefinitions
+      description: Amazon Web Services Describejobdefinitions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-describejobdefinitions.amazonwebservicesdescribejobdefinitions
+      outputParameters:
+      - type: object
+        mapping: $.

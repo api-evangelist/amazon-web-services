@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ListImportErrors
+  description: 'Amazon Web Services mgn — ListImportErrors. 1 operations. Lead operation: Amazon Web Services Listimporterrors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListImportErrors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-listimporterrors
+    baseUri: ''
+    description: Amazon Web Services mgn — ListImportErrors business capability. Self-contained, no shared references.
+    resources:
+    - name: ListImportErrors
+      path: /ListImportErrors
+      operations:
+      - name: amazonwebserviceslistimporterrors
+        method: POST
+        description: Amazon Web Services Listimporterrors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-listimporterrors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ListImportErrors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listimporterrors
+      name: listimporterrors
+      description: REST surface for ListImportErrors.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimporterrors
+        description: Amazon Web Services Listimporterrors
+        call: mgn-listimporterrors.amazonwebserviceslistimporterrors
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-listimporterrors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ListImportErrors. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimporterrors
+      description: Amazon Web Services Listimporterrors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-listimporterrors.amazonwebserviceslistimporterrors
+      outputParameters:
+      - type: object
+        mapping: $.

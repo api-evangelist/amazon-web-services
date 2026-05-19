@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Cancel Certificate Transfer
+  description: 'Amazon Web Services iot — Cancel Certificate Transfer. 1 operations. Lead operation: Amazon Web Services Cancelcertificatetransfer.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Cancel Certificate Transfer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-cancel-certificate-transfer
+    baseUri: ''
+    description: Amazon Web Services iot — Cancel Certificate Transfer business capability. Self-contained, no shared references.
+    resources:
+    - name: cancel-certificate-transfer-certificateId
+      path: /cancel-certificate-transfer/{certificateId}
+      operations:
+      - name: amazonwebservicescancelcertificatetransfer
+        method: PATCH
+        description: Amazon Web Services Cancelcertificatetransfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-cancel-certificate-transfer-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Cancel Certificate Transfer. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/cancel-certificate-transfer/{certificateid}
+      name: cancel-certificate-transfer-certificateid
+      description: REST surface for cancel-certificate-transfer-certificateId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicescancelcertificatetransfer
+        description: Amazon Web Services Cancelcertificatetransfer
+        call: iot-cancel-certificate-transfer.amazonwebservicescancelcertificatetransfer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-cancel-certificate-transfer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Cancel Certificate Transfer. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-cancelcertificatetransfer
+      description: Amazon Web Services Cancelcertificatetransfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-cancel-certificate-transfer.amazonwebservicescancelcertificatetransfer
+      outputParameters:
+      - type: object
+        mapping: $.

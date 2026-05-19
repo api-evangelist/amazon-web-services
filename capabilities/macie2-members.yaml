@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Members
+  description: 'Amazon Web Services macie2 — Members. 3 operations. Lead operation: Amazon Web Services Listmembers. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Members
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-members
+    baseUri: ''
+    description: Amazon Web Services macie2 — Members business capability. Self-contained, no shared references.
+    resources:
+    - name: members
+      path: /members
+      operations:
+      - name: amazonwebserviceslistmembers
+        method: GET
+        description: Amazon Web Services Listmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: members-disassociate-id
+      path: /members/disassociate/{id}
+      operations:
+      - name: amazonwebservicesdisassociatemember
+        method: POST
+        description: Amazon Web Services Disassociatemember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: members-id
+      path: /members/{id}
+      operations:
+      - name: amazonwebservicesgetmember
+        method: GET
+        description: Amazon Web Services Getmember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-members-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Members. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/members
+      name: members
+      description: REST surface for members.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmembers
+        description: Amazon Web Services Listmembers
+        call: macie2-members.amazonwebserviceslistmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/members/disassociate/{id}
+      name: members-disassociate-id
+      description: REST surface for members-disassociate-id.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatemember
+        description: Amazon Web Services Disassociatemember
+        call: macie2-members.amazonwebservicesdisassociatemember
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/members/{id}
+      name: members-id
+      description: REST surface for members-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmember
+        description: Amazon Web Services Getmember
+        call: macie2-members.amazonwebservicesgetmember
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-members-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Members. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmembers
+      description: Amazon Web Services Listmembers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-members.amazonwebserviceslistmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatemember
+      description: Amazon Web Services Disassociatemember
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-members.amazonwebservicesdisassociatemember
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmember
+      description: Amazon Web Services Getmember
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-members.amazonwebservicesgetmember
+      outputParameters:
+      - type: object
+        mapping: $.

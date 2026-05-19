@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Objects
+  description: 'Amazon Web Services AWS S3 — Objects. 1 operations. Lead operation: Amazon Web Services List Objects. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Objects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-objects
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Objects business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket
+      path: /{Bucket}
+      operations:
+      - name: listobjects
+        method: GET
+        description: Amazon Web Services List Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-objects-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Objects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{bucket}
+      name: bucket
+      description: REST surface for Bucket.
+      operations:
+      - method: GET
+        name: listobjects
+        description: Amazon Web Services List Objects
+        call: s3-objects.listobjects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-objects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Objects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-list-objects
+      description: Amazon Web Services List Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3-objects.listobjects
+      outputParameters:
+      - type: object
+        mapping: $.

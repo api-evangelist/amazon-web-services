@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Admin
+  description: 'Amazon Web Services macie2 — Admin. 2 operations. Lead operation: Amazon Web Services Listorganizationadminaccounts.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Admin
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-admin
+    baseUri: ''
+    description: Amazon Web Services macie2 — Admin business capability. Self-contained, no shared references.
+    resources:
+    - name: admin
+      path: /admin
+      operations:
+      - name: amazonwebserviceslistorganizationadminaccounts
+        method: GET
+        description: Amazon Web Services Listorganizationadminaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: admin-configuration
+      path: /admin/configuration
+      operations:
+      - name: amazonwebservicesupdateorganizationconfiguration
+        method: PATCH
+        description: Amazon Web Services Updateorganizationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-admin-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Admin. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/admin
+      name: admin
+      description: REST surface for admin.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistorganizationadminaccounts
+        description: Amazon Web Services Listorganizationadminaccounts
+        call: macie2-admin.amazonwebserviceslistorganizationadminaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/admin/configuration
+      name: admin-configuration
+      description: REST surface for admin-configuration.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateorganizationconfiguration
+        description: Amazon Web Services Updateorganizationconfiguration
+        call: macie2-admin.amazonwebservicesupdateorganizationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-admin-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Admin. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listorganizationadminaccounts
+      description: Amazon Web Services Listorganizationadminaccounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-admin.amazonwebserviceslistorganizationadminaccounts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateorganizationconfiguration
+      description: Amazon Web Services Updateorganizationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: macie2-admin.amazonwebservicesupdateorganizationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

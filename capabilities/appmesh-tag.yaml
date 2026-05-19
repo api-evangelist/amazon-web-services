@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appmesh — Tag
+  description: 'Amazon Web Services appmesh — Tag. 1 operations. Lead operation: Amazon Web Services Tagresource. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Tag
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appmesh-tag
+    baseUri: ''
+    description: Amazon Web Services appmesh — Tag business capability. Self-contained, no shared references.
+    resources:
+    - name: v20190125-tag
+      path: /v20190125/tag
+      operations:
+      - name: amazonwebservicestagresource
+        method: PUT
+        description: Amazon Web Services Tagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appmesh-tag-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appmesh — Tag. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v20190125/tag
+      name: v20190125-tag
+      description: REST surface for v20190125-tag.
+      operations:
+      - method: PUT
+        name: amazonwebservicestagresource
+        description: Amazon Web Services Tagresource
+        call: appmesh-tag.amazonwebservicestagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appmesh-tag-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appmesh — Tag. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-tagresource
+      description: Amazon Web Services Tagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-tag.amazonwebservicestagresource
+      outputParameters:
+      - type: object
+        mapping: $.

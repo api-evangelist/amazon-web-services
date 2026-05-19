@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cleanrooms — configuredTables
+  description: 'Amazon Web Services cleanrooms — configuredTables. 4 operations. Lead operation: Amazon Web Services Listconfiguredtables.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - configuredTables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cleanrooms-configuredtables
+    baseUri: ''
+    description: Amazon Web Services cleanrooms — configuredTables business capability. Self-contained, no shared references.
+    resources:
+    - name: configuredTables
+      path: /configuredTables
+      operations:
+      - name: amazonwebserviceslistconfiguredtables
+        method: GET
+        description: Amazon Web Services Listconfiguredtables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configuredTables-configuredTableIdentifier
+      path: /configuredTables/{configuredTableIdentifier}
+      operations:
+      - name: amazonwebservicesupdateconfiguredtable
+        method: PATCH
+        description: Amazon Web Services Updateconfiguredtable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configuredTables-configuredTableIdentifier-analysisRule
+      path: /configuredTables/{configuredTableIdentifier}/analysisRule
+      operations:
+      - name: amazonwebservicescreateconfiguredtableanalysisrule
+        method: POST
+        description: Amazon Web Services Createconfiguredtableanalysisrule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configuredTables-configuredTableIdentifier-analysisRule-analysisRuleType
+      path: /configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}
+      operations:
+      - name: amazonwebservicesupdateconfiguredtableanalysisrule
+        method: PATCH
+        description: Amazon Web Services Updateconfiguredtableanalysisrule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cleanrooms-configuredtables-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cleanrooms — configuredTables. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/configuredtables
+      name: configuredtables
+      description: REST surface for configuredTables.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfiguredtables
+        description: Amazon Web Services Listconfiguredtables
+        call: cleanrooms-configuredtables.amazonwebserviceslistconfiguredtables
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configuredtables/{configuredtableidentifier}
+      name: configuredtables-configuredtableidentifier
+      description: REST surface for configuredTables-configuredTableIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconfiguredtable
+        description: Amazon Web Services Updateconfiguredtable
+        call: cleanrooms-configuredtables.amazonwebservicesupdateconfiguredtable
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configuredtables/{configuredtableidentifier}/analysisrule
+      name: configuredtables-configuredtableidentifier-analysisrule
+      description: REST surface for configuredTables-configuredTableIdentifier-analysisRule.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateconfiguredtableanalysisrule
+        description: Amazon Web Services Createconfiguredtableanalysisrule
+        call: cleanrooms-configuredtables.amazonwebservicescreateconfiguredtableanalysisrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configuredtables/{configuredtableidentifier}/analysisrule/{analysisruletype}
+      name: configuredtables-configuredtableidentifier-analysisrule-analysisruletype
+      description: REST surface for configuredTables-configuredTableIdentifier-analysisRule-analysisRuleType.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconfiguredtableanalysisrule
+        description: Amazon Web Services Updateconfiguredtableanalysisrule
+        call: cleanrooms-configuredtables.amazonwebservicesupdateconfiguredtableanalysisrule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cleanrooms-configuredtables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cleanrooms — configuredTables. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listconfiguredtables
+      description: Amazon Web Services Listconfiguredtables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanrooms-configuredtables.amazonwebserviceslistconfiguredtables
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfiguredtable
+      description: Amazon Web Services Updateconfiguredtable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-configuredtables.amazonwebservicesupdateconfiguredtable
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createconfiguredtableanalysisrule
+      description: Amazon Web Services Createconfiguredtableanalysisrule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cleanrooms-configuredtables.amazonwebservicescreateconfiguredtableanalysisrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfiguredtableanalysisrule
+      description: Amazon Web Services Updateconfiguredtableanalysisrule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cleanrooms-configuredtables.amazonwebservicesupdateconfiguredtableanalysisrule
+      outputParameters:
+      - type: object
+        mapping: $.

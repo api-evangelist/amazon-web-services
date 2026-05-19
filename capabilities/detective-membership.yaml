@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services detective — Membership
+  description: 'Amazon Web Services detective — Membership. 2 operations. Lead operation: Amazon Web Services Batchgetmembershipdatasources.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Membership
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: detective-membership
+    baseUri: ''
+    description: Amazon Web Services detective — Membership business capability. Self-contained, no shared references.
+    resources:
+    - name: membership-datasources-get
+      path: /membership/datasources/get
+      operations:
+      - name: amazonwebservicesbatchgetmembershipdatasources
+        method: POST
+        description: Amazon Web Services Batchgetmembershipdatasources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: membership-removal
+      path: /membership/removal
+      operations:
+      - name: amazonwebservicesdisassociatemembership
+        method: POST
+        description: Amazon Web Services Disassociatemembership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: detective-membership-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services detective — Membership. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/membership/datasources/get
+      name: membership-datasources-get
+      description: REST surface for membership-datasources-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetmembershipdatasources
+        description: Amazon Web Services Batchgetmembershipdatasources
+        call: detective-membership.amazonwebservicesbatchgetmembershipdatasources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/membership/removal
+      name: membership-removal
+      description: REST surface for membership-removal.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatemembership
+        description: Amazon Web Services Disassociatemembership
+        call: detective-membership.amazonwebservicesdisassociatemembership
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: detective-membership-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services detective — Membership. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchgetmembershipdatasources
+      description: Amazon Web Services Batchgetmembershipdatasources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-membership.amazonwebservicesbatchgetmembershipdatasources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatemembership
+      description: Amazon Web Services Disassociatemembership
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-membership.amazonwebservicesdisassociatemembership
+      outputParameters:
+      - type: object
+        mapping: $.

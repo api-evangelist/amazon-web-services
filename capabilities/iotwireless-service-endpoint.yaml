@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotwireless — Service Endpoint
+  description: 'Amazon Web Services iotwireless — Service Endpoint. 1 operations. Lead operation: Amazon Web Services Getserviceendpoint.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Service Endpoint
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotwireless-service-endpoint
+    baseUri: ''
+    description: Amazon Web Services iotwireless — Service Endpoint business capability. Self-contained, no shared references.
+    resources:
+    - name: service-endpoint
+      path: /service-endpoint
+      operations:
+      - name: amazonwebservicesgetserviceendpoint
+        method: GET
+        description: Amazon Web Services Getserviceendpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotwireless-service-endpoint-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotwireless — Service Endpoint. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/service-endpoint
+      name: service-endpoint
+      description: REST surface for service-endpoint.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetserviceendpoint
+        description: Amazon Web Services Getserviceendpoint
+        call: iotwireless-service-endpoint.amazonwebservicesgetserviceendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotwireless-service-endpoint-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotwireless — Service Endpoint. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getserviceendpoint
+      description: Amazon Web Services Getserviceendpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotwireless-service-endpoint.amazonwebservicesgetserviceendpoint
+      outputParameters:
+      - type: object
+        mapping: $.

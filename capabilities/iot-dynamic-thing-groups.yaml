@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Dynamic Thing Groups
+  description: 'Amazon Web Services iot — Dynamic Thing Groups. 1 operations. Lead operation: Amazon Web Services Updatedynamicthinggroup.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Dynamic Thing Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-dynamic-thing-groups
+    baseUri: ''
+    description: Amazon Web Services iot — Dynamic Thing Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: dynamic-thing-groups-thingGroupName
+      path: /dynamic-thing-groups/{thingGroupName}
+      operations:
+      - name: amazonwebservicesupdatedynamicthinggroup
+        method: PATCH
+        description: Amazon Web Services Updatedynamicthinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-dynamic-thing-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Dynamic Thing Groups. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/dynamic-thing-groups/{thinggroupname}
+      name: dynamic-thing-groups-thinggroupname
+      description: REST surface for dynamic-thing-groups-thingGroupName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedynamicthinggroup
+        description: Amazon Web Services Updatedynamicthinggroup
+        call: iot-dynamic-thing-groups.amazonwebservicesupdatedynamicthinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-dynamic-thing-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Dynamic Thing Groups. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatedynamicthinggroup
+      description: Amazon Web Services Updatedynamicthinggroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-dynamic-thing-groups.amazonwebservicesupdatedynamicthinggroup
+      outputParameters:
+      - type: object
+        mapping: $.

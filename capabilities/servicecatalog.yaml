@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services servicecatalog
+  description: 'Amazon Web Services servicecatalog. 1 operations. Lead operation: Amazon Web Services Updatetagoption. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services servicecatalog
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: servicecatalog
+    baseUri: ''
+    description: Amazon Web Services servicecatalog business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatetagoption
+        method: POST
+        description: Amazon Web Services Updatetagoption
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: servicecatalog-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services servicecatalog. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetagoption
+        description: Amazon Web Services Updatetagoption
+        call: servicecatalog.amazonwebservicesupdatetagoption
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: servicecatalog-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services servicecatalog. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetagoption
+      description: Amazon Web Services Updatetagoption
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: servicecatalog.amazonwebservicesupdatetagoption
+      outputParameters:
+      - type: object
+        mapping: $.

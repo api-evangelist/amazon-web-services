@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-voice — Emergency Calling
+  description: 'Amazon Web Services chime-sdk-voice — Emergency Calling. 1 operations. Lead operation: Amazon Web Services
+    Validatee911address. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Emergency Calling
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-voice-emergency-calling
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-voice — Emergency Calling business capability. Self-contained, no shared references.
+    resources:
+    - name: emergency-calling-address
+      path: /emergency-calling/address
+      operations:
+      - name: amazonwebservicesvalidatee911address
+        method: POST
+        description: Amazon Web Services Validatee911address
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-voice-emergency-calling-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-voice — Emergency Calling. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/emergency-calling/address
+      name: emergency-calling-address
+      description: REST surface for emergency-calling-address.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidatee911address
+        description: Amazon Web Services Validatee911address
+        call: chime-sdk-voice-emergency-calling.amazonwebservicesvalidatee911address
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-voice-emergency-calling-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-voice — Emergency Calling. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-validatee911address
+      description: Amazon Web Services Validatee911address
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: chime-sdk-voice-emergency-calling.amazonwebservicesvalidatee911address
+      outputParameters:
+      - type: object
+        mapping: $.

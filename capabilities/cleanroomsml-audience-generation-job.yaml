@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cleanroomsml — Audience Generation Job
+  description: 'Amazon Web Services cleanroomsml — Audience Generation Job. 2 operations. Lead operation: Amazon Web Services
+    Startaudiencegenerationjob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Audience Generation Job
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cleanroomsml-audience-generation-job
+    baseUri: ''
+    description: Amazon Web Services cleanroomsml — Audience Generation Job business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: audience-generation-job
+      path: /audience-generation-job
+      operations:
+      - name: amazonwebservicesstartaudiencegenerationjob
+        method: POST
+        description: Amazon Web Services Startaudiencegenerationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: audience-generation-job-audienceGenerationJobArn
+      path: /audience-generation-job/{audienceGenerationJobArn}
+      operations:
+      - name: amazonwebservicesgetaudiencegenerationjob
+        method: GET
+        description: Amazon Web Services Getaudiencegenerationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cleanroomsml-audience-generation-job-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cleanroomsml — Audience Generation Job. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/audience-generation-job
+      name: audience-generation-job
+      description: REST surface for audience-generation-job.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartaudiencegenerationjob
+        description: Amazon Web Services Startaudiencegenerationjob
+        call: cleanroomsml-audience-generation-job.amazonwebservicesstartaudiencegenerationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/audience-generation-job/{audiencegenerationjobarn}
+      name: audience-generation-job-audiencegenerationjobarn
+      description: REST surface for audience-generation-job-audienceGenerationJobArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetaudiencegenerationjob
+        description: Amazon Web Services Getaudiencegenerationjob
+        call: cleanroomsml-audience-generation-job.amazonwebservicesgetaudiencegenerationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cleanroomsml-audience-generation-job-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cleanroomsml — Audience Generation Job. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startaudiencegenerationjob
+      description: Amazon Web Services Startaudiencegenerationjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cleanroomsml-audience-generation-job.amazonwebservicesstartaudiencegenerationjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getaudiencegenerationjob
+      description: Amazon Web Services Getaudiencegenerationjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanroomsml-audience-generation-job.amazonwebservicesgetaudiencegenerationjob
+      outputParameters:
+      - type: object
+        mapping: $.

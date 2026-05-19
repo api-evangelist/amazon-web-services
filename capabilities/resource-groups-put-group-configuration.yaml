@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resource-groups — Put Group Configuration
+  description: 'Amazon Web Services resource-groups — Put Group Configuration. 1 operations. Lead operation: Amazon Web Services
+    Putgroupconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Put Group Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resource-groups-put-group-configuration
+    baseUri: ''
+    description: Amazon Web Services resource-groups — Put Group Configuration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: put-group-configuration
+      path: /put-group-configuration
+      operations:
+      - name: amazonwebservicesputgroupconfiguration
+        method: POST
+        description: Amazon Web Services Putgroupconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resource-groups-put-group-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resource-groups — Put Group Configuration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/put-group-configuration
+      name: put-group-configuration
+      description: REST surface for put-group-configuration.
+      operations:
+      - method: POST
+        name: amazonwebservicesputgroupconfiguration
+        description: Amazon Web Services Putgroupconfiguration
+        call: resource-groups-put-group-configuration.amazonwebservicesputgroupconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resource-groups-put-group-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resource-groups — Put Group Configuration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putgroupconfiguration
+      description: Amazon Web Services Putgroupconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resource-groups-put-group-configuration.amazonwebservicesputgroupconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

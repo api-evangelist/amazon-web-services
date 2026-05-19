@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kafka — Kafka Versions
+  description: 'Amazon Web Services kafka — Kafka Versions. 1 operations. Lead operation: Amazon Web Services Listkafkaversions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Kafka Versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kafka-kafka-versions
+    baseUri: ''
+    description: Amazon Web Services kafka — Kafka Versions business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-kafka-versions
+      path: /v1/kafka-versions
+      operations:
+      - name: amazonwebserviceslistkafkaversions
+        method: GET
+        description: Amazon Web Services Listkafkaversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kafka-kafka-versions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kafka — Kafka Versions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/kafka-versions
+      name: v1-kafka-versions
+      description: REST surface for v1-kafka-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistkafkaversions
+        description: Amazon Web Services Listkafkaversions
+        call: kafka-kafka-versions.amazonwebserviceslistkafkaversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kafka-kafka-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kafka — Kafka Versions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listkafkaversions
+      description: Amazon Web Services Listkafkaversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafka-kafka-versions.amazonwebserviceslistkafkaversions
+      outputParameters:
+      - type: object
+        mapping: $.

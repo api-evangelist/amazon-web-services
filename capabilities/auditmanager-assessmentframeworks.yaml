@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — assessmentFrameworks
+  description: 'Amazon Web Services auditmanager — assessmentFrameworks. 3 operations. Lead operation: Amazon Web Services
+    Listassessmentframeworks. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - assessmentFrameworks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-assessmentframeworks
+    baseUri: ''
+    description: Amazon Web Services auditmanager — assessmentFrameworks business capability. Self-contained, no shared references.
+    resources:
+    - name: assessmentFrameworks
+      path: /assessmentFrameworks
+      operations:
+      - name: amazonwebserviceslistassessmentframeworks
+        method: GET
+        description: Amazon Web Services Listassessmentframeworks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assessmentFrameworks-frameworkId
+      path: /assessmentFrameworks/{frameworkId}
+      operations:
+      - name: amazonwebservicesupdateassessmentframework
+        method: PUT
+        description: Amazon Web Services Updateassessmentframework
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assessmentFrameworks-frameworkId-shareRequests
+      path: /assessmentFrameworks/{frameworkId}/shareRequests
+      operations:
+      - name: amazonwebservicesstartassessmentframeworkshare
+        method: POST
+        description: Amazon Web Services Startassessmentframeworkshare
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-assessmentframeworks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — assessmentFrameworks. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/assessmentframeworks
+      name: assessmentframeworks
+      description: REST surface for assessmentFrameworks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassessmentframeworks
+        description: Amazon Web Services Listassessmentframeworks
+        call: auditmanager-assessmentframeworks.amazonwebserviceslistassessmentframeworks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessmentframeworks/{frameworkid}
+      name: assessmentframeworks-frameworkid
+      description: REST surface for assessmentFrameworks-frameworkId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateassessmentframework
+        description: Amazon Web Services Updateassessmentframework
+        call: auditmanager-assessmentframeworks.amazonwebservicesupdateassessmentframework
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessmentframeworks/{frameworkid}/sharerequests
+      name: assessmentframeworks-frameworkid-sharerequests
+      description: REST surface for assessmentFrameworks-frameworkId-shareRequests.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartassessmentframeworkshare
+        description: Amazon Web Services Startassessmentframeworkshare
+        call: auditmanager-assessmentframeworks.amazonwebservicesstartassessmentframeworkshare
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-assessmentframeworks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — assessmentFrameworks. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listassessmentframeworks
+      description: Amazon Web Services Listassessmentframeworks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-assessmentframeworks.amazonwebserviceslistassessmentframeworks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateassessmentframework
+      description: Amazon Web Services Updateassessmentframework
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: auditmanager-assessmentframeworks.amazonwebservicesupdateassessmentframework
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startassessmentframeworkshare
+      description: Amazon Web Services Startassessmentframeworkshare
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: auditmanager-assessmentframeworks.amazonwebservicesstartassessmentframeworkshare
+      outputParameters:
+      - type: object
+        mapping: $.

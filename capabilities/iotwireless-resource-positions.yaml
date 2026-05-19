@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotwireless — Resource Positions
+  description: 'Amazon Web Services iotwireless — Resource Positions. 1 operations. Lead operation: Amazon Web Services Updateresourceposition.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Resource Positions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotwireless-resource-positions
+    baseUri: ''
+    description: Amazon Web Services iotwireless — Resource Positions business capability. Self-contained, no shared references.
+    resources:
+    - name: resource-positions-ResourceIdentifier
+      path: /resource-positions/{ResourceIdentifier}
+      operations:
+      - name: amazonwebservicesupdateresourceposition
+        method: PATCH
+        description: Amazon Web Services Updateresourceposition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotwireless-resource-positions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotwireless — Resource Positions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/resource-positions/{resourceidentifier}
+      name: resource-positions-resourceidentifier
+      description: REST surface for resource-positions-ResourceIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateresourceposition
+        description: Amazon Web Services Updateresourceposition
+        call: iotwireless-resource-positions.amazonwebservicesupdateresourceposition
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotwireless-resource-positions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotwireless — Resource Positions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateresourceposition
+      description: Amazon Web Services Updateresourceposition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotwireless-resource-positions.amazonwebservicesupdateresourceposition
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListWorkflows
+  description: 'Amazon Web Services imagebuilder — ListWorkflows. 1 operations. Lead operation: Amazon Web Services Listworkflows.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListWorkflows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listworkflows
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListWorkflows business capability. Self-contained, no shared references.
+    resources:
+    - name: ListWorkflows
+      path: /ListWorkflows
+      operations:
+      - name: amazonwebserviceslistworkflows
+        method: POST
+        description: Amazon Web Services Listworkflows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listworkflows-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListWorkflows. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listworkflows
+      name: listworkflows
+      description: REST surface for ListWorkflows.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistworkflows
+        description: Amazon Web Services Listworkflows
+        call: imagebuilder-listworkflows.amazonwebserviceslistworkflows
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listworkflows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListWorkflows. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkflows
+      description: Amazon Web Services Listworkflows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listworkflows.amazonwebserviceslistworkflows
+      outputParameters:
+      - type: object
+        mapping: $.

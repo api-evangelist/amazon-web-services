@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services worklink — listDomains
+  description: 'Amazon Web Services worklink — listDomains. 1 operations. Lead operation: Amazon Web Services Listdomains.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listDomains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: worklink-listdomains
+    baseUri: ''
+    description: Amazon Web Services worklink — listDomains business capability. Self-contained, no shared references.
+    resources:
+    - name: listDomains
+      path: /listDomains
+      operations:
+      - name: amazonwebserviceslistdomains
+        method: POST
+        description: Amazon Web Services Listdomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: worklink-listdomains-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services worklink — listDomains. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listdomains
+      name: listdomains
+      description: REST surface for listDomains.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdomains
+        description: Amazon Web Services Listdomains
+        call: worklink-listdomains.amazonwebserviceslistdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: worklink-listdomains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services worklink — listDomains. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomains
+      description: Amazon Web Services Listdomains
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: worklink-listdomains.amazonwebserviceslistdomains
+      outputParameters:
+      - type: object
+        mapping: $.

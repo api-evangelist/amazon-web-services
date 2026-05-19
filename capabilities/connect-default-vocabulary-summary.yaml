@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Default Vocabulary Summary
+  description: 'Amazon Web Services connect — Default Vocabulary Summary. 1 operations. Lead operation: Amazon Web Services
+    Listdefaultvocabularies. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Default Vocabulary Summary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-default-vocabulary-summary
+    baseUri: ''
+    description: Amazon Web Services connect — Default Vocabulary Summary business capability. Self-contained, no shared references.
+    resources:
+    - name: default-vocabulary-summary-InstanceId
+      path: /default-vocabulary-summary/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistdefaultvocabularies
+        method: POST
+        description: Amazon Web Services Listdefaultvocabularies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-default-vocabulary-summary-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Default Vocabulary Summary. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/default-vocabulary-summary/{instanceid}
+      name: default-vocabulary-summary-instanceid
+      description: REST surface for default-vocabulary-summary-InstanceId.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdefaultvocabularies
+        description: Amazon Web Services Listdefaultvocabularies
+        call: connect-default-vocabulary-summary.amazonwebserviceslistdefaultvocabularies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-default-vocabulary-summary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Default Vocabulary Summary. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdefaultvocabularies
+      description: Amazon Web Services Listdefaultvocabularies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-default-vocabulary-summary.amazonwebserviceslistdefaultvocabularies
+      outputParameters:
+      - type: object
+        mapping: $.

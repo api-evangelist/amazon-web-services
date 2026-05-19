@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Listschedulingpolicies
+  description: 'Amazon Web Services batch — Listschedulingpolicies. 1 operations. Lead operation: Amazon Web Services Listschedulingpolicies.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Listschedulingpolicies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-listschedulingpolicies
+    baseUri: ''
+    description: Amazon Web Services batch — Listschedulingpolicies business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-listschedulingpolicies
+      path: /v1/listschedulingpolicies
+      operations:
+      - name: amazonwebserviceslistschedulingpolicies
+        method: POST
+        description: Amazon Web Services Listschedulingpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-listschedulingpolicies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Listschedulingpolicies. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/listschedulingpolicies
+      name: v1-listschedulingpolicies
+      description: REST surface for v1-listschedulingpolicies.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistschedulingpolicies
+        description: Amazon Web Services Listschedulingpolicies
+        call: batch-listschedulingpolicies.amazonwebserviceslistschedulingpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-listschedulingpolicies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Listschedulingpolicies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listschedulingpolicies
+      description: Amazon Web Services Listschedulingpolicies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-listschedulingpolicies.amazonwebserviceslistschedulingpolicies
+      outputParameters:
+      - type: object
+        mapping: $.

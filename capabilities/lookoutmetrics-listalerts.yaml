@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — ListAlerts
+  description: 'Amazon Web Services lookoutmetrics — ListAlerts. 1 operations. Lead operation: Amazon Web Services Listalerts.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListAlerts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-listalerts
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — ListAlerts business capability. Self-contained, no shared references.
+    resources:
+    - name: ListAlerts
+      path: /ListAlerts
+      operations:
+      - name: amazonwebserviceslistalerts
+        method: POST
+        description: Amazon Web Services Listalerts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-listalerts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — ListAlerts. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listalerts
+      name: listalerts
+      description: REST surface for ListAlerts.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistalerts
+        description: Amazon Web Services Listalerts
+        call: lookoutmetrics-listalerts.amazonwebserviceslistalerts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-listalerts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — ListAlerts. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listalerts
+      description: Amazon Web Services Listalerts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-listalerts.amazonwebserviceslistalerts
+      outputParameters:
+      - type: object
+        mapping: $.

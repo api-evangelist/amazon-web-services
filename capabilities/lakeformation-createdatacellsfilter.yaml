@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — CreateDataCellsFilter
+  description: 'Amazon Web Services lakeformation — CreateDataCellsFilter. 1 operations. Lead operation: Amazon Web Services
+    Createdatacellsfilter. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateDataCellsFilter
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-createdatacellsfilter
+    baseUri: ''
+    description: Amazon Web Services lakeformation — CreateDataCellsFilter business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: CreateDataCellsFilter
+      path: /CreateDataCellsFilter
+      operations:
+      - name: amazonwebservicescreatedatacellsfilter
+        method: POST
+        description: Amazon Web Services Createdatacellsfilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-createdatacellsfilter-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — CreateDataCellsFilter. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createdatacellsfilter
+      name: createdatacellsfilter
+      description: REST surface for CreateDataCellsFilter.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatedatacellsfilter
+        description: Amazon Web Services Createdatacellsfilter
+        call: lakeformation-createdatacellsfilter.amazonwebservicescreatedatacellsfilter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-createdatacellsfilter-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — CreateDataCellsFilter. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createdatacellsfilter
+      description: Amazon Web Services Createdatacellsfilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-createdatacellsfilter.amazonwebservicescreatedatacellsfilter
+      outputParameters:
+      - type: object
+        mapping: $.

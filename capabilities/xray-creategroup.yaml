@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — CreateGroup
+  description: 'Amazon Web Services xray — CreateGroup. 1 operations. Lead operation: Amazon Web Services Creategroup. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateGroup
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-creategroup
+    baseUri: ''
+    description: Amazon Web Services xray — CreateGroup business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateGroup
+      path: /CreateGroup
+      operations:
+      - name: amazonwebservicescreategroup
+        method: POST
+        description: Amazon Web Services Creategroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-creategroup-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — CreateGroup. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/creategroup
+      name: creategroup
+      description: REST surface for CreateGroup.
+      operations:
+      - method: POST
+        name: amazonwebservicescreategroup
+        description: Amazon Web Services Creategroup
+        call: xray-creategroup.amazonwebservicescreategroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-creategroup-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — CreateGroup. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-creategroup
+      description: Amazon Web Services Creategroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-creategroup.amazonwebservicescreategroup
+      outputParameters:
+      - type: object
+        mapping: $.

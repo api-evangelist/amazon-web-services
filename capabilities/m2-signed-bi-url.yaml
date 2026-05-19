@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services m2 — Signed Bi Url
+  description: 'Amazon Web Services m2 — Signed Bi Url. 1 operations. Lead operation: Amazon Web Services Getsignedbluinsightsurl.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Signed Bi Url
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: m2-signed-bi-url
+    baseUri: ''
+    description: Amazon Web Services m2 — Signed Bi Url business capability. Self-contained, no shared references.
+    resources:
+    - name: signed-bi-url
+      path: /signed-bi-url
+      operations:
+      - name: amazonwebservicesgetsignedbluinsightsurl
+        method: GET
+        description: Amazon Web Services Getsignedbluinsightsurl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: m2-signed-bi-url-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services m2 — Signed Bi Url. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/signed-bi-url
+      name: signed-bi-url
+      description: REST surface for signed-bi-url.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsignedbluinsightsurl
+        description: Amazon Web Services Getsignedbluinsightsurl
+        call: m2-signed-bi-url.amazonwebservicesgetsignedbluinsightsurl
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: m2-signed-bi-url-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services m2 — Signed Bi Url. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getsignedbluinsightsurl
+      description: Amazon Web Services Getsignedbluinsightsurl
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: m2-signed-bi-url.amazonwebservicesgetsignedbluinsightsurl
+      outputParameters:
+      - type: object
+        mapping: $.

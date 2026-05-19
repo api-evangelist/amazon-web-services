@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pca-connector-ad — Connectors
+  description: 'Amazon Web Services pca-connector-ad — Connectors. 2 operations. Lead operation: Amazon Web Services Listconnectors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Connectors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pca-connector-ad-connectors
+    baseUri: ''
+    description: Amazon Web Services pca-connector-ad — Connectors business capability. Self-contained, no shared references.
+    resources:
+    - name: connectors
+      path: /connectors
+      operations:
+      - name: amazonwebserviceslistconnectors
+        method: GET
+        description: Amazon Web Services Listconnectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: connectors-ConnectorArn
+      path: /connectors/{ConnectorArn}
+      operations:
+      - name: amazonwebservicesgetconnector
+        method: GET
+        description: Amazon Web Services Getconnector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pca-connector-ad-connectors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pca-connector-ad — Connectors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/connectors
+      name: connectors
+      description: REST surface for connectors.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconnectors
+        description: Amazon Web Services Listconnectors
+        call: pca-connector-ad-connectors.amazonwebserviceslistconnectors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/connectors/{connectorarn}
+      name: connectors-connectorarn
+      description: REST surface for connectors-ConnectorArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconnector
+        description: Amazon Web Services Getconnector
+        call: pca-connector-ad-connectors.amazonwebservicesgetconnector
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pca-connector-ad-connectors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pca-connector-ad — Connectors. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listconnectors
+      description: Amazon Web Services Listconnectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-connectors.amazonwebserviceslistconnectors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconnector
+      description: Amazon Web Services Getconnector
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-connectors.amazonwebservicesgetconnector
+      outputParameters:
+      - type: object
+        mapping: $.

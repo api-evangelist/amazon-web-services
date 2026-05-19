@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mwaa — Environments
+  description: 'Amazon Web Services mwaa — Environments. 2 operations. Lead operation: Amazon Web Services Listenvironments.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Environments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mwaa-environments
+    baseUri: ''
+    description: Amazon Web Services mwaa — Environments business capability. Self-contained, no shared references.
+    resources:
+    - name: environments
+      path: /environments
+      operations:
+      - name: amazonwebserviceslistenvironments
+        method: GET
+        description: Amazon Web Services Listenvironments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-Name
+      path: /environments/{Name}
+      operations:
+      - name: amazonwebservicesupdateenvironment
+        method: PATCH
+        description: Amazon Web Services Updateenvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mwaa-environments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mwaa — Environments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/environments
+      name: environments
+      description: REST surface for environments.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistenvironments
+        description: Amazon Web Services Listenvironments
+        call: mwaa-environments.amazonwebserviceslistenvironments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{name}
+      name: environments-name
+      description: REST surface for environments-Name.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateenvironment
+        description: Amazon Web Services Updateenvironment
+        call: mwaa-environments.amazonwebservicesupdateenvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mwaa-environments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mwaa — Environments. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listenvironments
+      description: Amazon Web Services Listenvironments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mwaa-environments.amazonwebserviceslistenvironments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateenvironment
+      description: Amazon Web Services Updateenvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mwaa-environments.amazonwebservicesupdateenvironment
+      outputParameters:
+      - type: object
+        mapping: $.

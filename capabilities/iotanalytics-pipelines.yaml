@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotanalytics — Pipelines
+  description: 'Amazon Web Services iotanalytics — Pipelines. 4 operations. Lead operation: Amazon Web Services Listpipelines.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Pipelines
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotanalytics-pipelines
+    baseUri: ''
+    description: Amazon Web Services iotanalytics — Pipelines business capability. Self-contained, no shared references.
+    resources:
+    - name: pipelines
+      path: /pipelines
+      operations:
+      - name: amazonwebserviceslistpipelines
+        method: GET
+        description: Amazon Web Services Listpipelines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-pipelineName
+      path: /pipelines/{pipelineName}
+      operations:
+      - name: amazonwebservicesupdatepipeline
+        method: PUT
+        description: Amazon Web Services Updatepipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-pipelineName-reprocessing
+      path: /pipelines/{pipelineName}/reprocessing
+      operations:
+      - name: amazonwebservicesstartpipelinereprocessing
+        method: POST
+        description: Amazon Web Services Startpipelinereprocessing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pipelines-pipelineName-reprocessing-reprocessingId
+      path: /pipelines/{pipelineName}/reprocessing/{reprocessingId}
+      operations:
+      - name: amazonwebservicescancelpipelinereprocessing
+        method: DELETE
+        description: Amazon Web Services Cancelpipelinereprocessing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotanalytics-pipelines-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotanalytics — Pipelines. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/pipelines
+      name: pipelines
+      description: REST surface for pipelines.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpipelines
+        description: Amazon Web Services Listpipelines
+        call: iotanalytics-pipelines.amazonwebserviceslistpipelines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pipelines/{pipelinename}
+      name: pipelines-pipelinename
+      description: REST surface for pipelines-pipelineName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatepipeline
+        description: Amazon Web Services Updatepipeline
+        call: iotanalytics-pipelines.amazonwebservicesupdatepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pipelines/{pipelinename}/reprocessing
+      name: pipelines-pipelinename-reprocessing
+      description: REST surface for pipelines-pipelineName-reprocessing.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartpipelinereprocessing
+        description: Amazon Web Services Startpipelinereprocessing
+        call: iotanalytics-pipelines.amazonwebservicesstartpipelinereprocessing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pipelines/{pipelinename}/reprocessing/{reprocessingid}
+      name: pipelines-pipelinename-reprocessing-reprocessingid
+      description: REST surface for pipelines-pipelineName-reprocessing-reprocessingId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicescancelpipelinereprocessing
+        description: Amazon Web Services Cancelpipelinereprocessing
+        call: iotanalytics-pipelines.amazonwebservicescancelpipelinereprocessing
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotanalytics-pipelines-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotanalytics — Pipelines. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpipelines
+      description: Amazon Web Services Listpipelines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotanalytics-pipelines.amazonwebserviceslistpipelines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepipeline
+      description: Amazon Web Services Updatepipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotanalytics-pipelines.amazonwebservicesupdatepipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startpipelinereprocessing
+      description: Amazon Web Services Startpipelinereprocessing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotanalytics-pipelines.amazonwebservicesstartpipelinereprocessing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-cancelpipelinereprocessing
+      description: Amazon Web Services Cancelpipelinereprocessing
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: iotanalytics-pipelines.amazonwebservicescancelpipelinereprocessing
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-messaging — Tags
+  description: 'Amazon Web Services chime-sdk-messaging — Tags. 1 operations. Lead operation: Amazon Web Services Listtagsforresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-messaging-tags
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-messaging — Tags business capability. Self-contained, no shared references.
+    resources:
+    - name: tags
+      path: /tags
+      operations:
+      - name: amazonwebserviceslisttagsforresource
+        method: GET
+        description: Amazon Web Services Listtagsforresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-messaging-tags-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-messaging — Tags. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/tags
+      name: tags
+      description: REST surface for tags.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttagsforresource
+        description: Amazon Web Services Listtagsforresource
+        call: chime-sdk-messaging-tags.amazonwebserviceslisttagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-messaging-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-messaging — Tags. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtagsforresource
+      description: Amazon Web Services Listtagsforresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-messaging-tags.amazonwebserviceslisttagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.

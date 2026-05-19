@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pca-connector-ad — directoryRegistrations
+  description: 'Amazon Web Services pca-connector-ad — directoryRegistrations. 4 operations. Lead operation: Amazon Web Services
+    Listdirectoryregistrations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - directoryRegistrations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pca-connector-ad-directoryregistrations
+    baseUri: ''
+    description: Amazon Web Services pca-connector-ad — directoryRegistrations business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: directoryRegistrations
+      path: /directoryRegistrations
+      operations:
+      - name: amazonwebserviceslistdirectoryregistrations
+        method: GET
+        description: Amazon Web Services Listdirectoryregistrations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: directoryRegistrations-DirectoryRegistrationArn
+      path: /directoryRegistrations/{DirectoryRegistrationArn}
+      operations:
+      - name: amazonwebservicesgetdirectoryregistration
+        method: GET
+        description: Amazon Web Services Getdirectoryregistration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: directoryRegistrations-DirectoryRegistrationArn-servicePrincipalNames
+      path: /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames
+      operations:
+      - name: amazonwebserviceslistserviceprincipalnames
+        method: GET
+        description: Amazon Web Services Listserviceprincipalnames
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: directoryRegistrations-DirectoryRegistrationArn-servicePrincipalNames-ConnectorA
+      path: /directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}
+      operations:
+      - name: amazonwebservicesgetserviceprincipalname
+        method: GET
+        description: Amazon Web Services Getserviceprincipalname
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pca-connector-ad-directoryregistrations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pca-connector-ad — directoryRegistrations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/directoryregistrations
+      name: directoryregistrations
+      description: REST surface for directoryRegistrations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdirectoryregistrations
+        description: Amazon Web Services Listdirectoryregistrations
+        call: pca-connector-ad-directoryregistrations.amazonwebserviceslistdirectoryregistrations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/directoryregistrations/{directoryregistrationarn}
+      name: directoryregistrations-directoryregistrationarn
+      description: REST surface for directoryRegistrations-DirectoryRegistrationArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdirectoryregistration
+        description: Amazon Web Services Getdirectoryregistration
+        call: pca-connector-ad-directoryregistrations.amazonwebservicesgetdirectoryregistration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/directoryregistrations/{directoryregistrationarn}/serviceprincipalnames
+      name: directoryregistrations-directoryregistrationarn-serviceprincipalnames
+      description: REST surface for directoryRegistrations-DirectoryRegistrationArn-servicePrincipalNames.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistserviceprincipalnames
+        description: Amazon Web Services Listserviceprincipalnames
+        call: pca-connector-ad-directoryregistrations.amazonwebserviceslistserviceprincipalnames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/directoryregistrations/{directoryregistrationarn}/serviceprincipalnames/{connectorarn}
+      name: directoryregistrations-directoryregistrationarn-serviceprincipalnames-connectora
+      description: REST surface for directoryRegistrations-DirectoryRegistrationArn-servicePrincipalNames-ConnectorA.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetserviceprincipalname
+        description: Amazon Web Services Getserviceprincipalname
+        call: pca-connector-ad-directoryregistrations.amazonwebservicesgetserviceprincipalname
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pca-connector-ad-directoryregistrations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pca-connector-ad — directoryRegistrations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdirectoryregistrations
+      description: Amazon Web Services Listdirectoryregistrations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-directoryregistrations.amazonwebserviceslistdirectoryregistrations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdirectoryregistration
+      description: Amazon Web Services Getdirectoryregistration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-directoryregistrations.amazonwebservicesgetdirectoryregistration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listserviceprincipalnames
+      description: Amazon Web Services Listserviceprincipalnames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-directoryregistrations.amazonwebserviceslistserviceprincipalnames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getserviceprincipalname
+      description: Amazon Web Services Getserviceprincipalname
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pca-connector-ad-directoryregistrations.amazonwebservicesgetserviceprincipalname
+      outputParameters:
+      - type: object
+        mapping: $.

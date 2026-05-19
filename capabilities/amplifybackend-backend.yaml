@@ -1,0 +1,963 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services amplifybackend — Backend
+  description: 'Amazon Web Services amplifybackend — Backend. 29 operations. Lead operation: Amazon Web Services Createbackend.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Backend
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amplifybackend-backend
+    baseUri: ''
+    description: Amazon Web Services amplifybackend — Backend business capability. Self-contained, no shared references.
+    resources:
+    - name: backend
+      path: /backend
+      operations:
+      - name: amazonwebservicescreatebackend
+        method: POST
+        description: Amazon Web Services Createbackend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api
+      path: /backend/{appId}/api
+      operations:
+      - name: amazonwebservicescreatebackendapi
+        method: POST
+        description: Amazon Web Services Createbackendapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api-backendEnvironmentName
+      path: /backend/{appId}/api/{backendEnvironmentName}
+      operations:
+      - name: amazonwebservicesupdatebackendapi
+        method: POST
+        description: Amazon Web Services Updatebackendapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api-backendEnvironmentName-details
+      path: /backend/{appId}/api/{backendEnvironmentName}/details
+      operations:
+      - name: amazonwebservicesgetbackendapi
+        method: POST
+        description: Amazon Web Services Getbackendapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api-backendEnvironmentName-generateModels
+      path: /backend/{appId}/api/{backendEnvironmentName}/generateModels
+      operations:
+      - name: amazonwebservicesgeneratebackendapimodels
+        method: POST
+        description: Amazon Web Services Generatebackendapimodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api-backendEnvironmentName-getModels
+      path: /backend/{appId}/api/{backendEnvironmentName}/getModels
+      operations:
+      - name: amazonwebservicesgetbackendapimodels
+        method: POST
+        description: Amazon Web Services Getbackendapimodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-api-backendEnvironmentName-remove
+      path: /backend/{appId}/api/{backendEnvironmentName}/remove
+      operations:
+      - name: amazonwebservicesdeletebackendapi
+        method: POST
+        description: Amazon Web Services Deletebackendapi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-auth
+      path: /backend/{appId}/auth
+      operations:
+      - name: amazonwebservicescreatebackendauth
+        method: POST
+        description: Amazon Web Services Createbackendauth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-auth-backendEnvironmentName
+      path: /backend/{appId}/auth/{backendEnvironmentName}
+      operations:
+      - name: amazonwebservicesupdatebackendauth
+        method: POST
+        description: Amazon Web Services Updatebackendauth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-auth-backendEnvironmentName-details
+      path: /backend/{appId}/auth/{backendEnvironmentName}/details
+      operations:
+      - name: amazonwebservicesgetbackendauth
+        method: POST
+        description: Amazon Web Services Getbackendauth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-auth-backendEnvironmentName-import
+      path: /backend/{appId}/auth/{backendEnvironmentName}/import
+      operations:
+      - name: amazonwebservicesimportbackendauth
+        method: POST
+        description: Amazon Web Services Importbackendauth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-auth-backendEnvironmentName-remove
+      path: /backend/{appId}/auth/{backendEnvironmentName}/remove
+      operations:
+      - name: amazonwebservicesdeletebackendauth
+        method: POST
+        description: Amazon Web Services Deletebackendauth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-challenge
+      path: /backend/{appId}/challenge
+      operations:
+      - name: amazonwebservicescreatetoken
+        method: POST
+        description: Amazon Web Services Createtoken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-challenge-sessionId
+      path: /backend/{appId}/challenge/{sessionId}
+      operations:
+      - name: amazonwebservicesgettoken
+        method: GET
+        description: Amazon Web Services Gettoken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-challenge-sessionId-remove
+      path: /backend/{appId}/challenge/{sessionId}/remove
+      operations:
+      - name: amazonwebservicesdeletetoken
+        method: POST
+        description: Amazon Web Services Deletetoken
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-config
+      path: /backend/{appId}/config
+      operations:
+      - name: amazonwebservicescreatebackendconfig
+        method: POST
+        description: Amazon Web Services Createbackendconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-config-remove
+      path: /backend/{appId}/config/remove
+      operations:
+      - name: amazonwebservicesremovebackendconfig
+        method: POST
+        description: Amazon Web Services Removebackendconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-config-update
+      path: /backend/{appId}/config/update
+      operations:
+      - name: amazonwebservicesupdatebackendconfig
+        method: POST
+        description: Amazon Web Services Updatebackendconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-details
+      path: /backend/{appId}/details
+      operations:
+      - name: amazonwebservicesgetbackend
+        method: POST
+        description: Amazon Web Services Getbackend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-environments-backendEnvironmentName-clone
+      path: /backend/{appId}/environments/{backendEnvironmentName}/clone
+      operations:
+      - name: amazonwebservicesclonebackend
+        method: POST
+        description: Amazon Web Services Clonebackend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-environments-backendEnvironmentName-remove
+      path: /backend/{appId}/environments/{backendEnvironmentName}/remove
+      operations:
+      - name: amazonwebservicesdeletebackend
+        method: POST
+        description: Amazon Web Services Deletebackend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-job-backendEnvironmentName
+      path: /backend/{appId}/job/{backendEnvironmentName}
+      operations:
+      - name: amazonwebserviceslistbackendjobs
+        method: POST
+        description: Amazon Web Services Listbackendjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-job-backendEnvironmentName-jobId
+      path: /backend/{appId}/job/{backendEnvironmentName}/{jobId}
+      operations:
+      - name: amazonwebservicesupdatebackendjob
+        method: POST
+        description: Amazon Web Services Updatebackendjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-remove
+      path: /backend/{appId}/remove
+      operations:
+      - name: amazonwebservicesremoveallbackends
+        method: POST
+        description: Amazon Web Services Removeallbackends
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-storage
+      path: /backend/{appId}/storage
+      operations:
+      - name: amazonwebservicescreatebackendstorage
+        method: POST
+        description: Amazon Web Services Createbackendstorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-storage-backendEnvironmentName
+      path: /backend/{appId}/storage/{backendEnvironmentName}
+      operations:
+      - name: amazonwebservicesupdatebackendstorage
+        method: POST
+        description: Amazon Web Services Updatebackendstorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-storage-backendEnvironmentName-details
+      path: /backend/{appId}/storage/{backendEnvironmentName}/details
+      operations:
+      - name: amazonwebservicesgetbackendstorage
+        method: POST
+        description: Amazon Web Services Getbackendstorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-storage-backendEnvironmentName-import
+      path: /backend/{appId}/storage/{backendEnvironmentName}/import
+      operations:
+      - name: amazonwebservicesimportbackendstorage
+        method: POST
+        description: Amazon Web Services Importbackendstorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backend-appId-storage-backendEnvironmentName-remove
+      path: /backend/{appId}/storage/{backendEnvironmentName}/remove
+      operations:
+      - name: amazonwebservicesdeletebackendstorage
+        method: POST
+        description: Amazon Web Services Deletebackendstorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: amplifybackend-backend-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services amplifybackend — Backend. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/backend
+      name: backend
+      description: REST surface for backend.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebackend
+        description: Amazon Web Services Createbackend
+        call: amplifybackend-backend.amazonwebservicescreatebackend
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api
+      name: backend-appid-api
+      description: REST surface for backend-appId-api.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebackendapi
+        description: Amazon Web Services Createbackendapi
+        call: amplifybackend-backend.amazonwebservicescreatebackendapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api/{backendenvironmentname}
+      name: backend-appid-api-backendenvironmentname
+      description: REST surface for backend-appId-api-backendEnvironmentName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackendapi
+        description: Amazon Web Services Updatebackendapi
+        call: amplifybackend-backend.amazonwebservicesupdatebackendapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api/{backendenvironmentname}/details
+      name: backend-appid-api-backendenvironmentname-details
+      description: REST surface for backend-appId-api-backendEnvironmentName-details.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackendapi
+        description: Amazon Web Services Getbackendapi
+        call: amplifybackend-backend.amazonwebservicesgetbackendapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api/{backendenvironmentname}/generatemodels
+      name: backend-appid-api-backendenvironmentname-generatemodels
+      description: REST surface for backend-appId-api-backendEnvironmentName-generateModels.
+      operations:
+      - method: POST
+        name: amazonwebservicesgeneratebackendapimodels
+        description: Amazon Web Services Generatebackendapimodels
+        call: amplifybackend-backend.amazonwebservicesgeneratebackendapimodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api/{backendenvironmentname}/getmodels
+      name: backend-appid-api-backendenvironmentname-getmodels
+      description: REST surface for backend-appId-api-backendEnvironmentName-getModels.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackendapimodels
+        description: Amazon Web Services Getbackendapimodels
+        call: amplifybackend-backend.amazonwebservicesgetbackendapimodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/api/{backendenvironmentname}/remove
+      name: backend-appid-api-backendenvironmentname-remove
+      description: REST surface for backend-appId-api-backendEnvironmentName-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletebackendapi
+        description: Amazon Web Services Deletebackendapi
+        call: amplifybackend-backend.amazonwebservicesdeletebackendapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/auth
+      name: backend-appid-auth
+      description: REST surface for backend-appId-auth.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebackendauth
+        description: Amazon Web Services Createbackendauth
+        call: amplifybackend-backend.amazonwebservicescreatebackendauth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/auth/{backendenvironmentname}
+      name: backend-appid-auth-backendenvironmentname
+      description: REST surface for backend-appId-auth-backendEnvironmentName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackendauth
+        description: Amazon Web Services Updatebackendauth
+        call: amplifybackend-backend.amazonwebservicesupdatebackendauth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/auth/{backendenvironmentname}/details
+      name: backend-appid-auth-backendenvironmentname-details
+      description: REST surface for backend-appId-auth-backendEnvironmentName-details.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackendauth
+        description: Amazon Web Services Getbackendauth
+        call: amplifybackend-backend.amazonwebservicesgetbackendauth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/auth/{backendenvironmentname}/import
+      name: backend-appid-auth-backendenvironmentname-import
+      description: REST surface for backend-appId-auth-backendEnvironmentName-import.
+      operations:
+      - method: POST
+        name: amazonwebservicesimportbackendauth
+        description: Amazon Web Services Importbackendauth
+        call: amplifybackend-backend.amazonwebservicesimportbackendauth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/auth/{backendenvironmentname}/remove
+      name: backend-appid-auth-backendenvironmentname-remove
+      description: REST surface for backend-appId-auth-backendEnvironmentName-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletebackendauth
+        description: Amazon Web Services Deletebackendauth
+        call: amplifybackend-backend.amazonwebservicesdeletebackendauth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/challenge
+      name: backend-appid-challenge
+      description: REST surface for backend-appId-challenge.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatetoken
+        description: Amazon Web Services Createtoken
+        call: amplifybackend-backend.amazonwebservicescreatetoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/challenge/{sessionid}
+      name: backend-appid-challenge-sessionid
+      description: REST surface for backend-appId-challenge-sessionId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettoken
+        description: Amazon Web Services Gettoken
+        call: amplifybackend-backend.amazonwebservicesgettoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/challenge/{sessionid}/remove
+      name: backend-appid-challenge-sessionid-remove
+      description: REST surface for backend-appId-challenge-sessionId-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletetoken
+        description: Amazon Web Services Deletetoken
+        call: amplifybackend-backend.amazonwebservicesdeletetoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/config
+      name: backend-appid-config
+      description: REST surface for backend-appId-config.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebackendconfig
+        description: Amazon Web Services Createbackendconfig
+        call: amplifybackend-backend.amazonwebservicescreatebackendconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/config/remove
+      name: backend-appid-config-remove
+      description: REST surface for backend-appId-config-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesremovebackendconfig
+        description: Amazon Web Services Removebackendconfig
+        call: amplifybackend-backend.amazonwebservicesremovebackendconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/config/update
+      name: backend-appid-config-update
+      description: REST surface for backend-appId-config-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackendconfig
+        description: Amazon Web Services Updatebackendconfig
+        call: amplifybackend-backend.amazonwebservicesupdatebackendconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/details
+      name: backend-appid-details
+      description: REST surface for backend-appId-details.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackend
+        description: Amazon Web Services Getbackend
+        call: amplifybackend-backend.amazonwebservicesgetbackend
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/environments/{backendenvironmentname}/clone
+      name: backend-appid-environments-backendenvironmentname-clone
+      description: REST surface for backend-appId-environments-backendEnvironmentName-clone.
+      operations:
+      - method: POST
+        name: amazonwebservicesclonebackend
+        description: Amazon Web Services Clonebackend
+        call: amplifybackend-backend.amazonwebservicesclonebackend
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/environments/{backendenvironmentname}/remove
+      name: backend-appid-environments-backendenvironmentname-remove
+      description: REST surface for backend-appId-environments-backendEnvironmentName-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletebackend
+        description: Amazon Web Services Deletebackend
+        call: amplifybackend-backend.amazonwebservicesdeletebackend
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/job/{backendenvironmentname}
+      name: backend-appid-job-backendenvironmentname
+      description: REST surface for backend-appId-job-backendEnvironmentName.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistbackendjobs
+        description: Amazon Web Services Listbackendjobs
+        call: amplifybackend-backend.amazonwebserviceslistbackendjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/job/{backendenvironmentname}/{jobid}
+      name: backend-appid-job-backendenvironmentname-jobid
+      description: REST surface for backend-appId-job-backendEnvironmentName-jobId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackendjob
+        description: Amazon Web Services Updatebackendjob
+        call: amplifybackend-backend.amazonwebservicesupdatebackendjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/remove
+      name: backend-appid-remove
+      description: REST surface for backend-appId-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesremoveallbackends
+        description: Amazon Web Services Removeallbackends
+        call: amplifybackend-backend.amazonwebservicesremoveallbackends
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/storage
+      name: backend-appid-storage
+      description: REST surface for backend-appId-storage.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebackendstorage
+        description: Amazon Web Services Createbackendstorage
+        call: amplifybackend-backend.amazonwebservicescreatebackendstorage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/storage/{backendenvironmentname}
+      name: backend-appid-storage-backendenvironmentname
+      description: REST surface for backend-appId-storage-backendEnvironmentName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatebackendstorage
+        description: Amazon Web Services Updatebackendstorage
+        call: amplifybackend-backend.amazonwebservicesupdatebackendstorage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/storage/{backendenvironmentname}/details
+      name: backend-appid-storage-backendenvironmentname-details
+      description: REST surface for backend-appId-storage-backendEnvironmentName-details.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbackendstorage
+        description: Amazon Web Services Getbackendstorage
+        call: amplifybackend-backend.amazonwebservicesgetbackendstorage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/storage/{backendenvironmentname}/import
+      name: backend-appid-storage-backendenvironmentname-import
+      description: REST surface for backend-appId-storage-backendEnvironmentName-import.
+      operations:
+      - method: POST
+        name: amazonwebservicesimportbackendstorage
+        description: Amazon Web Services Importbackendstorage
+        call: amplifybackend-backend.amazonwebservicesimportbackendstorage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backend/{appid}/storage/{backendenvironmentname}/remove
+      name: backend-appid-storage-backendenvironmentname-remove
+      description: REST surface for backend-appId-storage-backendEnvironmentName-remove.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletebackendstorage
+        description: Amazon Web Services Deletebackendstorage
+        call: amplifybackend-backend.amazonwebservicesdeletebackendstorage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amplifybackend-backend-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services amplifybackend — Backend. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createbackend
+      description: Amazon Web Services Createbackend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatebackend
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createbackendapi
+      description: Amazon Web Services Createbackendapi
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatebackendapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackendapi
+      description: Amazon Web Services Updatebackendapi
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesupdatebackendapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackendapi
+      description: Amazon Web Services Getbackendapi
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgetbackendapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-generatebackendapimodels
+      description: Amazon Web Services Generatebackendapimodels
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgeneratebackendapimodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackendapimodels
+      description: Amazon Web Services Getbackendapimodels
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgetbackendapimodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebackendapi
+      description: Amazon Web Services Deletebackendapi
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesdeletebackendapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createbackendauth
+      description: Amazon Web Services Createbackendauth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatebackendauth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackendauth
+      description: Amazon Web Services Updatebackendauth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesupdatebackendauth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackendauth
+      description: Amazon Web Services Getbackendauth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgetbackendauth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-importbackendauth
+      description: Amazon Web Services Importbackendauth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesimportbackendauth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebackendauth
+      description: Amazon Web Services Deletebackendauth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesdeletebackendauth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createtoken
+      description: Amazon Web Services Createtoken
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatetoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettoken
+      description: Amazon Web Services Gettoken
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifybackend-backend.amazonwebservicesgettoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletetoken
+      description: Amazon Web Services Deletetoken
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesdeletetoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createbackendconfig
+      description: Amazon Web Services Createbackendconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatebackendconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removebackendconfig
+      description: Amazon Web Services Removebackendconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesremovebackendconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackendconfig
+      description: Amazon Web Services Updatebackendconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesupdatebackendconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackend
+      description: Amazon Web Services Getbackend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgetbackend
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-clonebackend
+      description: Amazon Web Services Clonebackend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesclonebackend
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebackend
+      description: Amazon Web Services Deletebackend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesdeletebackend
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listbackendjobs
+      description: Amazon Web Services Listbackendjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebserviceslistbackendjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackendjob
+      description: Amazon Web Services Updatebackendjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesupdatebackendjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removeallbackends
+      description: Amazon Web Services Removeallbackends
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesremoveallbackends
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createbackendstorage
+      description: Amazon Web Services Createbackendstorage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicescreatebackendstorage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebackendstorage
+      description: Amazon Web Services Updatebackendstorage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesupdatebackendstorage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbackendstorage
+      description: Amazon Web Services Getbackendstorage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesgetbackendstorage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-importbackendstorage
+      description: Amazon Web Services Importbackendstorage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesimportbackendstorage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebackendstorage
+      description: Amazon Web Services Deletebackendstorage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifybackend-backend.amazonwebservicesdeletebackendstorage
+      outputParameters:
+      - type: object
+        mapping: $.

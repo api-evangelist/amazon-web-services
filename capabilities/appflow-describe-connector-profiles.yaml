@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appflow — Describe Connector Profiles
+  description: 'Amazon Web Services appflow — Describe Connector Profiles. 1 operations. Lead operation: Amazon Web Services
+    Describeconnectorprofiles. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe Connector Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appflow-describe-connector-profiles
+    baseUri: ''
+    description: Amazon Web Services appflow — Describe Connector Profiles business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: describe-connector-profiles
+      path: /describe-connector-profiles
+      operations:
+      - name: amazonwebservicesdescribeconnectorprofiles
+        method: POST
+        description: Amazon Web Services Describeconnectorprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appflow-describe-connector-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appflow — Describe Connector Profiles. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-connector-profiles
+      name: describe-connector-profiles
+      description: REST surface for describe-connector-profiles.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeconnectorprofiles
+        description: Amazon Web Services Describeconnectorprofiles
+        call: appflow-describe-connector-profiles.amazonwebservicesdescribeconnectorprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appflow-describe-connector-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appflow — Describe Connector Profiles. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeconnectorprofiles
+      description: Amazon Web Services Describeconnectorprofiles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appflow-describe-connector-profiles.amazonwebservicesdescribeconnectorprofiles
+      outputParameters:
+      - type: object
+        mapping: $.

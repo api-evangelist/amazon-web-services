@@ -1,0 +1,739 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connectcases — Domains
+  description: 'Amazon Web Services connectcases — Domains. 22 operations. Lead operation: Amazon Web Services Createdomain.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connectcases-domains
+    baseUri: ''
+    description: Amazon Web Services connectcases — Domains business capability. Self-contained, no shared references.
+    resources:
+    - name: domains
+      path: /domains
+      operations:
+      - name: amazonwebservicescreatedomain
+        method: POST
+        description: Amazon Web Services Createdomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId
+      path: /domains/{domainId}
+      operations:
+      - name: amazonwebservicesgetdomain
+        method: POST
+        description: Amazon Web Services Getdomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-case-event-configuration
+      path: /domains/{domainId}/case-event-configuration
+      operations:
+      - name: amazonwebservicesputcaseeventconfiguration
+        method: PUT
+        description: Amazon Web Services Putcaseeventconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases
+      path: /domains/{domainId}/cases
+      operations:
+      - name: amazonwebservicescreatecase
+        method: POST
+        description: Amazon Web Services Createcase
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases-search
+      path: /domains/{domainId}/cases-search
+      operations:
+      - name: amazonwebservicessearchcases
+        method: POST
+        description: Amazon Web Services Searchcases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases-caseId
+      path: /domains/{domainId}/cases/{caseId}
+      operations:
+      - name: amazonwebservicesupdatecase
+        method: PUT
+        description: Amazon Web Services Updatecase
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases-caseId-audit-history
+      path: /domains/{domainId}/cases/{caseId}/audit-history
+      operations:
+      - name: amazonwebservicesgetcaseauditevents
+        method: POST
+        description: Amazon Web Services Getcaseauditevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases-caseId-related-items-search
+      path: /domains/{domainId}/cases/{caseId}/related-items-search
+      operations:
+      - name: amazonwebservicessearchrelateditems
+        method: POST
+        description: Amazon Web Services Searchrelateditems
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-cases-caseId-related-items
+      path: /domains/{domainId}/cases/{caseId}/related-items/
+      operations:
+      - name: amazonwebservicescreaterelateditem
+        method: POST
+        description: Amazon Web Services Createrelateditem
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields
+      path: /domains/{domainId}/fields
+      operations:
+      - name: amazonwebservicescreatefield
+        method: POST
+        description: Amazon Web Services Createfield
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields-batch
+      path: /domains/{domainId}/fields-batch
+      operations:
+      - name: amazonwebservicesbatchgetfield
+        method: POST
+        description: Amazon Web Services Batchgetfield
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields-list
+      path: /domains/{domainId}/fields-list
+      operations:
+      - name: amazonwebserviceslistfields
+        method: POST
+        description: Amazon Web Services Listfields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields-fieldId
+      path: /domains/{domainId}/fields/{fieldId}
+      operations:
+      - name: amazonwebservicesupdatefield
+        method: PUT
+        description: Amazon Web Services Updatefield
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields-fieldId-options
+      path: /domains/{domainId}/fields/{fieldId}/options
+      operations:
+      - name: amazonwebservicesbatchputfieldoptions
+        method: PUT
+        description: Amazon Web Services Batchputfieldoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-fields-fieldId-options-list
+      path: /domains/{domainId}/fields/{fieldId}/options-list
+      operations:
+      - name: amazonwebserviceslistfieldoptions
+        method: POST
+        description: Amazon Web Services Listfieldoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-layouts
+      path: /domains/{domainId}/layouts
+      operations:
+      - name: amazonwebservicescreatelayout
+        method: POST
+        description: Amazon Web Services Createlayout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-layouts-list
+      path: /domains/{domainId}/layouts-list
+      operations:
+      - name: amazonwebserviceslistlayouts
+        method: POST
+        description: Amazon Web Services Listlayouts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-layouts-layoutId
+      path: /domains/{domainId}/layouts/{layoutId}
+      operations:
+      - name: amazonwebservicesupdatelayout
+        method: PUT
+        description: Amazon Web Services Updatelayout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-list-cases-for-contact
+      path: /domains/{domainId}/list-cases-for-contact
+      operations:
+      - name: amazonwebserviceslistcasesforcontact
+        method: POST
+        description: Amazon Web Services Listcasesforcontact
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-templates
+      path: /domains/{domainId}/templates
+      operations:
+      - name: amazonwebservicescreatetemplate
+        method: POST
+        description: Amazon Web Services Createtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-templates-list
+      path: /domains/{domainId}/templates-list
+      operations:
+      - name: amazonwebserviceslisttemplates
+        method: POST
+        description: Amazon Web Services Listtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-domainId-templates-templateId
+      path: /domains/{domainId}/templates/{templateId}
+      operations:
+      - name: amazonwebservicesupdatetemplate
+        method: PUT
+        description: Amazon Web Services Updatetemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connectcases-domains-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connectcases — Domains. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/domains
+      name: domains
+      description: REST surface for domains.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatedomain
+        description: Amazon Web Services Createdomain
+        call: connectcases-domains.amazonwebservicescreatedomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}
+      name: domains-domainid
+      description: REST surface for domains-domainId.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetdomain
+        description: Amazon Web Services Getdomain
+        call: connectcases-domains.amazonwebservicesgetdomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/case-event-configuration
+      name: domains-domainid-case-event-configuration
+      description: REST surface for domains-domainId-case-event-configuration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputcaseeventconfiguration
+        description: Amazon Web Services Putcaseeventconfiguration
+        call: connectcases-domains.amazonwebservicesputcaseeventconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases
+      name: domains-domainid-cases
+      description: REST surface for domains-domainId-cases.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecase
+        description: Amazon Web Services Createcase
+        call: connectcases-domains.amazonwebservicescreatecase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases-search
+      name: domains-domainid-cases-search
+      description: REST surface for domains-domainId-cases-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchcases
+        description: Amazon Web Services Searchcases
+        call: connectcases-domains.amazonwebservicessearchcases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases/{caseid}
+      name: domains-domainid-cases-caseid
+      description: REST surface for domains-domainId-cases-caseId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatecase
+        description: Amazon Web Services Updatecase
+        call: connectcases-domains.amazonwebservicesupdatecase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases/{caseid}/audit-history
+      name: domains-domainid-cases-caseid-audit-history
+      description: REST surface for domains-domainId-cases-caseId-audit-history.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcaseauditevents
+        description: Amazon Web Services Getcaseauditevents
+        call: connectcases-domains.amazonwebservicesgetcaseauditevents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases/{caseid}/related-items-search
+      name: domains-domainid-cases-caseid-related-items-search
+      description: REST surface for domains-domainId-cases-caseId-related-items-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchrelateditems
+        description: Amazon Web Services Searchrelateditems
+        call: connectcases-domains.amazonwebservicessearchrelateditems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/cases/{caseid}/related-items
+      name: domains-domainid-cases-caseid-related-items
+      description: REST surface for domains-domainId-cases-caseId-related-items.
+      operations:
+      - method: POST
+        name: amazonwebservicescreaterelateditem
+        description: Amazon Web Services Createrelateditem
+        call: connectcases-domains.amazonwebservicescreaterelateditem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields
+      name: domains-domainid-fields
+      description: REST surface for domains-domainId-fields.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatefield
+        description: Amazon Web Services Createfield
+        call: connectcases-domains.amazonwebservicescreatefield
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields-batch
+      name: domains-domainid-fields-batch
+      description: REST surface for domains-domainId-fields-batch.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetfield
+        description: Amazon Web Services Batchgetfield
+        call: connectcases-domains.amazonwebservicesbatchgetfield
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields-list
+      name: domains-domainid-fields-list
+      description: REST surface for domains-domainId-fields-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfields
+        description: Amazon Web Services Listfields
+        call: connectcases-domains.amazonwebserviceslistfields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields/{fieldid}
+      name: domains-domainid-fields-fieldid
+      description: REST surface for domains-domainId-fields-fieldId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatefield
+        description: Amazon Web Services Updatefield
+        call: connectcases-domains.amazonwebservicesupdatefield
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields/{fieldid}/options
+      name: domains-domainid-fields-fieldid-options
+      description: REST surface for domains-domainId-fields-fieldId-options.
+      operations:
+      - method: PUT
+        name: amazonwebservicesbatchputfieldoptions
+        description: Amazon Web Services Batchputfieldoptions
+        call: connectcases-domains.amazonwebservicesbatchputfieldoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/fields/{fieldid}/options-list
+      name: domains-domainid-fields-fieldid-options-list
+      description: REST surface for domains-domainId-fields-fieldId-options-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfieldoptions
+        description: Amazon Web Services Listfieldoptions
+        call: connectcases-domains.amazonwebserviceslistfieldoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/layouts
+      name: domains-domainid-layouts
+      description: REST surface for domains-domainId-layouts.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatelayout
+        description: Amazon Web Services Createlayout
+        call: connectcases-domains.amazonwebservicescreatelayout
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/layouts-list
+      name: domains-domainid-layouts-list
+      description: REST surface for domains-domainId-layouts-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistlayouts
+        description: Amazon Web Services Listlayouts
+        call: connectcases-domains.amazonwebserviceslistlayouts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/layouts/{layoutid}
+      name: domains-domainid-layouts-layoutid
+      description: REST surface for domains-domainId-layouts-layoutId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatelayout
+        description: Amazon Web Services Updatelayout
+        call: connectcases-domains.amazonwebservicesupdatelayout
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/list-cases-for-contact
+      name: domains-domainid-list-cases-for-contact
+      description: REST surface for domains-domainId-list-cases-for-contact.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcasesforcontact
+        description: Amazon Web Services Listcasesforcontact
+        call: connectcases-domains.amazonwebserviceslistcasesforcontact
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/templates
+      name: domains-domainid-templates
+      description: REST surface for domains-domainId-templates.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatetemplate
+        description: Amazon Web Services Createtemplate
+        call: connectcases-domains.amazonwebservicescreatetemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/templates-list
+      name: domains-domainid-templates-list
+      description: REST surface for domains-domainId-templates-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslisttemplates
+        description: Amazon Web Services Listtemplates
+        call: connectcases-domains.amazonwebserviceslisttemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainid}/templates/{templateid}
+      name: domains-domainid-templates-templateid
+      description: REST surface for domains-domainId-templates-templateId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatetemplate
+        description: Amazon Web Services Updatetemplate
+        call: connectcases-domains.amazonwebservicesupdatetemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connectcases-domains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connectcases — Domains. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createdomain
+      description: Amazon Web Services Createdomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreatedomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdomain
+      description: Amazon Web Services Getdomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicesgetdomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putcaseeventconfiguration
+      description: Amazon Web Services Putcaseeventconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesputcaseeventconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createcase
+      description: Amazon Web Services Createcase
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreatecase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchcases
+      description: Amazon Web Services Searchcases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicessearchcases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecase
+      description: Amazon Web Services Updatecase
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesupdatecase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcaseauditevents
+      description: Amazon Web Services Getcaseauditevents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicesgetcaseauditevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchrelateditems
+      description: Amazon Web Services Searchrelateditems
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicessearchrelateditems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createrelateditem
+      description: Amazon Web Services Createrelateditem
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreaterelateditem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createfield
+      description: Amazon Web Services Createfield
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreatefield
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetfield
+      description: Amazon Web Services Batchgetfield
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicesbatchgetfield
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfields
+      description: Amazon Web Services Listfields
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebserviceslistfields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefield
+      description: Amazon Web Services Updatefield
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesupdatefield
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchputfieldoptions
+      description: Amazon Web Services Batchputfieldoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesbatchputfieldoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfieldoptions
+      description: Amazon Web Services Listfieldoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebserviceslistfieldoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createlayout
+      description: Amazon Web Services Createlayout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreatelayout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listlayouts
+      description: Amazon Web Services Listlayouts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebserviceslistlayouts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatelayout
+      description: Amazon Web Services Updatelayout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesupdatelayout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcasesforcontact
+      description: Amazon Web Services Listcasesforcontact
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebserviceslistcasesforcontact
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createtemplate
+      description: Amazon Web Services Createtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebservicescreatetemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtemplates
+      description: Amazon Web Services Listtemplates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectcases-domains.amazonwebserviceslisttemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatetemplate
+      description: Amazon Web Services Updatetemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connectcases-domains.amazonwebservicesupdatetemplate
+      outputParameters:
+      - type: object
+        mapping: $.

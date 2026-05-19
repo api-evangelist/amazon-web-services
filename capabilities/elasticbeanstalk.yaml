@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services elasticbeanstalk
+  description: 'Amazon Web Services elasticbeanstalk. 1 operations. Lead operation: Amazon Web Services Validateconfigurationsettings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services elasticbeanstalk
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: elasticbeanstalk
+    baseUri: ''
+    description: Amazon Web Services elasticbeanstalk business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesvalidateconfigurationsettings
+        method: POST
+        description: Amazon Web Services Validateconfigurationsettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: elasticbeanstalk-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services elasticbeanstalk. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidateconfigurationsettings
+        description: Amazon Web Services Validateconfigurationsettings
+        call: elasticbeanstalk.amazonwebservicesvalidateconfigurationsettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: elasticbeanstalk-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services elasticbeanstalk. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-validateconfigurationsettings
+      description: Amazon Web Services Validateconfigurationsettings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: elasticbeanstalk.amazonwebservicesvalidateconfigurationsettings
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — Subjects
+  description: 'Amazon Web Services rolesanywhere — Subjects. 1 operations. Lead operation: Amazon Web Services Listsubjects.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Subjects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-subjects
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — Subjects business capability. Self-contained, no shared references.
+    resources:
+    - name: subjects
+      path: /subjects
+      operations:
+      - name: amazonwebserviceslistsubjects
+        method: GET
+        description: Amazon Web Services Listsubjects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-subjects-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — Subjects. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subjects
+      name: subjects
+      description: REST surface for subjects.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsubjects
+        description: Amazon Web Services Listsubjects
+        call: rolesanywhere-subjects.amazonwebserviceslistsubjects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-subjects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — Subjects. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsubjects
+      description: Amazon Web Services Listsubjects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-subjects.amazonwebserviceslistsubjects
+      outputParameters:
+      - type: object
+        mapping: $.

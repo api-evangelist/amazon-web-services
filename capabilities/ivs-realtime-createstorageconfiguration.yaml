@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs-realtime — CreateStorageConfiguration
+  description: 'Amazon Web Services ivs-realtime — CreateStorageConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Createstorageconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateStorageConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-realtime-createstorageconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivs-realtime — CreateStorageConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: CreateStorageConfiguration
+      path: /CreateStorageConfiguration
+      operations:
+      - name: amazonwebservicescreatestorageconfiguration
+        method: POST
+        description: Amazon Web Services Createstorageconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-realtime-createstorageconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs-realtime — CreateStorageConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createstorageconfiguration
+      name: createstorageconfiguration
+      description: REST surface for CreateStorageConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatestorageconfiguration
+        description: Amazon Web Services Createstorageconfiguration
+        call: ivs-realtime-createstorageconfiguration.amazonwebservicescreatestorageconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-realtime-createstorageconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs-realtime — CreateStorageConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createstorageconfiguration
+      description: Amazon Web Services Createstorageconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-realtime-createstorageconfiguration.amazonwebservicescreatestorageconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

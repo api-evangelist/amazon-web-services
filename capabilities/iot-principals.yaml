@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Principals
+  description: 'Amazon Web Services iot — Principals. 1 operations. Lead operation: Amazon Web Services Listprincipalthings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Principals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-principals
+    baseUri: ''
+    description: Amazon Web Services iot — Principals business capability. Self-contained, no shared references.
+    resources:
+    - name: principals-things
+      path: /principals/things
+      operations:
+      - name: amazonwebserviceslistprincipalthings
+        method: GET
+        description: Amazon Web Services Listprincipalthings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-principals-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Principals. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/principals/things
+      name: principals-things
+      description: REST surface for principals-things.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprincipalthings
+        description: Amazon Web Services Listprincipalthings
+        call: iot-principals.amazonwebserviceslistprincipalthings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-principals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Principals. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprincipalthings
+      description: Amazon Web Services Listprincipalthings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-principals.amazonwebserviceslistprincipalthings
+      outputParameters:
+      - type: object
+        mapping: $.

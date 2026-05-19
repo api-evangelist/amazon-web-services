@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — GetPlaybackRestrictionPolicy
+  description: 'Amazon Web Services ivs — GetPlaybackRestrictionPolicy. 1 operations. Lead operation: Amazon Web Services
+    Getplaybackrestrictionpolicy. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetPlaybackRestrictionPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-getplaybackrestrictionpolicy
+    baseUri: ''
+    description: Amazon Web Services ivs — GetPlaybackRestrictionPolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: GetPlaybackRestrictionPolicy
+      path: /GetPlaybackRestrictionPolicy
+      operations:
+      - name: amazonwebservicesgetplaybackrestrictionpolicy
+        method: POST
+        description: Amazon Web Services Getplaybackrestrictionpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-getplaybackrestrictionpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — GetPlaybackRestrictionPolicy. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getplaybackrestrictionpolicy
+      name: getplaybackrestrictionpolicy
+      description: REST surface for GetPlaybackRestrictionPolicy.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetplaybackrestrictionpolicy
+        description: Amazon Web Services Getplaybackrestrictionpolicy
+        call: ivs-getplaybackrestrictionpolicy.amazonwebservicesgetplaybackrestrictionpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-getplaybackrestrictionpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — GetPlaybackRestrictionPolicy. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getplaybackrestrictionpolicy
+      description: Amazon Web Services Getplaybackrestrictionpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-getplaybackrestrictionpolicy.amazonwebservicesgetplaybackrestrictionpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

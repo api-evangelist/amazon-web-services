@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — BatchStartViewerSessionRevocation
+  description: 'Amazon Web Services ivs — BatchStartViewerSessionRevocation. 1 operations. Lead operation: Amazon Web Services
+    Batchstartviewersessionrevocation. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - BatchStartViewerSessionRevocation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-batchstartviewersessionrevocation
+    baseUri: ''
+    description: Amazon Web Services ivs — BatchStartViewerSessionRevocation business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: BatchStartViewerSessionRevocation
+      path: /BatchStartViewerSessionRevocation
+      operations:
+      - name: amazonwebservicesbatchstartviewersessionrevocation
+        method: POST
+        description: Amazon Web Services Batchstartviewersessionrevocation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-batchstartviewersessionrevocation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — BatchStartViewerSessionRevocation. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/batchstartviewersessionrevocation
+      name: batchstartviewersessionrevocation
+      description: REST surface for BatchStartViewerSessionRevocation.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchstartviewersessionrevocation
+        description: Amazon Web Services Batchstartviewersessionrevocation
+        call: ivs-batchstartviewersessionrevocation.amazonwebservicesbatchstartviewersessionrevocation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-batchstartviewersessionrevocation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — BatchStartViewerSessionRevocation. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchstartviewersessionrevocation
+      description: Amazon Web Services Batchstartviewersessionrevocation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-batchstartviewersessionrevocation.amazonwebservicesbatchstartviewersessionrevocation
+      outputParameters:
+      - type: object
+        mapping: $.

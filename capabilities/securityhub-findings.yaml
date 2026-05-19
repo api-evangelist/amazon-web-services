@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — Findings
+  description: 'Amazon Web Services securityhub — Findings. 3 operations. Lead operation: Amazon Web Services Updatefindings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Findings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-findings
+    baseUri: ''
+    description: Amazon Web Services securityhub — Findings business capability. Self-contained, no shared references.
+    resources:
+    - name: findings
+      path: /findings
+      operations:
+      - name: amazonwebservicesupdatefindings
+        method: PATCH
+        description: Amazon Web Services Updatefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-batchupdate
+      path: /findings/batchupdate
+      operations:
+      - name: amazonwebservicesbatchupdatefindings
+        method: PATCH
+        description: Amazon Web Services Batchupdatefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-import
+      path: /findings/import
+      operations:
+      - name: amazonwebservicesbatchimportfindings
+        method: POST
+        description: Amazon Web Services Batchimportfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-findings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — Findings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/findings
+      name: findings
+      description: REST surface for findings.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatefindings
+        description: Amazon Web Services Updatefindings
+        call: securityhub-findings.amazonwebservicesupdatefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/batchupdate
+      name: findings-batchupdate
+      description: REST surface for findings-batchupdate.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesbatchupdatefindings
+        description: Amazon Web Services Batchupdatefindings
+        call: securityhub-findings.amazonwebservicesbatchupdatefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/import
+      name: findings-import
+      description: REST surface for findings-import.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchimportfindings
+        description: Amazon Web Services Batchimportfindings
+        call: securityhub-findings.amazonwebservicesbatchimportfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-findings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — Findings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatefindings
+      description: Amazon Web Services Updatefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-findings.amazonwebservicesupdatefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchupdatefindings
+      description: Amazon Web Services Batchupdatefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-findings.amazonwebservicesbatchupdatefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchimportfindings
+      description: Amazon Web Services Batchimportfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-findings.amazonwebservicesbatchimportfindings
+      outputParameters:
+      - type: object
+        mapping: $.

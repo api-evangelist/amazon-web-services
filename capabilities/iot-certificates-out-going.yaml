@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Certificates Out Going
+  description: 'Amazon Web Services iot — Certificates Out Going. 1 operations. Lead operation: Amazon Web Services Listoutgoingcertificates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Certificates Out Going
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-certificates-out-going
+    baseUri: ''
+    description: Amazon Web Services iot — Certificates Out Going business capability. Self-contained, no shared references.
+    resources:
+    - name: certificates-out-going
+      path: /certificates-out-going
+      operations:
+      - name: amazonwebserviceslistoutgoingcertificates
+        method: GET
+        description: Amazon Web Services Listoutgoingcertificates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-certificates-out-going-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Certificates Out Going. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/certificates-out-going
+      name: certificates-out-going
+      description: REST surface for certificates-out-going.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistoutgoingcertificates
+        description: Amazon Web Services Listoutgoingcertificates
+        call: iot-certificates-out-going.amazonwebserviceslistoutgoingcertificates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-certificates-out-going-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Certificates Out Going. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listoutgoingcertificates
+      description: Amazon Web Services Listoutgoingcertificates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-certificates-out-going.amazonwebserviceslistoutgoingcertificates
+      outputParameters:
+      - type: object
+        mapping: $.

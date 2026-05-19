@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — RevokePermissions
+  description: 'Amazon Web Services lakeformation — RevokePermissions. 1 operations. Lead operation: Amazon Web Services Revokepermissions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - RevokePermissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-revokepermissions
+    baseUri: ''
+    description: Amazon Web Services lakeformation — RevokePermissions business capability. Self-contained, no shared references.
+    resources:
+    - name: RevokePermissions
+      path: /RevokePermissions
+      operations:
+      - name: amazonwebservicesrevokepermissions
+        method: POST
+        description: Amazon Web Services Revokepermissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-revokepermissions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — RevokePermissions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/revokepermissions
+      name: revokepermissions
+      description: REST surface for RevokePermissions.
+      operations:
+      - method: POST
+        name: amazonwebservicesrevokepermissions
+        description: Amazon Web Services Revokepermissions
+        call: lakeformation-revokepermissions.amazonwebservicesrevokepermissions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-revokepermissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — RevokePermissions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-revokepermissions
+      description: Amazon Web Services Revokepermissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-revokepermissions.amazonwebservicesrevokepermissions
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeartifact — Domain
+  description: 'Amazon Web Services codeartifact — Domain. 3 operations. Lead operation: Amazon Web Services Describedomain.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domain
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeartifact-domain
+    baseUri: ''
+    description: Amazon Web Services codeartifact — Domain business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-domain
+      path: /v1/domain
+      operations:
+      - name: amazonwebservicesdescribedomain
+        method: GET
+        description: Amazon Web Services Describedomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-domain-permissions-policy
+      path: /v1/domain/permissions/policy
+      operations:
+      - name: amazonwebservicesputdomainpermissionspolicy
+        method: PUT
+        description: Amazon Web Services Putdomainpermissionspolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-domain-repositories
+      path: /v1/domain/repositories
+      operations:
+      - name: amazonwebserviceslistrepositoriesindomain
+        method: POST
+        description: Amazon Web Services Listrepositoriesindomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeartifact-domain-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeartifact — Domain. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/domain
+      name: v1-domain
+      description: REST surface for v1-domain.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedomain
+        description: Amazon Web Services Describedomain
+        call: codeartifact-domain.amazonwebservicesdescribedomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/domain/permissions/policy
+      name: v1-domain-permissions-policy
+      description: REST surface for v1-domain-permissions-policy.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputdomainpermissionspolicy
+        description: Amazon Web Services Putdomainpermissionspolicy
+        call: codeartifact-domain.amazonwebservicesputdomainpermissionspolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/domain/repositories
+      name: v1-domain-repositories
+      description: REST surface for v1-domain-repositories.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistrepositoriesindomain
+        description: Amazon Web Services Listrepositoriesindomain
+        call: codeartifact-domain.amazonwebserviceslistrepositoriesindomain
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeartifact-domain-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeartifact — Domain. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describedomain
+      description: Amazon Web Services Describedomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeartifact-domain.amazonwebservicesdescribedomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putdomainpermissionspolicy
+      description: Amazon Web Services Putdomainpermissionspolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: codeartifact-domain.amazonwebservicesputdomainpermissionspolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrepositoriesindomain
+      description: Amazon Web Services Listrepositoriesindomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-domain.amazonwebserviceslistrepositoriesindomain
+      outputParameters:
+      - type: object
+        mapping: $.

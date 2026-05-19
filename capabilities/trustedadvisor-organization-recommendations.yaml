@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services trustedadvisor — Organization Recommendations
+  description: 'Amazon Web Services trustedadvisor — Organization Recommendations. 5 operations. Lead operation: Amazon Web
+    Services Listorganizationrecommendations. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Organization Recommendations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: trustedadvisor-organization-recommendations
+    baseUri: ''
+    description: Amazon Web Services trustedadvisor — Organization Recommendations business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: v1-organization-recommendations
+      path: /v1/organization-recommendations
+      operations:
+      - name: amazonwebserviceslistorganizationrecommendations
+        method: GET
+        description: Amazon Web Services Listorganizationrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-organization-recommendations-organizationRecommendationIdentifier
+      path: /v1/organization-recommendations/{organizationRecommendationIdentifier}
+      operations:
+      - name: amazonwebservicesgetorganizationrecommendation
+        method: GET
+        description: Amazon Web Services Getorganizationrecommendation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-organization-recommendations-organizationRecommendationIdentifier-accounts
+      path: /v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts
+      operations:
+      - name: amazonwebserviceslistorganizationrecommendationaccounts
+        method: GET
+        description: Amazon Web Services Listorganizationrecommendationaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-organization-recommendations-organizationRecommendationIdentifier-lifecycle
+      path: /v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle
+      operations:
+      - name: amazonwebservicesupdateorganizationrecommendationlifecycle
+        method: PUT
+        description: Amazon Web Services Updateorganizationrecommendationlifecycle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-organization-recommendations-organizationRecommendationIdentifier-resources
+      path: /v1/organization-recommendations/{organizationRecommendationIdentifier}/resources
+      operations:
+      - name: amazonwebserviceslistorganizationrecommendationresources
+        method: GET
+        description: Amazon Web Services Listorganizationrecommendationresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: trustedadvisor-organization-recommendations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services trustedadvisor — Organization Recommendations. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/organization-recommendations
+      name: v1-organization-recommendations
+      description: REST surface for v1-organization-recommendations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistorganizationrecommendations
+        description: Amazon Web Services Listorganizationrecommendations
+        call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/organization-recommendations/{organizationrecommendationidentifier}
+      name: v1-organization-recommendations-organizationrecommendationidentifier
+      description: REST surface for v1-organization-recommendations-organizationRecommendationIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetorganizationrecommendation
+        description: Amazon Web Services Getorganizationrecommendation
+        call: trustedadvisor-organization-recommendations.amazonwebservicesgetorganizationrecommendation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/organization-recommendations/{organizationrecommendationidentifier}/accounts
+      name: v1-organization-recommendations-organizationrecommendationidentifier-accounts
+      description: REST surface for v1-organization-recommendations-organizationRecommendationIdentifier-accounts.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistorganizationrecommendationaccounts
+        description: Amazon Web Services Listorganizationrecommendationaccounts
+        call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendationaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/organization-recommendations/{organizationrecommendationidentifier}/lifecycle
+      name: v1-organization-recommendations-organizationrecommendationidentifier-lifecycle
+      description: REST surface for v1-organization-recommendations-organizationRecommendationIdentifier-lifecycle.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateorganizationrecommendationlifecycle
+        description: Amazon Web Services Updateorganizationrecommendationlifecycle
+        call: trustedadvisor-organization-recommendations.amazonwebservicesupdateorganizationrecommendationlifecycle
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/organization-recommendations/{organizationrecommendationidentifier}/resources
+      name: v1-organization-recommendations-organizationrecommendationidentifier-resources
+      description: REST surface for v1-organization-recommendations-organizationRecommendationIdentifier-resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistorganizationrecommendationresources
+        description: Amazon Web Services Listorganizationrecommendationresources
+        call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendationresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: trustedadvisor-organization-recommendations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services trustedadvisor — Organization Recommendations. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listorganizationrecommendations
+      description: Amazon Web Services Listorganizationrecommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getorganizationrecommendation
+      description: Amazon Web Services Getorganizationrecommendation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-organization-recommendations.amazonwebservicesgetorganizationrecommendation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listorganizationrecommendationaccounts
+      description: Amazon Web Services Listorganizationrecommendationaccounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendationaccounts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateorganizationrecommendationlifecycle
+      description: Amazon Web Services Updateorganizationrecommendationlifecycle
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-organization-recommendations.amazonwebservicesupdateorganizationrecommendationlifecycle
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listorganizationrecommendationresources
+      description: Amazon Web Services Listorganizationrecommendationresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-organization-recommendations.amazonwebserviceslistorganizationrecommendationresources
+      outputParameters:
+      - type: object
+        mapping: $.

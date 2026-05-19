@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — DescribeResource
+  description: 'Amazon Web Services lakeformation — DescribeResource. 1 operations. Lead operation: Amazon Web Services Describeresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DescribeResource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-describeresource
+    baseUri: ''
+    description: Amazon Web Services lakeformation — DescribeResource business capability. Self-contained, no shared references.
+    resources:
+    - name: DescribeResource
+      path: /DescribeResource
+      operations:
+      - name: amazonwebservicesdescriberesource
+        method: POST
+        description: Amazon Web Services Describeresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-describeresource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — DescribeResource. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describeresource
+      name: describeresource
+      description: REST surface for DescribeResource.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescriberesource
+        description: Amazon Web Services Describeresource
+        call: lakeformation-describeresource.amazonwebservicesdescriberesource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-describeresource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — DescribeResource. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeresource
+      description: Amazon Web Services Describeresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-describeresource.amazonwebservicesdescriberesource
+      outputParameters:
+      - type: object
+        mapping: $.

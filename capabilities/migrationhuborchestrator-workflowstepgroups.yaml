@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhuborchestrator — Workflowstepgroups
+  description: 'Amazon Web Services migrationhuborchestrator — Workflowstepgroups. 1 operations. Lead operation: Amazon Web
+    Services Listworkflowstepgroups. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Workflowstepgroups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhuborchestrator-workflowstepgroups
+    baseUri: ''
+    description: Amazon Web Services migrationhuborchestrator — Workflowstepgroups business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: workflowstepgroups
+      path: /workflowstepgroups
+      operations:
+      - name: amazonwebserviceslistworkflowstepgroups
+        method: GET
+        description: Amazon Web Services Listworkflowstepgroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhuborchestrator-workflowstepgroups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhuborchestrator — Workflowstepgroups. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/workflowstepgroups
+      name: workflowstepgroups
+      description: REST surface for workflowstepgroups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistworkflowstepgroups
+        description: Amazon Web Services Listworkflowstepgroups
+        call: migrationhuborchestrator-workflowstepgroups.amazonwebserviceslistworkflowstepgroups
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhuborchestrator-workflowstepgroups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhuborchestrator — Workflowstepgroups. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkflowstepgroups
+      description: Amazon Web Services Listworkflowstepgroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhuborchestrator-workflowstepgroups.amazonwebserviceslistworkflowstepgroups
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services bedrock-agent — Knowledgebases
+  description: 'Amazon Web Services bedrock-agent — Knowledgebases. 6 operations. Lead operation: Amazon Web Services Listknowledgebases.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Knowledgebases
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bedrock-agent-knowledgebases
+    baseUri: ''
+    description: Amazon Web Services bedrock-agent — Knowledgebases business capability. Self-contained, no shared references.
+    resources:
+    - name: knowledgebases
+      path: /knowledgebases/
+      operations:
+      - name: amazonwebserviceslistknowledgebases
+        method: POST
+        description: Amazon Web Services Listknowledgebases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgebases-knowledgeBaseId
+      path: /knowledgebases/{knowledgeBaseId}
+      operations:
+      - name: amazonwebservicesupdateknowledgebase
+        method: PUT
+        description: Amazon Web Services Updateknowledgebase
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgebases-knowledgeBaseId-datasources
+      path: /knowledgebases/{knowledgeBaseId}/datasources/
+      operations:
+      - name: amazonwebserviceslistdatasources
+        method: POST
+        description: Amazon Web Services Listdatasources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgebases-knowledgeBaseId-datasources-dataSourceId
+      path: /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}
+      operations:
+      - name: amazonwebservicesupdatedatasource
+        method: PUT
+        description: Amazon Web Services Updatedatasource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgebases-knowledgeBaseId-datasources-dataSourceId-ingestionjobs
+      path: /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/
+      operations:
+      - name: amazonwebservicesstartingestionjob
+        method: PUT
+        description: Amazon Web Services Startingestionjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: knowledgebases-knowledgeBaseId-datasources-dataSourceId-ingestionjobs-ingestionJ
+      path: /knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}
+      operations:
+      - name: amazonwebservicesgetingestionjob
+        method: GET
+        description: Amazon Web Services Getingestionjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bedrock-agent-knowledgebases-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services bedrock-agent — Knowledgebases. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/knowledgebases
+      name: knowledgebases
+      description: REST surface for knowledgebases.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistknowledgebases
+        description: Amazon Web Services Listknowledgebases
+        call: bedrock-agent-knowledgebases.amazonwebserviceslistknowledgebases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}
+      name: knowledgebases-knowledgebaseid
+      description: REST surface for knowledgebases-knowledgeBaseId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateknowledgebase
+        description: Amazon Web Services Updateknowledgebase
+        call: bedrock-agent-knowledgebases.amazonwebservicesupdateknowledgebase
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/datasources
+      name: knowledgebases-knowledgebaseid-datasources
+      description: REST surface for knowledgebases-knowledgeBaseId-datasources.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdatasources
+        description: Amazon Web Services Listdatasources
+        call: bedrock-agent-knowledgebases.amazonwebserviceslistdatasources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/datasources/{datasourceid}
+      name: knowledgebases-knowledgebaseid-datasources-datasourceid
+      description: REST surface for knowledgebases-knowledgeBaseId-datasources-dataSourceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatedatasource
+        description: Amazon Web Services Updatedatasource
+        call: bedrock-agent-knowledgebases.amazonwebservicesupdatedatasource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/datasources/{datasourceid}/ingestionjobs
+      name: knowledgebases-knowledgebaseid-datasources-datasourceid-ingestionjobs
+      description: REST surface for knowledgebases-knowledgeBaseId-datasources-dataSourceId-ingestionjobs.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartingestionjob
+        description: Amazon Web Services Startingestionjob
+        call: bedrock-agent-knowledgebases.amazonwebservicesstartingestionjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/knowledgebases/{knowledgebaseid}/datasources/{datasourceid}/ingestionjobs/{ingestionjobid}
+      name: knowledgebases-knowledgebaseid-datasources-datasourceid-ingestionjobs-ingestionj
+      description: REST surface for knowledgebases-knowledgeBaseId-datasources-dataSourceId-ingestionjobs-ingestionJ.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetingestionjob
+        description: Amazon Web Services Getingestionjob
+        call: bedrock-agent-knowledgebases.amazonwebservicesgetingestionjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bedrock-agent-knowledgebases-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services bedrock-agent — Knowledgebases. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listknowledgebases
+      description: Amazon Web Services Listknowledgebases
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bedrock-agent-knowledgebases.amazonwebserviceslistknowledgebases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateknowledgebase
+      description: Amazon Web Services Updateknowledgebase
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bedrock-agent-knowledgebases.amazonwebservicesupdateknowledgebase
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdatasources
+      description: Amazon Web Services Listdatasources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bedrock-agent-knowledgebases.amazonwebserviceslistdatasources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedatasource
+      description: Amazon Web Services Updatedatasource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bedrock-agent-knowledgebases.amazonwebservicesupdatedatasource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startingestionjob
+      description: Amazon Web Services Startingestionjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bedrock-agent-knowledgebases.amazonwebservicesstartingestionjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getingestionjob
+      description: Amazon Web Services Getingestionjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bedrock-agent-knowledgebases.amazonwebservicesgetingestionjob
+      outputParameters:
+      - type: object
+        mapping: $.

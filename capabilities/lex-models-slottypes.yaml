@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lex-models — Slottypes
+  description: 'Amazon Web Services lex-models — Slottypes. 7 operations. Lead operation: Amazon Web Services Getslottypes.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Slottypes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lex-models-slottypes
+    baseUri: ''
+    description: Amazon Web Services lex-models — Slottypes business capability. Self-contained, no shared references.
+    resources:
+    - name: slottypes
+      path: /slottypes/
+      operations:
+      - name: amazonwebservicesgetslottypes
+        method: GET
+        description: Amazon Web Services Getslottypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name
+      path: /slottypes/{name}
+      operations:
+      - name: amazonwebservicesdeleteslottype
+        method: DELETE
+        description: Amazon Web Services Deleteslottype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name-version-version
+      path: /slottypes/{name}/version/{version}
+      operations:
+      - name: amazonwebservicesdeleteslottypeversion
+        method: DELETE
+        description: Amazon Web Services Deleteslottypeversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name-versions
+      path: /slottypes/{name}/versions
+      operations:
+      - name: amazonwebservicescreateslottypeversion
+        method: POST
+        description: Amazon Web Services Createslottypeversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name-versions
+      path: /slottypes/{name}/versions/
+      operations:
+      - name: amazonwebservicesgetslottypeversions
+        method: GET
+        description: Amazon Web Services Getslottypeversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name-versions-$LATEST
+      path: /slottypes/{name}/versions/$LATEST
+      operations:
+      - name: amazonwebservicesputslottype
+        method: PUT
+        description: Amazon Web Services Putslottype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: slottypes-name-versions-version
+      path: /slottypes/{name}/versions/{version}
+      operations:
+      - name: amazonwebservicesgetslottype
+        method: GET
+        description: Amazon Web Services Getslottype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lex-models-slottypes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lex-models — Slottypes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/slottypes
+      name: slottypes
+      description: REST surface for slottypes.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetslottypes
+        description: Amazon Web Services Getslottypes
+        call: lex-models-slottypes.amazonwebservicesgetslottypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}
+      name: slottypes-name
+      description: REST surface for slottypes-name.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteslottype
+        description: Amazon Web Services Deleteslottype
+        call: lex-models-slottypes.amazonwebservicesdeleteslottype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}/version/{version}
+      name: slottypes-name-version-version
+      description: REST surface for slottypes-name-version-version.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteslottypeversion
+        description: Amazon Web Services Deleteslottypeversion
+        call: lex-models-slottypes.amazonwebservicesdeleteslottypeversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}/versions
+      name: slottypes-name-versions
+      description: REST surface for slottypes-name-versions.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateslottypeversion
+        description: Amazon Web Services Createslottypeversion
+        call: lex-models-slottypes.amazonwebservicescreateslottypeversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}/versions
+      name: slottypes-name-versions
+      description: REST surface for slottypes-name-versions.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetslottypeversions
+        description: Amazon Web Services Getslottypeversions
+        call: lex-models-slottypes.amazonwebservicesgetslottypeversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}/versions/latest
+      name: slottypes-name-versions-latest
+      description: REST surface for slottypes-name-versions-$LATEST.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputslottype
+        description: Amazon Web Services Putslottype
+        call: lex-models-slottypes.amazonwebservicesputslottype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/slottypes/{name}/versions/{version}
+      name: slottypes-name-versions-version
+      description: REST surface for slottypes-name-versions-version.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetslottype
+        description: Amazon Web Services Getslottype
+        call: lex-models-slottypes.amazonwebservicesgetslottype
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lex-models-slottypes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lex-models — Slottypes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getslottypes
+      description: Amazon Web Services Getslottypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesgetslottypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteslottype
+      description: Amazon Web Services Deleteslottype
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesdeleteslottype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteslottypeversion
+      description: Amazon Web Services Deleteslottypeversion
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesdeleteslottypeversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createslottypeversion
+      description: Amazon Web Services Createslottypeversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lex-models-slottypes.amazonwebservicescreateslottypeversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getslottypeversions
+      description: Amazon Web Services Getslottypeversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesgetslottypeversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putslottype
+      description: Amazon Web Services Putslottype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesputslottype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getslottype
+      description: Amazon Web Services Getslottype
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-slottypes.amazonwebservicesgetslottype
+      outputParameters:
+      - type: object
+        mapping: $.

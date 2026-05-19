@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services route53-recovery-control-config — Routingcontrol
+  description: 'Amazon Web Services route53-recovery-control-config — Routingcontrol. 3 operations. Lead operation: Amazon
+    Web Services Updateroutingcontrol. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Routingcontrol
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: route53-recovery-control-config-routingcontrol
+    baseUri: ''
+    description: Amazon Web Services route53-recovery-control-config — Routingcontrol business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: routingcontrol
+      path: /routingcontrol
+      operations:
+      - name: amazonwebservicesupdateroutingcontrol
+        method: PUT
+        description: Amazon Web Services Updateroutingcontrol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routingcontrol-RoutingControlArn
+      path: /routingcontrol/{RoutingControlArn}
+      operations:
+      - name: amazonwebservicesdescriberoutingcontrol
+        method: GET
+        description: Amazon Web Services Describeroutingcontrol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routingcontrol-RoutingControlArn-associatedRoute53HealthChecks
+      path: /routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks
+      operations:
+      - name: amazonwebserviceslistassociatedroute53healthchecks
+        method: GET
+        description: Amazon Web Services Listassociatedroute53healthchecks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: route53-recovery-control-config-routingcontrol-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services route53-recovery-control-config — Routingcontrol. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/routingcontrol
+      name: routingcontrol
+      description: REST surface for routingcontrol.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateroutingcontrol
+        description: Amazon Web Services Updateroutingcontrol
+        call: route53-recovery-control-config-routingcontrol.amazonwebservicesupdateroutingcontrol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routingcontrol/{routingcontrolarn}
+      name: routingcontrol-routingcontrolarn
+      description: REST surface for routingcontrol-RoutingControlArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescriberoutingcontrol
+        description: Amazon Web Services Describeroutingcontrol
+        call: route53-recovery-control-config-routingcontrol.amazonwebservicesdescriberoutingcontrol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routingcontrol/{routingcontrolarn}/associatedroute53healthchecks
+      name: routingcontrol-routingcontrolarn-associatedroute53healthchecks
+      description: REST surface for routingcontrol-RoutingControlArn-associatedRoute53HealthChecks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassociatedroute53healthchecks
+        description: Amazon Web Services Listassociatedroute53healthchecks
+        call: route53-recovery-control-config-routingcontrol.amazonwebserviceslistassociatedroute53healthchecks
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: route53-recovery-control-config-routingcontrol-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services route53-recovery-control-config — Routingcontrol. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateroutingcontrol
+      description: Amazon Web Services Updateroutingcontrol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-routingcontrol.amazonwebservicesupdateroutingcontrol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeroutingcontrol
+      description: Amazon Web Services Describeroutingcontrol
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-routingcontrol.amazonwebservicesdescriberoutingcontrol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listassociatedroute53healthchecks
+      description: Amazon Web Services Listassociatedroute53healthchecks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-control-config-routingcontrol.amazonwebserviceslistassociatedroute53healthchecks
+      outputParameters:
+      - type: object
+        mapping: $.

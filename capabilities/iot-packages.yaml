@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Packages
+  description: 'Amazon Web Services iot — Packages. 4 operations. Lead operation: Amazon Web Services Listpackages. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Packages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-packages
+    baseUri: ''
+    description: Amazon Web Services iot — Packages business capability. Self-contained, no shared references.
+    resources:
+    - name: packages
+      path: /packages
+      operations:
+      - name: amazonwebserviceslistpackages
+        method: GET
+        description: Amazon Web Services Listpackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-packageName
+      path: /packages/{packageName}
+      operations:
+      - name: amazonwebservicesupdatepackage
+        method: PATCH
+        description: Amazon Web Services Updatepackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-packageName-versions
+      path: /packages/{packageName}/versions
+      operations:
+      - name: amazonwebserviceslistpackageversions
+        method: GET
+        description: Amazon Web Services Listpackageversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: packages-packageName-versions-versionName
+      path: /packages/{packageName}/versions/{versionName}
+      operations:
+      - name: amazonwebservicesupdatepackageversion
+        method: PATCH
+        description: Amazon Web Services Updatepackageversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-packages-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Packages. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/packages
+      name: packages
+      description: REST surface for packages.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpackages
+        description: Amazon Web Services Listpackages
+        call: iot-packages.amazonwebserviceslistpackages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/packages/{packagename}
+      name: packages-packagename
+      description: REST surface for packages-packageName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatepackage
+        description: Amazon Web Services Updatepackage
+        call: iot-packages.amazonwebservicesupdatepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/packages/{packagename}/versions
+      name: packages-packagename-versions
+      description: REST surface for packages-packageName-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpackageversions
+        description: Amazon Web Services Listpackageversions
+        call: iot-packages.amazonwebserviceslistpackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/packages/{packagename}/versions/{versionname}
+      name: packages-packagename-versions-versionname
+      description: REST surface for packages-packageName-versions-versionName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatepackageversion
+        description: Amazon Web Services Updatepackageversion
+        call: iot-packages.amazonwebservicesupdatepackageversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-packages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Packages. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpackages
+      description: Amazon Web Services Listpackages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-packages.amazonwebserviceslistpackages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepackage
+      description: Amazon Web Services Updatepackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-packages.amazonwebservicesupdatepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpackageversions
+      description: Amazon Web Services Listpackageversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-packages.amazonwebserviceslistpackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepackageversion
+      description: Amazon Web Services Updatepackageversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-packages.amazonwebservicesupdatepackageversion
+      outputParameters:
+      - type: object
+        mapping: $.

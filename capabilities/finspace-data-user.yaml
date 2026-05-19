@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services finspace-data — User
+  description: 'Amazon Web Services finspace-data — User. 6 operations. Lead operation: Amazon Web Services Listusers. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - User
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finspace-data-user
+    baseUri: ''
+    description: Amazon Web Services finspace-data — User business capability. Self-contained, no shared references.
+    resources:
+    - name: user
+      path: /user
+      operations:
+      - name: amazonwebserviceslistusers
+        method: GET
+        description: Amazon Web Services Listusers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-userId
+      path: /user/{userId}
+      operations:
+      - name: amazonwebservicesupdateuser
+        method: PUT
+        description: Amazon Web Services Updateuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-userId-disable
+      path: /user/{userId}/disable
+      operations:
+      - name: amazonwebservicesdisableuser
+        method: POST
+        description: Amazon Web Services Disableuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-userId-enable
+      path: /user/{userId}/enable
+      operations:
+      - name: amazonwebservicesenableuser
+        method: POST
+        description: Amazon Web Services Enableuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-userId-password
+      path: /user/{userId}/password
+      operations:
+      - name: amazonwebservicesresetuserpassword
+        method: POST
+        description: Amazon Web Services Resetuserpassword
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-userId-permission-groups
+      path: /user/{userId}/permission-groups
+      operations:
+      - name: amazonwebserviceslistpermissiongroupsbyuser
+        method: GET
+        description: Amazon Web Services Listpermissiongroupsbyuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: finspace-data-user-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services finspace-data — User. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/user
+      name: user
+      description: REST surface for user.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistusers
+        description: Amazon Web Services Listusers
+        call: finspace-data-user.amazonwebserviceslistusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{userid}
+      name: user-userid
+      description: REST surface for user-userId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateuser
+        description: Amazon Web Services Updateuser
+        call: finspace-data-user.amazonwebservicesupdateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{userid}/disable
+      name: user-userid-disable
+      description: REST surface for user-userId-disable.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisableuser
+        description: Amazon Web Services Disableuser
+        call: finspace-data-user.amazonwebservicesdisableuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{userid}/enable
+      name: user-userid-enable
+      description: REST surface for user-userId-enable.
+      operations:
+      - method: POST
+        name: amazonwebservicesenableuser
+        description: Amazon Web Services Enableuser
+        call: finspace-data-user.amazonwebservicesenableuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{userid}/password
+      name: user-userid-password
+      description: REST surface for user-userId-password.
+      operations:
+      - method: POST
+        name: amazonwebservicesresetuserpassword
+        description: Amazon Web Services Resetuserpassword
+        call: finspace-data-user.amazonwebservicesresetuserpassword
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{userid}/permission-groups
+      name: user-userid-permission-groups
+      description: REST surface for user-userId-permission-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpermissiongroupsbyuser
+        description: Amazon Web Services Listpermissiongroupsbyuser
+        call: finspace-data-user.amazonwebserviceslistpermissiongroupsbyuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finspace-data-user-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services finspace-data — User. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listusers
+      description: Amazon Web Services Listusers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-data-user.amazonwebserviceslistusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateuser
+      description: Amazon Web Services Updateuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-data-user.amazonwebservicesupdateuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disableuser
+      description: Amazon Web Services Disableuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finspace-data-user.amazonwebservicesdisableuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-enableuser
+      description: Amazon Web Services Enableuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finspace-data-user.amazonwebservicesenableuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-resetuserpassword
+      description: Amazon Web Services Resetuserpassword
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finspace-data-user.amazonwebservicesresetuserpassword
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpermissiongroupsbyuser
+      description: Amazon Web Services Listpermissiongroupsbyuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-data-user.amazonwebserviceslistpermissiongroupsbyuser
+      outputParameters:
+      - type: object
+        mapping: $.

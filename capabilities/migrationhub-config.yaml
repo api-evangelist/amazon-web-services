@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhub-config
+  description: 'Amazon Web Services migrationhub-config. 1 operations. Lead operation: Amazon Web Services Gethomeregion.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services migrationhub-config
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhub-config
+    baseUri: ''
+    description: Amazon Web Services migrationhub-config business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesgethomeregion
+        method: POST
+        description: Amazon Web Services Gethomeregion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhub-config-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhub-config. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesgethomeregion
+        description: Amazon Web Services Gethomeregion
+        call: migrationhub-config.amazonwebservicesgethomeregion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhub-config-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhub-config. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-gethomeregion
+      description: Amazon Web Services Gethomeregion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: migrationhub-config.amazonwebservicesgethomeregion
+      outputParameters:
+      - type: object
+        mapping: $.

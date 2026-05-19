@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services models.lex.v2 — Imports
+  description: 'Amazon Web Services models.lex.v2 — Imports. 2 operations. Lead operation: Amazon Web Services Startimport.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Imports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: modelslexv2-imports
+    baseUri: ''
+    description: Amazon Web Services models.lex.v2 — Imports business capability. Self-contained, no shared references.
+    resources:
+    - name: imports
+      path: /imports/
+      operations:
+      - name: amazonwebservicesstartimport
+        method: PUT
+        description: Amazon Web Services Startimport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: imports-importId
+      path: /imports/{importId}/
+      operations:
+      - name: amazonwebservicesdescribeimport
+        method: GET
+        description: Amazon Web Services Describeimport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: modelslexv2-imports-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services models.lex.v2 — Imports. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/imports
+      name: imports
+      description: REST surface for imports.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartimport
+        description: Amazon Web Services Startimport
+        call: modelslexv2-imports.amazonwebservicesstartimport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/imports/{importid}
+      name: imports-importid
+      description: REST surface for imports-importId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeimport
+        description: Amazon Web Services Describeimport
+        call: modelslexv2-imports.amazonwebservicesdescribeimport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: modelslexv2-imports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services models.lex.v2 — Imports. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startimport
+      description: Amazon Web Services Startimport
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: modelslexv2-imports.amazonwebservicesstartimport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeimport
+      description: Amazon Web Services Describeimport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: modelslexv2-imports.amazonwebservicesdescribeimport
+      outputParameters:
+      - type: object
+        mapping: $.

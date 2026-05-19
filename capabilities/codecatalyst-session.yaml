@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codecatalyst — Session
+  description: 'Amazon Web Services codecatalyst — Session. 1 operations. Lead operation: Amazon Web Services Verifysession.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Session
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codecatalyst-session
+    baseUri: ''
+    description: Amazon Web Services codecatalyst — Session business capability. Self-contained, no shared references.
+    resources:
+    - name: session
+      path: /session
+      operations:
+      - name: amazonwebservicesverifysession
+        method: GET
+        description: Amazon Web Services Verifysession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codecatalyst-session-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codecatalyst — Session. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/session
+      name: session
+      description: REST surface for session.
+      operations:
+      - method: GET
+        name: amazonwebservicesverifysession
+        description: Amazon Web Services Verifysession
+        call: codecatalyst-session.amazonwebservicesverifysession
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codecatalyst-session-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codecatalyst — Session. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-verifysession
+      description: Amazon Web Services Verifysession
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codecatalyst-session.amazonwebservicesverifysession
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — FlushCache
+  description: 'Amazon Web Services appsync — FlushCache. 1 operations. Lead operation: Amazon Web Services Flushapicache.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - FlushCache
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-flushcache
+    baseUri: ''
+    description: Amazon Web Services appsync — FlushCache business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-FlushCache
+      path: /v1/apis/{apiId}/FlushCache
+      operations:
+      - name: amazonwebservicesflushapicache
+        method: DELETE
+        description: Amazon Web Services Flushapicache
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-flushcache-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — FlushCache. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/flushcache
+      name: v1-apis-apiid-flushcache
+      description: REST surface for v1-apis-apiId-FlushCache.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesflushapicache
+        description: Amazon Web Services Flushapicache
+        call: appsync-flushcache.amazonwebservicesflushapicache
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-flushcache-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — FlushCache. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-flushapicache
+      description: Amazon Web Services Flushapicache
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: appsync-flushcache.amazonwebservicesflushapicache
+      outputParameters:
+      - type: object
+        mapping: $.

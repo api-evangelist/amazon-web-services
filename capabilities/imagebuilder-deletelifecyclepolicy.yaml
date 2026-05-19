@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — DeleteLifecyclePolicy
+  description: 'Amazon Web Services imagebuilder — DeleteLifecyclePolicy. 1 operations. Lead operation: Amazon Web Services
+    Deletelifecyclepolicy. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteLifecyclePolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-deletelifecyclepolicy
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — DeleteLifecyclePolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteLifecyclePolicy
+      path: /DeleteLifecyclePolicy
+      operations:
+      - name: amazonwebservicesdeletelifecyclepolicy
+        method: DELETE
+        description: Amazon Web Services Deletelifecyclepolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-deletelifecyclepolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — DeleteLifecyclePolicy. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletelifecyclepolicy
+      name: deletelifecyclepolicy
+      description: REST surface for DeleteLifecyclePolicy.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletelifecyclepolicy
+        description: Amazon Web Services Deletelifecyclepolicy
+        call: imagebuilder-deletelifecyclepolicy.amazonwebservicesdeletelifecyclepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-deletelifecyclepolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — DeleteLifecyclePolicy. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletelifecyclepolicy
+      description: Amazon Web Services Deletelifecyclepolicy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: imagebuilder-deletelifecyclepolicy.amazonwebservicesdeletelifecyclepolicy
+      outputParameters:
+      - type: object
+        mapping: $.

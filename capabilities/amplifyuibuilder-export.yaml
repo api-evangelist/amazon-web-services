@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services amplifyuibuilder — Export
+  description: 'Amazon Web Services amplifyuibuilder — Export. 3 operations. Lead operation: Amazon Web Services Exportcomponents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Export
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amplifyuibuilder-export
+    baseUri: ''
+    description: Amazon Web Services amplifyuibuilder — Export business capability. Self-contained, no shared references.
+    resources:
+    - name: export-app-appId-environment-environmentName-components
+      path: /export/app/{appId}/environment/{environmentName}/components
+      operations:
+      - name: amazonwebservicesexportcomponents
+        method: GET
+        description: Amazon Web Services Exportcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: export-app-appId-environment-environmentName-forms
+      path: /export/app/{appId}/environment/{environmentName}/forms
+      operations:
+      - name: amazonwebservicesexportforms
+        method: GET
+        description: Amazon Web Services Exportforms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: export-app-appId-environment-environmentName-themes
+      path: /export/app/{appId}/environment/{environmentName}/themes
+      operations:
+      - name: amazonwebservicesexportthemes
+        method: GET
+        description: Amazon Web Services Exportthemes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: amplifyuibuilder-export-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services amplifyuibuilder — Export. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/export/app/{appid}/environment/{environmentname}/components
+      name: export-app-appid-environment-environmentname-components
+      description: REST surface for export-app-appId-environment-environmentName-components.
+      operations:
+      - method: GET
+        name: amazonwebservicesexportcomponents
+        description: Amazon Web Services Exportcomponents
+        call: amplifyuibuilder-export.amazonwebservicesexportcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/export/app/{appid}/environment/{environmentname}/forms
+      name: export-app-appid-environment-environmentname-forms
+      description: REST surface for export-app-appId-environment-environmentName-forms.
+      operations:
+      - method: GET
+        name: amazonwebservicesexportforms
+        description: Amazon Web Services Exportforms
+        call: amplifyuibuilder-export.amazonwebservicesexportforms
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/export/app/{appid}/environment/{environmentname}/themes
+      name: export-app-appid-environment-environmentname-themes
+      description: REST surface for export-app-appId-environment-environmentName-themes.
+      operations:
+      - method: GET
+        name: amazonwebservicesexportthemes
+        description: Amazon Web Services Exportthemes
+        call: amplifyuibuilder-export.amazonwebservicesexportthemes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amplifyuibuilder-export-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services amplifyuibuilder — Export. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-exportcomponents
+      description: Amazon Web Services Exportcomponents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-export.amazonwebservicesexportcomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-exportforms
+      description: Amazon Web Services Exportforms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-export.amazonwebservicesexportforms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-exportthemes
+      description: Amazon Web Services Exportthemes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-export.amazonwebservicesexportthemes
+      outputParameters:
+      - type: object
+        mapping: $.

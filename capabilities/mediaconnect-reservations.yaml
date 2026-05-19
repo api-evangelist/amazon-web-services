@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediaconnect — Reservations
+  description: 'Amazon Web Services mediaconnect — Reservations. 2 operations. Lead operation: Amazon Web Services Listreservations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Reservations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediaconnect-reservations
+    baseUri: ''
+    description: Amazon Web Services mediaconnect — Reservations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-reservations
+      path: /v1/reservations
+      operations:
+      - name: amazonwebserviceslistreservations
+        method: GET
+        description: Amazon Web Services Listreservations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-reservations-reservationArn
+      path: /v1/reservations/{reservationArn}
+      operations:
+      - name: amazonwebservicesdescribereservation
+        method: GET
+        description: Amazon Web Services Describereservation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediaconnect-reservations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediaconnect — Reservations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/reservations
+      name: v1-reservations
+      description: REST surface for v1-reservations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistreservations
+        description: Amazon Web Services Listreservations
+        call: mediaconnect-reservations.amazonwebserviceslistreservations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/reservations/{reservationarn}
+      name: v1-reservations-reservationarn
+      description: REST surface for v1-reservations-reservationArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribereservation
+        description: Amazon Web Services Describereservation
+        call: mediaconnect-reservations.amazonwebservicesdescribereservation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediaconnect-reservations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediaconnect — Reservations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listreservations
+      description: Amazon Web Services Listreservations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-reservations.amazonwebserviceslistreservations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describereservation
+      description: Amazon Web Services Describereservation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-reservations.amazonwebservicesdescribereservation
+      outputParameters:
+      - type: object
+        mapping: $.

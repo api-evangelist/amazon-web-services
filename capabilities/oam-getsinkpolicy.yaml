@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services oam — GetSinkPolicy
+  description: 'Amazon Web Services oam — GetSinkPolicy. 1 operations. Lead operation: Amazon Web Services Getsinkpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetSinkPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: oam-getsinkpolicy
+    baseUri: ''
+    description: Amazon Web Services oam — GetSinkPolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: GetSinkPolicy
+      path: /GetSinkPolicy
+      operations:
+      - name: amazonwebservicesgetsinkpolicy
+        method: POST
+        description: Amazon Web Services Getsinkpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: oam-getsinkpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services oam — GetSinkPolicy. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getsinkpolicy
+      name: getsinkpolicy
+      description: REST surface for GetSinkPolicy.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetsinkpolicy
+        description: Amazon Web Services Getsinkpolicy
+        call: oam-getsinkpolicy.amazonwebservicesgetsinkpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: oam-getsinkpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services oam — GetSinkPolicy. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getsinkpolicy
+      description: Amazon Web Services Getsinkpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: oam-getsinkpolicy.amazonwebservicesgetsinkpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

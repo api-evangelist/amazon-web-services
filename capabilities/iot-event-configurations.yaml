@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Event Configurations
+  description: 'Amazon Web Services iot — Event Configurations. 1 operations. Lead operation: Amazon Web Services Updateeventconfigurations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Event Configurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-event-configurations
+    baseUri: ''
+    description: Amazon Web Services iot — Event Configurations business capability. Self-contained, no shared references.
+    resources:
+    - name: event-configurations
+      path: /event-configurations
+      operations:
+      - name: amazonwebservicesupdateeventconfigurations
+        method: PATCH
+        description: Amazon Web Services Updateeventconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-event-configurations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Event Configurations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/event-configurations
+      name: event-configurations
+      description: REST surface for event-configurations.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateeventconfigurations
+        description: Amazon Web Services Updateeventconfigurations
+        call: iot-event-configurations.amazonwebservicesupdateeventconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-event-configurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Event Configurations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateeventconfigurations
+      description: Amazon Web Services Updateeventconfigurations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-event-configurations.amazonwebservicesupdateeventconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.

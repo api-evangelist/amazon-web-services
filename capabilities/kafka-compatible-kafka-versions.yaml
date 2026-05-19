@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kafka — Compatible Kafka Versions
+  description: 'Amazon Web Services kafka — Compatible Kafka Versions. 1 operations. Lead operation: Amazon Web Services Getcompatiblekafkaversions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Compatible Kafka Versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kafka-compatible-kafka-versions
+    baseUri: ''
+    description: Amazon Web Services kafka — Compatible Kafka Versions business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-compatible-kafka-versions
+      path: /v1/compatible-kafka-versions
+      operations:
+      - name: amazonwebservicesgetcompatiblekafkaversions
+        method: GET
+        description: Amazon Web Services Getcompatiblekafkaversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kafka-compatible-kafka-versions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kafka — Compatible Kafka Versions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/compatible-kafka-versions
+      name: v1-compatible-kafka-versions
+      description: REST surface for v1-compatible-kafka-versions.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcompatiblekafkaversions
+        description: Amazon Web Services Getcompatiblekafkaversions
+        call: kafka-compatible-kafka-versions.amazonwebservicesgetcompatiblekafkaversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kafka-compatible-kafka-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kafka — Compatible Kafka Versions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getcompatiblekafkaversions
+      description: Amazon Web Services Getcompatiblekafkaversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafka-compatible-kafka-versions.amazonwebservicesgetcompatiblekafkaversions
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ram — Listreplacepermissionassociationswork
+  description: 'Amazon Web Services ram — Listreplacepermissionassociationswork. 1 operations. Lead operation: Amazon Web
+    Services Listreplacepermissionassociationswork. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Listreplacepermissionassociationswork
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ram-listreplacepermissionassociationswork
+    baseUri: ''
+    description: Amazon Web Services ram — Listreplacepermissionassociationswork business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: listreplacepermissionassociationswork
+      path: /listreplacepermissionassociationswork
+      operations:
+      - name: amazonwebserviceslistreplacepermissionassociationswork
+        method: POST
+        description: Amazon Web Services Listreplacepermissionassociationswork
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ram-listreplacepermissionassociationswork-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ram — Listreplacepermissionassociationswork. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listreplacepermissionassociationswork
+      name: listreplacepermissionassociationswork
+      description: REST surface for listreplacepermissionassociationswork.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreplacepermissionassociationswork
+        description: Amazon Web Services Listreplacepermissionassociationswork
+        call: ram-listreplacepermissionassociationswork.amazonwebserviceslistreplacepermissionassociationswork
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ram-listreplacepermissionassociationswork-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ram — Listreplacepermissionassociationswork. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listreplacepermissionassociationswork
+      description: Amazon Web Services Listreplacepermissionassociationswork
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ram-listreplacepermissionassociationswork.amazonwebserviceslistreplacepermissionassociationswork
+      outputParameters:
+      - type: object
+        mapping: $.

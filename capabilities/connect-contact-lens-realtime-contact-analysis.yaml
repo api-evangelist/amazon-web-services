@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect-contact-lens — Realtime Contact Analysis
+  description: 'Amazon Web Services connect-contact-lens — Realtime Contact Analysis. 1 operations. Lead operation: Amazon
+    Web Services Listrealtimecontactanalysissegments. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Realtime Contact Analysis
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-contact-lens-realtime-contact-analysis
+    baseUri: ''
+    description: Amazon Web Services connect-contact-lens — Realtime Contact Analysis business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: realtime-contact-analysis-analysis-segments
+      path: /realtime-contact-analysis/analysis-segments
+      operations:
+      - name: amazonwebserviceslistrealtimecontactanalysissegments
+        method: POST
+        description: Amazon Web Services Listrealtimecontactanalysissegments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-contact-lens-realtime-contact-analysis-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect-contact-lens — Realtime Contact Analysis. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/realtime-contact-analysis/analysis-segments
+      name: realtime-contact-analysis-analysis-segments
+      description: REST surface for realtime-contact-analysis-analysis-segments.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistrealtimecontactanalysissegments
+        description: Amazon Web Services Listrealtimecontactanalysissegments
+        call: connect-contact-lens-realtime-contact-analysis.amazonwebserviceslistrealtimecontactanalysissegments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-contact-lens-realtime-contact-analysis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect-contact-lens — Realtime Contact Analysis. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrealtimecontactanalysissegments
+      description: Amazon Web Services Listrealtimecontactanalysissegments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-lens-realtime-contact-analysis.amazonwebserviceslistrealtimecontactanalysissegments
+      outputParameters:
+      - type: object
+        mapping: $.

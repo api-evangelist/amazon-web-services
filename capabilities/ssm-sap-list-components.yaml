@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-sap — List Components
+  description: 'Amazon Web Services ssm-sap — List Components. 1 operations. Lead operation: Amazon Web Services Listcomponents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Components
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-sap-list-components
+    baseUri: ''
+    description: Amazon Web Services ssm-sap — List Components business capability. Self-contained, no shared references.
+    resources:
+    - name: list-components
+      path: /list-components
+      operations:
+      - name: amazonwebserviceslistcomponents
+        method: POST
+        description: Amazon Web Services Listcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-sap-list-components-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-sap — List Components. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-components
+      name: list-components
+      description: REST surface for list-components.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcomponents
+        description: Amazon Web Services Listcomponents
+        call: ssm-sap-list-components.amazonwebserviceslistcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-sap-list-components-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-sap — List Components. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcomponents
+      description: Amazon Web Services Listcomponents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-sap-list-components.amazonwebserviceslistcomponents
+      outputParameters:
+      - type: object
+        mapping: $.

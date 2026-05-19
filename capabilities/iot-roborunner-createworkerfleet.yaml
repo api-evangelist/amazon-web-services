@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot-roborunner — createWorkerFleet
+  description: 'Amazon Web Services iot-roborunner — createWorkerFleet. 1 operations. Lead operation: Amazon Web Services
+    Createworkerfleet. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - createWorkerFleet
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-roborunner-createworkerfleet
+    baseUri: ''
+    description: Amazon Web Services iot-roborunner — createWorkerFleet business capability. Self-contained, no shared references.
+    resources:
+    - name: createWorkerFleet
+      path: /createWorkerFleet
+      operations:
+      - name: amazonwebservicescreateworkerfleet
+        method: POST
+        description: Amazon Web Services Createworkerfleet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-roborunner-createworkerfleet-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot-roborunner — createWorkerFleet. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createworkerfleet
+      name: createworkerfleet
+      description: REST surface for createWorkerFleet.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateworkerfleet
+        description: Amazon Web Services Createworkerfleet
+        call: iot-roborunner-createworkerfleet.amazonwebservicescreateworkerfleet
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-roborunner-createworkerfleet-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot-roborunner — createWorkerFleet. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createworkerfleet
+      description: Amazon Web Services Createworkerfleet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-roborunner-createworkerfleet.amazonwebservicescreateworkerfleet
+      outputParameters:
+      - type: object
+        mapping: $.

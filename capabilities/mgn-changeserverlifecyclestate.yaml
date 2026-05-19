@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ChangeServerLifeCycleState
+  description: 'Amazon Web Services mgn — ChangeServerLifeCycleState. 1 operations. Lead operation: Amazon Web Services Changeserverlifecyclestate.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ChangeServerLifeCycleState
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-changeserverlifecyclestate
+    baseUri: ''
+    description: Amazon Web Services mgn — ChangeServerLifeCycleState business capability. Self-contained, no shared references.
+    resources:
+    - name: ChangeServerLifeCycleState
+      path: /ChangeServerLifeCycleState
+      operations:
+      - name: amazonwebserviceschangeserverlifecyclestate
+        method: POST
+        description: Amazon Web Services Changeserverlifecyclestate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-changeserverlifecyclestate-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ChangeServerLifeCycleState. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/changeserverlifecyclestate
+      name: changeserverlifecyclestate
+      description: REST surface for ChangeServerLifeCycleState.
+      operations:
+      - method: POST
+        name: amazonwebserviceschangeserverlifecyclestate
+        description: Amazon Web Services Changeserverlifecyclestate
+        call: mgn-changeserverlifecyclestate.amazonwebserviceschangeserverlifecyclestate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-changeserverlifecyclestate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ChangeServerLifeCycleState. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-changeserverlifecyclestate
+      description: Amazon Web Services Changeserverlifecyclestate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-changeserverlifecyclestate.amazonwebserviceschangeserverlifecyclestate
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ListWaves
+  description: 'Amazon Web Services mgn — ListWaves. 1 operations. Lead operation: Amazon Web Services Listwaves. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListWaves
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-listwaves
+    baseUri: ''
+    description: Amazon Web Services mgn — ListWaves business capability. Self-contained, no shared references.
+    resources:
+    - name: ListWaves
+      path: /ListWaves
+      operations:
+      - name: amazonwebserviceslistwaves
+        method: POST
+        description: Amazon Web Services Listwaves
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-listwaves-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ListWaves. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listwaves
+      name: listwaves
+      description: REST surface for ListWaves.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistwaves
+        description: Amazon Web Services Listwaves
+        call: mgn-listwaves.amazonwebserviceslistwaves
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-listwaves-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ListWaves. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listwaves
+      description: Amazon Web Services Listwaves
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-listwaves.amazonwebserviceslistwaves
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListImageScanFindingAggregations
+  description: 'Amazon Web Services imagebuilder — ListImageScanFindingAggregations. 1 operations. Lead operation: Amazon
+    Web Services Listimagescanfindingaggregations. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - ListImageScanFindingAggregations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listimagescanfindingaggregations
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListImageScanFindingAggregations business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: ListImageScanFindingAggregations
+      path: /ListImageScanFindingAggregations
+      operations:
+      - name: amazonwebserviceslistimagescanfindingaggregations
+        method: POST
+        description: Amazon Web Services Listimagescanfindingaggregations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listimagescanfindingaggregations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListImageScanFindingAggregations. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listimagescanfindingaggregations
+      name: listimagescanfindingaggregations
+      description: REST surface for ListImageScanFindingAggregations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimagescanfindingaggregations
+        description: Amazon Web Services Listimagescanfindingaggregations
+        call: imagebuilder-listimagescanfindingaggregations.amazonwebserviceslistimagescanfindingaggregations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listimagescanfindingaggregations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListImageScanFindingAggregations. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimagescanfindingaggregations
+      description: Amazon Web Services Listimagescanfindingaggregations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listimagescanfindingaggregations.amazonwebserviceslistimagescanfindingaggregations
+      outputParameters:
+      - type: object
+        mapping: $.

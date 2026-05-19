@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cloudformation
+  description: 'Amazon Web Services cloudformation. 1 operations. Lead operation: Amazon Web Services Validatetemplate. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services cloudformation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloudformation
+    baseUri: ''
+    description: Amazon Web Services cloudformation business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesvalidatetemplate
+        method: POST
+        description: Amazon Web Services Validatetemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cloudformation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cloudformation. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidatetemplate
+        description: Amazon Web Services Validatetemplate
+        call: cloudformation.amazonwebservicesvalidatetemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloudformation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cloudformation. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-validatetemplate
+      description: Amazon Web Services Validatetemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cloudformation.amazonwebservicesvalidatetemplate
+      outputParameters:
+      - type: object
+        mapping: $.

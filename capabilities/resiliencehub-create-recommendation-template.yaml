@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Create Recommendation Template
+  description: 'Amazon Web Services resiliencehub — Create Recommendation Template. 1 operations. Lead operation: Amazon Web
+    Services Createrecommendationtemplate. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Create Recommendation Template
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-create-recommendation-template
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Create Recommendation Template business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: create-recommendation-template
+      path: /create-recommendation-template
+      operations:
+      - name: amazonwebservicescreaterecommendationtemplate
+        method: POST
+        description: Amazon Web Services Createrecommendationtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-create-recommendation-template-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Create Recommendation Template. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/create-recommendation-template
+      name: create-recommendation-template
+      description: REST surface for create-recommendation-template.
+      operations:
+      - method: POST
+        name: amazonwebservicescreaterecommendationtemplate
+        description: Amazon Web Services Createrecommendationtemplate
+        call: resiliencehub-create-recommendation-template.amazonwebservicescreaterecommendationtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-create-recommendation-template-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Create Recommendation Template. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createrecommendationtemplate
+      description: Amazon Web Services Createrecommendationtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-create-recommendation-template.amazonwebservicescreaterecommendationtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

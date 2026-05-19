@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Violations
+  description: 'Amazon Web Services iot — Violations. 1 operations. Lead operation: Amazon Web Services Putverificationstateonviolation.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Violations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-violations
+    baseUri: ''
+    description: Amazon Web Services iot — Violations business capability. Self-contained, no shared references.
+    resources:
+    - name: violations-verification-state-violationId
+      path: /violations/verification-state/{violationId}
+      operations:
+      - name: amazonwebservicesputverificationstateonviolation
+        method: POST
+        description: Amazon Web Services Putverificationstateonviolation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-violations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Violations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/violations/verification-state/{violationid}
+      name: violations-verification-state-violationid
+      description: REST surface for violations-verification-state-violationId.
+      operations:
+      - method: POST
+        name: amazonwebservicesputverificationstateonviolation
+        description: Amazon Web Services Putverificationstateonviolation
+        call: iot-violations.amazonwebservicesputverificationstateonviolation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-violations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Violations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putverificationstateonviolation
+      description: Amazon Web Services Putverificationstateonviolation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-violations.amazonwebservicesputverificationstateonviolation
+      outputParameters:
+      - type: object
+        mapping: $.

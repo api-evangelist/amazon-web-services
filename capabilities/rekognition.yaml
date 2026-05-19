@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rekognition
+  description: 'Amazon Web Services rekognition. 1 operations. Lead operation: Amazon Web Services Updatestreamprocessor.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services rekognition
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rekognition
+    baseUri: ''
+    description: Amazon Web Services rekognition business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatestreamprocessor
+        method: POST
+        description: Amazon Web Services Updatestreamprocessor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rekognition-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rekognition. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatestreamprocessor
+        description: Amazon Web Services Updatestreamprocessor
+        call: rekognition.amazonwebservicesupdatestreamprocessor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rekognition-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rekognition. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatestreamprocessor
+      description: Amazon Web Services Updatestreamprocessor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rekognition.amazonwebservicesupdatestreamprocessor
+      outputParameters:
+      - type: object
+        mapping: $.

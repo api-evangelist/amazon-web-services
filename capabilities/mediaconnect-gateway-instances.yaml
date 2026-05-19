@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediaconnect — Gateway Instances
+  description: 'Amazon Web Services mediaconnect — Gateway Instances. 2 operations. Lead operation: Amazon Web Services Listgatewayinstances.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Gateway Instances
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediaconnect-gateway-instances
+    baseUri: ''
+    description: Amazon Web Services mediaconnect — Gateway Instances business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-gateway-instances
+      path: /v1/gateway-instances
+      operations:
+      - name: amazonwebserviceslistgatewayinstances
+        method: GET
+        description: Amazon Web Services Listgatewayinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-gateway-instances-gatewayInstanceArn
+      path: /v1/gateway-instances/{gatewayInstanceArn}
+      operations:
+      - name: amazonwebservicesupdategatewayinstance
+        method: PUT
+        description: Amazon Web Services Updategatewayinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediaconnect-gateway-instances-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediaconnect — Gateway Instances. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/gateway-instances
+      name: v1-gateway-instances
+      description: REST surface for v1-gateway-instances.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistgatewayinstances
+        description: Amazon Web Services Listgatewayinstances
+        call: mediaconnect-gateway-instances.amazonwebserviceslistgatewayinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/gateway-instances/{gatewayinstancearn}
+      name: v1-gateway-instances-gatewayinstancearn
+      description: REST surface for v1-gateway-instances-gatewayInstanceArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdategatewayinstance
+        description: Amazon Web Services Updategatewayinstance
+        call: mediaconnect-gateway-instances.amazonwebservicesupdategatewayinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediaconnect-gateway-instances-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediaconnect — Gateway Instances. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listgatewayinstances
+      description: Amazon Web Services Listgatewayinstances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-gateway-instances.amazonwebserviceslistgatewayinstances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategatewayinstance
+      description: Amazon Web Services Updategatewayinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-gateway-instances.amazonwebservicesupdategatewayinstance
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — deleteSignalingChannel
+  description: 'Amazon Web Services kinesisvideo — deleteSignalingChannel. 1 operations. Lead operation: Amazon Web Services
+    Deletesignalingchannel. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteSignalingChannel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-deletesignalingchannel
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — deleteSignalingChannel business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: deleteSignalingChannel
+      path: /deleteSignalingChannel
+      operations:
+      - name: amazonwebservicesdeletesignalingchannel
+        method: POST
+        description: Amazon Web Services Deletesignalingchannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-deletesignalingchannel-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — deleteSignalingChannel. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletesignalingchannel
+      name: deletesignalingchannel
+      description: REST surface for deleteSignalingChannel.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletesignalingchannel
+        description: Amazon Web Services Deletesignalingchannel
+        call: kinesisvideo-deletesignalingchannel.amazonwebservicesdeletesignalingchannel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-deletesignalingchannel-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — deleteSignalingChannel. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletesignalingchannel
+      description: Amazon Web Services Deletesignalingchannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-deletesignalingchannel.amazonwebservicesdeletesignalingchannel
+      outputParameters:
+      - type: object
+        mapping: $.

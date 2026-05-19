@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services route53domains
+  description: 'Amazon Web Services route53domains. 1 operations. Lead operation: Amazon Web Services Viewbilling. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services route53domains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: route53domains
+    baseUri: ''
+    description: Amazon Web Services route53domains business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesviewbilling
+        method: POST
+        description: Amazon Web Services Viewbilling
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: route53domains-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services route53domains. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesviewbilling
+        description: Amazon Web Services Viewbilling
+        call: route53domains.amazonwebservicesviewbilling
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: route53domains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services route53domains. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-viewbilling
+      description: Amazon Web Services Viewbilling
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: route53domains.amazonwebservicesviewbilling
+      outputParameters:
+      - type: object
+        mapping: $.

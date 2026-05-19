@@ -1,0 +1,1571 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services es — 2015 01 01
+  description: 'Amazon Web Services es — 2015 01 01. 48 operations. Lead operation: Amazon Web Services Listdomainnames. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2015 01 01
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: es-2015-01-01
+    baseUri: ''
+    description: Amazon Web Services es — 2015 01 01 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2015-01-01-domain
+      path: /2015-01-01/domain
+      operations:
+      - name: amazonwebserviceslistdomainnames
+        method: GET
+        description: Amazon Web Services Listdomainnames
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-domain-DomainName-packages
+      path: /2015-01-01/domain/{DomainName}/packages
+      operations:
+      - name: amazonwebserviceslistpackagesfordomain
+        method: GET
+        description: Amazon Web Services Listpackagesfordomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-inboundConnection-search
+      path: /2015-01-01/es/ccs/inboundConnection/search
+      operations:
+      - name: amazonwebservicesdescribeinboundcrossclustersearchconnections
+        method: POST
+        description: Amazon Web Services Describeinboundcrossclustersearchconnections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-inboundConnection-ConnectionId
+      path: /2015-01-01/es/ccs/inboundConnection/{ConnectionId}
+      operations:
+      - name: amazonwebservicesdeleteinboundcrossclustersearchconnection
+        method: DELETE
+        description: Amazon Web Services Deleteinboundcrossclustersearchconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-inboundConnection-ConnectionId-accept
+      path: /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/accept
+      operations:
+      - name: amazonwebservicesacceptinboundcrossclustersearchconnection
+        method: PUT
+        description: Amazon Web Services Acceptinboundcrossclustersearchconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-inboundConnection-ConnectionId-reject
+      path: /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/reject
+      operations:
+      - name: amazonwebservicesrejectinboundcrossclustersearchconnection
+        method: PUT
+        description: Amazon Web Services Rejectinboundcrossclustersearchconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-outboundConnection
+      path: /2015-01-01/es/ccs/outboundConnection
+      operations:
+      - name: amazonwebservicescreateoutboundcrossclustersearchconnection
+        method: POST
+        description: Amazon Web Services Createoutboundcrossclustersearchconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-outboundConnection-search
+      path: /2015-01-01/es/ccs/outboundConnection/search
+      operations:
+      - name: amazonwebservicesdescribeoutboundcrossclustersearchconnections
+        method: POST
+        description: Amazon Web Services Describeoutboundcrossclustersearchconnections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-ccs-outboundConnection-ConnectionId
+      path: /2015-01-01/es/ccs/outboundConnection/{ConnectionId}
+      operations:
+      - name: amazonwebservicesdeleteoutboundcrossclustersearchconnection
+        method: DELETE
+        description: Amazon Web Services Deleteoutboundcrossclustersearchconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-compatibleVersions
+      path: /2015-01-01/es/compatibleVersions
+      operations:
+      - name: amazonwebservicesgetcompatibleelasticsearchversions
+        method: GET
+        description: Amazon Web Services Getcompatibleelasticsearchversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain
+      path: /2015-01-01/es/domain
+      operations:
+      - name: amazonwebservicescreateelasticsearchdomain
+        method: POST
+        description: Amazon Web Services Createelasticsearchdomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-info
+      path: /2015-01-01/es/domain-info
+      operations:
+      - name: amazonwebservicesdescribeelasticsearchdomains
+        method: POST
+        description: Amazon Web Services Describeelasticsearchdomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName
+      path: /2015-01-01/es/domain/{DomainName}
+      operations:
+      - name: amazonwebservicesdescribeelasticsearchdomain
+        method: GET
+        description: Amazon Web Services Describeelasticsearchdomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-authorizeVpcEndpointAccess
+      path: /2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess
+      operations:
+      - name: amazonwebservicesauthorizevpcendpointaccess
+        method: POST
+        description: Amazon Web Services Authorizevpcendpointaccess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-autoTunes
+      path: /2015-01-01/es/domain/{DomainName}/autoTunes
+      operations:
+      - name: amazonwebservicesdescribedomainautotunes
+        method: GET
+        description: Amazon Web Services Describedomainautotunes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-config
+      path: /2015-01-01/es/domain/{DomainName}/config
+      operations:
+      - name: amazonwebservicesupdateelasticsearchdomainconfig
+        method: POST
+        description: Amazon Web Services Updateelasticsearchdomainconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-config-cancel
+      path: /2015-01-01/es/domain/{DomainName}/config/cancel
+      operations:
+      - name: amazonwebservicescanceldomainconfigchange
+        method: POST
+        description: Amazon Web Services Canceldomainconfigchange
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-listVpcEndpointAccess
+      path: /2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess
+      operations:
+      - name: amazonwebserviceslistvpcendpointaccess
+        method: GET
+        description: Amazon Web Services Listvpcendpointaccess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-progress
+      path: /2015-01-01/es/domain/{DomainName}/progress
+      operations:
+      - name: amazonwebservicesdescribedomainchangeprogress
+        method: GET
+        description: Amazon Web Services Describedomainchangeprogress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-revokeVpcEndpointAccess
+      path: /2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess
+      operations:
+      - name: amazonwebservicesrevokevpcendpointaccess
+        method: POST
+        description: Amazon Web Services Revokevpcendpointaccess
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-domain-DomainName-vpcEndpoints
+      path: /2015-01-01/es/domain/{DomainName}/vpcEndpoints
+      operations:
+      - name: amazonwebserviceslistvpcendpointsfordomain
+        method: GET
+        description: Amazon Web Services Listvpcendpointsfordomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-instanceTypeLimits-ElasticsearchVersion-InstanceType
+      path: /2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}
+      operations:
+      - name: amazonwebservicesdescribeelasticsearchinstancetypelimits
+        method: GET
+        description: Amazon Web Services Describeelasticsearchinstancetypelimits
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-instanceTypes-ElasticsearchVersion
+      path: /2015-01-01/es/instanceTypes/{ElasticsearchVersion}
+      operations:
+      - name: amazonwebserviceslistelasticsearchinstancetypes
+        method: GET
+        description: Amazon Web Services Listelasticsearchinstancetypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-purchaseReservedInstanceOffering
+      path: /2015-01-01/es/purchaseReservedInstanceOffering
+      operations:
+      - name: amazonwebservicespurchasereservedelasticsearchinstanceoffering
+        method: POST
+        description: Amazon Web Services Purchasereservedelasticsearchinstanceoffering
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-reservedInstanceOfferings
+      path: /2015-01-01/es/reservedInstanceOfferings
+      operations:
+      - name: amazonwebservicesdescribereservedelasticsearchinstanceofferings
+        method: GET
+        description: Amazon Web Services Describereservedelasticsearchinstanceofferings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-reservedInstances
+      path: /2015-01-01/es/reservedInstances
+      operations:
+      - name: amazonwebservicesdescribereservedelasticsearchinstances
+        method: GET
+        description: Amazon Web Services Describereservedelasticsearchinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-role
+      path: /2015-01-01/es/role
+      operations:
+      - name: amazonwebservicesdeleteelasticsearchservicerole
+        method: DELETE
+        description: Amazon Web Services Deleteelasticsearchservicerole
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-serviceSoftwareUpdate-cancel
+      path: /2015-01-01/es/serviceSoftwareUpdate/cancel
+      operations:
+      - name: amazonwebservicescancelelasticsearchservicesoftwareupdate
+        method: POST
+        description: Amazon Web Services Cancelelasticsearchservicesoftwareupdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-serviceSoftwareUpdate-start
+      path: /2015-01-01/es/serviceSoftwareUpdate/start
+      operations:
+      - name: amazonwebservicesstartelasticsearchservicesoftwareupdate
+        method: POST
+        description: Amazon Web Services Startelasticsearchservicesoftwareupdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-upgradeDomain
+      path: /2015-01-01/es/upgradeDomain
+      operations:
+      - name: amazonwebservicesupgradeelasticsearchdomain
+        method: POST
+        description: Amazon Web Services Upgradeelasticsearchdomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-upgradeDomain-DomainName-history
+      path: /2015-01-01/es/upgradeDomain/{DomainName}/history
+      operations:
+      - name: amazonwebservicesgetupgradehistory
+        method: GET
+        description: Amazon Web Services Getupgradehistory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-upgradeDomain-DomainName-status
+      path: /2015-01-01/es/upgradeDomain/{DomainName}/status
+      operations:
+      - name: amazonwebservicesgetupgradestatus
+        method: GET
+        description: Amazon Web Services Getupgradestatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-versions
+      path: /2015-01-01/es/versions
+      operations:
+      - name: amazonwebserviceslistelasticsearchversions
+        method: GET
+        description: Amazon Web Services Listelasticsearchversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-vpcEndpoints
+      path: /2015-01-01/es/vpcEndpoints
+      operations:
+      - name: amazonwebserviceslistvpcendpoints
+        method: GET
+        description: Amazon Web Services Listvpcendpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-vpcEndpoints-describe
+      path: /2015-01-01/es/vpcEndpoints/describe
+      operations:
+      - name: amazonwebservicesdescribevpcendpoints
+        method: POST
+        description: Amazon Web Services Describevpcendpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-vpcEndpoints-update
+      path: /2015-01-01/es/vpcEndpoints/update
+      operations:
+      - name: amazonwebservicesupdatevpcendpoint
+        method: POST
+        description: Amazon Web Services Updatevpcendpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-es-vpcEndpoints-VpcEndpointId
+      path: /2015-01-01/es/vpcEndpoints/{VpcEndpointId}
+      operations:
+      - name: amazonwebservicesdeletevpcendpoint
+        method: DELETE
+        description: Amazon Web Services Deletevpcendpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages
+      path: /2015-01-01/packages
+      operations:
+      - name: amazonwebservicescreatepackage
+        method: POST
+        description: Amazon Web Services Createpackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-associate-PackageID-DomainName
+      path: /2015-01-01/packages/associate/{PackageID}/{DomainName}
+      operations:
+      - name: amazonwebservicesassociatepackage
+        method: POST
+        description: Amazon Web Services Associatepackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-describe
+      path: /2015-01-01/packages/describe
+      operations:
+      - name: amazonwebservicesdescribepackages
+        method: POST
+        description: Amazon Web Services Describepackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-dissociate-PackageID-DomainName
+      path: /2015-01-01/packages/dissociate/{PackageID}/{DomainName}
+      operations:
+      - name: amazonwebservicesdissociatepackage
+        method: POST
+        description: Amazon Web Services Dissociatepackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-update
+      path: /2015-01-01/packages/update
+      operations:
+      - name: amazonwebservicesupdatepackage
+        method: POST
+        description: Amazon Web Services Updatepackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-PackageID
+      path: /2015-01-01/packages/{PackageID}
+      operations:
+      - name: amazonwebservicesdeletepackage
+        method: DELETE
+        description: Amazon Web Services Deletepackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-PackageID-domains
+      path: /2015-01-01/packages/{PackageID}/domains
+      operations:
+      - name: amazonwebserviceslistdomainsforpackage
+        method: GET
+        description: Amazon Web Services Listdomainsforpackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-packages-PackageID-history
+      path: /2015-01-01/packages/{PackageID}/history
+      operations:
+      - name: amazonwebservicesgetpackageversionhistory
+        method: GET
+        description: Amazon Web Services Getpackageversionhistory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-tags
+      path: /2015-01-01/tags
+      operations:
+      - name: amazonwebservicesaddtags
+        method: POST
+        description: Amazon Web Services Addtags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-tags-removal
+      path: /2015-01-01/tags-removal
+      operations:
+      - name: amazonwebservicesremovetags
+        method: POST
+        description: Amazon Web Services Removetags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-01-01-tags
+      path: /2015-01-01/tags/
+      operations:
+      - name: amazonwebserviceslisttags
+        method: GET
+        description: Amazon Web Services Listtags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: es-2015-01-01-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services es — 2015 01 01. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2015-01-01/domain
+      name: 2015-01-01-domain
+      description: REST surface for 2015-01-01-domain.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdomainnames
+        description: Amazon Web Services Listdomainnames
+        call: es-2015-01-01.amazonwebserviceslistdomainnames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/domain/{domainname}/packages
+      name: 2015-01-01-domain-domainname-packages
+      description: REST surface for 2015-01-01-domain-DomainName-packages.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpackagesfordomain
+        description: Amazon Web Services Listpackagesfordomain
+        call: es-2015-01-01.amazonwebserviceslistpackagesfordomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/inboundconnection/search
+      name: 2015-01-01-es-ccs-inboundconnection-search
+      description: REST surface for 2015-01-01-es-ccs-inboundConnection-search.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeinboundcrossclustersearchconnections
+        description: Amazon Web Services Describeinboundcrossclustersearchconnections
+        call: es-2015-01-01.amazonwebservicesdescribeinboundcrossclustersearchconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/inboundconnection/{connectionid}
+      name: 2015-01-01-es-ccs-inboundconnection-connectionid
+      description: REST surface for 2015-01-01-es-ccs-inboundConnection-ConnectionId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteinboundcrossclustersearchconnection
+        description: Amazon Web Services Deleteinboundcrossclustersearchconnection
+        call: es-2015-01-01.amazonwebservicesdeleteinboundcrossclustersearchconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/inboundconnection/{connectionid}/accept
+      name: 2015-01-01-es-ccs-inboundconnection-connectionid-accept
+      description: REST surface for 2015-01-01-es-ccs-inboundConnection-ConnectionId-accept.
+      operations:
+      - method: PUT
+        name: amazonwebservicesacceptinboundcrossclustersearchconnection
+        description: Amazon Web Services Acceptinboundcrossclustersearchconnection
+        call: es-2015-01-01.amazonwebservicesacceptinboundcrossclustersearchconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/inboundconnection/{connectionid}/reject
+      name: 2015-01-01-es-ccs-inboundconnection-connectionid-reject
+      description: REST surface for 2015-01-01-es-ccs-inboundConnection-ConnectionId-reject.
+      operations:
+      - method: PUT
+        name: amazonwebservicesrejectinboundcrossclustersearchconnection
+        description: Amazon Web Services Rejectinboundcrossclustersearchconnection
+        call: es-2015-01-01.amazonwebservicesrejectinboundcrossclustersearchconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/outboundconnection
+      name: 2015-01-01-es-ccs-outboundconnection
+      description: REST surface for 2015-01-01-es-ccs-outboundConnection.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateoutboundcrossclustersearchconnection
+        description: Amazon Web Services Createoutboundcrossclustersearchconnection
+        call: es-2015-01-01.amazonwebservicescreateoutboundcrossclustersearchconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/outboundconnection/search
+      name: 2015-01-01-es-ccs-outboundconnection-search
+      description: REST surface for 2015-01-01-es-ccs-outboundConnection-search.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeoutboundcrossclustersearchconnections
+        description: Amazon Web Services Describeoutboundcrossclustersearchconnections
+        call: es-2015-01-01.amazonwebservicesdescribeoutboundcrossclustersearchconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/ccs/outboundconnection/{connectionid}
+      name: 2015-01-01-es-ccs-outboundconnection-connectionid
+      description: REST surface for 2015-01-01-es-ccs-outboundConnection-ConnectionId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteoutboundcrossclustersearchconnection
+        description: Amazon Web Services Deleteoutboundcrossclustersearchconnection
+        call: es-2015-01-01.amazonwebservicesdeleteoutboundcrossclustersearchconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/compatibleversions
+      name: 2015-01-01-es-compatibleversions
+      description: REST surface for 2015-01-01-es-compatibleVersions.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcompatibleelasticsearchversions
+        description: Amazon Web Services Getcompatibleelasticsearchversions
+        call: es-2015-01-01.amazonwebservicesgetcompatibleelasticsearchversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain
+      name: 2015-01-01-es-domain
+      description: REST surface for 2015-01-01-es-domain.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateelasticsearchdomain
+        description: Amazon Web Services Createelasticsearchdomain
+        call: es-2015-01-01.amazonwebservicescreateelasticsearchdomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain-info
+      name: 2015-01-01-es-domain-info
+      description: REST surface for 2015-01-01-es-domain-info.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeelasticsearchdomains
+        description: Amazon Web Services Describeelasticsearchdomains
+        call: es-2015-01-01.amazonwebservicesdescribeelasticsearchdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}
+      name: 2015-01-01-es-domain-domainname
+      description: REST surface for 2015-01-01-es-domain-DomainName.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeelasticsearchdomain
+        description: Amazon Web Services Describeelasticsearchdomain
+        call: es-2015-01-01.amazonwebservicesdescribeelasticsearchdomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/authorizevpcendpointaccess
+      name: 2015-01-01-es-domain-domainname-authorizevpcendpointaccess
+      description: REST surface for 2015-01-01-es-domain-DomainName-authorizeVpcEndpointAccess.
+      operations:
+      - method: POST
+        name: amazonwebservicesauthorizevpcendpointaccess
+        description: Amazon Web Services Authorizevpcendpointaccess
+        call: es-2015-01-01.amazonwebservicesauthorizevpcendpointaccess
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/autotunes
+      name: 2015-01-01-es-domain-domainname-autotunes
+      description: REST surface for 2015-01-01-es-domain-DomainName-autoTunes.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedomainautotunes
+        description: Amazon Web Services Describedomainautotunes
+        call: es-2015-01-01.amazonwebservicesdescribedomainautotunes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/config
+      name: 2015-01-01-es-domain-domainname-config
+      description: REST surface for 2015-01-01-es-domain-DomainName-config.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateelasticsearchdomainconfig
+        description: Amazon Web Services Updateelasticsearchdomainconfig
+        call: es-2015-01-01.amazonwebservicesupdateelasticsearchdomainconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/config/cancel
+      name: 2015-01-01-es-domain-domainname-config-cancel
+      description: REST surface for 2015-01-01-es-domain-DomainName-config-cancel.
+      operations:
+      - method: POST
+        name: amazonwebservicescanceldomainconfigchange
+        description: Amazon Web Services Canceldomainconfigchange
+        call: es-2015-01-01.amazonwebservicescanceldomainconfigchange
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/listvpcendpointaccess
+      name: 2015-01-01-es-domain-domainname-listvpcendpointaccess
+      description: REST surface for 2015-01-01-es-domain-DomainName-listVpcEndpointAccess.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvpcendpointaccess
+        description: Amazon Web Services Listvpcendpointaccess
+        call: es-2015-01-01.amazonwebserviceslistvpcendpointaccess
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/progress
+      name: 2015-01-01-es-domain-domainname-progress
+      description: REST surface for 2015-01-01-es-domain-DomainName-progress.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedomainchangeprogress
+        description: Amazon Web Services Describedomainchangeprogress
+        call: es-2015-01-01.amazonwebservicesdescribedomainchangeprogress
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/revokevpcendpointaccess
+      name: 2015-01-01-es-domain-domainname-revokevpcendpointaccess
+      description: REST surface for 2015-01-01-es-domain-DomainName-revokeVpcEndpointAccess.
+      operations:
+      - method: POST
+        name: amazonwebservicesrevokevpcendpointaccess
+        description: Amazon Web Services Revokevpcendpointaccess
+        call: es-2015-01-01.amazonwebservicesrevokevpcendpointaccess
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/domain/{domainname}/vpcendpoints
+      name: 2015-01-01-es-domain-domainname-vpcendpoints
+      description: REST surface for 2015-01-01-es-domain-DomainName-vpcEndpoints.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvpcendpointsfordomain
+        description: Amazon Web Services Listvpcendpointsfordomain
+        call: es-2015-01-01.amazonwebserviceslistvpcendpointsfordomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/instancetypelimits/{elasticsearchversion}/{instancetype}
+      name: 2015-01-01-es-instancetypelimits-elasticsearchversion-instancetype
+      description: REST surface for 2015-01-01-es-instanceTypeLimits-ElasticsearchVersion-InstanceType.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeelasticsearchinstancetypelimits
+        description: Amazon Web Services Describeelasticsearchinstancetypelimits
+        call: es-2015-01-01.amazonwebservicesdescribeelasticsearchinstancetypelimits
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/instancetypes/{elasticsearchversion}
+      name: 2015-01-01-es-instancetypes-elasticsearchversion
+      description: REST surface for 2015-01-01-es-instanceTypes-ElasticsearchVersion.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistelasticsearchinstancetypes
+        description: Amazon Web Services Listelasticsearchinstancetypes
+        call: es-2015-01-01.amazonwebserviceslistelasticsearchinstancetypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/purchasereservedinstanceoffering
+      name: 2015-01-01-es-purchasereservedinstanceoffering
+      description: REST surface for 2015-01-01-es-purchaseReservedInstanceOffering.
+      operations:
+      - method: POST
+        name: amazonwebservicespurchasereservedelasticsearchinstanceoffering
+        description: Amazon Web Services Purchasereservedelasticsearchinstanceoffering
+        call: es-2015-01-01.amazonwebservicespurchasereservedelasticsearchinstanceoffering
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/reservedinstanceofferings
+      name: 2015-01-01-es-reservedinstanceofferings
+      description: REST surface for 2015-01-01-es-reservedInstanceOfferings.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribereservedelasticsearchinstanceofferings
+        description: Amazon Web Services Describereservedelasticsearchinstanceofferings
+        call: es-2015-01-01.amazonwebservicesdescribereservedelasticsearchinstanceofferings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/reservedinstances
+      name: 2015-01-01-es-reservedinstances
+      description: REST surface for 2015-01-01-es-reservedInstances.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribereservedelasticsearchinstances
+        description: Amazon Web Services Describereservedelasticsearchinstances
+        call: es-2015-01-01.amazonwebservicesdescribereservedelasticsearchinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/role
+      name: 2015-01-01-es-role
+      description: REST surface for 2015-01-01-es-role.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteelasticsearchservicerole
+        description: Amazon Web Services Deleteelasticsearchservicerole
+        call: es-2015-01-01.amazonwebservicesdeleteelasticsearchservicerole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/servicesoftwareupdate/cancel
+      name: 2015-01-01-es-servicesoftwareupdate-cancel
+      description: REST surface for 2015-01-01-es-serviceSoftwareUpdate-cancel.
+      operations:
+      - method: POST
+        name: amazonwebservicescancelelasticsearchservicesoftwareupdate
+        description: Amazon Web Services Cancelelasticsearchservicesoftwareupdate
+        call: es-2015-01-01.amazonwebservicescancelelasticsearchservicesoftwareupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/servicesoftwareupdate/start
+      name: 2015-01-01-es-servicesoftwareupdate-start
+      description: REST surface for 2015-01-01-es-serviceSoftwareUpdate-start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartelasticsearchservicesoftwareupdate
+        description: Amazon Web Services Startelasticsearchservicesoftwareupdate
+        call: es-2015-01-01.amazonwebservicesstartelasticsearchservicesoftwareupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/upgradedomain
+      name: 2015-01-01-es-upgradedomain
+      description: REST surface for 2015-01-01-es-upgradeDomain.
+      operations:
+      - method: POST
+        name: amazonwebservicesupgradeelasticsearchdomain
+        description: Amazon Web Services Upgradeelasticsearchdomain
+        call: es-2015-01-01.amazonwebservicesupgradeelasticsearchdomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/upgradedomain/{domainname}/history
+      name: 2015-01-01-es-upgradedomain-domainname-history
+      description: REST surface for 2015-01-01-es-upgradeDomain-DomainName-history.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetupgradehistory
+        description: Amazon Web Services Getupgradehistory
+        call: es-2015-01-01.amazonwebservicesgetupgradehistory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/upgradedomain/{domainname}/status
+      name: 2015-01-01-es-upgradedomain-domainname-status
+      description: REST surface for 2015-01-01-es-upgradeDomain-DomainName-status.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetupgradestatus
+        description: Amazon Web Services Getupgradestatus
+        call: es-2015-01-01.amazonwebservicesgetupgradestatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/versions
+      name: 2015-01-01-es-versions
+      description: REST surface for 2015-01-01-es-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistelasticsearchversions
+        description: Amazon Web Services Listelasticsearchversions
+        call: es-2015-01-01.amazonwebserviceslistelasticsearchversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/vpcendpoints
+      name: 2015-01-01-es-vpcendpoints
+      description: REST surface for 2015-01-01-es-vpcEndpoints.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvpcendpoints
+        description: Amazon Web Services Listvpcendpoints
+        call: es-2015-01-01.amazonwebserviceslistvpcendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/vpcendpoints/describe
+      name: 2015-01-01-es-vpcendpoints-describe
+      description: REST surface for 2015-01-01-es-vpcEndpoints-describe.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribevpcendpoints
+        description: Amazon Web Services Describevpcendpoints
+        call: es-2015-01-01.amazonwebservicesdescribevpcendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/vpcendpoints/update
+      name: 2015-01-01-es-vpcendpoints-update
+      description: REST surface for 2015-01-01-es-vpcEndpoints-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatevpcendpoint
+        description: Amazon Web Services Updatevpcendpoint
+        call: es-2015-01-01.amazonwebservicesupdatevpcendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/es/vpcendpoints/{vpcendpointid}
+      name: 2015-01-01-es-vpcendpoints-vpcendpointid
+      description: REST surface for 2015-01-01-es-vpcEndpoints-VpcEndpointId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletevpcendpoint
+        description: Amazon Web Services Deletevpcendpoint
+        call: es-2015-01-01.amazonwebservicesdeletevpcendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages
+      name: 2015-01-01-packages
+      description: REST surface for 2015-01-01-packages.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatepackage
+        description: Amazon Web Services Createpackage
+        call: es-2015-01-01.amazonwebservicescreatepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/associate/{packageid}/{domainname}
+      name: 2015-01-01-packages-associate-packageid-domainname
+      description: REST surface for 2015-01-01-packages-associate-PackageID-DomainName.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociatepackage
+        description: Amazon Web Services Associatepackage
+        call: es-2015-01-01.amazonwebservicesassociatepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/describe
+      name: 2015-01-01-packages-describe
+      description: REST surface for 2015-01-01-packages-describe.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribepackages
+        description: Amazon Web Services Describepackages
+        call: es-2015-01-01.amazonwebservicesdescribepackages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/dissociate/{packageid}/{domainname}
+      name: 2015-01-01-packages-dissociate-packageid-domainname
+      description: REST surface for 2015-01-01-packages-dissociate-PackageID-DomainName.
+      operations:
+      - method: POST
+        name: amazonwebservicesdissociatepackage
+        description: Amazon Web Services Dissociatepackage
+        call: es-2015-01-01.amazonwebservicesdissociatepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/update
+      name: 2015-01-01-packages-update
+      description: REST surface for 2015-01-01-packages-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatepackage
+        description: Amazon Web Services Updatepackage
+        call: es-2015-01-01.amazonwebservicesupdatepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/{packageid}
+      name: 2015-01-01-packages-packageid
+      description: REST surface for 2015-01-01-packages-PackageID.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletepackage
+        description: Amazon Web Services Deletepackage
+        call: es-2015-01-01.amazonwebservicesdeletepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/{packageid}/domains
+      name: 2015-01-01-packages-packageid-domains
+      description: REST surface for 2015-01-01-packages-PackageID-domains.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdomainsforpackage
+        description: Amazon Web Services Listdomainsforpackage
+        call: es-2015-01-01.amazonwebserviceslistdomainsforpackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/packages/{packageid}/history
+      name: 2015-01-01-packages-packageid-history
+      description: REST surface for 2015-01-01-packages-PackageID-history.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpackageversionhistory
+        description: Amazon Web Services Getpackageversionhistory
+        call: es-2015-01-01.amazonwebservicesgetpackageversionhistory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/tags
+      name: 2015-01-01-tags
+      description: REST surface for 2015-01-01-tags.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddtags
+        description: Amazon Web Services Addtags
+        call: es-2015-01-01.amazonwebservicesaddtags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/tags-removal
+      name: 2015-01-01-tags-removal
+      description: REST surface for 2015-01-01-tags-removal.
+      operations:
+      - method: POST
+        name: amazonwebservicesremovetags
+        description: Amazon Web Services Removetags
+        call: es-2015-01-01.amazonwebservicesremovetags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-01-01/tags
+      name: 2015-01-01-tags
+      description: REST surface for 2015-01-01-tags.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttags
+        description: Amazon Web Services Listtags
+        call: es-2015-01-01.amazonwebserviceslisttags
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: es-2015-01-01-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services es — 2015 01 01. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomainnames
+      description: Amazon Web Services Listdomainnames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistdomainnames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpackagesfordomain
+      description: Amazon Web Services Listpackagesfordomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistpackagesfordomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeinboundcrossclustersearchconnections
+      description: Amazon Web Services Describeinboundcrossclustersearchconnections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdescribeinboundcrossclustersearchconnections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteinboundcrossclustersearchconnection
+      description: Amazon Web Services Deleteinboundcrossclustersearchconnection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdeleteinboundcrossclustersearchconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-acceptinboundcrossclustersearchconnection
+      description: Amazon Web Services Acceptinboundcrossclustersearchconnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesacceptinboundcrossclustersearchconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-rejectinboundcrossclustersearchconnection
+      description: Amazon Web Services Rejectinboundcrossclustersearchconnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesrejectinboundcrossclustersearchconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createoutboundcrossclustersearchconnection
+      description: Amazon Web Services Createoutboundcrossclustersearchconnection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicescreateoutboundcrossclustersearchconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeoutboundcrossclustersearchconnections
+      description: Amazon Web Services Describeoutboundcrossclustersearchconnections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdescribeoutboundcrossclustersearchconnections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteoutboundcrossclustersearchconnection
+      description: Amazon Web Services Deleteoutboundcrossclustersearchconnection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdeleteoutboundcrossclustersearchconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcompatibleelasticsearchversions
+      description: Amazon Web Services Getcompatibleelasticsearchversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesgetcompatibleelasticsearchversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createelasticsearchdomain
+      description: Amazon Web Services Createelasticsearchdomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicescreateelasticsearchdomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeelasticsearchdomains
+      description: Amazon Web Services Describeelasticsearchdomains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdescribeelasticsearchdomains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeelasticsearchdomain
+      description: Amazon Web Services Describeelasticsearchdomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribeelasticsearchdomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-authorizevpcendpointaccess
+      description: Amazon Web Services Authorizevpcendpointaccess
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesauthorizevpcendpointaccess
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedomainautotunes
+      description: Amazon Web Services Describedomainautotunes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribedomainautotunes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateelasticsearchdomainconfig
+      description: Amazon Web Services Updateelasticsearchdomainconfig
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesupdateelasticsearchdomainconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceldomainconfigchange
+      description: Amazon Web Services Canceldomainconfigchange
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicescanceldomainconfigchange
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvpcendpointaccess
+      description: Amazon Web Services Listvpcendpointaccess
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistvpcendpointaccess
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedomainchangeprogress
+      description: Amazon Web Services Describedomainchangeprogress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribedomainchangeprogress
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-revokevpcendpointaccess
+      description: Amazon Web Services Revokevpcendpointaccess
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesrevokevpcendpointaccess
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvpcendpointsfordomain
+      description: Amazon Web Services Listvpcendpointsfordomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistvpcendpointsfordomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeelasticsearchinstancetypelimits
+      description: Amazon Web Services Describeelasticsearchinstancetypelimits
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribeelasticsearchinstancetypelimits
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listelasticsearchinstancetypes
+      description: Amazon Web Services Listelasticsearchinstancetypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistelasticsearchinstancetypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-purchasereservedelasticsearchinstanceoffering
+      description: Amazon Web Services Purchasereservedelasticsearchinstanceoffering
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicespurchasereservedelasticsearchinstanceoffering
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describereservedelasticsearchinstanceofferings
+      description: Amazon Web Services Describereservedelasticsearchinstanceofferings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribereservedelasticsearchinstanceofferings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describereservedelasticsearchinstances
+      description: Amazon Web Services Describereservedelasticsearchinstances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdescribereservedelasticsearchinstances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteelasticsearchservicerole
+      description: Amazon Web Services Deleteelasticsearchservicerole
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdeleteelasticsearchservicerole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-cancelelasticsearchservicesoftwareupdate
+      description: Amazon Web Services Cancelelasticsearchservicesoftwareupdate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicescancelelasticsearchservicesoftwareupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startelasticsearchservicesoftwareupdate
+      description: Amazon Web Services Startelasticsearchservicesoftwareupdate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesstartelasticsearchservicesoftwareupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-upgradeelasticsearchdomain
+      description: Amazon Web Services Upgradeelasticsearchdomain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesupgradeelasticsearchdomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getupgradehistory
+      description: Amazon Web Services Getupgradehistory
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesgetupgradehistory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getupgradestatus
+      description: Amazon Web Services Getupgradestatus
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesgetupgradestatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listelasticsearchversions
+      description: Amazon Web Services Listelasticsearchversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistelasticsearchversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvpcendpoints
+      description: Amazon Web Services Listvpcendpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistvpcendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describevpcendpoints
+      description: Amazon Web Services Describevpcendpoints
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdescribevpcendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevpcendpoint
+      description: Amazon Web Services Updatevpcendpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesupdatevpcendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletevpcendpoint
+      description: Amazon Web Services Deletevpcendpoint
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdeletevpcendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createpackage
+      description: Amazon Web Services Createpackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicescreatepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-associatepackage
+      description: Amazon Web Services Associatepackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesassociatepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describepackages
+      description: Amazon Web Services Describepackages
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdescribepackages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-dissociatepackage
+      description: Amazon Web Services Dissociatepackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesdissociatepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepackage
+      description: Amazon Web Services Updatepackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesupdatepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletepackage
+      description: Amazon Web Services Deletepackage
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesdeletepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdomainsforpackage
+      description: Amazon Web Services Listdomainsforpackage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslistdomainsforpackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpackageversionhistory
+      description: Amazon Web Services Getpackageversionhistory
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebservicesgetpackageversionhistory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addtags
+      description: Amazon Web Services Addtags
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesaddtags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removetags
+      description: Amazon Web Services Removetags
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: es-2015-01-01.amazonwebservicesremovetags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtags
+      description: Amazon Web Services Listtags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: es-2015-01-01.amazonwebserviceslisttags
+      outputParameters:
+      - type: object
+        mapping: $.

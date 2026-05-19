@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigatewayv2 — Authorizers
+  description: 'Amazon Web Services apigatewayv2 — Authorizers. 2 operations. Lead operation: Amazon Web Services Getauthorizers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Authorizers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigatewayv2-authorizers
+    baseUri: ''
+    description: Amazon Web Services apigatewayv2 — Authorizers business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-apis-apiId-authorizers
+      path: /v2/apis/{apiId}/authorizers
+      operations:
+      - name: amazonwebservicesgetauthorizers
+        method: GET
+        description: Amazon Web Services Getauthorizers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-authorizers-authorizerId
+      path: /v2/apis/{apiId}/authorizers/{authorizerId}
+      operations:
+      - name: amazonwebservicesupdateauthorizer
+        method: PATCH
+        description: Amazon Web Services Updateauthorizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigatewayv2-authorizers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigatewayv2 — Authorizers. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/apis/{apiid}/authorizers
+      name: v2-apis-apiid-authorizers
+      description: REST surface for v2-apis-apiId-authorizers.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetauthorizers
+        description: Amazon Web Services Getauthorizers
+        call: apigatewayv2-authorizers.amazonwebservicesgetauthorizers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/authorizers/{authorizerid}
+      name: v2-apis-apiid-authorizers-authorizerid
+      description: REST surface for v2-apis-apiId-authorizers-authorizerId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateauthorizer
+        description: Amazon Web Services Updateauthorizer
+        call: apigatewayv2-authorizers.amazonwebservicesupdateauthorizer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigatewayv2-authorizers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigatewayv2 — Authorizers. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getauthorizers
+      description: Amazon Web Services Getauthorizers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-authorizers.amazonwebservicesgetauthorizers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateauthorizer
+      description: Amazon Web Services Updateauthorizer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-authorizers.amazonwebservicesupdateauthorizer
+      outputParameters:
+      - type: object
+        mapping: $.

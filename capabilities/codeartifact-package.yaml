@@ -1,0 +1,419 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeartifact — Package
+  description: 'Amazon Web Services codeartifact — Package. 12 operations. Lead operation: Amazon Web Services Putpackageoriginconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Package
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeartifact-package
+    baseUri: ''
+    description: Amazon Web Services codeartifact — Package business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-package
+      path: /v1/package
+      operations:
+      - name: amazonwebservicesputpackageoriginconfiguration
+        method: POST
+        description: Amazon Web Services Putpackageoriginconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version
+      path: /v1/package/version
+      operations:
+      - name: amazonwebservicesdescribepackageversion
+        method: GET
+        description: Amazon Web Services Describepackageversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version-asset
+      path: /v1/package/version/asset
+      operations:
+      - name: amazonwebservicesgetpackageversionasset
+        method: GET
+        description: Amazon Web Services Getpackageversionasset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version-assets
+      path: /v1/package/version/assets
+      operations:
+      - name: amazonwebserviceslistpackageversionassets
+        method: POST
+        description: Amazon Web Services Listpackageversionassets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version-dependencies
+      path: /v1/package/version/dependencies
+      operations:
+      - name: amazonwebserviceslistpackageversiondependencies
+        method: POST
+        description: Amazon Web Services Listpackageversiondependencies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version-publish
+      path: /v1/package/version/publish
+      operations:
+      - name: amazonwebservicespublishpackageversion
+        method: POST
+        description: Amazon Web Services Publishpackageversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-version-readme
+      path: /v1/package/version/readme
+      operations:
+      - name: amazonwebservicesgetpackageversionreadme
+        method: GET
+        description: Amazon Web Services Getpackageversionreadme
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-versions
+      path: /v1/package/versions
+      operations:
+      - name: amazonwebserviceslistpackageversions
+        method: POST
+        description: Amazon Web Services Listpackageversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-versions-copy
+      path: /v1/package/versions/copy
+      operations:
+      - name: amazonwebservicescopypackageversions
+        method: POST
+        description: Amazon Web Services Copypackageversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-versions-delete
+      path: /v1/package/versions/delete
+      operations:
+      - name: amazonwebservicesdeletepackageversions
+        method: POST
+        description: Amazon Web Services Deletepackageversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-versions-dispose
+      path: /v1/package/versions/dispose
+      operations:
+      - name: amazonwebservicesdisposepackageversions
+        method: POST
+        description: Amazon Web Services Disposepackageversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-package-versions-update_status
+      path: /v1/package/versions/update_status
+      operations:
+      - name: amazonwebservicesupdatepackageversionsstatus
+        method: POST
+        description: Amazon Web Services Updatepackageversionsstatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeartifact-package-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeartifact — Package. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/package
+      name: v1-package
+      description: REST surface for v1-package.
+      operations:
+      - method: POST
+        name: amazonwebservicesputpackageoriginconfiguration
+        description: Amazon Web Services Putpackageoriginconfiguration
+        call: codeartifact-package.amazonwebservicesputpackageoriginconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version
+      name: v1-package-version
+      description: REST surface for v1-package-version.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribepackageversion
+        description: Amazon Web Services Describepackageversion
+        call: codeartifact-package.amazonwebservicesdescribepackageversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version/asset
+      name: v1-package-version-asset
+      description: REST surface for v1-package-version-asset.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpackageversionasset
+        description: Amazon Web Services Getpackageversionasset
+        call: codeartifact-package.amazonwebservicesgetpackageversionasset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version/assets
+      name: v1-package-version-assets
+      description: REST surface for v1-package-version-assets.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpackageversionassets
+        description: Amazon Web Services Listpackageversionassets
+        call: codeartifact-package.amazonwebserviceslistpackageversionassets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version/dependencies
+      name: v1-package-version-dependencies
+      description: REST surface for v1-package-version-dependencies.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpackageversiondependencies
+        description: Amazon Web Services Listpackageversiondependencies
+        call: codeartifact-package.amazonwebserviceslistpackageversiondependencies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version/publish
+      name: v1-package-version-publish
+      description: REST surface for v1-package-version-publish.
+      operations:
+      - method: POST
+        name: amazonwebservicespublishpackageversion
+        description: Amazon Web Services Publishpackageversion
+        call: codeartifact-package.amazonwebservicespublishpackageversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/version/readme
+      name: v1-package-version-readme
+      description: REST surface for v1-package-version-readme.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpackageversionreadme
+        description: Amazon Web Services Getpackageversionreadme
+        call: codeartifact-package.amazonwebservicesgetpackageversionreadme
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/versions
+      name: v1-package-versions
+      description: REST surface for v1-package-versions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpackageversions
+        description: Amazon Web Services Listpackageversions
+        call: codeartifact-package.amazonwebserviceslistpackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/versions/copy
+      name: v1-package-versions-copy
+      description: REST surface for v1-package-versions-copy.
+      operations:
+      - method: POST
+        name: amazonwebservicescopypackageversions
+        description: Amazon Web Services Copypackageversions
+        call: codeartifact-package.amazonwebservicescopypackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/versions/delete
+      name: v1-package-versions-delete
+      description: REST surface for v1-package-versions-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletepackageversions
+        description: Amazon Web Services Deletepackageversions
+        call: codeartifact-package.amazonwebservicesdeletepackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/versions/dispose
+      name: v1-package-versions-dispose
+      description: REST surface for v1-package-versions-dispose.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisposepackageversions
+        description: Amazon Web Services Disposepackageversions
+        call: codeartifact-package.amazonwebservicesdisposepackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/package/versions/update-status
+      name: v1-package-versions-update-status
+      description: REST surface for v1-package-versions-update_status.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatepackageversionsstatus
+        description: Amazon Web Services Updatepackageversionsstatus
+        call: codeartifact-package.amazonwebservicesupdatepackageversionsstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeartifact-package-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeartifact — Package. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putpackageoriginconfiguration
+      description: Amazon Web Services Putpackageoriginconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicesputpackageoriginconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describepackageversion
+      description: Amazon Web Services Describepackageversion
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeartifact-package.amazonwebservicesdescribepackageversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpackageversionasset
+      description: Amazon Web Services Getpackageversionasset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeartifact-package.amazonwebservicesgetpackageversionasset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpackageversionassets
+      description: Amazon Web Services Listpackageversionassets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebserviceslistpackageversionassets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpackageversiondependencies
+      description: Amazon Web Services Listpackageversiondependencies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebserviceslistpackageversiondependencies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-publishpackageversion
+      description: Amazon Web Services Publishpackageversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicespublishpackageversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpackageversionreadme
+      description: Amazon Web Services Getpackageversionreadme
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeartifact-package.amazonwebservicesgetpackageversionreadme
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpackageversions
+      description: Amazon Web Services Listpackageversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebserviceslistpackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-copypackageversions
+      description: Amazon Web Services Copypackageversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicescopypackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletepackageversions
+      description: Amazon Web Services Deletepackageversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicesdeletepackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disposepackageversions
+      description: Amazon Web Services Disposepackageversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicesdisposepackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepackageversionsstatus
+      description: Amazon Web Services Updatepackageversionsstatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-package.amazonwebservicesupdatepackageversionsstatus
+      outputParameters:
+      - type: object
+        mapping: $.

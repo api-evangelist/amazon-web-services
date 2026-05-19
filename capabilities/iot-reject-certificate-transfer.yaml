@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Reject Certificate Transfer
+  description: 'Amazon Web Services iot — Reject Certificate Transfer. 1 operations. Lead operation: Amazon Web Services Rejectcertificatetransfer.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Reject Certificate Transfer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-reject-certificate-transfer
+    baseUri: ''
+    description: Amazon Web Services iot — Reject Certificate Transfer business capability. Self-contained, no shared references.
+    resources:
+    - name: reject-certificate-transfer-certificateId
+      path: /reject-certificate-transfer/{certificateId}
+      operations:
+      - name: amazonwebservicesrejectcertificatetransfer
+        method: PATCH
+        description: Amazon Web Services Rejectcertificatetransfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-reject-certificate-transfer-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Reject Certificate Transfer. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/reject-certificate-transfer/{certificateid}
+      name: reject-certificate-transfer-certificateid
+      description: REST surface for reject-certificate-transfer-certificateId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesrejectcertificatetransfer
+        description: Amazon Web Services Rejectcertificatetransfer
+        call: iot-reject-certificate-transfer.amazonwebservicesrejectcertificatetransfer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-reject-certificate-transfer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Reject Certificate Transfer. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-rejectcertificatetransfer
+      description: Amazon Web Services Rejectcertificatetransfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-reject-certificate-transfer.amazonwebservicesrejectcertificatetransfer
+      outputParameters:
+      - type: object
+        mapping: $.

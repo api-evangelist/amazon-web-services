@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services network-firewall
+  description: 'Amazon Web Services network-firewall. 1 operations. Lead operation: Amazon Web Services Updatetlsinspectionconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services network-firewall
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: network-firewall
+    baseUri: ''
+    description: Amazon Web Services network-firewall business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatetlsinspectionconfiguration
+        method: POST
+        description: Amazon Web Services Updatetlsinspectionconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: network-firewall-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services network-firewall. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetlsinspectionconfiguration
+        description: Amazon Web Services Updatetlsinspectionconfiguration
+        call: network-firewall.amazonwebservicesupdatetlsinspectionconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: network-firewall-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services network-firewall. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetlsinspectionconfiguration
+      description: Amazon Web Services Updatetlsinspectionconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: network-firewall.amazonwebservicesupdatetlsinspectionconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resource-groups — Get Group Query
+  description: 'Amazon Web Services resource-groups — Get Group Query. 1 operations. Lead operation: Amazon Web Services Getgroupquery.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Group Query
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resource-groups-get-group-query
+    baseUri: ''
+    description: Amazon Web Services resource-groups — Get Group Query business capability. Self-contained, no shared references.
+    resources:
+    - name: get-group-query
+      path: /get-group-query
+      operations:
+      - name: amazonwebservicesgetgroupquery
+        method: POST
+        description: Amazon Web Services Getgroupquery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resource-groups-get-group-query-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resource-groups — Get Group Query. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-group-query
+      name: get-group-query
+      description: REST surface for get-group-query.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetgroupquery
+        description: Amazon Web Services Getgroupquery
+        call: resource-groups-get-group-query.amazonwebservicesgetgroupquery
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resource-groups-get-group-query-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resource-groups — Get Group Query. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getgroupquery
+      description: Amazon Web Services Getgroupquery
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: resource-groups-get-group-query.amazonwebservicesgetgroupquery
+      outputParameters:
+      - type: object
+        mapping: $.

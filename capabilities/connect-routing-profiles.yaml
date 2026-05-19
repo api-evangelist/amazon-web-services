@@ -1,0 +1,323 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Routing Profiles
+  description: 'Amazon Web Services connect — Routing Profiles. 9 operations. Lead operation: Amazon Web Services Createroutingprofile.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Routing Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-routing-profiles
+    baseUri: ''
+    description: Amazon Web Services connect — Routing Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: routing-profiles-InstanceId
+      path: /routing-profiles/{InstanceId}
+      operations:
+      - name: amazonwebservicescreateroutingprofile
+        method: PUT
+        description: Amazon Web Services Createroutingprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}
+      operations:
+      - name: amazonwebservicesdescriberoutingprofile
+        method: GET
+        description: Amazon Web Services Describeroutingprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-agent-availability-timer
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer
+      operations:
+      - name: amazonwebservicesupdateroutingprofileagentavailabilitytimer
+        method: POST
+        description: Amazon Web Services Updateroutingprofileagentavailabilitytimer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-associate-queues
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues
+      operations:
+      - name: amazonwebservicesassociateroutingprofilequeues
+        method: POST
+        description: Amazon Web Services Associateroutingprofilequeues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-concurrency
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency
+      operations:
+      - name: amazonwebservicesupdateroutingprofileconcurrency
+        method: POST
+        description: Amazon Web Services Updateroutingprofileconcurrency
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-default-outbound-queue
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue
+      operations:
+      - name: amazonwebservicesupdateroutingprofiledefaultoutboundqueue
+        method: POST
+        description: Amazon Web Services Updateroutingprofiledefaultoutboundqueue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-disassociate-queues
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues
+      operations:
+      - name: amazonwebservicesdisassociateroutingprofilequeues
+        method: POST
+        description: Amazon Web Services Disassociateroutingprofilequeues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-name
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/name
+      operations:
+      - name: amazonwebservicesupdateroutingprofilename
+        method: POST
+        description: Amazon Web Services Updateroutingprofilename
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routing-profiles-InstanceId-RoutingProfileId-queues
+      path: /routing-profiles/{InstanceId}/{RoutingProfileId}/queues
+      operations:
+      - name: amazonwebservicesupdateroutingprofilequeues
+        method: POST
+        description: Amazon Web Services Updateroutingprofilequeues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-routing-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Routing Profiles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/routing-profiles/{instanceid}
+      name: routing-profiles-instanceid
+      description: REST surface for routing-profiles-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreateroutingprofile
+        description: Amazon Web Services Createroutingprofile
+        call: connect-routing-profiles.amazonwebservicescreateroutingprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}
+      name: routing-profiles-instanceid-routingprofileid
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescriberoutingprofile
+        description: Amazon Web Services Describeroutingprofile
+        call: connect-routing-profiles.amazonwebservicesdescriberoutingprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/agent-availability-timer
+      name: routing-profiles-instanceid-routingprofileid-agent-availability-timer
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-agent-availability-timer.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateroutingprofileagentavailabilitytimer
+        description: Amazon Web Services Updateroutingprofileagentavailabilitytimer
+        call: connect-routing-profiles.amazonwebservicesupdateroutingprofileagentavailabilitytimer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/associate-queues
+      name: routing-profiles-instanceid-routingprofileid-associate-queues
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-associate-queues.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociateroutingprofilequeues
+        description: Amazon Web Services Associateroutingprofilequeues
+        call: connect-routing-profiles.amazonwebservicesassociateroutingprofilequeues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/concurrency
+      name: routing-profiles-instanceid-routingprofileid-concurrency
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-concurrency.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateroutingprofileconcurrency
+        description: Amazon Web Services Updateroutingprofileconcurrency
+        call: connect-routing-profiles.amazonwebservicesupdateroutingprofileconcurrency
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/default-outbound-queue
+      name: routing-profiles-instanceid-routingprofileid-default-outbound-queue
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-default-outbound-queue.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateroutingprofiledefaultoutboundqueue
+        description: Amazon Web Services Updateroutingprofiledefaultoutboundqueue
+        call: connect-routing-profiles.amazonwebservicesupdateroutingprofiledefaultoutboundqueue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/disassociate-queues
+      name: routing-profiles-instanceid-routingprofileid-disassociate-queues
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-disassociate-queues.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociateroutingprofilequeues
+        description: Amazon Web Services Disassociateroutingprofilequeues
+        call: connect-routing-profiles.amazonwebservicesdisassociateroutingprofilequeues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/name
+      name: routing-profiles-instanceid-routingprofileid-name
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-name.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateroutingprofilename
+        description: Amazon Web Services Updateroutingprofilename
+        call: connect-routing-profiles.amazonwebservicesupdateroutingprofilename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routing-profiles/{instanceid}/{routingprofileid}/queues
+      name: routing-profiles-instanceid-routingprofileid-queues
+      description: REST surface for routing-profiles-InstanceId-RoutingProfileId-queues.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateroutingprofilequeues
+        description: Amazon Web Services Updateroutingprofilequeues
+        call: connect-routing-profiles.amazonwebservicesupdateroutingprofilequeues
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-routing-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Routing Profiles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createroutingprofile
+      description: Amazon Web Services Createroutingprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-routing-profiles.amazonwebservicescreateroutingprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeroutingprofile
+      description: Amazon Web Services Describeroutingprofile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-routing-profiles.amazonwebservicesdescriberoutingprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutingprofileagentavailabilitytimer
+      description: Amazon Web Services Updateroutingprofileagentavailabilitytimer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesupdateroutingprofileagentavailabilitytimer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-associateroutingprofilequeues
+      description: Amazon Web Services Associateroutingprofilequeues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesassociateroutingprofilequeues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutingprofileconcurrency
+      description: Amazon Web Services Updateroutingprofileconcurrency
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesupdateroutingprofileconcurrency
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutingprofiledefaultoutboundqueue
+      description: Amazon Web Services Updateroutingprofiledefaultoutboundqueue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesupdateroutingprofiledefaultoutboundqueue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateroutingprofilequeues
+      description: Amazon Web Services Disassociateroutingprofilequeues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesdisassociateroutingprofilequeues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutingprofilename
+      description: Amazon Web Services Updateroutingprofilename
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesupdateroutingprofilename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutingprofilequeues
+      description: Amazon Web Services Updateroutingprofilequeues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-routing-profiles.amazonwebservicesupdateroutingprofilequeues
+      outputParameters:
+      - type: object
+        mapping: $.

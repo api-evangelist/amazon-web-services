@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — Standards
+  description: 'Amazon Web Services securityhub — Standards. 6 operations. Lead operation: Amazon Web Services Describestandards.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Standards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-standards
+    baseUri: ''
+    description: Amazon Web Services securityhub — Standards business capability. Self-contained, no shared references.
+    resources:
+    - name: standards
+      path: /standards
+      operations:
+      - name: amazonwebservicesdescribestandards
+        method: GET
+        description: Amazon Web Services Describestandards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: standards-control-StandardsControlArn+
+      path: /standards/control/{StandardsControlArn+}
+      operations:
+      - name: amazonwebservicesupdatestandardscontrol
+        method: PATCH
+        description: Amazon Web Services Updatestandardscontrol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: standards-controls-StandardsSubscriptionArn+
+      path: /standards/controls/{StandardsSubscriptionArn+}
+      operations:
+      - name: amazonwebservicesdescribestandardscontrols
+        method: GET
+        description: Amazon Web Services Describestandardscontrols
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: standards-deregister
+      path: /standards/deregister
+      operations:
+      - name: amazonwebservicesbatchdisablestandards
+        method: POST
+        description: Amazon Web Services Batchdisablestandards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: standards-get
+      path: /standards/get
+      operations:
+      - name: amazonwebservicesgetenabledstandards
+        method: POST
+        description: Amazon Web Services Getenabledstandards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: standards-register
+      path: /standards/register
+      operations:
+      - name: amazonwebservicesbatchenablestandards
+        method: POST
+        description: Amazon Web Services Batchenablestandards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-standards-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — Standards. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/standards
+      name: standards
+      description: REST surface for standards.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribestandards
+        description: Amazon Web Services Describestandards
+        call: securityhub-standards.amazonwebservicesdescribestandards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/standards/control/{standardscontrolarn}
+      name: standards-control-standardscontrolarn
+      description: REST surface for standards-control-StandardsControlArn+.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatestandardscontrol
+        description: Amazon Web Services Updatestandardscontrol
+        call: securityhub-standards.amazonwebservicesupdatestandardscontrol
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/standards/controls/{standardssubscriptionarn}
+      name: standards-controls-standardssubscriptionarn
+      description: REST surface for standards-controls-StandardsSubscriptionArn+.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribestandardscontrols
+        description: Amazon Web Services Describestandardscontrols
+        call: securityhub-standards.amazonwebservicesdescribestandardscontrols
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/standards/deregister
+      name: standards-deregister
+      description: REST surface for standards-deregister.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdisablestandards
+        description: Amazon Web Services Batchdisablestandards
+        call: securityhub-standards.amazonwebservicesbatchdisablestandards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/standards/get
+      name: standards-get
+      description: REST surface for standards-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetenabledstandards
+        description: Amazon Web Services Getenabledstandards
+        call: securityhub-standards.amazonwebservicesgetenabledstandards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/standards/register
+      name: standards-register
+      description: REST surface for standards-register.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchenablestandards
+        description: Amazon Web Services Batchenablestandards
+        call: securityhub-standards.amazonwebservicesbatchenablestandards
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-standards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — Standards. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describestandards
+      description: Amazon Web Services Describestandards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-standards.amazonwebservicesdescribestandards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatestandardscontrol
+      description: Amazon Web Services Updatestandardscontrol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-standards.amazonwebservicesupdatestandardscontrol
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describestandardscontrols
+      description: Amazon Web Services Describestandardscontrols
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-standards.amazonwebservicesdescribestandardscontrols
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdisablestandards
+      description: Amazon Web Services Batchdisablestandards
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-standards.amazonwebservicesbatchdisablestandards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getenabledstandards
+      description: Amazon Web Services Getenabledstandards
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-standards.amazonwebservicesgetenabledstandards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchenablestandards
+      description: Amazon Web Services Batchenablestandards
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-standards.amazonwebservicesbatchenablestandards
+      outputParameters:
+      - type: object
+        mapping: $.

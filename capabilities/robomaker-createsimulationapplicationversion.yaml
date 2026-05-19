@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — createSimulationApplicationVersion
+  description: 'Amazon Web Services robomaker — createSimulationApplicationVersion. 1 operations. Lead operation: Amazon Web
+    Services Createsimulationapplicationversion. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - createSimulationApplicationVersion
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-createsimulationapplicationversion
+    baseUri: ''
+    description: Amazon Web Services robomaker — createSimulationApplicationVersion business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: createSimulationApplicationVersion
+      path: /createSimulationApplicationVersion
+      operations:
+      - name: amazonwebservicescreatesimulationapplicationversion
+        method: POST
+        description: Amazon Web Services Createsimulationapplicationversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-createsimulationapplicationversion-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — createSimulationApplicationVersion. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createsimulationapplicationversion
+      name: createsimulationapplicationversion
+      description: REST surface for createSimulationApplicationVersion.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesimulationapplicationversion
+        description: Amazon Web Services Createsimulationapplicationversion
+        call: robomaker-createsimulationapplicationversion.amazonwebservicescreatesimulationapplicationversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-createsimulationapplicationversion-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — createSimulationApplicationVersion. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsimulationapplicationversion
+      description: Amazon Web Services Createsimulationapplicationversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-createsimulationapplicationversion.amazonwebservicescreatesimulationapplicationversion
+      outputParameters:
+      - type: object
+        mapping: $.

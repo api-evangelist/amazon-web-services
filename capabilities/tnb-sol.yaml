@@ -1,0 +1,675 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services tnb — Sol
+  description: 'Amazon Web Services tnb — Sol. 20 operations. Lead operation: Amazon Web Services Listsolnetworkpackages.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sol
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tnb-sol
+    baseUri: ''
+    description: Amazon Web Services tnb — Sol business capability. Self-contained, no shared references.
+    resources:
+    - name: sol-nsd-v1-ns_descriptors
+      path: /sol/nsd/v1/ns_descriptors
+      operations:
+      - name: amazonwebserviceslistsolnetworkpackages
+        method: GET
+        description: Amazon Web Services Listsolnetworkpackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nsd-v1-ns_descriptors-nsdInfoId
+      path: /sol/nsd/v1/ns_descriptors/{nsdInfoId}
+      operations:
+      - name: amazonwebservicesupdatesolnetworkpackage
+        method: PATCH
+        description: Amazon Web Services Updatesolnetworkpackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nsd-v1-ns_descriptors-nsdInfoId-nsd
+      path: /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd
+      operations:
+      - name: amazonwebservicesgetsolnetworkpackagedescriptor
+        method: GET
+        description: Amazon Web Services Getsolnetworkpackagedescriptor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nsd-v1-ns_descriptors-nsdInfoId-nsd_content
+      path: /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content
+      operations:
+      - name: amazonwebservicesputsolnetworkpackagecontent
+        method: PUT
+        description: Amazon Web Services Putsolnetworkpackagecontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nsd-v1-ns_descriptors-nsdInfoId-nsd_content-validate
+      path: /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate
+      operations:
+      - name: amazonwebservicesvalidatesolnetworkpackagecontent
+        method: PUT
+        description: Amazon Web Services Validatesolnetworkpackagecontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_instances
+      path: /sol/nslcm/v1/ns_instances
+      operations:
+      - name: amazonwebserviceslistsolnetworkinstances
+        method: GET
+        description: Amazon Web Services Listsolnetworkinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_instances-nsInstanceId
+      path: /sol/nslcm/v1/ns_instances/{nsInstanceId}
+      operations:
+      - name: amazonwebservicesgetsolnetworkinstance
+        method: GET
+        description: Amazon Web Services Getsolnetworkinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_instances-nsInstanceId-instantiate
+      path: /sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate
+      operations:
+      - name: amazonwebservicesinstantiatesolnetworkinstance
+        method: POST
+        description: Amazon Web Services Instantiatesolnetworkinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_instances-nsInstanceId-terminate
+      path: /sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate
+      operations:
+      - name: amazonwebservicesterminatesolnetworkinstance
+        method: POST
+        description: Amazon Web Services Terminatesolnetworkinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_instances-nsInstanceId-update
+      path: /sol/nslcm/v1/ns_instances/{nsInstanceId}/update
+      operations:
+      - name: amazonwebservicesupdatesolnetworkinstance
+        method: POST
+        description: Amazon Web Services Updatesolnetworkinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_lcm_op_occs
+      path: /sol/nslcm/v1/ns_lcm_op_occs
+      operations:
+      - name: amazonwebserviceslistsolnetworkoperations
+        method: GET
+        description: Amazon Web Services Listsolnetworkoperations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_lcm_op_occs-nsLcmOpOccId
+      path: /sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}
+      operations:
+      - name: amazonwebservicesgetsolnetworkoperation
+        method: GET
+        description: Amazon Web Services Getsolnetworkoperation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-nslcm-v1-ns_lcm_op_occs-nsLcmOpOccId-cancel
+      path: /sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel
+      operations:
+      - name: amazonwebservicescancelsolnetworkoperation
+        method: POST
+        description: Amazon Web Services Cancelsolnetworkoperation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnflcm-v1-vnf_instances
+      path: /sol/vnflcm/v1/vnf_instances
+      operations:
+      - name: amazonwebserviceslistsolfunctioninstances
+        method: GET
+        description: Amazon Web Services Listsolfunctioninstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnflcm-v1-vnf_instances-vnfInstanceId
+      path: /sol/vnflcm/v1/vnf_instances/{vnfInstanceId}
+      operations:
+      - name: amazonwebservicesgetsolfunctioninstance
+        method: GET
+        description: Amazon Web Services Getsolfunctioninstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnfpkgm-v1-vnf_packages
+      path: /sol/vnfpkgm/v1/vnf_packages
+      operations:
+      - name: amazonwebserviceslistsolfunctionpackages
+        method: GET
+        description: Amazon Web Services Listsolfunctionpackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnfpkgm-v1-vnf_packages-vnfPkgId
+      path: /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}
+      operations:
+      - name: amazonwebservicesupdatesolfunctionpackage
+        method: PATCH
+        description: Amazon Web Services Updatesolfunctionpackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnfpkgm-v1-vnf_packages-vnfPkgId-package_content
+      path: /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content
+      operations:
+      - name: amazonwebservicesputsolfunctionpackagecontent
+        method: PUT
+        description: Amazon Web Services Putsolfunctionpackagecontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnfpkgm-v1-vnf_packages-vnfPkgId-package_content-validate
+      path: /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate
+      operations:
+      - name: amazonwebservicesvalidatesolfunctionpackagecontent
+        method: PUT
+        description: Amazon Web Services Validatesolfunctionpackagecontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sol-vnfpkgm-v1-vnf_packages-vnfPkgId-vnfd
+      path: /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd
+      operations:
+      - name: amazonwebservicesgetsolfunctionpackagedescriptor
+        method: GET
+        description: Amazon Web Services Getsolfunctionpackagedescriptor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: tnb-sol-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services tnb — Sol. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/sol/nsd/v1/ns-descriptors
+      name: sol-nsd-v1-ns-descriptors
+      description: REST surface for sol-nsd-v1-ns_descriptors.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsolnetworkpackages
+        description: Amazon Web Services Listsolnetworkpackages
+        call: tnb-sol.amazonwebserviceslistsolnetworkpackages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nsd/v1/ns-descriptors/{nsdinfoid}
+      name: sol-nsd-v1-ns-descriptors-nsdinfoid
+      description: REST surface for sol-nsd-v1-ns_descriptors-nsdInfoId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatesolnetworkpackage
+        description: Amazon Web Services Updatesolnetworkpackage
+        call: tnb-sol.amazonwebservicesupdatesolnetworkpackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nsd/v1/ns-descriptors/{nsdinfoid}/nsd
+      name: sol-nsd-v1-ns-descriptors-nsdinfoid-nsd
+      description: REST surface for sol-nsd-v1-ns_descriptors-nsdInfoId-nsd.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsolnetworkpackagedescriptor
+        description: Amazon Web Services Getsolnetworkpackagedescriptor
+        call: tnb-sol.amazonwebservicesgetsolnetworkpackagedescriptor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nsd/v1/ns-descriptors/{nsdinfoid}/nsd-content
+      name: sol-nsd-v1-ns-descriptors-nsdinfoid-nsd-content
+      description: REST surface for sol-nsd-v1-ns_descriptors-nsdInfoId-nsd_content.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputsolnetworkpackagecontent
+        description: Amazon Web Services Putsolnetworkpackagecontent
+        call: tnb-sol.amazonwebservicesputsolnetworkpackagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nsd/v1/ns-descriptors/{nsdinfoid}/nsd-content/validate
+      name: sol-nsd-v1-ns-descriptors-nsdinfoid-nsd-content-validate
+      description: REST surface for sol-nsd-v1-ns_descriptors-nsdInfoId-nsd_content-validate.
+      operations:
+      - method: PUT
+        name: amazonwebservicesvalidatesolnetworkpackagecontent
+        description: Amazon Web Services Validatesolnetworkpackagecontent
+        call: tnb-sol.amazonwebservicesvalidatesolnetworkpackagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-instances
+      name: sol-nslcm-v1-ns-instances
+      description: REST surface for sol-nslcm-v1-ns_instances.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsolnetworkinstances
+        description: Amazon Web Services Listsolnetworkinstances
+        call: tnb-sol.amazonwebserviceslistsolnetworkinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-instances/{nsinstanceid}
+      name: sol-nslcm-v1-ns-instances-nsinstanceid
+      description: REST surface for sol-nslcm-v1-ns_instances-nsInstanceId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsolnetworkinstance
+        description: Amazon Web Services Getsolnetworkinstance
+        call: tnb-sol.amazonwebservicesgetsolnetworkinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-instances/{nsinstanceid}/instantiate
+      name: sol-nslcm-v1-ns-instances-nsinstanceid-instantiate
+      description: REST surface for sol-nslcm-v1-ns_instances-nsInstanceId-instantiate.
+      operations:
+      - method: POST
+        name: amazonwebservicesinstantiatesolnetworkinstance
+        description: Amazon Web Services Instantiatesolnetworkinstance
+        call: tnb-sol.amazonwebservicesinstantiatesolnetworkinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-instances/{nsinstanceid}/terminate
+      name: sol-nslcm-v1-ns-instances-nsinstanceid-terminate
+      description: REST surface for sol-nslcm-v1-ns_instances-nsInstanceId-terminate.
+      operations:
+      - method: POST
+        name: amazonwebservicesterminatesolnetworkinstance
+        description: Amazon Web Services Terminatesolnetworkinstance
+        call: tnb-sol.amazonwebservicesterminatesolnetworkinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-instances/{nsinstanceid}/update
+      name: sol-nslcm-v1-ns-instances-nsinstanceid-update
+      description: REST surface for sol-nslcm-v1-ns_instances-nsInstanceId-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatesolnetworkinstance
+        description: Amazon Web Services Updatesolnetworkinstance
+        call: tnb-sol.amazonwebservicesupdatesolnetworkinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-lcm-op-occs
+      name: sol-nslcm-v1-ns-lcm-op-occs
+      description: REST surface for sol-nslcm-v1-ns_lcm_op_occs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsolnetworkoperations
+        description: Amazon Web Services Listsolnetworkoperations
+        call: tnb-sol.amazonwebserviceslistsolnetworkoperations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-lcm-op-occs/{nslcmopoccid}
+      name: sol-nslcm-v1-ns-lcm-op-occs-nslcmopoccid
+      description: REST surface for sol-nslcm-v1-ns_lcm_op_occs-nsLcmOpOccId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsolnetworkoperation
+        description: Amazon Web Services Getsolnetworkoperation
+        call: tnb-sol.amazonwebservicesgetsolnetworkoperation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/nslcm/v1/ns-lcm-op-occs/{nslcmopoccid}/cancel
+      name: sol-nslcm-v1-ns-lcm-op-occs-nslcmopoccid-cancel
+      description: REST surface for sol-nslcm-v1-ns_lcm_op_occs-nsLcmOpOccId-cancel.
+      operations:
+      - method: POST
+        name: amazonwebservicescancelsolnetworkoperation
+        description: Amazon Web Services Cancelsolnetworkoperation
+        call: tnb-sol.amazonwebservicescancelsolnetworkoperation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnflcm/v1/vnf-instances
+      name: sol-vnflcm-v1-vnf-instances
+      description: REST surface for sol-vnflcm-v1-vnf_instances.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsolfunctioninstances
+        description: Amazon Web Services Listsolfunctioninstances
+        call: tnb-sol.amazonwebserviceslistsolfunctioninstances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnflcm/v1/vnf-instances/{vnfinstanceid}
+      name: sol-vnflcm-v1-vnf-instances-vnfinstanceid
+      description: REST surface for sol-vnflcm-v1-vnf_instances-vnfInstanceId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsolfunctioninstance
+        description: Amazon Web Services Getsolfunctioninstance
+        call: tnb-sol.amazonwebservicesgetsolfunctioninstance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnfpkgm/v1/vnf-packages
+      name: sol-vnfpkgm-v1-vnf-packages
+      description: REST surface for sol-vnfpkgm-v1-vnf_packages.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsolfunctionpackages
+        description: Amazon Web Services Listsolfunctionpackages
+        call: tnb-sol.amazonwebserviceslistsolfunctionpackages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnfpkgm/v1/vnf-packages/{vnfpkgid}
+      name: sol-vnfpkgm-v1-vnf-packages-vnfpkgid
+      description: REST surface for sol-vnfpkgm-v1-vnf_packages-vnfPkgId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatesolfunctionpackage
+        description: Amazon Web Services Updatesolfunctionpackage
+        call: tnb-sol.amazonwebservicesupdatesolfunctionpackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnfpkgm/v1/vnf-packages/{vnfpkgid}/package-content
+      name: sol-vnfpkgm-v1-vnf-packages-vnfpkgid-package-content
+      description: REST surface for sol-vnfpkgm-v1-vnf_packages-vnfPkgId-package_content.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputsolfunctionpackagecontent
+        description: Amazon Web Services Putsolfunctionpackagecontent
+        call: tnb-sol.amazonwebservicesputsolfunctionpackagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnfpkgm/v1/vnf-packages/{vnfpkgid}/package-content/validate
+      name: sol-vnfpkgm-v1-vnf-packages-vnfpkgid-package-content-validate
+      description: REST surface for sol-vnfpkgm-v1-vnf_packages-vnfPkgId-package_content-validate.
+      operations:
+      - method: PUT
+        name: amazonwebservicesvalidatesolfunctionpackagecontent
+        description: Amazon Web Services Validatesolfunctionpackagecontent
+        call: tnb-sol.amazonwebservicesvalidatesolfunctionpackagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sol/vnfpkgm/v1/vnf-packages/{vnfpkgid}/vnfd
+      name: sol-vnfpkgm-v1-vnf-packages-vnfpkgid-vnfd
+      description: REST surface for sol-vnfpkgm-v1-vnf_packages-vnfPkgId-vnfd.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsolfunctionpackagedescriptor
+        description: Amazon Web Services Getsolfunctionpackagedescriptor
+        call: tnb-sol.amazonwebservicesgetsolfunctionpackagedescriptor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tnb-sol-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services tnb — Sol. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsolnetworkpackages
+      description: Amazon Web Services Listsolnetworkpackages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebserviceslistsolnetworkpackages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesolnetworkpackage
+      description: Amazon Web Services Updatesolnetworkpackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesupdatesolnetworkpackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsolnetworkpackagedescriptor
+      description: Amazon Web Services Getsolnetworkpackagedescriptor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesgetsolnetworkpackagedescriptor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putsolnetworkpackagecontent
+      description: Amazon Web Services Putsolnetworkpackagecontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesputsolnetworkpackagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-validatesolnetworkpackagecontent
+      description: Amazon Web Services Validatesolnetworkpackagecontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesvalidatesolnetworkpackagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsolnetworkinstances
+      description: Amazon Web Services Listsolnetworkinstances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebserviceslistsolnetworkinstances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsolnetworkinstance
+      description: Amazon Web Services Getsolnetworkinstance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesgetsolnetworkinstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-instantiatesolnetworkinstance
+      description: Amazon Web Services Instantiatesolnetworkinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tnb-sol.amazonwebservicesinstantiatesolnetworkinstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-terminatesolnetworkinstance
+      description: Amazon Web Services Terminatesolnetworkinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tnb-sol.amazonwebservicesterminatesolnetworkinstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesolnetworkinstance
+      description: Amazon Web Services Updatesolnetworkinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tnb-sol.amazonwebservicesupdatesolnetworkinstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsolnetworkoperations
+      description: Amazon Web Services Listsolnetworkoperations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebserviceslistsolnetworkoperations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsolnetworkoperation
+      description: Amazon Web Services Getsolnetworkoperation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesgetsolnetworkoperation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-cancelsolnetworkoperation
+      description: Amazon Web Services Cancelsolnetworkoperation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tnb-sol.amazonwebservicescancelsolnetworkoperation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsolfunctioninstances
+      description: Amazon Web Services Listsolfunctioninstances
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebserviceslistsolfunctioninstances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsolfunctioninstance
+      description: Amazon Web Services Getsolfunctioninstance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesgetsolfunctioninstance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsolfunctionpackages
+      description: Amazon Web Services Listsolfunctionpackages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebserviceslistsolfunctionpackages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesolfunctionpackage
+      description: Amazon Web Services Updatesolfunctionpackage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesupdatesolfunctionpackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putsolfunctionpackagecontent
+      description: Amazon Web Services Putsolfunctionpackagecontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesputsolfunctionpackagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-validatesolfunctionpackagecontent
+      description: Amazon Web Services Validatesolfunctionpackagecontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesvalidatesolfunctionpackagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsolfunctionpackagedescriptor
+      description: Amazon Web Services Getsolfunctionpackagedescriptor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tnb-sol.amazonwebservicesgetsolfunctionpackagedescriptor
+      outputParameters:
+      - type: object
+        mapping: $.

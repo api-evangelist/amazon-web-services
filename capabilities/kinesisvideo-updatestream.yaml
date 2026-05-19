@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — updateStream
+  description: 'Amazon Web Services kinesisvideo — updateStream. 1 operations. Lead operation: Amazon Web Services Updatestream.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - updateStream
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-updatestream
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — updateStream business capability. Self-contained, no shared references.
+    resources:
+    - name: updateStream
+      path: /updateStream
+      operations:
+      - name: amazonwebservicesupdatestream
+        method: POST
+        description: Amazon Web Services Updatestream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-updatestream-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — updateStream. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatestream
+      name: updatestream
+      description: REST surface for updateStream.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatestream
+        description: Amazon Web Services Updatestream
+        call: kinesisvideo-updatestream.amazonwebservicesupdatestream
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-updatestream-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — updateStream. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatestream
+      description: Amazon Web Services Updatestream
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-updatestream.amazonwebservicesupdatestream
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-incidents — batchGetIncidentFindings
+  description: 'Amazon Web Services ssm-incidents — batchGetIncidentFindings. 1 operations. Lead operation: Amazon Web Services
+    Batchgetincidentfindings. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - batchGetIncidentFindings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-incidents-batchgetincidentfindings
+    baseUri: ''
+    description: Amazon Web Services ssm-incidents — batchGetIncidentFindings business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: batchGetIncidentFindings
+      path: /batchGetIncidentFindings
+      operations:
+      - name: amazonwebservicesbatchgetincidentfindings
+        method: POST
+        description: Amazon Web Services Batchgetincidentfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-incidents-batchgetincidentfindings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-incidents — batchGetIncidentFindings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/batchgetincidentfindings
+      name: batchgetincidentfindings
+      description: REST surface for batchGetIncidentFindings.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetincidentfindings
+        description: Amazon Web Services Batchgetincidentfindings
+        call: ssm-incidents-batchgetincidentfindings.amazonwebservicesbatchgetincidentfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-incidents-batchgetincidentfindings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-incidents — batchGetIncidentFindings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchgetincidentfindings
+      description: Amazon Web Services Batchgetincidentfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-incidents-batchgetincidentfindings.amazonwebservicesbatchgetincidentfindings
+      outputParameters:
+      - type: object
+        mapping: $.

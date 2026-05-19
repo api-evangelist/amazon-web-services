@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Finding
+  description: 'Amazon Web Services accessanalyzer — Finding. 2 operations. Lead operation: Amazon Web Services Updatefindings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Finding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-finding
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Finding business capability. Self-contained, no shared references.
+    resources:
+    - name: finding
+      path: /finding
+      operations:
+      - name: amazonwebservicesupdatefindings
+        method: PUT
+        description: Amazon Web Services Updatefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: finding-id
+      path: /finding/{id}
+      operations:
+      - name: amazonwebservicesgetfinding
+        method: GET
+        description: Amazon Web Services Getfinding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-finding-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Finding. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/finding
+      name: finding
+      description: REST surface for finding.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatefindings
+        description: Amazon Web Services Updatefindings
+        call: accessanalyzer-finding.amazonwebservicesupdatefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/finding/{id}
+      name: finding-id
+      description: REST surface for finding-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfinding
+        description: Amazon Web Services Getfinding
+        call: accessanalyzer-finding.amazonwebservicesgetfinding
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-finding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Finding. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatefindings
+      description: Amazon Web Services Updatefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-finding.amazonwebservicesupdatefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfinding
+      description: Amazon Web Services Getfinding
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accessanalyzer-finding.amazonwebservicesgetfinding
+      outputParameters:
+      - type: object
+        mapping: $.

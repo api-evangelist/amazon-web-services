@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-sap — Put Resource Permission
+  description: 'Amazon Web Services ssm-sap — Put Resource Permission. 1 operations. Lead operation: Amazon Web Services Putresourcepermission.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Put Resource Permission
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-sap-put-resource-permission
+    baseUri: ''
+    description: Amazon Web Services ssm-sap — Put Resource Permission business capability. Self-contained, no shared references.
+    resources:
+    - name: put-resource-permission
+      path: /put-resource-permission
+      operations:
+      - name: amazonwebservicesputresourcepermission
+        method: POST
+        description: Amazon Web Services Putresourcepermission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-sap-put-resource-permission-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-sap — Put Resource Permission. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/put-resource-permission
+      name: put-resource-permission
+      description: REST surface for put-resource-permission.
+      operations:
+      - method: POST
+        name: amazonwebservicesputresourcepermission
+        description: Amazon Web Services Putresourcepermission
+        call: ssm-sap-put-resource-permission.amazonwebservicesputresourcepermission
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-sap-put-resource-permission-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-sap — Put Resource Permission. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putresourcepermission
+      description: Amazon Web Services Putresourcepermission
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-sap-put-resource-permission.amazonwebservicesputresourcepermission
+      outputParameters:
+      - type: object
+        mapping: $.

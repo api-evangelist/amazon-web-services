@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Attached Policies
+  description: 'Amazon Web Services iot — Attached Policies. 1 operations. Lead operation: Amazon Web Services Listattachedpolicies.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Attached Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-attached-policies
+    baseUri: ''
+    description: Amazon Web Services iot — Attached Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: attached-policies-target
+      path: /attached-policies/{target}
+      operations:
+      - name: amazonwebserviceslistattachedpolicies
+        method: POST
+        description: Amazon Web Services Listattachedpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-attached-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Attached Policies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/attached-policies/{target}
+      name: attached-policies-target
+      description: REST surface for attached-policies-target.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistattachedpolicies
+        description: Amazon Web Services Listattachedpolicies
+        call: iot-attached-policies.amazonwebserviceslistattachedpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-attached-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Attached Policies. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listattachedpolicies
+      description: Amazon Web Services Listattachedpolicies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-attached-policies.amazonwebserviceslistattachedpolicies
+      outputParameters:
+      - type: object
+        mapping: $.

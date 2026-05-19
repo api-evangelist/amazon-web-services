@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivschat — DisconnectUser
+  description: 'Amazon Web Services ivschat — DisconnectUser. 1 operations. Lead operation: Amazon Web Services Disconnectuser.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DisconnectUser
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivschat-disconnectuser
+    baseUri: ''
+    description: Amazon Web Services ivschat — DisconnectUser business capability. Self-contained, no shared references.
+    resources:
+    - name: DisconnectUser
+      path: /DisconnectUser
+      operations:
+      - name: amazonwebservicesdisconnectuser
+        method: POST
+        description: Amazon Web Services Disconnectuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivschat-disconnectuser-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivschat — DisconnectUser. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/disconnectuser
+      name: disconnectuser
+      description: REST surface for DisconnectUser.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisconnectuser
+        description: Amazon Web Services Disconnectuser
+        call: ivschat-disconnectuser.amazonwebservicesdisconnectuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivschat-disconnectuser-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivschat — DisconnectUser. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-disconnectuser
+      description: Amazon Web Services Disconnectuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivschat-disconnectuser.amazonwebservicesdisconnectuser
+      outputParameters:
+      - type: object
+        mapping: $.

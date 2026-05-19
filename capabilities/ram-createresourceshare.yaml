@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ram — Createresourceshare
+  description: 'Amazon Web Services ram — Createresourceshare. 1 operations. Lead operation: Amazon Web Services Createresourceshare.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Createresourceshare
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ram-createresourceshare
+    baseUri: ''
+    description: Amazon Web Services ram — Createresourceshare business capability. Self-contained, no shared references.
+    resources:
+    - name: createresourceshare
+      path: /createresourceshare
+      operations:
+      - name: amazonwebservicescreateresourceshare
+        method: POST
+        description: Amazon Web Services Createresourceshare
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ram-createresourceshare-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ram — Createresourceshare. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/createresourceshare
+      name: createresourceshare
+      description: REST surface for createresourceshare.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateresourceshare
+        description: Amazon Web Services Createresourceshare
+        call: ram-createresourceshare.amazonwebservicescreateresourceshare
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ram-createresourceshare-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ram — Createresourceshare. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createresourceshare
+      description: Amazon Web Services Createresourceshare
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ram-createresourceshare.amazonwebservicescreateresourceshare
+      outputParameters:
+      - type: object
+        mapping: $.

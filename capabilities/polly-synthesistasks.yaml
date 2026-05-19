@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services polly — synthesisTasks
+  description: 'Amazon Web Services polly — synthesisTasks. 2 operations. Lead operation: Amazon Web Services Startspeechsynthesistask.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - synthesisTasks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: polly-synthesistasks
+    baseUri: ''
+    description: Amazon Web Services polly — synthesisTasks business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-synthesisTasks
+      path: /v1/synthesisTasks
+      operations:
+      - name: amazonwebservicesstartspeechsynthesistask
+        method: POST
+        description: Amazon Web Services Startspeechsynthesistask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-synthesisTasks-TaskId
+      path: /v1/synthesisTasks/{TaskId}
+      operations:
+      - name: amazonwebservicesgetspeechsynthesistask
+        method: GET
+        description: Amazon Web Services Getspeechsynthesistask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: polly-synthesistasks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services polly — synthesisTasks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/synthesistasks
+      name: v1-synthesistasks
+      description: REST surface for v1-synthesisTasks.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartspeechsynthesistask
+        description: Amazon Web Services Startspeechsynthesistask
+        call: polly-synthesistasks.amazonwebservicesstartspeechsynthesistask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/synthesistasks/{taskid}
+      name: v1-synthesistasks-taskid
+      description: REST surface for v1-synthesisTasks-TaskId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetspeechsynthesistask
+        description: Amazon Web Services Getspeechsynthesistask
+        call: polly-synthesistasks.amazonwebservicesgetspeechsynthesistask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: polly-synthesistasks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services polly — synthesisTasks. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startspeechsynthesistask
+      description: Amazon Web Services Startspeechsynthesistask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: polly-synthesistasks.amazonwebservicesstartspeechsynthesistask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getspeechsynthesistask
+      description: Amazon Web Services Getspeechsynthesistask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: polly-synthesistasks.amazonwebservicesgetspeechsynthesistask
+      outputParameters:
+      - type: object
+        mapping: $.

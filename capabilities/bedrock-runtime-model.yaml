@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services bedrock-runtime — Model
+  description: 'Amazon Web Services bedrock-runtime — Model. 2 operations. Lead operation: Amazon Web Services Invokemodel.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Model
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bedrock-runtime-model
+    baseUri: ''
+    description: Amazon Web Services bedrock-runtime — Model business capability. Self-contained, no shared references.
+    resources:
+    - name: model-modelId-invoke
+      path: /model/{modelId}/invoke
+      operations:
+      - name: amazonwebservicesinvokemodel
+        method: POST
+        description: Amazon Web Services Invokemodel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: model-modelId-invoke-with-response-stream
+      path: /model/{modelId}/invoke-with-response-stream
+      operations:
+      - name: amazonwebservicesinvokemodelwithresponsestream
+        method: POST
+        description: Amazon Web Services Invokemodelwithresponsestream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bedrock-runtime-model-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services bedrock-runtime — Model. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/model/{modelid}/invoke
+      name: model-modelid-invoke
+      description: REST surface for model-modelId-invoke.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvokemodel
+        description: Amazon Web Services Invokemodel
+        call: bedrock-runtime-model.amazonwebservicesinvokemodel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/model/{modelid}/invoke-with-response-stream
+      name: model-modelid-invoke-with-response-stream
+      description: REST surface for model-modelId-invoke-with-response-stream.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvokemodelwithresponsestream
+        description: Amazon Web Services Invokemodelwithresponsestream
+        call: bedrock-runtime-model.amazonwebservicesinvokemodelwithresponsestream
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bedrock-runtime-model-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services bedrock-runtime — Model. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-invokemodel
+      description: Amazon Web Services Invokemodel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bedrock-runtime-model.amazonwebservicesinvokemodel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-invokemodelwithresponsestream
+      description: Amazon Web Services Invokemodelwithresponsestream
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bedrock-runtime-model.amazonwebservicesinvokemodelwithresponsestream
+      outputParameters:
+      - type: object
+        mapping: $.

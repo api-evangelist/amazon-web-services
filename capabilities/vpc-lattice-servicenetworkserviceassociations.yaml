@@ -1,0 +1,101 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services vpc-lattice — Servicenetworkserviceassociations
+  description: 'Amazon Web Services vpc-lattice — Servicenetworkserviceassociations. 2 operations. Lead operation: Amazon
+    Web Services Listservicenetworkserviceassociations. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Servicenetworkserviceassociations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vpc-lattice-servicenetworkserviceassociations
+    baseUri: ''
+    description: Amazon Web Services vpc-lattice — Servicenetworkserviceassociations business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: servicenetworkserviceassociations
+      path: /servicenetworkserviceassociations
+      operations:
+      - name: amazonwebserviceslistservicenetworkserviceassociations
+        method: GET
+        description: Amazon Web Services Listservicenetworkserviceassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: servicenetworkserviceassociations-serviceNetworkServiceAssociationIdentifier
+      path: /servicenetworkserviceassociations/{serviceNetworkServiceAssociationIdentifier}
+      operations:
+      - name: amazonwebservicesgetservicenetworkserviceassociation
+        method: GET
+        description: Amazon Web Services Getservicenetworkserviceassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: vpc-lattice-servicenetworkserviceassociations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services vpc-lattice — Servicenetworkserviceassociations. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/servicenetworkserviceassociations
+      name: servicenetworkserviceassociations
+      description: REST surface for servicenetworkserviceassociations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistservicenetworkserviceassociations
+        description: Amazon Web Services Listservicenetworkserviceassociations
+        call: vpc-lattice-servicenetworkserviceassociations.amazonwebserviceslistservicenetworkserviceassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/servicenetworkserviceassociations/{servicenetworkserviceassociationidentifier}
+      name: servicenetworkserviceassociations-servicenetworkserviceassociationidentifier
+      description: REST surface for servicenetworkserviceassociations-serviceNetworkServiceAssociationIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetservicenetworkserviceassociation
+        description: Amazon Web Services Getservicenetworkserviceassociation
+        call: vpc-lattice-servicenetworkserviceassociations.amazonwebservicesgetservicenetworkserviceassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vpc-lattice-servicenetworkserviceassociations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services vpc-lattice — Servicenetworkserviceassociations. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listservicenetworkserviceassociations
+      description: Amazon Web Services Listservicenetworkserviceassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-servicenetworkserviceassociations.amazonwebserviceslistservicenetworkserviceassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getservicenetworkserviceassociation
+      description: Amazon Web Services Getservicenetworkserviceassociation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vpc-lattice-servicenetworkserviceassociations.amazonwebservicesgetservicenetworkserviceassociation
+      outputParameters:
+      - type: object
+        mapping: $.

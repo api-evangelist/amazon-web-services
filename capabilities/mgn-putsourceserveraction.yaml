@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — PutSourceServerAction
+  description: 'Amazon Web Services mgn — PutSourceServerAction. 1 operations. Lead operation: Amazon Web Services Putsourceserveraction.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutSourceServerAction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-putsourceserveraction
+    baseUri: ''
+    description: Amazon Web Services mgn — PutSourceServerAction business capability. Self-contained, no shared references.
+    resources:
+    - name: PutSourceServerAction
+      path: /PutSourceServerAction
+      operations:
+      - name: amazonwebservicesputsourceserveraction
+        method: POST
+        description: Amazon Web Services Putsourceserveraction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-putsourceserveraction-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — PutSourceServerAction. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/putsourceserveraction
+      name: putsourceserveraction
+      description: REST surface for PutSourceServerAction.
+      operations:
+      - method: POST
+        name: amazonwebservicesputsourceserveraction
+        description: Amazon Web Services Putsourceserveraction
+        call: mgn-putsourceserveraction.amazonwebservicesputsourceserveraction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-putsourceserveraction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — PutSourceServerAction. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putsourceserveraction
+      description: Amazon Web Services Putsourceserveraction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-putsourceserveraction.amazonwebservicesputsourceserveraction
+      outputParameters:
+      - type: object
+        mapping: $.

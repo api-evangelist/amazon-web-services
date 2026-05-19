@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — List Recommendation Templates
+  description: 'Amazon Web Services resiliencehub — List Recommendation Templates. 1 operations. Lead operation: Amazon Web
+    Services Listrecommendationtemplates. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Recommendation Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-list-recommendation-templates
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — List Recommendation Templates business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: list-recommendation-templates
+      path: /list-recommendation-templates
+      operations:
+      - name: amazonwebserviceslistrecommendationtemplates
+        method: GET
+        description: Amazon Web Services Listrecommendationtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-list-recommendation-templates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — List Recommendation Templates. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-recommendation-templates
+      name: list-recommendation-templates
+      description: REST surface for list-recommendation-templates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecommendationtemplates
+        description: Amazon Web Services Listrecommendationtemplates
+        call: resiliencehub-list-recommendation-templates.amazonwebserviceslistrecommendationtemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-list-recommendation-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — List Recommendation Templates. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrecommendationtemplates
+      description: Amazon Web Services Listrecommendationtemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: resiliencehub-list-recommendation-templates.amazonwebserviceslistrecommendationtemplates
+      outputParameters:
+      - type: object
+        mapping: $.

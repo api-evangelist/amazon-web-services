@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Update Enabled Baseline
+  description: 'Amazon Web Services controltower — Update Enabled Baseline. 1 operations. Lead operation: Amazon Web Services
+    Updateenabledbaseline. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Update Enabled Baseline
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-update-enabled-baseline
+    baseUri: ''
+    description: Amazon Web Services controltower — Update Enabled Baseline business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: update-enabled-baseline
+      path: /update-enabled-baseline
+      operations:
+      - name: amazonwebservicesupdateenabledbaseline
+        method: POST
+        description: Amazon Web Services Updateenabledbaseline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-update-enabled-baseline-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Update Enabled Baseline. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/update-enabled-baseline
+      name: update-enabled-baseline
+      description: REST surface for update-enabled-baseline.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateenabledbaseline
+        description: Amazon Web Services Updateenabledbaseline
+        call: controltower-update-enabled-baseline.amazonwebservicesupdateenabledbaseline
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-update-enabled-baseline-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Update Enabled Baseline. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateenabledbaseline
+      description: Amazon Web Services Updateenabledbaseline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-update-enabled-baseline.amazonwebservicesupdateenabledbaseline
+      outputParameters:
+      - type: object
+        mapping: $.

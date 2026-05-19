@@ -1,0 +1,451 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lambda — 2015 03 31
+  description: 'Amazon Web Services lambda — 2015 03 31. 13 operations. Lead operation: Amazon Web Services Listeventsourcemappings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2015 03 31
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lambda-2015-03-31
+    baseUri: ''
+    description: Amazon Web Services lambda — 2015 03 31 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2015-03-31-event-source-mappings
+      path: /2015-03-31/event-source-mappings/
+      operations:
+      - name: amazonwebserviceslisteventsourcemappings
+        method: GET
+        description: Amazon Web Services Listeventsourcemappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-event-source-mappings-UUID
+      path: /2015-03-31/event-source-mappings/{UUID}
+      operations:
+      - name: amazonwebservicesupdateeventsourcemapping
+        method: PUT
+        description: Amazon Web Services Updateeventsourcemapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions
+      path: /2015-03-31/functions
+      operations:
+      - name: amazonwebservicescreatefunction
+        method: POST
+        description: Amazon Web Services Createfunction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions
+      path: /2015-03-31/functions/
+      operations:
+      - name: amazonwebserviceslistfunctions
+        method: GET
+        description: Amazon Web Services Listfunctions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName
+      path: /2015-03-31/functions/{FunctionName}
+      operations:
+      - name: amazonwebservicesgetfunction
+        method: GET
+        description: Amazon Web Services Getfunction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-aliases
+      path: /2015-03-31/functions/{FunctionName}/aliases
+      operations:
+      - name: amazonwebserviceslistaliases
+        method: GET
+        description: Amazon Web Services Listaliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-aliases-Name
+      path: /2015-03-31/functions/{FunctionName}/aliases/{Name}
+      operations:
+      - name: amazonwebservicesupdatealias
+        method: PUT
+        description: Amazon Web Services Updatealias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-code
+      path: /2015-03-31/functions/{FunctionName}/code
+      operations:
+      - name: amazonwebservicesupdatefunctioncode
+        method: PUT
+        description: Amazon Web Services Updatefunctioncode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-configuration
+      path: /2015-03-31/functions/{FunctionName}/configuration
+      operations:
+      - name: amazonwebservicesupdatefunctionconfiguration
+        method: PUT
+        description: Amazon Web Services Updatefunctionconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-invocations
+      path: /2015-03-31/functions/{FunctionName}/invocations
+      operations:
+      - name: amazonwebservicesinvoke
+        method: POST
+        description: Amazon Web Services Invoke
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-policy
+      path: /2015-03-31/functions/{FunctionName}/policy
+      operations:
+      - name: amazonwebservicesgetpolicy
+        method: GET
+        description: Amazon Web Services Getpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-policy-StatementId
+      path: /2015-03-31/functions/{FunctionName}/policy/{StatementId}
+      operations:
+      - name: amazonwebservicesremovepermission
+        method: DELETE
+        description: Amazon Web Services Removepermission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2015-03-31-functions-FunctionName-versions
+      path: /2015-03-31/functions/{FunctionName}/versions
+      operations:
+      - name: amazonwebservicespublishversion
+        method: POST
+        description: Amazon Web Services Publishversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lambda-2015-03-31-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lambda — 2015 03 31. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2015-03-31/event-source-mappings
+      name: 2015-03-31-event-source-mappings
+      description: REST surface for 2015-03-31-event-source-mappings.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisteventsourcemappings
+        description: Amazon Web Services Listeventsourcemappings
+        call: lambda-2015-03-31.amazonwebserviceslisteventsourcemappings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/event-source-mappings/{uuid}
+      name: 2015-03-31-event-source-mappings-uuid
+      description: REST surface for 2015-03-31-event-source-mappings-UUID.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateeventsourcemapping
+        description: Amazon Web Services Updateeventsourcemapping
+        call: lambda-2015-03-31.amazonwebservicesupdateeventsourcemapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions
+      name: 2015-03-31-functions
+      description: REST surface for 2015-03-31-functions.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatefunction
+        description: Amazon Web Services Createfunction
+        call: lambda-2015-03-31.amazonwebservicescreatefunction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions
+      name: 2015-03-31-functions
+      description: REST surface for 2015-03-31-functions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfunctions
+        description: Amazon Web Services Listfunctions
+        call: lambda-2015-03-31.amazonwebserviceslistfunctions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}
+      name: 2015-03-31-functions-functionname
+      description: REST surface for 2015-03-31-functions-FunctionName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfunction
+        description: Amazon Web Services Getfunction
+        call: lambda-2015-03-31.amazonwebservicesgetfunction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/aliases
+      name: 2015-03-31-functions-functionname-aliases
+      description: REST surface for 2015-03-31-functions-FunctionName-aliases.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistaliases
+        description: Amazon Web Services Listaliases
+        call: lambda-2015-03-31.amazonwebserviceslistaliases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/aliases/{name}
+      name: 2015-03-31-functions-functionname-aliases-name
+      description: REST surface for 2015-03-31-functions-FunctionName-aliases-Name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatealias
+        description: Amazon Web Services Updatealias
+        call: lambda-2015-03-31.amazonwebservicesupdatealias
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/code
+      name: 2015-03-31-functions-functionname-code
+      description: REST surface for 2015-03-31-functions-FunctionName-code.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatefunctioncode
+        description: Amazon Web Services Updatefunctioncode
+        call: lambda-2015-03-31.amazonwebservicesupdatefunctioncode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/configuration
+      name: 2015-03-31-functions-functionname-configuration
+      description: REST surface for 2015-03-31-functions-FunctionName-configuration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatefunctionconfiguration
+        description: Amazon Web Services Updatefunctionconfiguration
+        call: lambda-2015-03-31.amazonwebservicesupdatefunctionconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/invocations
+      name: 2015-03-31-functions-functionname-invocations
+      description: REST surface for 2015-03-31-functions-FunctionName-invocations.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvoke
+        description: Amazon Web Services Invoke
+        call: lambda-2015-03-31.amazonwebservicesinvoke
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/policy
+      name: 2015-03-31-functions-functionname-policy
+      description: REST surface for 2015-03-31-functions-FunctionName-policy.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpolicy
+        description: Amazon Web Services Getpolicy
+        call: lambda-2015-03-31.amazonwebservicesgetpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/policy/{statementid}
+      name: 2015-03-31-functions-functionname-policy-statementid
+      description: REST surface for 2015-03-31-functions-FunctionName-policy-StatementId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesremovepermission
+        description: Amazon Web Services Removepermission
+        call: lambda-2015-03-31.amazonwebservicesremovepermission
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2015-03-31/functions/{functionname}/versions
+      name: 2015-03-31-functions-functionname-versions
+      description: REST surface for 2015-03-31-functions-FunctionName-versions.
+      operations:
+      - method: POST
+        name: amazonwebservicespublishversion
+        description: Amazon Web Services Publishversion
+        call: lambda-2015-03-31.amazonwebservicespublishversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lambda-2015-03-31-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lambda — 2015 03 31. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listeventsourcemappings
+      description: Amazon Web Services Listeventsourcemappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebserviceslisteventsourcemappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateeventsourcemapping
+      description: Amazon Web Services Updateeventsourcemapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesupdateeventsourcemapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createfunction
+      description: Amazon Web Services Createfunction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lambda-2015-03-31.amazonwebservicescreatefunction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfunctions
+      description: Amazon Web Services Listfunctions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebserviceslistfunctions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfunction
+      description: Amazon Web Services Getfunction
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesgetfunction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listaliases
+      description: Amazon Web Services Listaliases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebserviceslistaliases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatealias
+      description: Amazon Web Services Updatealias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesupdatealias
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefunctioncode
+      description: Amazon Web Services Updatefunctioncode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesupdatefunctioncode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefunctionconfiguration
+      description: Amazon Web Services Updatefunctionconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesupdatefunctionconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-invoke
+      description: Amazon Web Services Invoke
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lambda-2015-03-31.amazonwebservicesinvoke
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpolicy
+      description: Amazon Web Services Getpolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesgetpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removepermission
+      description: Amazon Web Services Removepermission
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lambda-2015-03-31.amazonwebservicesremovepermission
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-publishversion
+      description: Amazon Web Services Publishversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lambda-2015-03-31.amazonwebservicespublishversion
+      outputParameters:
+      - type: object
+        mapping: $.

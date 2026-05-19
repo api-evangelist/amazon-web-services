@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Update App Version
+  description: 'Amazon Web Services resiliencehub — Update App Version. 1 operations. Lead operation: Amazon Web Services
+    Updateappversion. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Update App Version
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-update-app-version
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Update App Version business capability. Self-contained, no shared references.
+    resources:
+    - name: update-app-version
+      path: /update-app-version
+      operations:
+      - name: amazonwebservicesupdateappversion
+        method: POST
+        description: Amazon Web Services Updateappversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-update-app-version-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Update App Version. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/update-app-version
+      name: update-app-version
+      description: REST surface for update-app-version.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateappversion
+        description: Amazon Web Services Updateappversion
+        call: resiliencehub-update-app-version.amazonwebservicesupdateappversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-update-app-version-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Update App Version. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateappversion
+      description: Amazon Web Services Updateappversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-update-app-version.amazonwebservicesupdateappversion
+      outputParameters:
+      - type: object
+        mapping: $.

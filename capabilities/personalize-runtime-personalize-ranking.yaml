@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services personalize-runtime — Personalize Ranking
+  description: 'Amazon Web Services personalize-runtime — Personalize Ranking. 1 operations. Lead operation: Amazon Web Services
+    Getpersonalizedranking. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Personalize Ranking
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: personalize-runtime-personalize-ranking
+    baseUri: ''
+    description: Amazon Web Services personalize-runtime — Personalize Ranking business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: personalize-ranking
+      path: /personalize-ranking
+      operations:
+      - name: amazonwebservicesgetpersonalizedranking
+        method: POST
+        description: Amazon Web Services Getpersonalizedranking
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: personalize-runtime-personalize-ranking-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services personalize-runtime — Personalize Ranking. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/personalize-ranking
+      name: personalize-ranking
+      description: REST surface for personalize-ranking.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetpersonalizedranking
+        description: Amazon Web Services Getpersonalizedranking
+        call: personalize-runtime-personalize-ranking.amazonwebservicesgetpersonalizedranking
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: personalize-runtime-personalize-ranking-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services personalize-runtime — Personalize Ranking. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getpersonalizedranking
+      description: Amazon Web Services Getpersonalizedranking
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: personalize-runtime-personalize-ranking.amazonwebservicesgetpersonalizedranking
+      outputParameters:
+      - type: object
+        mapping: $.

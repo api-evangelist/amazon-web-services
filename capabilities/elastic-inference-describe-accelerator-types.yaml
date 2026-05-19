@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services elastic-inference — Describe Accelerator Types
+  description: 'Amazon Web Services elastic-inference — Describe Accelerator Types. 1 operations. Lead operation: Amazon Web
+    Services Describeacceleratortypes. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe Accelerator Types
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: elastic-inference-describe-accelerator-types
+    baseUri: ''
+    description: Amazon Web Services elastic-inference — Describe Accelerator Types business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: describe-accelerator-types
+      path: /describe-accelerator-types
+      operations:
+      - name: amazonwebservicesdescribeacceleratortypes
+        method: GET
+        description: Amazon Web Services Describeacceleratortypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: elastic-inference-describe-accelerator-types-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services elastic-inference — Describe Accelerator Types. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-accelerator-types
+      name: describe-accelerator-types
+      description: REST surface for describe-accelerator-types.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeacceleratortypes
+        description: Amazon Web Services Describeacceleratortypes
+        call: elastic-inference-describe-accelerator-types.amazonwebservicesdescribeacceleratortypes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: elastic-inference-describe-accelerator-types-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services elastic-inference — Describe Accelerator Types. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeacceleratortypes
+      description: Amazon Web Services Describeacceleratortypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: elastic-inference-describe-accelerator-types.amazonwebservicesdescribeacceleratortypes
+      outputParameters:
+      - type: object
+        mapping: $.

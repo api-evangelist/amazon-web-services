@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workspaces-web — trustStores
+  description: 'Amazon Web Services workspaces-web — trustStores. 4 operations. Lead operation: Amazon Web Services Listtruststores.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - trustStores
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workspaces-web-truststores
+    baseUri: ''
+    description: Amazon Web Services workspaces-web — trustStores business capability. Self-contained, no shared references.
+    resources:
+    - name: trustStores
+      path: /trustStores
+      operations:
+      - name: amazonwebserviceslisttruststores
+        method: GET
+        description: Amazon Web Services Listtruststores
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: trustStores-trustStoreArn+
+      path: /trustStores/{trustStoreArn+}
+      operations:
+      - name: amazonwebservicesupdatetruststore
+        method: PATCH
+        description: Amazon Web Services Updatetruststore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: trustStores-trustStoreArn+-certificate
+      path: /trustStores/{trustStoreArn+}/certificate
+      operations:
+      - name: amazonwebservicesgettruststorecertificate
+        method: GET
+        description: Amazon Web Services Gettruststorecertificate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: trustStores-trustStoreArn+-certificates
+      path: /trustStores/{trustStoreArn+}/certificates
+      operations:
+      - name: amazonwebserviceslisttruststorecertificates
+        method: GET
+        description: Amazon Web Services Listtruststorecertificates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workspaces-web-truststores-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workspaces-web — trustStores. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/truststores
+      name: truststores
+      description: REST surface for trustStores.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttruststores
+        description: Amazon Web Services Listtruststores
+        call: workspaces-web-truststores.amazonwebserviceslisttruststores
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/truststores/{truststorearn}
+      name: truststores-truststorearn
+      description: REST surface for trustStores-trustStoreArn+.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatetruststore
+        description: Amazon Web Services Updatetruststore
+        call: workspaces-web-truststores.amazonwebservicesupdatetruststore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/truststores/{truststorearn}/certificate
+      name: truststores-truststorearn-certificate
+      description: REST surface for trustStores-trustStoreArn+-certificate.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettruststorecertificate
+        description: Amazon Web Services Gettruststorecertificate
+        call: workspaces-web-truststores.amazonwebservicesgettruststorecertificate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/truststores/{truststorearn}/certificates
+      name: truststores-truststorearn-certificates
+      description: REST surface for trustStores-trustStoreArn+-certificates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttruststorecertificates
+        description: Amazon Web Services Listtruststorecertificates
+        call: workspaces-web-truststores.amazonwebserviceslisttruststorecertificates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workspaces-web-truststores-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workspaces-web — trustStores. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtruststores
+      description: Amazon Web Services Listtruststores
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-truststores.amazonwebserviceslisttruststores
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatetruststore
+      description: Amazon Web Services Updatetruststore
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workspaces-web-truststores.amazonwebservicesupdatetruststore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettruststorecertificate
+      description: Amazon Web Services Gettruststorecertificate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-truststores.amazonwebservicesgettruststorecertificate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtruststorecertificates
+      description: Amazon Web Services Listtruststorecertificates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-truststores.amazonwebserviceslisttruststorecertificates
+      outputParameters:
+      - type: object
+        mapping: $.

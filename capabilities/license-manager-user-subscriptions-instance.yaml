@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services license-manager-user-subscriptions — Instance
+  description: 'Amazon Web Services license-manager-user-subscriptions — Instance. 1 operations. Lead operation: Amazon Web
+    Services Listinstances. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Instance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: license-manager-user-subscriptions-instance
+    baseUri: ''
+    description: Amazon Web Services license-manager-user-subscriptions — Instance business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: instance-ListInstances
+      path: /instance/ListInstances
+      operations:
+      - name: amazonwebserviceslistinstances
+        method: POST
+        description: Amazon Web Services Listinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: license-manager-user-subscriptions-instance-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services license-manager-user-subscriptions — Instance. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/instance/listinstances
+      name: instance-listinstances
+      description: REST surface for instance-ListInstances.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistinstances
+        description: Amazon Web Services Listinstances
+        call: license-manager-user-subscriptions-instance.amazonwebserviceslistinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: license-manager-user-subscriptions-instance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services license-manager-user-subscriptions — Instance. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listinstances
+      description: Amazon Web Services Listinstances
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-instance.amazonwebserviceslistinstances
+      outputParameters:
+      - type: object
+        mapping: $.

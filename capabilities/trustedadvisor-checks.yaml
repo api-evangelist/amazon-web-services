@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services trustedadvisor — Checks
+  description: 'Amazon Web Services trustedadvisor — Checks. 1 operations. Lead operation: Amazon Web Services Listchecks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Checks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: trustedadvisor-checks
+    baseUri: ''
+    description: Amazon Web Services trustedadvisor — Checks business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-checks
+      path: /v1/checks
+      operations:
+      - name: amazonwebserviceslistchecks
+        method: GET
+        description: Amazon Web Services Listchecks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: trustedadvisor-checks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services trustedadvisor — Checks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/checks
+      name: v1-checks
+      description: REST surface for v1-checks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchecks
+        description: Amazon Web Services Listchecks
+        call: trustedadvisor-checks.amazonwebserviceslistchecks
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: trustedadvisor-checks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services trustedadvisor — Checks. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchecks
+      description: Amazon Web Services Listchecks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: trustedadvisor-checks.amazonwebserviceslistchecks
+      outputParameters:
+      - type: object
+        mapping: $.

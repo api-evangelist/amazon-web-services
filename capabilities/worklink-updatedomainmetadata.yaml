@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services worklink — updateDomainMetadata
+  description: 'Amazon Web Services worklink — updateDomainMetadata. 1 operations. Lead operation: Amazon Web Services Updatedomainmetadata.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - updateDomainMetadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: worklink-updatedomainmetadata
+    baseUri: ''
+    description: Amazon Web Services worklink — updateDomainMetadata business capability. Self-contained, no shared references.
+    resources:
+    - name: updateDomainMetadata
+      path: /updateDomainMetadata
+      operations:
+      - name: amazonwebservicesupdatedomainmetadata
+        method: POST
+        description: Amazon Web Services Updatedomainmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: worklink-updatedomainmetadata-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services worklink — updateDomainMetadata. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatedomainmetadata
+      name: updatedomainmetadata
+      description: REST surface for updateDomainMetadata.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatedomainmetadata
+        description: Amazon Web Services Updatedomainmetadata
+        call: worklink-updatedomainmetadata.amazonwebservicesupdatedomainmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: worklink-updatedomainmetadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services worklink — updateDomainMetadata. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatedomainmetadata
+      description: Amazon Web Services Updatedomainmetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: worklink-updatedomainmetadata.amazonwebservicesupdatedomainmetadata
+      outputParameters:
+      - type: object
+        mapping: $.

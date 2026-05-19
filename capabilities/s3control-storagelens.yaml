@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services s3control — Storagelens
+  description: 'Amazon Web Services s3control — Storagelens. 3 operations. Lead operation: Amazon Web Services Liststoragelensconfigurations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Storagelens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3control-storagelens
+    baseUri: ''
+    description: Amazon Web Services s3control — Storagelens business capability. Self-contained, no shared references.
+    resources:
+    - name: v20180820-storagelens
+      path: /v20180820/storagelens
+      operations:
+      - name: amazonwebservicesliststoragelensconfigurations
+        method: GET
+        description: Amazon Web Services Liststoragelensconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20180820-storagelens-storagelensid
+      path: /v20180820/storagelens/{storagelensid}
+      operations:
+      - name: amazonwebservicesputstoragelensconfiguration
+        method: PUT
+        description: Amazon Web Services Putstoragelensconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20180820-storagelens-storagelensid-tagging
+      path: /v20180820/storagelens/{storagelensid}/tagging
+      operations:
+      - name: amazonwebservicesputstoragelensconfigurationtagging
+        method: PUT
+        description: Amazon Web Services Putstoragelensconfigurationtagging
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3control-storagelens-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services s3control — Storagelens. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v20180820/storagelens
+      name: v20180820-storagelens
+      description: REST surface for v20180820-storagelens.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststoragelensconfigurations
+        description: Amazon Web Services Liststoragelensconfigurations
+        call: s3control-storagelens.amazonwebservicesliststoragelensconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20180820/storagelens/{storagelensid}
+      name: v20180820-storagelens-storagelensid
+      description: REST surface for v20180820-storagelens-storagelensid.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputstoragelensconfiguration
+        description: Amazon Web Services Putstoragelensconfiguration
+        call: s3control-storagelens.amazonwebservicesputstoragelensconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20180820/storagelens/{storagelensid}/tagging
+      name: v20180820-storagelens-storagelensid-tagging
+      description: REST surface for v20180820-storagelens-storagelensid-tagging.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputstoragelensconfigurationtagging
+        description: Amazon Web Services Putstoragelensconfigurationtagging
+        call: s3control-storagelens.amazonwebservicesputstoragelensconfigurationtagging
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3control-storagelens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services s3control — Storagelens. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-liststoragelensconfigurations
+      description: Amazon Web Services Liststoragelensconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s3control-storagelens.amazonwebservicesliststoragelensconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putstoragelensconfiguration
+      description: Amazon Web Services Putstoragelensconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3control-storagelens.amazonwebservicesputstoragelensconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putstoragelensconfigurationtagging
+      description: Amazon Web Services Putstoragelensconfigurationtagging
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3control-storagelens.amazonwebservicesputstoragelensconfigurationtagging
+      outputParameters:
+      - type: object
+        mapping: $.

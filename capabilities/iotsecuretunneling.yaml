@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsecuretunneling
+  description: 'Amazon Web Services iotsecuretunneling. 1 operations. Lead operation: Amazon Web Services Untagresource. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services iotsecuretunneling
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsecuretunneling
+    baseUri: ''
+    description: Amazon Web Services iotsecuretunneling business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesuntagresource
+        method: POST
+        description: Amazon Web Services Untagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsecuretunneling-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsecuretunneling. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesuntagresource
+        description: Amazon Web Services Untagresource
+        call: iotsecuretunneling.amazonwebservicesuntagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsecuretunneling-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsecuretunneling. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-untagresource
+      description: Amazon Web Services Untagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsecuretunneling.amazonwebservicesuntagresource
+      outputParameters:
+      - type: object
+        mapping: $.

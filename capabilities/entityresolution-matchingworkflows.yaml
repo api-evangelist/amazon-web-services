@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services entityresolution — Matchingworkflows
+  description: 'Amazon Web Services entityresolution — Matchingworkflows. 5 operations. Lead operation: Amazon Web Services
+    Listmatchingworkflows. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Matchingworkflows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: entityresolution-matchingworkflows
+    baseUri: ''
+    description: Amazon Web Services entityresolution — Matchingworkflows business capability. Self-contained, no shared references.
+    resources:
+    - name: matchingworkflows
+      path: /matchingworkflows
+      operations:
+      - name: amazonwebserviceslistmatchingworkflows
+        method: GET
+        description: Amazon Web Services Listmatchingworkflows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: matchingworkflows-workflowName
+      path: /matchingworkflows/{workflowName}
+      operations:
+      - name: amazonwebservicesupdatematchingworkflow
+        method: PUT
+        description: Amazon Web Services Updatematchingworkflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: matchingworkflows-workflowName-jobs
+      path: /matchingworkflows/{workflowName}/jobs
+      operations:
+      - name: amazonwebservicesstartmatchingjob
+        method: POST
+        description: Amazon Web Services Startmatchingjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: matchingworkflows-workflowName-jobs-jobId
+      path: /matchingworkflows/{workflowName}/jobs/{jobId}
+      operations:
+      - name: amazonwebservicesgetmatchingjob
+        method: GET
+        description: Amazon Web Services Getmatchingjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: matchingworkflows-workflowName-matches
+      path: /matchingworkflows/{workflowName}/matches
+      operations:
+      - name: amazonwebservicesgetmatchid
+        method: POST
+        description: Amazon Web Services Getmatchid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: entityresolution-matchingworkflows-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services entityresolution — Matchingworkflows. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/matchingworkflows
+      name: matchingworkflows
+      description: REST surface for matchingworkflows.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmatchingworkflows
+        description: Amazon Web Services Listmatchingworkflows
+        call: entityresolution-matchingworkflows.amazonwebserviceslistmatchingworkflows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/matchingworkflows/{workflowname}
+      name: matchingworkflows-workflowname
+      description: REST surface for matchingworkflows-workflowName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatematchingworkflow
+        description: Amazon Web Services Updatematchingworkflow
+        call: entityresolution-matchingworkflows.amazonwebservicesupdatematchingworkflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/matchingworkflows/{workflowname}/jobs
+      name: matchingworkflows-workflowname-jobs
+      description: REST surface for matchingworkflows-workflowName-jobs.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartmatchingjob
+        description: Amazon Web Services Startmatchingjob
+        call: entityresolution-matchingworkflows.amazonwebservicesstartmatchingjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/matchingworkflows/{workflowname}/jobs/{jobid}
+      name: matchingworkflows-workflowname-jobs-jobid
+      description: REST surface for matchingworkflows-workflowName-jobs-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmatchingjob
+        description: Amazon Web Services Getmatchingjob
+        call: entityresolution-matchingworkflows.amazonwebservicesgetmatchingjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/matchingworkflows/{workflowname}/matches
+      name: matchingworkflows-workflowname-matches
+      description: REST surface for matchingworkflows-workflowName-matches.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmatchid
+        description: Amazon Web Services Getmatchid
+        call: entityresolution-matchingworkflows.amazonwebservicesgetmatchid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: entityresolution-matchingworkflows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services entityresolution — Matchingworkflows. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmatchingworkflows
+      description: Amazon Web Services Listmatchingworkflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: entityresolution-matchingworkflows.amazonwebserviceslistmatchingworkflows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatematchingworkflow
+      description: Amazon Web Services Updatematchingworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: entityresolution-matchingworkflows.amazonwebservicesupdatematchingworkflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startmatchingjob
+      description: Amazon Web Services Startmatchingjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: entityresolution-matchingworkflows.amazonwebservicesstartmatchingjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmatchingjob
+      description: Amazon Web Services Getmatchingjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: entityresolution-matchingworkflows.amazonwebservicesgetmatchingjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmatchid
+      description: Amazon Web Services Getmatchid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: entityresolution-matchingworkflows.amazonwebservicesgetmatchid
+      outputParameters:
+      - type: object
+        mapping: $.

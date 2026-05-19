@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — DeleteAlert
+  description: 'Amazon Web Services lookoutmetrics — DeleteAlert. 1 operations. Lead operation: Amazon Web Services Deletealert.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteAlert
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-deletealert
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — DeleteAlert business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteAlert
+      path: /DeleteAlert
+      operations:
+      - name: amazonwebservicesdeletealert
+        method: POST
+        description: Amazon Web Services Deletealert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-deletealert-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — DeleteAlert. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletealert
+      name: deletealert
+      description: REST surface for DeleteAlert.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletealert
+        description: Amazon Web Services Deletealert
+        call: lookoutmetrics-deletealert.amazonwebservicesdeletealert
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-deletealert-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — DeleteAlert. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletealert
+      description: Amazon Web Services Deletealert
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-deletealert.amazonwebservicesdeletealert
+      outputParameters:
+      - type: object
+        mapping: $.

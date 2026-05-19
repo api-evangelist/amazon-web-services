@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — getWorldTemplateBody
+  description: 'Amazon Web Services robomaker — getWorldTemplateBody. 1 operations. Lead operation: Amazon Web Services Getworldtemplatebody.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - getWorldTemplateBody
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-getworldtemplatebody
+    baseUri: ''
+    description: Amazon Web Services robomaker — getWorldTemplateBody business capability. Self-contained, no shared references.
+    resources:
+    - name: getWorldTemplateBody
+      path: /getWorldTemplateBody
+      operations:
+      - name: amazonwebservicesgetworldtemplatebody
+        method: POST
+        description: Amazon Web Services Getworldtemplatebody
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-getworldtemplatebody-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — getWorldTemplateBody. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getworldtemplatebody
+      name: getworldtemplatebody
+      description: REST surface for getWorldTemplateBody.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetworldtemplatebody
+        description: Amazon Web Services Getworldtemplatebody
+        call: robomaker-getworldtemplatebody.amazonwebservicesgetworldtemplatebody
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-getworldtemplatebody-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — getWorldTemplateBody. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getworldtemplatebody
+      description: Amazon Web Services Getworldtemplatebody
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-getworldtemplatebody.amazonwebservicesgetworldtemplatebody
+      outputParameters:
+      - type: object
+        mapping: $.

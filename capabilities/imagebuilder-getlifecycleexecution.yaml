@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — GetLifecycleExecution
+  description: 'Amazon Web Services imagebuilder — GetLifecycleExecution. 1 operations. Lead operation: Amazon Web Services
+    Getlifecycleexecution. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetLifecycleExecution
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-getlifecycleexecution
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — GetLifecycleExecution business capability. Self-contained, no shared references.
+    resources:
+    - name: GetLifecycleExecution
+      path: /GetLifecycleExecution
+      operations:
+      - name: amazonwebservicesgetlifecycleexecution
+        method: GET
+        description: Amazon Web Services Getlifecycleexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-getlifecycleexecution-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — GetLifecycleExecution. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getlifecycleexecution
+      name: getlifecycleexecution
+      description: REST surface for GetLifecycleExecution.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlifecycleexecution
+        description: Amazon Web Services Getlifecycleexecution
+        call: imagebuilder-getlifecycleexecution.amazonwebservicesgetlifecycleexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-getlifecycleexecution-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — GetLifecycleExecution. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getlifecycleexecution
+      description: Amazon Web Services Getlifecycleexecution
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: imagebuilder-getlifecycleexecution.amazonwebservicesgetlifecycleexecution
+      outputParameters:
+      - type: object
+        mapping: $.

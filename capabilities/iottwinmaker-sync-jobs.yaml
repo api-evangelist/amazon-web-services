@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iottwinmaker — Sync Jobs
+  description: 'Amazon Web Services iottwinmaker — Sync Jobs. 1 operations. Lead operation: Amazon Web Services Getsyncjob.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sync Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iottwinmaker-sync-jobs
+    baseUri: ''
+    description: Amazon Web Services iottwinmaker — Sync Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: sync-jobs-syncSource
+      path: /sync-jobs/{syncSource}
+      operations:
+      - name: amazonwebservicesgetsyncjob
+        method: GET
+        description: Amazon Web Services Getsyncjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iottwinmaker-sync-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iottwinmaker — Sync Jobs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sync-jobs/{syncsource}
+      name: sync-jobs-syncsource
+      description: REST surface for sync-jobs-syncSource.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsyncjob
+        description: Amazon Web Services Getsyncjob
+        call: iottwinmaker-sync-jobs.amazonwebservicesgetsyncjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iottwinmaker-sync-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iottwinmaker — Sync Jobs. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getsyncjob
+      description: Amazon Web Services Getsyncjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iottwinmaker-sync-jobs.amazonwebservicesgetsyncjob
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pinpoint-sms-voice-v2
+  description: 'Amazon Web Services pinpoint-sms-voice-v2. 1 operations. Lead operation: Amazon Web Services Verifydestinationnumber.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services pinpoint-sms-voice-v2
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pinpoint-sms-voice-v2
+    baseUri: ''
+    description: Amazon Web Services pinpoint-sms-voice-v2 business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesverifydestinationnumber
+        method: POST
+        description: Amazon Web Services Verifydestinationnumber
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pinpoint-sms-voice-v2-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pinpoint-sms-voice-v2. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesverifydestinationnumber
+        description: Amazon Web Services Verifydestinationnumber
+        call: pinpoint-sms-voice-v2.amazonwebservicesverifydestinationnumber
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pinpoint-sms-voice-v2-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pinpoint-sms-voice-v2. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-verifydestinationnumber
+      description: Amazon Web Services Verifydestinationnumber
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pinpoint-sms-voice-v2.amazonwebservicesverifydestinationnumber
+      outputParameters:
+      - type: object
+        mapping: $.

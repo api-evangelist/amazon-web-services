@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Updatejobqueue
+  description: 'Amazon Web Services batch — Updatejobqueue. 1 operations. Lead operation: Amazon Web Services Updatejobqueue.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Updatejobqueue
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-updatejobqueue
+    baseUri: ''
+    description: Amazon Web Services batch — Updatejobqueue business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-updatejobqueue
+      path: /v1/updatejobqueue
+      operations:
+      - name: amazonwebservicesupdatejobqueue
+        method: POST
+        description: Amazon Web Services Updatejobqueue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-updatejobqueue-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Updatejobqueue. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/updatejobqueue
+      name: v1-updatejobqueue
+      description: REST surface for v1-updatejobqueue.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatejobqueue
+        description: Amazon Web Services Updatejobqueue
+        call: batch-updatejobqueue.amazonwebservicesupdatejobqueue
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-updatejobqueue-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Updatejobqueue. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatejobqueue
+      description: Amazon Web Services Updatejobqueue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-updatejobqueue.amazonwebservicesupdatejobqueue
+      outputParameters:
+      - type: object
+        mapping: $.

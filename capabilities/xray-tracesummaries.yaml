@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — TraceSummaries
+  description: 'Amazon Web Services xray — TraceSummaries. 1 operations. Lead operation: Amazon Web Services Gettracesummaries.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - TraceSummaries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-tracesummaries
+    baseUri: ''
+    description: Amazon Web Services xray — TraceSummaries business capability. Self-contained, no shared references.
+    resources:
+    - name: TraceSummaries
+      path: /TraceSummaries
+      operations:
+      - name: amazonwebservicesgettracesummaries
+        method: POST
+        description: Amazon Web Services Gettracesummaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-tracesummaries-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — TraceSummaries. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/tracesummaries
+      name: tracesummaries
+      description: REST surface for TraceSummaries.
+      operations:
+      - method: POST
+        name: amazonwebservicesgettracesummaries
+        description: Amazon Web Services Gettracesummaries
+        call: xray-tracesummaries.amazonwebservicesgettracesummaries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-tracesummaries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — TraceSummaries. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-gettracesummaries
+      description: Amazon Web Services Gettracesummaries
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-tracesummaries.amazonwebservicesgettracesummaries
+      outputParameters:
+      - type: object
+        mapping: $.

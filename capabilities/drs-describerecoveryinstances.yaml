@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — DescribeRecoveryInstances
+  description: 'Amazon Web Services drs — DescribeRecoveryInstances. 1 operations. Lead operation: Amazon Web Services Describerecoveryinstances.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DescribeRecoveryInstances
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-describerecoveryinstances
+    baseUri: ''
+    description: Amazon Web Services drs — DescribeRecoveryInstances business capability. Self-contained, no shared references.
+    resources:
+    - name: DescribeRecoveryInstances
+      path: /DescribeRecoveryInstances
+      operations:
+      - name: amazonwebservicesdescriberecoveryinstances
+        method: POST
+        description: Amazon Web Services Describerecoveryinstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-describerecoveryinstances-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — DescribeRecoveryInstances. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describerecoveryinstances
+      name: describerecoveryinstances
+      description: REST surface for DescribeRecoveryInstances.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescriberecoveryinstances
+        description: Amazon Web Services Describerecoveryinstances
+        call: drs-describerecoveryinstances.amazonwebservicesdescriberecoveryinstances
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-describerecoveryinstances-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — DescribeRecoveryInstances. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describerecoveryinstances
+      description: Amazon Web Services Describerecoveryinstances
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-describerecoveryinstances.amazonwebservicesdescriberecoveryinstances
+      outputParameters:
+      - type: object
+        mapping: $.

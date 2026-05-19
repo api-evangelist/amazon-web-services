@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — Profiles
+  description: 'Amazon Web Services wellarchitected — Profiles. 4 operations. Lead operation: Amazon Web Services Createprofile.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-profiles
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: profiles
+      path: /profiles
+      operations:
+      - name: amazonwebservicescreateprofile
+        method: POST
+        description: Amazon Web Services Createprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profiles-ProfileArn
+      path: /profiles/{ProfileArn}
+      operations:
+      - name: amazonwebservicesupdateprofile
+        method: PATCH
+        description: Amazon Web Services Updateprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profiles-ProfileArn-shares
+      path: /profiles/{ProfileArn}/shares
+      operations:
+      - name: amazonwebserviceslistprofileshares
+        method: GET
+        description: Amazon Web Services Listprofileshares
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profiles-ProfileArn-shares-ShareId
+      path: /profiles/{ProfileArn}/shares/{ShareId}
+      operations:
+      - name: amazonwebservicesdeleteprofileshare
+        method: DELETE
+        description: Amazon Web Services Deleteprofileshare
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — Profiles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/profiles
+      name: profiles
+      description: REST surface for profiles.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateprofile
+        description: Amazon Web Services Createprofile
+        call: wellarchitected-profiles.amazonwebservicescreateprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profiles/{profilearn}
+      name: profiles-profilearn
+      description: REST surface for profiles-ProfileArn.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateprofile
+        description: Amazon Web Services Updateprofile
+        call: wellarchitected-profiles.amazonwebservicesupdateprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profiles/{profilearn}/shares
+      name: profiles-profilearn-shares
+      description: REST surface for profiles-ProfileArn-shares.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofileshares
+        description: Amazon Web Services Listprofileshares
+        call: wellarchitected-profiles.amazonwebserviceslistprofileshares
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profiles/{profilearn}/shares/{shareid}
+      name: profiles-profilearn-shares-shareid
+      description: REST surface for profiles-ProfileArn-shares-ShareId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteprofileshare
+        description: Amazon Web Services Deleteprofileshare
+        call: wellarchitected-profiles.amazonwebservicesdeleteprofileshare
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — Profiles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createprofile
+      description: Amazon Web Services Createprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: wellarchitected-profiles.amazonwebservicescreateprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprofile
+      description: Amazon Web Services Updateprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-profiles.amazonwebservicesupdateprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprofileshares
+      description: Amazon Web Services Listprofileshares
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-profiles.amazonwebserviceslistprofileshares
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteprofileshare
+      description: Amazon Web Services Deleteprofileshare
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: wellarchitected-profiles.amazonwebservicesdeleteprofileshare
+      outputParameters:
+      - type: object
+        mapping: $.

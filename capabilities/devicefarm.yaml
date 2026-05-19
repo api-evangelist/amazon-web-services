@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services devicefarm
+  description: 'Amazon Web Services devicefarm. 1 operations. Lead operation: Amazon Web Services Updatevpceconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services devicefarm
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: devicefarm
+    baseUri: ''
+    description: Amazon Web Services devicefarm business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatevpceconfiguration
+        method: POST
+        description: Amazon Web Services Updatevpceconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: devicefarm-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services devicefarm. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatevpceconfiguration
+        description: Amazon Web Services Updatevpceconfiguration
+        call: devicefarm.amazonwebservicesupdatevpceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: devicefarm-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services devicefarm. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatevpceconfiguration
+      description: Amazon Web Services Updatevpceconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devicefarm.amazonwebservicesupdatevpceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

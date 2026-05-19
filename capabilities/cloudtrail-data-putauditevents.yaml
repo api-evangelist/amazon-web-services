@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cloudtrail-data — PutAuditEvents
+  description: 'Amazon Web Services cloudtrail-data — PutAuditEvents. 1 operations. Lead operation: Amazon Web Services Putauditevents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutAuditEvents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloudtrail-data-putauditevents
+    baseUri: ''
+    description: Amazon Web Services cloudtrail-data — PutAuditEvents business capability. Self-contained, no shared references.
+    resources:
+    - name: PutAuditEvents
+      path: /PutAuditEvents
+      operations:
+      - name: amazonwebservicesputauditevents
+        method: POST
+        description: Amazon Web Services Putauditevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cloudtrail-data-putauditevents-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cloudtrail-data — PutAuditEvents. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/putauditevents
+      name: putauditevents
+      description: REST surface for PutAuditEvents.
+      operations:
+      - method: POST
+        name: amazonwebservicesputauditevents
+        description: Amazon Web Services Putauditevents
+        call: cloudtrail-data-putauditevents.amazonwebservicesputauditevents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloudtrail-data-putauditevents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cloudtrail-data — PutAuditEvents. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putauditevents
+      description: Amazon Web Services Putauditevents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloudtrail-data-putauditevents.amazonwebservicesputauditevents
+      outputParameters:
+      - type: object
+        mapping: $.

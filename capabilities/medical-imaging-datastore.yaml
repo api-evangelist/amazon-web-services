@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services medical-imaging — Datastore
+  description: 'Amazon Web Services medical-imaging — Datastore. 10 operations. Lead operation: Amazon Web Services Listdatastores.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Datastore
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: medical-imaging-datastore
+    baseUri: ''
+    description: Amazon Web Services medical-imaging — Datastore business capability. Self-contained, no shared references.
+    resources:
+    - name: datastore
+      path: /datastore
+      operations:
+      - name: amazonwebserviceslistdatastores
+        method: GET
+        description: Amazon Web Services Listdatastores
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId
+      path: /datastore/{datastoreId}
+      operations:
+      - name: amazonwebservicesgetdatastore
+        method: GET
+        description: Amazon Web Services Getdatastore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-deleteImageSet
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet
+      operations:
+      - name: amazonwebservicesdeleteimageset
+        method: POST
+        description: Amazon Web Services Deleteimageset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-getImageFrame
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame
+      operations:
+      - name: amazonwebservicesgetimageframe
+        method: POST
+        description: Amazon Web Services Getimageframe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-getImageSet
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet
+      operations:
+      - name: amazonwebservicesgetimageset
+        method: POST
+        description: Amazon Web Services Getimageset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-getImageSetMetadata
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata
+      operations:
+      - name: amazonwebservicesgetimagesetmetadata
+        method: POST
+        description: Amazon Web Services Getimagesetmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-listImageSetVersions
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions
+      operations:
+      - name: amazonwebserviceslistimagesetversions
+        method: POST
+        description: Amazon Web Services Listimagesetversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-imageSetId-updateImageSetMetadata
+      path: /datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata
+      operations:
+      - name: amazonwebservicesupdateimagesetmetadata
+        method: POST
+        description: Amazon Web Services Updateimagesetmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-imageSet-sourceImageSetId-copyImageSet
+      path: /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet
+      operations:
+      - name: amazonwebservicescopyimageset
+        method: POST
+        description: Amazon Web Services Copyimageset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datastore-datastoreId-searchImageSets
+      path: /datastore/{datastoreId}/searchImageSets
+      operations:
+      - name: amazonwebservicessearchimagesets
+        method: POST
+        description: Amazon Web Services Searchimagesets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: medical-imaging-datastore-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services medical-imaging — Datastore. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/datastore
+      name: datastore
+      description: REST surface for datastore.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdatastores
+        description: Amazon Web Services Listdatastores
+        call: medical-imaging-datastore.amazonwebserviceslistdatastores
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}
+      name: datastore-datastoreid
+      description: REST surface for datastore-datastoreId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdatastore
+        description: Amazon Web Services Getdatastore
+        call: medical-imaging-datastore.amazonwebservicesgetdatastore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/deleteimageset
+      name: datastore-datastoreid-imageset-imagesetid-deleteimageset
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-deleteImageSet.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteimageset
+        description: Amazon Web Services Deleteimageset
+        call: medical-imaging-datastore.amazonwebservicesdeleteimageset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/getimageframe
+      name: datastore-datastoreid-imageset-imagesetid-getimageframe
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-getImageFrame.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetimageframe
+        description: Amazon Web Services Getimageframe
+        call: medical-imaging-datastore.amazonwebservicesgetimageframe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/getimageset
+      name: datastore-datastoreid-imageset-imagesetid-getimageset
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-getImageSet.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetimageset
+        description: Amazon Web Services Getimageset
+        call: medical-imaging-datastore.amazonwebservicesgetimageset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/getimagesetmetadata
+      name: datastore-datastoreid-imageset-imagesetid-getimagesetmetadata
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-getImageSetMetadata.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetimagesetmetadata
+        description: Amazon Web Services Getimagesetmetadata
+        call: medical-imaging-datastore.amazonwebservicesgetimagesetmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/listimagesetversions
+      name: datastore-datastoreid-imageset-imagesetid-listimagesetversions
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-listImageSetVersions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimagesetversions
+        description: Amazon Web Services Listimagesetversions
+        call: medical-imaging-datastore.amazonwebserviceslistimagesetversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{imagesetid}/updateimagesetmetadata
+      name: datastore-datastoreid-imageset-imagesetid-updateimagesetmetadata
+      description: REST surface for datastore-datastoreId-imageSet-imageSetId-updateImageSetMetadata.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateimagesetmetadata
+        description: Amazon Web Services Updateimagesetmetadata
+        call: medical-imaging-datastore.amazonwebservicesupdateimagesetmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/imageset/{sourceimagesetid}/copyimageset
+      name: datastore-datastoreid-imageset-sourceimagesetid-copyimageset
+      description: REST surface for datastore-datastoreId-imageSet-sourceImageSetId-copyImageSet.
+      operations:
+      - method: POST
+        name: amazonwebservicescopyimageset
+        description: Amazon Web Services Copyimageset
+        call: medical-imaging-datastore.amazonwebservicescopyimageset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datastore/{datastoreid}/searchimagesets
+      name: datastore-datastoreid-searchimagesets
+      description: REST surface for datastore-datastoreId-searchImageSets.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchimagesets
+        description: Amazon Web Services Searchimagesets
+        call: medical-imaging-datastore.amazonwebservicessearchimagesets
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: medical-imaging-datastore-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services medical-imaging — Datastore. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdatastores
+      description: Amazon Web Services Listdatastores
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: medical-imaging-datastore.amazonwebserviceslistdatastores
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdatastore
+      description: Amazon Web Services Getdatastore
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: medical-imaging-datastore.amazonwebservicesgetdatastore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteimageset
+      description: Amazon Web Services Deleteimageset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicesdeleteimageset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getimageframe
+      description: Amazon Web Services Getimageframe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicesgetimageframe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getimageset
+      description: Amazon Web Services Getimageset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicesgetimageset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getimagesetmetadata
+      description: Amazon Web Services Getimagesetmetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicesgetimagesetmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listimagesetversions
+      description: Amazon Web Services Listimagesetversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebserviceslistimagesetversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateimagesetmetadata
+      description: Amazon Web Services Updateimagesetmetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicesupdateimagesetmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-copyimageset
+      description: Amazon Web Services Copyimageset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicescopyimageset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchimagesets
+      description: Amazon Web Services Searchimagesets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: medical-imaging-datastore.amazonwebservicessearchimagesets
+      outputParameters:
+      - type: object
+        mapping: $.

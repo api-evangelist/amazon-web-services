@@ -1,0 +1,66 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services dataexchange
+  description: 'Amazon Web Services dataexchange. 1 operations. Lead operation: Amazon Web Services Sendapiasset. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dataexchange-general
+    baseUri: ''
+    description: Amazon Web Services dataexchange business capability. Self-contained, no shared references.
+    resources:
+    - name: v1
+      path: /v1
+      operations:
+      - name: amazonwebservicessendapiasset
+        method: POST
+        description: Amazon Web Services Sendapiasset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dataexchange-general-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services dataexchange. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1
+      name: v1
+      description: REST surface for v1.
+      operations:
+      - method: POST
+        name: amazonwebservicessendapiasset
+        description: Amazon Web Services Sendapiasset
+        call: dataexchange-general.amazonwebservicessendapiasset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dataexchange-general-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services dataexchange. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-sendapiasset
+      description: Amazon Web Services Sendapiasset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dataexchange-general.amazonwebservicessendapiasset
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services marketplace-catalog — BatchDescribeEntities
+  description: 'Amazon Web Services marketplace-catalog — BatchDescribeEntities. 1 operations. Lead operation: Amazon Web
+    Services Batchdescribeentities. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - BatchDescribeEntities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: marketplace-catalog-batchdescribeentities
+    baseUri: ''
+    description: Amazon Web Services marketplace-catalog — BatchDescribeEntities business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: BatchDescribeEntities
+      path: /BatchDescribeEntities
+      operations:
+      - name: amazonwebservicesbatchdescribeentities
+        method: POST
+        description: Amazon Web Services Batchdescribeentities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: marketplace-catalog-batchdescribeentities-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services marketplace-catalog — BatchDescribeEntities. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/batchdescribeentities
+      name: batchdescribeentities
+      description: REST surface for BatchDescribeEntities.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdescribeentities
+        description: Amazon Web Services Batchdescribeentities
+        call: marketplace-catalog-batchdescribeentities.amazonwebservicesbatchdescribeentities
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: marketplace-catalog-batchdescribeentities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services marketplace-catalog — BatchDescribeEntities. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchdescribeentities
+      description: Amazon Web Services Batchdescribeentities
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: marketplace-catalog-batchdescribeentities.amazonwebservicesbatchdescribeentities
+      outputParameters:
+      - type: object
+        mapping: $.

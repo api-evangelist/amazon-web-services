@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services neptunedata — Propertygraph
+  description: 'Amazon Web Services neptunedata — Propertygraph. 3 operations. Lead operation: Amazon Web Services Managepropertygraphstatistics.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Propertygraph
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: neptunedata-propertygraph
+    baseUri: ''
+    description: Amazon Web Services neptunedata — Propertygraph business capability. Self-contained, no shared references.
+    resources:
+    - name: propertygraph-statistics
+      path: /propertygraph/statistics
+      operations:
+      - name: amazonwebservicesmanagepropertygraphstatistics
+        method: POST
+        description: Amazon Web Services Managepropertygraphstatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: propertygraph-statistics-summary
+      path: /propertygraph/statistics/summary
+      operations:
+      - name: amazonwebservicesgetpropertygraphsummary
+        method: GET
+        description: Amazon Web Services Getpropertygraphsummary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: propertygraph-stream
+      path: /propertygraph/stream
+      operations:
+      - name: amazonwebservicesgetpropertygraphstream
+        method: GET
+        description: Amazon Web Services Getpropertygraphstream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: neptunedata-propertygraph-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services neptunedata — Propertygraph. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/propertygraph/statistics
+      name: propertygraph-statistics
+      description: REST surface for propertygraph-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesmanagepropertygraphstatistics
+        description: Amazon Web Services Managepropertygraphstatistics
+        call: neptunedata-propertygraph.amazonwebservicesmanagepropertygraphstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/propertygraph/statistics/summary
+      name: propertygraph-statistics-summary
+      description: REST surface for propertygraph-statistics-summary.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpropertygraphsummary
+        description: Amazon Web Services Getpropertygraphsummary
+        call: neptunedata-propertygraph.amazonwebservicesgetpropertygraphsummary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/propertygraph/stream
+      name: propertygraph-stream
+      description: REST surface for propertygraph-stream.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpropertygraphstream
+        description: Amazon Web Services Getpropertygraphstream
+        call: neptunedata-propertygraph.amazonwebservicesgetpropertygraphstream
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: neptunedata-propertygraph-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services neptunedata — Propertygraph. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-managepropertygraphstatistics
+      description: Amazon Web Services Managepropertygraphstatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: neptunedata-propertygraph.amazonwebservicesmanagepropertygraphstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpropertygraphsummary
+      description: Amazon Web Services Getpropertygraphsummary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptunedata-propertygraph.amazonwebservicesgetpropertygraphsummary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpropertygraphstream
+      description: Amazon Web Services Getpropertygraphstream
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptunedata-propertygraph.amazonwebservicesgetpropertygraphstream
+      outputParameters:
+      - type: object
+        mapping: $.

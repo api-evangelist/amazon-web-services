@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — consolidatedReport
+  description: 'Amazon Web Services wellarchitected — consolidatedReport. 1 operations. Lead operation: Amazon Web Services
+    Getconsolidatedreport. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - consolidatedReport
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-consolidatedreport
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — consolidatedReport business capability. Self-contained, no shared references.
+    resources:
+    - name: consolidatedReport
+      path: /consolidatedReport
+      operations:
+      - name: amazonwebservicesgetconsolidatedreport
+        method: GET
+        description: Amazon Web Services Getconsolidatedreport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-consolidatedreport-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — consolidatedReport. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/consolidatedreport
+      name: consolidatedreport
+      description: REST surface for consolidatedReport.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconsolidatedreport
+        description: Amazon Web Services Getconsolidatedreport
+        call: wellarchitected-consolidatedreport.amazonwebservicesgetconsolidatedreport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-consolidatedreport-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — consolidatedReport. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getconsolidatedreport
+      description: Amazon Web Services Getconsolidatedreport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-consolidatedreport.amazonwebservicesgetconsolidatedreport
+      outputParameters:
+      - type: object
+        mapping: $.

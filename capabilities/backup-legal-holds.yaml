@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services backup — Legal Holds
+  description: 'Amazon Web Services backup — Legal Holds. 4 operations. Lead operation: Amazon Web Services Listlegalholds.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Legal Holds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: backup-legal-holds
+    baseUri: ''
+    description: Amazon Web Services backup — Legal Holds business capability. Self-contained, no shared references.
+    resources:
+    - name: legal-holds
+      path: /legal-holds/
+      operations:
+      - name: amazonwebserviceslistlegalholds
+        method: GET
+        description: Amazon Web Services Listlegalholds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: legal-holds-legalHoldId
+      path: /legal-holds/{legalHoldId}
+      operations:
+      - name: amazonwebservicescancellegalhold
+        method: DELETE
+        description: Amazon Web Services Cancellegalhold
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: legal-holds-legalHoldId
+      path: /legal-holds/{legalHoldId}/
+      operations:
+      - name: amazonwebservicesgetlegalhold
+        method: GET
+        description: Amazon Web Services Getlegalhold
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: legal-holds-legalHoldId-recovery-points
+      path: /legal-holds/{legalHoldId}/recovery-points
+      operations:
+      - name: amazonwebserviceslistrecoverypointsbylegalhold
+        method: GET
+        description: Amazon Web Services Listrecoverypointsbylegalhold
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: backup-legal-holds-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services backup — Legal Holds. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/legal-holds
+      name: legal-holds
+      description: REST surface for legal-holds.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistlegalholds
+        description: Amazon Web Services Listlegalholds
+        call: backup-legal-holds.amazonwebserviceslistlegalholds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/legal-holds/{legalholdid}
+      name: legal-holds-legalholdid
+      description: REST surface for legal-holds-legalHoldId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicescancellegalhold
+        description: Amazon Web Services Cancellegalhold
+        call: backup-legal-holds.amazonwebservicescancellegalhold
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/legal-holds/{legalholdid}
+      name: legal-holds-legalholdid
+      description: REST surface for legal-holds-legalHoldId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlegalhold
+        description: Amazon Web Services Getlegalhold
+        call: backup-legal-holds.amazonwebservicesgetlegalhold
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/legal-holds/{legalholdid}/recovery-points
+      name: legal-holds-legalholdid-recovery-points
+      description: REST surface for legal-holds-legalHoldId-recovery-points.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecoverypointsbylegalhold
+        description: Amazon Web Services Listrecoverypointsbylegalhold
+        call: backup-legal-holds.amazonwebserviceslistrecoverypointsbylegalhold
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: backup-legal-holds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services backup — Legal Holds. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listlegalholds
+      description: Amazon Web Services Listlegalholds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-legal-holds.amazonwebserviceslistlegalholds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-cancellegalhold
+      description: Amazon Web Services Cancellegalhold
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: backup-legal-holds.amazonwebservicescancellegalhold
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getlegalhold
+      description: Amazon Web Services Getlegalhold
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-legal-holds.amazonwebservicesgetlegalhold
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrecoverypointsbylegalhold
+      description: Amazon Web Services Listrecoverypointsbylegalhold
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-legal-holds.amazonwebserviceslistrecoverypointsbylegalhold
+      outputParameters:
+      - type: object
+        mapping: $.

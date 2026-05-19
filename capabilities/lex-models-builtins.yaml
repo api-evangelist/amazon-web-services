@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lex-models — Builtins
+  description: 'Amazon Web Services lex-models — Builtins. 3 operations. Lead operation: Amazon Web Services Getbuiltinintents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Builtins
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lex-models-builtins
+    baseUri: ''
+    description: Amazon Web Services lex-models — Builtins business capability. Self-contained, no shared references.
+    resources:
+    - name: builtins-intents
+      path: /builtins/intents/
+      operations:
+      - name: amazonwebservicesgetbuiltinintents
+        method: GET
+        description: Amazon Web Services Getbuiltinintents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: builtins-intents-signature
+      path: /builtins/intents/{signature}
+      operations:
+      - name: amazonwebservicesgetbuiltinintent
+        method: GET
+        description: Amazon Web Services Getbuiltinintent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: builtins-slottypes
+      path: /builtins/slottypes/
+      operations:
+      - name: amazonwebservicesgetbuiltinslottypes
+        method: GET
+        description: Amazon Web Services Getbuiltinslottypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lex-models-builtins-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lex-models — Builtins. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/builtins/intents
+      name: builtins-intents
+      description: REST surface for builtins-intents.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbuiltinintents
+        description: Amazon Web Services Getbuiltinintents
+        call: lex-models-builtins.amazonwebservicesgetbuiltinintents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/builtins/intents/{signature}
+      name: builtins-intents-signature
+      description: REST surface for builtins-intents-signature.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbuiltinintent
+        description: Amazon Web Services Getbuiltinintent
+        call: lex-models-builtins.amazonwebservicesgetbuiltinintent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/builtins/slottypes
+      name: builtins-slottypes
+      description: REST surface for builtins-slottypes.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbuiltinslottypes
+        description: Amazon Web Services Getbuiltinslottypes
+        call: lex-models-builtins.amazonwebservicesgetbuiltinslottypes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lex-models-builtins-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lex-models — Builtins. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getbuiltinintents
+      description: Amazon Web Services Getbuiltinintents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-builtins.amazonwebservicesgetbuiltinintents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbuiltinintent
+      description: Amazon Web Services Getbuiltinintent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-builtins.amazonwebservicesgetbuiltinintent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbuiltinslottypes
+      description: Amazon Web Services Getbuiltinslottypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-builtins.amazonwebservicesgetbuiltinslottypes
+      outputParameters:
+      - type: object
+        mapping: $.

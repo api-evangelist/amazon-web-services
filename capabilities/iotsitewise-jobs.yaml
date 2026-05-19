@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Jobs
+  description: 'Amazon Web Services iotsitewise — Jobs. 2 operations. Lead operation: Amazon Web Services Listbulkimportjobs.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-jobs
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: jobs
+      path: /jobs
+      operations:
+      - name: amazonwebserviceslistbulkimportjobs
+        method: GET
+        description: Amazon Web Services Listbulkimportjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: jobs-jobId
+      path: /jobs/{jobId}
+      operations:
+      - name: amazonwebservicesdescribebulkimportjob
+        method: GET
+        description: Amazon Web Services Describebulkimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Jobs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/jobs
+      name: jobs
+      description: REST surface for jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbulkimportjobs
+        description: Amazon Web Services Listbulkimportjobs
+        call: iotsitewise-jobs.amazonwebserviceslistbulkimportjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/jobs/{jobid}
+      name: jobs-jobid
+      description: REST surface for jobs-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribebulkimportjob
+        description: Amazon Web Services Describebulkimportjob
+        call: iotsitewise-jobs.amazonwebservicesdescribebulkimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Jobs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listbulkimportjobs
+      description: Amazon Web Services Listbulkimportjobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-jobs.amazonwebserviceslistbulkimportjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describebulkimportjob
+      description: Amazon Web Services Describebulkimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-jobs.amazonwebservicesdescribebulkimportjob
+      outputParameters:
+      - type: object
+        mapping: $.

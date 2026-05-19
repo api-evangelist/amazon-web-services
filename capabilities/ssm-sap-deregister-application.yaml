@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-sap — Deregister Application
+  description: 'Amazon Web Services ssm-sap — Deregister Application. 1 operations. Lead operation: Amazon Web Services Deregisterapplication.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Deregister Application
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-sap-deregister-application
+    baseUri: ''
+    description: Amazon Web Services ssm-sap — Deregister Application business capability. Self-contained, no shared references.
+    resources:
+    - name: deregister-application
+      path: /deregister-application
+      operations:
+      - name: amazonwebservicesderegisterapplication
+        method: POST
+        description: Amazon Web Services Deregisterapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-sap-deregister-application-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-sap — Deregister Application. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deregister-application
+      name: deregister-application
+      description: REST surface for deregister-application.
+      operations:
+      - method: POST
+        name: amazonwebservicesderegisterapplication
+        description: Amazon Web Services Deregisterapplication
+        call: ssm-sap-deregister-application.amazonwebservicesderegisterapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-sap-deregister-application-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-sap — Deregister Application. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deregisterapplication
+      description: Amazon Web Services Deregisterapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-sap-deregister-application.amazonwebservicesderegisterapplication
+      outputParameters:
+      - type: object
+        mapping: $.

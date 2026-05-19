@@ -1,0 +1,165 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services license-manager-user-subscriptions — Identity Provider
+  description: 'Amazon Web Services license-manager-user-subscriptions — Identity Provider. 4 operations. Lead operation:
+    Amazon Web Services Deregisteridentityprovider. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Identity Provider
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: license-manager-user-subscriptions-identity-provider
+    baseUri: ''
+    description: Amazon Web Services license-manager-user-subscriptions — Identity Provider business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: identity-provider-DeregisterIdentityProvider
+      path: /identity-provider/DeregisterIdentityProvider
+      operations:
+      - name: amazonwebservicesderegisteridentityprovider
+        method: POST
+        description: Amazon Web Services Deregisteridentityprovider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-provider-ListIdentityProviders
+      path: /identity-provider/ListIdentityProviders
+      operations:
+      - name: amazonwebserviceslistidentityproviders
+        method: POST
+        description: Amazon Web Services Listidentityproviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-provider-RegisterIdentityProvider
+      path: /identity-provider/RegisterIdentityProvider
+      operations:
+      - name: amazonwebservicesregisteridentityprovider
+        method: POST
+        description: Amazon Web Services Registeridentityprovider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: identity-provider-UpdateIdentityProviderSettings
+      path: /identity-provider/UpdateIdentityProviderSettings
+      operations:
+      - name: amazonwebservicesupdateidentityprovidersettings
+        method: POST
+        description: Amazon Web Services Updateidentityprovidersettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: license-manager-user-subscriptions-identity-provider-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services license-manager-user-subscriptions — Identity Provider. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/identity-provider/deregisteridentityprovider
+      name: identity-provider-deregisteridentityprovider
+      description: REST surface for identity-provider-DeregisterIdentityProvider.
+      operations:
+      - method: POST
+        name: amazonwebservicesderegisteridentityprovider
+        description: Amazon Web Services Deregisteridentityprovider
+        call: license-manager-user-subscriptions-identity-provider.amazonwebservicesderegisteridentityprovider
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-provider/listidentityproviders
+      name: identity-provider-listidentityproviders
+      description: REST surface for identity-provider-ListIdentityProviders.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistidentityproviders
+        description: Amazon Web Services Listidentityproviders
+        call: license-manager-user-subscriptions-identity-provider.amazonwebserviceslistidentityproviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-provider/registeridentityprovider
+      name: identity-provider-registeridentityprovider
+      description: REST surface for identity-provider-RegisterIdentityProvider.
+      operations:
+      - method: POST
+        name: amazonwebservicesregisteridentityprovider
+        description: Amazon Web Services Registeridentityprovider
+        call: license-manager-user-subscriptions-identity-provider.amazonwebservicesregisteridentityprovider
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-provider/updateidentityprovidersettings
+      name: identity-provider-updateidentityprovidersettings
+      description: REST surface for identity-provider-UpdateIdentityProviderSettings.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateidentityprovidersettings
+        description: Amazon Web Services Updateidentityprovidersettings
+        call: license-manager-user-subscriptions-identity-provider.amazonwebservicesupdateidentityprovidersettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: license-manager-user-subscriptions-identity-provider-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services license-manager-user-subscriptions — Identity Provider. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deregisteridentityprovider
+      description: Amazon Web Services Deregisteridentityprovider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-identity-provider.amazonwebservicesderegisteridentityprovider
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listidentityproviders
+      description: Amazon Web Services Listidentityproviders
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-identity-provider.amazonwebserviceslistidentityproviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-registeridentityprovider
+      description: Amazon Web Services Registeridentityprovider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-identity-provider.amazonwebservicesregisteridentityprovider
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateidentityprovidersettings
+      description: Amazon Web Services Updateidentityprovidersettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-identity-provider.amazonwebservicesupdateidentityprovidersettings
+      outputParameters:
+      - type: object
+        mapping: $.

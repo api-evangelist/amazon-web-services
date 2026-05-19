@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Search Quick Connects
+  description: 'Amazon Web Services connect — Search Quick Connects. 1 operations. Lead operation: Amazon Web Services Searchquickconnects.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Search Quick Connects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-search-quick-connects
+    baseUri: ''
+    description: Amazon Web Services connect — Search Quick Connects business capability. Self-contained, no shared references.
+    resources:
+    - name: search-quick-connects
+      path: /search-quick-connects
+      operations:
+      - name: amazonwebservicessearchquickconnects
+        method: POST
+        description: Amazon Web Services Searchquickconnects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-search-quick-connects-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Search Quick Connects. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/search-quick-connects
+      name: search-quick-connects
+      description: REST surface for search-quick-connects.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchquickconnects
+        description: Amazon Web Services Searchquickconnects
+        call: connect-search-quick-connects.amazonwebservicessearchquickconnects
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-search-quick-connects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Search Quick Connects. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-searchquickconnects
+      description: Amazon Web Services Searchquickconnects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: connect-search-quick-connects.amazonwebservicessearchquickconnects
+      outputParameters:
+      - type: object
+        mapping: $.

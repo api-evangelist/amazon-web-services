@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Phone Numbers Summary
+  description: 'Amazon Web Services connect — Phone Numbers Summary. 1 operations. Lead operation: Amazon Web Services Listphonenumbers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Phone Numbers Summary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-phone-numbers-summary
+    baseUri: ''
+    description: Amazon Web Services connect — Phone Numbers Summary business capability. Self-contained, no shared references.
+    resources:
+    - name: phone-numbers-summary-InstanceId
+      path: /phone-numbers-summary/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistphonenumbers
+        method: GET
+        description: Amazon Web Services Listphonenumbers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-phone-numbers-summary-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Phone Numbers Summary. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/phone-numbers-summary/{instanceid}
+      name: phone-numbers-summary-instanceid
+      description: REST surface for phone-numbers-summary-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistphonenumbers
+        description: Amazon Web Services Listphonenumbers
+        call: connect-phone-numbers-summary.amazonwebserviceslistphonenumbers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-phone-numbers-summary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Phone Numbers Summary. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listphonenumbers
+      description: Amazon Web Services Listphonenumbers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-phone-numbers-summary.amazonwebserviceslistphonenumbers
+      outputParameters:
+      - type: object
+        mapping: $.

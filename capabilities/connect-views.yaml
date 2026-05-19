@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Views
+  description: 'Amazon Web Services connect — Views. 5 operations. Lead operation: Amazon Web Services Listviews. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Views
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-views
+    baseUri: ''
+    description: Amazon Web Services connect — Views business capability. Self-contained, no shared references.
+    resources:
+    - name: views-InstanceId
+      path: /views/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistviews
+        method: GET
+        description: Amazon Web Services Listviews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: views-InstanceId-ViewId
+      path: /views/{InstanceId}/{ViewId}
+      operations:
+      - name: amazonwebservicesupdateviewcontent
+        method: POST
+        description: Amazon Web Services Updateviewcontent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: views-InstanceId-ViewId-metadata
+      path: /views/{InstanceId}/{ViewId}/metadata
+      operations:
+      - name: amazonwebservicesupdateviewmetadata
+        method: POST
+        description: Amazon Web Services Updateviewmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: views-InstanceId-ViewId-versions
+      path: /views/{InstanceId}/{ViewId}/versions
+      operations:
+      - name: amazonwebserviceslistviewversions
+        method: GET
+        description: Amazon Web Services Listviewversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: views-InstanceId-ViewId-versions-ViewVersion
+      path: /views/{InstanceId}/{ViewId}/versions/{ViewVersion}
+      operations:
+      - name: amazonwebservicesdeleteviewversion
+        method: DELETE
+        description: Amazon Web Services Deleteviewversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-views-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Views. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/views/{instanceid}
+      name: views-instanceid
+      description: REST surface for views-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistviews
+        description: Amazon Web Services Listviews
+        call: connect-views.amazonwebserviceslistviews
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/views/{instanceid}/{viewid}
+      name: views-instanceid-viewid
+      description: REST surface for views-InstanceId-ViewId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateviewcontent
+        description: Amazon Web Services Updateviewcontent
+        call: connect-views.amazonwebservicesupdateviewcontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/views/{instanceid}/{viewid}/metadata
+      name: views-instanceid-viewid-metadata
+      description: REST surface for views-InstanceId-ViewId-metadata.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateviewmetadata
+        description: Amazon Web Services Updateviewmetadata
+        call: connect-views.amazonwebservicesupdateviewmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/views/{instanceid}/{viewid}/versions
+      name: views-instanceid-viewid-versions
+      description: REST surface for views-InstanceId-ViewId-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistviewversions
+        description: Amazon Web Services Listviewversions
+        call: connect-views.amazonwebserviceslistviewversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/views/{instanceid}/{viewid}/versions/{viewversion}
+      name: views-instanceid-viewid-versions-viewversion
+      description: REST surface for views-InstanceId-ViewId-versions-ViewVersion.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteviewversion
+        description: Amazon Web Services Deleteviewversion
+        call: connect-views.amazonwebservicesdeleteviewversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-views-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Views. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listviews
+      description: Amazon Web Services Listviews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-views.amazonwebserviceslistviews
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateviewcontent
+      description: Amazon Web Services Updateviewcontent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-views.amazonwebservicesupdateviewcontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateviewmetadata
+      description: Amazon Web Services Updateviewmetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-views.amazonwebservicesupdateviewmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listviewversions
+      description: Amazon Web Services Listviewversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-views.amazonwebserviceslistviewversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteviewversion
+      description: Amazon Web Services Deleteviewversion
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: connect-views.amazonwebservicesdeleteviewversion
+      outputParameters:
+      - type: object
+        mapping: $.

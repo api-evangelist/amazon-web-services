@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediapackage — Channels
+  description: 'Amazon Web Services mediapackage — Channels. 5 operations. Lead operation: Amazon Web Services Listchannels.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediapackage-channels
+    baseUri: ''
+    description: Amazon Web Services mediapackage — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: channels
+      path: /channels
+      operations:
+      - name: amazonwebserviceslistchannels
+        method: GET
+        description: Amazon Web Services Listchannels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-id
+      path: /channels/{id}
+      operations:
+      - name: amazonwebservicesupdatechannel
+        method: PUT
+        description: Amazon Web Services Updatechannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-id-configure_logs
+      path: /channels/{id}/configure_logs
+      operations:
+      - name: amazonwebservicesconfigurelogs
+        method: PUT
+        description: Amazon Web Services Configurelogs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-id-credentials
+      path: /channels/{id}/credentials
+      operations:
+      - name: amazonwebservicesrotatechannelcredentials
+        method: PUT
+        description: Amazon Web Services Rotatechannelcredentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-id-ingest_endpoints-ingest_endpoint_id-credentials
+      path: /channels/{id}/ingest_endpoints/{ingest_endpoint_id}/credentials
+      operations:
+      - name: amazonwebservicesrotateingestendpointcredentials
+        method: PUT
+        description: Amazon Web Services Rotateingestendpointcredentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediapackage-channels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediapackage — Channels. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/channels
+      name: channels
+      description: REST surface for channels.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannels
+        description: Amazon Web Services Listchannels
+        call: mediapackage-channels.amazonwebserviceslistchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{id}
+      name: channels-id
+      description: REST surface for channels-id.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatechannel
+        description: Amazon Web Services Updatechannel
+        call: mediapackage-channels.amazonwebservicesupdatechannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{id}/configure-logs
+      name: channels-id-configure-logs
+      description: REST surface for channels-id-configure_logs.
+      operations:
+      - method: PUT
+        name: amazonwebservicesconfigurelogs
+        description: Amazon Web Services Configurelogs
+        call: mediapackage-channels.amazonwebservicesconfigurelogs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{id}/credentials
+      name: channels-id-credentials
+      description: REST surface for channels-id-credentials.
+      operations:
+      - method: PUT
+        name: amazonwebservicesrotatechannelcredentials
+        description: Amazon Web Services Rotatechannelcredentials
+        call: mediapackage-channels.amazonwebservicesrotatechannelcredentials
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{id}/ingest-endpoints/{ingest-endpoint-id}/credentials
+      name: channels-id-ingest-endpoints-ingest-endpoint-id-credentials
+      description: REST surface for channels-id-ingest_endpoints-ingest_endpoint_id-credentials.
+      operations:
+      - method: PUT
+        name: amazonwebservicesrotateingestendpointcredentials
+        description: Amazon Web Services Rotateingestendpointcredentials
+        call: mediapackage-channels.amazonwebservicesrotateingestendpointcredentials
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediapackage-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediapackage — Channels. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchannels
+      description: Amazon Web Services Listchannels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediapackage-channels.amazonwebserviceslistchannels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatechannel
+      description: Amazon Web Services Updatechannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediapackage-channels.amazonwebservicesupdatechannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-configurelogs
+      description: Amazon Web Services Configurelogs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediapackage-channels.amazonwebservicesconfigurelogs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-rotatechannelcredentials
+      description: Amazon Web Services Rotatechannelcredentials
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediapackage-channels.amazonwebservicesrotatechannelcredentials
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-rotateingestendpointcredentials
+      description: Amazon Web Services Rotateingestendpointcredentials
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediapackage-channels.amazonwebservicesrotateingestendpointcredentials
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services bedrock — Provisioned Model Throughputs
+  description: 'Amazon Web Services bedrock — Provisioned Model Throughputs. 1 operations. Lead operation: Amazon Web Services
+    Listprovisionedmodelthroughputs. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Provisioned Model Throughputs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bedrock-provisioned-model-throughputs
+    baseUri: ''
+    description: Amazon Web Services bedrock — Provisioned Model Throughputs business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: provisioned-model-throughputs
+      path: /provisioned-model-throughputs
+      operations:
+      - name: amazonwebserviceslistprovisionedmodelthroughputs
+        method: GET
+        description: Amazon Web Services Listprovisionedmodelthroughputs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bedrock-provisioned-model-throughputs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services bedrock — Provisioned Model Throughputs. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/provisioned-model-throughputs
+      name: provisioned-model-throughputs
+      description: REST surface for provisioned-model-throughputs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprovisionedmodelthroughputs
+        description: Amazon Web Services Listprovisionedmodelthroughputs
+        call: bedrock-provisioned-model-throughputs.amazonwebserviceslistprovisionedmodelthroughputs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bedrock-provisioned-model-throughputs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services bedrock — Provisioned Model Throughputs. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprovisionedmodelthroughputs
+      description: Amazon Web Services Listprovisionedmodelthroughputs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bedrock-provisioned-model-throughputs.amazonwebserviceslistprovisionedmodelthroughputs
+      outputParameters:
+      - type: object
+        mapping: $.

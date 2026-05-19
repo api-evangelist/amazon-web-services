@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Rules
+  description: 'Amazon Web Services connect — Rules. 2 operations. Lead operation: Amazon Web Services Listrules. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Rules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-rules
+    baseUri: ''
+    description: Amazon Web Services connect — Rules business capability. Self-contained, no shared references.
+    resources:
+    - name: rules-InstanceId
+      path: /rules/{InstanceId}
+      operations:
+      - name: amazonwebserviceslistrules
+        method: GET
+        description: Amazon Web Services Listrules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: rules-InstanceId-RuleId
+      path: /rules/{InstanceId}/{RuleId}
+      operations:
+      - name: amazonwebservicesupdaterule
+        method: PUT
+        description: Amazon Web Services Updaterule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-rules-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Rules. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/rules/{instanceid}
+      name: rules-instanceid
+      description: REST surface for rules-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrules
+        description: Amazon Web Services Listrules
+        call: connect-rules.amazonwebserviceslistrules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/rules/{instanceid}/{ruleid}
+      name: rules-instanceid-ruleid
+      description: REST surface for rules-InstanceId-RuleId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdaterule
+        description: Amazon Web Services Updaterule
+        call: connect-rules.amazonwebservicesupdaterule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-rules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Rules. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrules
+      description: Amazon Web Services Listrules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-rules.amazonwebserviceslistrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterule
+      description: Amazon Web Services Updaterule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-rules.amazonwebservicesupdaterule
+      outputParameters:
+      - type: object
+        mapping: $.

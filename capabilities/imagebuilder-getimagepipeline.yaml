@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — GetImagePipeline
+  description: 'Amazon Web Services imagebuilder — GetImagePipeline. 1 operations. Lead operation: Amazon Web Services Getimagepipeline.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetImagePipeline
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-getimagepipeline
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — GetImagePipeline business capability. Self-contained, no shared references.
+    resources:
+    - name: GetImagePipeline
+      path: /GetImagePipeline
+      operations:
+      - name: amazonwebservicesgetimagepipeline
+        method: GET
+        description: Amazon Web Services Getimagepipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-getimagepipeline-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — GetImagePipeline. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getimagepipeline
+      name: getimagepipeline
+      description: REST surface for GetImagePipeline.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetimagepipeline
+        description: Amazon Web Services Getimagepipeline
+        call: imagebuilder-getimagepipeline.amazonwebservicesgetimagepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-getimagepipeline-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — GetImagePipeline. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getimagepipeline
+      description: Amazon Web Services Getimagepipeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: imagebuilder-getimagepipeline.amazonwebservicesgetimagepipeline
+      outputParameters:
+      - type: object
+        mapping: $.

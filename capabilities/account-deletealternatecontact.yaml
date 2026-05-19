@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services account — deleteAlternateContact
+  description: 'Amazon Web Services account — deleteAlternateContact. 1 operations. Lead operation: Amazon Web Services Deletealternatecontact.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteAlternateContact
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: account-deletealternatecontact
+    baseUri: ''
+    description: Amazon Web Services account — deleteAlternateContact business capability. Self-contained, no shared references.
+    resources:
+    - name: deleteAlternateContact
+      path: /deleteAlternateContact
+      operations:
+      - name: amazonwebservicesdeletealternatecontact
+        method: POST
+        description: Amazon Web Services Deletealternatecontact
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: account-deletealternatecontact-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services account — deleteAlternateContact. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletealternatecontact
+      name: deletealternatecontact
+      description: REST surface for deleteAlternateContact.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletealternatecontact
+        description: Amazon Web Services Deletealternatecontact
+        call: account-deletealternatecontact.amazonwebservicesdeletealternatecontact
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: account-deletealternatecontact-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services account — deleteAlternateContact. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletealternatecontact
+      description: Amazon Web Services Deletealternatecontact
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: account-deletealternatecontact.amazonwebservicesdeletealternatecontact
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services eks — Addons
+  description: 'Amazon Web Services eks — Addons. 2 operations. Lead operation: Amazon Web Services Describeaddonconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Addons
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eks-addons
+    baseUri: ''
+    description: Amazon Web Services eks — Addons business capability. Self-contained, no shared references.
+    resources:
+    - name: addons-configuration-schemas
+      path: /addons/configuration-schemas
+      operations:
+      - name: amazonwebservicesdescribeaddonconfiguration
+        method: GET
+        description: Amazon Web Services Describeaddonconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: addons-supported-versions
+      path: /addons/supported-versions
+      operations:
+      - name: amazonwebservicesdescribeaddonversions
+        method: GET
+        description: Amazon Web Services Describeaddonversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: eks-addons-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services eks — Addons. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/addons/configuration-schemas
+      name: addons-configuration-schemas
+      description: REST surface for addons-configuration-schemas.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeaddonconfiguration
+        description: Amazon Web Services Describeaddonconfiguration
+        call: eks-addons.amazonwebservicesdescribeaddonconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/addons/supported-versions
+      name: addons-supported-versions
+      description: REST surface for addons-supported-versions.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeaddonversions
+        description: Amazon Web Services Describeaddonversions
+        call: eks-addons.amazonwebservicesdescribeaddonversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eks-addons-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services eks — Addons. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeaddonconfiguration
+      description: Amazon Web Services Describeaddonconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eks-addons.amazonwebservicesdescribeaddonconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeaddonversions
+      description: Amazon Web Services Describeaddonversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eks-addons.amazonwebservicesdescribeaddonversions
+      outputParameters:
+      - type: object
+        mapping: $.

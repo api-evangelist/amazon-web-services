@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — profileSummaries
+  description: 'Amazon Web Services wellarchitected — profileSummaries. 1 operations. Lead operation: Amazon Web Services
+    Listprofiles. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - profileSummaries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-profilesummaries
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — profileSummaries business capability. Self-contained, no shared references.
+    resources:
+    - name: profileSummaries
+      path: /profileSummaries
+      operations:
+      - name: amazonwebserviceslistprofiles
+        method: GET
+        description: Amazon Web Services Listprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-profilesummaries-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — profileSummaries. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/profilesummaries
+      name: profilesummaries
+      description: REST surface for profileSummaries.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofiles
+        description: Amazon Web Services Listprofiles
+        call: wellarchitected-profilesummaries.amazonwebserviceslistprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-profilesummaries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — profileSummaries. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprofiles
+      description: Amazon Web Services Listprofiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-profilesummaries.amazonwebserviceslistprofiles
+      outputParameters:
+      - type: object
+        mapping: $.

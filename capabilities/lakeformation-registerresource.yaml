@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — RegisterResource
+  description: 'Amazon Web Services lakeformation — RegisterResource. 1 operations. Lead operation: Amazon Web Services Registerresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - RegisterResource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-registerresource
+    baseUri: ''
+    description: Amazon Web Services lakeformation — RegisterResource business capability. Self-contained, no shared references.
+    resources:
+    - name: RegisterResource
+      path: /RegisterResource
+      operations:
+      - name: amazonwebservicesregisterresource
+        method: POST
+        description: Amazon Web Services Registerresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-registerresource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — RegisterResource. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/registerresource
+      name: registerresource
+      description: REST surface for RegisterResource.
+      operations:
+      - method: POST
+        name: amazonwebservicesregisterresource
+        description: Amazon Web Services Registerresource
+        call: lakeformation-registerresource.amazonwebservicesregisterresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-registerresource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — RegisterResource. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-registerresource
+      description: Amazon Web Services Registerresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-registerresource.amazonwebservicesregisterresource
+      outputParameters:
+      - type: object
+        mapping: $.

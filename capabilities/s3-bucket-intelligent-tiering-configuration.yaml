@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Intelligent Tiering Configuration
+  description: 'Amazon Web Services AWS S3 — Bucket Intelligent Tiering Configuration. 1 operations. Lead operation: Amazon
+    Web Services Put Bucket Intelligent Tiering Configuration. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Intelligent Tiering Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-intelligent-tiering-configuration
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Intelligent Tiering Configuration business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: Bucket}?intelligent-tiering
+      path: /{Bucket}?intelligent-tiering
+      operations:
+      - name: putbucketintelligenttieringconfiguration
+        method: PUT
+        description: Amazon Web Services Put Bucket Intelligent Tiering Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-intelligent-tiering-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Intelligent Tiering Configuration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-intelligent-tiering
+      name: bucket-intelligent-tiering
+      description: REST surface for Bucket}?intelligent-tiering.
+      operations:
+      - method: PUT
+        name: putbucketintelligenttieringconfiguration
+        description: Amazon Web Services Put Bucket Intelligent Tiering Configuration
+        call: s3-bucket-intelligent-tiering-configuration.putbucketintelligenttieringconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-intelligent-tiering-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Intelligent Tiering Configuration. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Intelligent Tiering Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-intelligent-tiering-configuration.putbucketintelligenttieringconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-geospatial — List Earth Observation Jobs
+  description: 'Amazon Web Services sagemaker-geospatial — List Earth Observation Jobs. 1 operations. Lead operation: Amazon
+    Web Services Listearthobservationjobs. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Earth Observation Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-geospatial-list-earth-observation-jobs
+    baseUri: ''
+    description: Amazon Web Services sagemaker-geospatial — List Earth Observation Jobs business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: list-earth-observation-jobs
+      path: /list-earth-observation-jobs
+      operations:
+      - name: amazonwebserviceslistearthobservationjobs
+        method: POST
+        description: Amazon Web Services Listearthobservationjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-geospatial-list-earth-observation-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-geospatial — List Earth Observation Jobs. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-earth-observation-jobs
+      name: list-earth-observation-jobs
+      description: REST surface for list-earth-observation-jobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistearthobservationjobs
+        description: Amazon Web Services Listearthobservationjobs
+        call: sagemaker-geospatial-list-earth-observation-jobs.amazonwebserviceslistearthobservationjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-geospatial-list-earth-observation-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-geospatial — List Earth Observation Jobs. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listearthobservationjobs
+      description: Amazon Web Services Listearthobservationjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-geospatial-list-earth-observation-jobs.amazonwebserviceslistearthobservationjobs
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appmesh — Tags
+  description: 'Amazon Web Services appmesh — Tags. 1 operations. Lead operation: Amazon Web Services Listtagsforresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appmesh-tags
+    baseUri: ''
+    description: Amazon Web Services appmesh — Tags business capability. Self-contained, no shared references.
+    resources:
+    - name: v20190125-tags
+      path: /v20190125/tags
+      operations:
+      - name: amazonwebserviceslisttagsforresource
+        method: GET
+        description: Amazon Web Services Listtagsforresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appmesh-tags-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appmesh — Tags. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v20190125/tags
+      name: v20190125-tags
+      description: REST surface for v20190125-tags.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttagsforresource
+        description: Amazon Web Services Listtagsforresource
+        call: appmesh-tags.amazonwebserviceslisttagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appmesh-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appmesh — Tags. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtagsforresource
+      description: Amazon Web Services Listtagsforresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-tags.amazonwebserviceslisttagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.

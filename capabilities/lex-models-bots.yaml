@@ -1,0 +1,451 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lex-models — Bots
+  description: 'Amazon Web Services lex-models — Bots. 13 operations. Lead operation: Amazon Web Services Getbots. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bots
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lex-models-bots
+    baseUri: ''
+    description: Amazon Web Services lex-models — Bots business capability. Self-contained, no shared references.
+    resources:
+    - name: bots
+      path: /bots/
+      operations:
+      - name: amazonwebservicesgetbots
+        method: GET
+        description: Amazon Web Services Getbots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botName-aliases
+      path: /bots/{botName}/aliases/
+      operations:
+      - name: amazonwebservicesgetbotaliases
+        method: GET
+        description: Amazon Web Services Getbotaliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botName-aliases-aliasName-channels
+      path: /bots/{botName}/aliases/{aliasName}/channels/
+      operations:
+      - name: amazonwebservicesgetbotchannelassociations
+        method: GET
+        description: Amazon Web Services Getbotchannelassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botName-aliases-aliasName-channels-name
+      path: /bots/{botName}/aliases/{aliasName}/channels/{name}
+      operations:
+      - name: amazonwebservicesgetbotchannelassociation
+        method: GET
+        description: Amazon Web Services Getbotchannelassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botName-aliases-name
+      path: /bots/{botName}/aliases/{name}
+      operations:
+      - name: amazonwebservicesputbotalias
+        method: PUT
+        description: Amazon Web Services Putbotalias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botName-utterances-userId
+      path: /bots/{botName}/utterances/{userId}
+      operations:
+      - name: amazonwebservicesdeleteutterances
+        method: DELETE
+        description: Amazon Web Services Deleteutterances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-botname-utterances?view=aggregation
+      path: /bots/{botname}/utterances?view=aggregation
+      operations:
+      - name: amazonwebservicesgetutterancesview
+        method: GET
+        description: Amazon Web Services Getutterancesview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name
+      path: /bots/{name}
+      operations:
+      - name: amazonwebservicesdeletebot
+        method: DELETE
+        description: Amazon Web Services Deletebot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name-versions
+      path: /bots/{name}/versions
+      operations:
+      - name: amazonwebservicescreatebotversion
+        method: POST
+        description: Amazon Web Services Createbotversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name-versions
+      path: /bots/{name}/versions/
+      operations:
+      - name: amazonwebservicesgetbotversions
+        method: GET
+        description: Amazon Web Services Getbotversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name-versions-$LATEST
+      path: /bots/{name}/versions/$LATEST
+      operations:
+      - name: amazonwebservicesputbot
+        method: PUT
+        description: Amazon Web Services Putbot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name-versions-versionoralias
+      path: /bots/{name}/versions/{versionoralias}
+      operations:
+      - name: amazonwebservicesgetbot
+        method: GET
+        description: Amazon Web Services Getbot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bots-name-versions-version
+      path: /bots/{name}/versions/{version}
+      operations:
+      - name: amazonwebservicesdeletebotversion
+        method: DELETE
+        description: Amazon Web Services Deletebotversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lex-models-bots-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lex-models — Bots. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/bots
+      name: bots
+      description: REST surface for bots.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbots
+        description: Amazon Web Services Getbots
+        call: lex-models-bots.amazonwebservicesgetbots
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/aliases
+      name: bots-botname-aliases
+      description: REST surface for bots-botName-aliases.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbotaliases
+        description: Amazon Web Services Getbotaliases
+        call: lex-models-bots.amazonwebservicesgetbotaliases
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/aliases/{aliasname}/channels
+      name: bots-botname-aliases-aliasname-channels
+      description: REST surface for bots-botName-aliases-aliasName-channels.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbotchannelassociations
+        description: Amazon Web Services Getbotchannelassociations
+        call: lex-models-bots.amazonwebservicesgetbotchannelassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/aliases/{aliasname}/channels/{name}
+      name: bots-botname-aliases-aliasname-channels-name
+      description: REST surface for bots-botName-aliases-aliasName-channels-name.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbotchannelassociation
+        description: Amazon Web Services Getbotchannelassociation
+        call: lex-models-bots.amazonwebservicesgetbotchannelassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/aliases/{name}
+      name: bots-botname-aliases-name
+      description: REST surface for bots-botName-aliases-name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputbotalias
+        description: Amazon Web Services Putbotalias
+        call: lex-models-bots.amazonwebservicesputbotalias
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/utterances/{userid}
+      name: bots-botname-utterances-userid
+      description: REST surface for bots-botName-utterances-userId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleteutterances
+        description: Amazon Web Services Deleteutterances
+        call: lex-models-bots.amazonwebservicesdeleteutterances
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{botname}/utterances-view-aggregation
+      name: bots-botname-utterances-view-aggregation
+      description: REST surface for bots-botname-utterances?view=aggregation.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetutterancesview
+        description: Amazon Web Services Getutterancesview
+        call: lex-models-bots.amazonwebservicesgetutterancesview
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}
+      name: bots-name
+      description: REST surface for bots-name.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletebot
+        description: Amazon Web Services Deletebot
+        call: lex-models-bots.amazonwebservicesdeletebot
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}/versions
+      name: bots-name-versions
+      description: REST surface for bots-name-versions.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatebotversion
+        description: Amazon Web Services Createbotversion
+        call: lex-models-bots.amazonwebservicescreatebotversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}/versions
+      name: bots-name-versions
+      description: REST surface for bots-name-versions.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbotversions
+        description: Amazon Web Services Getbotversions
+        call: lex-models-bots.amazonwebservicesgetbotversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}/versions/latest
+      name: bots-name-versions-latest
+      description: REST surface for bots-name-versions-$LATEST.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputbot
+        description: Amazon Web Services Putbot
+        call: lex-models-bots.amazonwebservicesputbot
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}/versions/{versionoralias}
+      name: bots-name-versions-versionoralias
+      description: REST surface for bots-name-versions-versionoralias.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetbot
+        description: Amazon Web Services Getbot
+        call: lex-models-bots.amazonwebservicesgetbot
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bots/{name}/versions/{version}
+      name: bots-name-versions-version
+      description: REST surface for bots-name-versions-version.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletebotversion
+        description: Amazon Web Services Deletebotversion
+        call: lex-models-bots.amazonwebservicesdeletebotversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lex-models-bots-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lex-models — Bots. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getbots
+      description: Amazon Web Services Getbots
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbots
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbotaliases
+      description: Amazon Web Services Getbotaliases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbotaliases
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbotchannelassociations
+      description: Amazon Web Services Getbotchannelassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbotchannelassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbotchannelassociation
+      description: Amazon Web Services Getbotchannelassociation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbotchannelassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putbotalias
+      description: Amazon Web Services Putbotalias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesputbotalias
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteutterances
+      description: Amazon Web Services Deleteutterances
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesdeleteutterances
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getutterancesview
+      description: Amazon Web Services Getutterancesview
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetutterancesview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebot
+      description: Amazon Web Services Deletebot
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesdeletebot
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createbotversion
+      description: Amazon Web Services Createbotversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lex-models-bots.amazonwebservicescreatebotversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbotversions
+      description: Amazon Web Services Getbotversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbotversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putbot
+      description: Amazon Web Services Putbot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesputbot
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbot
+      description: Amazon Web Services Getbot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesgetbot
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletebotversion
+      description: Amazon Web Services Deletebotversion
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: lex-models-bots.amazonwebservicesdeletebotversion
+      outputParameters:
+      - type: object
+        mapping: $.

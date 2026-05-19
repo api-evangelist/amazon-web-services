@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — UpdateTableStorageOptimizer
+  description: 'Amazon Web Services lakeformation — UpdateTableStorageOptimizer. 1 operations. Lead operation: Amazon Web
+    Services Updatetablestorageoptimizer. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateTableStorageOptimizer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-updatetablestorageoptimizer
+    baseUri: ''
+    description: Amazon Web Services lakeformation — UpdateTableStorageOptimizer business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: UpdateTableStorageOptimizer
+      path: /UpdateTableStorageOptimizer
+      operations:
+      - name: amazonwebservicesupdatetablestorageoptimizer
+        method: POST
+        description: Amazon Web Services Updatetablestorageoptimizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-updatetablestorageoptimizer-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — UpdateTableStorageOptimizer. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatetablestorageoptimizer
+      name: updatetablestorageoptimizer
+      description: REST surface for UpdateTableStorageOptimizer.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetablestorageoptimizer
+        description: Amazon Web Services Updatetablestorageoptimizer
+        call: lakeformation-updatetablestorageoptimizer.amazonwebservicesupdatetablestorageoptimizer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-updatetablestorageoptimizer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — UpdateTableStorageOptimizer. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetablestorageoptimizer
+      description: Amazon Web Services Updatetablestorageoptimizer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-updatetablestorageoptimizer.amazonwebservicesupdatetablestorageoptimizer
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services neptune-graph — Graphs
+  description: 'Amazon Web Services neptune-graph — Graphs. 4 operations. Lead operation: Amazon Web Services Listgraphs.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Graphs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: neptune-graph-graphs
+    baseUri: ''
+    description: Amazon Web Services neptune-graph — Graphs business capability. Self-contained, no shared references.
+    resources:
+    - name: graphs
+      path: /graphs
+      operations:
+      - name: amazonwebserviceslistgraphs
+        method: GET
+        description: Amazon Web Services Listgraphs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: graphs-graphIdentifier
+      path: /graphs/{graphIdentifier}
+      operations:
+      - name: amazonwebservicesupdategraph
+        method: PATCH
+        description: Amazon Web Services Updategraph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: graphs-graphIdentifier-endpoints
+      path: /graphs/{graphIdentifier}/endpoints/
+      operations:
+      - name: amazonwebserviceslistprivategraphendpoints
+        method: GET
+        description: Amazon Web Services Listprivategraphendpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: graphs-graphIdentifier-endpoints-vpcId
+      path: /graphs/{graphIdentifier}/endpoints/{vpcId}
+      operations:
+      - name: amazonwebservicesgetprivategraphendpoint
+        method: GET
+        description: Amazon Web Services Getprivategraphendpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: neptune-graph-graphs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services neptune-graph — Graphs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/graphs
+      name: graphs
+      description: REST surface for graphs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistgraphs
+        description: Amazon Web Services Listgraphs
+        call: neptune-graph-graphs.amazonwebserviceslistgraphs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/graphs/{graphidentifier}
+      name: graphs-graphidentifier
+      description: REST surface for graphs-graphIdentifier.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdategraph
+        description: Amazon Web Services Updategraph
+        call: neptune-graph-graphs.amazonwebservicesupdategraph
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/graphs/{graphidentifier}/endpoints
+      name: graphs-graphidentifier-endpoints
+      description: REST surface for graphs-graphIdentifier-endpoints.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprivategraphendpoints
+        description: Amazon Web Services Listprivategraphendpoints
+        call: neptune-graph-graphs.amazonwebserviceslistprivategraphendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/graphs/{graphidentifier}/endpoints/{vpcid}
+      name: graphs-graphidentifier-endpoints-vpcid
+      description: REST surface for graphs-graphIdentifier-endpoints-vpcId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetprivategraphendpoint
+        description: Amazon Web Services Getprivategraphendpoint
+        call: neptune-graph-graphs.amazonwebservicesgetprivategraphendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: neptune-graph-graphs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services neptune-graph — Graphs. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listgraphs
+      description: Amazon Web Services Listgraphs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptune-graph-graphs.amazonwebserviceslistgraphs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategraph
+      description: Amazon Web Services Updategraph
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: neptune-graph-graphs.amazonwebservicesupdategraph
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprivategraphendpoints
+      description: Amazon Web Services Listprivategraphendpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptune-graph-graphs.amazonwebserviceslistprivategraphendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getprivategraphendpoint
+      description: Amazon Web Services Getprivategraphendpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptune-graph-graphs.amazonwebservicesgetprivategraphendpoint
+      outputParameters:
+      - type: object
+        mapping: $.

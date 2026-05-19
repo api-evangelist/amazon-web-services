@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services neptune-graph — Importtasks
+  description: 'Amazon Web Services neptune-graph — Importtasks. 2 operations. Lead operation: Amazon Web Services Listimporttasks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Importtasks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: neptune-graph-importtasks
+    baseUri: ''
+    description: Amazon Web Services neptune-graph — Importtasks business capability. Self-contained, no shared references.
+    resources:
+    - name: importtasks
+      path: /importtasks
+      operations:
+      - name: amazonwebserviceslistimporttasks
+        method: GET
+        description: Amazon Web Services Listimporttasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: importtasks-taskIdentifier
+      path: /importtasks/{taskIdentifier}
+      operations:
+      - name: amazonwebservicesgetimporttask
+        method: GET
+        description: Amazon Web Services Getimporttask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: neptune-graph-importtasks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services neptune-graph — Importtasks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/importtasks
+      name: importtasks
+      description: REST surface for importtasks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistimporttasks
+        description: Amazon Web Services Listimporttasks
+        call: neptune-graph-importtasks.amazonwebserviceslistimporttasks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/importtasks/{taskidentifier}
+      name: importtasks-taskidentifier
+      description: REST surface for importtasks-taskIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetimporttask
+        description: Amazon Web Services Getimporttask
+        call: neptune-graph-importtasks.amazonwebservicesgetimporttask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: neptune-graph-importtasks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services neptune-graph — Importtasks. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimporttasks
+      description: Amazon Web Services Listimporttasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptune-graph-importtasks.amazonwebserviceslistimporttasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getimporttask
+      description: Amazon Web Services Getimporttask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: neptune-graph-importtasks.amazonwebservicesgetimporttask
+      outputParameters:
+      - type: object
+        mapping: $.

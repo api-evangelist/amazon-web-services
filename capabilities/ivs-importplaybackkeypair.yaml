@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — ImportPlaybackKeyPair
+  description: 'Amazon Web Services ivs — ImportPlaybackKeyPair. 1 operations. Lead operation: Amazon Web Services Importplaybackkeypair.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ImportPlaybackKeyPair
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-importplaybackkeypair
+    baseUri: ''
+    description: Amazon Web Services ivs — ImportPlaybackKeyPair business capability. Self-contained, no shared references.
+    resources:
+    - name: ImportPlaybackKeyPair
+      path: /ImportPlaybackKeyPair
+      operations:
+      - name: amazonwebservicesimportplaybackkeypair
+        method: POST
+        description: Amazon Web Services Importplaybackkeypair
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-importplaybackkeypair-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — ImportPlaybackKeyPair. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/importplaybackkeypair
+      name: importplaybackkeypair
+      description: REST surface for ImportPlaybackKeyPair.
+      operations:
+      - method: POST
+        name: amazonwebservicesimportplaybackkeypair
+        description: Amazon Web Services Importplaybackkeypair
+        call: ivs-importplaybackkeypair.amazonwebservicesimportplaybackkeypair
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-importplaybackkeypair-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — ImportPlaybackKeyPair. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-importplaybackkeypair
+      description: Amazon Web Services Importplaybackkeypair
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-importplaybackkeypair.amazonwebservicesimportplaybackkeypair
+      outputParameters:
+      - type: object
+        mapping: $.

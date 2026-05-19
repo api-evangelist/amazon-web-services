@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — DescribeVcenterClients
+  description: 'Amazon Web Services mgn — DescribeVcenterClients. 1 operations. Lead operation: Amazon Web Services Describevcenterclients.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DescribeVcenterClients
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-describevcenterclients
+    baseUri: ''
+    description: Amazon Web Services mgn — DescribeVcenterClients business capability. Self-contained, no shared references.
+    resources:
+    - name: DescribeVcenterClients
+      path: /DescribeVcenterClients
+      operations:
+      - name: amazonwebservicesdescribevcenterclients
+        method: GET
+        description: Amazon Web Services Describevcenterclients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-describevcenterclients-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — DescribeVcenterClients. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describevcenterclients
+      name: describevcenterclients
+      description: REST surface for DescribeVcenterClients.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribevcenterclients
+        description: Amazon Web Services Describevcenterclients
+        call: mgn-describevcenterclients.amazonwebservicesdescribevcenterclients
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-describevcenterclients-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — DescribeVcenterClients. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describevcenterclients
+      description: Amazon Web Services Describevcenterclients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mgn-describevcenterclients.amazonwebservicesdescribevcenterclients
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workspaces-web — networkSettings
+  description: 'Amazon Web Services workspaces-web — networkSettings. 2 operations. Lead operation: Amazon Web Services Listnetworksettings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - networkSettings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workspaces-web-networksettings
+    baseUri: ''
+    description: Amazon Web Services workspaces-web — networkSettings business capability. Self-contained, no shared references.
+    resources:
+    - name: networkSettings
+      path: /networkSettings
+      operations:
+      - name: amazonwebserviceslistnetworksettings
+        method: GET
+        description: Amazon Web Services Listnetworksettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networkSettings-networkSettingsArn+
+      path: /networkSettings/{networkSettingsArn+}
+      operations:
+      - name: amazonwebservicesupdatenetworksettings
+        method: PATCH
+        description: Amazon Web Services Updatenetworksettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workspaces-web-networksettings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workspaces-web — networkSettings. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/networksettings
+      name: networksettings
+      description: REST surface for networkSettings.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistnetworksettings
+        description: Amazon Web Services Listnetworksettings
+        call: workspaces-web-networksettings.amazonwebserviceslistnetworksettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networksettings/{networksettingsarn}
+      name: networksettings-networksettingsarn
+      description: REST surface for networkSettings-networkSettingsArn+.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatenetworksettings
+        description: Amazon Web Services Updatenetworksettings
+        call: workspaces-web-networksettings.amazonwebservicesupdatenetworksettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workspaces-web-networksettings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workspaces-web — networkSettings. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listnetworksettings
+      description: Amazon Web Services Listnetworksettings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-networksettings.amazonwebserviceslistnetworksettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatenetworksettings
+      description: Amazon Web Services Updatenetworksettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workspaces-web-networksettings.amazonwebservicesupdatenetworksettings
+      outputParameters:
+      - type: object
+        mapping: $.

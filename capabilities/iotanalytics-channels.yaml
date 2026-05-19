@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotanalytics — Channels
+  description: 'Amazon Web Services iotanalytics — Channels. 3 operations. Lead operation: Amazon Web Services Listchannels.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotanalytics-channels
+    baseUri: ''
+    description: Amazon Web Services iotanalytics — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: channels
+      path: /channels
+      operations:
+      - name: amazonwebserviceslistchannels
+        method: GET
+        description: Amazon Web Services Listchannels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelName
+      path: /channels/{channelName}
+      operations:
+      - name: amazonwebservicesupdatechannel
+        method: PUT
+        description: Amazon Web Services Updatechannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channels-channelName-sample
+      path: /channels/{channelName}/sample
+      operations:
+      - name: amazonwebservicessamplechanneldata
+        method: GET
+        description: Amazon Web Services Samplechanneldata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotanalytics-channels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotanalytics — Channels. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/channels
+      name: channels
+      description: REST surface for channels.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannels
+        description: Amazon Web Services Listchannels
+        call: iotanalytics-channels.amazonwebserviceslistchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelname}
+      name: channels-channelname
+      description: REST surface for channels-channelName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatechannel
+        description: Amazon Web Services Updatechannel
+        call: iotanalytics-channels.amazonwebservicesupdatechannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/channels/{channelname}/sample
+      name: channels-channelname-sample
+      description: REST surface for channels-channelName-sample.
+      operations:
+      - method: GET
+        name: amazonwebservicessamplechanneldata
+        description: Amazon Web Services Samplechanneldata
+        call: iotanalytics-channels.amazonwebservicessamplechanneldata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotanalytics-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotanalytics — Channels. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchannels
+      description: Amazon Web Services Listchannels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotanalytics-channels.amazonwebserviceslistchannels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatechannel
+      description: Amazon Web Services Updatechannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotanalytics-channels.amazonwebservicesupdatechannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-samplechanneldata
+      description: Amazon Web Services Samplechanneldata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotanalytics-channels.amazonwebservicessamplechanneldata
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigateway — Apikeys
+  description: 'Amazon Web Services apigateway — Apikeys. 2 operations. Lead operation: Amazon Web Services Getapikeys. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Apikeys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigateway-apikeys
+    baseUri: ''
+    description: Amazon Web Services apigateway — Apikeys business capability. Self-contained, no shared references.
+    resources:
+    - name: apikeys
+      path: /apikeys
+      operations:
+      - name: amazonwebservicesgetapikeys
+        method: GET
+        description: Amazon Web Services Getapikeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: apikeys-api_Key
+      path: /apikeys/{api_Key}
+      operations:
+      - name: amazonwebservicesupdateapikey
+        method: PATCH
+        description: Amazon Web Services Updateapikey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigateway-apikeys-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigateway — Apikeys. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/apikeys
+      name: apikeys
+      description: REST surface for apikeys.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetapikeys
+        description: Amazon Web Services Getapikeys
+        call: apigateway-apikeys.amazonwebservicesgetapikeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/apikeys/{api-key}
+      name: apikeys-api-key
+      description: REST surface for apikeys-api_Key.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateapikey
+        description: Amazon Web Services Updateapikey
+        call: apigateway-apikeys.amazonwebservicesupdateapikey
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigateway-apikeys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigateway — Apikeys. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getapikeys
+      description: Amazon Web Services Getapikeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigateway-apikeys.amazonwebservicesgetapikeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateapikey
+      description: Amazon Web Services Updateapikey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigateway-apikeys.amazonwebservicesupdateapikey
+      outputParameters:
+      - type: object
+        mapping: $.

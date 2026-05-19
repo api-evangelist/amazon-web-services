@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services backup — Resources
+  description: 'Amazon Web Services backup — Resources. 4 operations. Lead operation: Amazon Web Services Listprotectedresources.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Resources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: backup-resources
+    baseUri: ''
+    description: Amazon Web Services backup — Resources business capability. Self-contained, no shared references.
+    resources:
+    - name: resources
+      path: /resources/
+      operations:
+      - name: amazonwebserviceslistprotectedresources
+        method: GET
+        description: Amazon Web Services Listprotectedresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resources-resourceArn
+      path: /resources/{resourceArn}
+      operations:
+      - name: amazonwebservicesdescribeprotectedresource
+        method: GET
+        description: Amazon Web Services Describeprotectedresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resources-resourceArn-recovery-points
+      path: /resources/{resourceArn}/recovery-points/
+      operations:
+      - name: amazonwebserviceslistrecoverypointsbyresource
+        method: GET
+        description: Amazon Web Services Listrecoverypointsbyresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: resources-resourceArn-restore-jobs
+      path: /resources/{resourceArn}/restore-jobs/
+      operations:
+      - name: amazonwebserviceslistrestorejobsbyprotectedresource
+        method: GET
+        description: Amazon Web Services Listrestorejobsbyprotectedresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: backup-resources-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services backup — Resources. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: REST surface for resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprotectedresources
+        description: Amazon Web Services Listprotectedresources
+        call: backup-resources.amazonwebserviceslistprotectedresources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resources/{resourcearn}
+      name: resources-resourcearn
+      description: REST surface for resources-resourceArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeprotectedresource
+        description: Amazon Web Services Describeprotectedresource
+        call: backup-resources.amazonwebservicesdescribeprotectedresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resources/{resourcearn}/recovery-points
+      name: resources-resourcearn-recovery-points
+      description: REST surface for resources-resourceArn-recovery-points.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecoverypointsbyresource
+        description: Amazon Web Services Listrecoverypointsbyresource
+        call: backup-resources.amazonwebserviceslistrecoverypointsbyresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resources/{resourcearn}/restore-jobs
+      name: resources-resourcearn-restore-jobs
+      description: REST surface for resources-resourceArn-restore-jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrestorejobsbyprotectedresource
+        description: Amazon Web Services Listrestorejobsbyprotectedresource
+        call: backup-resources.amazonwebserviceslistrestorejobsbyprotectedresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: backup-resources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services backup — Resources. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprotectedresources
+      description: Amazon Web Services Listprotectedresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-resources.amazonwebserviceslistprotectedresources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeprotectedresource
+      description: Amazon Web Services Describeprotectedresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-resources.amazonwebservicesdescribeprotectedresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrecoverypointsbyresource
+      description: Amazon Web Services Listrecoverypointsbyresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-resources.amazonwebserviceslistrecoverypointsbyresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrestorejobsbyprotectedresource
+      description: Amazon Web Services Listrestorejobsbyprotectedresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-resources.amazonwebserviceslistrestorejobsbyprotectedresource
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Findings
+  description: 'Amazon Web Services macie2 — Findings. 6 operations. Lead operation: Amazon Web Services Listfindings. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Findings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-findings
+    baseUri: ''
+    description: Amazon Web Services macie2 — Findings business capability. Self-contained, no shared references.
+    resources:
+    - name: findings
+      path: /findings
+      operations:
+      - name: amazonwebserviceslistfindings
+        method: POST
+        description: Amazon Web Services Listfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-describe
+      path: /findings/describe
+      operations:
+      - name: amazonwebservicesgetfindings
+        method: POST
+        description: Amazon Web Services Getfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-sample
+      path: /findings/sample
+      operations:
+      - name: amazonwebservicescreatesamplefindings
+        method: POST
+        description: Amazon Web Services Createsamplefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-statistics
+      path: /findings/statistics
+      operations:
+      - name: amazonwebservicesgetfindingstatistics
+        method: POST
+        description: Amazon Web Services Getfindingstatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-findingId-reveal
+      path: /findings/{findingId}/reveal
+      operations:
+      - name: amazonwebservicesgetsensitivedataoccurrences
+        method: GET
+        description: Amazon Web Services Getsensitivedataoccurrences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findings-findingId-reveal-availability
+      path: /findings/{findingId}/reveal/availability
+      operations:
+      - name: amazonwebservicesgetsensitivedataoccurrencesavailability
+        method: GET
+        description: Amazon Web Services Getsensitivedataoccurrencesavailability
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-findings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Findings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/findings
+      name: findings
+      description: REST surface for findings.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfindings
+        description: Amazon Web Services Listfindings
+        call: macie2-findings.amazonwebserviceslistfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/describe
+      name: findings-describe
+      description: REST surface for findings-describe.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfindings
+        description: Amazon Web Services Getfindings
+        call: macie2-findings.amazonwebservicesgetfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/sample
+      name: findings-sample
+      description: REST surface for findings-sample.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesamplefindings
+        description: Amazon Web Services Createsamplefindings
+        call: macie2-findings.amazonwebservicescreatesamplefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/statistics
+      name: findings-statistics
+      description: REST surface for findings-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfindingstatistics
+        description: Amazon Web Services Getfindingstatistics
+        call: macie2-findings.amazonwebservicesgetfindingstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/{findingid}/reveal
+      name: findings-findingid-reveal
+      description: REST surface for findings-findingId-reveal.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsensitivedataoccurrences
+        description: Amazon Web Services Getsensitivedataoccurrences
+        call: macie2-findings.amazonwebservicesgetsensitivedataoccurrences
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findings/{findingid}/reveal/availability
+      name: findings-findingid-reveal-availability
+      description: REST surface for findings-findingId-reveal-availability.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsensitivedataoccurrencesavailability
+        description: Amazon Web Services Getsensitivedataoccurrencesavailability
+        call: macie2-findings.amazonwebservicesgetsensitivedataoccurrencesavailability
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-findings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Findings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listfindings
+      description: Amazon Web Services Listfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-findings.amazonwebserviceslistfindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfindings
+      description: Amazon Web Services Getfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-findings.amazonwebservicesgetfindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createsamplefindings
+      description: Amazon Web Services Createsamplefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-findings.amazonwebservicescreatesamplefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfindingstatistics
+      description: Amazon Web Services Getfindingstatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-findings.amazonwebservicesgetfindingstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsensitivedataoccurrences
+      description: Amazon Web Services Getsensitivedataoccurrences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-findings.amazonwebservicesgetsensitivedataoccurrences
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsensitivedataoccurrencesavailability
+      description: Amazon Web Services Getsensitivedataoccurrencesavailability
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-findings.amazonwebservicesgetsensitivedataoccurrencesavailability
+      outputParameters:
+      - type: object
+        mapping: $.

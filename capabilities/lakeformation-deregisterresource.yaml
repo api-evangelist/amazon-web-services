@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — DeregisterResource
+  description: 'Amazon Web Services lakeformation — DeregisterResource. 1 operations. Lead operation: Amazon Web Services
+    Deregisterresource. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeregisterResource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-deregisterresource
+    baseUri: ''
+    description: Amazon Web Services lakeformation — DeregisterResource business capability. Self-contained, no shared references.
+    resources:
+    - name: DeregisterResource
+      path: /DeregisterResource
+      operations:
+      - name: amazonwebservicesderegisterresource
+        method: POST
+        description: Amazon Web Services Deregisterresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-deregisterresource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — DeregisterResource. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deregisterresource
+      name: deregisterresource
+      description: REST surface for DeregisterResource.
+      operations:
+      - method: POST
+        name: amazonwebservicesderegisterresource
+        description: Amazon Web Services Deregisterresource
+        call: lakeformation-deregisterresource.amazonwebservicesderegisterresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-deregisterresource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — DeregisterResource. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deregisterresource
+      description: Amazon Web Services Deregisterresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-deregisterresource.amazonwebservicesderegisterresource
+      outputParameters:
+      - type: object
+        mapping: $.

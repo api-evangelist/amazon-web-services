@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services outposts — Catalog
+  description: 'Amazon Web Services outposts — Catalog. 2 operations. Lead operation: Amazon Web Services Getcatalogitem.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Catalog
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: outposts-catalog
+    baseUri: ''
+    description: Amazon Web Services outposts — Catalog business capability. Self-contained, no shared references.
+    resources:
+    - name: catalog-item-CatalogItemId
+      path: /catalog/item/{CatalogItemId}
+      operations:
+      - name: amazonwebservicesgetcatalogitem
+        method: GET
+        description: Amazon Web Services Getcatalogitem
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: catalog-items
+      path: /catalog/items
+      operations:
+      - name: amazonwebserviceslistcatalogitems
+        method: GET
+        description: Amazon Web Services Listcatalogitems
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: outposts-catalog-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services outposts — Catalog. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/catalog/item/{catalogitemid}
+      name: catalog-item-catalogitemid
+      description: REST surface for catalog-item-CatalogItemId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcatalogitem
+        description: Amazon Web Services Getcatalogitem
+        call: outposts-catalog.amazonwebservicesgetcatalogitem
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/catalog/items
+      name: catalog-items
+      description: REST surface for catalog-items.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcatalogitems
+        description: Amazon Web Services Listcatalogitems
+        call: outposts-catalog.amazonwebserviceslistcatalogitems
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: outposts-catalog-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services outposts — Catalog. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getcatalogitem
+      description: Amazon Web Services Getcatalogitem
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outposts-catalog.amazonwebservicesgetcatalogitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcatalogitems
+      description: Amazon Web Services Listcatalogitems
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outposts-catalog.amazonwebserviceslistcatalogitems
+      outputParameters:
+      - type: object
+        mapping: $.

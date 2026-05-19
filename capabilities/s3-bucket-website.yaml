@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Website
+  description: 'Amazon Web Services AWS S3 — Bucket Website. 1 operations. Lead operation: Amazon Web Services Put Bucket
+    Website. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Website
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-website
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Website business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?website
+      path: /{Bucket}?website
+      operations:
+      - name: putbucketwebsite
+        method: PUT
+        description: Amazon Web Services Put Bucket Website
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-website-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Website. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-website
+      name: bucket-website
+      description: REST surface for Bucket}?website.
+      operations:
+      - method: PUT
+        name: putbucketwebsite
+        description: Amazon Web Services Put Bucket Website
+        call: s3-bucket-website.putbucketwebsite
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-website-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Website. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Website
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-website.putbucketwebsite
+      outputParameters:
+      - type: object
+        mapping: $.

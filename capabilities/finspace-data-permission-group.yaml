@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services finspace-data — Permission Group
+  description: 'Amazon Web Services finspace-data — Permission Group. 4 operations. Lead operation: Amazon Web Services Listpermissiongroups.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Permission Group
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finspace-data-permission-group
+    baseUri: ''
+    description: Amazon Web Services finspace-data — Permission Group business capability. Self-contained, no shared references.
+    resources:
+    - name: permission-group
+      path: /permission-group
+      operations:
+      - name: amazonwebserviceslistpermissiongroups
+        method: GET
+        description: Amazon Web Services Listpermissiongroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: permission-group-permissionGroupId
+      path: /permission-group/{permissionGroupId}
+      operations:
+      - name: amazonwebservicesupdatepermissiongroup
+        method: PUT
+        description: Amazon Web Services Updatepermissiongroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: permission-group-permissionGroupId-users
+      path: /permission-group/{permissionGroupId}/users
+      operations:
+      - name: amazonwebserviceslistusersbypermissiongroup
+        method: GET
+        description: Amazon Web Services Listusersbypermissiongroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: permission-group-permissionGroupId-users-userId
+      path: /permission-group/{permissionGroupId}/users/{userId}
+      operations:
+      - name: amazonwebservicesdisassociateuserfrompermissiongroup
+        method: DELETE
+        description: Amazon Web Services Disassociateuserfrompermissiongroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: finspace-data-permission-group-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services finspace-data — Permission Group. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/permission-group
+      name: permission-group
+      description: REST surface for permission-group.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpermissiongroups
+        description: Amazon Web Services Listpermissiongroups
+        call: finspace-data-permission-group.amazonwebserviceslistpermissiongroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/permission-group/{permissiongroupid}
+      name: permission-group-permissiongroupid
+      description: REST surface for permission-group-permissionGroupId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatepermissiongroup
+        description: Amazon Web Services Updatepermissiongroup
+        call: finspace-data-permission-group.amazonwebservicesupdatepermissiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/permission-group/{permissiongroupid}/users
+      name: permission-group-permissiongroupid-users
+      description: REST surface for permission-group-permissionGroupId-users.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistusersbypermissiongroup
+        description: Amazon Web Services Listusersbypermissiongroup
+        call: finspace-data-permission-group.amazonwebserviceslistusersbypermissiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/permission-group/{permissiongroupid}/users/{userid}
+      name: permission-group-permissiongroupid-users-userid
+      description: REST surface for permission-group-permissionGroupId-users-userId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateuserfrompermissiongroup
+        description: Amazon Web Services Disassociateuserfrompermissiongroup
+        call: finspace-data-permission-group.amazonwebservicesdisassociateuserfrompermissiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finspace-data-permission-group-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services finspace-data — Permission Group. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpermissiongroups
+      description: Amazon Web Services Listpermissiongroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-data-permission-group.amazonwebserviceslistpermissiongroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepermissiongroup
+      description: Amazon Web Services Updatepermissiongroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finspace-data-permission-group.amazonwebservicesupdatepermissiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listusersbypermissiongroup
+      description: Amazon Web Services Listusersbypermissiongroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finspace-data-permission-group.amazonwebserviceslistusersbypermissiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateuserfrompermissiongroup
+      description: Amazon Web Services Disassociateuserfrompermissiongroup
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: finspace-data-permission-group.amazonwebservicesdisassociateuserfrompermissiongroup
+      outputParameters:
+      - type: object
+        mapping: $.

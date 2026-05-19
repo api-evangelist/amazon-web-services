@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — Create Pricing Plan
+  description: 'Amazon Web Services billingconductor — Create Pricing Plan. 1 operations. Lead operation: Amazon Web Services
+    Createpricingplan. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Create Pricing Plan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-create-pricing-plan
+    baseUri: ''
+    description: Amazon Web Services billingconductor — Create Pricing Plan business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: create-pricing-plan
+      path: /create-pricing-plan
+      operations:
+      - name: amazonwebservicescreatepricingplan
+        method: POST
+        description: Amazon Web Services Createpricingplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-create-pricing-plan-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — Create Pricing Plan. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/create-pricing-plan
+      name: create-pricing-plan
+      description: REST surface for create-pricing-plan.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatepricingplan
+        description: Amazon Web Services Createpricingplan
+        call: billingconductor-create-pricing-plan.amazonwebservicescreatepricingplan
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-create-pricing-plan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — Create Pricing Plan. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createpricingplan
+      description: Amazon Web Services Createpricingplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: billingconductor-create-pricing-plan.amazonwebservicescreatepricingplan
+      outputParameters:
+      - type: object
+        mapping: $.

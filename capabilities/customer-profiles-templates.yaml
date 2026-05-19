@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services customer-profiles — Templates
+  description: 'Amazon Web Services customer-profiles — Templates. 2 operations. Lead operation: Amazon Web Services Listprofileobjecttypetemplates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: customer-profiles-templates
+    baseUri: ''
+    description: Amazon Web Services customer-profiles — Templates business capability. Self-contained, no shared references.
+    resources:
+    - name: templates
+      path: /templates
+      operations:
+      - name: amazonwebserviceslistprofileobjecttypetemplates
+        method: GET
+        description: Amazon Web Services Listprofileobjecttypetemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: templates-TemplateId
+      path: /templates/{TemplateId}
+      operations:
+      - name: amazonwebservicesgetprofileobjecttypetemplate
+        method: GET
+        description: Amazon Web Services Getprofileobjecttypetemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: customer-profiles-templates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services customer-profiles — Templates. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/templates
+      name: templates
+      description: REST surface for templates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofileobjecttypetemplates
+        description: Amazon Web Services Listprofileobjecttypetemplates
+        call: customer-profiles-templates.amazonwebserviceslistprofileobjecttypetemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/templates/{templateid}
+      name: templates-templateid
+      description: REST surface for templates-TemplateId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetprofileobjecttypetemplate
+        description: Amazon Web Services Getprofileobjecttypetemplate
+        call: customer-profiles-templates.amazonwebservicesgetprofileobjecttypetemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: customer-profiles-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services customer-profiles — Templates. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprofileobjecttypetemplates
+      description: Amazon Web Services Listprofileobjecttypetemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-templates.amazonwebserviceslistprofileobjecttypetemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getprofileobjecttypetemplate
+      description: Amazon Web Services Getprofileobjecttypetemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-templates.amazonwebservicesgetprofileobjecttypetemplate
+      outputParameters:
+      - type: object
+        mapping: $.

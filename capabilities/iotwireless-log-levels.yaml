@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotwireless — Log Levels
+  description: 'Amazon Web Services iotwireless — Log Levels. 2 operations. Lead operation: Amazon Web Services Updateloglevelsbyresourcetypes.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Log Levels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotwireless-log-levels
+    baseUri: ''
+    description: Amazon Web Services iotwireless — Log Levels business capability. Self-contained, no shared references.
+    resources:
+    - name: log-levels
+      path: /log-levels
+      operations:
+      - name: amazonwebservicesupdateloglevelsbyresourcetypes
+        method: POST
+        description: Amazon Web Services Updateloglevelsbyresourcetypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: log-levels-ResourceIdentifier
+      path: /log-levels/{ResourceIdentifier}
+      operations:
+      - name: amazonwebservicesresetresourceloglevel
+        method: DELETE
+        description: Amazon Web Services Resetresourceloglevel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotwireless-log-levels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotwireless — Log Levels. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/log-levels
+      name: log-levels
+      description: REST surface for log-levels.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateloglevelsbyresourcetypes
+        description: Amazon Web Services Updateloglevelsbyresourcetypes
+        call: iotwireless-log-levels.amazonwebservicesupdateloglevelsbyresourcetypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/log-levels/{resourceidentifier}
+      name: log-levels-resourceidentifier
+      description: REST surface for log-levels-ResourceIdentifier.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesresetresourceloglevel
+        description: Amazon Web Services Resetresourceloglevel
+        call: iotwireless-log-levels.amazonwebservicesresetresourceloglevel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotwireless-log-levels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotwireless — Log Levels. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateloglevelsbyresourcetypes
+      description: Amazon Web Services Updateloglevelsbyresourcetypes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotwireless-log-levels.amazonwebservicesupdateloglevelsbyresourcetypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-resetresourceloglevel
+      description: Amazon Web Services Resetresourceloglevel
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: iotwireless-log-levels.amazonwebservicesresetresourceloglevel
+      outputParameters:
+      - type: object
+        mapping: $.

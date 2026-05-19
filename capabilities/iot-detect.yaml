@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Detect
+  description: 'Amazon Web Services iot — Detect. 4 operations. Lead operation: Amazon Web Services Listdetectmitigationactionsexecutions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Detect
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-detect
+    baseUri: ''
+    description: Amazon Web Services iot — Detect business capability. Self-contained, no shared references.
+    resources:
+    - name: detect-mitigationactions-executions
+      path: /detect/mitigationactions/executions
+      operations:
+      - name: amazonwebserviceslistdetectmitigationactionsexecutions
+        method: GET
+        description: Amazon Web Services Listdetectmitigationactionsexecutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detect-mitigationactions-tasks
+      path: /detect/mitigationactions/tasks
+      operations:
+      - name: amazonwebserviceslistdetectmitigationactionstasks
+        method: GET
+        description: Amazon Web Services Listdetectmitigationactionstasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detect-mitigationactions-tasks-taskId
+      path: /detect/mitigationactions/tasks/{taskId}
+      operations:
+      - name: amazonwebservicesstartdetectmitigationactionstask
+        method: PUT
+        description: Amazon Web Services Startdetectmitigationactionstask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detect-mitigationactions-tasks-taskId-cancel
+      path: /detect/mitigationactions/tasks/{taskId}/cancel
+      operations:
+      - name: amazonwebservicescanceldetectmitigationactionstask
+        method: PUT
+        description: Amazon Web Services Canceldetectmitigationactionstask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-detect-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Detect. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/detect/mitigationactions/executions
+      name: detect-mitigationactions-executions
+      description: REST surface for detect-mitigationactions-executions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdetectmitigationactionsexecutions
+        description: Amazon Web Services Listdetectmitigationactionsexecutions
+        call: iot-detect.amazonwebserviceslistdetectmitigationactionsexecutions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detect/mitigationactions/tasks
+      name: detect-mitigationactions-tasks
+      description: REST surface for detect-mitigationactions-tasks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdetectmitigationactionstasks
+        description: Amazon Web Services Listdetectmitigationactionstasks
+        call: iot-detect.amazonwebserviceslistdetectmitigationactionstasks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detect/mitigationactions/tasks/{taskid}
+      name: detect-mitigationactions-tasks-taskid
+      description: REST surface for detect-mitigationactions-tasks-taskId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartdetectmitigationactionstask
+        description: Amazon Web Services Startdetectmitigationactionstask
+        call: iot-detect.amazonwebservicesstartdetectmitigationactionstask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detect/mitigationactions/tasks/{taskid}/cancel
+      name: detect-mitigationactions-tasks-taskid-cancel
+      description: REST surface for detect-mitigationactions-tasks-taskId-cancel.
+      operations:
+      - method: PUT
+        name: amazonwebservicescanceldetectmitigationactionstask
+        description: Amazon Web Services Canceldetectmitigationactionstask
+        call: iot-detect.amazonwebservicescanceldetectmitigationactionstask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-detect-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Detect. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdetectmitigationactionsexecutions
+      description: Amazon Web Services Listdetectmitigationactionsexecutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-detect.amazonwebserviceslistdetectmitigationactionsexecutions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdetectmitigationactionstasks
+      description: Amazon Web Services Listdetectmitigationactionstasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-detect.amazonwebserviceslistdetectmitigationactionstasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startdetectmitigationactionstask
+      description: Amazon Web Services Startdetectmitigationactionstask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-detect.amazonwebservicesstartdetectmitigationactionstask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceldetectmitigationactionstask
+      description: Amazon Web Services Canceldetectmitigationactionstask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-detect.amazonwebservicescanceldetectmitigationactionstask
+      outputParameters:
+      - type: object
+        mapping: $.

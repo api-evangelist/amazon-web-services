@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services payment-cryptography-data — Keys
+  description: 'Amazon Web Services payment-cryptography-data — Keys. 3 operations. Lead operation: Amazon Web Services Reencryptdata.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Keys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: payment-cryptography-data-keys
+    baseUri: ''
+    description: Amazon Web Services payment-cryptography-data — Keys business capability. Self-contained, no shared references.
+    resources:
+    - name: keys-IncomingKeyIdentifier-reencrypt
+      path: /keys/{IncomingKeyIdentifier}/reencrypt
+      operations:
+      - name: amazonwebservicesreencryptdata
+        method: POST
+        description: Amazon Web Services Reencryptdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: keys-KeyIdentifier-decrypt
+      path: /keys/{KeyIdentifier}/decrypt
+      operations:
+      - name: amazonwebservicesdecryptdata
+        method: POST
+        description: Amazon Web Services Decryptdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: keys-KeyIdentifier-encrypt
+      path: /keys/{KeyIdentifier}/encrypt
+      operations:
+      - name: amazonwebservicesencryptdata
+        method: POST
+        description: Amazon Web Services Encryptdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: payment-cryptography-data-keys-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services payment-cryptography-data — Keys. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/keys/{incomingkeyidentifier}/reencrypt
+      name: keys-incomingkeyidentifier-reencrypt
+      description: REST surface for keys-IncomingKeyIdentifier-reencrypt.
+      operations:
+      - method: POST
+        name: amazonwebservicesreencryptdata
+        description: Amazon Web Services Reencryptdata
+        call: payment-cryptography-data-keys.amazonwebservicesreencryptdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyidentifier}/decrypt
+      name: keys-keyidentifier-decrypt
+      description: REST surface for keys-KeyIdentifier-decrypt.
+      operations:
+      - method: POST
+        name: amazonwebservicesdecryptdata
+        description: Amazon Web Services Decryptdata
+        call: payment-cryptography-data-keys.amazonwebservicesdecryptdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyidentifier}/encrypt
+      name: keys-keyidentifier-encrypt
+      description: REST surface for keys-KeyIdentifier-encrypt.
+      operations:
+      - method: POST
+        name: amazonwebservicesencryptdata
+        description: Amazon Web Services Encryptdata
+        call: payment-cryptography-data-keys.amazonwebservicesencryptdata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: payment-cryptography-data-keys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services payment-cryptography-data — Keys. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-reencryptdata
+      description: Amazon Web Services Reencryptdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-keys.amazonwebservicesreencryptdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-decryptdata
+      description: Amazon Web Services Decryptdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-keys.amazonwebservicesdecryptdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-encryptdata
+      description: Amazon Web Services Encryptdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-keys.amazonwebservicesencryptdata
+      outputParameters:
+      - type: object
+        mapping: $.

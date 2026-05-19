@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — ArchiveWave
+  description: 'Amazon Web Services mgn — ArchiveWave. 1 operations. Lead operation: Amazon Web Services Archivewave. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ArchiveWave
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-archivewave
+    baseUri: ''
+    description: Amazon Web Services mgn — ArchiveWave business capability. Self-contained, no shared references.
+    resources:
+    - name: ArchiveWave
+      path: /ArchiveWave
+      operations:
+      - name: amazonwebservicesarchivewave
+        method: POST
+        description: Amazon Web Services Archivewave
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-archivewave-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — ArchiveWave. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/archivewave
+      name: archivewave
+      description: REST surface for ArchiveWave.
+      operations:
+      - method: POST
+        name: amazonwebservicesarchivewave
+        description: Amazon Web Services Archivewave
+        call: mgn-archivewave.amazonwebservicesarchivewave
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-archivewave-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — ArchiveWave. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-archivewave
+      description: Amazon Web Services Archivewave
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-archivewave.amazonwebservicesarchivewave
+      outputParameters:
+      - type: object
+        mapping: $.

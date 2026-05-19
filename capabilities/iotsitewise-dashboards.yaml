@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Dashboards
+  description: 'Amazon Web Services iotsitewise — Dashboards. 2 operations. Lead operation: Amazon Web Services Listdashboards.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Dashboards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-dashboards
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Dashboards business capability. Self-contained, no shared references.
+    resources:
+    - name: dashboards
+      path: /dashboards
+      operations:
+      - name: amazonwebserviceslistdashboards
+        method: GET
+        description: Amazon Web Services Listdashboards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dashboards-dashboardId
+      path: /dashboards/{dashboardId}
+      operations:
+      - name: amazonwebservicesupdatedashboard
+        method: PUT
+        description: Amazon Web Services Updatedashboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-dashboards-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Dashboards. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/dashboards
+      name: dashboards
+      description: REST surface for dashboards.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdashboards
+        description: Amazon Web Services Listdashboards
+        call: iotsitewise-dashboards.amazonwebserviceslistdashboards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dashboards/{dashboardid}
+      name: dashboards-dashboardid
+      description: REST surface for dashboards-dashboardId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatedashboard
+        description: Amazon Web Services Updatedashboard
+        call: iotsitewise-dashboards.amazonwebservicesupdatedashboard
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-dashboards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Dashboards. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdashboards
+      description: Amazon Web Services Listdashboards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-dashboards.amazonwebserviceslistdashboards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedashboard
+      description: Amazon Web Services Updatedashboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-dashboards.amazonwebservicesupdatedashboard
+      outputParameters:
+      - type: object
+        mapping: $.

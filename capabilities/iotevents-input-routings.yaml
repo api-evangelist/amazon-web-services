@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotevents — Input Routings
+  description: 'Amazon Web Services iotevents — Input Routings. 1 operations. Lead operation: Amazon Web Services Listinputroutings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Input Routings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotevents-input-routings
+    baseUri: ''
+    description: Amazon Web Services iotevents — Input Routings business capability. Self-contained, no shared references.
+    resources:
+    - name: input-routings
+      path: /input-routings
+      operations:
+      - name: amazonwebserviceslistinputroutings
+        method: POST
+        description: Amazon Web Services Listinputroutings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotevents-input-routings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotevents — Input Routings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/input-routings
+      name: input-routings
+      description: REST surface for input-routings.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistinputroutings
+        description: Amazon Web Services Listinputroutings
+        call: iotevents-input-routings.amazonwebserviceslistinputroutings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotevents-input-routings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotevents — Input Routings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listinputroutings
+      description: Amazon Web Services Listinputroutings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-input-routings.amazonwebserviceslistinputroutings
+      outputParameters:
+      - type: object
+        mapping: $.

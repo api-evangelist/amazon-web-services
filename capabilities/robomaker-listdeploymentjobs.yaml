@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — listDeploymentJobs
+  description: 'Amazon Web Services robomaker — listDeploymentJobs. 1 operations. Lead operation: Amazon Web Services Listdeploymentjobs.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listDeploymentJobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-listdeploymentjobs
+    baseUri: ''
+    description: Amazon Web Services robomaker — listDeploymentJobs business capability. Self-contained, no shared references.
+    resources:
+    - name: listDeploymentJobs
+      path: /listDeploymentJobs
+      operations:
+      - name: amazonwebserviceslistdeploymentjobs
+        method: POST
+        description: Amazon Web Services Listdeploymentjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-listdeploymentjobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — listDeploymentJobs. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listdeploymentjobs
+      name: listdeploymentjobs
+      description: REST surface for listDeploymentJobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdeploymentjobs
+        description: Amazon Web Services Listdeploymentjobs
+        call: robomaker-listdeploymentjobs.amazonwebserviceslistdeploymentjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-listdeploymentjobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — listDeploymentJobs. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdeploymentjobs
+      description: Amazon Web Services Listdeploymentjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-listdeploymentjobs.amazonwebserviceslistdeploymentjobs
+      outputParameters:
+      - type: object
+        mapping: $.

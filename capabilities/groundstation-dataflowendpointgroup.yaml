@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services groundstation — dataflowEndpointGroup
+  description: 'Amazon Web Services groundstation — dataflowEndpointGroup. 2 operations. Lead operation: Amazon Web Services
+    Listdataflowendpointgroups. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - dataflowEndpointGroup
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: groundstation-dataflowendpointgroup
+    baseUri: ''
+    description: Amazon Web Services groundstation — dataflowEndpointGroup business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: dataflowEndpointGroup
+      path: /dataflowEndpointGroup
+      operations:
+      - name: amazonwebserviceslistdataflowendpointgroups
+        method: GET
+        description: Amazon Web Services Listdataflowendpointgroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dataflowEndpointGroup-dataflowEndpointGroupId
+      path: /dataflowEndpointGroup/{dataflowEndpointGroupId}
+      operations:
+      - name: amazonwebservicesgetdataflowendpointgroup
+        method: GET
+        description: Amazon Web Services Getdataflowendpointgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: groundstation-dataflowendpointgroup-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services groundstation — dataflowEndpointGroup. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/dataflowendpointgroup
+      name: dataflowendpointgroup
+      description: REST surface for dataflowEndpointGroup.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdataflowendpointgroups
+        description: Amazon Web Services Listdataflowendpointgroups
+        call: groundstation-dataflowendpointgroup.amazonwebserviceslistdataflowendpointgroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dataflowendpointgroup/{dataflowendpointgroupid}
+      name: dataflowendpointgroup-dataflowendpointgroupid
+      description: REST surface for dataflowEndpointGroup-dataflowEndpointGroupId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdataflowendpointgroup
+        description: Amazon Web Services Getdataflowendpointgroup
+        call: groundstation-dataflowendpointgroup.amazonwebservicesgetdataflowendpointgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: groundstation-dataflowendpointgroup-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services groundstation — dataflowEndpointGroup. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdataflowendpointgroups
+      description: Amazon Web Services Listdataflowendpointgroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: groundstation-dataflowendpointgroup.amazonwebserviceslistdataflowendpointgroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdataflowendpointgroup
+      description: Amazon Web Services Getdataflowendpointgroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: groundstation-dataflowendpointgroup.amazonwebservicesgetdataflowendpointgroup
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigatewayv2 — Domainnames
+  description: 'Amazon Web Services apigatewayv2 — Domainnames. 4 operations. Lead operation: Amazon Web Services Getdomainnames.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domainnames
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigatewayv2-domainnames
+    baseUri: ''
+    description: Amazon Web Services apigatewayv2 — Domainnames business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-domainnames
+      path: /v2/domainnames
+      operations:
+      - name: amazonwebservicesgetdomainnames
+        method: GET
+        description: Amazon Web Services Getdomainnames
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-domainnames-domainName
+      path: /v2/domainnames/{domainName}
+      operations:
+      - name: amazonwebservicesupdatedomainname
+        method: PATCH
+        description: Amazon Web Services Updatedomainname
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-domainnames-domainName-apimappings
+      path: /v2/domainnames/{domainName}/apimappings
+      operations:
+      - name: amazonwebservicesgetapimappings
+        method: GET
+        description: Amazon Web Services Getapimappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-domainnames-domainName-apimappings-apiMappingId
+      path: /v2/domainnames/{domainName}/apimappings/{apiMappingId}
+      operations:
+      - name: amazonwebservicesupdateapimapping
+        method: PATCH
+        description: Amazon Web Services Updateapimapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigatewayv2-domainnames-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigatewayv2 — Domainnames. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/domainnames
+      name: v2-domainnames
+      description: REST surface for v2-domainnames.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdomainnames
+        description: Amazon Web Services Getdomainnames
+        call: apigatewayv2-domainnames.amazonwebservicesgetdomainnames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/domainnames/{domainname}
+      name: v2-domainnames-domainname
+      description: REST surface for v2-domainnames-domainName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedomainname
+        description: Amazon Web Services Updatedomainname
+        call: apigatewayv2-domainnames.amazonwebservicesupdatedomainname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/domainnames/{domainname}/apimappings
+      name: v2-domainnames-domainname-apimappings
+      description: REST surface for v2-domainnames-domainName-apimappings.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetapimappings
+        description: Amazon Web Services Getapimappings
+        call: apigatewayv2-domainnames.amazonwebservicesgetapimappings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/domainnames/{domainname}/apimappings/{apimappingid}
+      name: v2-domainnames-domainname-apimappings-apimappingid
+      description: REST surface for v2-domainnames-domainName-apimappings-apiMappingId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateapimapping
+        description: Amazon Web Services Updateapimapping
+        call: apigatewayv2-domainnames.amazonwebservicesupdateapimapping
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigatewayv2-domainnames-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigatewayv2 — Domainnames. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getdomainnames
+      description: Amazon Web Services Getdomainnames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-domainnames.amazonwebservicesgetdomainnames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedomainname
+      description: Amazon Web Services Updatedomainname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-domainnames.amazonwebservicesupdatedomainname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getapimappings
+      description: Amazon Web Services Getapimappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-domainnames.amazonwebservicesgetapimappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateapimapping
+      description: Amazon Web Services Updateapimapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-domainnames.amazonwebservicesupdateapimapping
+      outputParameters:
+      - type: object
+        mapping: $.

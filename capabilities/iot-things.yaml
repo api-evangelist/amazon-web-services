@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Things
+  description: 'Amazon Web Services iot — Things. 8 operations. Lead operation: Amazon Web Services Registerthing. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Things
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-things
+    baseUri: ''
+    description: Amazon Web Services iot — Things business capability. Self-contained, no shared references.
+    resources:
+    - name: things
+      path: /things
+      operations:
+      - name: amazonwebservicesregisterthing
+        method: POST
+        description: Amazon Web Services Registerthing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName
+      path: /things/{thingName}
+      operations:
+      - name: amazonwebservicesupdatething
+        method: PATCH
+        description: Amazon Web Services Updatething
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs
+      path: /things/{thingName}/jobs
+      operations:
+      - name: amazonwebserviceslistjobexecutionsforthing
+        method: GET
+        description: Amazon Web Services Listjobexecutionsforthing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs-jobId
+      path: /things/{thingName}/jobs/{jobId}
+      operations:
+      - name: amazonwebservicesdescribejobexecution
+        method: GET
+        description: Amazon Web Services Describejobexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs-jobId-cancel
+      path: /things/{thingName}/jobs/{jobId}/cancel
+      operations:
+      - name: amazonwebservicescanceljobexecution
+        method: PUT
+        description: Amazon Web Services Canceljobexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-jobs-jobId-executionNumber-executionNumber
+      path: /things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}
+      operations:
+      - name: amazonwebservicesdeletejobexecution
+        method: DELETE
+        description: Amazon Web Services Deletejobexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-principals
+      path: /things/{thingName}/principals
+      operations:
+      - name: amazonwebserviceslistthingprincipals
+        method: GET
+        description: Amazon Web Services Listthingprincipals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: things-thingName-thing-groups
+      path: /things/{thingName}/thing-groups
+      operations:
+      - name: amazonwebserviceslistthinggroupsforthing
+        method: GET
+        description: Amazon Web Services Listthinggroupsforthing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-things-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Things. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/things
+      name: things
+      description: REST surface for things.
+      operations:
+      - method: POST
+        name: amazonwebservicesregisterthing
+        description: Amazon Web Services Registerthing
+        call: iot-things.amazonwebservicesregisterthing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}
+      name: things-thingname
+      description: REST surface for things-thingName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatething
+        description: Amazon Web Services Updatething
+        call: iot-things.amazonwebservicesupdatething
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs
+      name: things-thingname-jobs
+      description: REST surface for things-thingName-jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistjobexecutionsforthing
+        description: Amazon Web Services Listjobexecutionsforthing
+        call: iot-things.amazonwebserviceslistjobexecutionsforthing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs/{jobid}
+      name: things-thingname-jobs-jobid
+      description: REST surface for things-thingName-jobs-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribejobexecution
+        description: Amazon Web Services Describejobexecution
+        call: iot-things.amazonwebservicesdescribejobexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs/{jobid}/cancel
+      name: things-thingname-jobs-jobid-cancel
+      description: REST surface for things-thingName-jobs-jobId-cancel.
+      operations:
+      - method: PUT
+        name: amazonwebservicescanceljobexecution
+        description: Amazon Web Services Canceljobexecution
+        call: iot-things.amazonwebservicescanceljobexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/jobs/{jobid}/executionnumber/{executionnumber}
+      name: things-thingname-jobs-jobid-executionnumber-executionnumber
+      description: REST surface for things-thingName-jobs-jobId-executionNumber-executionNumber.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletejobexecution
+        description: Amazon Web Services Deletejobexecution
+        call: iot-things.amazonwebservicesdeletejobexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/principals
+      name: things-thingname-principals
+      description: REST surface for things-thingName-principals.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthingprincipals
+        description: Amazon Web Services Listthingprincipals
+        call: iot-things.amazonwebserviceslistthingprincipals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/things/{thingname}/thing-groups
+      name: things-thingname-thing-groups
+      description: REST surface for things-thingName-thing-groups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthinggroupsforthing
+        description: Amazon Web Services Listthinggroupsforthing
+        call: iot-things.amazonwebserviceslistthinggroupsforthing
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-things-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Things. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-registerthing
+      description: Amazon Web Services Registerthing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-things.amazonwebservicesregisterthing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatething
+      description: Amazon Web Services Updatething
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebservicesupdatething
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listjobexecutionsforthing
+      description: Amazon Web Services Listjobexecutionsforthing
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebserviceslistjobexecutionsforthing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describejobexecution
+      description: Amazon Web Services Describejobexecution
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebservicesdescribejobexecution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceljobexecution
+      description: Amazon Web Services Canceljobexecution
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebservicescanceljobexecution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletejobexecution
+      description: Amazon Web Services Deletejobexecution
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: iot-things.amazonwebservicesdeletejobexecution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listthingprincipals
+      description: Amazon Web Services Listthingprincipals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebserviceslistthingprincipals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listthinggroupsforthing
+      description: Amazon Web Services Listthinggroupsforthing
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-things.amazonwebserviceslistthinggroupsforthing
+      outputParameters:
+      - type: object
+        mapping: $.

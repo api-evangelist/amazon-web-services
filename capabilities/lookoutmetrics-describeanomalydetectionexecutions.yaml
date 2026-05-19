@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — DescribeAnomalyDetectionExecutions
+  description: 'Amazon Web Services lookoutmetrics — DescribeAnomalyDetectionExecutions. 1 operations. Lead operation: Amazon
+    Web Services Describeanomalydetectionexecutions. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - DescribeAnomalyDetectionExecutions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-describeanomalydetectionexecutions
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — DescribeAnomalyDetectionExecutions business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: DescribeAnomalyDetectionExecutions
+      path: /DescribeAnomalyDetectionExecutions
+      operations:
+      - name: amazonwebservicesdescribeanomalydetectionexecutions
+        method: POST
+        description: Amazon Web Services Describeanomalydetectionexecutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-describeanomalydetectionexecutions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — DescribeAnomalyDetectionExecutions. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describeanomalydetectionexecutions
+      name: describeanomalydetectionexecutions
+      description: REST surface for DescribeAnomalyDetectionExecutions.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeanomalydetectionexecutions
+        description: Amazon Web Services Describeanomalydetectionexecutions
+        call: lookoutmetrics-describeanomalydetectionexecutions.amazonwebservicesdescribeanomalydetectionexecutions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-describeanomalydetectionexecutions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — DescribeAnomalyDetectionExecutions. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeanomalydetectionexecutions
+      description: Amazon Web Services Describeanomalydetectionexecutions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-describeanomalydetectionexecutions.amazonwebservicesdescribeanomalydetectionexecutions
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — GetResourceLFTags
+  description: 'Amazon Web Services lakeformation — GetResourceLFTags. 1 operations. Lead operation: Amazon Web Services Getresourcelftags.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetResourceLFTags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-getresourcelftags
+    baseUri: ''
+    description: Amazon Web Services lakeformation — GetResourceLFTags business capability. Self-contained, no shared references.
+    resources:
+    - name: GetResourceLFTags
+      path: /GetResourceLFTags
+      operations:
+      - name: amazonwebservicesgetresourcelftags
+        method: POST
+        description: Amazon Web Services Getresourcelftags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-getresourcelftags-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — GetResourceLFTags. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getresourcelftags
+      name: getresourcelftags
+      description: REST surface for GetResourceLFTags.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetresourcelftags
+        description: Amazon Web Services Getresourcelftags
+        call: lakeformation-getresourcelftags.amazonwebservicesgetresourcelftags
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-getresourcelftags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — GetResourceLFTags. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getresourcelftags
+      description: Amazon Web Services Getresourcelftags
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-getresourcelftags.amazonwebservicesgetresourcelftags
+      outputParameters:
+      - type: object
+        mapping: $.

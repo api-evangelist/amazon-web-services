@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesis-video-archived-media — listFragments
+  description: 'Amazon Web Services kinesis-video-archived-media — listFragments. 1 operations. Lead operation: Amazon Web
+    Services Listfragments. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listFragments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesis-video-archived-media-listfragments
+    baseUri: ''
+    description: Amazon Web Services kinesis-video-archived-media — listFragments business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: listFragments
+      path: /listFragments
+      operations:
+      - name: amazonwebserviceslistfragments
+        method: POST
+        description: Amazon Web Services Listfragments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesis-video-archived-media-listfragments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesis-video-archived-media — listFragments. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listfragments
+      name: listfragments
+      description: REST surface for listFragments.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfragments
+        description: Amazon Web Services Listfragments
+        call: kinesis-video-archived-media-listfragments.amazonwebserviceslistfragments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesis-video-archived-media-listfragments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesis-video-archived-media — listFragments. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listfragments
+      description: Amazon Web Services Listfragments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis-video-archived-media-listfragments.amazonwebserviceslistfragments
+      outputParameters:
+      - type: object
+        mapping: $.

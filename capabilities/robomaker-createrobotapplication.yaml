@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — createRobotApplication
+  description: 'Amazon Web Services robomaker — createRobotApplication. 1 operations. Lead operation: Amazon Web Services
+    Createrobotapplication. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - createRobotApplication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-createrobotapplication
+    baseUri: ''
+    description: Amazon Web Services robomaker — createRobotApplication business capability. Self-contained, no shared references.
+    resources:
+    - name: createRobotApplication
+      path: /createRobotApplication
+      operations:
+      - name: amazonwebservicescreaterobotapplication
+        method: POST
+        description: Amazon Web Services Createrobotapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-createrobotapplication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — createRobotApplication. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createrobotapplication
+      name: createrobotapplication
+      description: REST surface for createRobotApplication.
+      operations:
+      - method: POST
+        name: amazonwebservicescreaterobotapplication
+        description: Amazon Web Services Createrobotapplication
+        call: robomaker-createrobotapplication.amazonwebservicescreaterobotapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-createrobotapplication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — createRobotApplication. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createrobotapplication
+      description: Amazon Web Services Createrobotapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-createrobotapplication.amazonwebservicescreaterobotapplication
+      outputParameters:
+      - type: object
+        mapping: $.

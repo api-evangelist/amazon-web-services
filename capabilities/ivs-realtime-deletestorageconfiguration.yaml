@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs-realtime — DeleteStorageConfiguration
+  description: 'Amazon Web Services ivs-realtime — DeleteStorageConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Deletestorageconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteStorageConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-realtime-deletestorageconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivs-realtime — DeleteStorageConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: DeleteStorageConfiguration
+      path: /DeleteStorageConfiguration
+      operations:
+      - name: amazonwebservicesdeletestorageconfiguration
+        method: POST
+        description: Amazon Web Services Deletestorageconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-realtime-deletestorageconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs-realtime — DeleteStorageConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletestorageconfiguration
+      name: deletestorageconfiguration
+      description: REST surface for DeleteStorageConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletestorageconfiguration
+        description: Amazon Web Services Deletestorageconfiguration
+        call: ivs-realtime-deletestorageconfiguration.amazonwebservicesdeletestorageconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-realtime-deletestorageconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs-realtime — DeleteStorageConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletestorageconfiguration
+      description: Amazon Web Services Deletestorageconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-realtime-deletestorageconfiguration.amazonwebservicesdeletestorageconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

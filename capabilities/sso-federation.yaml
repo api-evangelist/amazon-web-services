@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sso — Federation
+  description: 'Amazon Web Services sso — Federation. 1 operations. Lead operation: Amazon Web Services Getrolecredentials.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Federation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sso-federation
+    baseUri: ''
+    description: Amazon Web Services sso — Federation business capability. Self-contained, no shared references.
+    resources:
+    - name: federation-credentials
+      path: /federation/credentials
+      operations:
+      - name: amazonwebservicesgetrolecredentials
+        method: GET
+        description: Amazon Web Services Getrolecredentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sso-federation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sso — Federation. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/federation/credentials
+      name: federation-credentials
+      description: REST surface for federation-credentials.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrolecredentials
+        description: Amazon Web Services Getrolecredentials
+        call: sso-federation.amazonwebservicesgetrolecredentials
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sso-federation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sso — Federation. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getrolecredentials
+      description: Amazon Web Services Getrolecredentials
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sso-federation.amazonwebservicesgetrolecredentials
+      outputParameters:
+      - type: object
+        mapping: $.

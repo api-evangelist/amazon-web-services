@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — environmentVariables
+  description: 'Amazon Web Services appsync — environmentVariables. 1 operations. Lead operation: Amazon Web Services Putgraphqlapienvironmentvariables.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - environmentVariables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-environmentvariables
+    baseUri: ''
+    description: Amazon Web Services appsync — environmentVariables business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-environmentVariables
+      path: /v1/apis/{apiId}/environmentVariables
+      operations:
+      - name: amazonwebservicesputgraphqlapienvironmentvariables
+        method: PUT
+        description: Amazon Web Services Putgraphqlapienvironmentvariables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-environmentvariables-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — environmentVariables. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/environmentvariables
+      name: v1-apis-apiid-environmentvariables
+      description: REST surface for v1-apis-apiId-environmentVariables.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputgraphqlapienvironmentvariables
+        description: Amazon Web Services Putgraphqlapienvironmentvariables
+        call: appsync-environmentvariables.amazonwebservicesputgraphqlapienvironmentvariables
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-environmentvariables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — environmentVariables. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putgraphqlapienvironmentvariables
+      description: Amazon Web Services Putgraphqlapienvironmentvariables
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appsync-environmentvariables.amazonwebservicesputgraphqlapienvironmentvariables
+      outputParameters:
+      - type: object
+        mapping: $.

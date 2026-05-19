@@ -1,0 +1,1219 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services guardduty — Detector
+  description: 'Amazon Web Services guardduty — Detector. 37 operations. Lead operation: Amazon Web Services Listdetectors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Detector
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: guardduty-detector
+    baseUri: ''
+    description: Amazon Web Services guardduty — Detector business capability. Self-contained, no shared references.
+    resources:
+    - name: detector
+      path: /detector
+      operations:
+      - name: amazonwebserviceslistdetectors
+        method: GET
+        description: Amazon Web Services Listdetectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId
+      path: /detector/{detectorId}
+      operations:
+      - name: amazonwebservicesupdatedetector
+        method: POST
+        description: Amazon Web Services Updatedetector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-admin
+      path: /detector/{detectorId}/admin
+      operations:
+      - name: amazonwebservicesupdateorganizationconfiguration
+        method: POST
+        description: Amazon Web Services Updateorganizationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-administrator
+      path: /detector/{detectorId}/administrator
+      operations:
+      - name: amazonwebservicesgetadministratoraccount
+        method: GET
+        description: Amazon Web Services Getadministratoraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-administrator-disassociate
+      path: /detector/{detectorId}/administrator/disassociate
+      operations:
+      - name: amazonwebservicesdisassociatefromadministratoraccount
+        method: POST
+        description: Amazon Web Services Disassociatefromadministratoraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-coverage
+      path: /detector/{detectorId}/coverage
+      operations:
+      - name: amazonwebserviceslistcoverage
+        method: POST
+        description: Amazon Web Services Listcoverage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-coverage-statistics
+      path: /detector/{detectorId}/coverage/statistics
+      operations:
+      - name: amazonwebservicesgetcoveragestatistics
+        method: POST
+        description: Amazon Web Services Getcoveragestatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-filter
+      path: /detector/{detectorId}/filter
+      operations:
+      - name: amazonwebserviceslistfilters
+        method: GET
+        description: Amazon Web Services Listfilters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-filter-filterName
+      path: /detector/{detectorId}/filter/{filterName}
+      operations:
+      - name: amazonwebservicesupdatefilter
+        method: POST
+        description: Amazon Web Services Updatefilter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings
+      path: /detector/{detectorId}/findings
+      operations:
+      - name: amazonwebserviceslistfindings
+        method: POST
+        description: Amazon Web Services Listfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-archive
+      path: /detector/{detectorId}/findings/archive
+      operations:
+      - name: amazonwebservicesarchivefindings
+        method: POST
+        description: Amazon Web Services Archivefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-create
+      path: /detector/{detectorId}/findings/create
+      operations:
+      - name: amazonwebservicescreatesamplefindings
+        method: POST
+        description: Amazon Web Services Createsamplefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-feedback
+      path: /detector/{detectorId}/findings/feedback
+      operations:
+      - name: amazonwebservicesupdatefindingsfeedback
+        method: POST
+        description: Amazon Web Services Updatefindingsfeedback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-get
+      path: /detector/{detectorId}/findings/get
+      operations:
+      - name: amazonwebservicesgetfindings
+        method: POST
+        description: Amazon Web Services Getfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-statistics
+      path: /detector/{detectorId}/findings/statistics
+      operations:
+      - name: amazonwebservicesgetfindingsstatistics
+        method: POST
+        description: Amazon Web Services Getfindingsstatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-findings-unarchive
+      path: /detector/{detectorId}/findings/unarchive
+      operations:
+      - name: amazonwebservicesunarchivefindings
+        method: POST
+        description: Amazon Web Services Unarchivefindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-freeTrial-daysRemaining
+      path: /detector/{detectorId}/freeTrial/daysRemaining
+      operations:
+      - name: amazonwebservicesgetremainingfreetrialdays
+        method: POST
+        description: Amazon Web Services Getremainingfreetrialdays
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-ipset
+      path: /detector/{detectorId}/ipset
+      operations:
+      - name: amazonwebserviceslistipsets
+        method: GET
+        description: Amazon Web Services Listipsets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-ipset-ipSetId
+      path: /detector/{detectorId}/ipset/{ipSetId}
+      operations:
+      - name: amazonwebservicesupdateipset
+        method: POST
+        description: Amazon Web Services Updateipset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-malware-scan-settings
+      path: /detector/{detectorId}/malware-scan-settings
+      operations:
+      - name: amazonwebservicesupdatemalwarescansettings
+        method: POST
+        description: Amazon Web Services Updatemalwarescansettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-malware-scans
+      path: /detector/{detectorId}/malware-scans
+      operations:
+      - name: amazonwebservicesdescribemalwarescans
+        method: POST
+        description: Amazon Web Services Describemalwarescans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-master
+      path: /detector/{detectorId}/master
+      operations:
+      - name: amazonwebservicesgetmasteraccount
+        method: GET
+        description: Amazon Web Services Getmasteraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-master-disassociate
+      path: /detector/{detectorId}/master/disassociate
+      operations:
+      - name: amazonwebservicesdisassociatefrommasteraccount
+        method: POST
+        description: Amazon Web Services Disassociatefrommasteraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member
+      path: /detector/{detectorId}/member
+      operations:
+      - name: amazonwebserviceslistmembers
+        method: GET
+        description: Amazon Web Services Listmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-delete
+      path: /detector/{detectorId}/member/delete
+      operations:
+      - name: amazonwebservicesdeletemembers
+        method: POST
+        description: Amazon Web Services Deletemembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-detector-get
+      path: /detector/{detectorId}/member/detector/get
+      operations:
+      - name: amazonwebservicesgetmemberdetectors
+        method: POST
+        description: Amazon Web Services Getmemberdetectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-detector-update
+      path: /detector/{detectorId}/member/detector/update
+      operations:
+      - name: amazonwebservicesupdatememberdetectors
+        method: POST
+        description: Amazon Web Services Updatememberdetectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-disassociate
+      path: /detector/{detectorId}/member/disassociate
+      operations:
+      - name: amazonwebservicesdisassociatemembers
+        method: POST
+        description: Amazon Web Services Disassociatemembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-get
+      path: /detector/{detectorId}/member/get
+      operations:
+      - name: amazonwebservicesgetmembers
+        method: POST
+        description: Amazon Web Services Getmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-invite
+      path: /detector/{detectorId}/member/invite
+      operations:
+      - name: amazonwebservicesinvitemembers
+        method: POST
+        description: Amazon Web Services Invitemembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-start
+      path: /detector/{detectorId}/member/start
+      operations:
+      - name: amazonwebservicesstartmonitoringmembers
+        method: POST
+        description: Amazon Web Services Startmonitoringmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-member-stop
+      path: /detector/{detectorId}/member/stop
+      operations:
+      - name: amazonwebservicesstopmonitoringmembers
+        method: POST
+        description: Amazon Web Services Stopmonitoringmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-publishingDestination
+      path: /detector/{detectorId}/publishingDestination
+      operations:
+      - name: amazonwebserviceslistpublishingdestinations
+        method: GET
+        description: Amazon Web Services Listpublishingdestinations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-publishingDestination-destinationId
+      path: /detector/{detectorId}/publishingDestination/{destinationId}
+      operations:
+      - name: amazonwebservicesupdatepublishingdestination
+        method: POST
+        description: Amazon Web Services Updatepublishingdestination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-threatintelset
+      path: /detector/{detectorId}/threatintelset
+      operations:
+      - name: amazonwebserviceslistthreatintelsets
+        method: GET
+        description: Amazon Web Services Listthreatintelsets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-threatintelset-threatIntelSetId
+      path: /detector/{detectorId}/threatintelset/{threatIntelSetId}
+      operations:
+      - name: amazonwebservicesupdatethreatintelset
+        method: POST
+        description: Amazon Web Services Updatethreatintelset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: detector-detectorId-usage-statistics
+      path: /detector/{detectorId}/usage/statistics
+      operations:
+      - name: amazonwebservicesgetusagestatistics
+        method: POST
+        description: Amazon Web Services Getusagestatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: guardduty-detector-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services guardduty — Detector. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/detector
+      name: detector
+      description: REST surface for detector.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdetectors
+        description: Amazon Web Services Listdetectors
+        call: guardduty-detector.amazonwebserviceslistdetectors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}
+      name: detector-detectorid
+      description: REST surface for detector-detectorId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatedetector
+        description: Amazon Web Services Updatedetector
+        call: guardduty-detector.amazonwebservicesupdatedetector
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/admin
+      name: detector-detectorid-admin
+      description: REST surface for detector-detectorId-admin.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateorganizationconfiguration
+        description: Amazon Web Services Updateorganizationconfiguration
+        call: guardduty-detector.amazonwebservicesupdateorganizationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/administrator
+      name: detector-detectorid-administrator
+      description: REST surface for detector-detectorId-administrator.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetadministratoraccount
+        description: Amazon Web Services Getadministratoraccount
+        call: guardduty-detector.amazonwebservicesgetadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/administrator/disassociate
+      name: detector-detectorid-administrator-disassociate
+      description: REST surface for detector-detectorId-administrator-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatefromadministratoraccount
+        description: Amazon Web Services Disassociatefromadministratoraccount
+        call: guardduty-detector.amazonwebservicesdisassociatefromadministratoraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/coverage
+      name: detector-detectorid-coverage
+      description: REST surface for detector-detectorId-coverage.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcoverage
+        description: Amazon Web Services Listcoverage
+        call: guardduty-detector.amazonwebserviceslistcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/coverage/statistics
+      name: detector-detectorid-coverage-statistics
+      description: REST surface for detector-detectorId-coverage-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcoveragestatistics
+        description: Amazon Web Services Getcoveragestatistics
+        call: guardduty-detector.amazonwebservicesgetcoveragestatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/filter
+      name: detector-detectorid-filter
+      description: REST surface for detector-detectorId-filter.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfilters
+        description: Amazon Web Services Listfilters
+        call: guardduty-detector.amazonwebserviceslistfilters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/filter/{filtername}
+      name: detector-detectorid-filter-filtername
+      description: REST surface for detector-detectorId-filter-filterName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatefilter
+        description: Amazon Web Services Updatefilter
+        call: guardduty-detector.amazonwebservicesupdatefilter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings
+      name: detector-detectorid-findings
+      description: REST surface for detector-detectorId-findings.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistfindings
+        description: Amazon Web Services Listfindings
+        call: guardduty-detector.amazonwebserviceslistfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/archive
+      name: detector-detectorid-findings-archive
+      description: REST surface for detector-detectorId-findings-archive.
+      operations:
+      - method: POST
+        name: amazonwebservicesarchivefindings
+        description: Amazon Web Services Archivefindings
+        call: guardduty-detector.amazonwebservicesarchivefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/create
+      name: detector-detectorid-findings-create
+      description: REST surface for detector-detectorId-findings-create.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesamplefindings
+        description: Amazon Web Services Createsamplefindings
+        call: guardduty-detector.amazonwebservicescreatesamplefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/feedback
+      name: detector-detectorid-findings-feedback
+      description: REST surface for detector-detectorId-findings-feedback.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatefindingsfeedback
+        description: Amazon Web Services Updatefindingsfeedback
+        call: guardduty-detector.amazonwebservicesupdatefindingsfeedback
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/get
+      name: detector-detectorid-findings-get
+      description: REST surface for detector-detectorId-findings-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfindings
+        description: Amazon Web Services Getfindings
+        call: guardduty-detector.amazonwebservicesgetfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/statistics
+      name: detector-detectorid-findings-statistics
+      description: REST surface for detector-detectorId-findings-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfindingsstatistics
+        description: Amazon Web Services Getfindingsstatistics
+        call: guardduty-detector.amazonwebservicesgetfindingsstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/findings/unarchive
+      name: detector-detectorid-findings-unarchive
+      description: REST surface for detector-detectorId-findings-unarchive.
+      operations:
+      - method: POST
+        name: amazonwebservicesunarchivefindings
+        description: Amazon Web Services Unarchivefindings
+        call: guardduty-detector.amazonwebservicesunarchivefindings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/freetrial/daysremaining
+      name: detector-detectorid-freetrial-daysremaining
+      description: REST surface for detector-detectorId-freeTrial-daysRemaining.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetremainingfreetrialdays
+        description: Amazon Web Services Getremainingfreetrialdays
+        call: guardduty-detector.amazonwebservicesgetremainingfreetrialdays
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/ipset
+      name: detector-detectorid-ipset
+      description: REST surface for detector-detectorId-ipset.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistipsets
+        description: Amazon Web Services Listipsets
+        call: guardduty-detector.amazonwebserviceslistipsets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/ipset/{ipsetid}
+      name: detector-detectorid-ipset-ipsetid
+      description: REST surface for detector-detectorId-ipset-ipSetId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateipset
+        description: Amazon Web Services Updateipset
+        call: guardduty-detector.amazonwebservicesupdateipset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/malware-scan-settings
+      name: detector-detectorid-malware-scan-settings
+      description: REST surface for detector-detectorId-malware-scan-settings.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatemalwarescansettings
+        description: Amazon Web Services Updatemalwarescansettings
+        call: guardduty-detector.amazonwebservicesupdatemalwarescansettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/malware-scans
+      name: detector-detectorid-malware-scans
+      description: REST surface for detector-detectorId-malware-scans.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribemalwarescans
+        description: Amazon Web Services Describemalwarescans
+        call: guardduty-detector.amazonwebservicesdescribemalwarescans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/master
+      name: detector-detectorid-master
+      description: REST surface for detector-detectorId-master.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmasteraccount
+        description: Amazon Web Services Getmasteraccount
+        call: guardduty-detector.amazonwebservicesgetmasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/master/disassociate
+      name: detector-detectorid-master-disassociate
+      description: REST surface for detector-detectorId-master-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatefrommasteraccount
+        description: Amazon Web Services Disassociatefrommasteraccount
+        call: guardduty-detector.amazonwebservicesdisassociatefrommasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member
+      name: detector-detectorid-member
+      description: REST surface for detector-detectorId-member.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmembers
+        description: Amazon Web Services Listmembers
+        call: guardduty-detector.amazonwebserviceslistmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/delete
+      name: detector-detectorid-member-delete
+      description: REST surface for detector-detectorId-member-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletemembers
+        description: Amazon Web Services Deletemembers
+        call: guardduty-detector.amazonwebservicesdeletemembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/detector/get
+      name: detector-detectorid-member-detector-get
+      description: REST surface for detector-detectorId-member-detector-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmemberdetectors
+        description: Amazon Web Services Getmemberdetectors
+        call: guardduty-detector.amazonwebservicesgetmemberdetectors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/detector/update
+      name: detector-detectorid-member-detector-update
+      description: REST surface for detector-detectorId-member-detector-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatememberdetectors
+        description: Amazon Web Services Updatememberdetectors
+        call: guardduty-detector.amazonwebservicesupdatememberdetectors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/disassociate
+      name: detector-detectorid-member-disassociate
+      description: REST surface for detector-detectorId-member-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatemembers
+        description: Amazon Web Services Disassociatemembers
+        call: guardduty-detector.amazonwebservicesdisassociatemembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/get
+      name: detector-detectorid-member-get
+      description: REST surface for detector-detectorId-member-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmembers
+        description: Amazon Web Services Getmembers
+        call: guardduty-detector.amazonwebservicesgetmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/invite
+      name: detector-detectorid-member-invite
+      description: REST surface for detector-detectorId-member-invite.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvitemembers
+        description: Amazon Web Services Invitemembers
+        call: guardduty-detector.amazonwebservicesinvitemembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/start
+      name: detector-detectorid-member-start
+      description: REST surface for detector-detectorId-member-start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartmonitoringmembers
+        description: Amazon Web Services Startmonitoringmembers
+        call: guardduty-detector.amazonwebservicesstartmonitoringmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/member/stop
+      name: detector-detectorid-member-stop
+      description: REST surface for detector-detectorId-member-stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopmonitoringmembers
+        description: Amazon Web Services Stopmonitoringmembers
+        call: guardduty-detector.amazonwebservicesstopmonitoringmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/publishingdestination
+      name: detector-detectorid-publishingdestination
+      description: REST surface for detector-detectorId-publishingDestination.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpublishingdestinations
+        description: Amazon Web Services Listpublishingdestinations
+        call: guardduty-detector.amazonwebserviceslistpublishingdestinations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/publishingdestination/{destinationid}
+      name: detector-detectorid-publishingdestination-destinationid
+      description: REST surface for detector-detectorId-publishingDestination-destinationId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatepublishingdestination
+        description: Amazon Web Services Updatepublishingdestination
+        call: guardduty-detector.amazonwebservicesupdatepublishingdestination
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/threatintelset
+      name: detector-detectorid-threatintelset
+      description: REST surface for detector-detectorId-threatintelset.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthreatintelsets
+        description: Amazon Web Services Listthreatintelsets
+        call: guardduty-detector.amazonwebserviceslistthreatintelsets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/threatintelset/{threatintelsetid}
+      name: detector-detectorid-threatintelset-threatintelsetid
+      description: REST surface for detector-detectorId-threatintelset-threatIntelSetId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatethreatintelset
+        description: Amazon Web Services Updatethreatintelset
+        call: guardduty-detector.amazonwebservicesupdatethreatintelset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/detector/{detectorid}/usage/statistics
+      name: detector-detectorid-usage-statistics
+      description: REST surface for detector-detectorId-usage-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetusagestatistics
+        description: Amazon Web Services Getusagestatistics
+        call: guardduty-detector.amazonwebservicesgetusagestatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: guardduty-detector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services guardduty — Detector. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdetectors
+      description: Amazon Web Services Listdetectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistdetectors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedetector
+      description: Amazon Web Services Updatedetector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatedetector
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateorganizationconfiguration
+      description: Amazon Web Services Updateorganizationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdateorganizationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getadministratoraccount
+      description: Amazon Web Services Getadministratoraccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebservicesgetadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatefromadministratoraccount
+      description: Amazon Web Services Disassociatefromadministratoraccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesdisassociatefromadministratoraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcoverage
+      description: Amazon Web Services Listcoverage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebserviceslistcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcoveragestatistics
+      description: Amazon Web Services Getcoveragestatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetcoveragestatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfilters
+      description: Amazon Web Services Listfilters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistfilters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefilter
+      description: Amazon Web Services Updatefilter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatefilter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfindings
+      description: Amazon Web Services Listfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebserviceslistfindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-archivefindings
+      description: Amazon Web Services Archivefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesarchivefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createsamplefindings
+      description: Amazon Web Services Createsamplefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicescreatesamplefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefindingsfeedback
+      description: Amazon Web Services Updatefindingsfeedback
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatefindingsfeedback
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfindings
+      description: Amazon Web Services Getfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetfindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfindingsstatistics
+      description: Amazon Web Services Getfindingsstatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetfindingsstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-unarchivefindings
+      description: Amazon Web Services Unarchivefindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesunarchivefindings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getremainingfreetrialdays
+      description: Amazon Web Services Getremainingfreetrialdays
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetremainingfreetrialdays
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listipsets
+      description: Amazon Web Services Listipsets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistipsets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateipset
+      description: Amazon Web Services Updateipset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdateipset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemalwarescansettings
+      description: Amazon Web Services Updatemalwarescansettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatemalwarescansettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describemalwarescans
+      description: Amazon Web Services Describemalwarescans
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesdescribemalwarescans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmasteraccount
+      description: Amazon Web Services Getmasteraccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebservicesgetmasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatefrommasteraccount
+      description: Amazon Web Services Disassociatefrommasteraccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesdisassociatefrommasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listmembers
+      description: Amazon Web Services Listmembers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletemembers
+      description: Amazon Web Services Deletemembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesdeletemembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmemberdetectors
+      description: Amazon Web Services Getmemberdetectors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetmemberdetectors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatememberdetectors
+      description: Amazon Web Services Updatememberdetectors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatememberdetectors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatemembers
+      description: Amazon Web Services Disassociatemembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesdisassociatemembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmembers
+      description: Amazon Web Services Getmembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-invitemembers
+      description: Amazon Web Services Invitemembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesinvitemembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startmonitoringmembers
+      description: Amazon Web Services Startmonitoringmembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesstartmonitoringmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopmonitoringmembers
+      description: Amazon Web Services Stopmonitoringmembers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesstopmonitoringmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpublishingdestinations
+      description: Amazon Web Services Listpublishingdestinations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistpublishingdestinations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepublishingdestination
+      description: Amazon Web Services Updatepublishingdestination
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatepublishingdestination
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listthreatintelsets
+      description: Amazon Web Services Listthreatintelsets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-detector.amazonwebserviceslistthreatintelsets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatethreatintelset
+      description: Amazon Web Services Updatethreatintelset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesupdatethreatintelset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getusagestatistics
+      description: Amazon Web Services Getusagestatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-detector.amazonwebservicesgetusagestatistics
+      outputParameters:
+      - type: object
+        mapping: $.

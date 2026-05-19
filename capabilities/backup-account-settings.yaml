@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services backup — Account Settings
+  description: 'Amazon Web Services backup — Account Settings. 1 operations. Lead operation: Amazon Web Services Updateregionsettings.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Account Settings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: backup-account-settings
+    baseUri: ''
+    description: Amazon Web Services backup — Account Settings business capability. Self-contained, no shared references.
+    resources:
+    - name: account-settings
+      path: /account-settings
+      operations:
+      - name: amazonwebservicesupdateregionsettings
+        method: PUT
+        description: Amazon Web Services Updateregionsettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: backup-account-settings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services backup — Account Settings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/account-settings
+      name: account-settings
+      description: REST surface for account-settings.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateregionsettings
+        description: Amazon Web Services Updateregionsettings
+        call: backup-account-settings.amazonwebservicesupdateregionsettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: backup-account-settings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services backup — Account Settings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateregionsettings
+      description: Amazon Web Services Updateregionsettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: backup-account-settings.amazonwebservicesupdateregionsettings
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services location — Metadata
+  description: 'Amazon Web Services location — Metadata. 3 operations. Lead operation: Amazon Web Services Createkey. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: location-metadata
+    baseUri: ''
+    description: Amazon Web Services location — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: metadata-v0-keys
+      path: /metadata/v0/keys
+      operations:
+      - name: amazonwebservicescreatekey
+        method: POST
+        description: Amazon Web Services Createkey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metadata-v0-keys-KeyName
+      path: /metadata/v0/keys/{KeyName}
+      operations:
+      - name: amazonwebservicesupdatekey
+        method: PATCH
+        description: Amazon Web Services Updatekey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metadata-v0-list-keys
+      path: /metadata/v0/list-keys
+      operations:
+      - name: amazonwebserviceslistkeys
+        method: POST
+        description: Amazon Web Services Listkeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: location-metadata-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services location — Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/metadata/v0/keys
+      name: metadata-v0-keys
+      description: REST surface for metadata-v0-keys.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatekey
+        description: Amazon Web Services Createkey
+        call: location-metadata.amazonwebservicescreatekey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metadata/v0/keys/{keyname}
+      name: metadata-v0-keys-keyname
+      description: REST surface for metadata-v0-keys-KeyName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatekey
+        description: Amazon Web Services Updatekey
+        call: location-metadata.amazonwebservicesupdatekey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metadata/v0/list-keys
+      name: metadata-v0-list-keys
+      description: REST surface for metadata-v0-list-keys.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistkeys
+        description: Amazon Web Services Listkeys
+        call: location-metadata.amazonwebserviceslistkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: location-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services location — Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createkey
+      description: Amazon Web Services Createkey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-metadata.amazonwebservicescreatekey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatekey
+      description: Amazon Web Services Updatekey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: location-metadata.amazonwebservicesupdatekey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listkeys
+      description: Amazon Web Services Listkeys
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-metadata.amazonwebserviceslistkeys
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — deleteEdgeConfiguration
+  description: 'Amazon Web Services kinesisvideo — deleteEdgeConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Deleteedgeconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - deleteEdgeConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-deleteedgeconfiguration
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — deleteEdgeConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: deleteEdgeConfiguration
+      path: /deleteEdgeConfiguration
+      operations:
+      - name: amazonwebservicesdeleteedgeconfiguration
+        method: POST
+        description: Amazon Web Services Deleteedgeconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-deleteedgeconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — deleteEdgeConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleteedgeconfiguration
+      name: deleteedgeconfiguration
+      description: REST surface for deleteEdgeConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteedgeconfiguration
+        description: Amazon Web Services Deleteedgeconfiguration
+        call: kinesisvideo-deleteedgeconfiguration.amazonwebservicesdeleteedgeconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-deleteedgeconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — deleteEdgeConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteedgeconfiguration
+      description: Amazon Web Services Deleteedgeconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-deleteedgeconfiguration.amazonwebservicesdeleteedgeconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

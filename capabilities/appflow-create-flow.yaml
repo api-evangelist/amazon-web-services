@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appflow — Create Flow
+  description: 'Amazon Web Services appflow — Create Flow. 1 operations. Lead operation: Amazon Web Services Createflow. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Create Flow
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appflow-create-flow
+    baseUri: ''
+    description: Amazon Web Services appflow — Create Flow business capability. Self-contained, no shared references.
+    resources:
+    - name: create-flow
+      path: /create-flow
+      operations:
+      - name: amazonwebservicescreateflow
+        method: POST
+        description: Amazon Web Services Createflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appflow-create-flow-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appflow — Create Flow. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/create-flow
+      name: create-flow
+      description: REST surface for create-flow.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateflow
+        description: Amazon Web Services Createflow
+        call: appflow-create-flow.amazonwebservicescreateflow
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appflow-create-flow-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appflow — Create Flow. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createflow
+      description: Amazon Web Services Createflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appflow-create-flow.amazonwebservicescreateflow
+      outputParameters:
+      - type: object
+        mapping: $.

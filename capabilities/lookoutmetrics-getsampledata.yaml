@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — GetSampleData
+  description: 'Amazon Web Services lookoutmetrics — GetSampleData. 1 operations. Lead operation: Amazon Web Services Getsampledata.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetSampleData
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-getsampledata
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — GetSampleData business capability. Self-contained, no shared references.
+    resources:
+    - name: GetSampleData
+      path: /GetSampleData
+      operations:
+      - name: amazonwebservicesgetsampledata
+        method: POST
+        description: Amazon Web Services Getsampledata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-getsampledata-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — GetSampleData. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getsampledata
+      name: getsampledata
+      description: REST surface for GetSampleData.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetsampledata
+        description: Amazon Web Services Getsampledata
+        call: lookoutmetrics-getsampledata.amazonwebservicesgetsampledata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-getsampledata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — GetSampleData. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getsampledata
+      description: Amazon Web Services Getsampledata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-getsampledata.amazonwebservicesgetsampledata
+      outputParameters:
+      - type: object
+        mapping: $.

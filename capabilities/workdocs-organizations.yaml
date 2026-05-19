@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workdocs — Organizations
+  description: 'Amazon Web Services workdocs — Organizations. 2 operations. Lead operation: Amazon Web Services Describenotificationsubscriptions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Organizations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workdocs-organizations
+    baseUri: ''
+    description: Amazon Web Services workdocs — Organizations business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-organizations-OrganizationId-subscriptions
+      path: /api/v1/organizations/{OrganizationId}/subscriptions
+      operations:
+      - name: amazonwebservicesdescribenotificationsubscriptions
+        method: GET
+        description: Amazon Web Services Describenotificationsubscriptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-organizations-OrganizationId-subscriptions-SubscriptionId
+      path: /api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}
+      operations:
+      - name: amazonwebservicesdeletenotificationsubscription
+        method: DELETE
+        description: Amazon Web Services Deletenotificationsubscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workdocs-organizations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workdocs — Organizations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/organizations/{organizationid}/subscriptions
+      name: api-v1-organizations-organizationid-subscriptions
+      description: REST surface for api-v1-organizations-OrganizationId-subscriptions.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribenotificationsubscriptions
+        description: Amazon Web Services Describenotificationsubscriptions
+        call: workdocs-organizations.amazonwebservicesdescribenotificationsubscriptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/organizations/{organizationid}/subscriptions/{subscriptionid}
+      name: api-v1-organizations-organizationid-subscriptions-subscriptionid
+      description: REST surface for api-v1-organizations-OrganizationId-subscriptions-SubscriptionId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletenotificationsubscription
+        description: Amazon Web Services Deletenotificationsubscription
+        call: workdocs-organizations.amazonwebservicesdeletenotificationsubscription
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workdocs-organizations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workdocs — Organizations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describenotificationsubscriptions
+      description: Amazon Web Services Describenotificationsubscriptions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-organizations.amazonwebservicesdescribenotificationsubscriptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletenotificationsubscription
+      description: Amazon Web Services Deletenotificationsubscription
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workdocs-organizations.amazonwebservicesdeletenotificationsubscription
+      outputParameters:
+      - type: object
+        mapping: $.

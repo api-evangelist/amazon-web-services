@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Start App Assessment
+  description: 'Amazon Web Services resiliencehub — Start App Assessment. 1 operations. Lead operation: Amazon Web Services
+    Startappassessment. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Start App Assessment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-start-app-assessment
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Start App Assessment business capability. Self-contained, no shared references.
+    resources:
+    - name: start-app-assessment
+      path: /start-app-assessment
+      operations:
+      - name: amazonwebservicesstartappassessment
+        method: POST
+        description: Amazon Web Services Startappassessment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-start-app-assessment-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Start App Assessment. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/start-app-assessment
+      name: start-app-assessment
+      description: REST surface for start-app-assessment.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartappassessment
+        description: Amazon Web Services Startappassessment
+        call: resiliencehub-start-app-assessment.amazonwebservicesstartappassessment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-start-app-assessment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Start App Assessment. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startappassessment
+      description: Amazon Web Services Startappassessment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-start-app-assessment.amazonwebservicesstartappassessment
+      outputParameters:
+      - type: object
+        mapping: $.

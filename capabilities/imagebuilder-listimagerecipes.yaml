@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListImageRecipes
+  description: 'Amazon Web Services imagebuilder — ListImageRecipes. 1 operations. Lead operation: Amazon Web Services Listimagerecipes.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListImageRecipes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listimagerecipes
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListImageRecipes business capability. Self-contained, no shared references.
+    resources:
+    - name: ListImageRecipes
+      path: /ListImageRecipes
+      operations:
+      - name: amazonwebserviceslistimagerecipes
+        method: POST
+        description: Amazon Web Services Listimagerecipes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listimagerecipes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListImageRecipes. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listimagerecipes
+      name: listimagerecipes
+      description: REST surface for ListImageRecipes.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimagerecipes
+        description: Amazon Web Services Listimagerecipes
+        call: imagebuilder-listimagerecipes.amazonwebserviceslistimagerecipes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listimagerecipes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListImageRecipes. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimagerecipes
+      description: Amazon Web Services Listimagerecipes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listimagerecipes.amazonwebserviceslistimagerecipes
+      outputParameters:
+      - type: object
+        mapping: $.

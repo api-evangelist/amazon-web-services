@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — describeFleet
+  description: 'Amazon Web Services robomaker — describeFleet. 1 operations. Lead operation: Amazon Web Services Describefleet.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - describeFleet
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-describefleet
+    baseUri: ''
+    description: Amazon Web Services robomaker — describeFleet business capability. Self-contained, no shared references.
+    resources:
+    - name: describeFleet
+      path: /describeFleet
+      operations:
+      - name: amazonwebservicesdescribefleet
+        method: POST
+        description: Amazon Web Services Describefleet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-describefleet-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — describeFleet. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describefleet
+      name: describefleet
+      description: REST surface for describeFleet.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribefleet
+        description: Amazon Web Services Describefleet
+        call: robomaker-describefleet.amazonwebservicesdescribefleet
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-describefleet-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — describeFleet. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describefleet
+      description: Amazon Web Services Describefleet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-describefleet.amazonwebservicesdescribefleet
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — Trustanchor
+  description: 'Amazon Web Services rolesanywhere — Trustanchor. 3 operations. Lead operation: Amazon Web Services Updatetrustanchor.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Trustanchor
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-trustanchor
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — Trustanchor business capability. Self-contained, no shared references.
+    resources:
+    - name: trustanchor-trustAnchorId
+      path: /trustanchor/{trustAnchorId}
+      operations:
+      - name: amazonwebservicesupdatetrustanchor
+        method: PATCH
+        description: Amazon Web Services Updatetrustanchor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: trustanchor-trustAnchorId-disable
+      path: /trustanchor/{trustAnchorId}/disable
+      operations:
+      - name: amazonwebservicesdisabletrustanchor
+        method: POST
+        description: Amazon Web Services Disabletrustanchor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: trustanchor-trustAnchorId-enable
+      path: /trustanchor/{trustAnchorId}/enable
+      operations:
+      - name: amazonwebservicesenabletrustanchor
+        method: POST
+        description: Amazon Web Services Enabletrustanchor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-trustanchor-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — Trustanchor. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/trustanchor/{trustanchorid}
+      name: trustanchor-trustanchorid
+      description: REST surface for trustanchor-trustAnchorId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatetrustanchor
+        description: Amazon Web Services Updatetrustanchor
+        call: rolesanywhere-trustanchor.amazonwebservicesupdatetrustanchor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/trustanchor/{trustanchorid}/disable
+      name: trustanchor-trustanchorid-disable
+      description: REST surface for trustanchor-trustAnchorId-disable.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisabletrustanchor
+        description: Amazon Web Services Disabletrustanchor
+        call: rolesanywhere-trustanchor.amazonwebservicesdisabletrustanchor
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/trustanchor/{trustanchorid}/enable
+      name: trustanchor-trustanchorid-enable
+      description: REST surface for trustanchor-trustAnchorId-enable.
+      operations:
+      - method: POST
+        name: amazonwebservicesenabletrustanchor
+        description: Amazon Web Services Enabletrustanchor
+        call: rolesanywhere-trustanchor.amazonwebservicesenabletrustanchor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-trustanchor-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — Trustanchor. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetrustanchor
+      description: Amazon Web Services Updatetrustanchor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-trustanchor.amazonwebservicesupdatetrustanchor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disabletrustanchor
+      description: Amazon Web Services Disabletrustanchor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rolesanywhere-trustanchor.amazonwebservicesdisabletrustanchor
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-enabletrustanchor
+      description: Amazon Web Services Enabletrustanchor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rolesanywhere-trustanchor.amazonwebservicesenabletrustanchor
+      outputParameters:
+      - type: object
+        mapping: $.

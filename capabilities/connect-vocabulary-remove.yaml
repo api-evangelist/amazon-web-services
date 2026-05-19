@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Vocabulary Remove
+  description: 'Amazon Web Services connect — Vocabulary Remove. 1 operations. Lead operation: Amazon Web Services Deletevocabulary.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Vocabulary Remove
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-vocabulary-remove
+    baseUri: ''
+    description: Amazon Web Services connect — Vocabulary Remove business capability. Self-contained, no shared references.
+    resources:
+    - name: vocabulary-remove-InstanceId-VocabularyId
+      path: /vocabulary-remove/{InstanceId}/{VocabularyId}
+      operations:
+      - name: amazonwebservicesdeletevocabulary
+        method: POST
+        description: Amazon Web Services Deletevocabulary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-vocabulary-remove-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Vocabulary Remove. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/vocabulary-remove/{instanceid}/{vocabularyid}
+      name: vocabulary-remove-instanceid-vocabularyid
+      description: REST surface for vocabulary-remove-InstanceId-VocabularyId.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletevocabulary
+        description: Amazon Web Services Deletevocabulary
+        call: connect-vocabulary-remove.amazonwebservicesdeletevocabulary
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-vocabulary-remove-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Vocabulary Remove. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletevocabulary
+      description: Amazon Web Services Deletevocabulary
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-vocabulary-remove.amazonwebservicesdeletevocabulary
+      outputParameters:
+      - type: object
+        mapping: $.

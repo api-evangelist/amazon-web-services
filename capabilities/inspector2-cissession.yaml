@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector2 — Cissession
+  description: 'Amazon Web Services inspector2 — Cissession. 4 operations. Lead operation: Amazon Web Services Sendcissessionhealth.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Cissession
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector2-cissession
+    baseUri: ''
+    description: Amazon Web Services inspector2 — Cissession business capability. Self-contained, no shared references.
+    resources:
+    - name: cissession-health-send
+      path: /cissession/health/send
+      operations:
+      - name: amazonwebservicessendcissessionhealth
+        method: PUT
+        description: Amazon Web Services Sendcissessionhealth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cissession-start
+      path: /cissession/start
+      operations:
+      - name: amazonwebservicesstartcissession
+        method: PUT
+        description: Amazon Web Services Startcissession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cissession-stop
+      path: /cissession/stop
+      operations:
+      - name: amazonwebservicesstopcissession
+        method: PUT
+        description: Amazon Web Services Stopcissession
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cissession-telemetry-send
+      path: /cissession/telemetry/send
+      operations:
+      - name: amazonwebservicessendcissessiontelemetry
+        method: PUT
+        description: Amazon Web Services Sendcissessiontelemetry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector2-cissession-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector2 — Cissession. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/cissession/health/send
+      name: cissession-health-send
+      description: REST surface for cissession-health-send.
+      operations:
+      - method: PUT
+        name: amazonwebservicessendcissessionhealth
+        description: Amazon Web Services Sendcissessionhealth
+        call: inspector2-cissession.amazonwebservicessendcissessionhealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cissession/start
+      name: cissession-start
+      description: REST surface for cissession-start.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartcissession
+        description: Amazon Web Services Startcissession
+        call: inspector2-cissession.amazonwebservicesstartcissession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cissession/stop
+      name: cissession-stop
+      description: REST surface for cissession-stop.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstopcissession
+        description: Amazon Web Services Stopcissession
+        call: inspector2-cissession.amazonwebservicesstopcissession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cissession/telemetry/send
+      name: cissession-telemetry-send
+      description: REST surface for cissession-telemetry-send.
+      operations:
+      - method: PUT
+        name: amazonwebservicessendcissessiontelemetry
+        description: Amazon Web Services Sendcissessiontelemetry
+        call: inspector2-cissession.amazonwebservicessendcissessiontelemetry
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector2-cissession-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector2 — Cissession. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-sendcissessionhealth
+      description: Amazon Web Services Sendcissessionhealth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: inspector2-cissession.amazonwebservicessendcissessionhealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startcissession
+      description: Amazon Web Services Startcissession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: inspector2-cissession.amazonwebservicesstartcissession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopcissession
+      description: Amazon Web Services Stopcissession
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: inspector2-cissession.amazonwebservicesstopcissession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendcissessiontelemetry
+      description: Amazon Web Services Sendcissessiontelemetry
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: inspector2-cissession.amazonwebservicessendcissessiontelemetry
+      outputParameters:
+      - type: object
+        mapping: $.

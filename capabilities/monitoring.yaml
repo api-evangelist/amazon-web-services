@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services monitoring
+  description: 'Amazon Web Services monitoring. 1 operations. Lead operation: Amazon Web Services Untagresource. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services monitoring
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: monitoring
+    baseUri: ''
+    description: Amazon Web Services monitoring business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesuntagresource
+        method: POST
+        description: Amazon Web Services Untagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: monitoring-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services monitoring. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesuntagresource
+        description: Amazon Web Services Untagresource
+        call: monitoring.amazonwebservicesuntagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: monitoring-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services monitoring. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-untagresource
+      description: Amazon Web Services Untagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: monitoring.amazonwebservicesuntagresource
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Phone Numbers
+  description: 'Amazon Web Services chime — Phone Numbers. 3 operations. Lead operation: Amazon Web Services Listphonenumbers.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Phone Numbers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-phone-numbers
+    baseUri: ''
+    description: Amazon Web Services chime — Phone Numbers business capability. Self-contained, no shared references.
+    resources:
+    - name: phone-numbers
+      path: /phone-numbers
+      operations:
+      - name: amazonwebserviceslistphonenumbers
+        method: GET
+        description: Amazon Web Services Listphonenumbers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: phone-numbers-phoneNumberId
+      path: /phone-numbers/{phoneNumberId}
+      operations:
+      - name: amazonwebservicesupdatephonenumber
+        method: POST
+        description: Amazon Web Services Updatephonenumber
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: phone-numbers-phoneNumberId}?operation=restore
+      path: /phone-numbers/{phoneNumberId}?operation=restore
+      operations:
+      - name: amazonwebservicesrestorephonenumber
+        method: POST
+        description: Amazon Web Services Restorephonenumber
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-phone-numbers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Phone Numbers. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/phone-numbers
+      name: phone-numbers
+      description: REST surface for phone-numbers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistphonenumbers
+        description: Amazon Web Services Listphonenumbers
+        call: chime-phone-numbers.amazonwebserviceslistphonenumbers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/phone-numbers/{phonenumberid}
+      name: phone-numbers-phonenumberid
+      description: REST surface for phone-numbers-phoneNumberId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatephonenumber
+        description: Amazon Web Services Updatephonenumber
+        call: chime-phone-numbers.amazonwebservicesupdatephonenumber
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/phone-numbers/phonenumberid-operation-restore
+      name: phone-numbers-phonenumberid-operation-restore
+      description: REST surface for phone-numbers-phoneNumberId}?operation=restore.
+      operations:
+      - method: POST
+        name: amazonwebservicesrestorephonenumber
+        description: Amazon Web Services Restorephonenumber
+        call: chime-phone-numbers.amazonwebservicesrestorephonenumber
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-phone-numbers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Phone Numbers. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listphonenumbers
+      description: Amazon Web Services Listphonenumbers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-phone-numbers.amazonwebserviceslistphonenumbers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatephonenumber
+      description: Amazon Web Services Updatephonenumber
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-phone-numbers.amazonwebservicesupdatephonenumber
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-restorephonenumber
+      description: Amazon Web Services Restorephonenumber
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-phone-numbers.amazonwebservicesrestorephonenumber
+      outputParameters:
+      - type: object
+        mapping: $.

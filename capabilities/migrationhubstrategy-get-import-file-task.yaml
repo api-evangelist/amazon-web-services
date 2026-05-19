@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Get Import File Task
+  description: 'Amazon Web Services migrationhubstrategy — Get Import File Task. 1 operations. Lead operation: Amazon Web
+    Services Getimportfiletask. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Import File Task
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-get-import-file-task
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Get Import File Task business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: get-import-file-task-id
+      path: /get-import-file-task/{id}
+      operations:
+      - name: amazonwebservicesgetimportfiletask
+        method: GET
+        description: Amazon Web Services Getimportfiletask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-get-import-file-task-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Get Import File Task. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-import-file-task/{id}
+      name: get-import-file-task-id
+      description: REST surface for get-import-file-task-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetimportfiletask
+        description: Amazon Web Services Getimportfiletask
+        call: migrationhubstrategy-get-import-file-task.amazonwebservicesgetimportfiletask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-get-import-file-task-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Get Import File Task. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getimportfiletask
+      description: Amazon Web Services Getimportfiletask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhubstrategy-get-import-file-task.amazonwebservicesgetimportfiletask
+      outputParameters:
+      - type: object
+        mapping: $.

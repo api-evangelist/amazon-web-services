@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — describeMediaStorageConfiguration
+  description: 'Amazon Web Services kinesisvideo — describeMediaStorageConfiguration. 1 operations. Lead operation: Amazon
+    Web Services Describemediastorageconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - describeMediaStorageConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-describemediastorageconfiguration
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — describeMediaStorageConfiguration business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: describeMediaStorageConfiguration
+      path: /describeMediaStorageConfiguration
+      operations:
+      - name: amazonwebservicesdescribemediastorageconfiguration
+        method: POST
+        description: Amazon Web Services Describemediastorageconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-describemediastorageconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — describeMediaStorageConfiguration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describemediastorageconfiguration
+      name: describemediastorageconfiguration
+      description: REST surface for describeMediaStorageConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribemediastorageconfiguration
+        description: Amazon Web Services Describemediastorageconfiguration
+        call: kinesisvideo-describemediastorageconfiguration.amazonwebservicesdescribemediastorageconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-describemediastorageconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — describeMediaStorageConfiguration. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describemediastorageconfiguration
+      description: Amazon Web Services Describemediastorageconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-describemediastorageconfiguration.amazonwebservicesdescribemediastorageconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

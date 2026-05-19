@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services personalize-events — Action Interactions
+  description: 'Amazon Web Services personalize-events — Action Interactions. 1 operations. Lead operation: Amazon Web Services
+    Putactioninteractions. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Action Interactions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: personalize-events-action-interactions
+    baseUri: ''
+    description: Amazon Web Services personalize-events — Action Interactions business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: action-interactions
+      path: /action-interactions
+      operations:
+      - name: amazonwebservicesputactioninteractions
+        method: POST
+        description: Amazon Web Services Putactioninteractions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: personalize-events-action-interactions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services personalize-events — Action Interactions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/action-interactions
+      name: action-interactions
+      description: REST surface for action-interactions.
+      operations:
+      - method: POST
+        name: amazonwebservicesputactioninteractions
+        description: Amazon Web Services Putactioninteractions
+        call: personalize-events-action-interactions.amazonwebservicesputactioninteractions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: personalize-events-action-interactions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services personalize-events — Action Interactions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putactioninteractions
+      description: Amazon Web Services Putactioninteractions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: personalize-events-action-interactions.amazonwebservicesputactioninteractions
+      outputParameters:
+      - type: object
+        mapping: $.

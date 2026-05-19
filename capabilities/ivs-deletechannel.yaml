@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — DeleteChannel
+  description: 'Amazon Web Services ivs — DeleteChannel. 1 operations. Lead operation: Amazon Web Services Deletechannel.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteChannel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-deletechannel
+    baseUri: ''
+    description: Amazon Web Services ivs — DeleteChannel business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteChannel
+      path: /DeleteChannel
+      operations:
+      - name: amazonwebservicesdeletechannel
+        method: POST
+        description: Amazon Web Services Deletechannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-deletechannel-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — DeleteChannel. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/deletechannel
+      name: deletechannel
+      description: REST surface for DeleteChannel.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletechannel
+        description: Amazon Web Services Deletechannel
+        call: ivs-deletechannel.amazonwebservicesdeletechannel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-deletechannel-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — DeleteChannel. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletechannel
+      description: Amazon Web Services Deletechannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-deletechannel.amazonwebservicesdeletechannel
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Certificate
+  description: 'Amazon Web Services iot — Certificate. 2 operations. Lead operation: Amazon Web Services Registercertificate.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Certificate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-certificate
+    baseUri: ''
+    description: Amazon Web Services iot — Certificate business capability. Self-contained, no shared references.
+    resources:
+    - name: certificate-register
+      path: /certificate/register
+      operations:
+      - name: amazonwebservicesregistercertificate
+        method: POST
+        description: Amazon Web Services Registercertificate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: certificate-register-no-ca
+      path: /certificate/register-no-ca
+      operations:
+      - name: amazonwebservicesregistercertificatewithoutca
+        method: POST
+        description: Amazon Web Services Registercertificatewithoutca
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-certificate-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Certificate. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/certificate/register
+      name: certificate-register
+      description: REST surface for certificate-register.
+      operations:
+      - method: POST
+        name: amazonwebservicesregistercertificate
+        description: Amazon Web Services Registercertificate
+        call: iot-certificate.amazonwebservicesregistercertificate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/certificate/register-no-ca
+      name: certificate-register-no-ca
+      description: REST surface for certificate-register-no-ca.
+      operations:
+      - method: POST
+        name: amazonwebservicesregistercertificatewithoutca
+        description: Amazon Web Services Registercertificatewithoutca
+        call: iot-certificate.amazonwebservicesregistercertificatewithoutca
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-certificate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Certificate. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-registercertificate
+      description: Amazon Web Services Registercertificate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-certificate.amazonwebservicesregistercertificate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-registercertificatewithoutca
+      description: Amazon Web Services Registercertificatewithoutca
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-certificate.amazonwebservicesregistercertificatewithoutca
+      outputParameters:
+      - type: object
+        mapping: $.

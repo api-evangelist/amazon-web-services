@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services location — Places
+  description: 'Amazon Web Services location — Places. 7 operations. Lead operation: Amazon Web Services Createplaceindex.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Places
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: location-places
+    baseUri: ''
+    description: Amazon Web Services location — Places business capability. Self-contained, no shared references.
+    resources:
+    - name: places-v0-indexes
+      path: /places/v0/indexes
+      operations:
+      - name: amazonwebservicescreateplaceindex
+        method: POST
+        description: Amazon Web Services Createplaceindex
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-indexes-IndexName
+      path: /places/v0/indexes/{IndexName}
+      operations:
+      - name: amazonwebservicesupdateplaceindex
+        method: PATCH
+        description: Amazon Web Services Updateplaceindex
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-indexes-IndexName-places-PlaceId
+      path: /places/v0/indexes/{IndexName}/places/{PlaceId}
+      operations:
+      - name: amazonwebservicesgetplace
+        method: GET
+        description: Amazon Web Services Getplace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-indexes-IndexName-search-position
+      path: /places/v0/indexes/{IndexName}/search/position
+      operations:
+      - name: amazonwebservicessearchplaceindexforposition
+        method: POST
+        description: Amazon Web Services Searchplaceindexforposition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-indexes-IndexName-search-suggestions
+      path: /places/v0/indexes/{IndexName}/search/suggestions
+      operations:
+      - name: amazonwebservicessearchplaceindexforsuggestions
+        method: POST
+        description: Amazon Web Services Searchplaceindexforsuggestions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-indexes-IndexName-search-text
+      path: /places/v0/indexes/{IndexName}/search/text
+      operations:
+      - name: amazonwebservicessearchplaceindexfortext
+        method: POST
+        description: Amazon Web Services Searchplaceindexfortext
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: places-v0-list-indexes
+      path: /places/v0/list-indexes
+      operations:
+      - name: amazonwebserviceslistplaceindexes
+        method: POST
+        description: Amazon Web Services Listplaceindexes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: location-places-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services location — Places. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/places/v0/indexes
+      name: places-v0-indexes
+      description: REST surface for places-v0-indexes.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateplaceindex
+        description: Amazon Web Services Createplaceindex
+        call: location-places.amazonwebservicescreateplaceindex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/indexes/{indexname}
+      name: places-v0-indexes-indexname
+      description: REST surface for places-v0-indexes-IndexName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateplaceindex
+        description: Amazon Web Services Updateplaceindex
+        call: location-places.amazonwebservicesupdateplaceindex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/indexes/{indexname}/places/{placeid}
+      name: places-v0-indexes-indexname-places-placeid
+      description: REST surface for places-v0-indexes-IndexName-places-PlaceId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetplace
+        description: Amazon Web Services Getplace
+        call: location-places.amazonwebservicesgetplace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/indexes/{indexname}/search/position
+      name: places-v0-indexes-indexname-search-position
+      description: REST surface for places-v0-indexes-IndexName-search-position.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchplaceindexforposition
+        description: Amazon Web Services Searchplaceindexforposition
+        call: location-places.amazonwebservicessearchplaceindexforposition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/indexes/{indexname}/search/suggestions
+      name: places-v0-indexes-indexname-search-suggestions
+      description: REST surface for places-v0-indexes-IndexName-search-suggestions.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchplaceindexforsuggestions
+        description: Amazon Web Services Searchplaceindexforsuggestions
+        call: location-places.amazonwebservicessearchplaceindexforsuggestions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/indexes/{indexname}/search/text
+      name: places-v0-indexes-indexname-search-text
+      description: REST surface for places-v0-indexes-IndexName-search-text.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchplaceindexfortext
+        description: Amazon Web Services Searchplaceindexfortext
+        call: location-places.amazonwebservicessearchplaceindexfortext
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/places/v0/list-indexes
+      name: places-v0-list-indexes
+      description: REST surface for places-v0-list-indexes.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistplaceindexes
+        description: Amazon Web Services Listplaceindexes
+        call: location-places.amazonwebserviceslistplaceindexes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: location-places-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services location — Places. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createplaceindex
+      description: Amazon Web Services Createplaceindex
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-places.amazonwebservicescreateplaceindex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateplaceindex
+      description: Amazon Web Services Updateplaceindex
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: location-places.amazonwebservicesupdateplaceindex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getplace
+      description: Amazon Web Services Getplace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: location-places.amazonwebservicesgetplace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchplaceindexforposition
+      description: Amazon Web Services Searchplaceindexforposition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: location-places.amazonwebservicessearchplaceindexforposition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchplaceindexforsuggestions
+      description: Amazon Web Services Searchplaceindexforsuggestions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: location-places.amazonwebservicessearchplaceindexforsuggestions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchplaceindexfortext
+      description: Amazon Web Services Searchplaceindexfortext
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: location-places.amazonwebservicessearchplaceindexfortext
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listplaceindexes
+      description: Amazon Web Services Listplaceindexes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-places.amazonwebserviceslistplaceindexes
+      outputParameters:
+      - type: object
+        mapping: $.

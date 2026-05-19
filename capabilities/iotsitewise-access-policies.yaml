@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Access Policies
+  description: 'Amazon Web Services iotsitewise — Access Policies. 2 operations. Lead operation: Amazon Web Services Listaccesspolicies.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Access Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-access-policies
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Access Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: access-policies
+      path: /access-policies
+      operations:
+      - name: amazonwebserviceslistaccesspolicies
+        method: GET
+        description: Amazon Web Services Listaccesspolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: access-policies-accessPolicyId
+      path: /access-policies/{accessPolicyId}
+      operations:
+      - name: amazonwebservicesupdateaccesspolicy
+        method: PUT
+        description: Amazon Web Services Updateaccesspolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-access-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Access Policies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/access-policies
+      name: access-policies
+      description: REST surface for access-policies.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistaccesspolicies
+        description: Amazon Web Services Listaccesspolicies
+        call: iotsitewise-access-policies.amazonwebserviceslistaccesspolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/access-policies/{accesspolicyid}
+      name: access-policies-accesspolicyid
+      description: REST surface for access-policies-accessPolicyId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateaccesspolicy
+        description: Amazon Web Services Updateaccesspolicy
+        call: iotsitewise-access-policies.amazonwebservicesupdateaccesspolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-access-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Access Policies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listaccesspolicies
+      description: Amazon Web Services Listaccesspolicies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-access-policies.amazonwebserviceslistaccesspolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateaccesspolicy
+      description: Amazon Web Services Updateaccesspolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-access-policies.amazonwebservicesupdateaccesspolicy
+      outputParameters:
+      - type: object
+        mapping: $.

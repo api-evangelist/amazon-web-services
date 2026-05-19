@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-voice — Phone Number Countries
+  description: 'Amazon Web Services chime-sdk-voice — Phone Number Countries. 1 operations. Lead operation: Amazon Web Services
+    Listsupportedphonenumbercountries. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Phone Number Countries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-voice-phone-number-countries
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-voice — Phone Number Countries business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: phone-number-countries
+      path: /phone-number-countries
+      operations:
+      - name: amazonwebserviceslistsupportedphonenumbercountries
+        method: GET
+        description: Amazon Web Services Listsupportedphonenumbercountries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-voice-phone-number-countries-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-voice — Phone Number Countries. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/phone-number-countries
+      name: phone-number-countries
+      description: REST surface for phone-number-countries.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsupportedphonenumbercountries
+        description: Amazon Web Services Listsupportedphonenumbercountries
+        call: chime-sdk-voice-phone-number-countries.amazonwebserviceslistsupportedphonenumbercountries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-voice-phone-number-countries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-voice — Phone Number Countries. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsupportedphonenumbercountries
+      description: Amazon Web Services Listsupportedphonenumbercountries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-voice-phone-number-countries.amazonwebserviceslistsupportedphonenumbercountries
+      outputParameters:
+      - type: object
+        mapping: $.

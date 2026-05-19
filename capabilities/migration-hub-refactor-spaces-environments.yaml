@@ -1,0 +1,324 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migration-hub-refactor-spaces — Environments
+  description: 'Amazon Web Services migration-hub-refactor-spaces — Environments. 9 operations. Lead operation: Amazon Web
+    Services Listenvironments. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Environments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migration-hub-refactor-spaces-environments
+    baseUri: ''
+    description: Amazon Web Services migration-hub-refactor-spaces — Environments business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: environments
+      path: /environments
+      operations:
+      - name: amazonwebserviceslistenvironments
+        method: GET
+        description: Amazon Web Services Listenvironments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier
+      path: /environments/{EnvironmentIdentifier}
+      operations:
+      - name: amazonwebservicesgetenvironment
+        method: GET
+        description: Amazon Web Services Getenvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications
+      path: /environments/{EnvironmentIdentifier}/applications
+      operations:
+      - name: amazonwebserviceslistapplications
+        method: GET
+        description: Amazon Web Services Listapplications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications-ApplicationIdentifier
+      path: /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}
+      operations:
+      - name: amazonwebservicesgetapplication
+        method: GET
+        description: Amazon Web Services Getapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications-ApplicationIdentifier-routes
+      path: /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes
+      operations:
+      - name: amazonwebserviceslistroutes
+        method: GET
+        description: Amazon Web Services Listroutes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications-ApplicationIdentifier-routes-Rou
+      path: /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}
+      operations:
+      - name: amazonwebservicesupdateroute
+        method: PATCH
+        description: Amazon Web Services Updateroute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications-ApplicationIdentifier-services
+      path: /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services
+      operations:
+      - name: amazonwebserviceslistservices
+        method: GET
+        description: Amazon Web Services Listservices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-applications-ApplicationIdentifier-services-S
+      path: /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}
+      operations:
+      - name: amazonwebservicesgetservice
+        method: GET
+        description: Amazon Web Services Getservice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: environments-EnvironmentIdentifier-vpcs
+      path: /environments/{EnvironmentIdentifier}/vpcs
+      operations:
+      - name: amazonwebserviceslistenvironmentvpcs
+        method: GET
+        description: Amazon Web Services Listenvironmentvpcs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migration-hub-refactor-spaces-environments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migration-hub-refactor-spaces — Environments. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/environments
+      name: environments
+      description: REST surface for environments.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistenvironments
+        description: Amazon Web Services Listenvironments
+        call: migration-hub-refactor-spaces-environments.amazonwebserviceslistenvironments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}
+      name: environments-environmentidentifier
+      description: REST surface for environments-EnvironmentIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetenvironment
+        description: Amazon Web Services Getenvironment
+        call: migration-hub-refactor-spaces-environments.amazonwebservicesgetenvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications
+      name: environments-environmentidentifier-applications
+      description: REST surface for environments-EnvironmentIdentifier-applications.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplications
+        description: Amazon Web Services Listapplications
+        call: migration-hub-refactor-spaces-environments.amazonwebserviceslistapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications/{applicationidentifier}
+      name: environments-environmentidentifier-applications-applicationidentifier
+      description: REST surface for environments-EnvironmentIdentifier-applications-ApplicationIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetapplication
+        description: Amazon Web Services Getapplication
+        call: migration-hub-refactor-spaces-environments.amazonwebservicesgetapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications/{applicationidentifier}/routes
+      name: environments-environmentidentifier-applications-applicationidentifier-routes
+      description: REST surface for environments-EnvironmentIdentifier-applications-ApplicationIdentifier-routes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistroutes
+        description: Amazon Web Services Listroutes
+        call: migration-hub-refactor-spaces-environments.amazonwebserviceslistroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications/{applicationidentifier}/routes/{routeidentifier}
+      name: environments-environmentidentifier-applications-applicationidentifier-routes-rou
+      description: REST surface for environments-EnvironmentIdentifier-applications-ApplicationIdentifier-routes-Rou.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateroute
+        description: Amazon Web Services Updateroute
+        call: migration-hub-refactor-spaces-environments.amazonwebservicesupdateroute
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications/{applicationidentifier}/services
+      name: environments-environmentidentifier-applications-applicationidentifier-services
+      description: REST surface for environments-EnvironmentIdentifier-applications-ApplicationIdentifier-services.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistservices
+        description: Amazon Web Services Listservices
+        call: migration-hub-refactor-spaces-environments.amazonwebserviceslistservices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/applications/{applicationidentifier}/services/{serviceidentifier}
+      name: environments-environmentidentifier-applications-applicationidentifier-services-s
+      description: REST surface for environments-EnvironmentIdentifier-applications-ApplicationIdentifier-services-S.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetservice
+        description: Amazon Web Services Getservice
+        call: migration-hub-refactor-spaces-environments.amazonwebservicesgetservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/environments/{environmentidentifier}/vpcs
+      name: environments-environmentidentifier-vpcs
+      description: REST surface for environments-EnvironmentIdentifier-vpcs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistenvironmentvpcs
+        description: Amazon Web Services Listenvironmentvpcs
+        call: migration-hub-refactor-spaces-environments.amazonwebserviceslistenvironmentvpcs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migration-hub-refactor-spaces-environments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migration-hub-refactor-spaces — Environments. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listenvironments
+      description: Amazon Web Services Listenvironments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebserviceslistenvironments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getenvironment
+      description: Amazon Web Services Getenvironment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebservicesgetenvironment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listapplications
+      description: Amazon Web Services Listapplications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebserviceslistapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getapplication
+      description: Amazon Web Services Getapplication
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebservicesgetapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listroutes
+      description: Amazon Web Services Listroutes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebserviceslistroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroute
+      description: Amazon Web Services Updateroute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebservicesupdateroute
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listservices
+      description: Amazon Web Services Listservices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebserviceslistservices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getservice
+      description: Amazon Web Services Getservice
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebservicesgetservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listenvironmentvpcs
+      description: Amazon Web Services Listenvironmentvpcs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migration-hub-refactor-spaces-environments.amazonwebserviceslistenvironmentvpcs
+      outputParameters:
+      - type: object
+        mapping: $.

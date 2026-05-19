@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services devops-guru — Organization
+  description: 'Amazon Web Services devops-guru — Organization. 5 operations. Lead operation: Amazon Web Services Describeorganizationhealth.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Organization
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: devops-guru-organization
+    baseUri: ''
+    description: Amazon Web Services devops-guru — Organization business capability. Self-contained, no shared references.
+    resources:
+    - name: organization-health
+      path: /organization/health
+      operations:
+      - name: amazonwebservicesdescribeorganizationhealth
+        method: POST
+        description: Amazon Web Services Describeorganizationhealth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organization-health-resource-collection
+      path: /organization/health/resource-collection
+      operations:
+      - name: amazonwebservicesdescribeorganizationresourcecollectionhealth
+        method: POST
+        description: Amazon Web Services Describeorganizationresourcecollectionhealth
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organization-insights
+      path: /organization/insights
+      operations:
+      - name: amazonwebserviceslistorganizationinsights
+        method: POST
+        description: Amazon Web Services Listorganizationinsights
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organization-insights-search
+      path: /organization/insights/search
+      operations:
+      - name: amazonwebservicessearchorganizationinsights
+        method: POST
+        description: Amazon Web Services Searchorganizationinsights
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organization-overview
+      path: /organization/overview
+      operations:
+      - name: amazonwebservicesdescribeorganizationoverview
+        method: POST
+        description: Amazon Web Services Describeorganizationoverview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: devops-guru-organization-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services devops-guru — Organization. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/organization/health
+      name: organization-health
+      description: REST surface for organization-health.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeorganizationhealth
+        description: Amazon Web Services Describeorganizationhealth
+        call: devops-guru-organization.amazonwebservicesdescribeorganizationhealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization/health/resource-collection
+      name: organization-health-resource-collection
+      description: REST surface for organization-health-resource-collection.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeorganizationresourcecollectionhealth
+        description: Amazon Web Services Describeorganizationresourcecollectionhealth
+        call: devops-guru-organization.amazonwebservicesdescribeorganizationresourcecollectionhealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization/insights
+      name: organization-insights
+      description: REST surface for organization-insights.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistorganizationinsights
+        description: Amazon Web Services Listorganizationinsights
+        call: devops-guru-organization.amazonwebserviceslistorganizationinsights
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization/insights/search
+      name: organization-insights-search
+      description: REST surface for organization-insights-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchorganizationinsights
+        description: Amazon Web Services Searchorganizationinsights
+        call: devops-guru-organization.amazonwebservicessearchorganizationinsights
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organization/overview
+      name: organization-overview
+      description: REST surface for organization-overview.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeorganizationoverview
+        description: Amazon Web Services Describeorganizationoverview
+        call: devops-guru-organization.amazonwebservicesdescribeorganizationoverview
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: devops-guru-organization-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services devops-guru — Organization. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeorganizationhealth
+      description: Amazon Web Services Describeorganizationhealth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-organization.amazonwebservicesdescribeorganizationhealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeorganizationresourcecollectionhealth
+      description: Amazon Web Services Describeorganizationresourcecollectionhealth
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-organization.amazonwebservicesdescribeorganizationresourcecollectionhealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listorganizationinsights
+      description: Amazon Web Services Listorganizationinsights
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-organization.amazonwebserviceslistorganizationinsights
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchorganizationinsights
+      description: Amazon Web Services Searchorganizationinsights
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: devops-guru-organization.amazonwebservicessearchorganizationinsights
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeorganizationoverview
+      description: Amazon Web Services Describeorganizationoverview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-organization.amazonwebservicesdescribeorganizationoverview
+      outputParameters:
+      - type: object
+        mapping: $.

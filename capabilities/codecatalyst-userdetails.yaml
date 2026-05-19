@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codecatalyst — userDetails
+  description: 'Amazon Web Services codecatalyst — userDetails. 1 operations. Lead operation: Amazon Web Services Getuserdetails.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - userDetails
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codecatalyst-userdetails
+    baseUri: ''
+    description: Amazon Web Services codecatalyst — userDetails business capability. Self-contained, no shared references.
+    resources:
+    - name: userDetails
+      path: /userDetails
+      operations:
+      - name: amazonwebservicesgetuserdetails
+        method: GET
+        description: Amazon Web Services Getuserdetails
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codecatalyst-userdetails-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codecatalyst — userDetails. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/userdetails
+      name: userdetails
+      description: REST surface for userDetails.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetuserdetails
+        description: Amazon Web Services Getuserdetails
+        call: codecatalyst-userdetails.amazonwebservicesgetuserdetails
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codecatalyst-userdetails-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codecatalyst — userDetails. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getuserdetails
+      description: Amazon Web Services Getuserdetails
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codecatalyst-userdetails.amazonwebservicesgetuserdetails
+      outputParameters:
+      - type: object
+        mapping: $.

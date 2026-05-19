@@ -1,0 +1,515 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediaconnect — Flows
+  description: 'Amazon Web Services mediaconnect — Flows. 15 operations. Lead operation: Amazon Web Services Listflows. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Flows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediaconnect-flows
+    baseUri: ''
+    description: Amazon Web Services mediaconnect — Flows business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-flows
+      path: /v1/flows
+      operations:
+      - name: amazonwebserviceslistflows
+        method: GET
+        description: Amazon Web Services Listflows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-start-flowArn
+      path: /v1/flows/start/{flowArn}
+      operations:
+      - name: amazonwebservicesstartflow
+        method: POST
+        description: Amazon Web Services Startflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-stop-flowArn
+      path: /v1/flows/stop/{flowArn}
+      operations:
+      - name: amazonwebservicesstopflow
+        method: POST
+        description: Amazon Web Services Stopflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn
+      path: /v1/flows/{flowArn}
+      operations:
+      - name: amazonwebservicesupdateflow
+        method: PUT
+        description: Amazon Web Services Updateflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-entitlements
+      path: /v1/flows/{flowArn}/entitlements
+      operations:
+      - name: amazonwebservicesgrantflowentitlements
+        method: POST
+        description: Amazon Web Services Grantflowentitlements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-entitlements-entitlementArn
+      path: /v1/flows/{flowArn}/entitlements/{entitlementArn}
+      operations:
+      - name: amazonwebservicesupdateflowentitlement
+        method: PUT
+        description: Amazon Web Services Updateflowentitlement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-mediaStreams
+      path: /v1/flows/{flowArn}/mediaStreams
+      operations:
+      - name: amazonwebservicesaddflowmediastreams
+        method: POST
+        description: Amazon Web Services Addflowmediastreams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-mediaStreams-mediaStreamName
+      path: /v1/flows/{flowArn}/mediaStreams/{mediaStreamName}
+      operations:
+      - name: amazonwebservicesupdateflowmediastream
+        method: PUT
+        description: Amazon Web Services Updateflowmediastream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-outputs
+      path: /v1/flows/{flowArn}/outputs
+      operations:
+      - name: amazonwebservicesaddflowoutputs
+        method: POST
+        description: Amazon Web Services Addflowoutputs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-outputs-outputArn
+      path: /v1/flows/{flowArn}/outputs/{outputArn}
+      operations:
+      - name: amazonwebservicesupdateflowoutput
+        method: PUT
+        description: Amazon Web Services Updateflowoutput
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-source
+      path: /v1/flows/{flowArn}/source
+      operations:
+      - name: amazonwebservicesaddflowsources
+        method: POST
+        description: Amazon Web Services Addflowsources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-source-metadata
+      path: /v1/flows/{flowArn}/source-metadata
+      operations:
+      - name: amazonwebservicesdescribeflowsourcemetadata
+        method: GET
+        description: Amazon Web Services Describeflowsourcemetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-source-sourceArn
+      path: /v1/flows/{flowArn}/source/{sourceArn}
+      operations:
+      - name: amazonwebservicesupdateflowsource
+        method: PUT
+        description: Amazon Web Services Updateflowsource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-vpcInterfaces
+      path: /v1/flows/{flowArn}/vpcInterfaces
+      operations:
+      - name: amazonwebservicesaddflowvpcinterfaces
+        method: POST
+        description: Amazon Web Services Addflowvpcinterfaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-flows-flowArn-vpcInterfaces-vpcInterfaceName
+      path: /v1/flows/{flowArn}/vpcInterfaces/{vpcInterfaceName}
+      operations:
+      - name: amazonwebservicesremoveflowvpcinterface
+        method: DELETE
+        description: Amazon Web Services Removeflowvpcinterface
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediaconnect-flows-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediaconnect — Flows. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/flows
+      name: v1-flows
+      description: REST surface for v1-flows.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistflows
+        description: Amazon Web Services Listflows
+        call: mediaconnect-flows.amazonwebserviceslistflows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/start/{flowarn}
+      name: v1-flows-start-flowarn
+      description: REST surface for v1-flows-start-flowArn.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartflow
+        description: Amazon Web Services Startflow
+        call: mediaconnect-flows.amazonwebservicesstartflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/stop/{flowarn}
+      name: v1-flows-stop-flowarn
+      description: REST surface for v1-flows-stop-flowArn.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopflow
+        description: Amazon Web Services Stopflow
+        call: mediaconnect-flows.amazonwebservicesstopflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}
+      name: v1-flows-flowarn
+      description: REST surface for v1-flows-flowArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateflow
+        description: Amazon Web Services Updateflow
+        call: mediaconnect-flows.amazonwebservicesupdateflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/entitlements
+      name: v1-flows-flowarn-entitlements
+      description: REST surface for v1-flows-flowArn-entitlements.
+      operations:
+      - method: POST
+        name: amazonwebservicesgrantflowentitlements
+        description: Amazon Web Services Grantflowentitlements
+        call: mediaconnect-flows.amazonwebservicesgrantflowentitlements
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/entitlements/{entitlementarn}
+      name: v1-flows-flowarn-entitlements-entitlementarn
+      description: REST surface for v1-flows-flowArn-entitlements-entitlementArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateflowentitlement
+        description: Amazon Web Services Updateflowentitlement
+        call: mediaconnect-flows.amazonwebservicesupdateflowentitlement
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/mediastreams
+      name: v1-flows-flowarn-mediastreams
+      description: REST surface for v1-flows-flowArn-mediaStreams.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddflowmediastreams
+        description: Amazon Web Services Addflowmediastreams
+        call: mediaconnect-flows.amazonwebservicesaddflowmediastreams
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/mediastreams/{mediastreamname}
+      name: v1-flows-flowarn-mediastreams-mediastreamname
+      description: REST surface for v1-flows-flowArn-mediaStreams-mediaStreamName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateflowmediastream
+        description: Amazon Web Services Updateflowmediastream
+        call: mediaconnect-flows.amazonwebservicesupdateflowmediastream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/outputs
+      name: v1-flows-flowarn-outputs
+      description: REST surface for v1-flows-flowArn-outputs.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddflowoutputs
+        description: Amazon Web Services Addflowoutputs
+        call: mediaconnect-flows.amazonwebservicesaddflowoutputs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/outputs/{outputarn}
+      name: v1-flows-flowarn-outputs-outputarn
+      description: REST surface for v1-flows-flowArn-outputs-outputArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateflowoutput
+        description: Amazon Web Services Updateflowoutput
+        call: mediaconnect-flows.amazonwebservicesupdateflowoutput
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/source
+      name: v1-flows-flowarn-source
+      description: REST surface for v1-flows-flowArn-source.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddflowsources
+        description: Amazon Web Services Addflowsources
+        call: mediaconnect-flows.amazonwebservicesaddflowsources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/source-metadata
+      name: v1-flows-flowarn-source-metadata
+      description: REST surface for v1-flows-flowArn-source-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeflowsourcemetadata
+        description: Amazon Web Services Describeflowsourcemetadata
+        call: mediaconnect-flows.amazonwebservicesdescribeflowsourcemetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/source/{sourcearn}
+      name: v1-flows-flowarn-source-sourcearn
+      description: REST surface for v1-flows-flowArn-source-sourceArn.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateflowsource
+        description: Amazon Web Services Updateflowsource
+        call: mediaconnect-flows.amazonwebservicesupdateflowsource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/vpcinterfaces
+      name: v1-flows-flowarn-vpcinterfaces
+      description: REST surface for v1-flows-flowArn-vpcInterfaces.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddflowvpcinterfaces
+        description: Amazon Web Services Addflowvpcinterfaces
+        call: mediaconnect-flows.amazonwebservicesaddflowvpcinterfaces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/flows/{flowarn}/vpcinterfaces/{vpcinterfacename}
+      name: v1-flows-flowarn-vpcinterfaces-vpcinterfacename
+      description: REST surface for v1-flows-flowArn-vpcInterfaces-vpcInterfaceName.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesremoveflowvpcinterface
+        description: Amazon Web Services Removeflowvpcinterface
+        call: mediaconnect-flows.amazonwebservicesremoveflowvpcinterface
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediaconnect-flows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediaconnect — Flows. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listflows
+      description: Amazon Web Services Listflows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebserviceslistflows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startflow
+      description: Amazon Web Services Startflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesstartflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopflow
+      description: Amazon Web Services Stopflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesstopflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateflow
+      description: Amazon Web Services Updateflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesupdateflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-grantflowentitlements
+      description: Amazon Web Services Grantflowentitlements
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesgrantflowentitlements
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateflowentitlement
+      description: Amazon Web Services Updateflowentitlement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesupdateflowentitlement
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addflowmediastreams
+      description: Amazon Web Services Addflowmediastreams
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesaddflowmediastreams
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateflowmediastream
+      description: Amazon Web Services Updateflowmediastream
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesupdateflowmediastream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addflowoutputs
+      description: Amazon Web Services Addflowoutputs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesaddflowoutputs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateflowoutput
+      description: Amazon Web Services Updateflowoutput
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesupdateflowoutput
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addflowsources
+      description: Amazon Web Services Addflowsources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesaddflowsources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeflowsourcemetadata
+      description: Amazon Web Services Describeflowsourcemetadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesdescribeflowsourcemetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateflowsource
+      description: Amazon Web Services Updateflowsource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesupdateflowsource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addflowvpcinterfaces
+      description: Amazon Web Services Addflowvpcinterfaces
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mediaconnect-flows.amazonwebservicesaddflowvpcinterfaces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removeflowvpcinterface
+      description: Amazon Web Services Removeflowvpcinterface
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: mediaconnect-flows.amazonwebservicesremoveflowvpcinterface
+      outputParameters:
+      - type: object
+        mapping: $.

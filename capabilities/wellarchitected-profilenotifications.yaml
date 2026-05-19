@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — profileNotifications
+  description: 'Amazon Web Services wellarchitected — profileNotifications. 1 operations. Lead operation: Amazon Web Services
+    Listprofilenotifications. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - profileNotifications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-profilenotifications
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — profileNotifications business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: profileNotifications
+      path: /profileNotifications/
+      operations:
+      - name: amazonwebserviceslistprofilenotifications
+        method: GET
+        description: Amazon Web Services Listprofilenotifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-profilenotifications-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — profileNotifications. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/profilenotifications
+      name: profilenotifications
+      description: REST surface for profileNotifications.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofilenotifications
+        description: Amazon Web Services Listprofilenotifications
+        call: wellarchitected-profilenotifications.amazonwebserviceslistprofilenotifications
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-profilenotifications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — profileNotifications. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprofilenotifications
+      description: Amazon Web Services Listprofilenotifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-profilenotifications.amazonwebserviceslistprofilenotifications
+      outputParameters:
+      - type: object
+        mapping: $.

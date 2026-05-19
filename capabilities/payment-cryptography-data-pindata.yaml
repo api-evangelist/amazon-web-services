@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services payment-cryptography-data — Pindata
+  description: 'Amazon Web Services payment-cryptography-data — Pindata. 3 operations. Lead operation: Amazon Web Services
+    Generatepindata. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Pindata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: payment-cryptography-data-pindata
+    baseUri: ''
+    description: Amazon Web Services payment-cryptography-data — Pindata business capability. Self-contained, no shared references.
+    resources:
+    - name: pindata-generate
+      path: /pindata/generate
+      operations:
+      - name: amazonwebservicesgeneratepindata
+        method: POST
+        description: Amazon Web Services Generatepindata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pindata-translate
+      path: /pindata/translate
+      operations:
+      - name: amazonwebservicestranslatepindata
+        method: POST
+        description: Amazon Web Services Translatepindata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: pindata-verify
+      path: /pindata/verify
+      operations:
+      - name: amazonwebservicesverifypindata
+        method: POST
+        description: Amazon Web Services Verifypindata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: payment-cryptography-data-pindata-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services payment-cryptography-data — Pindata. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/pindata/generate
+      name: pindata-generate
+      description: REST surface for pindata-generate.
+      operations:
+      - method: POST
+        name: amazonwebservicesgeneratepindata
+        description: Amazon Web Services Generatepindata
+        call: payment-cryptography-data-pindata.amazonwebservicesgeneratepindata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pindata/translate
+      name: pindata-translate
+      description: REST surface for pindata-translate.
+      operations:
+      - method: POST
+        name: amazonwebservicestranslatepindata
+        description: Amazon Web Services Translatepindata
+        call: payment-cryptography-data-pindata.amazonwebservicestranslatepindata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pindata/verify
+      name: pindata-verify
+      description: REST surface for pindata-verify.
+      operations:
+      - method: POST
+        name: amazonwebservicesverifypindata
+        description: Amazon Web Services Verifypindata
+        call: payment-cryptography-data-pindata.amazonwebservicesverifypindata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: payment-cryptography-data-pindata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services payment-cryptography-data — Pindata. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-generatepindata
+      description: Amazon Web Services Generatepindata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-pindata.amazonwebservicesgeneratepindata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-translatepindata
+      description: Amazon Web Services Translatepindata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-pindata.amazonwebservicestranslatepindata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-verifypindata
+      description: Amazon Web Services Verifypindata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-cryptography-data-pindata.amazonwebservicesverifypindata
+      outputParameters:
+      - type: object
+        mapping: $.

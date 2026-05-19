@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services glacier — Policies
+  description: 'Amazon Web Services glacier — Policies. 1 operations. Lead operation: Amazon Web Services Setdataretrievalpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: glacier-policies
+    baseUri: ''
+    description: Amazon Web Services glacier — Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: accountId-policies-data-retrieval
+      path: /{accountId}/policies/data-retrieval
+      operations:
+      - name: amazonwebservicessetdataretrievalpolicy
+        method: PUT
+        description: Amazon Web Services Setdataretrievalpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: glacier-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services glacier — Policies. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{accountid}/policies/data-retrieval
+      name: accountid-policies-data-retrieval
+      description: REST surface for accountId-policies-data-retrieval.
+      operations:
+      - method: PUT
+        name: amazonwebservicessetdataretrievalpolicy
+        description: Amazon Web Services Setdataretrievalpolicy
+        call: glacier-policies.amazonwebservicessetdataretrievalpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: glacier-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services glacier — Policies. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-setdataretrievalpolicy
+      description: Amazon Web Services Setdataretrievalpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: glacier-policies.amazonwebservicessetdataretrievalpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

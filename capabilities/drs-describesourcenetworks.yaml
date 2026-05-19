@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — DescribeSourceNetworks
+  description: 'Amazon Web Services drs — DescribeSourceNetworks. 1 operations. Lead operation: Amazon Web Services Describesourcenetworks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DescribeSourceNetworks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-describesourcenetworks
+    baseUri: ''
+    description: Amazon Web Services drs — DescribeSourceNetworks business capability. Self-contained, no shared references.
+    resources:
+    - name: DescribeSourceNetworks
+      path: /DescribeSourceNetworks
+      operations:
+      - name: amazonwebservicesdescribesourcenetworks
+        method: POST
+        description: Amazon Web Services Describesourcenetworks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-describesourcenetworks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — DescribeSourceNetworks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describesourcenetworks
+      name: describesourcenetworks
+      description: REST surface for DescribeSourceNetworks.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribesourcenetworks
+        description: Amazon Web Services Describesourcenetworks
+        call: drs-describesourcenetworks.amazonwebservicesdescribesourcenetworks
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-describesourcenetworks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — DescribeSourceNetworks. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describesourcenetworks
+      description: Amazon Web Services Describesourcenetworks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-describesourcenetworks.amazonwebservicesdescribesourcenetworks
+      outputParameters:
+      - type: object
+        mapping: $.

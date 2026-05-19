@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services simspaceweaver — Startsimulation
+  description: 'Amazon Web Services simspaceweaver — Startsimulation. 1 operations. Lead operation: Amazon Web Services Startsimulation.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Startsimulation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: simspaceweaver-startsimulation
+    baseUri: ''
+    description: Amazon Web Services simspaceweaver — Startsimulation business capability. Self-contained, no shared references.
+    resources:
+    - name: startsimulation
+      path: /startsimulation
+      operations:
+      - name: amazonwebservicesstartsimulation
+        method: POST
+        description: Amazon Web Services Startsimulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: simspaceweaver-startsimulation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services simspaceweaver — Startsimulation. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/startsimulation
+      name: startsimulation
+      description: REST surface for startsimulation.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartsimulation
+        description: Amazon Web Services Startsimulation
+        call: simspaceweaver-startsimulation.amazonwebservicesstartsimulation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: simspaceweaver-startsimulation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services simspaceweaver — Startsimulation. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startsimulation
+      description: Amazon Web Services Startsimulation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: simspaceweaver-startsimulation.amazonwebservicesstartsimulation
+      outputParameters:
+      - type: object
+        mapping: $.

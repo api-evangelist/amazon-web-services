@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services databrew — recipeVersions
+  description: 'Amazon Web Services databrew — recipeVersions. 1 operations. Lead operation: Amazon Web Services Listrecipeversions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - recipeVersions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: databrew-recipeversions
+    baseUri: ''
+    description: Amazon Web Services databrew — recipeVersions business capability. Self-contained, no shared references.
+    resources:
+    - name: recipeVersions
+      path: /recipeVersions
+      operations:
+      - name: amazonwebserviceslistrecipeversions
+        method: GET
+        description: Amazon Web Services Listrecipeversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: databrew-recipeversions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services databrew — recipeVersions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/recipeversions
+      name: recipeversions
+      description: REST surface for recipeVersions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecipeversions
+        description: Amazon Web Services Listrecipeversions
+        call: databrew-recipeversions.amazonwebserviceslistrecipeversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: databrew-recipeversions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services databrew — recipeVersions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrecipeversions
+      description: Amazon Web Services Listrecipeversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: databrew-recipeversions.amazonwebserviceslistrecipeversions
+      outputParameters:
+      - type: object
+        mapping: $.

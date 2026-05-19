@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pinpoint — Templates
+  description: 'Amazon Web Services pinpoint — Templates. 8 operations. Lead operation: Amazon Web Services Listtemplates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pinpoint-templates
+    baseUri: ''
+    description: Amazon Web Services pinpoint — Templates business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-templates
+      path: /v1/templates
+      operations:
+      - name: amazonwebserviceslisttemplates
+        method: GET
+        description: Amazon Web Services Listtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-email
+      path: /v1/templates/{template-name}/email
+      operations:
+      - name: amazonwebservicesupdateemailtemplate
+        method: PUT
+        description: Amazon Web Services Updateemailtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-inapp
+      path: /v1/templates/{template-name}/inapp
+      operations:
+      - name: amazonwebservicesupdateinapptemplate
+        method: PUT
+        description: Amazon Web Services Updateinapptemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-push
+      path: /v1/templates/{template-name}/push
+      operations:
+      - name: amazonwebservicesupdatepushtemplate
+        method: PUT
+        description: Amazon Web Services Updatepushtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-sms
+      path: /v1/templates/{template-name}/sms
+      operations:
+      - name: amazonwebservicesupdatesmstemplate
+        method: PUT
+        description: Amazon Web Services Updatesmstemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-voice
+      path: /v1/templates/{template-name}/voice
+      operations:
+      - name: amazonwebservicesupdatevoicetemplate
+        method: PUT
+        description: Amazon Web Services Updatevoicetemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-template-type-active-version
+      path: /v1/templates/{template-name}/{template-type}/active-version
+      operations:
+      - name: amazonwebservicesupdatetemplateactiveversion
+        method: PUT
+        description: Amazon Web Services Updatetemplateactiveversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-templates-template-name-template-type-versions
+      path: /v1/templates/{template-name}/{template-type}/versions
+      operations:
+      - name: amazonwebserviceslisttemplateversions
+        method: GET
+        description: Amazon Web Services Listtemplateversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pinpoint-templates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pinpoint — Templates. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/templates
+      name: v1-templates
+      description: REST surface for v1-templates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttemplates
+        description: Amazon Web Services Listtemplates
+        call: pinpoint-templates.amazonwebserviceslisttemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/email
+      name: v1-templates-template-name-email
+      description: REST surface for v1-templates-template-name-email.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateemailtemplate
+        description: Amazon Web Services Updateemailtemplate
+        call: pinpoint-templates.amazonwebservicesupdateemailtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/inapp
+      name: v1-templates-template-name-inapp
+      description: REST surface for v1-templates-template-name-inapp.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateinapptemplate
+        description: Amazon Web Services Updateinapptemplate
+        call: pinpoint-templates.amazonwebservicesupdateinapptemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/push
+      name: v1-templates-template-name-push
+      description: REST surface for v1-templates-template-name-push.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatepushtemplate
+        description: Amazon Web Services Updatepushtemplate
+        call: pinpoint-templates.amazonwebservicesupdatepushtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/sms
+      name: v1-templates-template-name-sms
+      description: REST surface for v1-templates-template-name-sms.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatesmstemplate
+        description: Amazon Web Services Updatesmstemplate
+        call: pinpoint-templates.amazonwebservicesupdatesmstemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/voice
+      name: v1-templates-template-name-voice
+      description: REST surface for v1-templates-template-name-voice.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevoicetemplate
+        description: Amazon Web Services Updatevoicetemplate
+        call: pinpoint-templates.amazonwebservicesupdatevoicetemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/{template-type}/active-version
+      name: v1-templates-template-name-template-type-active-version
+      description: REST surface for v1-templates-template-name-template-type-active-version.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatetemplateactiveversion
+        description: Amazon Web Services Updatetemplateactiveversion
+        call: pinpoint-templates.amazonwebservicesupdatetemplateactiveversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/templates/{template-name}/{template-type}/versions
+      name: v1-templates-template-name-template-type-versions
+      description: REST surface for v1-templates-template-name-template-type-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttemplateversions
+        description: Amazon Web Services Listtemplateversions
+        call: pinpoint-templates.amazonwebserviceslisttemplateversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pinpoint-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pinpoint — Templates. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtemplates
+      description: Amazon Web Services Listtemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebserviceslisttemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateemailtemplate
+      description: Amazon Web Services Updateemailtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdateemailtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateinapptemplate
+      description: Amazon Web Services Updateinapptemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdateinapptemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepushtemplate
+      description: Amazon Web Services Updatepushtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdatepushtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesmstemplate
+      description: Amazon Web Services Updatesmstemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdatesmstemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevoicetemplate
+      description: Amazon Web Services Updatevoicetemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdatevoicetemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatetemplateactiveversion
+      description: Amazon Web Services Updatetemplateactiveversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebservicesupdatetemplateactiveversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtemplateversions
+      description: Amazon Web Services Listtemplateversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-templates.amazonwebserviceslisttemplateversions
+      outputParameters:
+      - type: object
+        mapping: $.

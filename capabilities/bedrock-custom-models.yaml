@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services bedrock — Custom Models
+  description: 'Amazon Web Services bedrock — Custom Models. 2 operations. Lead operation: Amazon Web Services Listcustommodels.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Custom Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bedrock-custom-models
+    baseUri: ''
+    description: Amazon Web Services bedrock — Custom Models business capability. Self-contained, no shared references.
+    resources:
+    - name: custom-models
+      path: /custom-models
+      operations:
+      - name: amazonwebserviceslistcustommodels
+        method: GET
+        description: Amazon Web Services Listcustommodels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: custom-models-modelIdentifier
+      path: /custom-models/{modelIdentifier}
+      operations:
+      - name: amazonwebservicesgetcustommodel
+        method: GET
+        description: Amazon Web Services Getcustommodel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bedrock-custom-models-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services bedrock — Custom Models. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/custom-models
+      name: custom-models
+      description: REST surface for custom-models.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcustommodels
+        description: Amazon Web Services Listcustommodels
+        call: bedrock-custom-models.amazonwebserviceslistcustommodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/custom-models/{modelidentifier}
+      name: custom-models-modelidentifier
+      description: REST surface for custom-models-modelIdentifier.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcustommodel
+        description: Amazon Web Services Getcustommodel
+        call: bedrock-custom-models.amazonwebservicesgetcustommodel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bedrock-custom-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services bedrock — Custom Models. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcustommodels
+      description: Amazon Web Services Listcustommodels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bedrock-custom-models.amazonwebserviceslistcustommodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcustommodel
+      description: Amazon Web Services Getcustommodel
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bedrock-custom-models.amazonwebservicesgetcustommodel
+      outputParameters:
+      - type: object
+        mapping: $.

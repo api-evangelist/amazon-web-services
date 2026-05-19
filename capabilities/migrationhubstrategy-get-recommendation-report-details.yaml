@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Get Recommendation Report Details
+  description: 'Amazon Web Services migrationhubstrategy — Get Recommendation Report Details. 1 operations. Lead operation:
+    Amazon Web Services Getrecommendationreportdetails. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Recommendation Report Details
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-get-recommendation-report-details
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Get Recommendation Report Details business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: get-recommendation-report-details-id
+      path: /get-recommendation-report-details/{id}
+      operations:
+      - name: amazonwebservicesgetrecommendationreportdetails
+        method: GET
+        description: Amazon Web Services Getrecommendationreportdetails
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-get-recommendation-report-details-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Get Recommendation Report Details. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-recommendation-report-details/{id}
+      name: get-recommendation-report-details-id
+      description: REST surface for get-recommendation-report-details-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrecommendationreportdetails
+        description: Amazon Web Services Getrecommendationreportdetails
+        call: migrationhubstrategy-get-recommendation-report-details.amazonwebservicesgetrecommendationreportdetails
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-get-recommendation-report-details-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Get Recommendation Report Details. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getrecommendationreportdetails
+      description: Amazon Web Services Getrecommendationreportdetails
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhubstrategy-get-recommendation-report-details.amazonwebservicesgetrecommendationreportdetails
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — Portals
+  description: 'Amazon Web Services iotsitewise — Portals. 2 operations. Lead operation: Amazon Web Services Listportals.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Portals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-portals
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — Portals business capability. Self-contained, no shared references.
+    resources:
+    - name: portals
+      path: /portals
+      operations:
+      - name: amazonwebserviceslistportals
+        method: GET
+        description: Amazon Web Services Listportals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalId
+      path: /portals/{portalId}
+      operations:
+      - name: amazonwebservicesupdateportal
+        method: PUT
+        description: Amazon Web Services Updateportal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-portals-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — Portals. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/portals
+      name: portals
+      description: REST surface for portals.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistportals
+        description: Amazon Web Services Listportals
+        call: iotsitewise-portals.amazonwebserviceslistportals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalid}
+      name: portals-portalid
+      description: REST surface for portals-portalId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateportal
+        description: Amazon Web Services Updateportal
+        call: iotsitewise-portals.amazonwebservicesupdateportal
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-portals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — Portals. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listportals
+      description: Amazon Web Services Listportals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-portals.amazonwebserviceslistportals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateportal
+      description: Amazon Web Services Updateportal
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-portals.amazonwebservicesupdateportal
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ram — Listpermissionversions
+  description: 'Amazon Web Services ram — Listpermissionversions. 1 operations. Lead operation: Amazon Web Services Listpermissionversions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Listpermissionversions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ram-listpermissionversions
+    baseUri: ''
+    description: Amazon Web Services ram — Listpermissionversions business capability. Self-contained, no shared references.
+    resources:
+    - name: listpermissionversions
+      path: /listpermissionversions
+      operations:
+      - name: amazonwebserviceslistpermissionversions
+        method: POST
+        description: Amazon Web Services Listpermissionversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ram-listpermissionversions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ram — Listpermissionversions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listpermissionversions
+      name: listpermissionversions
+      description: REST surface for listpermissionversions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpermissionversions
+        description: Amazon Web Services Listpermissionversions
+        call: ram-listpermissionversions.amazonwebserviceslistpermissionversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ram-listpermissionversions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ram — Listpermissionversions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpermissionversions
+      description: Amazon Web Services Listpermissionversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ram-listpermissionversions.amazonwebserviceslistpermissionversions
+      outputParameters:
+      - type: object
+        mapping: $.

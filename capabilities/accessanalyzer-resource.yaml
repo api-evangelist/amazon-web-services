@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services accessanalyzer — Resource
+  description: 'Amazon Web Services accessanalyzer — Resource. 1 operations. Lead operation: Amazon Web Services Startresourcescan.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Resource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accessanalyzer-resource
+    baseUri: ''
+    description: Amazon Web Services accessanalyzer — Resource business capability. Self-contained, no shared references.
+    resources:
+    - name: resource-scan
+      path: /resource/scan
+      operations:
+      - name: amazonwebservicesstartresourcescan
+        method: POST
+        description: Amazon Web Services Startresourcescan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: accessanalyzer-resource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services accessanalyzer — Resource. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/resource/scan
+      name: resource-scan
+      description: REST surface for resource-scan.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartresourcescan
+        description: Amazon Web Services Startresourcescan
+        call: accessanalyzer-resource.amazonwebservicesstartresourcescan
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accessanalyzer-resource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services accessanalyzer — Resource. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startresourcescan
+      description: Amazon Web Services Startresourcescan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accessanalyzer-resource.amazonwebservicesstartresourcescan
+      outputParameters:
+      - type: object
+        mapping: $.

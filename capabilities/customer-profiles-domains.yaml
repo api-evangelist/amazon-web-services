@@ -1,0 +1,995 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services customer-profiles — Domains
+  description: 'Amazon Web Services customer-profiles — Domains. 30 operations. Lead operation: Amazon Web Services Listdomains.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: customer-profiles-domains
+    baseUri: ''
+    description: Amazon Web Services customer-profiles — Domains business capability. Self-contained, no shared references.
+    resources:
+    - name: domains
+      path: /domains
+      operations:
+      - name: amazonwebserviceslistdomains
+        method: GET
+        description: Amazon Web Services Listdomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName
+      path: /domains/{DomainName}
+      operations:
+      - name: amazonwebservicesupdatedomain
+        method: PUT
+        description: Amazon Web Services Updatedomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-calculated-attributes
+      path: /domains/{DomainName}/calculated-attributes
+      operations:
+      - name: amazonwebserviceslistcalculatedattributedefinitions
+        method: GET
+        description: Amazon Web Services Listcalculatedattributedefinitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-calculated-attributes-CalculatedAttributeName
+      path: /domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}
+      operations:
+      - name: amazonwebservicesupdatecalculatedattributedefinition
+        method: PUT
+        description: Amazon Web Services Updatecalculatedattributedefinition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-detect-object-types
+      path: /domains/{DomainName}/detect/object-types
+      operations:
+      - name: amazonwebservicesdetectprofileobjecttype
+        method: POST
+        description: Amazon Web Services Detectprofileobjecttype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-event-streams
+      path: /domains/{DomainName}/event-streams
+      operations:
+      - name: amazonwebserviceslisteventstreams
+        method: GET
+        description: Amazon Web Services Listeventstreams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-event-streams-EventStreamName
+      path: /domains/{DomainName}/event-streams/{EventStreamName}
+      operations:
+      - name: amazonwebservicesgeteventstream
+        method: GET
+        description: Amazon Web Services Geteventstream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-identity-resolution-jobs
+      path: /domains/{DomainName}/identity-resolution-jobs
+      operations:
+      - name: amazonwebserviceslistidentityresolutionjobs
+        method: GET
+        description: Amazon Web Services Listidentityresolutionjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-identity-resolution-jobs-auto-merging-preview
+      path: /domains/{DomainName}/identity-resolution-jobs/auto-merging-preview
+      operations:
+      - name: amazonwebservicesgetautomergingpreview
+        method: POST
+        description: Amazon Web Services Getautomergingpreview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-identity-resolution-jobs-JobId
+      path: /domains/{DomainName}/identity-resolution-jobs/{JobId}
+      operations:
+      - name: amazonwebservicesgetidentityresolutionjob
+        method: GET
+        description: Amazon Web Services Getidentityresolutionjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-integrations
+      path: /domains/{DomainName}/integrations
+      operations:
+      - name: amazonwebservicesputintegration
+        method: PUT
+        description: Amazon Web Services Putintegration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-integrations-delete
+      path: /domains/{DomainName}/integrations/delete
+      operations:
+      - name: amazonwebservicesdeleteintegration
+        method: POST
+        description: Amazon Web Services Deleteintegration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-matches
+      path: /domains/{DomainName}/matches
+      operations:
+      - name: amazonwebservicesgetsimilarprofiles
+        method: POST
+        description: Amazon Web Services Getsimilarprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-object-types
+      path: /domains/{DomainName}/object-types
+      operations:
+      - name: amazonwebserviceslistprofileobjecttypes
+        method: GET
+        description: Amazon Web Services Listprofileobjecttypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-object-types-ObjectTypeName
+      path: /domains/{DomainName}/object-types/{ObjectTypeName}
+      operations:
+      - name: amazonwebservicesputprofileobjecttype
+        method: PUT
+        description: Amazon Web Services Putprofileobjecttype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profile-ProfileId-calculated-attributes
+      path: /domains/{DomainName}/profile/{ProfileId}/calculated-attributes
+      operations:
+      - name: amazonwebserviceslistcalculatedattributesforprofile
+        method: GET
+        description: Amazon Web Services Listcalculatedattributesforprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profile-ProfileId-calculated-attributes-CalculatedAttributeNa
+      path: /domains/{DomainName}/profile/{ProfileId}/calculated-attributes/{CalculatedAttributeName}
+      operations:
+      - name: amazonwebservicesgetcalculatedattributeforprofile
+        method: GET
+        description: Amazon Web Services Getcalculatedattributeforprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles
+      path: /domains/{DomainName}/profiles
+      operations:
+      - name: amazonwebservicesupdateprofile
+        method: PUT
+        description: Amazon Web Services Updateprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-delete
+      path: /domains/{DomainName}/profiles/delete
+      operations:
+      - name: amazonwebservicesdeleteprofile
+        method: POST
+        description: Amazon Web Services Deleteprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-keys
+      path: /domains/{DomainName}/profiles/keys
+      operations:
+      - name: amazonwebservicesaddprofilekey
+        method: POST
+        description: Amazon Web Services Addprofilekey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-keys-delete
+      path: /domains/{DomainName}/profiles/keys/delete
+      operations:
+      - name: amazonwebservicesdeleteprofilekey
+        method: POST
+        description: Amazon Web Services Deleteprofilekey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-objects
+      path: /domains/{DomainName}/profiles/objects
+      operations:
+      - name: amazonwebservicesputprofileobject
+        method: PUT
+        description: Amazon Web Services Putprofileobject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-objects-delete
+      path: /domains/{DomainName}/profiles/objects/delete
+      operations:
+      - name: amazonwebservicesdeleteprofileobject
+        method: POST
+        description: Amazon Web Services Deleteprofileobject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-objects-merge
+      path: /domains/{DomainName}/profiles/objects/merge
+      operations:
+      - name: amazonwebservicesmergeprofiles
+        method: POST
+        description: Amazon Web Services Mergeprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-ruleBasedMatches
+      path: /domains/{DomainName}/profiles/ruleBasedMatches
+      operations:
+      - name: amazonwebserviceslistrulebasedmatches
+        method: GET
+        description: Amazon Web Services Listrulebasedmatches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-profiles-search
+      path: /domains/{DomainName}/profiles/search
+      operations:
+      - name: amazonwebservicessearchprofiles
+        method: POST
+        description: Amazon Web Services Searchprofiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-workflows
+      path: /domains/{DomainName}/workflows
+      operations:
+      - name: amazonwebserviceslistworkflows
+        method: POST
+        description: Amazon Web Services Listworkflows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-workflows-integrations
+      path: /domains/{DomainName}/workflows/integrations
+      operations:
+      - name: amazonwebservicescreateintegrationworkflow
+        method: POST
+        description: Amazon Web Services Createintegrationworkflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-workflows-WorkflowId
+      path: /domains/{DomainName}/workflows/{WorkflowId}
+      operations:
+      - name: amazonwebservicesgetworkflow
+        method: GET
+        description: Amazon Web Services Getworkflow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: domains-DomainName-workflows-WorkflowId-steps
+      path: /domains/{DomainName}/workflows/{WorkflowId}/steps
+      operations:
+      - name: amazonwebservicesgetworkflowsteps
+        method: GET
+        description: Amazon Web Services Getworkflowsteps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: customer-profiles-domains-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services customer-profiles — Domains. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/domains
+      name: domains
+      description: REST surface for domains.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdomains
+        description: Amazon Web Services Listdomains
+        call: customer-profiles-domains.amazonwebserviceslistdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}
+      name: domains-domainname
+      description: REST surface for domains-DomainName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatedomain
+        description: Amazon Web Services Updatedomain
+        call: customer-profiles-domains.amazonwebservicesupdatedomain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/calculated-attributes
+      name: domains-domainname-calculated-attributes
+      description: REST surface for domains-DomainName-calculated-attributes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcalculatedattributedefinitions
+        description: Amazon Web Services Listcalculatedattributedefinitions
+        call: customer-profiles-domains.amazonwebserviceslistcalculatedattributedefinitions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/calculated-attributes/{calculatedattributename}
+      name: domains-domainname-calculated-attributes-calculatedattributename
+      description: REST surface for domains-DomainName-calculated-attributes-CalculatedAttributeName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatecalculatedattributedefinition
+        description: Amazon Web Services Updatecalculatedattributedefinition
+        call: customer-profiles-domains.amazonwebservicesupdatecalculatedattributedefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/detect/object-types
+      name: domains-domainname-detect-object-types
+      description: REST surface for domains-DomainName-detect-object-types.
+      operations:
+      - method: POST
+        name: amazonwebservicesdetectprofileobjecttype
+        description: Amazon Web Services Detectprofileobjecttype
+        call: customer-profiles-domains.amazonwebservicesdetectprofileobjecttype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/event-streams
+      name: domains-domainname-event-streams
+      description: REST surface for domains-DomainName-event-streams.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisteventstreams
+        description: Amazon Web Services Listeventstreams
+        call: customer-profiles-domains.amazonwebserviceslisteventstreams
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/event-streams/{eventstreamname}
+      name: domains-domainname-event-streams-eventstreamname
+      description: REST surface for domains-DomainName-event-streams-EventStreamName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgeteventstream
+        description: Amazon Web Services Geteventstream
+        call: customer-profiles-domains.amazonwebservicesgeteventstream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/identity-resolution-jobs
+      name: domains-domainname-identity-resolution-jobs
+      description: REST surface for domains-DomainName-identity-resolution-jobs.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistidentityresolutionjobs
+        description: Amazon Web Services Listidentityresolutionjobs
+        call: customer-profiles-domains.amazonwebserviceslistidentityresolutionjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/identity-resolution-jobs/auto-merging-preview
+      name: domains-domainname-identity-resolution-jobs-auto-merging-preview
+      description: REST surface for domains-DomainName-identity-resolution-jobs-auto-merging-preview.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetautomergingpreview
+        description: Amazon Web Services Getautomergingpreview
+        call: customer-profiles-domains.amazonwebservicesgetautomergingpreview
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/identity-resolution-jobs/{jobid}
+      name: domains-domainname-identity-resolution-jobs-jobid
+      description: REST surface for domains-DomainName-identity-resolution-jobs-JobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetidentityresolutionjob
+        description: Amazon Web Services Getidentityresolutionjob
+        call: customer-profiles-domains.amazonwebservicesgetidentityresolutionjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/integrations
+      name: domains-domainname-integrations
+      description: REST surface for domains-DomainName-integrations.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputintegration
+        description: Amazon Web Services Putintegration
+        call: customer-profiles-domains.amazonwebservicesputintegration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/integrations/delete
+      name: domains-domainname-integrations-delete
+      description: REST surface for domains-DomainName-integrations-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteintegration
+        description: Amazon Web Services Deleteintegration
+        call: customer-profiles-domains.amazonwebservicesdeleteintegration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/matches
+      name: domains-domainname-matches
+      description: REST surface for domains-DomainName-matches.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetsimilarprofiles
+        description: Amazon Web Services Getsimilarprofiles
+        call: customer-profiles-domains.amazonwebservicesgetsimilarprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/object-types
+      name: domains-domainname-object-types
+      description: REST surface for domains-DomainName-object-types.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofileobjecttypes
+        description: Amazon Web Services Listprofileobjecttypes
+        call: customer-profiles-domains.amazonwebserviceslistprofileobjecttypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/object-types/{objecttypename}
+      name: domains-domainname-object-types-objecttypename
+      description: REST surface for domains-DomainName-object-types-ObjectTypeName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputprofileobjecttype
+        description: Amazon Web Services Putprofileobjecttype
+        call: customer-profiles-domains.amazonwebservicesputprofileobjecttype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profile/{profileid}/calculated-attributes
+      name: domains-domainname-profile-profileid-calculated-attributes
+      description: REST surface for domains-DomainName-profile-ProfileId-calculated-attributes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcalculatedattributesforprofile
+        description: Amazon Web Services Listcalculatedattributesforprofile
+        call: customer-profiles-domains.amazonwebserviceslistcalculatedattributesforprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profile/{profileid}/calculated-attributes/{calculatedattributename}
+      name: domains-domainname-profile-profileid-calculated-attributes-calculatedattributena
+      description: REST surface for domains-DomainName-profile-ProfileId-calculated-attributes-CalculatedAttributeNa.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcalculatedattributeforprofile
+        description: Amazon Web Services Getcalculatedattributeforprofile
+        call: customer-profiles-domains.amazonwebservicesgetcalculatedattributeforprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles
+      name: domains-domainname-profiles
+      description: REST surface for domains-DomainName-profiles.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateprofile
+        description: Amazon Web Services Updateprofile
+        call: customer-profiles-domains.amazonwebservicesupdateprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/delete
+      name: domains-domainname-profiles-delete
+      description: REST surface for domains-DomainName-profiles-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteprofile
+        description: Amazon Web Services Deleteprofile
+        call: customer-profiles-domains.amazonwebservicesdeleteprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/keys
+      name: domains-domainname-profiles-keys
+      description: REST surface for domains-DomainName-profiles-keys.
+      operations:
+      - method: POST
+        name: amazonwebservicesaddprofilekey
+        description: Amazon Web Services Addprofilekey
+        call: customer-profiles-domains.amazonwebservicesaddprofilekey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/keys/delete
+      name: domains-domainname-profiles-keys-delete
+      description: REST surface for domains-DomainName-profiles-keys-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteprofilekey
+        description: Amazon Web Services Deleteprofilekey
+        call: customer-profiles-domains.amazonwebservicesdeleteprofilekey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/objects
+      name: domains-domainname-profiles-objects
+      description: REST surface for domains-DomainName-profiles-objects.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputprofileobject
+        description: Amazon Web Services Putprofileobject
+        call: customer-profiles-domains.amazonwebservicesputprofileobject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/objects/delete
+      name: domains-domainname-profiles-objects-delete
+      description: REST surface for domains-DomainName-profiles-objects-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteprofileobject
+        description: Amazon Web Services Deleteprofileobject
+        call: customer-profiles-domains.amazonwebservicesdeleteprofileobject
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/objects/merge
+      name: domains-domainname-profiles-objects-merge
+      description: REST surface for domains-DomainName-profiles-objects-merge.
+      operations:
+      - method: POST
+        name: amazonwebservicesmergeprofiles
+        description: Amazon Web Services Mergeprofiles
+        call: customer-profiles-domains.amazonwebservicesmergeprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/rulebasedmatches
+      name: domains-domainname-profiles-rulebasedmatches
+      description: REST surface for domains-DomainName-profiles-ruleBasedMatches.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrulebasedmatches
+        description: Amazon Web Services Listrulebasedmatches
+        call: customer-profiles-domains.amazonwebserviceslistrulebasedmatches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/profiles/search
+      name: domains-domainname-profiles-search
+      description: REST surface for domains-DomainName-profiles-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchprofiles
+        description: Amazon Web Services Searchprofiles
+        call: customer-profiles-domains.amazonwebservicessearchprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/workflows
+      name: domains-domainname-workflows
+      description: REST surface for domains-DomainName-workflows.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistworkflows
+        description: Amazon Web Services Listworkflows
+        call: customer-profiles-domains.amazonwebserviceslistworkflows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/workflows/integrations
+      name: domains-domainname-workflows-integrations
+      description: REST surface for domains-DomainName-workflows-integrations.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateintegrationworkflow
+        description: Amazon Web Services Createintegrationworkflow
+        call: customer-profiles-domains.amazonwebservicescreateintegrationworkflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/workflows/{workflowid}
+      name: domains-domainname-workflows-workflowid
+      description: REST surface for domains-DomainName-workflows-WorkflowId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetworkflow
+        description: Amazon Web Services Getworkflow
+        call: customer-profiles-domains.amazonwebservicesgetworkflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/domains/{domainname}/workflows/{workflowid}/steps
+      name: domains-domainname-workflows-workflowid-steps
+      description: REST surface for domains-DomainName-workflows-WorkflowId-steps.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetworkflowsteps
+        description: Amazon Web Services Getworkflowsteps
+        call: customer-profiles-domains.amazonwebservicesgetworkflowsteps
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: customer-profiles-domains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services customer-profiles — Domains. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomains
+      description: Amazon Web Services Listdomains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistdomains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedomain
+      description: Amazon Web Services Updatedomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesupdatedomain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcalculatedattributedefinitions
+      description: Amazon Web Services Listcalculatedattributedefinitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistcalculatedattributedefinitions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecalculatedattributedefinition
+      description: Amazon Web Services Updatecalculatedattributedefinition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesupdatecalculatedattributedefinition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-detectprofileobjecttype
+      description: Amazon Web Services Detectprofileobjecttype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesdetectprofileobjecttype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listeventstreams
+      description: Amazon Web Services Listeventstreams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslisteventstreams
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-geteventstream
+      description: Amazon Web Services Geteventstream
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesgeteventstream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listidentityresolutionjobs
+      description: Amazon Web Services Listidentityresolutionjobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistidentityresolutionjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getautomergingpreview
+      description: Amazon Web Services Getautomergingpreview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesgetautomergingpreview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getidentityresolutionjob
+      description: Amazon Web Services Getidentityresolutionjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesgetidentityresolutionjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putintegration
+      description: Amazon Web Services Putintegration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesputintegration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteintegration
+      description: Amazon Web Services Deleteintegration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesdeleteintegration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsimilarprofiles
+      description: Amazon Web Services Getsimilarprofiles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesgetsimilarprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprofileobjecttypes
+      description: Amazon Web Services Listprofileobjecttypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistprofileobjecttypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putprofileobjecttype
+      description: Amazon Web Services Putprofileobjecttype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesputprofileobjecttype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcalculatedattributesforprofile
+      description: Amazon Web Services Listcalculatedattributesforprofile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistcalculatedattributesforprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcalculatedattributeforprofile
+      description: Amazon Web Services Getcalculatedattributeforprofile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesgetcalculatedattributeforprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprofile
+      description: Amazon Web Services Updateprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesupdateprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteprofile
+      description: Amazon Web Services Deleteprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesdeleteprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-addprofilekey
+      description: Amazon Web Services Addprofilekey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesaddprofilekey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteprofilekey
+      description: Amazon Web Services Deleteprofilekey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesdeleteprofilekey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putprofileobject
+      description: Amazon Web Services Putprofileobject
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesputprofileobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteprofileobject
+      description: Amazon Web Services Deleteprofileobject
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesdeleteprofileobject
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-mergeprofiles
+      description: Amazon Web Services Mergeprofiles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicesmergeprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrulebasedmatches
+      description: Amazon Web Services Listrulebasedmatches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebserviceslistrulebasedmatches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchprofiles
+      description: Amazon Web Services Searchprofiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicessearchprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listworkflows
+      description: Amazon Web Services Listworkflows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebserviceslistworkflows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createintegrationworkflow
+      description: Amazon Web Services Createintegrationworkflow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customer-profiles-domains.amazonwebservicescreateintegrationworkflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getworkflow
+      description: Amazon Web Services Getworkflow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesgetworkflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getworkflowsteps
+      description: Amazon Web Services Getworkflowsteps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customer-profiles-domains.amazonwebservicesgetworkflowsteps
+      outputParameters:
+      - type: object
+        mapping: $.

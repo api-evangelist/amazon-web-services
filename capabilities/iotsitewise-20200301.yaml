@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotsitewise — 20200301
+  description: 'Amazon Web Services iotsitewise — 20200301. 4 operations. Lead operation: Amazon Web Services Listgateways.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - '20200301'
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotsitewise-20200301
+    baseUri: ''
+    description: Amazon Web Services iotsitewise — 20200301 business capability. Self-contained, no shared references.
+    resources:
+    - name: 20200301-gateways
+      path: /20200301/gateways
+      operations:
+      - name: amazonwebserviceslistgateways
+        method: GET
+        description: Amazon Web Services Listgateways
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 20200301-gateways-gatewayId
+      path: /20200301/gateways/{gatewayId}
+      operations:
+      - name: amazonwebservicesupdategateway
+        method: PUT
+        description: Amazon Web Services Updategateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 20200301-gateways-gatewayId-capability
+      path: /20200301/gateways/{gatewayId}/capability
+      operations:
+      - name: amazonwebservicesupdategatewaycapabilityconfiguration
+        method: POST
+        description: Amazon Web Services Updategatewaycapabilityconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 20200301-gateways-gatewayId-capability-capabilityNamespace
+      path: /20200301/gateways/{gatewayId}/capability/{capabilityNamespace}
+      operations:
+      - name: amazonwebservicesdescribegatewaycapabilityconfiguration
+        method: GET
+        description: Amazon Web Services Describegatewaycapabilityconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotsitewise-20200301-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotsitewise — 20200301. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/20200301/gateways
+      name: 20200301-gateways
+      description: REST surface for 20200301-gateways.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistgateways
+        description: Amazon Web Services Listgateways
+        call: iotsitewise-20200301.amazonwebserviceslistgateways
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/20200301/gateways/{gatewayid}
+      name: 20200301-gateways-gatewayid
+      description: REST surface for 20200301-gateways-gatewayId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdategateway
+        description: Amazon Web Services Updategateway
+        call: iotsitewise-20200301.amazonwebservicesupdategateway
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/20200301/gateways/{gatewayid}/capability
+      name: 20200301-gateways-gatewayid-capability
+      description: REST surface for 20200301-gateways-gatewayId-capability.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdategatewaycapabilityconfiguration
+        description: Amazon Web Services Updategatewaycapabilityconfiguration
+        call: iotsitewise-20200301.amazonwebservicesupdategatewaycapabilityconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/20200301/gateways/{gatewayid}/capability/{capabilitynamespace}
+      name: 20200301-gateways-gatewayid-capability-capabilitynamespace
+      description: REST surface for 20200301-gateways-gatewayId-capability-capabilityNamespace.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribegatewaycapabilityconfiguration
+        description: Amazon Web Services Describegatewaycapabilityconfiguration
+        call: iotsitewise-20200301.amazonwebservicesdescribegatewaycapabilityconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotsitewise-20200301-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotsitewise — 20200301. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listgateways
+      description: Amazon Web Services Listgateways
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-20200301.amazonwebserviceslistgateways
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategateway
+      description: Amazon Web Services Updategateway
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iotsitewise-20200301.amazonwebservicesupdategateway
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategatewaycapabilityconfiguration
+      description: Amazon Web Services Updategatewaycapabilityconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotsitewise-20200301.amazonwebservicesupdategatewaycapabilityconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describegatewaycapabilityconfiguration
+      description: Amazon Web Services Describegatewaycapabilityconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotsitewise-20200301.amazonwebservicesdescribegatewaycapabilityconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

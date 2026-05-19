@@ -1,0 +1,387 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeguruprofiler — profilingGroups
+  description: 'Amazon Web Services codeguruprofiler — profilingGroups. 11 operations. Lead operation: Amazon Web Services
+    Listprofilinggroups. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - profilingGroups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeguruprofiler-profilinggroups
+    baseUri: ''
+    description: Amazon Web Services codeguruprofiler — profilingGroups business capability. Self-contained, no shared references.
+    resources:
+    - name: profilingGroups
+      path: /profilingGroups
+      operations:
+      - name: amazonwebserviceslistprofilinggroups
+        method: GET
+        description: Amazon Web Services Listprofilinggroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName
+      path: /profilingGroups/{profilingGroupName}
+      operations:
+      - name: amazonwebservicesupdateprofilinggroup
+        method: PUT
+        description: Amazon Web Services Updateprofilinggroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-agentProfile
+      path: /profilingGroups/{profilingGroupName}/agentProfile
+      operations:
+      - name: amazonwebservicespostagentprofile
+        method: POST
+        description: Amazon Web Services Postagentprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-configureAgent
+      path: /profilingGroups/{profilingGroupName}/configureAgent
+      operations:
+      - name: amazonwebservicesconfigureagent
+        method: POST
+        description: Amazon Web Services Configureagent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-frames---metrics
+      path: /profilingGroups/{profilingGroupName}/frames/-/metrics
+      operations:
+      - name: amazonwebservicesbatchgetframemetricdata
+        method: POST
+        description: Amazon Web Services Batchgetframemetricdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-notificationConfiguration
+      path: /profilingGroups/{profilingGroupName}/notificationConfiguration
+      operations:
+      - name: amazonwebservicesgetnotificationconfiguration
+        method: GET
+        description: Amazon Web Services Getnotificationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-notificationConfiguration-channelId
+      path: /profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}
+      operations:
+      - name: amazonwebservicesremovenotificationchannel
+        method: DELETE
+        description: Amazon Web Services Removenotificationchannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-policy
+      path: /profilingGroups/{profilingGroupName}/policy
+      operations:
+      - name: amazonwebservicesgetpolicy
+        method: GET
+        description: Amazon Web Services Getpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-policy-actionGroup
+      path: /profilingGroups/{profilingGroupName}/policy/{actionGroup}
+      operations:
+      - name: amazonwebservicesremovepermission
+        method: DELETE
+        description: Amazon Web Services Removepermission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-profile
+      path: /profilingGroups/{profilingGroupName}/profile
+      operations:
+      - name: amazonwebservicesgetprofile
+        method: GET
+        description: Amazon Web Services Getprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: profilingGroups-profilingGroupName-profileTimes
+      path: /profilingGroups/{profilingGroupName}/profileTimes
+      operations:
+      - name: amazonwebserviceslistprofiletimes
+        method: GET
+        description: Amazon Web Services Listprofiletimes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeguruprofiler-profilinggroups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeguruprofiler — profilingGroups. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/profilinggroups
+      name: profilinggroups
+      description: REST surface for profilingGroups.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofilinggroups
+        description: Amazon Web Services Listprofilinggroups
+        call: codeguruprofiler-profilinggroups.amazonwebserviceslistprofilinggroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}
+      name: profilinggroups-profilinggroupname
+      description: REST surface for profilingGroups-profilingGroupName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateprofilinggroup
+        description: Amazon Web Services Updateprofilinggroup
+        call: codeguruprofiler-profilinggroups.amazonwebservicesupdateprofilinggroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/agentprofile
+      name: profilinggroups-profilinggroupname-agentprofile
+      description: REST surface for profilingGroups-profilingGroupName-agentProfile.
+      operations:
+      - method: POST
+        name: amazonwebservicespostagentprofile
+        description: Amazon Web Services Postagentprofile
+        call: codeguruprofiler-profilinggroups.amazonwebservicespostagentprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/configureagent
+      name: profilinggroups-profilinggroupname-configureagent
+      description: REST surface for profilingGroups-profilingGroupName-configureAgent.
+      operations:
+      - method: POST
+        name: amazonwebservicesconfigureagent
+        description: Amazon Web Services Configureagent
+        call: codeguruprofiler-profilinggroups.amazonwebservicesconfigureagent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/frames//metrics
+      name: profilinggroups-profilinggroupname-frames-metrics
+      description: REST surface for profilingGroups-profilingGroupName-frames---metrics.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetframemetricdata
+        description: Amazon Web Services Batchgetframemetricdata
+        call: codeguruprofiler-profilinggroups.amazonwebservicesbatchgetframemetricdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/notificationconfiguration
+      name: profilinggroups-profilinggroupname-notificationconfiguration
+      description: REST surface for profilingGroups-profilingGroupName-notificationConfiguration.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnotificationconfiguration
+        description: Amazon Web Services Getnotificationconfiguration
+        call: codeguruprofiler-profilinggroups.amazonwebservicesgetnotificationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/notificationconfiguration/{channelid}
+      name: profilinggroups-profilinggroupname-notificationconfiguration-channelid
+      description: REST surface for profilingGroups-profilingGroupName-notificationConfiguration-channelId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesremovenotificationchannel
+        description: Amazon Web Services Removenotificationchannel
+        call: codeguruprofiler-profilinggroups.amazonwebservicesremovenotificationchannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/policy
+      name: profilinggroups-profilinggroupname-policy
+      description: REST surface for profilingGroups-profilingGroupName-policy.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpolicy
+        description: Amazon Web Services Getpolicy
+        call: codeguruprofiler-profilinggroups.amazonwebservicesgetpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/policy/{actiongroup}
+      name: profilinggroups-profilinggroupname-policy-actiongroup
+      description: REST surface for profilingGroups-profilingGroupName-policy-actionGroup.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesremovepermission
+        description: Amazon Web Services Removepermission
+        call: codeguruprofiler-profilinggroups.amazonwebservicesremovepermission
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/profile
+      name: profilinggroups-profilinggroupname-profile
+      description: REST surface for profilingGroups-profilingGroupName-profile.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetprofile
+        description: Amazon Web Services Getprofile
+        call: codeguruprofiler-profilinggroups.amazonwebservicesgetprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/profilinggroups/{profilinggroupname}/profiletimes
+      name: profilinggroups-profilinggroupname-profiletimes
+      description: REST surface for profilingGroups-profilingGroupName-profileTimes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprofiletimes
+        description: Amazon Web Services Listprofiletimes
+        call: codeguruprofiler-profilinggroups.amazonwebserviceslistprofiletimes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeguruprofiler-profilinggroups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeguruprofiler — profilingGroups. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprofilinggroups
+      description: Amazon Web Services Listprofilinggroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebserviceslistprofilinggroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprofilinggroup
+      description: Amazon Web Services Updateprofilinggroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesupdateprofilinggroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-postagentprofile
+      description: Amazon Web Services Postagentprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeguruprofiler-profilinggroups.amazonwebservicespostagentprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-configureagent
+      description: Amazon Web Services Configureagent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeguruprofiler-profilinggroups.amazonwebservicesconfigureagent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetframemetricdata
+      description: Amazon Web Services Batchgetframemetricdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeguruprofiler-profilinggroups.amazonwebservicesbatchgetframemetricdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnotificationconfiguration
+      description: Amazon Web Services Getnotificationconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesgetnotificationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removenotificationchannel
+      description: Amazon Web Services Removenotificationchannel
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesremovenotificationchannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpolicy
+      description: Amazon Web Services Getpolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesgetpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-removepermission
+      description: Amazon Web Services Removepermission
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesremovepermission
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getprofile
+      description: Amazon Web Services Getprofile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebservicesgetprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprofiletimes
+      description: Amazon Web Services Listprofiletimes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-profilinggroups.amazonwebserviceslistprofiletimes
+      outputParameters:
+      - type: object
+        mapping: $.

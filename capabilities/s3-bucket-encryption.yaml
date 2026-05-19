@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Encryption
+  description: 'Amazon Web Services AWS S3 — Bucket Encryption. 1 operations. Lead operation: Amazon Web Services Put Bucket
+    Encryption. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Encryption
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-encryption
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Encryption business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?encryption
+      path: /{Bucket}?encryption
+      operations:
+      - name: putbucketencryption
+        method: PUT
+        description: Amazon Web Services Put Bucket Encryption
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-encryption-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Encryption. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-encryption
+      name: bucket-encryption
+      description: REST surface for Bucket}?encryption.
+      operations:
+      - method: PUT
+        name: putbucketencryption
+        description: Amazon Web Services Put Bucket Encryption
+        call: s3-bucket-encryption.putbucketencryption
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-encryption-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Encryption. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Encryption
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-encryption.putbucketencryption
+      outputParameters:
+      - type: object
+        mapping: $.

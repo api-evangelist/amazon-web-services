@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services glacier — Provisioned Capacity
+  description: 'Amazon Web Services glacier — Provisioned Capacity. 1 operations. Lead operation: Amazon Web Services Purchaseprovisionedcapacity.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Provisioned Capacity
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: glacier-provisioned-capacity
+    baseUri: ''
+    description: Amazon Web Services glacier — Provisioned Capacity business capability. Self-contained, no shared references.
+    resources:
+    - name: accountId-provisioned-capacity
+      path: /{accountId}/provisioned-capacity
+      operations:
+      - name: amazonwebservicespurchaseprovisionedcapacity
+        method: POST
+        description: Amazon Web Services Purchaseprovisionedcapacity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: glacier-provisioned-capacity-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services glacier — Provisioned Capacity. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/{accountid}/provisioned-capacity
+      name: accountid-provisioned-capacity
+      description: REST surface for accountId-provisioned-capacity.
+      operations:
+      - method: POST
+        name: amazonwebservicespurchaseprovisionedcapacity
+        description: Amazon Web Services Purchaseprovisionedcapacity
+        call: glacier-provisioned-capacity.amazonwebservicespurchaseprovisionedcapacity
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: glacier-provisioned-capacity-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services glacier — Provisioned Capacity. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-purchaseprovisionedcapacity
+      description: Amazon Web Services Purchaseprovisionedcapacity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: glacier-provisioned-capacity.amazonwebservicespurchaseprovisionedcapacity
+      outputParameters:
+      - type: object
+        mapping: $.

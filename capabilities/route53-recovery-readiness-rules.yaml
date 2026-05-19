@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services route53-recovery-readiness — Rules
+  description: 'Amazon Web Services route53-recovery-readiness — Rules. 1 operations. Lead operation: Amazon Web Services
+    Listrules. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Rules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: route53-recovery-readiness-rules
+    baseUri: ''
+    description: Amazon Web Services route53-recovery-readiness — Rules business capability. Self-contained, no shared references.
+    resources:
+    - name: rules
+      path: /rules
+      operations:
+      - name: amazonwebserviceslistrules
+        method: GET
+        description: Amazon Web Services Listrules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: route53-recovery-readiness-rules-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services route53-recovery-readiness — Rules. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/rules
+      name: rules
+      description: REST surface for rules.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrules
+        description: Amazon Web Services Listrules
+        call: route53-recovery-readiness-rules.amazonwebserviceslistrules
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: route53-recovery-readiness-rules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services route53-recovery-readiness — Rules. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrules
+      description: Amazon Web Services Listrules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: route53-recovery-readiness-rules.amazonwebserviceslistrules
+      outputParameters:
+      - type: object
+        mapping: $.

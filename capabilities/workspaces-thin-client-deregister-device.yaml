@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workspaces-thin-client — Deregister Device
+  description: 'Amazon Web Services workspaces-thin-client — Deregister Device. 1 operations. Lead operation: Amazon Web Services
+    Deregisterdevice. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Deregister Device
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workspaces-thin-client-deregister-device
+    baseUri: ''
+    description: Amazon Web Services workspaces-thin-client — Deregister Device business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: deregister-device-id
+      path: /deregister-device/{id}
+      operations:
+      - name: amazonwebservicesderegisterdevice
+        method: POST
+        description: Amazon Web Services Deregisterdevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workspaces-thin-client-deregister-device-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workspaces-thin-client — Deregister Device. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deregister-device/{id}
+      name: deregister-device-id
+      description: REST surface for deregister-device-id.
+      operations:
+      - method: POST
+        name: amazonwebservicesderegisterdevice
+        description: Amazon Web Services Deregisterdevice
+        call: workspaces-thin-client-deregister-device.amazonwebservicesderegisterdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workspaces-thin-client-deregister-device-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workspaces-thin-client — Deregister Device. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deregisterdevice
+      description: Amazon Web Services Deregisterdevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workspaces-thin-client-deregister-device.amazonwebservicesderegisterdevice
+      outputParameters:
+      - type: object
+        mapping: $.

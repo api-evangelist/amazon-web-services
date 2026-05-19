@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Master
+  description: 'Amazon Web Services macie2 — Master. 2 operations. Lead operation: Amazon Web Services Getmasteraccount. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Master
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-master
+    baseUri: ''
+    description: Amazon Web Services macie2 — Master business capability. Self-contained, no shared references.
+    resources:
+    - name: master
+      path: /master
+      operations:
+      - name: amazonwebservicesgetmasteraccount
+        method: GET
+        description: Amazon Web Services Getmasteraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: master-disassociate
+      path: /master/disassociate
+      operations:
+      - name: amazonwebservicesdisassociatefrommasteraccount
+        method: POST
+        description: Amazon Web Services Disassociatefrommasteraccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-master-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Master. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/master
+      name: master
+      description: REST surface for master.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmasteraccount
+        description: Amazon Web Services Getmasteraccount
+        call: macie2-master.amazonwebservicesgetmasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/master/disassociate
+      name: master-disassociate
+      description: REST surface for master-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociatefrommasteraccount
+        description: Amazon Web Services Disassociatefrommasteraccount
+        call: macie2-master.amazonwebservicesdisassociatefrommasteraccount
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-master-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Master. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getmasteraccount
+      description: Amazon Web Services Getmasteraccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-master.amazonwebservicesgetmasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatefrommasteraccount
+      description: Amazon Web Services Disassociatefrommasteraccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-master.amazonwebservicesdisassociatefrommasteraccount
+      outputParameters:
+      - type: object
+        mapping: $.

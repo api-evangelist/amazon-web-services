@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services bedrock — Logging
+  description: 'Amazon Web Services bedrock — Logging. 1 operations. Lead operation: Amazon Web Services Putmodelinvocationloggingconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Logging
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bedrock-logging
+    baseUri: ''
+    description: Amazon Web Services bedrock — Logging business capability. Self-contained, no shared references.
+    resources:
+    - name: logging-modelinvocations
+      path: /logging/modelinvocations
+      operations:
+      - name: amazonwebservicesputmodelinvocationloggingconfiguration
+        method: PUT
+        description: Amazon Web Services Putmodelinvocationloggingconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bedrock-logging-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services bedrock — Logging. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/logging/modelinvocations
+      name: logging-modelinvocations
+      description: REST surface for logging-modelinvocations.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputmodelinvocationloggingconfiguration
+        description: Amazon Web Services Putmodelinvocationloggingconfiguration
+        call: bedrock-logging.amazonwebservicesputmodelinvocationloggingconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bedrock-logging-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services bedrock — Logging. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putmodelinvocationloggingconfiguration
+      description: Amazon Web Services Putmodelinvocationloggingconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: bedrock-logging.amazonwebservicesputmodelinvocationloggingconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Security Profiles
+  description: 'Amazon Web Services connect — Security Profiles. 2 operations. Lead operation: Amazon Web Services Createsecurityprofile.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Security Profiles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-security-profiles
+    baseUri: ''
+    description: Amazon Web Services connect — Security Profiles business capability. Self-contained, no shared references.
+    resources:
+    - name: security-profiles-InstanceId
+      path: /security-profiles/{InstanceId}
+      operations:
+      - name: amazonwebservicescreatesecurityprofile
+        method: PUT
+        description: Amazon Web Services Createsecurityprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: security-profiles-InstanceId-SecurityProfileId
+      path: /security-profiles/{InstanceId}/{SecurityProfileId}
+      operations:
+      - name: amazonwebservicesupdatesecurityprofile
+        method: POST
+        description: Amazon Web Services Updatesecurityprofile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-security-profiles-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Security Profiles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/security-profiles/{instanceid}
+      name: security-profiles-instanceid
+      description: REST surface for security-profiles-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreatesecurityprofile
+        description: Amazon Web Services Createsecurityprofile
+        call: connect-security-profiles.amazonwebservicescreatesecurityprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security-profiles/{instanceid}/{securityprofileid}
+      name: security-profiles-instanceid-securityprofileid
+      description: REST surface for security-profiles-InstanceId-SecurityProfileId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatesecurityprofile
+        description: Amazon Web Services Updatesecurityprofile
+        call: connect-security-profiles.amazonwebservicesupdatesecurityprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-security-profiles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Security Profiles. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsecurityprofile
+      description: Amazon Web Services Createsecurityprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-security-profiles.amazonwebservicescreatesecurityprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesecurityprofile
+      description: Amazon Web Services Updatesecurityprofile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-security-profiles.amazonwebservicesupdatesecurityprofile
+      outputParameters:
+      - type: object
+        mapping: $.

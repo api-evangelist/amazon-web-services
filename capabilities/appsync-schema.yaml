@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Schema
+  description: 'Amazon Web Services appsync — Schema. 1 operations. Lead operation: Amazon Web Services Getintrospectionschema.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Schema
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-schema
+    baseUri: ''
+    description: Amazon Web Services appsync — Schema business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-schema
+      path: /v1/apis/{apiId}/schema
+      operations:
+      - name: amazonwebservicesgetintrospectionschema
+        method: GET
+        description: Amazon Web Services Getintrospectionschema
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-schema-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Schema. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/schema
+      name: v1-apis-apiid-schema
+      description: REST surface for v1-apis-apiId-schema.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetintrospectionschema
+        description: Amazon Web Services Getintrospectionschema
+        call: appsync-schema.amazonwebservicesgetintrospectionschema
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-schema-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Schema. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getintrospectionschema
+      description: Amazon Web Services Getintrospectionschema
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-schema.amazonwebservicesgetintrospectionschema
+      outputParameters:
+      - type: object
+        mapping: $.

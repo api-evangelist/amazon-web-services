@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediatailor — playbackConfigurations
+  description: 'Amazon Web Services mediatailor — playbackConfigurations. 1 operations. Lead operation: Amazon Web Services
+    Listplaybackconfigurations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - playbackConfigurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediatailor-playbackconfigurations
+    baseUri: ''
+    description: Amazon Web Services mediatailor — playbackConfigurations business capability. Self-contained, no shared references.
+    resources:
+    - name: playbackConfigurations
+      path: /playbackConfigurations
+      operations:
+      - name: amazonwebserviceslistplaybackconfigurations
+        method: GET
+        description: Amazon Web Services Listplaybackconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediatailor-playbackconfigurations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediatailor — playbackConfigurations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/playbackconfigurations
+      name: playbackconfigurations
+      description: REST surface for playbackConfigurations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistplaybackconfigurations
+        description: Amazon Web Services Listplaybackconfigurations
+        call: mediatailor-playbackconfigurations.amazonwebserviceslistplaybackconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediatailor-playbackconfigurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediatailor — playbackConfigurations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listplaybackconfigurations
+      description: Amazon Web Services Listplaybackconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediatailor-playbackconfigurations.amazonwebserviceslistplaybackconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.

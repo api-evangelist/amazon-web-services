@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services scheduler — Schedules
+  description: 'Amazon Web Services scheduler — Schedules. 2 operations. Lead operation: Amazon Web Services Listschedules.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Schedules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scheduler-schedules
+    baseUri: ''
+    description: Amazon Web Services scheduler — Schedules business capability. Self-contained, no shared references.
+    resources:
+    - name: schedules
+      path: /schedules
+      operations:
+      - name: amazonwebserviceslistschedules
+        method: GET
+        description: Amazon Web Services Listschedules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: schedules-Name
+      path: /schedules/{Name}
+      operations:
+      - name: amazonwebservicesupdateschedule
+        method: PUT
+        description: Amazon Web Services Updateschedule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: scheduler-schedules-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services scheduler — Schedules. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/schedules
+      name: schedules
+      description: REST surface for schedules.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistschedules
+        description: Amazon Web Services Listschedules
+        call: scheduler-schedules.amazonwebserviceslistschedules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedules/{name}
+      name: schedules-name
+      description: REST surface for schedules-Name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateschedule
+        description: Amazon Web Services Updateschedule
+        call: scheduler-schedules.amazonwebservicesupdateschedule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scheduler-schedules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services scheduler — Schedules. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listschedules
+      description: Amazon Web Services Listschedules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scheduler-schedules.amazonwebserviceslistschedules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateschedule
+      description: Amazon Web Services Updateschedule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scheduler-schedules.amazonwebservicesupdateschedule
+      outputParameters:
+      - type: object
+        mapping: $.

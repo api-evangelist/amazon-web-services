@@ -1,0 +1,483 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime — Meetings
+  description: 'Amazon Web Services chime — Meetings. 14 operations. Lead operation: Amazon Web Services Listmeetings. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Meetings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-meetings
+    baseUri: ''
+    description: Amazon Web Services chime — Meetings business capability. Self-contained, no shared references.
+    resources:
+    - name: meetings
+      path: /meetings
+      operations:
+      - name: amazonwebserviceslistmeetings
+        method: GET
+        description: Amazon Web Services Listmeetings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId
+      path: /meetings/{meetingId}
+      operations:
+      - name: amazonwebservicesgetmeeting
+        method: GET
+        description: Amazon Web Services Getmeeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees
+      path: /meetings/{meetingId}/attendees
+      operations:
+      - name: amazonwebserviceslistattendees
+        method: GET
+        description: Amazon Web Services Listattendees
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees-attendeeId
+      path: /meetings/{meetingId}/attendees/{attendeeId}
+      operations:
+      - name: amazonwebservicesgetattendee
+        method: GET
+        description: Amazon Web Services Getattendee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees-attendeeId-tags
+      path: /meetings/{meetingId}/attendees/{attendeeId}/tags
+      operations:
+      - name: amazonwebserviceslistattendeetags
+        method: GET
+        description: Amazon Web Services Listattendeetags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees-attendeeId-tags?operation=add
+      path: /meetings/{meetingId}/attendees/{attendeeId}/tags?operation=add
+      operations:
+      - name: amazonwebservicestagattendee
+        method: POST
+        description: Amazon Web Services Tagattendee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees-attendeeId-tags?operation=delete
+      path: /meetings/{meetingId}/attendees/{attendeeId}/tags?operation=delete
+      operations:
+      - name: amazonwebservicesuntagattendee
+        method: POST
+        description: Amazon Web Services Untagattendee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-attendees?operation=batch-create
+      path: /meetings/{meetingId}/attendees?operation=batch-create
+      operations:
+      - name: amazonwebservicesbatchcreateattendee
+        method: POST
+        description: Amazon Web Services Batchcreateattendee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-dial-outs
+      path: /meetings/{meetingId}/dial-outs
+      operations:
+      - name: amazonwebservicescreatemeetingdialout
+        method: POST
+        description: Amazon Web Services Createmeetingdialout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-tags
+      path: /meetings/{meetingId}/tags
+      operations:
+      - name: amazonwebserviceslistmeetingtags
+        method: GET
+        description: Amazon Web Services Listmeetingtags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-tags?operation=add
+      path: /meetings/{meetingId}/tags?operation=add
+      operations:
+      - name: amazonwebservicestagmeeting
+        method: POST
+        description: Amazon Web Services Tagmeeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-tags?operation=delete
+      path: /meetings/{meetingId}/tags?operation=delete
+      operations:
+      - name: amazonwebservicesuntagmeeting
+        method: POST
+        description: Amazon Web Services Untagmeeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-transcription?operation=start
+      path: /meetings/{meetingId}/transcription?operation=start
+      operations:
+      - name: amazonwebservicesstartmeetingtranscription
+        method: POST
+        description: Amazon Web Services Startmeetingtranscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: meetings-meetingId-transcription?operation=stop
+      path: /meetings/{meetingId}/transcription?operation=stop
+      operations:
+      - name: amazonwebservicesstopmeetingtranscription
+        method: POST
+        description: Amazon Web Services Stopmeetingtranscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-meetings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime — Meetings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/meetings
+      name: meetings
+      description: REST surface for meetings.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmeetings
+        description: Amazon Web Services Listmeetings
+        call: chime-meetings.amazonwebserviceslistmeetings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}
+      name: meetings-meetingid
+      description: REST surface for meetings-meetingId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmeeting
+        description: Amazon Web Services Getmeeting
+        call: chime-meetings.amazonwebservicesgetmeeting
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees
+      name: meetings-meetingid-attendees
+      description: REST surface for meetings-meetingId-attendees.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistattendees
+        description: Amazon Web Services Listattendees
+        call: chime-meetings.amazonwebserviceslistattendees
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees/{attendeeid}
+      name: meetings-meetingid-attendees-attendeeid
+      description: REST surface for meetings-meetingId-attendees-attendeeId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetattendee
+        description: Amazon Web Services Getattendee
+        call: chime-meetings.amazonwebservicesgetattendee
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees/{attendeeid}/tags
+      name: meetings-meetingid-attendees-attendeeid-tags
+      description: REST surface for meetings-meetingId-attendees-attendeeId-tags.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistattendeetags
+        description: Amazon Web Services Listattendeetags
+        call: chime-meetings.amazonwebserviceslistattendeetags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees/{attendeeid}/tags-operation-add
+      name: meetings-meetingid-attendees-attendeeid-tags-operation-add
+      description: REST surface for meetings-meetingId-attendees-attendeeId-tags?operation=add.
+      operations:
+      - method: POST
+        name: amazonwebservicestagattendee
+        description: Amazon Web Services Tagattendee
+        call: chime-meetings.amazonwebservicestagattendee
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees/{attendeeid}/tags-operation-delete
+      name: meetings-meetingid-attendees-attendeeid-tags-operation-delete
+      description: REST surface for meetings-meetingId-attendees-attendeeId-tags?operation=delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesuntagattendee
+        description: Amazon Web Services Untagattendee
+        call: chime-meetings.amazonwebservicesuntagattendee
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/attendees-operation-batch-create
+      name: meetings-meetingid-attendees-operation-batch-create
+      description: REST surface for meetings-meetingId-attendees?operation=batch-create.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchcreateattendee
+        description: Amazon Web Services Batchcreateattendee
+        call: chime-meetings.amazonwebservicesbatchcreateattendee
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/dial-outs
+      name: meetings-meetingid-dial-outs
+      description: REST surface for meetings-meetingId-dial-outs.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatemeetingdialout
+        description: Amazon Web Services Createmeetingdialout
+        call: chime-meetings.amazonwebservicescreatemeetingdialout
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/tags
+      name: meetings-meetingid-tags
+      description: REST surface for meetings-meetingId-tags.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmeetingtags
+        description: Amazon Web Services Listmeetingtags
+        call: chime-meetings.amazonwebserviceslistmeetingtags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/tags-operation-add
+      name: meetings-meetingid-tags-operation-add
+      description: REST surface for meetings-meetingId-tags?operation=add.
+      operations:
+      - method: POST
+        name: amazonwebservicestagmeeting
+        description: Amazon Web Services Tagmeeting
+        call: chime-meetings.amazonwebservicestagmeeting
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/tags-operation-delete
+      name: meetings-meetingid-tags-operation-delete
+      description: REST surface for meetings-meetingId-tags?operation=delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesuntagmeeting
+        description: Amazon Web Services Untagmeeting
+        call: chime-meetings.amazonwebservicesuntagmeeting
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/transcription-operation-start
+      name: meetings-meetingid-transcription-operation-start
+      description: REST surface for meetings-meetingId-transcription?operation=start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartmeetingtranscription
+        description: Amazon Web Services Startmeetingtranscription
+        call: chime-meetings.amazonwebservicesstartmeetingtranscription
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}/transcription-operation-stop
+      name: meetings-meetingid-transcription-operation-stop
+      description: REST surface for meetings-meetingId-transcription?operation=stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopmeetingtranscription
+        description: Amazon Web Services Stopmeetingtranscription
+        call: chime-meetings.amazonwebservicesstopmeetingtranscription
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-meetings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime — Meetings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmeetings
+      description: Amazon Web Services Listmeetings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebserviceslistmeetings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmeeting
+      description: Amazon Web Services Getmeeting
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebservicesgetmeeting
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listattendees
+      description: Amazon Web Services Listattendees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebserviceslistattendees
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getattendee
+      description: Amazon Web Services Getattendee
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebservicesgetattendee
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listattendeetags
+      description: Amazon Web Services Listattendeetags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebserviceslistattendeetags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-tagattendee
+      description: Amazon Web Services Tagattendee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicestagattendee
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-untagattendee
+      description: Amazon Web Services Untagattendee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicesuntagattendee
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchcreateattendee
+      description: Amazon Web Services Batchcreateattendee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicesbatchcreateattendee
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createmeetingdialout
+      description: Amazon Web Services Createmeetingdialout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicescreatemeetingdialout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listmeetingtags
+      description: Amazon Web Services Listmeetingtags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-meetings.amazonwebserviceslistmeetingtags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-tagmeeting
+      description: Amazon Web Services Tagmeeting
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicestagmeeting
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-untagmeeting
+      description: Amazon Web Services Untagmeeting
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicesuntagmeeting
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startmeetingtranscription
+      description: Amazon Web Services Startmeetingtranscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicesstartmeetingtranscription
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopmeetingtranscription
+      description: Amazon Web Services Stopmeetingtranscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-meetings.amazonwebservicesstopmeetingtranscription
+      outputParameters:
+      - type: object
+        mapping: $.

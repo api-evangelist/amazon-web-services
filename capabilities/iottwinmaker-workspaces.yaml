@@ -1,0 +1,579 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iottwinmaker — Workspaces
+  description: 'Amazon Web Services iottwinmaker — Workspaces. 17 operations. Lead operation: Amazon Web Services Updateworkspace.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Workspaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iottwinmaker-workspaces
+    baseUri: ''
+    description: Amazon Web Services iottwinmaker — Workspaces business capability. Self-contained, no shared references.
+    resources:
+    - name: workspaces-workspaceId
+      path: /workspaces/{workspaceId}
+      operations:
+      - name: amazonwebservicesupdateworkspace
+        method: PUT
+        description: Amazon Web Services Updateworkspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-component-types-list
+      path: /workspaces/{workspaceId}/component-types-list
+      operations:
+      - name: amazonwebserviceslistcomponenttypes
+        method: POST
+        description: Amazon Web Services Listcomponenttypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-component-types-componentTypeId
+      path: /workspaces/{workspaceId}/component-types/{componentTypeId}
+      operations:
+      - name: amazonwebservicesupdatecomponenttype
+        method: PUT
+        description: Amazon Web Services Updatecomponenttype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entities
+      path: /workspaces/{workspaceId}/entities
+      operations:
+      - name: amazonwebservicescreateentity
+        method: POST
+        description: Amazon Web Services Createentity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entities-list
+      path: /workspaces/{workspaceId}/entities-list
+      operations:
+      - name: amazonwebserviceslistentities
+        method: POST
+        description: Amazon Web Services Listentities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entities-entityId
+      path: /workspaces/{workspaceId}/entities/{entityId}
+      operations:
+      - name: amazonwebservicesupdateentity
+        method: PUT
+        description: Amazon Web Services Updateentity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entities-entityId-components-list
+      path: /workspaces/{workspaceId}/entities/{entityId}/components-list
+      operations:
+      - name: amazonwebserviceslistcomponents
+        method: POST
+        description: Amazon Web Services Listcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entity-properties
+      path: /workspaces/{workspaceId}/entity-properties
+      operations:
+      - name: amazonwebservicesbatchputpropertyvalues
+        method: POST
+        description: Amazon Web Services Batchputpropertyvalues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entity-properties-history
+      path: /workspaces/{workspaceId}/entity-properties/history
+      operations:
+      - name: amazonwebservicesgetpropertyvaluehistory
+        method: POST
+        description: Amazon Web Services Getpropertyvaluehistory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-entity-properties-value
+      path: /workspaces/{workspaceId}/entity-properties/value
+      operations:
+      - name: amazonwebservicesgetpropertyvalue
+        method: POST
+        description: Amazon Web Services Getpropertyvalue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-properties-list
+      path: /workspaces/{workspaceId}/properties-list
+      operations:
+      - name: amazonwebserviceslistproperties
+        method: POST
+        description: Amazon Web Services Listproperties
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-scenes
+      path: /workspaces/{workspaceId}/scenes
+      operations:
+      - name: amazonwebservicescreatescene
+        method: POST
+        description: Amazon Web Services Createscene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-scenes-list
+      path: /workspaces/{workspaceId}/scenes-list
+      operations:
+      - name: amazonwebserviceslistscenes
+        method: POST
+        description: Amazon Web Services Listscenes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-scenes-sceneId
+      path: /workspaces/{workspaceId}/scenes/{sceneId}
+      operations:
+      - name: amazonwebservicesupdatescene
+        method: PUT
+        description: Amazon Web Services Updatescene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-sync-jobs-list
+      path: /workspaces/{workspaceId}/sync-jobs-list
+      operations:
+      - name: amazonwebserviceslistsyncjobs
+        method: POST
+        description: Amazon Web Services Listsyncjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-sync-jobs-syncSource
+      path: /workspaces/{workspaceId}/sync-jobs/{syncSource}
+      operations:
+      - name: amazonwebservicesdeletesyncjob
+        method: DELETE
+        description: Amazon Web Services Deletesyncjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workspaces-workspaceId-sync-jobs-syncSource-resources-list
+      path: /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list
+      operations:
+      - name: amazonwebserviceslistsyncresources
+        method: POST
+        description: Amazon Web Services Listsyncresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iottwinmaker-workspaces-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iottwinmaker — Workspaces. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/workspaces/{workspaceid}
+      name: workspaces-workspaceid
+      description: REST surface for workspaces-workspaceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateworkspace
+        description: Amazon Web Services Updateworkspace
+        call: iottwinmaker-workspaces.amazonwebservicesupdateworkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/component-types-list
+      name: workspaces-workspaceid-component-types-list
+      description: REST surface for workspaces-workspaceId-component-types-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcomponenttypes
+        description: Amazon Web Services Listcomponenttypes
+        call: iottwinmaker-workspaces.amazonwebserviceslistcomponenttypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/component-types/{componenttypeid}
+      name: workspaces-workspaceid-component-types-componenttypeid
+      description: REST surface for workspaces-workspaceId-component-types-componentTypeId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatecomponenttype
+        description: Amazon Web Services Updatecomponenttype
+        call: iottwinmaker-workspaces.amazonwebservicesupdatecomponenttype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities
+      name: workspaces-workspaceid-entities
+      description: REST surface for workspaces-workspaceId-entities.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateentity
+        description: Amazon Web Services Createentity
+        call: iottwinmaker-workspaces.amazonwebservicescreateentity
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities-list
+      name: workspaces-workspaceid-entities-list
+      description: REST surface for workspaces-workspaceId-entities-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistentities
+        description: Amazon Web Services Listentities
+        call: iottwinmaker-workspaces.amazonwebserviceslistentities
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities/{entityid}
+      name: workspaces-workspaceid-entities-entityid
+      description: REST surface for workspaces-workspaceId-entities-entityId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateentity
+        description: Amazon Web Services Updateentity
+        call: iottwinmaker-workspaces.amazonwebservicesupdateentity
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities/{entityid}/components-list
+      name: workspaces-workspaceid-entities-entityid-components-list
+      description: REST surface for workspaces-workspaceId-entities-entityId-components-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcomponents
+        description: Amazon Web Services Listcomponents
+        call: iottwinmaker-workspaces.amazonwebserviceslistcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties
+      name: workspaces-workspaceid-entity-properties
+      description: REST surface for workspaces-workspaceId-entity-properties.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchputpropertyvalues
+        description: Amazon Web Services Batchputpropertyvalues
+        call: iottwinmaker-workspaces.amazonwebservicesbatchputpropertyvalues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties/history
+      name: workspaces-workspaceid-entity-properties-history
+      description: REST surface for workspaces-workspaceId-entity-properties-history.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetpropertyvaluehistory
+        description: Amazon Web Services Getpropertyvaluehistory
+        call: iottwinmaker-workspaces.amazonwebservicesgetpropertyvaluehistory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties/value
+      name: workspaces-workspaceid-entity-properties-value
+      description: REST surface for workspaces-workspaceId-entity-properties-value.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetpropertyvalue
+        description: Amazon Web Services Getpropertyvalue
+        call: iottwinmaker-workspaces.amazonwebservicesgetpropertyvalue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/properties-list
+      name: workspaces-workspaceid-properties-list
+      description: REST surface for workspaces-workspaceId-properties-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistproperties
+        description: Amazon Web Services Listproperties
+        call: iottwinmaker-workspaces.amazonwebserviceslistproperties
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes
+      name: workspaces-workspaceid-scenes
+      description: REST surface for workspaces-workspaceId-scenes.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatescene
+        description: Amazon Web Services Createscene
+        call: iottwinmaker-workspaces.amazonwebservicescreatescene
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes-list
+      name: workspaces-workspaceid-scenes-list
+      description: REST surface for workspaces-workspaceId-scenes-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistscenes
+        description: Amazon Web Services Listscenes
+        call: iottwinmaker-workspaces.amazonwebserviceslistscenes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes/{sceneid}
+      name: workspaces-workspaceid-scenes-sceneid
+      description: REST surface for workspaces-workspaceId-scenes-sceneId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatescene
+        description: Amazon Web Services Updatescene
+        call: iottwinmaker-workspaces.amazonwebservicesupdatescene
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs-list
+      name: workspaces-workspaceid-sync-jobs-list
+      description: REST surface for workspaces-workspaceId-sync-jobs-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistsyncjobs
+        description: Amazon Web Services Listsyncjobs
+        call: iottwinmaker-workspaces.amazonwebserviceslistsyncjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs/{syncsource}
+      name: workspaces-workspaceid-sync-jobs-syncsource
+      description: REST surface for workspaces-workspaceId-sync-jobs-syncSource.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletesyncjob
+        description: Amazon Web Services Deletesyncjob
+        call: iottwinmaker-workspaces.amazonwebservicesdeletesyncjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs/{syncsource}/resources-list
+      name: workspaces-workspaceid-sync-jobs-syncsource-resources-list
+      description: REST surface for workspaces-workspaceId-sync-jobs-syncSource-resources-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistsyncresources
+        description: Amazon Web Services Listsyncresources
+        call: iottwinmaker-workspaces.amazonwebserviceslistsyncresources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iottwinmaker-workspaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iottwinmaker — Workspaces. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateworkspace
+      description: Amazon Web Services Updateworkspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iottwinmaker-workspaces.amazonwebservicesupdateworkspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcomponenttypes
+      description: Amazon Web Services Listcomponenttypes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistcomponenttypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecomponenttype
+      description: Amazon Web Services Updatecomponenttype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iottwinmaker-workspaces.amazonwebservicesupdatecomponenttype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createentity
+      description: Amazon Web Services Createentity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebservicescreateentity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listentities
+      description: Amazon Web Services Listentities
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistentities
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateentity
+      description: Amazon Web Services Updateentity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iottwinmaker-workspaces.amazonwebservicesupdateentity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcomponents
+      description: Amazon Web Services Listcomponents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistcomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchputpropertyvalues
+      description: Amazon Web Services Batchputpropertyvalues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebservicesbatchputpropertyvalues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpropertyvaluehistory
+      description: Amazon Web Services Getpropertyvaluehistory
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebservicesgetpropertyvaluehistory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpropertyvalue
+      description: Amazon Web Services Getpropertyvalue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebservicesgetpropertyvalue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listproperties
+      description: Amazon Web Services Listproperties
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistproperties
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createscene
+      description: Amazon Web Services Createscene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebservicescreatescene
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listscenes
+      description: Amazon Web Services Listscenes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistscenes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatescene
+      description: Amazon Web Services Updatescene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iottwinmaker-workspaces.amazonwebservicesupdatescene
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsyncjobs
+      description: Amazon Web Services Listsyncjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistsyncjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletesyncjob
+      description: Amazon Web Services Deletesyncjob
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: iottwinmaker-workspaces.amazonwebservicesdeletesyncjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listsyncresources
+      description: Amazon Web Services Listsyncresources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces.amazonwebserviceslistsyncresources
+      outputParameters:
+      - type: object
+        mapping: $.

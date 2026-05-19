@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeguruprofiler — Internal
+  description: 'Amazon Web Services codeguruprofiler — Internal. 4 operations. Lead operation: Amazon Web Services Getfindingsreportaccountsummary.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Internal
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeguruprofiler-internal
+    baseUri: ''
+    description: Amazon Web Services codeguruprofiler — Internal business capability. Self-contained, no shared references.
+    resources:
+    - name: internal-findingsReports
+      path: /internal/findingsReports
+      operations:
+      - name: amazonwebservicesgetfindingsreportaccountsummary
+        method: GET
+        description: Amazon Web Services Getfindingsreportaccountsummary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: internal-profilingGroups-profilingGroupName-anomalies-anomalyInstanceId-feedback
+      path: /internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback
+      operations:
+      - name: amazonwebservicessubmitfeedback
+        method: POST
+        description: Amazon Web Services Submitfeedback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: internal-profilingGroups-profilingGroupName-findingsReports
+      path: /internal/profilingGroups/{profilingGroupName}/findingsReports
+      operations:
+      - name: amazonwebserviceslistfindingsreports
+        method: GET
+        description: Amazon Web Services Listfindingsreports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: internal-profilingGroups-profilingGroupName-recommendations
+      path: /internal/profilingGroups/{profilingGroupName}/recommendations
+      operations:
+      - name: amazonwebservicesgetrecommendations
+        method: GET
+        description: Amazon Web Services Getrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeguruprofiler-internal-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeguruprofiler — Internal. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/internal/findingsreports
+      name: internal-findingsreports
+      description: REST surface for internal-findingsReports.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfindingsreportaccountsummary
+        description: Amazon Web Services Getfindingsreportaccountsummary
+        call: codeguruprofiler-internal.amazonwebservicesgetfindingsreportaccountsummary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/internal/profilinggroups/{profilinggroupname}/anomalies/{anomalyinstanceid}/feedback
+      name: internal-profilinggroups-profilinggroupname-anomalies-anomalyinstanceid-feedback
+      description: REST surface for internal-profilingGroups-profilingGroupName-anomalies-anomalyInstanceId-feedback.
+      operations:
+      - method: POST
+        name: amazonwebservicessubmitfeedback
+        description: Amazon Web Services Submitfeedback
+        call: codeguruprofiler-internal.amazonwebservicessubmitfeedback
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/internal/profilinggroups/{profilinggroupname}/findingsreports
+      name: internal-profilinggroups-profilinggroupname-findingsreports
+      description: REST surface for internal-profilingGroups-profilingGroupName-findingsReports.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfindingsreports
+        description: Amazon Web Services Listfindingsreports
+        call: codeguruprofiler-internal.amazonwebserviceslistfindingsreports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/internal/profilinggroups/{profilinggroupname}/recommendations
+      name: internal-profilinggroups-profilinggroupname-recommendations
+      description: REST surface for internal-profilingGroups-profilingGroupName-recommendations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrecommendations
+        description: Amazon Web Services Getrecommendations
+        call: codeguruprofiler-internal.amazonwebservicesgetrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeguruprofiler-internal-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeguruprofiler — Internal. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getfindingsreportaccountsummary
+      description: Amazon Web Services Getfindingsreportaccountsummary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-internal.amazonwebservicesgetfindingsreportaccountsummary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-submitfeedback
+      description: Amazon Web Services Submitfeedback
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeguruprofiler-internal.amazonwebservicessubmitfeedback
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfindingsreports
+      description: Amazon Web Services Listfindingsreports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-internal.amazonwebserviceslistfindingsreports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getrecommendations
+      description: Amazon Web Services Getrecommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguruprofiler-internal.amazonwebservicesgetrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.

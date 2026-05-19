@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediatailor — Channels
+  description: 'Amazon Web Services mediatailor — Channels. 1 operations. Lead operation: Amazon Web Services Listchannels.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediatailor-channels
+    baseUri: ''
+    description: Amazon Web Services mediatailor — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: channels
+      path: /channels
+      operations:
+      - name: amazonwebserviceslistchannels
+        method: GET
+        description: Amazon Web Services Listchannels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediatailor-channels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediatailor — Channels. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/channels
+      name: channels
+      description: REST surface for channels.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannels
+        description: Amazon Web Services Listchannels
+        call: mediatailor-channels.amazonwebserviceslistchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediatailor-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediatailor — Channels. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchannels
+      description: Amazon Web Services Listchannels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediatailor-channels.amazonwebserviceslistchannels
+      outputParameters:
+      - type: object
+        mapping: $.

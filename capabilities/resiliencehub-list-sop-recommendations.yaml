@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — List Sop Recommendations
+  description: 'Amazon Web Services resiliencehub — List Sop Recommendations. 1 operations. Lead operation: Amazon Web Services
+    Listsoprecommendations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Sop Recommendations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-list-sop-recommendations
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — List Sop Recommendations business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: list-sop-recommendations
+      path: /list-sop-recommendations
+      operations:
+      - name: amazonwebserviceslistsoprecommendations
+        method: POST
+        description: Amazon Web Services Listsoprecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-list-sop-recommendations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — List Sop Recommendations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-sop-recommendations
+      name: list-sop-recommendations
+      description: REST surface for list-sop-recommendations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistsoprecommendations
+        description: Amazon Web Services Listsoprecommendations
+        call: resiliencehub-list-sop-recommendations.amazonwebserviceslistsoprecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-list-sop-recommendations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — List Sop Recommendations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsoprecommendations
+      description: Amazon Web Services Listsoprecommendations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-list-sop-recommendations.amazonwebserviceslistsoprecommendations
+      outputParameters:
+      - type: object
+        mapping: $.

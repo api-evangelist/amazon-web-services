@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mgn — RemoveSourceServerAction
+  description: 'Amazon Web Services mgn — RemoveSourceServerAction. 1 operations. Lead operation: Amazon Web Services Removesourceserveraction.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - RemoveSourceServerAction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mgn-removesourceserveraction
+    baseUri: ''
+    description: Amazon Web Services mgn — RemoveSourceServerAction business capability. Self-contained, no shared references.
+    resources:
+    - name: RemoveSourceServerAction
+      path: /RemoveSourceServerAction
+      operations:
+      - name: amazonwebservicesremovesourceserveraction
+        method: POST
+        description: Amazon Web Services Removesourceserveraction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mgn-removesourceserveraction-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mgn — RemoveSourceServerAction. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/removesourceserveraction
+      name: removesourceserveraction
+      description: REST surface for RemoveSourceServerAction.
+      operations:
+      - method: POST
+        name: amazonwebservicesremovesourceserveraction
+        description: Amazon Web Services Removesourceserveraction
+        call: mgn-removesourceserveraction.amazonwebservicesremovesourceserveraction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mgn-removesourceserveraction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mgn — RemoveSourceServerAction. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-removesourceserveraction
+      description: Amazon Web Services Removesourceserveraction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mgn-removesourceserveraction.amazonwebservicesremovesourceserveraction
+      outputParameters:
+      - type: object
+        mapping: $.

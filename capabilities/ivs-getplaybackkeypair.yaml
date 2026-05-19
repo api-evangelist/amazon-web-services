@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — GetPlaybackKeyPair
+  description: 'Amazon Web Services ivs — GetPlaybackKeyPair. 1 operations. Lead operation: Amazon Web Services Getplaybackkeypair.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetPlaybackKeyPair
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-getplaybackkeypair
+    baseUri: ''
+    description: Amazon Web Services ivs — GetPlaybackKeyPair business capability. Self-contained, no shared references.
+    resources:
+    - name: GetPlaybackKeyPair
+      path: /GetPlaybackKeyPair
+      operations:
+      - name: amazonwebservicesgetplaybackkeypair
+        method: POST
+        description: Amazon Web Services Getplaybackkeypair
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-getplaybackkeypair-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — GetPlaybackKeyPair. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getplaybackkeypair
+      name: getplaybackkeypair
+      description: REST surface for GetPlaybackKeyPair.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetplaybackkeypair
+        description: Amazon Web Services Getplaybackkeypair
+        call: ivs-getplaybackkeypair.amazonwebservicesgetplaybackkeypair
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-getplaybackkeypair-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — GetPlaybackKeyPair. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getplaybackkeypair
+      description: Amazon Web Services Getplaybackkeypair
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-getplaybackkeypair.amazonwebservicesgetplaybackkeypair
+      outputParameters:
+      - type: object
+        mapping: $.

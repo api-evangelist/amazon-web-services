@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services importexport — ?Operation=GetStatus
+  description: 'Amazon Web Services importexport — ?Operation=GetStatus. 1 operations. Lead operation: Amazon Web Services
+    Getstatus. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ?Operation=GetStatus
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: importexport-operation-getstatus
+    baseUri: ''
+    description: Amazon Web Services importexport — ?Operation=GetStatus business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Operation=GetStatus
+      path: /?Operation=GetStatus
+      operations:
+      - name: amazonwebservicesgetstatus
+        method: POST
+        description: Amazon Web Services Getstatus
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: importexport-operation-getstatus-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services importexport — ?Operation=GetStatus. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/operation-getstatus
+      name: operation-getstatus
+      description: REST surface for ?Operation=GetStatus.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetstatus
+        description: Amazon Web Services Getstatus
+        call: importexport-operation-getstatus.amazonwebservicesgetstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: importexport-operation-getstatus-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services importexport — ?Operation=GetStatus. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getstatus
+      description: Amazon Web Services Getstatus
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: importexport-operation-getstatus.amazonwebservicesgetstatus
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services timestream-write
+  description: 'Amazon Web Services timestream-write. 1 operations. Lead operation: Amazon Web Services Writerecords. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services timestream-write
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: timestream-write
+    baseUri: ''
+    description: Amazon Web Services timestream-write business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebserviceswriterecords
+        method: POST
+        description: Amazon Web Services Writerecords
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: timestream-write-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services timestream-write. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebserviceswriterecords
+        description: Amazon Web Services Writerecords
+        call: timestream-write.amazonwebserviceswriterecords
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: timestream-write-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services timestream-write. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-writerecords
+      description: Amazon Web Services Writerecords
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: timestream-write.amazonwebserviceswriterecords
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services frauddetector
+  description: 'Amazon Web Services frauddetector. 1 operations. Lead operation: Amazon Web Services Updatevariable. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services frauddetector
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: frauddetector
+    baseUri: ''
+    description: Amazon Web Services frauddetector business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatevariable
+        method: POST
+        description: Amazon Web Services Updatevariable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: frauddetector-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services frauddetector. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatevariable
+        description: Amazon Web Services Updatevariable
+        call: frauddetector.amazonwebservicesupdatevariable
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: frauddetector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services frauddetector. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatevariable
+      description: Amazon Web Services Updatevariable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: frauddetector.amazonwebservicesupdatevariable
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeguru-reviewer — Codereviews
+  description: 'Amazon Web Services codeguru-reviewer — Codereviews. 3 operations. Lead operation: Amazon Web Services Listcodereviews.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Codereviews
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeguru-reviewer-codereviews
+    baseUri: ''
+    description: Amazon Web Services codeguru-reviewer — Codereviews business capability. Self-contained, no shared references.
+    resources:
+    - name: codereviews
+      path: /codereviews
+      operations:
+      - name: amazonwebserviceslistcodereviews
+        method: GET
+        description: Amazon Web Services Listcodereviews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: codereviews-CodeReviewArn
+      path: /codereviews/{CodeReviewArn}
+      operations:
+      - name: amazonwebservicesdescribecodereview
+        method: GET
+        description: Amazon Web Services Describecodereview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: codereviews-CodeReviewArn-Recommendations
+      path: /codereviews/{CodeReviewArn}/Recommendations
+      operations:
+      - name: amazonwebserviceslistrecommendations
+        method: GET
+        description: Amazon Web Services Listrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeguru-reviewer-codereviews-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeguru-reviewer — Codereviews. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/codereviews
+      name: codereviews
+      description: REST surface for codereviews.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcodereviews
+        description: Amazon Web Services Listcodereviews
+        call: codeguru-reviewer-codereviews.amazonwebserviceslistcodereviews
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/codereviews/{codereviewarn}
+      name: codereviews-codereviewarn
+      description: REST surface for codereviews-CodeReviewArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribecodereview
+        description: Amazon Web Services Describecodereview
+        call: codeguru-reviewer-codereviews.amazonwebservicesdescribecodereview
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/codereviews/{codereviewarn}/recommendations
+      name: codereviews-codereviewarn-recommendations
+      description: REST surface for codereviews-CodeReviewArn-Recommendations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecommendations
+        description: Amazon Web Services Listrecommendations
+        call: codeguru-reviewer-codereviews.amazonwebserviceslistrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeguru-reviewer-codereviews-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeguru-reviewer — Codereviews. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcodereviews
+      description: Amazon Web Services Listcodereviews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-reviewer-codereviews.amazonwebserviceslistcodereviews
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describecodereview
+      description: Amazon Web Services Describecodereview
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-reviewer-codereviews.amazonwebservicesdescribecodereview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrecommendations
+      description: Amazon Web Services Listrecommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-reviewer-codereviews.amazonwebserviceslistrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.

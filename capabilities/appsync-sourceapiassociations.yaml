@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — sourceApiAssociations
+  description: 'Amazon Web Services appsync — sourceApiAssociations. 1 operations. Lead operation: Amazon Web Services Listsourceapiassociations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - sourceApiAssociations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-sourceapiassociations
+    baseUri: ''
+    description: Amazon Web Services appsync — sourceApiAssociations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-sourceApiAssociations
+      path: /v1/apis/{apiId}/sourceApiAssociations
+      operations:
+      - name: amazonwebserviceslistsourceapiassociations
+        method: GET
+        description: Amazon Web Services Listsourceapiassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-sourceapiassociations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — sourceApiAssociations. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/sourceapiassociations
+      name: v1-apis-apiid-sourceapiassociations
+      description: REST surface for v1-apis-apiId-sourceApiAssociations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsourceapiassociations
+        description: Amazon Web Services Listsourceapiassociations
+        call: appsync-sourceapiassociations.amazonwebserviceslistsourceapiassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-sourceapiassociations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — sourceApiAssociations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsourceapiassociations
+      description: Amazon Web Services Listsourceapiassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-sourceapiassociations.amazonwebserviceslistsourceapiassociations
+      outputParameters:
+      - type: object
+        mapping: $.

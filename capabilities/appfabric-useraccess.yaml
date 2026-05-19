@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appfabric — Useraccess
+  description: 'Amazon Web Services appfabric — Useraccess. 2 operations. Lead operation: Amazon Web Services Batchgetuseraccesstasks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Useraccess
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appfabric-useraccess
+    baseUri: ''
+    description: Amazon Web Services appfabric — Useraccess business capability. Self-contained, no shared references.
+    resources:
+    - name: useraccess-batchget
+      path: /useraccess/batchget
+      operations:
+      - name: amazonwebservicesbatchgetuseraccesstasks
+        method: POST
+        description: Amazon Web Services Batchgetuseraccesstasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: useraccess-start
+      path: /useraccess/start
+      operations:
+      - name: amazonwebservicesstartuseraccesstasks
+        method: POST
+        description: Amazon Web Services Startuseraccesstasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appfabric-useraccess-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appfabric — Useraccess. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/useraccess/batchget
+      name: useraccess-batchget
+      description: REST surface for useraccess-batchget.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetuseraccesstasks
+        description: Amazon Web Services Batchgetuseraccesstasks
+        call: appfabric-useraccess.amazonwebservicesbatchgetuseraccesstasks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/useraccess/start
+      name: useraccess-start
+      description: REST surface for useraccess-start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartuseraccesstasks
+        description: Amazon Web Services Startuseraccesstasks
+        call: appfabric-useraccess.amazonwebservicesstartuseraccesstasks
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appfabric-useraccess-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appfabric — Useraccess. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchgetuseraccesstasks
+      description: Amazon Web Services Batchgetuseraccesstasks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appfabric-useraccess.amazonwebservicesbatchgetuseraccesstasks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startuseraccesstasks
+      description: Amazon Web Services Startuseraccesstasks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appfabric-useraccess.amazonwebservicesstartuseraccesstasks
+      outputParameters:
+      - type: object
+        mapping: $.

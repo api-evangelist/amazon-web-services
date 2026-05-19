@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — ListTagsForResource
+  description: 'Amazon Web Services rolesanywhere — ListTagsForResource. 1 operations. Lead operation: Amazon Web Services
+    Listtagsforresource. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListTagsForResource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-listtagsforresource
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — ListTagsForResource business capability. Self-contained, no shared references.
+    resources:
+    - name: ListTagsForResource
+      path: /ListTagsForResource
+      operations:
+      - name: amazonwebserviceslisttagsforresource
+        method: GET
+        description: Amazon Web Services Listtagsforresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-listtagsforresource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — ListTagsForResource. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listtagsforresource
+      name: listtagsforresource
+      description: REST surface for ListTagsForResource.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttagsforresource
+        description: Amazon Web Services Listtagsforresource
+        call: rolesanywhere-listtagsforresource.amazonwebserviceslisttagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-listtagsforresource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — ListTagsForResource. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtagsforresource
+      description: Amazon Web Services Listtagsforresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-listtagsforresource.amazonwebserviceslisttagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.

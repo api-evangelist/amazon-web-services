@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListComponentBuildVersions
+  description: 'Amazon Web Services imagebuilder — ListComponentBuildVersions. 1 operations. Lead operation: Amazon Web Services
+    Listcomponentbuildversions. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListComponentBuildVersions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listcomponentbuildversions
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListComponentBuildVersions business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: ListComponentBuildVersions
+      path: /ListComponentBuildVersions
+      operations:
+      - name: amazonwebserviceslistcomponentbuildversions
+        method: POST
+        description: Amazon Web Services Listcomponentbuildversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listcomponentbuildversions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListComponentBuildVersions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listcomponentbuildversions
+      name: listcomponentbuildversions
+      description: REST surface for ListComponentBuildVersions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistcomponentbuildversions
+        description: Amazon Web Services Listcomponentbuildversions
+        call: imagebuilder-listcomponentbuildversions.amazonwebserviceslistcomponentbuildversions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listcomponentbuildversions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListComponentBuildVersions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcomponentbuildversions
+      description: Amazon Web Services Listcomponentbuildversions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listcomponentbuildversions.amazonwebserviceslistcomponentbuildversions
+      outputParameters:
+      - type: object
+        mapping: $.

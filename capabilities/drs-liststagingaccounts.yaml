@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — ListStagingAccounts
+  description: 'Amazon Web Services drs — ListStagingAccounts. 1 operations. Lead operation: Amazon Web Services Liststagingaccounts.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListStagingAccounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-liststagingaccounts
+    baseUri: ''
+    description: Amazon Web Services drs — ListStagingAccounts business capability. Self-contained, no shared references.
+    resources:
+    - name: ListStagingAccounts
+      path: /ListStagingAccounts
+      operations:
+      - name: amazonwebservicesliststagingaccounts
+        method: GET
+        description: Amazon Web Services Liststagingaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-liststagingaccounts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — ListStagingAccounts. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/liststagingaccounts
+      name: liststagingaccounts
+      description: REST surface for ListStagingAccounts.
+      operations:
+      - method: GET
+        name: amazonwebservicesliststagingaccounts
+        description: Amazon Web Services Liststagingaccounts
+        call: drs-liststagingaccounts.amazonwebservicesliststagingaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-liststagingaccounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — ListStagingAccounts. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-liststagingaccounts
+      description: Amazon Web Services Liststagingaccounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: drs-liststagingaccounts.amazonwebservicesliststagingaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

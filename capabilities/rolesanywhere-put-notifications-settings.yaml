@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — Put Notifications Settings
+  description: 'Amazon Web Services rolesanywhere — Put Notifications Settings. 1 operations. Lead operation: Amazon Web Services
+    Putnotificationsettings. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Put Notifications Settings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-put-notifications-settings
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — Put Notifications Settings business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: put-notifications-settings
+      path: /put-notifications-settings
+      operations:
+      - name: amazonwebservicesputnotificationsettings
+        method: PATCH
+        description: Amazon Web Services Putnotificationsettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-put-notifications-settings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — Put Notifications Settings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/put-notifications-settings
+      name: put-notifications-settings
+      description: REST surface for put-notifications-settings.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesputnotificationsettings
+        description: Amazon Web Services Putnotificationsettings
+        call: rolesanywhere-put-notifications-settings.amazonwebservicesputnotificationsettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-put-notifications-settings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — Put Notifications Settings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putnotificationsettings
+      description: Amazon Web Services Putnotificationsettings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-put-notifications-settings.amazonwebservicesputnotificationsettings
+      outputParameters:
+      - type: object
+        mapping: $.

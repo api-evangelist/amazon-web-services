@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appflow — Describe Connector
+  description: 'Amazon Web Services appflow — Describe Connector. 1 operations. Lead operation: Amazon Web Services Describeconnector.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe Connector
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appflow-describe-connector
+    baseUri: ''
+    description: Amazon Web Services appflow — Describe Connector business capability. Self-contained, no shared references.
+    resources:
+    - name: describe-connector
+      path: /describe-connector
+      operations:
+      - name: amazonwebservicesdescribeconnector
+        method: POST
+        description: Amazon Web Services Describeconnector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appflow-describe-connector-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appflow — Describe Connector. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-connector
+      name: describe-connector
+      description: REST surface for describe-connector.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeconnector
+        description: Amazon Web Services Describeconnector
+        call: appflow-describe-connector.amazonwebservicesdescribeconnector
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appflow-describe-connector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appflow — Describe Connector. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeconnector
+      description: Amazon Web Services Describeconnector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appflow-describe-connector.amazonwebservicesdescribeconnector
+      outputParameters:
+      - type: object
+        mapping: $.

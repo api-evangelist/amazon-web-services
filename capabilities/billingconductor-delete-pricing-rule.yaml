@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — Delete Pricing Rule
+  description: 'Amazon Web Services billingconductor — Delete Pricing Rule. 1 operations. Lead operation: Amazon Web Services
+    Deletepricingrule. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete Pricing Rule
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-delete-pricing-rule
+    baseUri: ''
+    description: Amazon Web Services billingconductor — Delete Pricing Rule business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: delete-pricing-rule
+      path: /delete-pricing-rule
+      operations:
+      - name: amazonwebservicesdeletepricingrule
+        method: POST
+        description: Amazon Web Services Deletepricingrule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-delete-pricing-rule-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — Delete Pricing Rule. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-pricing-rule
+      name: delete-pricing-rule
+      description: REST surface for delete-pricing-rule.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletepricingrule
+        description: Amazon Web Services Deletepricingrule
+        call: billingconductor-delete-pricing-rule.amazonwebservicesdeletepricingrule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-delete-pricing-rule-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — Delete Pricing Rule. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletepricingrule
+      description: Amazon Web Services Deletepricingrule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: billingconductor-delete-pricing-rule.amazonwebservicesdeletepricingrule
+      outputParameters:
+      - type: object
+        mapping: $.

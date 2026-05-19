@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services detective — Invitations
+  description: 'Amazon Web Services detective — Invitations. 1 operations. Lead operation: Amazon Web Services Listinvitations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Invitations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: detective-invitations
+    baseUri: ''
+    description: Amazon Web Services detective — Invitations business capability. Self-contained, no shared references.
+    resources:
+    - name: invitations-list
+      path: /invitations/list
+      operations:
+      - name: amazonwebserviceslistinvitations
+        method: POST
+        description: Amazon Web Services Listinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: detective-invitations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services detective — Invitations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/invitations/list
+      name: invitations-list
+      description: REST surface for invitations-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistinvitations
+        description: Amazon Web Services Listinvitations
+        call: detective-invitations.amazonwebserviceslistinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: detective-invitations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services detective — Invitations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listinvitations
+      description: Amazon Web Services Listinvitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: detective-invitations.amazonwebserviceslistinvitations
+      outputParameters:
+      - type: object
+        mapping: $.

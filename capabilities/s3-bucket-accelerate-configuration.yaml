@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Accelerate Configuration
+  description: 'Amazon Web Services AWS S3 — Bucket Accelerate Configuration. 1 operations. Lead operation: Amazon Web Services
+    Put Bucket Accelerate Configuration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Accelerate Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-accelerate-configuration
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Accelerate Configuration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Bucket}?accelerate
+      path: /{Bucket}?accelerate
+      operations:
+      - name: putbucketaccelerateconfiguration
+        method: PUT
+        description: Amazon Web Services Put Bucket Accelerate Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-accelerate-configuration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Accelerate Configuration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-accelerate
+      name: bucket-accelerate
+      description: REST surface for Bucket}?accelerate.
+      operations:
+      - method: PUT
+        name: putbucketaccelerateconfiguration
+        description: Amazon Web Services Put Bucket Accelerate Configuration
+        call: s3-bucket-accelerate-configuration.putbucketaccelerateconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-accelerate-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Accelerate Configuration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Accelerate Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-accelerate-configuration.putbucketaccelerateconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

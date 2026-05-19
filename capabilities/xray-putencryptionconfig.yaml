@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — PutEncryptionConfig
+  description: 'Amazon Web Services xray — PutEncryptionConfig. 1 operations. Lead operation: Amazon Web Services Putencryptionconfig.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutEncryptionConfig
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-putencryptionconfig
+    baseUri: ''
+    description: Amazon Web Services xray — PutEncryptionConfig business capability. Self-contained, no shared references.
+    resources:
+    - name: PutEncryptionConfig
+      path: /PutEncryptionConfig
+      operations:
+      - name: amazonwebservicesputencryptionconfig
+        method: POST
+        description: Amazon Web Services Putencryptionconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-putencryptionconfig-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — PutEncryptionConfig. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/putencryptionconfig
+      name: putencryptionconfig
+      description: REST surface for PutEncryptionConfig.
+      operations:
+      - method: POST
+        name: amazonwebservicesputencryptionconfig
+        description: Amazon Web Services Putencryptionconfig
+        call: xray-putencryptionconfig.amazonwebservicesputencryptionconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-putencryptionconfig-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — PutEncryptionConfig. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putencryptionconfig
+      description: Amazon Web Services Putencryptionconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-putencryptionconfig.amazonwebservicesputencryptionconfig
+      outputParameters:
+      - type: object
+        mapping: $.

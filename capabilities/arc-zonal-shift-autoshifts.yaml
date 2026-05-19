@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services arc-zonal-shift — Autoshifts
+  description: 'Amazon Web Services arc-zonal-shift — Autoshifts. 1 operations. Lead operation: Amazon Web Services Listautoshifts.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Autoshifts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: arc-zonal-shift-autoshifts
+    baseUri: ''
+    description: Amazon Web Services arc-zonal-shift — Autoshifts business capability. Self-contained, no shared references.
+    resources:
+    - name: autoshifts
+      path: /autoshifts
+      operations:
+      - name: amazonwebserviceslistautoshifts
+        method: GET
+        description: Amazon Web Services Listautoshifts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: arc-zonal-shift-autoshifts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services arc-zonal-shift — Autoshifts. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/autoshifts
+      name: autoshifts
+      description: REST surface for autoshifts.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistautoshifts
+        description: Amazon Web Services Listautoshifts
+        call: arc-zonal-shift-autoshifts.amazonwebserviceslistautoshifts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: arc-zonal-shift-autoshifts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services arc-zonal-shift — Autoshifts. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listautoshifts
+      description: Amazon Web Services Listautoshifts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: arc-zonal-shift-autoshifts.amazonwebserviceslistautoshifts
+      outputParameters:
+      - type: object
+        mapping: $.

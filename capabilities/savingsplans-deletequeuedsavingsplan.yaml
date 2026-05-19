@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services savingsplans — DeleteQueuedSavingsPlan
+  description: 'Amazon Web Services savingsplans — DeleteQueuedSavingsPlan. 1 operations. Lead operation: Amazon Web Services
+    Deletequeuedsavingsplan. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteQueuedSavingsPlan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: savingsplans-deletequeuedsavingsplan
+    baseUri: ''
+    description: Amazon Web Services savingsplans — DeleteQueuedSavingsPlan business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: DeleteQueuedSavingsPlan
+      path: /DeleteQueuedSavingsPlan
+      operations:
+      - name: amazonwebservicesdeletequeuedsavingsplan
+        method: POST
+        description: Amazon Web Services Deletequeuedsavingsplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: savingsplans-deletequeuedsavingsplan-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services savingsplans — DeleteQueuedSavingsPlan. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletequeuedsavingsplan
+      name: deletequeuedsavingsplan
+      description: REST surface for DeleteQueuedSavingsPlan.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletequeuedsavingsplan
+        description: Amazon Web Services Deletequeuedsavingsplan
+        call: savingsplans-deletequeuedsavingsplan.amazonwebservicesdeletequeuedsavingsplan
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: savingsplans-deletequeuedsavingsplan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services savingsplans — DeleteQueuedSavingsPlan. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletequeuedsavingsplan
+      description: Amazon Web Services Deletequeuedsavingsplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: savingsplans-deletequeuedsavingsplan.amazonwebservicesdeletequeuedsavingsplan
+      outputParameters:
+      - type: object
+        mapping: $.

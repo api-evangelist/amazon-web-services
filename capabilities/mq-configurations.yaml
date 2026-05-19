@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mq — Configurations
+  description: 'Amazon Web Services mq — Configurations. 4 operations. Lead operation: Amazon Web Services Listconfigurations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Configurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mq-configurations
+    baseUri: ''
+    description: Amazon Web Services mq — Configurations business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-configurations
+      path: /v1/configurations
+      operations:
+      - name: amazonwebserviceslistconfigurations
+        method: GET
+        description: Amazon Web Services Listconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-configurations-configuration-id
+      path: /v1/configurations/{configuration-id}
+      operations:
+      - name: amazonwebservicesupdateconfiguration
+        method: PUT
+        description: Amazon Web Services Updateconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-configurations-configuration-id-revisions
+      path: /v1/configurations/{configuration-id}/revisions
+      operations:
+      - name: amazonwebserviceslistconfigurationrevisions
+        method: GET
+        description: Amazon Web Services Listconfigurationrevisions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-configurations-configuration-id-revisions-configuration-revision
+      path: /v1/configurations/{configuration-id}/revisions/{configuration-revision}
+      operations:
+      - name: amazonwebservicesdescribeconfigurationrevision
+        method: GET
+        description: Amazon Web Services Describeconfigurationrevision
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mq-configurations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mq — Configurations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/configurations
+      name: v1-configurations
+      description: REST surface for v1-configurations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfigurations
+        description: Amazon Web Services Listconfigurations
+        call: mq-configurations.amazonwebserviceslistconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/configurations/{configuration-id}
+      name: v1-configurations-configuration-id
+      description: REST surface for v1-configurations-configuration-id.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateconfiguration
+        description: Amazon Web Services Updateconfiguration
+        call: mq-configurations.amazonwebservicesupdateconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/configurations/{configuration-id}/revisions
+      name: v1-configurations-configuration-id-revisions
+      description: REST surface for v1-configurations-configuration-id-revisions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfigurationrevisions
+        description: Amazon Web Services Listconfigurationrevisions
+        call: mq-configurations.amazonwebserviceslistconfigurationrevisions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/configurations/{configuration-id}/revisions/{configuration-revision}
+      name: v1-configurations-configuration-id-revisions-configuration-revision
+      description: REST surface for v1-configurations-configuration-id-revisions-configuration-revision.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeconfigurationrevision
+        description: Amazon Web Services Describeconfigurationrevision
+        call: mq-configurations.amazonwebservicesdescribeconfigurationrevision
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mq-configurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mq — Configurations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listconfigurations
+      description: Amazon Web Services Listconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mq-configurations.amazonwebserviceslistconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfiguration
+      description: Amazon Web Services Updateconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mq-configurations.amazonwebservicesupdateconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfigurationrevisions
+      description: Amazon Web Services Listconfigurationrevisions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mq-configurations.amazonwebserviceslistconfigurationrevisions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeconfigurationrevision
+      description: Amazon Web Services Describeconfigurationrevision
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mq-configurations.amazonwebservicesdescribeconfigurationrevision
+      outputParameters:
+      - type: object
+        mapping: $.

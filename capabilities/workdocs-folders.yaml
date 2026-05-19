@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workdocs — Folders
+  description: 'Amazon Web Services workdocs — Folders. 4 operations. Lead operation: Amazon Web Services Createfolder. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Folders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workdocs-folders
+    baseUri: ''
+    description: Amazon Web Services workdocs — Folders business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-folders
+      path: /api/v1/folders
+      operations:
+      - name: amazonwebservicescreatefolder
+        method: POST
+        description: Amazon Web Services Createfolder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-folders-FolderId
+      path: /api/v1/folders/{FolderId}
+      operations:
+      - name: amazonwebservicesupdatefolder
+        method: PATCH
+        description: Amazon Web Services Updatefolder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-folders-FolderId-contents
+      path: /api/v1/folders/{FolderId}/contents
+      operations:
+      - name: amazonwebservicesdescribefoldercontents
+        method: GET
+        description: Amazon Web Services Describefoldercontents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-folders-FolderId-path
+      path: /api/v1/folders/{FolderId}/path
+      operations:
+      - name: amazonwebservicesgetfolderpath
+        method: GET
+        description: Amazon Web Services Getfolderpath
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workdocs-folders-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workdocs — Folders. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/folders
+      name: api-v1-folders
+      description: REST surface for api-v1-folders.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatefolder
+        description: Amazon Web Services Createfolder
+        call: workdocs-folders.amazonwebservicescreatefolder
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/folders/{folderid}
+      name: api-v1-folders-folderid
+      description: REST surface for api-v1-folders-FolderId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatefolder
+        description: Amazon Web Services Updatefolder
+        call: workdocs-folders.amazonwebservicesupdatefolder
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/folders/{folderid}/contents
+      name: api-v1-folders-folderid-contents
+      description: REST surface for api-v1-folders-FolderId-contents.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribefoldercontents
+        description: Amazon Web Services Describefoldercontents
+        call: workdocs-folders.amazonwebservicesdescribefoldercontents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/folders/{folderid}/path
+      name: api-v1-folders-folderid-path
+      description: REST surface for api-v1-folders-FolderId-path.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfolderpath
+        description: Amazon Web Services Getfolderpath
+        call: workdocs-folders.amazonwebservicesgetfolderpath
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workdocs-folders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workdocs — Folders. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createfolder
+      description: Amazon Web Services Createfolder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workdocs-folders.amazonwebservicescreatefolder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefolder
+      description: Amazon Web Services Updatefolder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workdocs-folders.amazonwebservicesupdatefolder
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describefoldercontents
+      description: Amazon Web Services Describefoldercontents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-folders.amazonwebservicesdescribefoldercontents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfolderpath
+      description: Amazon Web Services Getfolderpath
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-folders.amazonwebservicesgetfolderpath
+      outputParameters:
+      - type: object
+        mapping: $.

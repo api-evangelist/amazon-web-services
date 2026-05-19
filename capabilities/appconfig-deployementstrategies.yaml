@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appconfig — Deployementstrategies
+  description: 'Amazon Web Services appconfig — Deployementstrategies. 1 operations. Lead operation: Amazon Web Services Deletedeploymentstrategy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Deployementstrategies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appconfig-deployementstrategies
+    baseUri: ''
+    description: Amazon Web Services appconfig — Deployementstrategies business capability. Self-contained, no shared references.
+    resources:
+    - name: deployementstrategies-DeploymentStrategyId
+      path: /deployementstrategies/{DeploymentStrategyId}
+      operations:
+      - name: amazonwebservicesdeletedeploymentstrategy
+        method: DELETE
+        description: Amazon Web Services Deletedeploymentstrategy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appconfig-deployementstrategies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appconfig — Deployementstrategies. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deployementstrategies/{deploymentstrategyid}
+      name: deployementstrategies-deploymentstrategyid
+      description: REST surface for deployementstrategies-DeploymentStrategyId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletedeploymentstrategy
+        description: Amazon Web Services Deletedeploymentstrategy
+        call: appconfig-deployementstrategies.amazonwebservicesdeletedeploymentstrategy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appconfig-deployementstrategies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appconfig — Deployementstrategies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletedeploymentstrategy
+      description: Amazon Web Services Deletedeploymentstrategy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: appconfig-deployementstrategies.amazonwebservicesdeletedeploymentstrategy
+      outputParameters:
+      - type: object
+        mapping: $.

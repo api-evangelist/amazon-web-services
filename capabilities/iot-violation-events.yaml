@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Violation Events
+  description: 'Amazon Web Services iot — Violation Events. 1 operations. Lead operation: Amazon Web Services Listviolationevents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Violation Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-violation-events
+    baseUri: ''
+    description: Amazon Web Services iot — Violation Events business capability. Self-contained, no shared references.
+    resources:
+    - name: violation-events
+      path: /violation-events
+      operations:
+      - name: amazonwebserviceslistviolationevents
+        method: GET
+        description: Amazon Web Services Listviolationevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-violation-events-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Violation Events. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/violation-events
+      name: violation-events
+      description: REST surface for violation-events.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistviolationevents
+        description: Amazon Web Services Listviolationevents
+        call: iot-violation-events.amazonwebserviceslistviolationevents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-violation-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Violation Events. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listviolationevents
+      description: Amazon Web Services Listviolationevents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-violation-events.amazonwebserviceslistviolationevents
+      outputParameters:
+      - type: object
+        mapping: $.

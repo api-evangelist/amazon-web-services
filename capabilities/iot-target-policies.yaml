@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Target Policies
+  description: 'Amazon Web Services iot — Target Policies. 1 operations. Lead operation: Amazon Web Services Detachpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Target Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-target-policies
+    baseUri: ''
+    description: Amazon Web Services iot — Target Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: target-policies-policyName
+      path: /target-policies/{policyName}
+      operations:
+      - name: amazonwebservicesdetachpolicy
+        method: POST
+        description: Amazon Web Services Detachpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-target-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Target Policies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/target-policies/{policyname}
+      name: target-policies-policyname
+      description: REST surface for target-policies-policyName.
+      operations:
+      - method: POST
+        name: amazonwebservicesdetachpolicy
+        description: Amazon Web Services Detachpolicy
+        call: iot-target-policies.amazonwebservicesdetachpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-target-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Target Policies. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-detachpolicy
+      description: Amazon Web Services Detachpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-target-policies.amazonwebservicesdetachpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

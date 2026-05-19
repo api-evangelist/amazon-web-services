@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Security Profile Behaviors
+  description: 'Amazon Web Services iot — Security Profile Behaviors. 1 operations. Lead operation: Amazon Web Services Validatesecurityprofilebehaviors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Security Profile Behaviors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-security-profile-behaviors
+    baseUri: ''
+    description: Amazon Web Services iot — Security Profile Behaviors business capability. Self-contained, no shared references.
+    resources:
+    - name: security-profile-behaviors-validate
+      path: /security-profile-behaviors/validate
+      operations:
+      - name: amazonwebservicesvalidatesecurityprofilebehaviors
+        method: POST
+        description: Amazon Web Services Validatesecurityprofilebehaviors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-security-profile-behaviors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Security Profile Behaviors. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/security-profile-behaviors/validate
+      name: security-profile-behaviors-validate
+      description: REST surface for security-profile-behaviors-validate.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidatesecurityprofilebehaviors
+        description: Amazon Web Services Validatesecurityprofilebehaviors
+        call: iot-security-profile-behaviors.amazonwebservicesvalidatesecurityprofilebehaviors
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-security-profile-behaviors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Security Profile Behaviors. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-validatesecurityprofilebehaviors
+      description: Amazon Web Services Validatesecurityprofilebehaviors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: iot-security-profile-behaviors.amazonwebservicesvalidatesecurityprofilebehaviors
+      outputParameters:
+      - type: object
+        mapping: $.

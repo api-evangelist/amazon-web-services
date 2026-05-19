@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services macie2 — Usage
+  description: 'Amazon Web Services macie2 — Usage. 2 operations. Lead operation: Amazon Web Services Getusagetotals. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Usage
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: macie2-usage
+    baseUri: ''
+    description: Amazon Web Services macie2 — Usage business capability. Self-contained, no shared references.
+    resources:
+    - name: usage
+      path: /usage
+      operations:
+      - name: amazonwebservicesgetusagetotals
+        method: GET
+        description: Amazon Web Services Getusagetotals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: usage-statistics
+      path: /usage/statistics
+      operations:
+      - name: amazonwebservicesgetusagestatistics
+        method: POST
+        description: Amazon Web Services Getusagestatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: macie2-usage-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services macie2 — Usage. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/usage
+      name: usage
+      description: REST surface for usage.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetusagetotals
+        description: Amazon Web Services Getusagetotals
+        call: macie2-usage.amazonwebservicesgetusagetotals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/usage/statistics
+      name: usage-statistics
+      description: REST surface for usage-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetusagestatistics
+        description: Amazon Web Services Getusagestatistics
+        call: macie2-usage.amazonwebservicesgetusagestatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: macie2-usage-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services macie2 — Usage. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getusagetotals
+      description: Amazon Web Services Getusagetotals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: macie2-usage.amazonwebservicesgetusagetotals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getusagestatistics
+      description: Amazon Web Services Getusagestatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: macie2-usage.amazonwebservicesgetusagestatistics
+      outputParameters:
+      - type: object
+        mapping: $.

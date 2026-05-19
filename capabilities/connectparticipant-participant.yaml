@@ -1,0 +1,323 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connectparticipant — Participant
+  description: 'Amazon Web Services connectparticipant — Participant. 9 operations. Lead operation: Amazon Web Services Getattachment.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Participant
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connectparticipant-participant
+    baseUri: ''
+    description: Amazon Web Services connectparticipant — Participant business capability. Self-contained, no shared references.
+    resources:
+    - name: participant-attachment
+      path: /participant/attachment
+      operations:
+      - name: amazonwebservicesgetattachment
+        method: POST
+        description: Amazon Web Services Getattachment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-complete-attachment-upload
+      path: /participant/complete-attachment-upload
+      operations:
+      - name: amazonwebservicescompleteattachmentupload
+        method: POST
+        description: Amazon Web Services Completeattachmentupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-connection
+      path: /participant/connection
+      operations:
+      - name: amazonwebservicescreateparticipantconnection
+        method: POST
+        description: Amazon Web Services Createparticipantconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-disconnect
+      path: /participant/disconnect
+      operations:
+      - name: amazonwebservicesdisconnectparticipant
+        method: POST
+        description: Amazon Web Services Disconnectparticipant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-event
+      path: /participant/event
+      operations:
+      - name: amazonwebservicessendevent
+        method: POST
+        description: Amazon Web Services Sendevent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-message
+      path: /participant/message
+      operations:
+      - name: amazonwebservicessendmessage
+        method: POST
+        description: Amazon Web Services Sendmessage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-start-attachment-upload
+      path: /participant/start-attachment-upload
+      operations:
+      - name: amazonwebservicesstartattachmentupload
+        method: POST
+        description: Amazon Web Services Startattachmentupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-transcript
+      path: /participant/transcript
+      operations:
+      - name: amazonwebservicesgettranscript
+        method: POST
+        description: Amazon Web Services Gettranscript
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: participant-views-ViewToken
+      path: /participant/views/{ViewToken}
+      operations:
+      - name: amazonwebservicesdescribeview
+        method: GET
+        description: Amazon Web Services Describeview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connectparticipant-participant-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connectparticipant — Participant. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/participant/attachment
+      name: participant-attachment
+      description: REST surface for participant-attachment.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetattachment
+        description: Amazon Web Services Getattachment
+        call: connectparticipant-participant.amazonwebservicesgetattachment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/complete-attachment-upload
+      name: participant-complete-attachment-upload
+      description: REST surface for participant-complete-attachment-upload.
+      operations:
+      - method: POST
+        name: amazonwebservicescompleteattachmentupload
+        description: Amazon Web Services Completeattachmentupload
+        call: connectparticipant-participant.amazonwebservicescompleteattachmentupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/connection
+      name: participant-connection
+      description: REST surface for participant-connection.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateparticipantconnection
+        description: Amazon Web Services Createparticipantconnection
+        call: connectparticipant-participant.amazonwebservicescreateparticipantconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/disconnect
+      name: participant-disconnect
+      description: REST surface for participant-disconnect.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisconnectparticipant
+        description: Amazon Web Services Disconnectparticipant
+        call: connectparticipant-participant.amazonwebservicesdisconnectparticipant
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/event
+      name: participant-event
+      description: REST surface for participant-event.
+      operations:
+      - method: POST
+        name: amazonwebservicessendevent
+        description: Amazon Web Services Sendevent
+        call: connectparticipant-participant.amazonwebservicessendevent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/message
+      name: participant-message
+      description: REST surface for participant-message.
+      operations:
+      - method: POST
+        name: amazonwebservicessendmessage
+        description: Amazon Web Services Sendmessage
+        call: connectparticipant-participant.amazonwebservicessendmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/start-attachment-upload
+      name: participant-start-attachment-upload
+      description: REST surface for participant-start-attachment-upload.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartattachmentupload
+        description: Amazon Web Services Startattachmentupload
+        call: connectparticipant-participant.amazonwebservicesstartattachmentupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/transcript
+      name: participant-transcript
+      description: REST surface for participant-transcript.
+      operations:
+      - method: POST
+        name: amazonwebservicesgettranscript
+        description: Amazon Web Services Gettranscript
+        call: connectparticipant-participant.amazonwebservicesgettranscript
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/participant/views/{viewtoken}
+      name: participant-views-viewtoken
+      description: REST surface for participant-views-ViewToken.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeview
+        description: Amazon Web Services Describeview
+        call: connectparticipant-participant.amazonwebservicesdescribeview
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connectparticipant-participant-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connectparticipant — Participant. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getattachment
+      description: Amazon Web Services Getattachment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicesgetattachment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-completeattachmentupload
+      description: Amazon Web Services Completeattachmentupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicescompleteattachmentupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createparticipantconnection
+      description: Amazon Web Services Createparticipantconnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicescreateparticipantconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disconnectparticipant
+      description: Amazon Web Services Disconnectparticipant
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicesdisconnectparticipant
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendevent
+      description: Amazon Web Services Sendevent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicessendevent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendmessage
+      description: Amazon Web Services Sendmessage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicessendmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startattachmentupload
+      description: Amazon Web Services Startattachmentupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicesstartattachmentupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettranscript
+      description: Amazon Web Services Gettranscript
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connectparticipant-participant.amazonwebservicesgettranscript
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeview
+      description: Amazon Web Services Describeview
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connectparticipant-participant.amazonwebservicesdescribeview
+      outputParameters:
+      - type: object
+        mapping: $.

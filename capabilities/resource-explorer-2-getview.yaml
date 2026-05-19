@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resource-explorer-2 — GetView
+  description: 'Amazon Web Services resource-explorer-2 — GetView. 1 operations. Lead operation: Amazon Web Services Getview.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetView
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resource-explorer-2-getview
+    baseUri: ''
+    description: Amazon Web Services resource-explorer-2 — GetView business capability. Self-contained, no shared references.
+    resources:
+    - name: GetView
+      path: /GetView
+      operations:
+      - name: amazonwebservicesgetview
+        method: POST
+        description: Amazon Web Services Getview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resource-explorer-2-getview-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resource-explorer-2 — GetView. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getview
+      name: getview
+      description: REST surface for GetView.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetview
+        description: Amazon Web Services Getview
+        call: resource-explorer-2-getview.amazonwebservicesgetview
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resource-explorer-2-getview-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resource-explorer-2 — GetView. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getview
+      description: Amazon Web Services Getview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resource-explorer-2-getview.amazonwebservicesgetview
+      outputParameters:
+      - type: object
+        mapping: $.

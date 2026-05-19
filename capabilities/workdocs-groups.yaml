@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workdocs — Groups
+  description: 'Amazon Web Services workdocs — Groups. 1 operations. Lead operation: Amazon Web Services Describegroups. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workdocs-groups
+    baseUri: ''
+    description: Amazon Web Services workdocs — Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-groups
+      path: /api/v1/groups
+      operations:
+      - name: amazonwebservicesdescribegroups
+        method: GET
+        description: Amazon Web Services Describegroups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workdocs-groups-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workdocs — Groups. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/groups
+      name: api-v1-groups
+      description: REST surface for api-v1-groups.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribegroups
+        description: Amazon Web Services Describegroups
+        call: workdocs-groups.amazonwebservicesdescribegroups
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workdocs-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workdocs — Groups. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describegroups
+      description: Amazon Web Services Describegroups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-groups.amazonwebservicesdescribegroups
+      outputParameters:
+      - type: object
+        mapping: $.

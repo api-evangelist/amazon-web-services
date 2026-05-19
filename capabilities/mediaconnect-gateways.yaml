@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediaconnect — Gateways
+  description: 'Amazon Web Services mediaconnect — Gateways. 2 operations. Lead operation: Amazon Web Services Listgateways.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Gateways
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediaconnect-gateways
+    baseUri: ''
+    description: Amazon Web Services mediaconnect — Gateways business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-gateways
+      path: /v1/gateways
+      operations:
+      - name: amazonwebserviceslistgateways
+        method: GET
+        description: Amazon Web Services Listgateways
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-gateways-gatewayArn
+      path: /v1/gateways/{gatewayArn}
+      operations:
+      - name: amazonwebservicesdescribegateway
+        method: GET
+        description: Amazon Web Services Describegateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediaconnect-gateways-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediaconnect — Gateways. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/gateways
+      name: v1-gateways
+      description: REST surface for v1-gateways.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistgateways
+        description: Amazon Web Services Listgateways
+        call: mediaconnect-gateways.amazonwebserviceslistgateways
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/gateways/{gatewayarn}
+      name: v1-gateways-gatewayarn
+      description: REST surface for v1-gateways-gatewayArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribegateway
+        description: Amazon Web Services Describegateway
+        call: mediaconnect-gateways.amazonwebservicesdescribegateway
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediaconnect-gateways-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediaconnect — Gateways. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listgateways
+      description: Amazon Web Services Listgateways
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-gateways.amazonwebserviceslistgateways
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describegateway
+      description: Amazon Web Services Describegateway
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediaconnect-gateways.amazonwebservicesdescribegateway
+      outputParameters:
+      - type: object
+        mapping: $.

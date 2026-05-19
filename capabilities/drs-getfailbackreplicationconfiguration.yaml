@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — GetFailbackReplicationConfiguration
+  description: 'Amazon Web Services drs — GetFailbackReplicationConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Getfailbackreplicationconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetFailbackReplicationConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-getfailbackreplicationconfiguration
+    baseUri: ''
+    description: Amazon Web Services drs — GetFailbackReplicationConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: GetFailbackReplicationConfiguration
+      path: /GetFailbackReplicationConfiguration
+      operations:
+      - name: amazonwebservicesgetfailbackreplicationconfiguration
+        method: POST
+        description: Amazon Web Services Getfailbackreplicationconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-getfailbackreplicationconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — GetFailbackReplicationConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getfailbackreplicationconfiguration
+      name: getfailbackreplicationconfiguration
+      description: REST surface for GetFailbackReplicationConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetfailbackreplicationconfiguration
+        description: Amazon Web Services Getfailbackreplicationconfiguration
+        call: drs-getfailbackreplicationconfiguration.amazonwebservicesgetfailbackreplicationconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-getfailbackreplicationconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — GetFailbackReplicationConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getfailbackreplicationconfiguration
+      description: Amazon Web Services Getfailbackreplicationconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-getfailbackreplicationconfiguration.amazonwebservicesgetfailbackreplicationconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

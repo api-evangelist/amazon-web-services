@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services polly — Speech
+  description: 'Amazon Web Services polly — Speech. 1 operations. Lead operation: Amazon Web Services Synthesizespeech. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Speech
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: polly-speech
+    baseUri: ''
+    description: Amazon Web Services polly — Speech business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-speech
+      path: /v1/speech
+      operations:
+      - name: amazonwebservicessynthesizespeech
+        method: POST
+        description: Amazon Web Services Synthesizespeech
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: polly-speech-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services polly — Speech. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/speech
+      name: v1-speech
+      description: REST surface for v1-speech.
+      operations:
+      - method: POST
+        name: amazonwebservicessynthesizespeech
+        description: Amazon Web Services Synthesizespeech
+        call: polly-speech.amazonwebservicessynthesizespeech
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: polly-speech-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services polly — Speech. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-synthesizespeech
+      description: Amazon Web Services Synthesizespeech
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: polly-speech.amazonwebservicessynthesizespeech
+      outputParameters:
+      - type: object
+        mapping: $.

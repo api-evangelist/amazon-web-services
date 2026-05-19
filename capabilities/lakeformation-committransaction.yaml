@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — CommitTransaction
+  description: 'Amazon Web Services lakeformation — CommitTransaction. 1 operations. Lead operation: Amazon Web Services Committransaction.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CommitTransaction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-committransaction
+    baseUri: ''
+    description: Amazon Web Services lakeformation — CommitTransaction business capability. Self-contained, no shared references.
+    resources:
+    - name: CommitTransaction
+      path: /CommitTransaction
+      operations:
+      - name: amazonwebservicescommittransaction
+        method: POST
+        description: Amazon Web Services Committransaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-committransaction-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — CommitTransaction. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/committransaction
+      name: committransaction
+      description: REST surface for CommitTransaction.
+      operations:
+      - method: POST
+        name: amazonwebservicescommittransaction
+        description: Amazon Web Services Committransaction
+        call: lakeformation-committransaction.amazonwebservicescommittransaction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-committransaction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — CommitTransaction. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-committransaction
+      description: Amazon Web Services Committransaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-committransaction.amazonwebservicescommittransaction
+      outputParameters:
+      - type: object
+        mapping: $.

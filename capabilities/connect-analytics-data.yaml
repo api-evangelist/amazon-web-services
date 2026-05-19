@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Analytics Data
+  description: 'Amazon Web Services connect — Analytics Data. 2 operations. Lead operation: Amazon Web Services Listanalyticsdataassociations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Analytics Data
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-analytics-data
+    baseUri: ''
+    description: Amazon Web Services connect — Analytics Data business capability. Self-contained, no shared references.
+    resources:
+    - name: analytics-data-instance-InstanceId-association
+      path: /analytics-data/instance/{InstanceId}/association
+      operations:
+      - name: amazonwebserviceslistanalyticsdataassociations
+        method: GET
+        description: Amazon Web Services Listanalyticsdataassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analytics-data-instance-InstanceId-associations
+      path: /analytics-data/instance/{InstanceId}/associations
+      operations:
+      - name: amazonwebservicesbatchdisassociateanalyticsdataset
+        method: POST
+        description: Amazon Web Services Batchdisassociateanalyticsdataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-analytics-data-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Analytics Data. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/analytics-data/instance/{instanceid}/association
+      name: analytics-data-instance-instanceid-association
+      description: REST surface for analytics-data-instance-InstanceId-association.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistanalyticsdataassociations
+        description: Amazon Web Services Listanalyticsdataassociations
+        call: connect-analytics-data.amazonwebserviceslistanalyticsdataassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analytics-data/instance/{instanceid}/associations
+      name: analytics-data-instance-instanceid-associations
+      description: REST surface for analytics-data-instance-InstanceId-associations.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdisassociateanalyticsdataset
+        description: Amazon Web Services Batchdisassociateanalyticsdataset
+        call: connect-analytics-data.amazonwebservicesbatchdisassociateanalyticsdataset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-analytics-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Analytics Data. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listanalyticsdataassociations
+      description: Amazon Web Services Listanalyticsdataassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-analytics-data.amazonwebserviceslistanalyticsdataassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdisassociateanalyticsdataset
+      description: Amazon Web Services Batchdisassociateanalyticsdataset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-analytics-data.amazonwebservicesbatchdisassociateanalyticsdataset
+      outputParameters:
+      - type: object
+        mapping: $.

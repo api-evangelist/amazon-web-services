@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesisvideo — startEdgeConfigurationUpdate
+  description: 'Amazon Web Services kinesisvideo — startEdgeConfigurationUpdate. 1 operations. Lead operation: Amazon Web
+    Services Startedgeconfigurationupdate. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - startEdgeConfigurationUpdate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesisvideo-startedgeconfigurationupdate
+    baseUri: ''
+    description: Amazon Web Services kinesisvideo — startEdgeConfigurationUpdate business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: startEdgeConfigurationUpdate
+      path: /startEdgeConfigurationUpdate
+      operations:
+      - name: amazonwebservicesstartedgeconfigurationupdate
+        method: POST
+        description: Amazon Web Services Startedgeconfigurationupdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesisvideo-startedgeconfigurationupdate-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesisvideo — startEdgeConfigurationUpdate. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/startedgeconfigurationupdate
+      name: startedgeconfigurationupdate
+      description: REST surface for startEdgeConfigurationUpdate.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartedgeconfigurationupdate
+        description: Amazon Web Services Startedgeconfigurationupdate
+        call: kinesisvideo-startedgeconfigurationupdate.amazonwebservicesstartedgeconfigurationupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesisvideo-startedgeconfigurationupdate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesisvideo — startEdgeConfigurationUpdate. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startedgeconfigurationupdate
+      description: Amazon Web Services Startedgeconfigurationupdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesisvideo-startedgeconfigurationupdate.amazonwebservicesstartedgeconfigurationupdate
+      outputParameters:
+      - type: object
+        mapping: $.

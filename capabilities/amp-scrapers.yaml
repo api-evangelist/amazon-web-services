@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services amp — Scrapers
+  description: 'Amazon Web Services amp — Scrapers. 2 operations. Lead operation: Amazon Web Services Listscrapers. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Scrapers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amp-scrapers
+    baseUri: ''
+    description: Amazon Web Services amp — Scrapers business capability. Self-contained, no shared references.
+    resources:
+    - name: scrapers
+      path: /scrapers
+      operations:
+      - name: amazonwebserviceslistscrapers
+        method: GET
+        description: Amazon Web Services Listscrapers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: scrapers-scraperId
+      path: /scrapers/{scraperId}
+      operations:
+      - name: amazonwebservicesdescribescraper
+        method: GET
+        description: Amazon Web Services Describescraper
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: amp-scrapers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services amp — Scrapers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/scrapers
+      name: scrapers
+      description: REST surface for scrapers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistscrapers
+        description: Amazon Web Services Listscrapers
+        call: amp-scrapers.amazonwebserviceslistscrapers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scrapers/{scraperid}
+      name: scrapers-scraperid
+      description: REST surface for scrapers-scraperId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribescraper
+        description: Amazon Web Services Describescraper
+        call: amp-scrapers.amazonwebservicesdescribescraper
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amp-scrapers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services amp — Scrapers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listscrapers
+      description: Amazon Web Services Listscrapers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amp-scrapers.amazonwebserviceslistscrapers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describescraper
+      description: Amazon Web Services Describescraper
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amp-scrapers.amazonwebservicesdescribescraper
+      outputParameters:
+      - type: object
+        mapping: $.

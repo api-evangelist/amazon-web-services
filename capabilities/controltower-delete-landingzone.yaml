@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Delete Landingzone
+  description: 'Amazon Web Services controltower — Delete Landingzone. 1 operations. Lead operation: Amazon Web Services Deletelandingzone.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete Landingzone
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-delete-landingzone
+    baseUri: ''
+    description: Amazon Web Services controltower — Delete Landingzone business capability. Self-contained, no shared references.
+    resources:
+    - name: delete-landingzone
+      path: /delete-landingzone
+      operations:
+      - name: amazonwebservicesdeletelandingzone
+        method: POST
+        description: Amazon Web Services Deletelandingzone
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-delete-landingzone-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Delete Landingzone. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-landingzone
+      name: delete-landingzone
+      description: REST surface for delete-landingzone.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletelandingzone
+        description: Amazon Web Services Deletelandingzone
+        call: controltower-delete-landingzone.amazonwebservicesdeletelandingzone
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-delete-landingzone-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Delete Landingzone. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletelandingzone
+      description: Amazon Web Services Deletelandingzone
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-delete-landingzone.amazonwebservicesdeletelandingzone
+      outputParameters:
+      - type: object
+        mapping: $.

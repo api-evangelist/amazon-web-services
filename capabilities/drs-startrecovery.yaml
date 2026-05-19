@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — StartRecovery
+  description: 'Amazon Web Services drs — StartRecovery. 1 operations. Lead operation: Amazon Web Services Startrecovery.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - StartRecovery
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-startrecovery
+    baseUri: ''
+    description: Amazon Web Services drs — StartRecovery business capability. Self-contained, no shared references.
+    resources:
+    - name: StartRecovery
+      path: /StartRecovery
+      operations:
+      - name: amazonwebservicesstartrecovery
+        method: POST
+        description: Amazon Web Services Startrecovery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-startrecovery-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — StartRecovery. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/startrecovery
+      name: startrecovery
+      description: REST surface for StartRecovery.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartrecovery
+        description: Amazon Web Services Startrecovery
+        call: drs-startrecovery.amazonwebservicesstartrecovery
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-startrecovery-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — StartRecovery. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startrecovery
+      description: Amazon Web Services Startrecovery
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-startrecovery.amazonwebservicesstartrecovery
+      outputParameters:
+      - type: object
+        mapping: $.

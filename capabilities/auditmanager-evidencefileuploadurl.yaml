@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — evidenceFileUploadUrl
+  description: 'Amazon Web Services auditmanager — evidenceFileUploadUrl. 1 operations. Lead operation: Amazon Web Services
+    Getevidencefileuploadurl. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - evidenceFileUploadUrl
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-evidencefileuploadurl
+    baseUri: ''
+    description: Amazon Web Services auditmanager — evidenceFileUploadUrl business capability. Self-contained, no shared references.
+    resources:
+    - name: evidenceFileUploadUrl
+      path: /evidenceFileUploadUrl
+      operations:
+      - name: amazonwebservicesgetevidencefileuploadurl
+        method: GET
+        description: Amazon Web Services Getevidencefileuploadurl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-evidencefileuploadurl-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — evidenceFileUploadUrl. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/evidencefileuploadurl
+      name: evidencefileuploadurl
+      description: REST surface for evidenceFileUploadUrl.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetevidencefileuploadurl
+        description: Amazon Web Services Getevidencefileuploadurl
+        call: auditmanager-evidencefileuploadurl.amazonwebservicesgetevidencefileuploadurl
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-evidencefileuploadurl-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — evidenceFileUploadUrl. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getevidencefileuploadurl
+      description: Amazon Web Services Getevidencefileuploadurl
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-evidencefileuploadurl.amazonwebservicesgetevidencefileuploadurl
+      outputParameters:
+      - type: object
+        mapping: $.

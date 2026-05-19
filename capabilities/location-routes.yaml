@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services location — Routes
+  description: 'Amazon Web Services location — Routes. 5 operations. Lead operation: Amazon Web Services Createroutecalculator.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Routes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: location-routes
+    baseUri: ''
+    description: Amazon Web Services location — Routes business capability. Self-contained, no shared references.
+    resources:
+    - name: routes-v0-calculators
+      path: /routes/v0/calculators
+      operations:
+      - name: amazonwebservicescreateroutecalculator
+        method: POST
+        description: Amazon Web Services Createroutecalculator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes-v0-calculators-CalculatorName
+      path: /routes/v0/calculators/{CalculatorName}
+      operations:
+      - name: amazonwebservicesupdateroutecalculator
+        method: PATCH
+        description: Amazon Web Services Updateroutecalculator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes-v0-calculators-CalculatorName-calculate-route
+      path: /routes/v0/calculators/{CalculatorName}/calculate/route
+      operations:
+      - name: amazonwebservicescalculateroute
+        method: POST
+        description: Amazon Web Services Calculateroute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes-v0-calculators-CalculatorName-calculate-route-matrix
+      path: /routes/v0/calculators/{CalculatorName}/calculate/route-matrix
+      operations:
+      - name: amazonwebservicescalculateroutematrix
+        method: POST
+        description: Amazon Web Services Calculateroutematrix
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes-v0-list-calculators
+      path: /routes/v0/list-calculators
+      operations:
+      - name: amazonwebserviceslistroutecalculators
+        method: POST
+        description: Amazon Web Services Listroutecalculators
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: location-routes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services location — Routes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/routes/v0/calculators
+      name: routes-v0-calculators
+      description: REST surface for routes-v0-calculators.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateroutecalculator
+        description: Amazon Web Services Createroutecalculator
+        call: location-routes.amazonwebservicescreateroutecalculator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/v0/calculators/{calculatorname}
+      name: routes-v0-calculators-calculatorname
+      description: REST surface for routes-v0-calculators-CalculatorName.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateroutecalculator
+        description: Amazon Web Services Updateroutecalculator
+        call: location-routes.amazonwebservicesupdateroutecalculator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/v0/calculators/{calculatorname}/calculate/route
+      name: routes-v0-calculators-calculatorname-calculate-route
+      description: REST surface for routes-v0-calculators-CalculatorName-calculate-route.
+      operations:
+      - method: POST
+        name: amazonwebservicescalculateroute
+        description: Amazon Web Services Calculateroute
+        call: location-routes.amazonwebservicescalculateroute
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/v0/calculators/{calculatorname}/calculate/route-matrix
+      name: routes-v0-calculators-calculatorname-calculate-route-matrix
+      description: REST surface for routes-v0-calculators-CalculatorName-calculate-route-matrix.
+      operations:
+      - method: POST
+        name: amazonwebservicescalculateroutematrix
+        description: Amazon Web Services Calculateroutematrix
+        call: location-routes.amazonwebservicescalculateroutematrix
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/v0/list-calculators
+      name: routes-v0-list-calculators
+      description: REST surface for routes-v0-list-calculators.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistroutecalculators
+        description: Amazon Web Services Listroutecalculators
+        call: location-routes.amazonwebserviceslistroutecalculators
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: location-routes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services location — Routes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createroutecalculator
+      description: Amazon Web Services Createroutecalculator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-routes.amazonwebservicescreateroutecalculator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroutecalculator
+      description: Amazon Web Services Updateroutecalculator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: location-routes.amazonwebservicesupdateroutecalculator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-calculateroute
+      description: Amazon Web Services Calculateroute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-routes.amazonwebservicescalculateroute
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-calculateroutematrix
+      description: Amazon Web Services Calculateroutematrix
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-routes.amazonwebservicescalculateroutematrix
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listroutecalculators
+      description: Amazon Web Services Listroutecalculators
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: location-routes.amazonwebserviceslistroutecalculators
+      outputParameters:
+      - type: object
+        mapping: $.

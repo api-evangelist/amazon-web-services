@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services privatenetworks — Network Resources
+  description: 'Amazon Web Services privatenetworks — Network Resources. 4 operations. Lead operation: Amazon Web Services
+    Listnetworkresources. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Network Resources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: privatenetworks-network-resources
+    baseUri: ''
+    description: Amazon Web Services privatenetworks — Network Resources business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-network-resources
+      path: /v1/network-resources
+      operations:
+      - name: amazonwebserviceslistnetworkresources
+        method: POST
+        description: Amazon Web Services Listnetworkresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-resources-configure
+      path: /v1/network-resources/configure
+      operations:
+      - name: amazonwebservicesconfigureaccesspoint
+        method: POST
+        description: Amazon Web Services Configureaccesspoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-resources-update
+      path: /v1/network-resources/update
+      operations:
+      - name: amazonwebservicesstartnetworkresourceupdate
+        method: POST
+        description: Amazon Web Services Startnetworkresourceupdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-network-resources-networkResourceArn
+      path: /v1/network-resources/{networkResourceArn}
+      operations:
+      - name: amazonwebservicesgetnetworkresource
+        method: GET
+        description: Amazon Web Services Getnetworkresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: privatenetworks-network-resources-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services privatenetworks — Network Resources. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/network-resources
+      name: v1-network-resources
+      description: REST surface for v1-network-resources.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistnetworkresources
+        description: Amazon Web Services Listnetworkresources
+        call: privatenetworks-network-resources.amazonwebserviceslistnetworkresources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-resources/configure
+      name: v1-network-resources-configure
+      description: REST surface for v1-network-resources-configure.
+      operations:
+      - method: POST
+        name: amazonwebservicesconfigureaccesspoint
+        description: Amazon Web Services Configureaccesspoint
+        call: privatenetworks-network-resources.amazonwebservicesconfigureaccesspoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-resources/update
+      name: v1-network-resources-update
+      description: REST surface for v1-network-resources-update.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartnetworkresourceupdate
+        description: Amazon Web Services Startnetworkresourceupdate
+        call: privatenetworks-network-resources.amazonwebservicesstartnetworkresourceupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/network-resources/{networkresourcearn}
+      name: v1-network-resources-networkresourcearn
+      description: REST surface for v1-network-resources-networkResourceArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworkresource
+        description: Amazon Web Services Getnetworkresource
+        call: privatenetworks-network-resources.amazonwebservicesgetnetworkresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: privatenetworks-network-resources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services privatenetworks — Network Resources. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listnetworkresources
+      description: Amazon Web Services Listnetworkresources
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-resources.amazonwebserviceslistnetworkresources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-configureaccesspoint
+      description: Amazon Web Services Configureaccesspoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-resources.amazonwebservicesconfigureaccesspoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startnetworkresourceupdate
+      description: Amazon Web Services Startnetworkresourceupdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: privatenetworks-network-resources.amazonwebservicesstartnetworkresourceupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworkresource
+      description: Amazon Web Services Getnetworkresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: privatenetworks-network-resources.amazonwebservicesgetnetworkresource
+      outputParameters:
+      - type: object
+        mapping: $.

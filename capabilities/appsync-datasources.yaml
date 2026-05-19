@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Datasources
+  description: 'Amazon Web Services appsync — Datasources. 4 operations. Lead operation: Amazon Web Services Listdatasources.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Datasources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-datasources
+    baseUri: ''
+    description: Amazon Web Services appsync — Datasources business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-datasources
+      path: /v1/apis/{apiId}/datasources
+      operations:
+      - name: amazonwebserviceslistdatasources
+        method: GET
+        description: Amazon Web Services Listdatasources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-datasources-name
+      path: /v1/apis/{apiId}/datasources/{name}
+      operations:
+      - name: amazonwebservicesupdatedatasource
+        method: POST
+        description: Amazon Web Services Updatedatasource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-datasources-introspections
+      path: /v1/datasources/introspections
+      operations:
+      - name: amazonwebservicesstartdatasourceintrospection
+        method: POST
+        description: Amazon Web Services Startdatasourceintrospection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-datasources-introspections-introspectionId
+      path: /v1/datasources/introspections/{introspectionId}
+      operations:
+      - name: amazonwebservicesgetdatasourceintrospection
+        method: GET
+        description: Amazon Web Services Getdatasourceintrospection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-datasources-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Datasources. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/datasources
+      name: v1-apis-apiid-datasources
+      description: REST surface for v1-apis-apiId-datasources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdatasources
+        description: Amazon Web Services Listdatasources
+        call: appsync-datasources.amazonwebserviceslistdatasources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/datasources/{name}
+      name: v1-apis-apiid-datasources-name
+      description: REST surface for v1-apis-apiId-datasources-name.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatedatasource
+        description: Amazon Web Services Updatedatasource
+        call: appsync-datasources.amazonwebservicesupdatedatasource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/datasources/introspections
+      name: v1-datasources-introspections
+      description: REST surface for v1-datasources-introspections.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartdatasourceintrospection
+        description: Amazon Web Services Startdatasourceintrospection
+        call: appsync-datasources.amazonwebservicesstartdatasourceintrospection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/datasources/introspections/{introspectionid}
+      name: v1-datasources-introspections-introspectionid
+      description: REST surface for v1-datasources-introspections-introspectionId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdatasourceintrospection
+        description: Amazon Web Services Getdatasourceintrospection
+        call: appsync-datasources.amazonwebservicesgetdatasourceintrospection
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-datasources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Datasources. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdatasources
+      description: Amazon Web Services Listdatasources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-datasources.amazonwebserviceslistdatasources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedatasource
+      description: Amazon Web Services Updatedatasource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-datasources.amazonwebservicesupdatedatasource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startdatasourceintrospection
+      description: Amazon Web Services Startdatasourceintrospection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-datasources.amazonwebservicesstartdatasourceintrospection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdatasourceintrospection
+      description: Amazon Web Services Getdatasourceintrospection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-datasources.amazonwebservicesgetdatasourceintrospection
+      outputParameters:
+      - type: object
+        mapping: $.

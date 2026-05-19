@@ -1,0 +1,228 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services license-manager-user-subscriptions — User
+  description: 'Amazon Web Services license-manager-user-subscriptions — User. 6 operations. Lead operation: Amazon Web Services
+    Associateuser. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - User
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: license-manager-user-subscriptions-user
+    baseUri: ''
+    description: Amazon Web Services license-manager-user-subscriptions — User business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: user-AssociateUser
+      path: /user/AssociateUser
+      operations:
+      - name: amazonwebservicesassociateuser
+        method: POST
+        description: Amazon Web Services Associateuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-DisassociateUser
+      path: /user/DisassociateUser
+      operations:
+      - name: amazonwebservicesdisassociateuser
+        method: POST
+        description: Amazon Web Services Disassociateuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-ListProductSubscriptions
+      path: /user/ListProductSubscriptions
+      operations:
+      - name: amazonwebserviceslistproductsubscriptions
+        method: POST
+        description: Amazon Web Services Listproductsubscriptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-ListUserAssociations
+      path: /user/ListUserAssociations
+      operations:
+      - name: amazonwebserviceslistuserassociations
+        method: POST
+        description: Amazon Web Services Listuserassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-StartProductSubscription
+      path: /user/StartProductSubscription
+      operations:
+      - name: amazonwebservicesstartproductsubscription
+        method: POST
+        description: Amazon Web Services Startproductsubscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-StopProductSubscription
+      path: /user/StopProductSubscription
+      operations:
+      - name: amazonwebservicesstopproductsubscription
+        method: POST
+        description: Amazon Web Services Stopproductsubscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: license-manager-user-subscriptions-user-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services license-manager-user-subscriptions — User. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/user/associateuser
+      name: user-associateuser
+      description: REST surface for user-AssociateUser.
+      operations:
+      - method: POST
+        name: amazonwebservicesassociateuser
+        description: Amazon Web Services Associateuser
+        call: license-manager-user-subscriptions-user.amazonwebservicesassociateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/disassociateuser
+      name: user-disassociateuser
+      description: REST surface for user-DisassociateUser.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociateuser
+        description: Amazon Web Services Disassociateuser
+        call: license-manager-user-subscriptions-user.amazonwebservicesdisassociateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/listproductsubscriptions
+      name: user-listproductsubscriptions
+      description: REST surface for user-ListProductSubscriptions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistproductsubscriptions
+        description: Amazon Web Services Listproductsubscriptions
+        call: license-manager-user-subscriptions-user.amazonwebserviceslistproductsubscriptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/listuserassociations
+      name: user-listuserassociations
+      description: REST surface for user-ListUserAssociations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistuserassociations
+        description: Amazon Web Services Listuserassociations
+        call: license-manager-user-subscriptions-user.amazonwebserviceslistuserassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/startproductsubscription
+      name: user-startproductsubscription
+      description: REST surface for user-StartProductSubscription.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartproductsubscription
+        description: Amazon Web Services Startproductsubscription
+        call: license-manager-user-subscriptions-user.amazonwebservicesstartproductsubscription
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/stopproductsubscription
+      name: user-stopproductsubscription
+      description: REST surface for user-StopProductSubscription.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopproductsubscription
+        description: Amazon Web Services Stopproductsubscription
+        call: license-manager-user-subscriptions-user.amazonwebservicesstopproductsubscription
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: license-manager-user-subscriptions-user-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services license-manager-user-subscriptions — User. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-associateuser
+      description: Amazon Web Services Associateuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebservicesassociateuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateuser
+      description: Amazon Web Services Disassociateuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebservicesdisassociateuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listproductsubscriptions
+      description: Amazon Web Services Listproductsubscriptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebserviceslistproductsubscriptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listuserassociations
+      description: Amazon Web Services Listuserassociations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebserviceslistuserassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startproductsubscription
+      description: Amazon Web Services Startproductsubscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebservicesstartproductsubscription
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopproductsubscription
+      description: Amazon Web Services Stopproductsubscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: license-manager-user-subscriptions-user.amazonwebservicesstopproductsubscription
+      outputParameters:
+      - type: object
+        mapping: $.

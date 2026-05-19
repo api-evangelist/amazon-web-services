@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhuborchestrator — Migrationworkflowtemplates
+  description: 'Amazon Web Services migrationhuborchestrator — Migrationworkflowtemplates. 1 operations. Lead operation: Amazon
+    Web Services Listtemplates. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Migrationworkflowtemplates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhuborchestrator-migrationworkflowtemplates
+    baseUri: ''
+    description: Amazon Web Services migrationhuborchestrator — Migrationworkflowtemplates business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: migrationworkflowtemplates
+      path: /migrationworkflowtemplates
+      operations:
+      - name: amazonwebserviceslisttemplates
+        method: GET
+        description: Amazon Web Services Listtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhuborchestrator-migrationworkflowtemplates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhuborchestrator — Migrationworkflowtemplates. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/migrationworkflowtemplates
+      name: migrationworkflowtemplates
+      description: REST surface for migrationworkflowtemplates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttemplates
+        description: Amazon Web Services Listtemplates
+        call: migrationhuborchestrator-migrationworkflowtemplates.amazonwebserviceslisttemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhuborchestrator-migrationworkflowtemplates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhuborchestrator — Migrationworkflowtemplates. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtemplates
+      description: Amazon Web Services Listtemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhuborchestrator-migrationworkflowtemplates.amazonwebserviceslisttemplates
+      outputParameters:
+      - type: object
+        mapping: $.

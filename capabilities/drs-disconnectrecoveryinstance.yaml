@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — DisconnectRecoveryInstance
+  description: 'Amazon Web Services drs — DisconnectRecoveryInstance. 1 operations. Lead operation: Amazon Web Services Disconnectrecoveryinstance.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DisconnectRecoveryInstance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-disconnectrecoveryinstance
+    baseUri: ''
+    description: Amazon Web Services drs — DisconnectRecoveryInstance business capability. Self-contained, no shared references.
+    resources:
+    - name: DisconnectRecoveryInstance
+      path: /DisconnectRecoveryInstance
+      operations:
+      - name: amazonwebservicesdisconnectrecoveryinstance
+        method: POST
+        description: Amazon Web Services Disconnectrecoveryinstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-disconnectrecoveryinstance-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — DisconnectRecoveryInstance. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/disconnectrecoveryinstance
+      name: disconnectrecoveryinstance
+      description: REST surface for DisconnectRecoveryInstance.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisconnectrecoveryinstance
+        description: Amazon Web Services Disconnectrecoveryinstance
+        call: drs-disconnectrecoveryinstance.amazonwebservicesdisconnectrecoveryinstance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-disconnectrecoveryinstance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — DisconnectRecoveryInstance. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-disconnectrecoveryinstance
+      description: Amazon Web Services Disconnectrecoveryinstance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-disconnectrecoveryinstance.amazonwebservicesdisconnectrecoveryinstance
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — DeleteRecordingConfiguration
+  description: 'Amazon Web Services ivs — DeleteRecordingConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Deleterecordingconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteRecordingConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-deleterecordingconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivs — DeleteRecordingConfiguration business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteRecordingConfiguration
+      path: /DeleteRecordingConfiguration
+      operations:
+      - name: amazonwebservicesdeleterecordingconfiguration
+        method: POST
+        description: Amazon Web Services Deleterecordingconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-deleterecordingconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — DeleteRecordingConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deleterecordingconfiguration
+      name: deleterecordingconfiguration
+      description: REST surface for DeleteRecordingConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleterecordingconfiguration
+        description: Amazon Web Services Deleterecordingconfiguration
+        call: ivs-deleterecordingconfiguration.amazonwebservicesdeleterecordingconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-deleterecordingconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — DeleteRecordingConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleterecordingconfiguration
+      description: Amazon Web Services Deleterecordingconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-deleterecordingconfiguration.amazonwebservicesdeleterecordingconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

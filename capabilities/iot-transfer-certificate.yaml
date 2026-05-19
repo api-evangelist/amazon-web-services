@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Transfer Certificate
+  description: 'Amazon Web Services iot — Transfer Certificate. 1 operations. Lead operation: Amazon Web Services Transfercertificate.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Transfer Certificate
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-transfer-certificate
+    baseUri: ''
+    description: Amazon Web Services iot — Transfer Certificate business capability. Self-contained, no shared references.
+    resources:
+    - name: transfer-certificate-certificateId
+      path: /transfer-certificate/{certificateId}
+      operations:
+      - name: amazonwebservicestransfercertificate
+        method: PATCH
+        description: Amazon Web Services Transfercertificate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-transfer-certificate-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Transfer Certificate. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/transfer-certificate/{certificateid}
+      name: transfer-certificate-certificateid
+      description: REST surface for transfer-certificate-certificateId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicestransfercertificate
+        description: Amazon Web Services Transfercertificate
+        call: iot-transfer-certificate.amazonwebservicestransfercertificate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-transfer-certificate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Transfer Certificate. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-transfercertificate
+      description: Amazon Web Services Transfercertificate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-transfer-certificate.amazonwebservicestransfercertificate
+      outputParameters:
+      - type: object
+        mapping: $.

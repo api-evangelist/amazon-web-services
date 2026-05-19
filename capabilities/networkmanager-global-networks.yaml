@@ -1,0 +1,899 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services networkmanager — Global Networks
+  description: 'Amazon Web Services networkmanager — Global Networks. 27 operations. Lead operation: Amazon Web Services Describeglobalnetworks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Global Networks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: networkmanager-global-networks
+    baseUri: ''
+    description: Amazon Web Services networkmanager — Global Networks business capability. Self-contained, no shared references.
+    resources:
+    - name: global-networks
+      path: /global-networks
+      operations:
+      - name: amazonwebservicesdescribeglobalnetworks
+        method: GET
+        description: Amazon Web Services Describeglobalnetworks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId
+      path: /global-networks/{globalNetworkId}
+      operations:
+      - name: amazonwebservicesupdateglobalnetwork
+        method: PATCH
+        description: Amazon Web Services Updateglobalnetwork
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-connect-peer-associations
+      path: /global-networks/{globalNetworkId}/connect-peer-associations
+      operations:
+      - name: amazonwebservicesgetconnectpeerassociations
+        method: GET
+        description: Amazon Web Services Getconnectpeerassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-connect-peer-associations-connectPeerId
+      path: /global-networks/{globalNetworkId}/connect-peer-associations/{connectPeerId}
+      operations:
+      - name: amazonwebservicesdisassociateconnectpeer
+        method: DELETE
+        description: Amazon Web Services Disassociateconnectpeer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-connections
+      path: /global-networks/{globalNetworkId}/connections
+      operations:
+      - name: amazonwebservicesgetconnections
+        method: GET
+        description: Amazon Web Services Getconnections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-connections-connectionId
+      path: /global-networks/{globalNetworkId}/connections/{connectionId}
+      operations:
+      - name: amazonwebservicesupdateconnection
+        method: PATCH
+        description: Amazon Web Services Updateconnection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-customer-gateway-associations
+      path: /global-networks/{globalNetworkId}/customer-gateway-associations
+      operations:
+      - name: amazonwebservicesgetcustomergatewayassociations
+        method: GET
+        description: Amazon Web Services Getcustomergatewayassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-customer-gateway-associations-customerGatewayArn
+      path: /global-networks/{globalNetworkId}/customer-gateway-associations/{customerGatewayArn}
+      operations:
+      - name: amazonwebservicesdisassociatecustomergateway
+        method: DELETE
+        description: Amazon Web Services Disassociatecustomergateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-devices
+      path: /global-networks/{globalNetworkId}/devices
+      operations:
+      - name: amazonwebservicesgetdevices
+        method: GET
+        description: Amazon Web Services Getdevices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-devices-deviceId
+      path: /global-networks/{globalNetworkId}/devices/{deviceId}
+      operations:
+      - name: amazonwebservicesupdatedevice
+        method: PATCH
+        description: Amazon Web Services Updatedevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-link-associations
+      path: /global-networks/{globalNetworkId}/link-associations
+      operations:
+      - name: amazonwebservicesgetlinkassociations
+        method: GET
+        description: Amazon Web Services Getlinkassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-links
+      path: /global-networks/{globalNetworkId}/links
+      operations:
+      - name: amazonwebservicesgetlinks
+        method: GET
+        description: Amazon Web Services Getlinks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-links-linkId
+      path: /global-networks/{globalNetworkId}/links/{linkId}
+      operations:
+      - name: amazonwebservicesupdatelink
+        method: PATCH
+        description: Amazon Web Services Updatelink
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-resource-count
+      path: /global-networks/{globalNetworkId}/network-resource-count
+      operations:
+      - name: amazonwebservicesgetnetworkresourcecounts
+        method: GET
+        description: Amazon Web Services Getnetworkresourcecounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-resource-relationships
+      path: /global-networks/{globalNetworkId}/network-resource-relationships
+      operations:
+      - name: amazonwebservicesgetnetworkresourcerelationships
+        method: GET
+        description: Amazon Web Services Getnetworkresourcerelationships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-resources
+      path: /global-networks/{globalNetworkId}/network-resources
+      operations:
+      - name: amazonwebservicesgetnetworkresources
+        method: GET
+        description: Amazon Web Services Getnetworkresources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-resources-resourceArn-metadata
+      path: /global-networks/{globalNetworkId}/network-resources/{resourceArn}/metadata
+      operations:
+      - name: amazonwebservicesupdatenetworkresourcemetadata
+        method: PATCH
+        description: Amazon Web Services Updatenetworkresourcemetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-routes
+      path: /global-networks/{globalNetworkId}/network-routes
+      operations:
+      - name: amazonwebservicesgetnetworkroutes
+        method: POST
+        description: Amazon Web Services Getnetworkroutes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-network-telemetry
+      path: /global-networks/{globalNetworkId}/network-telemetry
+      operations:
+      - name: amazonwebservicesgetnetworktelemetry
+        method: GET
+        description: Amazon Web Services Getnetworktelemetry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-route-analyses
+      path: /global-networks/{globalNetworkId}/route-analyses
+      operations:
+      - name: amazonwebservicesstartrouteanalysis
+        method: POST
+        description: Amazon Web Services Startrouteanalysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-route-analyses-routeAnalysisId
+      path: /global-networks/{globalNetworkId}/route-analyses/{routeAnalysisId}
+      operations:
+      - name: amazonwebservicesgetrouteanalysis
+        method: GET
+        description: Amazon Web Services Getrouteanalysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-sites
+      path: /global-networks/{globalNetworkId}/sites
+      operations:
+      - name: amazonwebservicesgetsites
+        method: GET
+        description: Amazon Web Services Getsites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-sites-siteId
+      path: /global-networks/{globalNetworkId}/sites/{siteId}
+      operations:
+      - name: amazonwebservicesupdatesite
+        method: PATCH
+        description: Amazon Web Services Updatesite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-transit-gateway-connect-peer-associations
+      path: /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations
+      operations:
+      - name: amazonwebservicesgettransitgatewayconnectpeerassociations
+        method: GET
+        description: Amazon Web Services Gettransitgatewayconnectpeerassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-transit-gateway-connect-peer-associations-transi
+      path: /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations/{transitGatewayConnectPeerArn}
+      operations:
+      - name: amazonwebservicesdisassociatetransitgatewayconnectpeer
+        method: DELETE
+        description: Amazon Web Services Disassociatetransitgatewayconnectpeer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-transit-gateway-registrations
+      path: /global-networks/{globalNetworkId}/transit-gateway-registrations
+      operations:
+      - name: amazonwebservicesregistertransitgateway
+        method: POST
+        description: Amazon Web Services Registertransitgateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: global-networks-globalNetworkId-transit-gateway-registrations-transitGatewayArn
+      path: /global-networks/{globalNetworkId}/transit-gateway-registrations/{transitGatewayArn}
+      operations:
+      - name: amazonwebservicesderegistertransitgateway
+        method: DELETE
+        description: Amazon Web Services Deregistertransitgateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: networkmanager-global-networks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services networkmanager — Global Networks. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/global-networks
+      name: global-networks
+      description: REST surface for global-networks.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeglobalnetworks
+        description: Amazon Web Services Describeglobalnetworks
+        call: networkmanager-global-networks.amazonwebservicesdescribeglobalnetworks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}
+      name: global-networks-globalnetworkid
+      description: REST surface for global-networks-globalNetworkId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateglobalnetwork
+        description: Amazon Web Services Updateglobalnetwork
+        call: networkmanager-global-networks.amazonwebservicesupdateglobalnetwork
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/connect-peer-associations
+      name: global-networks-globalnetworkid-connect-peer-associations
+      description: REST surface for global-networks-globalNetworkId-connect-peer-associations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconnectpeerassociations
+        description: Amazon Web Services Getconnectpeerassociations
+        call: networkmanager-global-networks.amazonwebservicesgetconnectpeerassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/connect-peer-associations/{connectpeerid}
+      name: global-networks-globalnetworkid-connect-peer-associations-connectpeerid
+      description: REST surface for global-networks-globalNetworkId-connect-peer-associations-connectPeerId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateconnectpeer
+        description: Amazon Web Services Disassociateconnectpeer
+        call: networkmanager-global-networks.amazonwebservicesdisassociateconnectpeer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/connections
+      name: global-networks-globalnetworkid-connections
+      description: REST surface for global-networks-globalNetworkId-connections.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconnections
+        description: Amazon Web Services Getconnections
+        call: networkmanager-global-networks.amazonwebservicesgetconnections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/connections/{connectionid}
+      name: global-networks-globalnetworkid-connections-connectionid
+      description: REST surface for global-networks-globalNetworkId-connections-connectionId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateconnection
+        description: Amazon Web Services Updateconnection
+        call: networkmanager-global-networks.amazonwebservicesupdateconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/customer-gateway-associations
+      name: global-networks-globalnetworkid-customer-gateway-associations
+      description: REST surface for global-networks-globalNetworkId-customer-gateway-associations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcustomergatewayassociations
+        description: Amazon Web Services Getcustomergatewayassociations
+        call: networkmanager-global-networks.amazonwebservicesgetcustomergatewayassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/customer-gateway-associations/{customergatewayarn}
+      name: global-networks-globalnetworkid-customer-gateway-associations-customergatewayarn
+      description: REST surface for global-networks-globalNetworkId-customer-gateway-associations-customerGatewayArn.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatecustomergateway
+        description: Amazon Web Services Disassociatecustomergateway
+        call: networkmanager-global-networks.amazonwebservicesdisassociatecustomergateway
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/devices
+      name: global-networks-globalnetworkid-devices
+      description: REST surface for global-networks-globalNetworkId-devices.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdevices
+        description: Amazon Web Services Getdevices
+        call: networkmanager-global-networks.amazonwebservicesgetdevices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/devices/{deviceid}
+      name: global-networks-globalnetworkid-devices-deviceid
+      description: REST surface for global-networks-globalNetworkId-devices-deviceId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedevice
+        description: Amazon Web Services Updatedevice
+        call: networkmanager-global-networks.amazonwebservicesupdatedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/link-associations
+      name: global-networks-globalnetworkid-link-associations
+      description: REST surface for global-networks-globalNetworkId-link-associations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlinkassociations
+        description: Amazon Web Services Getlinkassociations
+        call: networkmanager-global-networks.amazonwebservicesgetlinkassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/links
+      name: global-networks-globalnetworkid-links
+      description: REST surface for global-networks-globalNetworkId-links.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlinks
+        description: Amazon Web Services Getlinks
+        call: networkmanager-global-networks.amazonwebservicesgetlinks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/links/{linkid}
+      name: global-networks-globalnetworkid-links-linkid
+      description: REST surface for global-networks-globalNetworkId-links-linkId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatelink
+        description: Amazon Web Services Updatelink
+        call: networkmanager-global-networks.amazonwebservicesupdatelink
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-resource-count
+      name: global-networks-globalnetworkid-network-resource-count
+      description: REST surface for global-networks-globalNetworkId-network-resource-count.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworkresourcecounts
+        description: Amazon Web Services Getnetworkresourcecounts
+        call: networkmanager-global-networks.amazonwebservicesgetnetworkresourcecounts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-resource-relationships
+      name: global-networks-globalnetworkid-network-resource-relationships
+      description: REST surface for global-networks-globalNetworkId-network-resource-relationships.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworkresourcerelationships
+        description: Amazon Web Services Getnetworkresourcerelationships
+        call: networkmanager-global-networks.amazonwebservicesgetnetworkresourcerelationships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-resources
+      name: global-networks-globalnetworkid-network-resources
+      description: REST surface for global-networks-globalNetworkId-network-resources.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworkresources
+        description: Amazon Web Services Getnetworkresources
+        call: networkmanager-global-networks.amazonwebservicesgetnetworkresources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-resources/{resourcearn}/metadata
+      name: global-networks-globalnetworkid-network-resources-resourcearn-metadata
+      description: REST surface for global-networks-globalNetworkId-network-resources-resourceArn-metadata.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatenetworkresourcemetadata
+        description: Amazon Web Services Updatenetworkresourcemetadata
+        call: networkmanager-global-networks.amazonwebservicesupdatenetworkresourcemetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-routes
+      name: global-networks-globalnetworkid-network-routes
+      description: REST surface for global-networks-globalNetworkId-network-routes.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetnetworkroutes
+        description: Amazon Web Services Getnetworkroutes
+        call: networkmanager-global-networks.amazonwebservicesgetnetworkroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/network-telemetry
+      name: global-networks-globalnetworkid-network-telemetry
+      description: REST surface for global-networks-globalNetworkId-network-telemetry.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetworktelemetry
+        description: Amazon Web Services Getnetworktelemetry
+        call: networkmanager-global-networks.amazonwebservicesgetnetworktelemetry
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/route-analyses
+      name: global-networks-globalnetworkid-route-analyses
+      description: REST surface for global-networks-globalNetworkId-route-analyses.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartrouteanalysis
+        description: Amazon Web Services Startrouteanalysis
+        call: networkmanager-global-networks.amazonwebservicesstartrouteanalysis
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/route-analyses/{routeanalysisid}
+      name: global-networks-globalnetworkid-route-analyses-routeanalysisid
+      description: REST surface for global-networks-globalNetworkId-route-analyses-routeAnalysisId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrouteanalysis
+        description: Amazon Web Services Getrouteanalysis
+        call: networkmanager-global-networks.amazonwebservicesgetrouteanalysis
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/sites
+      name: global-networks-globalnetworkid-sites
+      description: REST surface for global-networks-globalNetworkId-sites.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsites
+        description: Amazon Web Services Getsites
+        call: networkmanager-global-networks.amazonwebservicesgetsites
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/sites/{siteid}
+      name: global-networks-globalnetworkid-sites-siteid
+      description: REST surface for global-networks-globalNetworkId-sites-siteId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatesite
+        description: Amazon Web Services Updatesite
+        call: networkmanager-global-networks.amazonwebservicesupdatesite
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/transit-gateway-connect-peer-associations
+      name: global-networks-globalnetworkid-transit-gateway-connect-peer-associations
+      description: REST surface for global-networks-globalNetworkId-transit-gateway-connect-peer-associations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettransitgatewayconnectpeerassociations
+        description: Amazon Web Services Gettransitgatewayconnectpeerassociations
+        call: networkmanager-global-networks.amazonwebservicesgettransitgatewayconnectpeerassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/transit-gateway-connect-peer-associations/{transitgatewayconnectpeerarn}
+      name: global-networks-globalnetworkid-transit-gateway-connect-peer-associations-transi
+      description: REST surface for global-networks-globalNetworkId-transit-gateway-connect-peer-associations-transi.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatetransitgatewayconnectpeer
+        description: Amazon Web Services Disassociatetransitgatewayconnectpeer
+        call: networkmanager-global-networks.amazonwebservicesdisassociatetransitgatewayconnectpeer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/transit-gateway-registrations
+      name: global-networks-globalnetworkid-transit-gateway-registrations
+      description: REST surface for global-networks-globalNetworkId-transit-gateway-registrations.
+      operations:
+      - method: POST
+        name: amazonwebservicesregistertransitgateway
+        description: Amazon Web Services Registertransitgateway
+        call: networkmanager-global-networks.amazonwebservicesregistertransitgateway
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-networks/{globalnetworkid}/transit-gateway-registrations/{transitgatewayarn}
+      name: global-networks-globalnetworkid-transit-gateway-registrations-transitgatewayarn
+      description: REST surface for global-networks-globalNetworkId-transit-gateway-registrations-transitGatewayArn.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesderegistertransitgateway
+        description: Amazon Web Services Deregistertransitgateway
+        call: networkmanager-global-networks.amazonwebservicesderegistertransitgateway
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: networkmanager-global-networks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services networkmanager — Global Networks. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeglobalnetworks
+      description: Amazon Web Services Describeglobalnetworks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesdescribeglobalnetworks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateglobalnetwork
+      description: Amazon Web Services Updateglobalnetwork
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdateglobalnetwork
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconnectpeerassociations
+      description: Amazon Web Services Getconnectpeerassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetconnectpeerassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateconnectpeer
+      description: Amazon Web Services Disassociateconnectpeer
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesdisassociateconnectpeer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconnections
+      description: Amazon Web Services Getconnections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetconnections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconnection
+      description: Amazon Web Services Updateconnection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdateconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcustomergatewayassociations
+      description: Amazon Web Services Getcustomergatewayassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetcustomergatewayassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatecustomergateway
+      description: Amazon Web Services Disassociatecustomergateway
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesdisassociatecustomergateway
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdevices
+      description: Amazon Web Services Getdevices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetdevices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedevice
+      description: Amazon Web Services Updatedevice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdatedevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getlinkassociations
+      description: Amazon Web Services Getlinkassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetlinkassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getlinks
+      description: Amazon Web Services Getlinks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetlinks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatelink
+      description: Amazon Web Services Updatelink
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdatelink
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworkresourcecounts
+      description: Amazon Web Services Getnetworkresourcecounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetnetworkresourcecounts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworkresourcerelationships
+      description: Amazon Web Services Getnetworkresourcerelationships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetnetworkresourcerelationships
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworkresources
+      description: Amazon Web Services Getnetworkresources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetnetworkresources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatenetworkresourcemetadata
+      description: Amazon Web Services Updatenetworkresourcemetadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdatenetworkresourcemetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworkroutes
+      description: Amazon Web Services Getnetworkroutes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: networkmanager-global-networks.amazonwebservicesgetnetworkroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetworktelemetry
+      description: Amazon Web Services Getnetworktelemetry
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetnetworktelemetry
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startrouteanalysis
+      description: Amazon Web Services Startrouteanalysis
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: networkmanager-global-networks.amazonwebservicesstartrouteanalysis
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getrouteanalysis
+      description: Amazon Web Services Getrouteanalysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetrouteanalysis
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsites
+      description: Amazon Web Services Getsites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgetsites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesite
+      description: Amazon Web Services Updatesite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesupdatesite
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettransitgatewayconnectpeerassociations
+      description: Amazon Web Services Gettransitgatewayconnectpeerassociations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesgettransitgatewayconnectpeerassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatetransitgatewayconnectpeer
+      description: Amazon Web Services Disassociatetransitgatewayconnectpeer
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesdisassociatetransitgatewayconnectpeer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-registertransitgateway
+      description: Amazon Web Services Registertransitgateway
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: networkmanager-global-networks.amazonwebservicesregistertransitgateway
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deregistertransitgateway
+      description: Amazon Web Services Deregistertransitgateway
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: networkmanager-global-networks.amazonwebservicesderegistertransitgateway
+      outputParameters:
+      - type: object
+        mapping: $.

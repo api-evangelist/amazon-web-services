@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — List Pricing Rules Associated to Pricing Plan
+  description: 'Amazon Web Services billingconductor — List Pricing Rules Associated to Pricing Plan. 1 operations. Lead operation:
+    Amazon Web Services Listpricingrulesassociatedtopricingplan. Self-contained Naftiko capability covering one Amazon Web
+    Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Pricing Rules Associated to Pricing Plan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-list-pricing-rules-associated-to-pricing-plan
+    baseUri: ''
+    description: Amazon Web Services billingconductor — List Pricing Rules Associated to Pricing Plan business capability.
+      Self-contained, no shared references.
+    resources:
+    - name: list-pricing-rules-associated-to-pricing-plan
+      path: /list-pricing-rules-associated-to-pricing-plan
+      operations:
+      - name: amazonwebserviceslistpricingrulesassociatedtopricingplan
+        method: POST
+        description: Amazon Web Services Listpricingrulesassociatedtopricingplan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-list-pricing-rules-associated-to-pricing-plan-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — List Pricing Rules Associated to Pricing Plan. One
+      Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-pricing-rules-associated-to-pricing-plan
+      name: list-pricing-rules-associated-to-pricing-plan
+      description: REST surface for list-pricing-rules-associated-to-pricing-plan.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpricingrulesassociatedtopricingplan
+        description: Amazon Web Services Listpricingrulesassociatedtopricingplan
+        call: billingconductor-list-pricing-rules-associated-to-pricing-plan.amazonwebserviceslistpricingrulesassociatedtopricingplan
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-list-pricing-rules-associated-to-pricing-plan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — List Pricing Rules Associated to Pricing Plan. One
+      tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpricingrulesassociatedtopricingplan
+      description: Amazon Web Services Listpricingrulesassociatedtopricingplan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: billingconductor-list-pricing-rules-associated-to-pricing-plan.amazonwebserviceslistpricingrulesassociatedtopricingplan
+      outputParameters:
+      - type: object
+        mapping: $.

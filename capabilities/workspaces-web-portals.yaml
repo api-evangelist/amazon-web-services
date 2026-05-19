@@ -1,0 +1,323 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workspaces-web — Portals
+  description: 'Amazon Web Services workspaces-web — Portals. 9 operations. Lead operation: Amazon Web Services Listportals.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Portals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workspaces-web-portals
+    baseUri: ''
+    description: Amazon Web Services workspaces-web — Portals business capability. Self-contained, no shared references.
+    resources:
+    - name: portals
+      path: /portals
+      operations:
+      - name: amazonwebserviceslistportals
+        method: GET
+        description: Amazon Web Services Listportals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+
+      path: /portals/{portalArn+}
+      operations:
+      - name: amazonwebservicesupdateportal
+        method: PUT
+        description: Amazon Web Services Updateportal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-browserSettings
+      path: /portals/{portalArn+}/browserSettings
+      operations:
+      - name: amazonwebservicesdisassociatebrowsersettings
+        method: DELETE
+        description: Amazon Web Services Disassociatebrowsersettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-identityProviders
+      path: /portals/{portalArn+}/identityProviders
+      operations:
+      - name: amazonwebserviceslistidentityproviders
+        method: GET
+        description: Amazon Web Services Listidentityproviders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-ipAccessSettings
+      path: /portals/{portalArn+}/ipAccessSettings
+      operations:
+      - name: amazonwebservicesdisassociateipaccesssettings
+        method: DELETE
+        description: Amazon Web Services Disassociateipaccesssettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-networkSettings
+      path: /portals/{portalArn+}/networkSettings
+      operations:
+      - name: amazonwebservicesdisassociatenetworksettings
+        method: DELETE
+        description: Amazon Web Services Disassociatenetworksettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-trustStores
+      path: /portals/{portalArn+}/trustStores
+      operations:
+      - name: amazonwebservicesdisassociatetruststore
+        method: DELETE
+        description: Amazon Web Services Disassociatetruststore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-userAccessLoggingSettings
+      path: /portals/{portalArn+}/userAccessLoggingSettings
+      operations:
+      - name: amazonwebservicesdisassociateuseraccessloggingsettings
+        method: DELETE
+        description: Amazon Web Services Disassociateuseraccessloggingsettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: portals-portalArn+-userSettings
+      path: /portals/{portalArn+}/userSettings
+      operations:
+      - name: amazonwebservicesdisassociateusersettings
+        method: DELETE
+        description: Amazon Web Services Disassociateusersettings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workspaces-web-portals-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workspaces-web — Portals. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/portals
+      name: portals
+      description: REST surface for portals.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistportals
+        description: Amazon Web Services Listportals
+        call: workspaces-web-portals.amazonwebserviceslistportals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}
+      name: portals-portalarn
+      description: REST surface for portals-portalArn+.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateportal
+        description: Amazon Web Services Updateportal
+        call: workspaces-web-portals.amazonwebservicesupdateportal
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/browsersettings
+      name: portals-portalarn-browsersettings
+      description: REST surface for portals-portalArn+-browserSettings.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatebrowsersettings
+        description: Amazon Web Services Disassociatebrowsersettings
+        call: workspaces-web-portals.amazonwebservicesdisassociatebrowsersettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/identityproviders
+      name: portals-portalarn-identityproviders
+      description: REST surface for portals-portalArn+-identityProviders.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistidentityproviders
+        description: Amazon Web Services Listidentityproviders
+        call: workspaces-web-portals.amazonwebserviceslistidentityproviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/ipaccesssettings
+      name: portals-portalarn-ipaccesssettings
+      description: REST surface for portals-portalArn+-ipAccessSettings.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateipaccesssettings
+        description: Amazon Web Services Disassociateipaccesssettings
+        call: workspaces-web-portals.amazonwebservicesdisassociateipaccesssettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/networksettings
+      name: portals-portalarn-networksettings
+      description: REST surface for portals-portalArn+-networkSettings.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatenetworksettings
+        description: Amazon Web Services Disassociatenetworksettings
+        call: workspaces-web-portals.amazonwebservicesdisassociatenetworksettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/truststores
+      name: portals-portalarn-truststores
+      description: REST surface for portals-portalArn+-trustStores.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociatetruststore
+        description: Amazon Web Services Disassociatetruststore
+        call: workspaces-web-portals.amazonwebservicesdisassociatetruststore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/useraccessloggingsettings
+      name: portals-portalarn-useraccessloggingsettings
+      description: REST surface for portals-portalArn+-userAccessLoggingSettings.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateuseraccessloggingsettings
+        description: Amazon Web Services Disassociateuseraccessloggingsettings
+        call: workspaces-web-portals.amazonwebservicesdisassociateuseraccessloggingsettings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/portals/{portalarn}/usersettings
+      name: portals-portalarn-usersettings
+      description: REST surface for portals-portalArn+-userSettings.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociateusersettings
+        description: Amazon Web Services Disassociateusersettings
+        call: workspaces-web-portals.amazonwebservicesdisassociateusersettings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workspaces-web-portals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workspaces-web — Portals. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listportals
+      description: Amazon Web Services Listportals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-portals.amazonwebserviceslistportals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateportal
+      description: Amazon Web Services Updateportal
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesupdateportal
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatebrowsersettings
+      description: Amazon Web Services Disassociatebrowsersettings
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociatebrowsersettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listidentityproviders
+      description: Amazon Web Services Listidentityproviders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workspaces-web-portals.amazonwebserviceslistidentityproviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateipaccesssettings
+      description: Amazon Web Services Disassociateipaccesssettings
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociateipaccesssettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatenetworksettings
+      description: Amazon Web Services Disassociatenetworksettings
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociatenetworksettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociatetruststore
+      description: Amazon Web Services Disassociatetruststore
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociatetruststore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateuseraccessloggingsettings
+      description: Amazon Web Services Disassociateuseraccessloggingsettings
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociateuseraccessloggingsettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociateusersettings
+      description: Amazon Web Services Disassociateusersettings
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workspaces-web-portals.amazonwebservicesdisassociateusersettings
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Get Applicationcomponent Strategies
+  description: 'Amazon Web Services migrationhubstrategy — Get Applicationcomponent Strategies. 1 operations. Lead operation:
+    Amazon Web Services Getapplicationcomponentstrategies. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Applicationcomponent Strategies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-get-applicationcomponent-strategies
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Get Applicationcomponent Strategies business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: get-applicationcomponent-strategies-applicationComponentId
+      path: /get-applicationcomponent-strategies/{applicationComponentId}
+      operations:
+      - name: amazonwebservicesgetapplicationcomponentstrategies
+        method: GET
+        description: Amazon Web Services Getapplicationcomponentstrategies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-get-applicationcomponent-strategies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Get Applicationcomponent Strategies. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-applicationcomponent-strategies/{applicationcomponentid}
+      name: get-applicationcomponent-strategies-applicationcomponentid
+      description: REST surface for get-applicationcomponent-strategies-applicationComponentId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetapplicationcomponentstrategies
+        description: Amazon Web Services Getapplicationcomponentstrategies
+        call: migrationhubstrategy-get-applicationcomponent-strategies.amazonwebservicesgetapplicationcomponentstrategies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-get-applicationcomponent-strategies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Get Applicationcomponent Strategies. One tool
+      per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getapplicationcomponentstrategies
+      description: Amazon Web Services Getapplicationcomponentstrategies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhubstrategy-get-applicationcomponent-strategies.amazonwebservicesgetapplicationcomponentstrategies
+      outputParameters:
+      - type: object
+        mapping: $.

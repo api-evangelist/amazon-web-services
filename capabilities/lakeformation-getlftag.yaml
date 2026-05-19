@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — GetLFTag
+  description: 'Amazon Web Services lakeformation — GetLFTag. 1 operations. Lead operation: Amazon Web Services Getlftag.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetLFTag
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-getlftag
+    baseUri: ''
+    description: Amazon Web Services lakeformation — GetLFTag business capability. Self-contained, no shared references.
+    resources:
+    - name: GetLFTag
+      path: /GetLFTag
+      operations:
+      - name: amazonwebservicesgetlftag
+        method: POST
+        description: Amazon Web Services Getlftag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-getlftag-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — GetLFTag. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getlftag
+      name: getlftag
+      description: REST surface for GetLFTag.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetlftag
+        description: Amazon Web Services Getlftag
+        call: lakeformation-getlftag.amazonwebservicesgetlftag
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-getlftag-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — GetLFTag. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getlftag
+      description: Amazon Web Services Getlftag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-getlftag.amazonwebservicesgetlftag
+      outputParameters:
+      - type: object
+        mapping: $.

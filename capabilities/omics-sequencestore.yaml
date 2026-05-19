@@ -1,0 +1,707 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services omics — Sequencestore
+  description: 'Amazon Web Services omics — Sequencestore. 21 operations. Lead operation: Amazon Web Services Createsequencestore.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sequencestore
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: omics-sequencestore
+    baseUri: ''
+    description: Amazon Web Services omics — Sequencestore business capability. Self-contained, no shared references.
+    resources:
+    - name: sequencestore
+      path: /sequencestore
+      operations:
+      - name: amazonwebservicescreatesequencestore
+        method: POST
+        description: Amazon Web Services Createsequencestore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-id
+      path: /sequencestore/{id}
+      operations:
+      - name: amazonwebservicesgetsequencestore
+        method: GET
+        description: Amazon Web Services Getsequencestore
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-activationjob
+      path: /sequencestore/{sequenceStoreId}/activationjob
+      operations:
+      - name: amazonwebservicesstartreadsetactivationjob
+        method: POST
+        description: Amazon Web Services Startreadsetactivationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-activationjob-id
+      path: /sequencestore/{sequenceStoreId}/activationjob/{id}
+      operations:
+      - name: amazonwebservicesgetreadsetactivationjob
+        method: GET
+        description: Amazon Web Services Getreadsetactivationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-activationjobs
+      path: /sequencestore/{sequenceStoreId}/activationjobs
+      operations:
+      - name: amazonwebserviceslistreadsetactivationjobs
+        method: POST
+        description: Amazon Web Services Listreadsetactivationjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-exportjob
+      path: /sequencestore/{sequenceStoreId}/exportjob
+      operations:
+      - name: amazonwebservicesstartreadsetexportjob
+        method: POST
+        description: Amazon Web Services Startreadsetexportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-exportjob-id
+      path: /sequencestore/{sequenceStoreId}/exportjob/{id}
+      operations:
+      - name: amazonwebservicesgetreadsetexportjob
+        method: GET
+        description: Amazon Web Services Getreadsetexportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-exportjobs
+      path: /sequencestore/{sequenceStoreId}/exportjobs
+      operations:
+      - name: amazonwebserviceslistreadsetexportjobs
+        method: POST
+        description: Amazon Web Services Listreadsetexportjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-importjob
+      path: /sequencestore/{sequenceStoreId}/importjob
+      operations:
+      - name: amazonwebservicesstartreadsetimportjob
+        method: POST
+        description: Amazon Web Services Startreadsetimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-importjob-id
+      path: /sequencestore/{sequenceStoreId}/importjob/{id}
+      operations:
+      - name: amazonwebservicesgetreadsetimportjob
+        method: GET
+        description: Amazon Web Services Getreadsetimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-importjobs
+      path: /sequencestore/{sequenceStoreId}/importjobs
+      operations:
+      - name: amazonwebserviceslistreadsetimportjobs
+        method: POST
+        description: Amazon Web Services Listreadsetimportjobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-readset-batch-delete
+      path: /sequencestore/{sequenceStoreId}/readset/batch/delete
+      operations:
+      - name: amazonwebservicesbatchdeletereadset
+        method: POST
+        description: Amazon Web Services Batchdeletereadset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-readset-id
+      path: /sequencestore/{sequenceStoreId}/readset/{id}
+      operations:
+      - name: amazonwebservicesgetreadset
+        method: GET
+        description: Amazon Web Services Getreadset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-readset-id-metadata
+      path: /sequencestore/{sequenceStoreId}/readset/{id}/metadata
+      operations:
+      - name: amazonwebservicesgetreadsetmetadata
+        method: GET
+        description: Amazon Web Services Getreadsetmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-readsets
+      path: /sequencestore/{sequenceStoreId}/readsets
+      operations:
+      - name: amazonwebserviceslistreadsets
+        method: POST
+        description: Amazon Web Services Listreadsets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-upload
+      path: /sequencestore/{sequenceStoreId}/upload
+      operations:
+      - name: amazonwebservicescreatemultipartreadsetupload
+        method: POST
+        description: Amazon Web Services Createmultipartreadsetupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-upload-uploadId-abort
+      path: /sequencestore/{sequenceStoreId}/upload/{uploadId}/abort
+      operations:
+      - name: amazonwebservicesabortmultipartreadsetupload
+        method: DELETE
+        description: Amazon Web Services Abortmultipartreadsetupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-upload-uploadId-complete
+      path: /sequencestore/{sequenceStoreId}/upload/{uploadId}/complete
+      operations:
+      - name: amazonwebservicescompletemultipartreadsetupload
+        method: POST
+        description: Amazon Web Services Completemultipartreadsetupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-upload-uploadId-part
+      path: /sequencestore/{sequenceStoreId}/upload/{uploadId}/part
+      operations:
+      - name: amazonwebservicesuploadreadsetpart
+        method: PUT
+        description: Amazon Web Services Uploadreadsetpart
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-upload-uploadId-parts
+      path: /sequencestore/{sequenceStoreId}/upload/{uploadId}/parts
+      operations:
+      - name: amazonwebserviceslistreadsetuploadparts
+        method: POST
+        description: Amazon Web Services Listreadsetuploadparts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sequencestore-sequenceStoreId-uploads
+      path: /sequencestore/{sequenceStoreId}/uploads
+      operations:
+      - name: amazonwebserviceslistmultipartreadsetuploads
+        method: POST
+        description: Amazon Web Services Listmultipartreadsetuploads
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: omics-sequencestore-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services omics — Sequencestore. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sequencestore
+      name: sequencestore
+      description: REST surface for sequencestore.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesequencestore
+        description: Amazon Web Services Createsequencestore
+        call: omics-sequencestore.amazonwebservicescreatesequencestore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{id}
+      name: sequencestore-id
+      description: REST surface for sequencestore-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetsequencestore
+        description: Amazon Web Services Getsequencestore
+        call: omics-sequencestore.amazonwebservicesgetsequencestore
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/activationjob
+      name: sequencestore-sequencestoreid-activationjob
+      description: REST surface for sequencestore-sequenceStoreId-activationjob.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartreadsetactivationjob
+        description: Amazon Web Services Startreadsetactivationjob
+        call: omics-sequencestore.amazonwebservicesstartreadsetactivationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/activationjob/{id}
+      name: sequencestore-sequencestoreid-activationjob-id
+      description: REST surface for sequencestore-sequenceStoreId-activationjob-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadsetactivationjob
+        description: Amazon Web Services Getreadsetactivationjob
+        call: omics-sequencestore.amazonwebservicesgetreadsetactivationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/activationjobs
+      name: sequencestore-sequencestoreid-activationjobs
+      description: REST surface for sequencestore-sequenceStoreId-activationjobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreadsetactivationjobs
+        description: Amazon Web Services Listreadsetactivationjobs
+        call: omics-sequencestore.amazonwebserviceslistreadsetactivationjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/exportjob
+      name: sequencestore-sequencestoreid-exportjob
+      description: REST surface for sequencestore-sequenceStoreId-exportjob.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartreadsetexportjob
+        description: Amazon Web Services Startreadsetexportjob
+        call: omics-sequencestore.amazonwebservicesstartreadsetexportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/exportjob/{id}
+      name: sequencestore-sequencestoreid-exportjob-id
+      description: REST surface for sequencestore-sequenceStoreId-exportjob-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadsetexportjob
+        description: Amazon Web Services Getreadsetexportjob
+        call: omics-sequencestore.amazonwebservicesgetreadsetexportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/exportjobs
+      name: sequencestore-sequencestoreid-exportjobs
+      description: REST surface for sequencestore-sequenceStoreId-exportjobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreadsetexportjobs
+        description: Amazon Web Services Listreadsetexportjobs
+        call: omics-sequencestore.amazonwebserviceslistreadsetexportjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/importjob
+      name: sequencestore-sequencestoreid-importjob
+      description: REST surface for sequencestore-sequenceStoreId-importjob.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartreadsetimportjob
+        description: Amazon Web Services Startreadsetimportjob
+        call: omics-sequencestore.amazonwebservicesstartreadsetimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/importjob/{id}
+      name: sequencestore-sequencestoreid-importjob-id
+      description: REST surface for sequencestore-sequenceStoreId-importjob-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadsetimportjob
+        description: Amazon Web Services Getreadsetimportjob
+        call: omics-sequencestore.amazonwebservicesgetreadsetimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/importjobs
+      name: sequencestore-sequencestoreid-importjobs
+      description: REST surface for sequencestore-sequenceStoreId-importjobs.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreadsetimportjobs
+        description: Amazon Web Services Listreadsetimportjobs
+        call: omics-sequencestore.amazonwebserviceslistreadsetimportjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/readset/batch/delete
+      name: sequencestore-sequencestoreid-readset-batch-delete
+      description: REST surface for sequencestore-sequenceStoreId-readset-batch-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdeletereadset
+        description: Amazon Web Services Batchdeletereadset
+        call: omics-sequencestore.amazonwebservicesbatchdeletereadset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/readset/{id}
+      name: sequencestore-sequencestoreid-readset-id
+      description: REST surface for sequencestore-sequenceStoreId-readset-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadset
+        description: Amazon Web Services Getreadset
+        call: omics-sequencestore.amazonwebservicesgetreadset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/readset/{id}/metadata
+      name: sequencestore-sequencestoreid-readset-id-metadata
+      description: REST surface for sequencestore-sequenceStoreId-readset-id-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetreadsetmetadata
+        description: Amazon Web Services Getreadsetmetadata
+        call: omics-sequencestore.amazonwebservicesgetreadsetmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/readsets
+      name: sequencestore-sequencestoreid-readsets
+      description: REST surface for sequencestore-sequenceStoreId-readsets.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreadsets
+        description: Amazon Web Services Listreadsets
+        call: omics-sequencestore.amazonwebserviceslistreadsets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/upload
+      name: sequencestore-sequencestoreid-upload
+      description: REST surface for sequencestore-sequenceStoreId-upload.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatemultipartreadsetupload
+        description: Amazon Web Services Createmultipartreadsetupload
+        call: omics-sequencestore.amazonwebservicescreatemultipartreadsetupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/upload/{uploadid}/abort
+      name: sequencestore-sequencestoreid-upload-uploadid-abort
+      description: REST surface for sequencestore-sequenceStoreId-upload-uploadId-abort.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesabortmultipartreadsetupload
+        description: Amazon Web Services Abortmultipartreadsetupload
+        call: omics-sequencestore.amazonwebservicesabortmultipartreadsetupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/upload/{uploadid}/complete
+      name: sequencestore-sequencestoreid-upload-uploadid-complete
+      description: REST surface for sequencestore-sequenceStoreId-upload-uploadId-complete.
+      operations:
+      - method: POST
+        name: amazonwebservicescompletemultipartreadsetupload
+        description: Amazon Web Services Completemultipartreadsetupload
+        call: omics-sequencestore.amazonwebservicescompletemultipartreadsetupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/upload/{uploadid}/part
+      name: sequencestore-sequencestoreid-upload-uploadid-part
+      description: REST surface for sequencestore-sequenceStoreId-upload-uploadId-part.
+      operations:
+      - method: PUT
+        name: amazonwebservicesuploadreadsetpart
+        description: Amazon Web Services Uploadreadsetpart
+        call: omics-sequencestore.amazonwebservicesuploadreadsetpart
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/upload/{uploadid}/parts
+      name: sequencestore-sequencestoreid-upload-uploadid-parts
+      description: REST surface for sequencestore-sequenceStoreId-upload-uploadId-parts.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistreadsetuploadparts
+        description: Amazon Web Services Listreadsetuploadparts
+        call: omics-sequencestore.amazonwebserviceslistreadsetuploadparts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sequencestore/{sequencestoreid}/uploads
+      name: sequencestore-sequencestoreid-uploads
+      description: REST surface for sequencestore-sequenceStoreId-uploads.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistmultipartreadsetuploads
+        description: Amazon Web Services Listmultipartreadsetuploads
+        call: omics-sequencestore.amazonwebserviceslistmultipartreadsetuploads
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: omics-sequencestore-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services omics — Sequencestore. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsequencestore
+      description: Amazon Web Services Createsequencestore
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicescreatesequencestore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getsequencestore
+      description: Amazon Web Services Getsequencestore
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetsequencestore
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startreadsetactivationjob
+      description: Amazon Web Services Startreadsetactivationjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicesstartreadsetactivationjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadsetactivationjob
+      description: Amazon Web Services Getreadsetactivationjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetreadsetactivationjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreadsetactivationjobs
+      description: Amazon Web Services Listreadsetactivationjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistreadsetactivationjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startreadsetexportjob
+      description: Amazon Web Services Startreadsetexportjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicesstartreadsetexportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadsetexportjob
+      description: Amazon Web Services Getreadsetexportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetreadsetexportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreadsetexportjobs
+      description: Amazon Web Services Listreadsetexportjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistreadsetexportjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startreadsetimportjob
+      description: Amazon Web Services Startreadsetimportjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicesstartreadsetimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadsetimportjob
+      description: Amazon Web Services Getreadsetimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetreadsetimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreadsetimportjobs
+      description: Amazon Web Services Listreadsetimportjobs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistreadsetimportjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdeletereadset
+      description: Amazon Web Services Batchdeletereadset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicesbatchdeletereadset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadset
+      description: Amazon Web Services Getreadset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetreadset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getreadsetmetadata
+      description: Amazon Web Services Getreadsetmetadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesgetreadsetmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreadsets
+      description: Amazon Web Services Listreadsets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistreadsets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createmultipartreadsetupload
+      description: Amazon Web Services Createmultipartreadsetupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicescreatemultipartreadsetupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-abortmultipartreadsetupload
+      description: Amazon Web Services Abortmultipartreadsetupload
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesabortmultipartreadsetupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-completemultipartreadsetupload
+      description: Amazon Web Services Completemultipartreadsetupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebservicescompletemultipartreadsetupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-uploadreadsetpart
+      description: Amazon Web Services Uploadreadsetpart
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: omics-sequencestore.amazonwebservicesuploadreadsetpart
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreadsetuploadparts
+      description: Amazon Web Services Listreadsetuploadparts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistreadsetuploadparts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listmultipartreadsetuploads
+      description: Amazon Web Services Listmultipartreadsetuploads
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: omics-sequencestore.amazonwebserviceslistmultipartreadsetuploads
+      outputParameters:
+      - type: object
+        mapping: $.

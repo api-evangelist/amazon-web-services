@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-geospatial — Vector Enrichment Jobs
+  description: 'Amazon Web Services sagemaker-geospatial — Vector Enrichment Jobs. 3 operations. Lead operation: Amazon Web
+    Services Startvectorenrichmentjob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Vector Enrichment Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-geospatial-vector-enrichment-jobs
+    baseUri: ''
+    description: Amazon Web Services sagemaker-geospatial — Vector Enrichment Jobs business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: vector-enrichment-jobs
+      path: /vector-enrichment-jobs
+      operations:
+      - name: amazonwebservicesstartvectorenrichmentjob
+        method: POST
+        description: Amazon Web Services Startvectorenrichmentjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vector-enrichment-jobs-stop
+      path: /vector-enrichment-jobs/stop
+      operations:
+      - name: amazonwebservicesstopvectorenrichmentjob
+        method: POST
+        description: Amazon Web Services Stopvectorenrichmentjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vector-enrichment-jobs-Arn
+      path: /vector-enrichment-jobs/{Arn}
+      operations:
+      - name: amazonwebservicesgetvectorenrichmentjob
+        method: GET
+        description: Amazon Web Services Getvectorenrichmentjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-geospatial-vector-enrichment-jobs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-geospatial — Vector Enrichment Jobs. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/vector-enrichment-jobs
+      name: vector-enrichment-jobs
+      description: REST surface for vector-enrichment-jobs.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartvectorenrichmentjob
+        description: Amazon Web Services Startvectorenrichmentjob
+        call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesstartvectorenrichmentjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/vector-enrichment-jobs/stop
+      name: vector-enrichment-jobs-stop
+      description: REST surface for vector-enrichment-jobs-stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopvectorenrichmentjob
+        description: Amazon Web Services Stopvectorenrichmentjob
+        call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesstopvectorenrichmentjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/vector-enrichment-jobs/{arn}
+      name: vector-enrichment-jobs-arn
+      description: REST surface for vector-enrichment-jobs-Arn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetvectorenrichmentjob
+        description: Amazon Web Services Getvectorenrichmentjob
+        call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesgetvectorenrichmentjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-geospatial-vector-enrichment-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-geospatial — Vector Enrichment Jobs. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startvectorenrichmentjob
+      description: Amazon Web Services Startvectorenrichmentjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesstartvectorenrichmentjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopvectorenrichmentjob
+      description: Amazon Web Services Stopvectorenrichmentjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesstopvectorenrichmentjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getvectorenrichmentjob
+      description: Amazon Web Services Getvectorenrichmentjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sagemaker-geospatial-vector-enrichment-jobs.amazonwebservicesgetvectorenrichmentjob
+      outputParameters:
+      - type: object
+        mapping: $.

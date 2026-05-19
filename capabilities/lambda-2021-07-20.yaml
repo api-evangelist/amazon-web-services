@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lambda — 2021 07 20
+  description: 'Amazon Web Services lambda — 2021 07 20. 1 operations. Lead operation: Amazon Web Services Putruntimemanagementconfig.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2021 07 20
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lambda-2021-07-20
+    baseUri: ''
+    description: Amazon Web Services lambda — 2021 07 20 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2021-07-20-functions-FunctionName-runtime-management-config
+      path: /2021-07-20/functions/{FunctionName}/runtime-management-config
+      operations:
+      - name: amazonwebservicesputruntimemanagementconfig
+        method: PUT
+        description: Amazon Web Services Putruntimemanagementconfig
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lambda-2021-07-20-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lambda — 2021 07 20. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2021-07-20/functions/{functionname}/runtime-management-config
+      name: 2021-07-20-functions-functionname-runtime-management-config
+      description: REST surface for 2021-07-20-functions-FunctionName-runtime-management-config.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputruntimemanagementconfig
+        description: Amazon Web Services Putruntimemanagementconfig
+        call: lambda-2021-07-20.amazonwebservicesputruntimemanagementconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lambda-2021-07-20-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lambda — 2021 07 20. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putruntimemanagementconfig
+      description: Amazon Web Services Putruntimemanagementconfig
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: lambda-2021-07-20.amazonwebservicesputruntimemanagementconfig
+      outputParameters:
+      - type: object
+        mapping: $.

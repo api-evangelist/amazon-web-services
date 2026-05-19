@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services worklink — describeDomain
+  description: 'Amazon Web Services worklink — describeDomain. 1 operations. Lead operation: Amazon Web Services Describedomain.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - describeDomain
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: worklink-describedomain
+    baseUri: ''
+    description: Amazon Web Services worklink — describeDomain business capability. Self-contained, no shared references.
+    resources:
+    - name: describeDomain
+      path: /describeDomain
+      operations:
+      - name: amazonwebservicesdescribedomain
+        method: POST
+        description: Amazon Web Services Describedomain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: worklink-describedomain-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services worklink — describeDomain. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/describedomain
+      name: describedomain
+      description: REST surface for describeDomain.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribedomain
+        description: Amazon Web Services Describedomain
+        call: worklink-describedomain.amazonwebservicesdescribedomain
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: worklink-describedomain-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services worklink — describeDomain. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describedomain
+      description: Amazon Web Services Describedomain
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: worklink-describedomain.amazonwebservicesdescribedomain
+      outputParameters:
+      - type: object
+        mapping: $.

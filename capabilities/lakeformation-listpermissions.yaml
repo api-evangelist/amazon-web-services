@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — ListPermissions
+  description: 'Amazon Web Services lakeformation — ListPermissions. 1 operations. Lead operation: Amazon Web Services Listpermissions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListPermissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-listpermissions
+    baseUri: ''
+    description: Amazon Web Services lakeformation — ListPermissions business capability. Self-contained, no shared references.
+    resources:
+    - name: ListPermissions
+      path: /ListPermissions
+      operations:
+      - name: amazonwebserviceslistpermissions
+        method: POST
+        description: Amazon Web Services Listpermissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-listpermissions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — ListPermissions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listpermissions
+      name: listpermissions
+      description: REST surface for ListPermissions.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpermissions
+        description: Amazon Web Services Listpermissions
+        call: lakeformation-listpermissions.amazonwebserviceslistpermissions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-listpermissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — ListPermissions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpermissions
+      description: Amazon Web Services Listpermissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-listpermissions.amazonwebserviceslistpermissions
+      outputParameters:
+      - type: object
+        mapping: $.

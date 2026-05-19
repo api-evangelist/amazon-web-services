@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Delete App Version App Component
+  description: 'Amazon Web Services resiliencehub — Delete App Version App Component. 1 operations. Lead operation: Amazon
+    Web Services Deleteappversionappcomponent. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Delete App Version App Component
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-delete-app-version-app-component
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Delete App Version App Component business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: delete-app-version-app-component
+      path: /delete-app-version-app-component
+      operations:
+      - name: amazonwebservicesdeleteappversionappcomponent
+        method: POST
+        description: Amazon Web Services Deleteappversionappcomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-delete-app-version-app-component-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Delete App Version App Component. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-app-version-app-component
+      name: delete-app-version-app-component
+      description: REST surface for delete-app-version-app-component.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteappversionappcomponent
+        description: Amazon Web Services Deleteappversionappcomponent
+        call: resiliencehub-delete-app-version-app-component.amazonwebservicesdeleteappversionappcomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-delete-app-version-app-component-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Delete App Version App Component. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteappversionappcomponent
+      description: Amazon Web Services Deleteappversionappcomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-delete-app-version-app-component.amazonwebservicesdeleteappversionappcomponent
+      outputParameters:
+      - type: object
+        mapping: $.

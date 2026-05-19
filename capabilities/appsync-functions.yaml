@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Functions
+  description: 'Amazon Web Services appsync — Functions. 3 operations. Lead operation: Amazon Web Services Listfunctions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Functions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-functions
+    baseUri: ''
+    description: Amazon Web Services appsync — Functions business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-functions
+      path: /v1/apis/{apiId}/functions
+      operations:
+      - name: amazonwebserviceslistfunctions
+        method: GET
+        description: Amazon Web Services Listfunctions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-functions-functionId
+      path: /v1/apis/{apiId}/functions/{functionId}
+      operations:
+      - name: amazonwebservicesupdatefunction
+        method: POST
+        description: Amazon Web Services Updatefunction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-functions-functionId-resolvers
+      path: /v1/apis/{apiId}/functions/{functionId}/resolvers
+      operations:
+      - name: amazonwebserviceslistresolversbyfunction
+        method: GET
+        description: Amazon Web Services Listresolversbyfunction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-functions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Functions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/functions
+      name: v1-apis-apiid-functions
+      description: REST surface for v1-apis-apiId-functions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfunctions
+        description: Amazon Web Services Listfunctions
+        call: appsync-functions.amazonwebserviceslistfunctions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/functions/{functionid}
+      name: v1-apis-apiid-functions-functionid
+      description: REST surface for v1-apis-apiId-functions-functionId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatefunction
+        description: Amazon Web Services Updatefunction
+        call: appsync-functions.amazonwebservicesupdatefunction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/functions/{functionid}/resolvers
+      name: v1-apis-apiid-functions-functionid-resolvers
+      description: REST surface for v1-apis-apiId-functions-functionId-resolvers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistresolversbyfunction
+        description: Amazon Web Services Listresolversbyfunction
+        call: appsync-functions.amazonwebserviceslistresolversbyfunction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-functions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Functions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listfunctions
+      description: Amazon Web Services Listfunctions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-functions.amazonwebserviceslistfunctions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefunction
+      description: Amazon Web Services Updatefunction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-functions.amazonwebservicesupdatefunction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listresolversbyfunction
+      description: Amazon Web Services Listresolversbyfunction
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-functions.amazonwebserviceslistresolversbyfunction
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iottwinmaker — Tags List
+  description: 'Amazon Web Services iottwinmaker — Tags List. 1 operations. Lead operation: Amazon Web Services Listtagsforresource.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Tags List
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iottwinmaker-tags-list
+    baseUri: ''
+    description: Amazon Web Services iottwinmaker — Tags List business capability. Self-contained, no shared references.
+    resources:
+    - name: tags-list
+      path: /tags-list
+      operations:
+      - name: amazonwebserviceslisttagsforresource
+        method: POST
+        description: Amazon Web Services Listtagsforresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iottwinmaker-tags-list-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iottwinmaker — Tags List. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/tags-list
+      name: tags-list
+      description: REST surface for tags-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslisttagsforresource
+        description: Amazon Web Services Listtagsforresource
+        call: iottwinmaker-tags-list.amazonwebserviceslisttagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iottwinmaker-tags-list-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iottwinmaker — Tags List. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtagsforresource
+      description: Amazon Web Services Listtagsforresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-tags-list.amazonwebserviceslisttagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.

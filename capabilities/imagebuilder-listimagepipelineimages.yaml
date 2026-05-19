@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListImagePipelineImages
+  description: 'Amazon Web Services imagebuilder — ListImagePipelineImages. 1 operations. Lead operation: Amazon Web Services
+    Listimagepipelineimages. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListImagePipelineImages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listimagepipelineimages
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListImagePipelineImages business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: ListImagePipelineImages
+      path: /ListImagePipelineImages
+      operations:
+      - name: amazonwebserviceslistimagepipelineimages
+        method: POST
+        description: Amazon Web Services Listimagepipelineimages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listimagepipelineimages-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListImagePipelineImages. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listimagepipelineimages
+      name: listimagepipelineimages
+      description: REST surface for ListImagePipelineImages.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistimagepipelineimages
+        description: Amazon Web Services Listimagepipelineimages
+        call: imagebuilder-listimagepipelineimages.amazonwebserviceslistimagepipelineimages
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listimagepipelineimages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListImagePipelineImages. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listimagepipelineimages
+      description: Amazon Web Services Listimagepipelineimages
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listimagepipelineimages.amazonwebserviceslistimagepipelineimages
+      outputParameters:
+      - type: object
+        mapping: $.

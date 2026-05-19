@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Get Landingzone
+  description: 'Amazon Web Services controltower — Get Landingzone. 1 operations. Lead operation: Amazon Web Services Getlandingzone.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Landingzone
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-get-landingzone
+    baseUri: ''
+    description: Amazon Web Services controltower — Get Landingzone business capability. Self-contained, no shared references.
+    resources:
+    - name: get-landingzone
+      path: /get-landingzone
+      operations:
+      - name: amazonwebservicesgetlandingzone
+        method: POST
+        description: Amazon Web Services Getlandingzone
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-get-landingzone-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Get Landingzone. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-landingzone
+      name: get-landingzone
+      description: REST surface for get-landingzone.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetlandingzone
+        description: Amazon Web Services Getlandingzone
+        call: controltower-get-landingzone.amazonwebservicesgetlandingzone
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-get-landingzone-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Get Landingzone. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getlandingzone
+      description: Amazon Web Services Getlandingzone
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-get-landingzone.amazonwebservicesgetlandingzone
+      outputParameters:
+      - type: object
+        mapping: $.

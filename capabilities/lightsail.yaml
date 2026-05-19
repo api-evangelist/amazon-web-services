@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lightsail
+  description: 'Amazon Web Services lightsail. 1 operations. Lead operation: Amazon Web Services Updaterelationaldatabaseparameters.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services lightsail
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lightsail
+    baseUri: ''
+    description: Amazon Web Services lightsail business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdaterelationaldatabaseparameters
+        method: POST
+        description: Amazon Web Services Updaterelationaldatabaseparameters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lightsail-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lightsail. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdaterelationaldatabaseparameters
+        description: Amazon Web Services Updaterelationaldatabaseparameters
+        call: lightsail.amazonwebservicesupdaterelationaldatabaseparameters
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lightsail-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lightsail. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updaterelationaldatabaseparameters
+      description: Amazon Web Services Updaterelationaldatabaseparameters
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lightsail.amazonwebservicesupdaterelationaldatabaseparameters
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resource-explorer-2 — Search
+  description: 'Amazon Web Services resource-explorer-2 — Search. 1 operations. Lead operation: Amazon Web Services Search.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resource-explorer-2-search
+    baseUri: ''
+    description: Amazon Web Services resource-explorer-2 — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: Search
+      path: /Search
+      operations:
+      - name: amazonwebservicessearch
+        method: POST
+        description: Amazon Web Services Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resource-explorer-2-search-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resource-explorer-2 — Search. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/search
+      name: search
+      description: REST surface for Search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearch
+        description: Amazon Web Services Search
+        call: resource-explorer-2-search.amazonwebservicessearch
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resource-explorer-2-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resource-explorer-2 — Search. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-search
+      description: Amazon Web Services Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: resource-explorer-2-search.amazonwebservicessearch
+      outputParameters:
+      - type: object
+        mapping: $.

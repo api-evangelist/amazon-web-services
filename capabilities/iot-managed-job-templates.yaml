@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Managed Job Templates
+  description: 'Amazon Web Services iot — Managed Job Templates. 2 operations. Lead operation: Amazon Web Services Listmanagedjobtemplates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Managed Job Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-managed-job-templates
+    baseUri: ''
+    description: Amazon Web Services iot — Managed Job Templates business capability. Self-contained, no shared references.
+    resources:
+    - name: managed-job-templates
+      path: /managed-job-templates
+      operations:
+      - name: amazonwebserviceslistmanagedjobtemplates
+        method: GET
+        description: Amazon Web Services Listmanagedjobtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: managed-job-templates-templateName
+      path: /managed-job-templates/{templateName}
+      operations:
+      - name: amazonwebservicesdescribemanagedjobtemplate
+        method: GET
+        description: Amazon Web Services Describemanagedjobtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-managed-job-templates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Managed Job Templates. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/managed-job-templates
+      name: managed-job-templates
+      description: REST surface for managed-job-templates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmanagedjobtemplates
+        description: Amazon Web Services Listmanagedjobtemplates
+        call: iot-managed-job-templates.amazonwebserviceslistmanagedjobtemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/managed-job-templates/{templatename}
+      name: managed-job-templates-templatename
+      description: REST surface for managed-job-templates-templateName.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribemanagedjobtemplate
+        description: Amazon Web Services Describemanagedjobtemplate
+        call: iot-managed-job-templates.amazonwebservicesdescribemanagedjobtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-managed-job-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Managed Job Templates. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmanagedjobtemplates
+      description: Amazon Web Services Listmanagedjobtemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-managed-job-templates.amazonwebserviceslistmanagedjobtemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describemanagedjobtemplate
+      description: Amazon Web Services Describemanagedjobtemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-managed-job-templates.amazonwebservicesdescribemanagedjobtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

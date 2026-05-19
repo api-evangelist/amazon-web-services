@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services controltower — Get Enabled Control
+  description: 'Amazon Web Services controltower — Get Enabled Control. 1 operations. Lead operation: Amazon Web Services
+    Getenabledcontrol. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Enabled Control
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: controltower-get-enabled-control
+    baseUri: ''
+    description: Amazon Web Services controltower — Get Enabled Control business capability. Self-contained, no shared references.
+    resources:
+    - name: get-enabled-control
+      path: /get-enabled-control
+      operations:
+      - name: amazonwebservicesgetenabledcontrol
+        method: POST
+        description: Amazon Web Services Getenabledcontrol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: controltower-get-enabled-control-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services controltower — Get Enabled Control. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-enabled-control
+      name: get-enabled-control
+      description: REST surface for get-enabled-control.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetenabledcontrol
+        description: Amazon Web Services Getenabledcontrol
+        call: controltower-get-enabled-control.amazonwebservicesgetenabledcontrol
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: controltower-get-enabled-control-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services controltower — Get Enabled Control. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getenabledcontrol
+      description: Amazon Web Services Getenabledcontrol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: controltower-get-enabled-control.amazonwebservicesgetenabledcontrol
+      outputParameters:
+      - type: object
+        mapping: $.

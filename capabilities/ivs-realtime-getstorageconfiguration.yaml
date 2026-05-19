@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs-realtime — GetStorageConfiguration
+  description: 'Amazon Web Services ivs-realtime — GetStorageConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Getstorageconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetStorageConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-realtime-getstorageconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivs-realtime — GetStorageConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: GetStorageConfiguration
+      path: /GetStorageConfiguration
+      operations:
+      - name: amazonwebservicesgetstorageconfiguration
+        method: POST
+        description: Amazon Web Services Getstorageconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-realtime-getstorageconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs-realtime — GetStorageConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getstorageconfiguration
+      name: getstorageconfiguration
+      description: REST surface for GetStorageConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetstorageconfiguration
+        description: Amazon Web Services Getstorageconfiguration
+        call: ivs-realtime-getstorageconfiguration.amazonwebservicesgetstorageconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-realtime-getstorageconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs-realtime — GetStorageConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getstorageconfiguration
+      description: Amazon Web Services Getstorageconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-realtime-getstorageconfiguration.amazonwebservicesgetstorageconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

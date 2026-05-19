@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pinpoint — Phone
+  description: 'Amazon Web Services pinpoint — Phone. 1 operations. Lead operation: Amazon Web Services Phonenumbervalidate.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Phone
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pinpoint-phone
+    baseUri: ''
+    description: Amazon Web Services pinpoint — Phone business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-phone-number-validate
+      path: /v1/phone/number/validate
+      operations:
+      - name: amazonwebservicesphonenumbervalidate
+        method: POST
+        description: Amazon Web Services Phonenumbervalidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pinpoint-phone-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pinpoint — Phone. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/phone/number/validate
+      name: v1-phone-number-validate
+      description: REST surface for v1-phone-number-validate.
+      operations:
+      - method: POST
+        name: amazonwebservicesphonenumbervalidate
+        description: Amazon Web Services Phonenumbervalidate
+        call: pinpoint-phone.amazonwebservicesphonenumbervalidate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pinpoint-phone-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pinpoint — Phone. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-phonenumbervalidate
+      description: Amazon Web Services Phonenumbervalidate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: pinpoint-phone.amazonwebservicesphonenumbervalidate
+      outputParameters:
+      - type: object
+        mapping: $.

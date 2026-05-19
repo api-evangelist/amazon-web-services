@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — UpdateAnomalyDetector
+  description: 'Amazon Web Services lookoutmetrics — UpdateAnomalyDetector. 1 operations. Lead operation: Amazon Web Services
+    Updateanomalydetector. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateAnomalyDetector
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-updateanomalydetector
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — UpdateAnomalyDetector business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: UpdateAnomalyDetector
+      path: /UpdateAnomalyDetector
+      operations:
+      - name: amazonwebservicesupdateanomalydetector
+        method: POST
+        description: Amazon Web Services Updateanomalydetector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-updateanomalydetector-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — UpdateAnomalyDetector. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateanomalydetector
+      name: updateanomalydetector
+      description: REST surface for UpdateAnomalyDetector.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateanomalydetector
+        description: Amazon Web Services Updateanomalydetector
+        call: lookoutmetrics-updateanomalydetector.amazonwebservicesupdateanomalydetector
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-updateanomalydetector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — UpdateAnomalyDetector. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateanomalydetector
+      description: Amazon Web Services Updateanomalydetector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-updateanomalydetector.amazonwebservicesupdateanomalydetector
+      outputParameters:
+      - type: object
+        mapping: $.

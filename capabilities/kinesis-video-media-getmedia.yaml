@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kinesis-video-media — getMedia
+  description: 'Amazon Web Services kinesis-video-media — getMedia. 1 operations. Lead operation: Amazon Web Services Getmedia.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - getMedia
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kinesis-video-media-getmedia
+    baseUri: ''
+    description: Amazon Web Services kinesis-video-media — getMedia business capability. Self-contained, no shared references.
+    resources:
+    - name: getMedia
+      path: /getMedia
+      operations:
+      - name: amazonwebservicesgetmedia
+        method: POST
+        description: Amazon Web Services Getmedia
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kinesis-video-media-getmedia-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kinesis-video-media — getMedia. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getmedia
+      name: getmedia
+      description: REST surface for getMedia.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmedia
+        description: Amazon Web Services Getmedia
+        call: kinesis-video-media-getmedia.amazonwebservicesgetmedia
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kinesis-video-media-getmedia-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kinesis-video-media — getMedia. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getmedia
+      description: Amazon Web Services Getmedia
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis-video-media-getmedia.amazonwebservicesgetmedia
+      outputParameters:
+      - type: object
+        mapping: $.

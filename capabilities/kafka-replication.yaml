@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services kafka — Replication
+  description: 'Amazon Web Services kafka — Replication. 3 operations. Lead operation: Amazon Web Services Listreplicators.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Replication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: kafka-replication
+    baseUri: ''
+    description: Amazon Web Services kafka — Replication business capability. Self-contained, no shared references.
+    resources:
+    - name: replication-v1-replicators
+      path: /replication/v1/replicators
+      operations:
+      - name: amazonwebserviceslistreplicators
+        method: GET
+        description: Amazon Web Services Listreplicators
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: replication-v1-replicators-replicatorArn
+      path: /replication/v1/replicators/{replicatorArn}
+      operations:
+      - name: amazonwebservicesdescribereplicator
+        method: GET
+        description: Amazon Web Services Describereplicator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: replication-v1-replicators-replicatorArn-replication-info
+      path: /replication/v1/replicators/{replicatorArn}/replication-info
+      operations:
+      - name: amazonwebservicesupdatereplicationinfo
+        method: PUT
+        description: Amazon Web Services Updatereplicationinfo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kafka-replication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services kafka — Replication. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/replication/v1/replicators
+      name: replication-v1-replicators
+      description: REST surface for replication-v1-replicators.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistreplicators
+        description: Amazon Web Services Listreplicators
+        call: kafka-replication.amazonwebserviceslistreplicators
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/replication/v1/replicators/{replicatorarn}
+      name: replication-v1-replicators-replicatorarn
+      description: REST surface for replication-v1-replicators-replicatorArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribereplicator
+        description: Amazon Web Services Describereplicator
+        call: kafka-replication.amazonwebservicesdescribereplicator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/replication/v1/replicators/{replicatorarn}/replication-info
+      name: replication-v1-replicators-replicatorarn-replication-info
+      description: REST surface for replication-v1-replicators-replicatorArn-replication-info.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatereplicationinfo
+        description: Amazon Web Services Updatereplicationinfo
+        call: kafka-replication.amazonwebservicesupdatereplicationinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kafka-replication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services kafka — Replication. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listreplicators
+      description: Amazon Web Services Listreplicators
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafka-replication.amazonwebserviceslistreplicators
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describereplicator
+      description: Amazon Web Services Describereplicator
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: kafka-replication.amazonwebservicesdescribereplicator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereplicationinfo
+      description: Amazon Web Services Updatereplicationinfo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: kafka-replication.amazonwebservicesupdatereplicationinfo
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rds-data — BatchExecute
+  description: 'Amazon Web Services rds-data — BatchExecute. 1 operations. Lead operation: Amazon Web Services Batchexecutestatement.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - BatchExecute
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rds-data-batchexecute
+    baseUri: ''
+    description: Amazon Web Services rds-data — BatchExecute business capability. Self-contained, no shared references.
+    resources:
+    - name: BatchExecute
+      path: /BatchExecute
+      operations:
+      - name: amazonwebservicesbatchexecutestatement
+        method: POST
+        description: Amazon Web Services Batchexecutestatement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rds-data-batchexecute-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rds-data — BatchExecute. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/batchexecute
+      name: batchexecute
+      description: REST surface for BatchExecute.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchexecutestatement
+        description: Amazon Web Services Batchexecutestatement
+        call: rds-data-batchexecute.amazonwebservicesbatchexecutestatement
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rds-data-batchexecute-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rds-data — BatchExecute. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-batchexecutestatement
+      description: Amazon Web Services Batchexecutestatement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rds-data-batchexecute.amazonwebservicesbatchexecutestatement
+      outputParameters:
+      - type: object
+        mapping: $.

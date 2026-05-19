@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Start Recommendation Report Generation
+  description: 'Amazon Web Services migrationhubstrategy — Start Recommendation Report Generation. 1 operations. Lead operation:
+    Amazon Web Services Startrecommendationreportgeneration. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Start Recommendation Report Generation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-start-recommendation-report-generation
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Start Recommendation Report Generation business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: start-recommendation-report-generation
+      path: /start-recommendation-report-generation
+      operations:
+      - name: amazonwebservicesstartrecommendationreportgeneration
+        method: POST
+        description: Amazon Web Services Startrecommendationreportgeneration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-start-recommendation-report-generation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Start Recommendation Report Generation. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/start-recommendation-report-generation
+      name: start-recommendation-report-generation
+      description: REST surface for start-recommendation-report-generation.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartrecommendationreportgeneration
+        description: Amazon Web Services Startrecommendationreportgeneration
+        call: migrationhubstrategy-start-recommendation-report-generation.amazonwebservicesstartrecommendationreportgeneration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-start-recommendation-report-generation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Start Recommendation Report Generation. One tool
+      per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startrecommendationreportgeneration
+      description: Amazon Web Services Startrecommendationreportgeneration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: migrationhubstrategy-start-recommendation-report-generation.amazonwebservicesstartrecommendationreportgeneration
+      outputParameters:
+      - type: object
+        mapping: $.

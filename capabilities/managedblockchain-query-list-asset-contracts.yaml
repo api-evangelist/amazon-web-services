@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services managedblockchain-query — List Asset Contracts
+  description: 'Amazon Web Services managedblockchain-query — List Asset Contracts. 1 operations. Lead operation: Amazon Web
+    Services Listassetcontracts. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Asset Contracts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: managedblockchain-query-list-asset-contracts
+    baseUri: ''
+    description: Amazon Web Services managedblockchain-query — List Asset Contracts business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: list-asset-contracts
+      path: /list-asset-contracts
+      operations:
+      - name: amazonwebserviceslistassetcontracts
+        method: POST
+        description: Amazon Web Services Listassetcontracts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: managedblockchain-query-list-asset-contracts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services managedblockchain-query — List Asset Contracts. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-asset-contracts
+      name: list-asset-contracts
+      description: REST surface for list-asset-contracts.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistassetcontracts
+        description: Amazon Web Services Listassetcontracts
+        call: managedblockchain-query-list-asset-contracts.amazonwebserviceslistassetcontracts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: managedblockchain-query-list-asset-contracts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services managedblockchain-query — List Asset Contracts. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listassetcontracts
+      description: Amazon Web Services Listassetcontracts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: managedblockchain-query-list-asset-contracts.amazonwebserviceslistassetcontracts
+      outputParameters:
+      - type: object
+        mapping: $.

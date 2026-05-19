@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Domainnames
+  description: 'Amazon Web Services appsync — Domainnames. 3 operations. Lead operation: Amazon Web Services Listdomainnames.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domainnames
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-domainnames
+    baseUri: ''
+    description: Amazon Web Services appsync — Domainnames business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-domainnames
+      path: /v1/domainnames
+      operations:
+      - name: amazonwebserviceslistdomainnames
+        method: GET
+        description: Amazon Web Services Listdomainnames
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-domainnames-domainName
+      path: /v1/domainnames/{domainName}
+      operations:
+      - name: amazonwebservicesupdatedomainname
+        method: POST
+        description: Amazon Web Services Updatedomainname
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-domainnames-domainName-apiassociation
+      path: /v1/domainnames/{domainName}/apiassociation
+      operations:
+      - name: amazonwebservicesgetapiassociation
+        method: GET
+        description: Amazon Web Services Getapiassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-domainnames-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Domainnames. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/domainnames
+      name: v1-domainnames
+      description: REST surface for v1-domainnames.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdomainnames
+        description: Amazon Web Services Listdomainnames
+        call: appsync-domainnames.amazonwebserviceslistdomainnames
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/domainnames/{domainname}
+      name: v1-domainnames-domainname
+      description: REST surface for v1-domainnames-domainName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatedomainname
+        description: Amazon Web Services Updatedomainname
+        call: appsync-domainnames.amazonwebservicesupdatedomainname
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/domainnames/{domainname}/apiassociation
+      name: v1-domainnames-domainname-apiassociation
+      description: REST surface for v1-domainnames-domainName-apiassociation.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetapiassociation
+        description: Amazon Web Services Getapiassociation
+        call: appsync-domainnames.amazonwebservicesgetapiassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-domainnames-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Domainnames. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomainnames
+      description: Amazon Web Services Listdomainnames
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-domainnames.amazonwebserviceslistdomainnames
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedomainname
+      description: Amazon Web Services Updatedomainname
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-domainnames.amazonwebservicesupdatedomainname
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getapiassociation
+      description: Amazon Web Services Getapiassociation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-domainnames.amazonwebservicesgetapiassociation
+      outputParameters:
+      - type: object
+        mapping: $.

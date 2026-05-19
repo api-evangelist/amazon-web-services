@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — DeleteGroup
+  description: 'Amazon Web Services xray — DeleteGroup. 1 operations. Lead operation: Amazon Web Services Deletegroup. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteGroup
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-deletegroup
+    baseUri: ''
+    description: Amazon Web Services xray — DeleteGroup business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteGroup
+      path: /DeleteGroup
+      operations:
+      - name: amazonwebservicesdeletegroup
+        method: POST
+        description: Amazon Web Services Deletegroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-deletegroup-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — DeleteGroup. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/deletegroup
+      name: deletegroup
+      description: REST surface for DeleteGroup.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeletegroup
+        description: Amazon Web Services Deletegroup
+        call: xray-deletegroup.amazonwebservicesdeletegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-deletegroup-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — DeleteGroup. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletegroup
+      description: Amazon Web Services Deletegroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-deletegroup.amazonwebservicesdeletegroup
+      outputParameters:
+      - type: object
+        mapping: $.

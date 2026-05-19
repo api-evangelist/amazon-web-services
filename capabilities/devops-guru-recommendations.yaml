@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services devops-guru — Recommendations
+  description: 'Amazon Web Services devops-guru — Recommendations. 1 operations. Lead operation: Amazon Web Services Listrecommendations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Recommendations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: devops-guru-recommendations
+    baseUri: ''
+    description: Amazon Web Services devops-guru — Recommendations business capability. Self-contained, no shared references.
+    resources:
+    - name: recommendations
+      path: /recommendations
+      operations:
+      - name: amazonwebserviceslistrecommendations
+        method: POST
+        description: Amazon Web Services Listrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: devops-guru-recommendations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services devops-guru — Recommendations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/recommendations
+      name: recommendations
+      description: REST surface for recommendations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistrecommendations
+        description: Amazon Web Services Listrecommendations
+        call: devops-guru-recommendations.amazonwebserviceslistrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: devops-guru-recommendations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services devops-guru — Recommendations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrecommendations
+      description: Amazon Web Services Listrecommendations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-recommendations.amazonwebserviceslistrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.

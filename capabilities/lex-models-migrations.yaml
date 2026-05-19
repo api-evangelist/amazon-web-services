@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lex-models — Migrations
+  description: 'Amazon Web Services lex-models — Migrations. 2 operations. Lead operation: Amazon Web Services Startmigration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Migrations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lex-models-migrations
+    baseUri: ''
+    description: Amazon Web Services lex-models — Migrations business capability. Self-contained, no shared references.
+    resources:
+    - name: migrations
+      path: /migrations
+      operations:
+      - name: amazonwebservicesstartmigration
+        method: POST
+        description: Amazon Web Services Startmigration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: migrations-migrationId
+      path: /migrations/{migrationId}
+      operations:
+      - name: amazonwebservicesgetmigration
+        method: GET
+        description: Amazon Web Services Getmigration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lex-models-migrations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lex-models — Migrations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/migrations
+      name: migrations
+      description: REST surface for migrations.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartmigration
+        description: Amazon Web Services Startmigration
+        call: lex-models-migrations.amazonwebservicesstartmigration
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/migrations/{migrationid}
+      name: migrations-migrationid
+      description: REST surface for migrations-migrationId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmigration
+        description: Amazon Web Services Getmigration
+        call: lex-models-migrations.amazonwebservicesgetmigration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lex-models-migrations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lex-models — Migrations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startmigration
+      description: Amazon Web Services Startmigration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lex-models-migrations.amazonwebservicesstartmigration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmigration
+      description: Amazon Web Services Getmigration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lex-models-migrations.amazonwebservicesgetmigration
+      outputParameters:
+      - type: object
+        mapping: $.

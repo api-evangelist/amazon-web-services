@@ -1,0 +1,1059 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pinpoint-email — Email
+  description: 'Amazon Web Services pinpoint-email — Email. 32 operations. Lead operation: Amazon Web Services Getaccount.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Email
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pinpoint-email-email
+    baseUri: ''
+    description: Amazon Web Services pinpoint-email — Email business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-email-account
+      path: /v1/email/account
+      operations:
+      - name: amazonwebservicesgetaccount
+        method: GET
+        description: Amazon Web Services Getaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-account-dedicated-ips-warmup
+      path: /v1/email/account/dedicated-ips/warmup
+      operations:
+      - name: amazonwebservicesputaccountdedicatedipwarmupattributes
+        method: PUT
+        description: Amazon Web Services Putaccountdedicatedipwarmupattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-account-sending
+      path: /v1/email/account/sending
+      operations:
+      - name: amazonwebservicesputaccountsendingattributes
+        method: PUT
+        description: Amazon Web Services Putaccountsendingattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets
+      path: /v1/email/configuration-sets
+      operations:
+      - name: amazonwebserviceslistconfigurationsets
+        method: GET
+        description: Amazon Web Services Listconfigurationsets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName
+      path: /v1/email/configuration-sets/{ConfigurationSetName}
+      operations:
+      - name: amazonwebservicesgetconfigurationset
+        method: GET
+        description: Amazon Web Services Getconfigurationset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-delivery-options
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/delivery-options
+      operations:
+      - name: amazonwebservicesputconfigurationsetdeliveryoptions
+        method: PUT
+        description: Amazon Web Services Putconfigurationsetdeliveryoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-event-destinations
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/event-destinations
+      operations:
+      - name: amazonwebservicesgetconfigurationseteventdestinations
+        method: GET
+        description: Amazon Web Services Getconfigurationseteventdestinations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-event-destinations-EventDestina
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}
+      operations:
+      - name: amazonwebservicesupdateconfigurationseteventdestination
+        method: PUT
+        description: Amazon Web Services Updateconfigurationseteventdestination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-reputation-options
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/reputation-options
+      operations:
+      - name: amazonwebservicesputconfigurationsetreputationoptions
+        method: PUT
+        description: Amazon Web Services Putconfigurationsetreputationoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-sending
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/sending
+      operations:
+      - name: amazonwebservicesputconfigurationsetsendingoptions
+        method: PUT
+        description: Amazon Web Services Putconfigurationsetsendingoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-configuration-sets-ConfigurationSetName-tracking-options
+      path: /v1/email/configuration-sets/{ConfigurationSetName}/tracking-options
+      operations:
+      - name: amazonwebservicesputconfigurationsettrackingoptions
+        method: PUT
+        description: Amazon Web Services Putconfigurationsettrackingoptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ip-pools
+      path: /v1/email/dedicated-ip-pools
+      operations:
+      - name: amazonwebserviceslistdedicatedippools
+        method: GET
+        description: Amazon Web Services Listdedicatedippools
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ip-pools-PoolName
+      path: /v1/email/dedicated-ip-pools/{PoolName}
+      operations:
+      - name: amazonwebservicesdeletededicatedippool
+        method: DELETE
+        description: Amazon Web Services Deletededicatedippool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ips
+      path: /v1/email/dedicated-ips
+      operations:
+      - name: amazonwebservicesgetdedicatedips
+        method: GET
+        description: Amazon Web Services Getdedicatedips
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ips-IP
+      path: /v1/email/dedicated-ips/{IP}
+      operations:
+      - name: amazonwebservicesgetdedicatedip
+        method: GET
+        description: Amazon Web Services Getdedicatedip
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ips-IP-pool
+      path: /v1/email/dedicated-ips/{IP}/pool
+      operations:
+      - name: amazonwebservicesputdedicatedipinpool
+        method: PUT
+        description: Amazon Web Services Putdedicatedipinpool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-dedicated-ips-IP-warmup
+      path: /v1/email/dedicated-ips/{IP}/warmup
+      operations:
+      - name: amazonwebservicesputdedicatedipwarmupattributes
+        method: PUT
+        description: Amazon Web Services Putdedicatedipwarmupattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard
+      path: /v1/email/deliverability-dashboard
+      operations:
+      - name: amazonwebservicesputdeliverabilitydashboardoption
+        method: PUT
+        description: Amazon Web Services Putdeliverabilitydashboardoption
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-blacklist-report
+      path: /v1/email/deliverability-dashboard/blacklist-report
+      operations:
+      - name: amazonwebservicesgetblacklistreports
+        method: GET
+        description: Amazon Web Services Getblacklistreports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-campaigns-CampaignId
+      path: /v1/email/deliverability-dashboard/campaigns/{CampaignId}
+      operations:
+      - name: amazonwebservicesgetdomaindeliverabilitycampaign
+        method: GET
+        description: Amazon Web Services Getdomaindeliverabilitycampaign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-domains-SubscribedDomain-campaigns
+      path: /v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns
+      operations:
+      - name: amazonwebserviceslistdomaindeliverabilitycampaigns
+        method: GET
+        description: Amazon Web Services Listdomaindeliverabilitycampaigns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-statistics-report-Domain
+      path: /v1/email/deliverability-dashboard/statistics-report/{Domain}
+      operations:
+      - name: amazonwebservicesgetdomainstatisticsreport
+        method: GET
+        description: Amazon Web Services Getdomainstatisticsreport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-test
+      path: /v1/email/deliverability-dashboard/test
+      operations:
+      - name: amazonwebservicescreatedeliverabilitytestreport
+        method: POST
+        description: Amazon Web Services Createdeliverabilitytestreport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-test-reports
+      path: /v1/email/deliverability-dashboard/test-reports
+      operations:
+      - name: amazonwebserviceslistdeliverabilitytestreports
+        method: GET
+        description: Amazon Web Services Listdeliverabilitytestreports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-deliverability-dashboard-test-reports-ReportId
+      path: /v1/email/deliverability-dashboard/test-reports/{ReportId}
+      operations:
+      - name: amazonwebservicesgetdeliverabilitytestreport
+        method: GET
+        description: Amazon Web Services Getdeliverabilitytestreport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-identities
+      path: /v1/email/identities
+      operations:
+      - name: amazonwebserviceslistemailidentities
+        method: GET
+        description: Amazon Web Services Listemailidentities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-identities-EmailIdentity
+      path: /v1/email/identities/{EmailIdentity}
+      operations:
+      - name: amazonwebservicesgetemailidentity
+        method: GET
+        description: Amazon Web Services Getemailidentity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-identities-EmailIdentity-dkim
+      path: /v1/email/identities/{EmailIdentity}/dkim
+      operations:
+      - name: amazonwebservicesputemailidentitydkimattributes
+        method: PUT
+        description: Amazon Web Services Putemailidentitydkimattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-identities-EmailIdentity-feedback
+      path: /v1/email/identities/{EmailIdentity}/feedback
+      operations:
+      - name: amazonwebservicesputemailidentityfeedbackattributes
+        method: PUT
+        description: Amazon Web Services Putemailidentityfeedbackattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-identities-EmailIdentity-mail-from
+      path: /v1/email/identities/{EmailIdentity}/mail-from
+      operations:
+      - name: amazonwebservicesputemailidentitymailfromattributes
+        method: PUT
+        description: Amazon Web Services Putemailidentitymailfromattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-outbound-emails
+      path: /v1/email/outbound-emails
+      operations:
+      - name: amazonwebservicessendemail
+        method: POST
+        description: Amazon Web Services Sendemail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-email-tags
+      path: /v1/email/tags
+      operations:
+      - name: amazonwebservicesuntagresource
+        method: DELETE
+        description: Amazon Web Services Untagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pinpoint-email-email-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pinpoint-email — Email. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/email/account
+      name: v1-email-account
+      description: REST surface for v1-email-account.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetaccount
+        description: Amazon Web Services Getaccount
+        call: pinpoint-email-email.amazonwebservicesgetaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/account/dedicated-ips/warmup
+      name: v1-email-account-dedicated-ips-warmup
+      description: REST surface for v1-email-account-dedicated-ips-warmup.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputaccountdedicatedipwarmupattributes
+        description: Amazon Web Services Putaccountdedicatedipwarmupattributes
+        call: pinpoint-email-email.amazonwebservicesputaccountdedicatedipwarmupattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/account/sending
+      name: v1-email-account-sending
+      description: REST surface for v1-email-account-sending.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputaccountsendingattributes
+        description: Amazon Web Services Putaccountsendingattributes
+        call: pinpoint-email-email.amazonwebservicesputaccountsendingattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets
+      name: v1-email-configuration-sets
+      description: REST surface for v1-email-configuration-sets.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistconfigurationsets
+        description: Amazon Web Services Listconfigurationsets
+        call: pinpoint-email-email.amazonwebserviceslistconfigurationsets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}
+      name: v1-email-configuration-sets-configurationsetname
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconfigurationset
+        description: Amazon Web Services Getconfigurationset
+        call: pinpoint-email-email.amazonwebservicesgetconfigurationset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/delivery-options
+      name: v1-email-configuration-sets-configurationsetname-delivery-options
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-delivery-options.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputconfigurationsetdeliveryoptions
+        description: Amazon Web Services Putconfigurationsetdeliveryoptions
+        call: pinpoint-email-email.amazonwebservicesputconfigurationsetdeliveryoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/event-destinations
+      name: v1-email-configuration-sets-configurationsetname-event-destinations
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-event-destinations.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetconfigurationseteventdestinations
+        description: Amazon Web Services Getconfigurationseteventdestinations
+        call: pinpoint-email-email.amazonwebservicesgetconfigurationseteventdestinations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/event-destinations/{eventdestinationname}
+      name: v1-email-configuration-sets-configurationsetname-event-destinations-eventdestina
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-event-destinations-EventDestina.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateconfigurationseteventdestination
+        description: Amazon Web Services Updateconfigurationseteventdestination
+        call: pinpoint-email-email.amazonwebservicesupdateconfigurationseteventdestination
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/reputation-options
+      name: v1-email-configuration-sets-configurationsetname-reputation-options
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-reputation-options.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputconfigurationsetreputationoptions
+        description: Amazon Web Services Putconfigurationsetreputationoptions
+        call: pinpoint-email-email.amazonwebservicesputconfigurationsetreputationoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/sending
+      name: v1-email-configuration-sets-configurationsetname-sending
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-sending.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputconfigurationsetsendingoptions
+        description: Amazon Web Services Putconfigurationsetsendingoptions
+        call: pinpoint-email-email.amazonwebservicesputconfigurationsetsendingoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/configuration-sets/{configurationsetname}/tracking-options
+      name: v1-email-configuration-sets-configurationsetname-tracking-options
+      description: REST surface for v1-email-configuration-sets-ConfigurationSetName-tracking-options.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputconfigurationsettrackingoptions
+        description: Amazon Web Services Putconfigurationsettrackingoptions
+        call: pinpoint-email-email.amazonwebservicesputconfigurationsettrackingoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ip-pools
+      name: v1-email-dedicated-ip-pools
+      description: REST surface for v1-email-dedicated-ip-pools.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdedicatedippools
+        description: Amazon Web Services Listdedicatedippools
+        call: pinpoint-email-email.amazonwebserviceslistdedicatedippools
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ip-pools/{poolname}
+      name: v1-email-dedicated-ip-pools-poolname
+      description: REST surface for v1-email-dedicated-ip-pools-PoolName.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletededicatedippool
+        description: Amazon Web Services Deletededicatedippool
+        call: pinpoint-email-email.amazonwebservicesdeletededicatedippool
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ips
+      name: v1-email-dedicated-ips
+      description: REST surface for v1-email-dedicated-ips.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdedicatedips
+        description: Amazon Web Services Getdedicatedips
+        call: pinpoint-email-email.amazonwebservicesgetdedicatedips
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ips/{ip}
+      name: v1-email-dedicated-ips-ip
+      description: REST surface for v1-email-dedicated-ips-IP.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdedicatedip
+        description: Amazon Web Services Getdedicatedip
+        call: pinpoint-email-email.amazonwebservicesgetdedicatedip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ips/{ip}/pool
+      name: v1-email-dedicated-ips-ip-pool
+      description: REST surface for v1-email-dedicated-ips-IP-pool.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputdedicatedipinpool
+        description: Amazon Web Services Putdedicatedipinpool
+        call: pinpoint-email-email.amazonwebservicesputdedicatedipinpool
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/dedicated-ips/{ip}/warmup
+      name: v1-email-dedicated-ips-ip-warmup
+      description: REST surface for v1-email-dedicated-ips-IP-warmup.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputdedicatedipwarmupattributes
+        description: Amazon Web Services Putdedicatedipwarmupattributes
+        call: pinpoint-email-email.amazonwebservicesputdedicatedipwarmupattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard
+      name: v1-email-deliverability-dashboard
+      description: REST surface for v1-email-deliverability-dashboard.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputdeliverabilitydashboardoption
+        description: Amazon Web Services Putdeliverabilitydashboardoption
+        call: pinpoint-email-email.amazonwebservicesputdeliverabilitydashboardoption
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/blacklist-report
+      name: v1-email-deliverability-dashboard-blacklist-report
+      description: REST surface for v1-email-deliverability-dashboard-blacklist-report.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetblacklistreports
+        description: Amazon Web Services Getblacklistreports
+        call: pinpoint-email-email.amazonwebservicesgetblacklistreports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/campaigns/{campaignid}
+      name: v1-email-deliverability-dashboard-campaigns-campaignid
+      description: REST surface for v1-email-deliverability-dashboard-campaigns-CampaignId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdomaindeliverabilitycampaign
+        description: Amazon Web Services Getdomaindeliverabilitycampaign
+        call: pinpoint-email-email.amazonwebservicesgetdomaindeliverabilitycampaign
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/domains/{subscribeddomain}/campaigns
+      name: v1-email-deliverability-dashboard-domains-subscribeddomain-campaigns
+      description: REST surface for v1-email-deliverability-dashboard-domains-SubscribedDomain-campaigns.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdomaindeliverabilitycampaigns
+        description: Amazon Web Services Listdomaindeliverabilitycampaigns
+        call: pinpoint-email-email.amazonwebserviceslistdomaindeliverabilitycampaigns
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/statistics-report/{domain}
+      name: v1-email-deliverability-dashboard-statistics-report-domain
+      description: REST surface for v1-email-deliverability-dashboard-statistics-report-Domain.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdomainstatisticsreport
+        description: Amazon Web Services Getdomainstatisticsreport
+        call: pinpoint-email-email.amazonwebservicesgetdomainstatisticsreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/test
+      name: v1-email-deliverability-dashboard-test
+      description: REST surface for v1-email-deliverability-dashboard-test.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatedeliverabilitytestreport
+        description: Amazon Web Services Createdeliverabilitytestreport
+        call: pinpoint-email-email.amazonwebservicescreatedeliverabilitytestreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/test-reports
+      name: v1-email-deliverability-dashboard-test-reports
+      description: REST surface for v1-email-deliverability-dashboard-test-reports.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdeliverabilitytestreports
+        description: Amazon Web Services Listdeliverabilitytestreports
+        call: pinpoint-email-email.amazonwebserviceslistdeliverabilitytestreports
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/deliverability-dashboard/test-reports/{reportid}
+      name: v1-email-deliverability-dashboard-test-reports-reportid
+      description: REST surface for v1-email-deliverability-dashboard-test-reports-ReportId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdeliverabilitytestreport
+        description: Amazon Web Services Getdeliverabilitytestreport
+        call: pinpoint-email-email.amazonwebservicesgetdeliverabilitytestreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/identities
+      name: v1-email-identities
+      description: REST surface for v1-email-identities.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistemailidentities
+        description: Amazon Web Services Listemailidentities
+        call: pinpoint-email-email.amazonwebserviceslistemailidentities
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/identities/{emailidentity}
+      name: v1-email-identities-emailidentity
+      description: REST surface for v1-email-identities-EmailIdentity.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetemailidentity
+        description: Amazon Web Services Getemailidentity
+        call: pinpoint-email-email.amazonwebservicesgetemailidentity
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/identities/{emailidentity}/dkim
+      name: v1-email-identities-emailidentity-dkim
+      description: REST surface for v1-email-identities-EmailIdentity-dkim.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputemailidentitydkimattributes
+        description: Amazon Web Services Putemailidentitydkimattributes
+        call: pinpoint-email-email.amazonwebservicesputemailidentitydkimattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/identities/{emailidentity}/feedback
+      name: v1-email-identities-emailidentity-feedback
+      description: REST surface for v1-email-identities-EmailIdentity-feedback.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputemailidentityfeedbackattributes
+        description: Amazon Web Services Putemailidentityfeedbackattributes
+        call: pinpoint-email-email.amazonwebservicesputemailidentityfeedbackattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/identities/{emailidentity}/mail-from
+      name: v1-email-identities-emailidentity-mail-from
+      description: REST surface for v1-email-identities-EmailIdentity-mail-from.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputemailidentitymailfromattributes
+        description: Amazon Web Services Putemailidentitymailfromattributes
+        call: pinpoint-email-email.amazonwebservicesputemailidentitymailfromattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/outbound-emails
+      name: v1-email-outbound-emails
+      description: REST surface for v1-email-outbound-emails.
+      operations:
+      - method: POST
+        name: amazonwebservicessendemail
+        description: Amazon Web Services Sendemail
+        call: pinpoint-email-email.amazonwebservicessendemail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/email/tags
+      name: v1-email-tags
+      description: REST surface for v1-email-tags.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesuntagresource
+        description: Amazon Web Services Untagresource
+        call: pinpoint-email-email.amazonwebservicesuntagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pinpoint-email-email-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pinpoint-email — Email. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getaccount
+      description: Amazon Web Services Getaccount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putaccountdedicatedipwarmupattributes
+      description: Amazon Web Services Putaccountdedicatedipwarmupattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputaccountdedicatedipwarmupattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putaccountsendingattributes
+      description: Amazon Web Services Putaccountsendingattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputaccountsendingattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfigurationsets
+      description: Amazon Web Services Listconfigurationsets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebserviceslistconfigurationsets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconfigurationset
+      description: Amazon Web Services Getconfigurationset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetconfigurationset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putconfigurationsetdeliveryoptions
+      description: Amazon Web Services Putconfigurationsetdeliveryoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputconfigurationsetdeliveryoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconfigurationseteventdestinations
+      description: Amazon Web Services Getconfigurationseteventdestinations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetconfigurationseteventdestinations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateconfigurationseteventdestination
+      description: Amazon Web Services Updateconfigurationseteventdestination
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesupdateconfigurationseteventdestination
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putconfigurationsetreputationoptions
+      description: Amazon Web Services Putconfigurationsetreputationoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputconfigurationsetreputationoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putconfigurationsetsendingoptions
+      description: Amazon Web Services Putconfigurationsetsendingoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputconfigurationsetsendingoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putconfigurationsettrackingoptions
+      description: Amazon Web Services Putconfigurationsettrackingoptions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputconfigurationsettrackingoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdedicatedippools
+      description: Amazon Web Services Listdedicatedippools
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebserviceslistdedicatedippools
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletededicatedippool
+      description: Amazon Web Services Deletededicatedippool
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesdeletededicatedippool
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdedicatedips
+      description: Amazon Web Services Getdedicatedips
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetdedicatedips
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdedicatedip
+      description: Amazon Web Services Getdedicatedip
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetdedicatedip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putdedicatedipinpool
+      description: Amazon Web Services Putdedicatedipinpool
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputdedicatedipinpool
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putdedicatedipwarmupattributes
+      description: Amazon Web Services Putdedicatedipwarmupattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputdedicatedipwarmupattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putdeliverabilitydashboardoption
+      description: Amazon Web Services Putdeliverabilitydashboardoption
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputdeliverabilitydashboardoption
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getblacklistreports
+      description: Amazon Web Services Getblacklistreports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetblacklistreports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdomaindeliverabilitycampaign
+      description: Amazon Web Services Getdomaindeliverabilitycampaign
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetdomaindeliverabilitycampaign
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdomaindeliverabilitycampaigns
+      description: Amazon Web Services Listdomaindeliverabilitycampaigns
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebserviceslistdomaindeliverabilitycampaigns
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdomainstatisticsreport
+      description: Amazon Web Services Getdomainstatisticsreport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetdomainstatisticsreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createdeliverabilitytestreport
+      description: Amazon Web Services Createdeliverabilitytestreport
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pinpoint-email-email.amazonwebservicescreatedeliverabilitytestreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listdeliverabilitytestreports
+      description: Amazon Web Services Listdeliverabilitytestreports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebserviceslistdeliverabilitytestreports
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdeliverabilitytestreport
+      description: Amazon Web Services Getdeliverabilitytestreport
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetdeliverabilitytestreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listemailidentities
+      description: Amazon Web Services Listemailidentities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebserviceslistemailidentities
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getemailidentity
+      description: Amazon Web Services Getemailidentity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesgetemailidentity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putemailidentitydkimattributes
+      description: Amazon Web Services Putemailidentitydkimattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputemailidentitydkimattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putemailidentityfeedbackattributes
+      description: Amazon Web Services Putemailidentityfeedbackattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputemailidentityfeedbackattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putemailidentitymailfromattributes
+      description: Amazon Web Services Putemailidentitymailfromattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesputemailidentitymailfromattributes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-sendemail
+      description: Amazon Web Services Sendemail
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pinpoint-email-email.amazonwebservicessendemail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-untagresource
+      description: Amazon Web Services Untagresource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pinpoint-email-email.amazonwebservicesuntagresource
+      outputParameters:
+      - type: object
+        mapping: $.

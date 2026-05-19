@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pinpoint — Recommenders
+  description: 'Amazon Web Services pinpoint — Recommenders. 2 operations. Lead operation: Amazon Web Services Getrecommenderconfigurations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Recommenders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pinpoint-recommenders
+    baseUri: ''
+    description: Amazon Web Services pinpoint — Recommenders business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-recommenders
+      path: /v1/recommenders
+      operations:
+      - name: amazonwebservicesgetrecommenderconfigurations
+        method: GET
+        description: Amazon Web Services Getrecommenderconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-recommenders-recommender-id
+      path: /v1/recommenders/{recommender-id}
+      operations:
+      - name: amazonwebservicesupdaterecommenderconfiguration
+        method: PUT
+        description: Amazon Web Services Updaterecommenderconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pinpoint-recommenders-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pinpoint — Recommenders. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/recommenders
+      name: v1-recommenders
+      description: REST surface for v1-recommenders.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrecommenderconfigurations
+        description: Amazon Web Services Getrecommenderconfigurations
+        call: pinpoint-recommenders.amazonwebservicesgetrecommenderconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/recommenders/{recommender-id}
+      name: v1-recommenders-recommender-id
+      description: REST surface for v1-recommenders-recommender-id.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdaterecommenderconfiguration
+        description: Amazon Web Services Updaterecommenderconfiguration
+        call: pinpoint-recommenders.amazonwebservicesupdaterecommenderconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pinpoint-recommenders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pinpoint — Recommenders. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getrecommenderconfigurations
+      description: Amazon Web Services Getrecommenderconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pinpoint-recommenders.amazonwebservicesgetrecommenderconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterecommenderconfiguration
+      description: Amazon Web Services Updaterecommenderconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pinpoint-recommenders.amazonwebservicesupdaterecommenderconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

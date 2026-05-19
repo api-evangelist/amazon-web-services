@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeartifact — Domains
+  description: 'Amazon Web Services codeartifact — Domains. 1 operations. Lead operation: Amazon Web Services Listdomains.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Domains
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeartifact-domains
+    baseUri: ''
+    description: Amazon Web Services codeartifact — Domains business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-domains
+      path: /v1/domains
+      operations:
+      - name: amazonwebserviceslistdomains
+        method: POST
+        description: Amazon Web Services Listdomains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeartifact-domains-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeartifact — Domains. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/domains
+      name: v1-domains
+      description: REST surface for v1-domains.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdomains
+        description: Amazon Web Services Listdomains
+        call: codeartifact-domains.amazonwebserviceslistdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeartifact-domains-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeartifact — Domains. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdomains
+      description: Amazon Web Services Listdomains
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-domains.amazonwebserviceslistdomains
+      outputParameters:
+      - type: object
+        mapping: $.

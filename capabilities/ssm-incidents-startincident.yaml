@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-incidents — startIncident
+  description: 'Amazon Web Services ssm-incidents — startIncident. 1 operations. Lead operation: Amazon Web Services Startincident.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - startIncident
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-incidents-startincident
+    baseUri: ''
+    description: Amazon Web Services ssm-incidents — startIncident business capability. Self-contained, no shared references.
+    resources:
+    - name: startIncident
+      path: /startIncident
+      operations:
+      - name: amazonwebservicesstartincident
+        method: POST
+        description: Amazon Web Services Startincident
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-incidents-startincident-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-incidents — startIncident. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/startincident
+      name: startincident
+      description: REST surface for startIncident.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartincident
+        description: Amazon Web Services Startincident
+        call: ssm-incidents-startincident.amazonwebservicesstartincident
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-incidents-startincident-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-incidents — startIncident. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startincident
+      description: Amazon Web Services Startincident
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-incidents-startincident.amazonwebservicesstartincident
+      outputParameters:
+      - type: object
+        mapping: $.

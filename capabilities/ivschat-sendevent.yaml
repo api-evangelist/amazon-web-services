@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivschat — SendEvent
+  description: 'Amazon Web Services ivschat — SendEvent. 1 operations. Lead operation: Amazon Web Services Sendevent. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - SendEvent
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivschat-sendevent
+    baseUri: ''
+    description: Amazon Web Services ivschat — SendEvent business capability. Self-contained, no shared references.
+    resources:
+    - name: SendEvent
+      path: /SendEvent
+      operations:
+      - name: amazonwebservicessendevent
+        method: POST
+        description: Amazon Web Services Sendevent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivschat-sendevent-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivschat — SendEvent. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/sendevent
+      name: sendevent
+      description: REST surface for SendEvent.
+      operations:
+      - method: POST
+        name: amazonwebservicessendevent
+        description: Amazon Web Services Sendevent
+        call: ivschat-sendevent.amazonwebservicessendevent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivschat-sendevent-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivschat — SendEvent. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-sendevent
+      description: Amazon Web Services Sendevent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivschat-sendevent.amazonwebservicessendevent
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Hours of Operations Summary
+  description: 'Amazon Web Services connect — Hours of Operations Summary. 1 operations. Lead operation: Amazon Web Services
+    Listhoursofoperations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Hours of Operations Summary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-hours-of-operations-summary
+    baseUri: ''
+    description: Amazon Web Services connect — Hours of Operations Summary business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: hours-of-operations-summary-InstanceId
+      path: /hours-of-operations-summary/{InstanceId}
+      operations:
+      - name: amazonwebserviceslisthoursofoperations
+        method: GET
+        description: Amazon Web Services Listhoursofoperations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-hours-of-operations-summary-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Hours of Operations Summary. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/hours-of-operations-summary/{instanceid}
+      name: hours-of-operations-summary-instanceid
+      description: REST surface for hours-of-operations-summary-InstanceId.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisthoursofoperations
+        description: Amazon Web Services Listhoursofoperations
+        call: connect-hours-of-operations-summary.amazonwebserviceslisthoursofoperations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-hours-of-operations-summary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Hours of Operations Summary. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listhoursofoperations
+      description: Amazon Web Services Listhoursofoperations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-hours-of-operations-summary.amazonwebserviceslisthoursofoperations
+      outputParameters:
+      - type: object
+        mapping: $.

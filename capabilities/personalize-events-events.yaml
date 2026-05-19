@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services personalize-events — Events
+  description: 'Amazon Web Services personalize-events — Events. 1 operations. Lead operation: Amazon Web Services Putevents.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: personalize-events-events
+    baseUri: ''
+    description: Amazon Web Services personalize-events — Events business capability. Self-contained, no shared references.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: amazonwebservicesputevents
+        method: POST
+        description: Amazon Web Services Putevents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: personalize-events-events-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services personalize-events — Events. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/events
+      name: events
+      description: REST surface for events.
+      operations:
+      - method: POST
+        name: amazonwebservicesputevents
+        description: Amazon Web Services Putevents
+        call: personalize-events-events.amazonwebservicesputevents
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: personalize-events-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services personalize-events — Events. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putevents
+      description: Amazon Web Services Putevents
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: personalize-events-events.amazonwebservicesputevents
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services snow-device-management — Task
+  description: 'Amazon Web Services snow-device-management — Task. 4 operations. Lead operation: Amazon Web Services Createtask.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Task
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: snow-device-management-task
+    baseUri: ''
+    description: Amazon Web Services snow-device-management — Task business capability. Self-contained, no shared references.
+    resources:
+    - name: task
+      path: /task
+      operations:
+      - name: amazonwebservicescreatetask
+        method: POST
+        description: Amazon Web Services Createtask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: task-taskId
+      path: /task/{taskId}
+      operations:
+      - name: amazonwebservicesdescribetask
+        method: POST
+        description: Amazon Web Services Describetask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: task-taskId-cancel
+      path: /task/{taskId}/cancel
+      operations:
+      - name: amazonwebservicescanceltask
+        method: POST
+        description: Amazon Web Services Canceltask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: task-taskId-execution-managedDeviceId
+      path: /task/{taskId}/execution/{managedDeviceId}
+      operations:
+      - name: amazonwebservicesdescribeexecution
+        method: POST
+        description: Amazon Web Services Describeexecution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: snow-device-management-task-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services snow-device-management — Task. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/task
+      name: task
+      description: REST surface for task.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatetask
+        description: Amazon Web Services Createtask
+        call: snow-device-management-task.amazonwebservicescreatetask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/task/{taskid}
+      name: task-taskid
+      description: REST surface for task-taskId.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribetask
+        description: Amazon Web Services Describetask
+        call: snow-device-management-task.amazonwebservicesdescribetask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/task/{taskid}/cancel
+      name: task-taskid-cancel
+      description: REST surface for task-taskId-cancel.
+      operations:
+      - method: POST
+        name: amazonwebservicescanceltask
+        description: Amazon Web Services Canceltask
+        call: snow-device-management-task.amazonwebservicescanceltask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/task/{taskid}/execution/{manageddeviceid}
+      name: task-taskid-execution-manageddeviceid
+      description: REST surface for task-taskId-execution-managedDeviceId.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeexecution
+        description: Amazon Web Services Describeexecution
+        call: snow-device-management-task.amazonwebservicesdescribeexecution
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: snow-device-management-task-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services snow-device-management — Task. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createtask
+      description: Amazon Web Services Createtask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-task.amazonwebservicescreatetask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describetask
+      description: Amazon Web Services Describetask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-task.amazonwebservicesdescribetask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-canceltask
+      description: Amazon Web Services Canceltask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-task.amazonwebservicescanceltask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeexecution
+      description: Amazon Web Services Describeexecution
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: snow-device-management-task.amazonwebservicesdescribeexecution
+      outputParameters:
+      - type: object
+        mapping: $.

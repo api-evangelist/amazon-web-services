@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services simspaceweaver — Createsnapshot
+  description: 'Amazon Web Services simspaceweaver — Createsnapshot. 1 operations. Lead operation: Amazon Web Services Createsnapshot.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Createsnapshot
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: simspaceweaver-createsnapshot
+    baseUri: ''
+    description: Amazon Web Services simspaceweaver — Createsnapshot business capability. Self-contained, no shared references.
+    resources:
+    - name: createsnapshot
+      path: /createsnapshot
+      operations:
+      - name: amazonwebservicescreatesnapshot
+        method: POST
+        description: Amazon Web Services Createsnapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: simspaceweaver-createsnapshot-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services simspaceweaver — Createsnapshot. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createsnapshot
+      name: createsnapshot
+      description: REST surface for createsnapshot.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesnapshot
+        description: Amazon Web Services Createsnapshot
+        call: simspaceweaver-createsnapshot.amazonwebservicescreatesnapshot
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: simspaceweaver-createsnapshot-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services simspaceweaver — Createsnapshot. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsnapshot
+      description: Amazon Web Services Createsnapshot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: simspaceweaver-createsnapshot.amazonwebservicescreatesnapshot
+      outputParameters:
+      - type: object
+        mapping: $.

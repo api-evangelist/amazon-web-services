@@ -1,0 +1,387 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services backup — Backup Vaults
+  description: 'Amazon Web Services backup — Backup Vaults. 11 operations. Lead operation: Amazon Web Services Listbackupvaults.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Backup Vaults
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: backup-backup-vaults
+    baseUri: ''
+    description: Amazon Web Services backup — Backup Vaults business capability. Self-contained, no shared references.
+    resources:
+    - name: backup-vaults
+      path: /backup-vaults/
+      operations:
+      - name: amazonwebserviceslistbackupvaults
+        method: GET
+        description: Amazon Web Services Listbackupvaults
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName
+      path: /backup-vaults/{backupVaultName}
+      operations:
+      - name: amazonwebservicesdescribebackupvault
+        method: GET
+        description: Amazon Web Services Describebackupvault
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-access-policy
+      path: /backup-vaults/{backupVaultName}/access-policy
+      operations:
+      - name: amazonwebservicesputbackupvaultaccesspolicy
+        method: PUT
+        description: Amazon Web Services Putbackupvaultaccesspolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-notification-configuration
+      path: /backup-vaults/{backupVaultName}/notification-configuration
+      operations:
+      - name: amazonwebservicesputbackupvaultnotifications
+        method: PUT
+        description: Amazon Web Services Putbackupvaultnotifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-recovery-points
+      path: /backup-vaults/{backupVaultName}/recovery-points/
+      operations:
+      - name: amazonwebserviceslistrecoverypointsbybackupvault
+        method: GET
+        description: Amazon Web Services Listrecoverypointsbybackupvault
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-recovery-points-recoveryPointArn
+      path: /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}
+      operations:
+      - name: amazonwebservicesupdaterecoverypointlifecycle
+        method: POST
+        description: Amazon Web Services Updaterecoverypointlifecycle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-recovery-points-recoveryPointArn-disassociate
+      path: /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/disassociate
+      operations:
+      - name: amazonwebservicesdisassociaterecoverypoint
+        method: POST
+        description: Amazon Web Services Disassociaterecoverypoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-recovery-points-recoveryPointArn-parentAssociation
+      path: /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/parentAssociation
+      operations:
+      - name: amazonwebservicesdisassociaterecoverypointfromparent
+        method: DELETE
+        description: Amazon Web Services Disassociaterecoverypointfromparent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-recovery-points-recoveryPointArn-restore-metadata
+      path: /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/restore-metadata
+      operations:
+      - name: amazonwebservicesgetrecoverypointrestoremetadata
+        method: GET
+        description: Amazon Web Services Getrecoverypointrestoremetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-resources
+      path: /backup-vaults/{backupVaultName}/resources/
+      operations:
+      - name: amazonwebserviceslistprotectedresourcesbybackupvault
+        method: GET
+        description: Amazon Web Services Listprotectedresourcesbybackupvault
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: backup-vaults-backupVaultName-vault-lock
+      path: /backup-vaults/{backupVaultName}/vault-lock
+      operations:
+      - name: amazonwebservicesputbackupvaultlockconfiguration
+        method: PUT
+        description: Amazon Web Services Putbackupvaultlockconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: backup-backup-vaults-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services backup — Backup Vaults. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/backup-vaults
+      name: backup-vaults
+      description: REST surface for backup-vaults.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbackupvaults
+        description: Amazon Web Services Listbackupvaults
+        call: backup-backup-vaults.amazonwebserviceslistbackupvaults
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}
+      name: backup-vaults-backupvaultname
+      description: REST surface for backup-vaults-backupVaultName.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribebackupvault
+        description: Amazon Web Services Describebackupvault
+        call: backup-backup-vaults.amazonwebservicesdescribebackupvault
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/access-policy
+      name: backup-vaults-backupvaultname-access-policy
+      description: REST surface for backup-vaults-backupVaultName-access-policy.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputbackupvaultaccesspolicy
+        description: Amazon Web Services Putbackupvaultaccesspolicy
+        call: backup-backup-vaults.amazonwebservicesputbackupvaultaccesspolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/notification-configuration
+      name: backup-vaults-backupvaultname-notification-configuration
+      description: REST surface for backup-vaults-backupVaultName-notification-configuration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputbackupvaultnotifications
+        description: Amazon Web Services Putbackupvaultnotifications
+        call: backup-backup-vaults.amazonwebservicesputbackupvaultnotifications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/recovery-points
+      name: backup-vaults-backupvaultname-recovery-points
+      description: REST surface for backup-vaults-backupVaultName-recovery-points.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistrecoverypointsbybackupvault
+        description: Amazon Web Services Listrecoverypointsbybackupvault
+        call: backup-backup-vaults.amazonwebserviceslistrecoverypointsbybackupvault
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/recovery-points/{recoverypointarn}
+      name: backup-vaults-backupvaultname-recovery-points-recoverypointarn
+      description: REST surface for backup-vaults-backupVaultName-recovery-points-recoveryPointArn.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdaterecoverypointlifecycle
+        description: Amazon Web Services Updaterecoverypointlifecycle
+        call: backup-backup-vaults.amazonwebservicesupdaterecoverypointlifecycle
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/recovery-points/{recoverypointarn}/disassociate
+      name: backup-vaults-backupvaultname-recovery-points-recoverypointarn-disassociate
+      description: REST surface for backup-vaults-backupVaultName-recovery-points-recoveryPointArn-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociaterecoverypoint
+        description: Amazon Web Services Disassociaterecoverypoint
+        call: backup-backup-vaults.amazonwebservicesdisassociaterecoverypoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/recovery-points/{recoverypointarn}/parentassociation
+      name: backup-vaults-backupvaultname-recovery-points-recoverypointarn-parentassociation
+      description: REST surface for backup-vaults-backupVaultName-recovery-points-recoveryPointArn-parentAssociation.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdisassociaterecoverypointfromparent
+        description: Amazon Web Services Disassociaterecoverypointfromparent
+        call: backup-backup-vaults.amazonwebservicesdisassociaterecoverypointfromparent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/recovery-points/{recoverypointarn}/restore-metadata
+      name: backup-vaults-backupvaultname-recovery-points-recoverypointarn-restore-metadata
+      description: REST surface for backup-vaults-backupVaultName-recovery-points-recoveryPointArn-restore-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrecoverypointrestoremetadata
+        description: Amazon Web Services Getrecoverypointrestoremetadata
+        call: backup-backup-vaults.amazonwebservicesgetrecoverypointrestoremetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/resources
+      name: backup-vaults-backupvaultname-resources
+      description: REST surface for backup-vaults-backupVaultName-resources.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistprotectedresourcesbybackupvault
+        description: Amazon Web Services Listprotectedresourcesbybackupvault
+        call: backup-backup-vaults.amazonwebserviceslistprotectedresourcesbybackupvault
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/backup-vaults/{backupvaultname}/vault-lock
+      name: backup-vaults-backupvaultname-vault-lock
+      description: REST surface for backup-vaults-backupVaultName-vault-lock.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputbackupvaultlockconfiguration
+        description: Amazon Web Services Putbackupvaultlockconfiguration
+        call: backup-backup-vaults.amazonwebservicesputbackupvaultlockconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: backup-backup-vaults-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services backup — Backup Vaults. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listbackupvaults
+      description: Amazon Web Services Listbackupvaults
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebserviceslistbackupvaults
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describebackupvault
+      description: Amazon Web Services Describebackupvault
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesdescribebackupvault
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putbackupvaultaccesspolicy
+      description: Amazon Web Services Putbackupvaultaccesspolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesputbackupvaultaccesspolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putbackupvaultnotifications
+      description: Amazon Web Services Putbackupvaultnotifications
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesputbackupvaultnotifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listrecoverypointsbybackupvault
+      description: Amazon Web Services Listrecoverypointsbybackupvault
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebserviceslistrecoverypointsbybackupvault
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterecoverypointlifecycle
+      description: Amazon Web Services Updaterecoverypointlifecycle
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: backup-backup-vaults.amazonwebservicesupdaterecoverypointlifecycle
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociaterecoverypoint
+      description: Amazon Web Services Disassociaterecoverypoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: backup-backup-vaults.amazonwebservicesdisassociaterecoverypoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disassociaterecoverypointfromparent
+      description: Amazon Web Services Disassociaterecoverypointfromparent
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesdisassociaterecoverypointfromparent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getrecoverypointrestoremetadata
+      description: Amazon Web Services Getrecoverypointrestoremetadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesgetrecoverypointrestoremetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listprotectedresourcesbybackupvault
+      description: Amazon Web Services Listprotectedresourcesbybackupvault
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebserviceslistprotectedresourcesbybackupvault
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putbackupvaultlockconfiguration
+      description: Amazon Web Services Putbackupvaultlockconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: backup-backup-vaults.amazonwebservicesputbackupvaultlockconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

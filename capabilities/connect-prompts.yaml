@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Prompts
+  description: 'Amazon Web Services connect — Prompts. 3 operations. Lead operation: Amazon Web Services Createprompt. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Prompts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-prompts
+    baseUri: ''
+    description: Amazon Web Services connect — Prompts business capability. Self-contained, no shared references.
+    resources:
+    - name: prompts-InstanceId
+      path: /prompts/{InstanceId}
+      operations:
+      - name: amazonwebservicescreateprompt
+        method: PUT
+        description: Amazon Web Services Createprompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: prompts-InstanceId-PromptId
+      path: /prompts/{InstanceId}/{PromptId}
+      operations:
+      - name: amazonwebservicesupdateprompt
+        method: POST
+        description: Amazon Web Services Updateprompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: prompts-InstanceId-PromptId-file
+      path: /prompts/{InstanceId}/{PromptId}/file
+      operations:
+      - name: amazonwebservicesgetpromptfile
+        method: GET
+        description: Amazon Web Services Getpromptfile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-prompts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Prompts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/prompts/{instanceid}
+      name: prompts-instanceid
+      description: REST surface for prompts-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreateprompt
+        description: Amazon Web Services Createprompt
+        call: connect-prompts.amazonwebservicescreateprompt
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/prompts/{instanceid}/{promptid}
+      name: prompts-instanceid-promptid
+      description: REST surface for prompts-InstanceId-PromptId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateprompt
+        description: Amazon Web Services Updateprompt
+        call: connect-prompts.amazonwebservicesupdateprompt
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/prompts/{instanceid}/{promptid}/file
+      name: prompts-instanceid-promptid-file
+      description: REST surface for prompts-InstanceId-PromptId-file.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpromptfile
+        description: Amazon Web Services Getpromptfile
+        call: connect-prompts.amazonwebservicesgetpromptfile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-prompts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Prompts. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createprompt
+      description: Amazon Web Services Createprompt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-prompts.amazonwebservicescreateprompt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateprompt
+      description: Amazon Web Services Updateprompt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-prompts.amazonwebservicesupdateprompt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpromptfile
+      description: Amazon Web Services Getpromptfile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-prompts.amazonwebservicesgetpromptfile
+      outputParameters:
+      - type: object
+        mapping: $.

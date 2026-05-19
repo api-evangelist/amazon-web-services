@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lookoutmetrics — ListAnomalyGroupRelatedMetrics
+  description: 'Amazon Web Services lookoutmetrics — ListAnomalyGroupRelatedMetrics. 1 operations. Lead operation: Amazon
+    Web Services Listanomalygrouprelatedmetrics. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - ListAnomalyGroupRelatedMetrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lookoutmetrics-listanomalygrouprelatedmetrics
+    baseUri: ''
+    description: Amazon Web Services lookoutmetrics — ListAnomalyGroupRelatedMetrics business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: ListAnomalyGroupRelatedMetrics
+      path: /ListAnomalyGroupRelatedMetrics
+      operations:
+      - name: amazonwebserviceslistanomalygrouprelatedmetrics
+        method: POST
+        description: Amazon Web Services Listanomalygrouprelatedmetrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lookoutmetrics-listanomalygrouprelatedmetrics-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lookoutmetrics — ListAnomalyGroupRelatedMetrics. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listanomalygrouprelatedmetrics
+      name: listanomalygrouprelatedmetrics
+      description: REST surface for ListAnomalyGroupRelatedMetrics.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistanomalygrouprelatedmetrics
+        description: Amazon Web Services Listanomalygrouprelatedmetrics
+        call: lookoutmetrics-listanomalygrouprelatedmetrics.amazonwebserviceslistanomalygrouprelatedmetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lookoutmetrics-listanomalygrouprelatedmetrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lookoutmetrics — ListAnomalyGroupRelatedMetrics. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listanomalygrouprelatedmetrics
+      description: Amazon Web Services Listanomalygrouprelatedmetrics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lookoutmetrics-listanomalygrouprelatedmetrics.amazonwebserviceslistanomalygrouprelatedmetrics
+      outputParameters:
+      - type: object
+        mapping: $.

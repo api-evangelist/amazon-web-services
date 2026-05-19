@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-incidents — listIncidentFindings
+  description: 'Amazon Web Services ssm-incidents — listIncidentFindings. 1 operations. Lead operation: Amazon Web Services
+    Listincidentfindings. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listIncidentFindings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-incidents-listincidentfindings
+    baseUri: ''
+    description: Amazon Web Services ssm-incidents — listIncidentFindings business capability. Self-contained, no shared references.
+    resources:
+    - name: listIncidentFindings
+      path: /listIncidentFindings
+      operations:
+      - name: amazonwebserviceslistincidentfindings
+        method: POST
+        description: Amazon Web Services Listincidentfindings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-incidents-listincidentfindings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-incidents — listIncidentFindings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listincidentfindings
+      name: listincidentfindings
+      description: REST surface for listIncidentFindings.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistincidentfindings
+        description: Amazon Web Services Listincidentfindings
+        call: ssm-incidents-listincidentfindings.amazonwebserviceslistincidentfindings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-incidents-listincidentfindings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-incidents — listIncidentFindings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listincidentfindings
+      description: Amazon Web Services Listincidentfindings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-incidents-listincidentfindings.amazonwebserviceslistincidentfindings
+      outputParameters:
+      - type: object
+        mapping: $.

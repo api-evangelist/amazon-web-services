@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhuborchestrator — Templatestep
+  description: 'Amazon Web Services migrationhuborchestrator — Templatestep. 1 operations. Lead operation: Amazon Web Services
+    Gettemplatestep. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Templatestep
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhuborchestrator-templatestep
+    baseUri: ''
+    description: Amazon Web Services migrationhuborchestrator — Templatestep business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: templatestep-id
+      path: /templatestep/{id}
+      operations:
+      - name: amazonwebservicesgettemplatestep
+        method: GET
+        description: Amazon Web Services Gettemplatestep
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhuborchestrator-templatestep-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhuborchestrator — Templatestep. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/templatestep/{id}
+      name: templatestep-id
+      description: REST surface for templatestep-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettemplatestep
+        description: Amazon Web Services Gettemplatestep
+        call: migrationhuborchestrator-templatestep.amazonwebservicesgettemplatestep
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhuborchestrator-templatestep-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhuborchestrator — Templatestep. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-gettemplatestep
+      description: Amazon Web Services Gettemplatestep
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhuborchestrator-templatestep.amazonwebservicesgettemplatestep
+      outputParameters:
+      - type: object
+        mapping: $.

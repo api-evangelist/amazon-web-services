@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services inspector2 — Accountpermissions
+  description: 'Amazon Web Services inspector2 — Accountpermissions. 1 operations. Lead operation: Amazon Web Services Listaccountpermissions.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Accountpermissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: inspector2-accountpermissions
+    baseUri: ''
+    description: Amazon Web Services inspector2 — Accountpermissions business capability. Self-contained, no shared references.
+    resources:
+    - name: accountpermissions-list
+      path: /accountpermissions/list
+      operations:
+      - name: amazonwebserviceslistaccountpermissions
+        method: POST
+        description: Amazon Web Services Listaccountpermissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: inspector2-accountpermissions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services inspector2 — Accountpermissions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/accountpermissions/list
+      name: accountpermissions-list
+      description: REST surface for accountpermissions-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistaccountpermissions
+        description: Amazon Web Services Listaccountpermissions
+        call: inspector2-accountpermissions.amazonwebserviceslistaccountpermissions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: inspector2-accountpermissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services inspector2 — Accountpermissions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listaccountpermissions
+      description: Amazon Web Services Listaccountpermissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: inspector2-accountpermissions.amazonwebserviceslistaccountpermissions
+      outputParameters:
+      - type: object
+        mapping: $.

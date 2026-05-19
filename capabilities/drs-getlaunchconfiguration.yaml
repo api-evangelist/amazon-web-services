@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services drs — GetLaunchConfiguration
+  description: 'Amazon Web Services drs — GetLaunchConfiguration. 1 operations. Lead operation: Amazon Web Services Getlaunchconfiguration.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetLaunchConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: drs-getlaunchconfiguration
+    baseUri: ''
+    description: Amazon Web Services drs — GetLaunchConfiguration business capability. Self-contained, no shared references.
+    resources:
+    - name: GetLaunchConfiguration
+      path: /GetLaunchConfiguration
+      operations:
+      - name: amazonwebservicesgetlaunchconfiguration
+        method: POST
+        description: Amazon Web Services Getlaunchconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: drs-getlaunchconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services drs — GetLaunchConfiguration. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getlaunchconfiguration
+      name: getlaunchconfiguration
+      description: REST surface for GetLaunchConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetlaunchconfiguration
+        description: Amazon Web Services Getlaunchconfiguration
+        call: drs-getlaunchconfiguration.amazonwebservicesgetlaunchconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: drs-getlaunchconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services drs — GetLaunchConfiguration. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getlaunchconfiguration
+      description: Amazon Web Services Getlaunchconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: drs-getlaunchconfiguration.amazonwebservicesgetlaunchconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

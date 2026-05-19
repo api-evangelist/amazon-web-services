@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — List Alarm Recommendations
+  description: 'Amazon Web Services resiliencehub — List Alarm Recommendations. 1 operations. Lead operation: Amazon Web Services
+    Listalarmrecommendations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Alarm Recommendations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-list-alarm-recommendations
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — List Alarm Recommendations business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: list-alarm-recommendations
+      path: /list-alarm-recommendations
+      operations:
+      - name: amazonwebserviceslistalarmrecommendations
+        method: POST
+        description: Amazon Web Services Listalarmrecommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-list-alarm-recommendations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — List Alarm Recommendations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-alarm-recommendations
+      name: list-alarm-recommendations
+      description: REST surface for list-alarm-recommendations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistalarmrecommendations
+        description: Amazon Web Services Listalarmrecommendations
+        call: resiliencehub-list-alarm-recommendations.amazonwebserviceslistalarmrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-list-alarm-recommendations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — List Alarm Recommendations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listalarmrecommendations
+      description: Amazon Web Services Listalarmrecommendations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-list-alarm-recommendations.amazonwebserviceslistalarmrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.

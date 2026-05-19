@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — CreateRecordingConfiguration
+  description: 'Amazon Web Services ivs — CreateRecordingConfiguration. 1 operations. Lead operation: Amazon Web Services
+    Createrecordingconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateRecordingConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-createrecordingconfiguration
+    baseUri: ''
+    description: Amazon Web Services ivs — CreateRecordingConfiguration business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateRecordingConfiguration
+      path: /CreateRecordingConfiguration
+      operations:
+      - name: amazonwebservicescreaterecordingconfiguration
+        method: POST
+        description: Amazon Web Services Createrecordingconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-createrecordingconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — CreateRecordingConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createrecordingconfiguration
+      name: createrecordingconfiguration
+      description: REST surface for CreateRecordingConfiguration.
+      operations:
+      - method: POST
+        name: amazonwebservicescreaterecordingconfiguration
+        description: Amazon Web Services Createrecordingconfiguration
+        call: ivs-createrecordingconfiguration.amazonwebservicescreaterecordingconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-createrecordingconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — CreateRecordingConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createrecordingconfiguration
+      description: Amazon Web Services Createrecordingconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-createrecordingconfiguration.amazonwebservicescreaterecordingconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

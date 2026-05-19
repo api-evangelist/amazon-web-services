@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services batch — Updatecomputeenvironment
+  description: 'Amazon Web Services batch — Updatecomputeenvironment. 1 operations. Lead operation: Amazon Web Services Updatecomputeenvironment.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Updatecomputeenvironment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: batch-updatecomputeenvironment
+    baseUri: ''
+    description: Amazon Web Services batch — Updatecomputeenvironment business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-updatecomputeenvironment
+      path: /v1/updatecomputeenvironment
+      operations:
+      - name: amazonwebservicesupdatecomputeenvironment
+        method: POST
+        description: Amazon Web Services Updatecomputeenvironment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: batch-updatecomputeenvironment-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services batch — Updatecomputeenvironment. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/updatecomputeenvironment
+      name: v1-updatecomputeenvironment
+      description: REST surface for v1-updatecomputeenvironment.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecomputeenvironment
+        description: Amazon Web Services Updatecomputeenvironment
+        call: batch-updatecomputeenvironment.amazonwebservicesupdatecomputeenvironment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: batch-updatecomputeenvironment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services batch — Updatecomputeenvironment. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatecomputeenvironment
+      description: Amazon Web Services Updatecomputeenvironment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: batch-updatecomputeenvironment.amazonwebservicesupdatecomputeenvironment
+      outputParameters:
+      - type: object
+        mapping: $.

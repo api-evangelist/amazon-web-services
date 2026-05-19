@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-voice — Sip Rules
+  description: 'Amazon Web Services chime-sdk-voice — Sip Rules. 2 operations. Lead operation: Amazon Web Services Listsiprules.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Sip Rules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-voice-sip-rules
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-voice — Sip Rules business capability. Self-contained, no shared references.
+    resources:
+    - name: sip-rules
+      path: /sip-rules
+      operations:
+      - name: amazonwebserviceslistsiprules
+        method: GET
+        description: Amazon Web Services Listsiprules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sip-rules-sipRuleId
+      path: /sip-rules/{sipRuleId}
+      operations:
+      - name: amazonwebservicesupdatesiprule
+        method: PUT
+        description: Amazon Web Services Updatesiprule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-voice-sip-rules-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-voice — Sip Rules. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sip-rules
+      name: sip-rules
+      description: REST surface for sip-rules.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsiprules
+        description: Amazon Web Services Listsiprules
+        call: chime-sdk-voice-sip-rules.amazonwebserviceslistsiprules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sip-rules/{sipruleid}
+      name: sip-rules-sipruleid
+      description: REST surface for sip-rules-sipRuleId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatesiprule
+        description: Amazon Web Services Updatesiprule
+        call: chime-sdk-voice-sip-rules.amazonwebservicesupdatesiprule
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-voice-sip-rules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-voice — Sip Rules. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsiprules
+      description: Amazon Web Services Listsiprules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-voice-sip-rules.amazonwebserviceslistsiprules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatesiprule
+      description: Amazon Web Services Updatesiprule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: chime-sdk-voice-sip-rules.amazonwebservicesupdatesiprule
+      outputParameters:
+      - type: object
+        mapping: $.

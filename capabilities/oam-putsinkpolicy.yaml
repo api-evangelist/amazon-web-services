@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services oam — PutSinkPolicy
+  description: 'Amazon Web Services oam — PutSinkPolicy. 1 operations. Lead operation: Amazon Web Services Putsinkpolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - PutSinkPolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: oam-putsinkpolicy
+    baseUri: ''
+    description: Amazon Web Services oam — PutSinkPolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: PutSinkPolicy
+      path: /PutSinkPolicy
+      operations:
+      - name: amazonwebservicesputsinkpolicy
+        method: POST
+        description: Amazon Web Services Putsinkpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: oam-putsinkpolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services oam — PutSinkPolicy. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/putsinkpolicy
+      name: putsinkpolicy
+      description: REST surface for PutSinkPolicy.
+      operations:
+      - method: POST
+        name: amazonwebservicesputsinkpolicy
+        description: Amazon Web Services Putsinkpolicy
+        call: oam-putsinkpolicy.amazonwebservicesputsinkpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: oam-putsinkpolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services oam — PutSinkPolicy. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-putsinkpolicy
+      description: Amazon Web Services Putsinkpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: oam-putsinkpolicy.amazonwebservicesputsinkpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

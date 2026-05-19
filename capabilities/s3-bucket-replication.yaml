@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Bucket Replication
+  description: 'Amazon Web Services AWS S3 — Bucket Replication. 1 operations. Lead operation: Amazon Web Services Put Bucket
+    Replication. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Bucket Replication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-bucket-replication
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Bucket Replication business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket}?replication
+      path: /{Bucket}?replication
+      operations:
+      - name: putbucketreplication
+        method: PUT
+        description: Amazon Web Services Put Bucket Replication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-bucket-replication-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Bucket Replication. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/bucket-replication
+      name: bucket-replication
+      description: REST surface for Bucket}?replication.
+      operations:
+      - method: PUT
+        name: putbucketreplication
+        description: Amazon Web Services Put Bucket Replication
+        call: s3-bucket-replication.putbucketreplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-bucket-replication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Bucket Replication. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-bucket
+      description: Amazon Web Services Put Bucket Replication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-bucket-replication.putbucketreplication
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codestar-notifications — Subscribe
+  description: 'Amazon Web Services codestar-notifications — Subscribe. 1 operations. Lead operation: Amazon Web Services
+    Subscribe. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Subscribe
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codestar-notifications-subscribe
+    baseUri: ''
+    description: Amazon Web Services codestar-notifications — Subscribe business capability. Self-contained, no shared references.
+    resources:
+    - name: subscribe
+      path: /subscribe
+      operations:
+      - name: amazonwebservicessubscribe
+        method: POST
+        description: Amazon Web Services Subscribe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codestar-notifications-subscribe-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codestar-notifications — Subscribe. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscribe
+      name: subscribe
+      description: REST surface for subscribe.
+      operations:
+      - method: POST
+        name: amazonwebservicessubscribe
+        description: Amazon Web Services Subscribe
+        call: codestar-notifications-subscribe.amazonwebservicessubscribe
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codestar-notifications-subscribe-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codestar-notifications — Subscribe. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-subscribe
+      description: Amazon Web Services Subscribe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codestar-notifications-subscribe.amazonwebservicessubscribe
+      outputParameters:
+      - type: object
+        mapping: $.

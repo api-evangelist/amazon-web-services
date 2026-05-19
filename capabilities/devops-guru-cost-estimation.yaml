@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services devops-guru — Cost Estimation
+  description: 'Amazon Web Services devops-guru — Cost Estimation. 1 operations. Lead operation: Amazon Web Services Startcostestimation.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Cost Estimation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: devops-guru-cost-estimation
+    baseUri: ''
+    description: Amazon Web Services devops-guru — Cost Estimation business capability. Self-contained, no shared references.
+    resources:
+    - name: cost-estimation
+      path: /cost-estimation
+      operations:
+      - name: amazonwebservicesstartcostestimation
+        method: PUT
+        description: Amazon Web Services Startcostestimation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: devops-guru-cost-estimation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services devops-guru — Cost Estimation. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/cost-estimation
+      name: cost-estimation
+      description: REST surface for cost-estimation.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartcostestimation
+        description: Amazon Web Services Startcostestimation
+        call: devops-guru-cost-estimation.amazonwebservicesstartcostestimation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: devops-guru-cost-estimation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services devops-guru — Cost Estimation. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startcostestimation
+      description: Amazon Web Services Startcostestimation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: devops-guru-cost-estimation.amazonwebservicesstartcostestimation
+      outputParameters:
+      - type: object
+        mapping: $.

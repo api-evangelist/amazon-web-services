@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Remove Draft App Version Resource Mappings
+  description: 'Amazon Web Services resiliencehub — Remove Draft App Version Resource Mappings. 1 operations. Lead operation:
+    Amazon Web Services Removedraftappversionresourcemappings. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Remove Draft App Version Resource Mappings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-remove-draft-app-version-resource-mappings
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Remove Draft App Version Resource Mappings business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: remove-draft-app-version-resource-mappings
+      path: /remove-draft-app-version-resource-mappings
+      operations:
+      - name: amazonwebservicesremovedraftappversionresourcemappings
+        method: POST
+        description: Amazon Web Services Removedraftappversionresourcemappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-remove-draft-app-version-resource-mappings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Remove Draft App Version Resource Mappings. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/remove-draft-app-version-resource-mappings
+      name: remove-draft-app-version-resource-mappings
+      description: REST surface for remove-draft-app-version-resource-mappings.
+      operations:
+      - method: POST
+        name: amazonwebservicesremovedraftappversionresourcemappings
+        description: Amazon Web Services Removedraftappversionresourcemappings
+        call: resiliencehub-remove-draft-app-version-resource-mappings.amazonwebservicesremovedraftappversionresourcemappings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-remove-draft-app-version-resource-mappings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Remove Draft App Version Resource Mappings. One tool
+      per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-removedraftappversionresourcemappings
+      description: Amazon Web Services Removedraftappversionresourcemappings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-remove-draft-app-version-resource-mappings.amazonwebservicesremovedraftappversionresourcemappings
+      outputParameters:
+      - type: object
+        mapping: $.

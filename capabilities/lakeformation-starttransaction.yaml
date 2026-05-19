@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — StartTransaction
+  description: 'Amazon Web Services lakeformation — StartTransaction. 1 operations. Lead operation: Amazon Web Services Starttransaction.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - StartTransaction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-starttransaction
+    baseUri: ''
+    description: Amazon Web Services lakeformation — StartTransaction business capability. Self-contained, no shared references.
+    resources:
+    - name: StartTransaction
+      path: /StartTransaction
+      operations:
+      - name: amazonwebservicesstarttransaction
+        method: POST
+        description: Amazon Web Services Starttransaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-starttransaction-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — StartTransaction. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/starttransaction
+      name: starttransaction
+      description: REST surface for StartTransaction.
+      operations:
+      - method: POST
+        name: amazonwebservicesstarttransaction
+        description: Amazon Web Services Starttransaction
+        call: lakeformation-starttransaction.amazonwebservicesstarttransaction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-starttransaction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — StartTransaction. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-starttransaction
+      description: Amazon Web Services Starttransaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-starttransaction.amazonwebservicesstarttransaction
+      outputParameters:
+      - type: object
+        mapping: $.

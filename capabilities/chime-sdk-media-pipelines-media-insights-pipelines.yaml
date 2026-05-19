@@ -1,0 +1,261 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-media-pipelines — Media Insights Pipelines
+  description: 'Amazon Web Services chime-sdk-media-pipelines — Media Insights Pipelines. 7 operations. Lead operation: Amazon
+    Web Services Createmediainsightspipeline. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - Media Insights Pipelines
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-media-pipelines-media-insights-pipelines
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-media-pipelines — Media Insights Pipelines business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: media-insights-pipelines
+      path: /media-insights-pipelines
+      operations:
+      - name: amazonwebservicescreatemediainsightspipeline
+        method: POST
+        description: Amazon Web Services Createmediainsightspipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-speaker-search-tasks-speakerSearchTaskId
+      path: /media-insights-pipelines/{identifier}/speaker-search-tasks/{speakerSearchTaskId}
+      operations:
+      - name: amazonwebservicesgetspeakersearchtask
+        method: GET
+        description: Amazon Web Services Getspeakersearchtask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-speaker-search-tasks-speakerSearchTaskId}?op
+      path: /media-insights-pipelines/{identifier}/speaker-search-tasks/{speakerSearchTaskId}?operation=stop
+      operations:
+      - name: amazonwebservicesstopspeakersearchtask
+        method: POST
+        description: Amazon Web Services Stopspeakersearchtask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-speaker-search-tasks?operation=start
+      path: /media-insights-pipelines/{identifier}/speaker-search-tasks?operation=start
+      operations:
+      - name: amazonwebservicesstartspeakersearchtask
+        method: POST
+        description: Amazon Web Services Startspeakersearchtask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-voice-tone-analysis-tasks-voiceToneAnalysisT
+      path: /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/{voiceToneAnalysisTaskId}
+      operations:
+      - name: amazonwebservicesgetvoicetoneanalysistask
+        method: GET
+        description: Amazon Web Services Getvoicetoneanalysistask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-voice-tone-analysis-tasks-voiceToneAnalysisT
+      path: /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/{voiceToneAnalysisTaskId}?operation=stop
+      operations:
+      - name: amazonwebservicesstopvoicetoneanalysistask
+        method: POST
+        description: Amazon Web Services Stopvoicetoneanalysistask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: media-insights-pipelines-identifier-voice-tone-analysis-tasks?operation=start
+      path: /media-insights-pipelines/{identifier}/voice-tone-analysis-tasks?operation=start
+      operations:
+      - name: amazonwebservicesstartvoicetoneanalysistask
+        method: POST
+        description: Amazon Web Services Startvoicetoneanalysistask
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-media-pipelines-media-insights-pipelines-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-media-pipelines — Media Insights Pipelines. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/media-insights-pipelines
+      name: media-insights-pipelines
+      description: REST surface for media-insights-pipelines.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatemediainsightspipeline
+        description: Amazon Web Services Createmediainsightspipeline
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicescreatemediainsightspipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/speaker-search-tasks/{speakersearchtaskid}
+      name: media-insights-pipelines-identifier-speaker-search-tasks-speakersearchtaskid
+      description: REST surface for media-insights-pipelines-identifier-speaker-search-tasks-speakerSearchTaskId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetspeakersearchtask
+        description: Amazon Web Services Getspeakersearchtask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesgetspeakersearchtask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/speaker-search-tasks/speakersearchtaskid-operation-stop
+      name: media-insights-pipelines-identifier-speaker-search-tasks-speakersearchtaskid-op
+      description: REST surface for media-insights-pipelines-identifier-speaker-search-tasks-speakerSearchTaskId}?op.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopspeakersearchtask
+        description: Amazon Web Services Stopspeakersearchtask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstopspeakersearchtask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/speaker-search-tasks-operation-start
+      name: media-insights-pipelines-identifier-speaker-search-tasks-operation-start
+      description: REST surface for media-insights-pipelines-identifier-speaker-search-tasks?operation=start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartspeakersearchtask
+        description: Amazon Web Services Startspeakersearchtask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstartspeakersearchtask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/{voicetoneanalysistaskid}
+      name: media-insights-pipelines-identifier-voice-tone-analysis-tasks-voicetoneanalysist
+      description: REST surface for media-insights-pipelines-identifier-voice-tone-analysis-tasks-voiceToneAnalysisT.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetvoicetoneanalysistask
+        description: Amazon Web Services Getvoicetoneanalysistask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesgetvoicetoneanalysistask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/voice-tone-analysis-tasks/voicetoneanalysistaskid-operation-stop
+      name: media-insights-pipelines-identifier-voice-tone-analysis-tasks-voicetoneanalysist
+      description: REST surface for media-insights-pipelines-identifier-voice-tone-analysis-tasks-voiceToneAnalysisT.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopvoicetoneanalysistask
+        description: Amazon Web Services Stopvoicetoneanalysistask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstopvoicetoneanalysistask
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/media-insights-pipelines/{identifier}/voice-tone-analysis-tasks-operation-start
+      name: media-insights-pipelines-identifier-voice-tone-analysis-tasks-operation-start
+      description: REST surface for media-insights-pipelines-identifier-voice-tone-analysis-tasks?operation=start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartvoicetoneanalysistask
+        description: Amazon Web Services Startvoicetoneanalysistask
+        call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstartvoicetoneanalysistask
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-media-pipelines-media-insights-pipelines-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-media-pipelines — Media Insights Pipelines. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createmediainsightspipeline
+      description: Amazon Web Services Createmediainsightspipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicescreatemediainsightspipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getspeakersearchtask
+      description: Amazon Web Services Getspeakersearchtask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesgetspeakersearchtask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopspeakersearchtask
+      description: Amazon Web Services Stopspeakersearchtask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstopspeakersearchtask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startspeakersearchtask
+      description: Amazon Web Services Startspeakersearchtask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstartspeakersearchtask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getvoicetoneanalysistask
+      description: Amazon Web Services Getvoicetoneanalysistask
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesgetvoicetoneanalysistask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopvoicetoneanalysistask
+      description: Amazon Web Services Stopvoicetoneanalysistask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstopvoicetoneanalysistask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startvoicetoneanalysistask
+      description: Amazon Web Services Startvoicetoneanalysistask
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chime-sdk-media-pipelines-media-insights-pipelines.amazonwebservicesstartvoicetoneanalysistask
+      outputParameters:
+      - type: object
+        mapping: $.

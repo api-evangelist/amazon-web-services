@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services launch-wizard — listDeployments
+  description: 'Amazon Web Services launch-wizard — listDeployments. 1 operations. Lead operation: Amazon Web Services Listdeployments.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listDeployments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launch-wizard-listdeployments
+    baseUri: ''
+    description: Amazon Web Services launch-wizard — listDeployments business capability. Self-contained, no shared references.
+    resources:
+    - name: listDeployments
+      path: /listDeployments
+      operations:
+      - name: amazonwebserviceslistdeployments
+        method: POST
+        description: Amazon Web Services Listdeployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: launch-wizard-listdeployments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services launch-wizard — listDeployments. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listdeployments
+      name: listdeployments
+      description: REST surface for listDeployments.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdeployments
+        description: Amazon Web Services Listdeployments
+        call: launch-wizard-listdeployments.amazonwebserviceslistdeployments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launch-wizard-listdeployments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services launch-wizard — listDeployments. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdeployments
+      description: Amazon Web Services Listdeployments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: launch-wizard-listdeployments.amazonwebserviceslistdeployments
+      outputParameters:
+      - type: object
+        mapping: $.

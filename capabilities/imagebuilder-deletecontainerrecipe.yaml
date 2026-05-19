@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — DeleteContainerRecipe
+  description: 'Amazon Web Services imagebuilder — DeleteContainerRecipe. 1 operations. Lead operation: Amazon Web Services
+    Deletecontainerrecipe. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - DeleteContainerRecipe
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-deletecontainerrecipe
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — DeleteContainerRecipe business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteContainerRecipe
+      path: /DeleteContainerRecipe
+      operations:
+      - name: amazonwebservicesdeletecontainerrecipe
+        method: DELETE
+        description: Amazon Web Services Deletecontainerrecipe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-deletecontainerrecipe-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — DeleteContainerRecipe. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deletecontainerrecipe
+      name: deletecontainerrecipe
+      description: REST surface for DeleteContainerRecipe.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletecontainerrecipe
+        description: Amazon Web Services Deletecontainerrecipe
+        call: imagebuilder-deletecontainerrecipe.amazonwebservicesdeletecontainerrecipe
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-deletecontainerrecipe-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — DeleteContainerRecipe. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deletecontainerrecipe
+      description: Amazon Web Services Deletecontainerrecipe
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: imagebuilder-deletecontainerrecipe.amazonwebservicesdeletecontainerrecipe
+      outputParameters:
+      - type: object
+        mapping: $.

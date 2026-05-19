@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Metrics
+  description: 'Amazon Web Services connect — Metrics. 4 operations. Lead operation: Amazon Web Services Getcurrentmetricdata.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Metrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-metrics
+    baseUri: ''
+    description: Amazon Web Services connect — Metrics business capability. Self-contained, no shared references.
+    resources:
+    - name: metrics-current-InstanceId
+      path: /metrics/current/{InstanceId}
+      operations:
+      - name: amazonwebservicesgetcurrentmetricdata
+        method: POST
+        description: Amazon Web Services Getcurrentmetricdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metrics-data
+      path: /metrics/data
+      operations:
+      - name: amazonwebservicesgetmetricdatav2
+        method: POST
+        description: Amazon Web Services Getmetricdatav2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metrics-historical-InstanceId
+      path: /metrics/historical/{InstanceId}
+      operations:
+      - name: amazonwebservicesgetmetricdata
+        method: POST
+        description: Amazon Web Services Getmetricdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: metrics-userdata-InstanceId
+      path: /metrics/userdata/{InstanceId}
+      operations:
+      - name: amazonwebservicesgetcurrentuserdata
+        method: POST
+        description: Amazon Web Services Getcurrentuserdata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-metrics-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Metrics. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/metrics/current/{instanceid}
+      name: metrics-current-instanceid
+      description: REST surface for metrics-current-InstanceId.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcurrentmetricdata
+        description: Amazon Web Services Getcurrentmetricdata
+        call: connect-metrics.amazonwebservicesgetcurrentmetricdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metrics/data
+      name: metrics-data
+      description: REST surface for metrics-data.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmetricdatav2
+        description: Amazon Web Services Getmetricdatav2
+        call: connect-metrics.amazonwebservicesgetmetricdatav2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metrics/historical/{instanceid}
+      name: metrics-historical-instanceid
+      description: REST surface for metrics-historical-InstanceId.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetmetricdata
+        description: Amazon Web Services Getmetricdata
+        call: connect-metrics.amazonwebservicesgetmetricdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/metrics/userdata/{instanceid}
+      name: metrics-userdata-instanceid
+      description: REST surface for metrics-userdata-InstanceId.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcurrentuserdata
+        description: Amazon Web Services Getcurrentuserdata
+        call: connect-metrics.amazonwebservicesgetcurrentuserdata
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Metrics. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getcurrentmetricdata
+      description: Amazon Web Services Getcurrentmetricdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-metrics.amazonwebservicesgetcurrentmetricdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmetricdatav2
+      description: Amazon Web Services Getmetricdatav2
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-metrics.amazonwebservicesgetmetricdatav2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmetricdata
+      description: Amazon Web Services Getmetricdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-metrics.amazonwebservicesgetmetricdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcurrentuserdata
+      description: Amazon Web Services Getcurrentuserdata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-metrics.amazonwebservicesgetcurrentuserdata
+      outputParameters:
+      - type: object
+        mapping: $.

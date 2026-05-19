@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services guardduty — Invitation
+  description: 'Amazon Web Services guardduty — Invitation. 4 operations. Lead operation: Amazon Web Services Listinvitations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Invitation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: guardduty-invitation
+    baseUri: ''
+    description: Amazon Web Services guardduty — Invitation business capability. Self-contained, no shared references.
+    resources:
+    - name: invitation
+      path: /invitation
+      operations:
+      - name: amazonwebserviceslistinvitations
+        method: GET
+        description: Amazon Web Services Listinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: invitation-count
+      path: /invitation/count
+      operations:
+      - name: amazonwebservicesgetinvitationscount
+        method: GET
+        description: Amazon Web Services Getinvitationscount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: invitation-decline
+      path: /invitation/decline
+      operations:
+      - name: amazonwebservicesdeclineinvitations
+        method: POST
+        description: Amazon Web Services Declineinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: invitation-delete
+      path: /invitation/delete
+      operations:
+      - name: amazonwebservicesdeleteinvitations
+        method: POST
+        description: Amazon Web Services Deleteinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: guardduty-invitation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services guardduty — Invitation. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/invitation
+      name: invitation
+      description: REST surface for invitation.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistinvitations
+        description: Amazon Web Services Listinvitations
+        call: guardduty-invitation.amazonwebserviceslistinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitation/count
+      name: invitation-count
+      description: REST surface for invitation-count.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetinvitationscount
+        description: Amazon Web Services Getinvitationscount
+        call: guardduty-invitation.amazonwebservicesgetinvitationscount
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitation/decline
+      name: invitation-decline
+      description: REST surface for invitation-decline.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeclineinvitations
+        description: Amazon Web Services Declineinvitations
+        call: guardduty-invitation.amazonwebservicesdeclineinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitation/delete
+      name: invitation-delete
+      description: REST surface for invitation-delete.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteinvitations
+        description: Amazon Web Services Deleteinvitations
+        call: guardduty-invitation.amazonwebservicesdeleteinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: guardduty-invitation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services guardduty — Invitation. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listinvitations
+      description: Amazon Web Services Listinvitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-invitation.amazonwebserviceslistinvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getinvitationscount
+      description: Amazon Web Services Getinvitationscount
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: guardduty-invitation.amazonwebservicesgetinvitationscount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-declineinvitations
+      description: Amazon Web Services Declineinvitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-invitation.amazonwebservicesdeclineinvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleteinvitations
+      description: Amazon Web Services Deleteinvitations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: guardduty-invitation.amazonwebservicesdeleteinvitations
+      outputParameters:
+      - type: object
+        mapping: $.

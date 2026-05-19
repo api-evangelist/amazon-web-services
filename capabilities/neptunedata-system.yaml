@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services neptunedata — System
+  description: 'Amazon Web Services neptunedata — System. 1 operations. Lead operation: Amazon Web Services Executefastreset.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - System
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: neptunedata-system
+    baseUri: ''
+    description: Amazon Web Services neptunedata — System business capability. Self-contained, no shared references.
+    resources:
+    - name: system
+      path: /system
+      operations:
+      - name: amazonwebservicesexecutefastreset
+        method: POST
+        description: Amazon Web Services Executefastreset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: neptunedata-system-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services neptunedata — System. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/system
+      name: system
+      description: REST surface for system.
+      operations:
+      - method: POST
+        name: amazonwebservicesexecutefastreset
+        description: Amazon Web Services Executefastreset
+        call: neptunedata-system.amazonwebservicesexecutefastreset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: neptunedata-system-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services neptunedata — System. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-executefastreset
+      description: Amazon Web Services Executefastreset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: neptunedata-system.amazonwebservicesexecutefastreset
+      outputParameters:
+      - type: object
+        mapping: $.

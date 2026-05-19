@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services docdb-elastic — Cluster Snapshot
+  description: 'Amazon Web Services docdb-elastic — Cluster Snapshot. 3 operations. Lead operation: Amazon Web Services Createclustersnapshot.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Cluster Snapshot
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: docdb-elastic-cluster-snapshot
+    baseUri: ''
+    description: Amazon Web Services docdb-elastic — Cluster Snapshot business capability. Self-contained, no shared references.
+    resources:
+    - name: cluster-snapshot
+      path: /cluster-snapshot
+      operations:
+      - name: amazonwebservicescreateclustersnapshot
+        method: POST
+        description: Amazon Web Services Createclustersnapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cluster-snapshot-snapshotArn
+      path: /cluster-snapshot/{snapshotArn}
+      operations:
+      - name: amazonwebservicesgetclustersnapshot
+        method: GET
+        description: Amazon Web Services Getclustersnapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cluster-snapshot-snapshotArn-restore
+      path: /cluster-snapshot/{snapshotArn}/restore
+      operations:
+      - name: amazonwebservicesrestoreclusterfromsnapshot
+        method: POST
+        description: Amazon Web Services Restoreclusterfromsnapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: docdb-elastic-cluster-snapshot-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services docdb-elastic — Cluster Snapshot. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/cluster-snapshot
+      name: cluster-snapshot
+      description: REST surface for cluster-snapshot.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateclustersnapshot
+        description: Amazon Web Services Createclustersnapshot
+        call: docdb-elastic-cluster-snapshot.amazonwebservicescreateclustersnapshot
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster-snapshot/{snapshotarn}
+      name: cluster-snapshot-snapshotarn
+      description: REST surface for cluster-snapshot-snapshotArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetclustersnapshot
+        description: Amazon Web Services Getclustersnapshot
+        call: docdb-elastic-cluster-snapshot.amazonwebservicesgetclustersnapshot
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cluster-snapshot/{snapshotarn}/restore
+      name: cluster-snapshot-snapshotarn-restore
+      description: REST surface for cluster-snapshot-snapshotArn-restore.
+      operations:
+      - method: POST
+        name: amazonwebservicesrestoreclusterfromsnapshot
+        description: Amazon Web Services Restoreclusterfromsnapshot
+        call: docdb-elastic-cluster-snapshot.amazonwebservicesrestoreclusterfromsnapshot
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: docdb-elastic-cluster-snapshot-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services docdb-elastic — Cluster Snapshot. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createclustersnapshot
+      description: Amazon Web Services Createclustersnapshot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: docdb-elastic-cluster-snapshot.amazonwebservicescreateclustersnapshot
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getclustersnapshot
+      description: Amazon Web Services Getclustersnapshot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: docdb-elastic-cluster-snapshot.amazonwebservicesgetclustersnapshot
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-restoreclusterfromsnapshot
+      description: Amazon Web Services Restoreclusterfromsnapshot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: docdb-elastic-cluster-snapshot.amazonwebservicesrestoreclusterfromsnapshot
+      outputParameters:
+      - type: object
+        mapping: $.

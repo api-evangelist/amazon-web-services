@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services billingconductor — Disassociate Accounts
+  description: 'Amazon Web Services billingconductor — Disassociate Accounts. 1 operations. Lead operation: Amazon Web Services
+    Disassociateaccounts. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Disassociate Accounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: billingconductor-disassociate-accounts
+    baseUri: ''
+    description: Amazon Web Services billingconductor — Disassociate Accounts business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: disassociate-accounts
+      path: /disassociate-accounts
+      operations:
+      - name: amazonwebservicesdisassociateaccounts
+        method: POST
+        description: Amazon Web Services Disassociateaccounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: billingconductor-disassociate-accounts-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services billingconductor — Disassociate Accounts. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/disassociate-accounts
+      name: disassociate-accounts
+      description: REST surface for disassociate-accounts.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisassociateaccounts
+        description: Amazon Web Services Disassociateaccounts
+        call: billingconductor-disassociate-accounts.amazonwebservicesdisassociateaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: billingconductor-disassociate-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services billingconductor — Disassociate Accounts. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-disassociateaccounts
+      description: Amazon Web Services Disassociateaccounts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: billingconductor-disassociate-accounts.amazonwebservicesdisassociateaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

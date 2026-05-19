@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeguru-security — Scans
+  description: 'Amazon Web Services codeguru-security — Scans. 2 operations. Lead operation: Amazon Web Services Listscans.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Scans
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeguru-security-scans
+    baseUri: ''
+    description: Amazon Web Services codeguru-security — Scans business capability. Self-contained, no shared references.
+    resources:
+    - name: scans
+      path: /scans
+      operations:
+      - name: amazonwebserviceslistscans
+        method: GET
+        description: Amazon Web Services Listscans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: scans-scanName
+      path: /scans/{scanName}
+      operations:
+      - name: amazonwebservicesgetscan
+        method: GET
+        description: Amazon Web Services Getscan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeguru-security-scans-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeguru-security — Scans. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/scans
+      name: scans
+      description: REST surface for scans.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistscans
+        description: Amazon Web Services Listscans
+        call: codeguru-security-scans.amazonwebserviceslistscans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scans/{scanname}
+      name: scans-scanname
+      description: REST surface for scans-scanName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetscan
+        description: Amazon Web Services Getscan
+        call: codeguru-security-scans.amazonwebservicesgetscan
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeguru-security-scans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeguru-security — Scans. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listscans
+      description: Amazon Web Services Listscans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-security-scans.amazonwebserviceslistscans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getscan
+      description: Amazon Web Services Getscan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: codeguru-security-scans.amazonwebservicesgetscan
+      outputParameters:
+      - type: object
+        mapping: $.

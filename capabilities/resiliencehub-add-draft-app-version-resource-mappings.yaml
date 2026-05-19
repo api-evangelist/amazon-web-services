@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Add Draft App Version Resource Mappings
+  description: 'Amazon Web Services resiliencehub — Add Draft App Version Resource Mappings. 1 operations. Lead operation:
+    Amazon Web Services Adddraftappversionresourcemappings. Self-contained Naftiko capability covering one Amazon Web Services
+    business surface.'
+  tags:
+  - Amazon Web Services
+  - Add Draft App Version Resource Mappings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-add-draft-app-version-resource-mappings
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Add Draft App Version Resource Mappings business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: add-draft-app-version-resource-mappings
+      path: /add-draft-app-version-resource-mappings
+      operations:
+      - name: amazonwebservicesadddraftappversionresourcemappings
+        method: POST
+        description: Amazon Web Services Adddraftappversionresourcemappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-add-draft-app-version-resource-mappings-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Add Draft App Version Resource Mappings. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/add-draft-app-version-resource-mappings
+      name: add-draft-app-version-resource-mappings
+      description: REST surface for add-draft-app-version-resource-mappings.
+      operations:
+      - method: POST
+        name: amazonwebservicesadddraftappversionresourcemappings
+        description: Amazon Web Services Adddraftappversionresourcemappings
+        call: resiliencehub-add-draft-app-version-resource-mappings.amazonwebservicesadddraftappversionresourcemappings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-add-draft-app-version-resource-mappings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Add Draft App Version Resource Mappings. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-adddraftappversionresourcemappings
+      description: Amazon Web Services Adddraftappversionresourcemappings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-add-draft-app-version-resource-mappings.amazonwebservicesadddraftappversionresourcemappings
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mobile — Project
+  description: 'Amazon Web Services mobile — Project. 1 operations. Lead operation: Amazon Web Services Describeproject. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Project
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mobile-project
+    baseUri: ''
+    description: Amazon Web Services mobile — Project business capability. Self-contained, no shared references.
+    resources:
+    - name: project
+      path: /project
+      operations:
+      - name: amazonwebservicesdescribeproject
+        method: GET
+        description: Amazon Web Services Describeproject
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mobile-project-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mobile — Project. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/project
+      name: project
+      description: REST surface for project.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeproject
+        description: Amazon Web Services Describeproject
+        call: mobile-project.amazonwebservicesdescribeproject
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mobile-project-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mobile — Project. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeproject
+      description: Amazon Web Services Describeproject
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobile-project.amazonwebservicesdescribeproject
+      outputParameters:
+      - type: object
+        mapping: $.

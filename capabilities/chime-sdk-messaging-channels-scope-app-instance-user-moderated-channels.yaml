@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-messaging — Channels?scope=app Instance User Moderated Channels
+  description: 'Amazon Web Services chime-sdk-messaging — Channels?scope=app Instance User Moderated Channels. 1 operations.
+    Lead operation: Amazon Web Services Listchannelsmoderatedbyappinstanceuser. Self-contained Naftiko capability covering
+    one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels?scope=app Instance User Moderated Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-messaging-channels-scope-app-instance-user-moderated-channels
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-messaging — Channels?scope=app Instance User Moderated Channels business capability.
+      Self-contained, no shared references.
+    resources:
+    - name: channels?scope=app-instance-user-moderated-channels
+      path: /channels?scope=app-instance-user-moderated-channels
+      operations:
+      - name: amazonwebserviceslistchannelsmoderatedbyappinstanceuser
+        method: GET
+        description: Amazon Web Services Listchannelsmoderatedbyappinstanceuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-messaging-channels-scope-app-instance-user-moderated-channels-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-messaging — Channels?scope=app Instance User Moderated Channels.
+      One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channels-scope-app-instance-user-moderated-channels
+      name: channels-scope-app-instance-user-moderated-channels
+      description: REST surface for channels?scope=app-instance-user-moderated-channels.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistchannelsmoderatedbyappinstanceuser
+        description: Amazon Web Services Listchannelsmoderatedbyappinstanceuser
+        call: chime-sdk-messaging-channels-scope-app-instance-user-moderated-channels.amazonwebserviceslistchannelsmoderatedbyappinstanceuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-messaging-channels-scope-app-instance-user-moderated-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-messaging — Channels?scope=app Instance User Moderated Channels.
+      One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listchannelsmoderatedbyappinstanceuser
+      description: Amazon Web Services Listchannelsmoderatedbyappinstanceuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chime-sdk-messaging-channels-scope-app-instance-user-moderated-channels.amazonwebserviceslistchannelsmoderatedbyappinstanceuser
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivschat — CreateRoom
+  description: 'Amazon Web Services ivschat — CreateRoom. 1 operations. Lead operation: Amazon Web Services Createroom. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateRoom
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivschat-createroom
+    baseUri: ''
+    description: Amazon Web Services ivschat — CreateRoom business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateRoom
+      path: /CreateRoom
+      operations:
+      - name: amazonwebservicescreateroom
+        method: POST
+        description: Amazon Web Services Createroom
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivschat-createroom-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivschat — CreateRoom. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/createroom
+      name: createroom
+      description: REST surface for CreateRoom.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateroom
+        description: Amazon Web Services Createroom
+        call: ivschat-createroom.amazonwebservicescreateroom
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivschat-createroom-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivschat — CreateRoom. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createroom
+      description: Amazon Web Services Createroom
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivschat-createroom.amazonwebservicescreateroom
+      outputParameters:
+      - type: object
+        mapping: $.

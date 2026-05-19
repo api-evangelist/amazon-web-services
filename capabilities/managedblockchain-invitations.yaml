@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services managedblockchain — Invitations
+  description: 'Amazon Web Services managedblockchain — Invitations. 2 operations. Lead operation: Amazon Web Services Listinvitations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Invitations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: managedblockchain-invitations
+    baseUri: ''
+    description: Amazon Web Services managedblockchain — Invitations business capability. Self-contained, no shared references.
+    resources:
+    - name: invitations
+      path: /invitations
+      operations:
+      - name: amazonwebserviceslistinvitations
+        method: GET
+        description: Amazon Web Services Listinvitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: invitations-invitationId
+      path: /invitations/{invitationId}
+      operations:
+      - name: amazonwebservicesrejectinvitation
+        method: DELETE
+        description: Amazon Web Services Rejectinvitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: managedblockchain-invitations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services managedblockchain — Invitations. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/invitations
+      name: invitations
+      description: REST surface for invitations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistinvitations
+        description: Amazon Web Services Listinvitations
+        call: managedblockchain-invitations.amazonwebserviceslistinvitations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invitations/{invitationid}
+      name: invitations-invitationid
+      description: REST surface for invitations-invitationId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesrejectinvitation
+        description: Amazon Web Services Rejectinvitation
+        call: managedblockchain-invitations.amazonwebservicesrejectinvitation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: managedblockchain-invitations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services managedblockchain — Invitations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listinvitations
+      description: Amazon Web Services Listinvitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-invitations.amazonwebserviceslistinvitations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-rejectinvitation
+      description: Amazon Web Services Rejectinvitation
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: managedblockchain-invitations.amazonwebservicesrejectinvitation
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Dataplane Evaluatecode
+  description: 'Amazon Web Services appsync — Dataplane Evaluatecode. 1 operations. Lead operation: Amazon Web Services Evaluatecode.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Dataplane Evaluatecode
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-dataplane-evaluatecode
+    baseUri: ''
+    description: Amazon Web Services appsync — Dataplane Evaluatecode business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-dataplane-evaluatecode
+      path: /v1/dataplane-evaluatecode
+      operations:
+      - name: amazonwebservicesevaluatecode
+        method: POST
+        description: Amazon Web Services Evaluatecode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-dataplane-evaluatecode-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Dataplane Evaluatecode. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/dataplane-evaluatecode
+      name: v1-dataplane-evaluatecode
+      description: REST surface for v1-dataplane-evaluatecode.
+      operations:
+      - method: POST
+        name: amazonwebservicesevaluatecode
+        description: Amazon Web Services Evaluatecode
+        call: appsync-dataplane-evaluatecode.amazonwebservicesevaluatecode
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-dataplane-evaluatecode-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Dataplane Evaluatecode. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-evaluatecode
+      description: Amazon Web Services Evaluatecode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-dataplane-evaluatecode.amazonwebservicesevaluatecode
+      outputParameters:
+      - type: object
+        mapping: $.

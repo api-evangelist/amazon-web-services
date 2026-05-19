@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services fis — Experiments
+  description: 'Amazon Web Services fis — Experiments. 5 operations. Lead operation: Amazon Web Services Startexperiment.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Experiments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fis-experiments
+    baseUri: ''
+    description: Amazon Web Services fis — Experiments business capability. Self-contained, no shared references.
+    resources:
+    - name: experiments
+      path: /experiments
+      operations:
+      - name: amazonwebservicesstartexperiment
+        method: POST
+        description: Amazon Web Services Startexperiment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: experiments-id
+      path: /experiments/{id}
+      operations:
+      - name: amazonwebservicesstopexperiment
+        method: DELETE
+        description: Amazon Web Services Stopexperiment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: experiments-id-resolvedTargets
+      path: /experiments/{id}/resolvedTargets
+      operations:
+      - name: amazonwebserviceslistexperimentresolvedtargets
+        method: GET
+        description: Amazon Web Services Listexperimentresolvedtargets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: experiments-id-targetAccountConfigurations
+      path: /experiments/{id}/targetAccountConfigurations
+      operations:
+      - name: amazonwebserviceslistexperimenttargetaccountconfigurations
+        method: GET
+        description: Amazon Web Services Listexperimenttargetaccountconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: experiments-id-targetAccountConfigurations-accountId
+      path: /experiments/{id}/targetAccountConfigurations/{accountId}
+      operations:
+      - name: amazonwebservicesgetexperimenttargetaccountconfiguration
+        method: GET
+        description: Amazon Web Services Getexperimenttargetaccountconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fis-experiments-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services fis — Experiments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/experiments
+      name: experiments
+      description: REST surface for experiments.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartexperiment
+        description: Amazon Web Services Startexperiment
+        call: fis-experiments.amazonwebservicesstartexperiment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/experiments/{id}
+      name: experiments-id
+      description: REST surface for experiments-id.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesstopexperiment
+        description: Amazon Web Services Stopexperiment
+        call: fis-experiments.amazonwebservicesstopexperiment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/experiments/{id}/resolvedtargets
+      name: experiments-id-resolvedtargets
+      description: REST surface for experiments-id-resolvedTargets.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistexperimentresolvedtargets
+        description: Amazon Web Services Listexperimentresolvedtargets
+        call: fis-experiments.amazonwebserviceslistexperimentresolvedtargets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/experiments/{id}/targetaccountconfigurations
+      name: experiments-id-targetaccountconfigurations
+      description: REST surface for experiments-id-targetAccountConfigurations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistexperimenttargetaccountconfigurations
+        description: Amazon Web Services Listexperimenttargetaccountconfigurations
+        call: fis-experiments.amazonwebserviceslistexperimenttargetaccountconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/experiments/{id}/targetaccountconfigurations/{accountid}
+      name: experiments-id-targetaccountconfigurations-accountid
+      description: REST surface for experiments-id-targetAccountConfigurations-accountId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetexperimenttargetaccountconfiguration
+        description: Amazon Web Services Getexperimenttargetaccountconfiguration
+        call: fis-experiments.amazonwebservicesgetexperimenttargetaccountconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fis-experiments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services fis — Experiments. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startexperiment
+      description: Amazon Web Services Startexperiment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fis-experiments.amazonwebservicesstartexperiment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stopexperiment
+      description: Amazon Web Services Stopexperiment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fis-experiments.amazonwebservicesstopexperiment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listexperimentresolvedtargets
+      description: Amazon Web Services Listexperimentresolvedtargets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fis-experiments.amazonwebserviceslistexperimentresolvedtargets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listexperimenttargetaccountconfigurations
+      description: Amazon Web Services Listexperimenttargetaccountconfigurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fis-experiments.amazonwebserviceslistexperimenttargetaccountconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getexperimenttargetaccountconfiguration
+      description: Amazon Web Services Getexperimenttargetaccountconfiguration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fis-experiments.amazonwebservicesgetexperimenttargetaccountconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

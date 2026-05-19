@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services pipes — Pipes
+  description: 'Amazon Web Services pipes — Pipes. 4 operations. Lead operation: Amazon Web Services Listpipes. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Pipes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pipes-pipes
+    baseUri: ''
+    description: Amazon Web Services pipes — Pipes business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-pipes
+      path: /v1/pipes
+      operations:
+      - name: amazonwebserviceslistpipes
+        method: GET
+        description: Amazon Web Services Listpipes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-pipes-Name
+      path: /v1/pipes/{Name}
+      operations:
+      - name: amazonwebservicesupdatepipe
+        method: PUT
+        description: Amazon Web Services Updatepipe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-pipes-Name-start
+      path: /v1/pipes/{Name}/start
+      operations:
+      - name: amazonwebservicesstartpipe
+        method: POST
+        description: Amazon Web Services Startpipe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-pipes-Name-stop
+      path: /v1/pipes/{Name}/stop
+      operations:
+      - name: amazonwebservicesstoppipe
+        method: POST
+        description: Amazon Web Services Stoppipe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pipes-pipes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services pipes — Pipes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/pipes
+      name: v1-pipes
+      description: REST surface for v1-pipes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpipes
+        description: Amazon Web Services Listpipes
+        call: pipes-pipes.amazonwebserviceslistpipes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/pipes/{name}
+      name: v1-pipes-name
+      description: REST surface for v1-pipes-Name.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatepipe
+        description: Amazon Web Services Updatepipe
+        call: pipes-pipes.amazonwebservicesupdatepipe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/pipes/{name}/start
+      name: v1-pipes-name-start
+      description: REST surface for v1-pipes-Name-start.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartpipe
+        description: Amazon Web Services Startpipe
+        call: pipes-pipes.amazonwebservicesstartpipe
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/pipes/{name}/stop
+      name: v1-pipes-name-stop
+      description: REST surface for v1-pipes-Name-stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstoppipe
+        description: Amazon Web Services Stoppipe
+        call: pipes-pipes.amazonwebservicesstoppipe
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pipes-pipes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services pipes — Pipes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpipes
+      description: Amazon Web Services Listpipes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pipes-pipes.amazonwebserviceslistpipes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepipe
+      description: Amazon Web Services Updatepipe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: pipes-pipes.amazonwebservicesupdatepipe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startpipe
+      description: Amazon Web Services Startpipe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pipes-pipes.amazonwebservicesstartpipe
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stoppipe
+      description: Amazon Web Services Stoppipe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pipes-pipes.amazonwebservicesstoppipe
+      outputParameters:
+      - type: object
+        mapping: $.

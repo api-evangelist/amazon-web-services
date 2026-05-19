@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigatewayv2 — Routes
+  description: 'Amazon Web Services apigatewayv2 — Routes. 5 operations. Lead operation: Amazon Web Services Getroutes. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Routes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigatewayv2-routes
+    baseUri: ''
+    description: Amazon Web Services apigatewayv2 — Routes business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-apis-apiId-routes
+      path: /v2/apis/{apiId}/routes
+      operations:
+      - name: amazonwebservicesgetroutes
+        method: GET
+        description: Amazon Web Services Getroutes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-routes-routeId
+      path: /v2/apis/{apiId}/routes/{routeId}
+      operations:
+      - name: amazonwebservicesupdateroute
+        method: PATCH
+        description: Amazon Web Services Updateroute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-routes-routeId-requestparameters-requestParameterKey
+      path: /v2/apis/{apiId}/routes/{routeId}/requestparameters/{requestParameterKey}
+      operations:
+      - name: amazonwebservicesdeleterouterequestparameter
+        method: DELETE
+        description: Amazon Web Services Deleterouterequestparameter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-routes-routeId-routeresponses
+      path: /v2/apis/{apiId}/routes/{routeId}/routeresponses
+      operations:
+      - name: amazonwebservicesgetrouteresponses
+        method: GET
+        description: Amazon Web Services Getrouteresponses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-apis-apiId-routes-routeId-routeresponses-routeResponseId
+      path: /v2/apis/{apiId}/routes/{routeId}/routeresponses/{routeResponseId}
+      operations:
+      - name: amazonwebservicesupdaterouteresponse
+        method: PATCH
+        description: Amazon Web Services Updaterouteresponse
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigatewayv2-routes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigatewayv2 — Routes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/apis/{apiid}/routes
+      name: v2-apis-apiid-routes
+      description: REST surface for v2-apis-apiId-routes.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetroutes
+        description: Amazon Web Services Getroutes
+        call: apigatewayv2-routes.amazonwebservicesgetroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/routes/{routeid}
+      name: v2-apis-apiid-routes-routeid
+      description: REST surface for v2-apis-apiId-routes-routeId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateroute
+        description: Amazon Web Services Updateroute
+        call: apigatewayv2-routes.amazonwebservicesupdateroute
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/routes/{routeid}/requestparameters/{requestparameterkey}
+      name: v2-apis-apiid-routes-routeid-requestparameters-requestparameterkey
+      description: REST surface for v2-apis-apiId-routes-routeId-requestparameters-requestParameterKey.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeleterouterequestparameter
+        description: Amazon Web Services Deleterouterequestparameter
+        call: apigatewayv2-routes.amazonwebservicesdeleterouterequestparameter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/routes/{routeid}/routeresponses
+      name: v2-apis-apiid-routes-routeid-routeresponses
+      description: REST surface for v2-apis-apiId-routes-routeId-routeresponses.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetrouteresponses
+        description: Amazon Web Services Getrouteresponses
+        call: apigatewayv2-routes.amazonwebservicesgetrouteresponses
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/apis/{apiid}/routes/{routeid}/routeresponses/{routeresponseid}
+      name: v2-apis-apiid-routes-routeid-routeresponses-routeresponseid
+      description: REST surface for v2-apis-apiId-routes-routeId-routeresponses-routeResponseId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdaterouteresponse
+        description: Amazon Web Services Updaterouteresponse
+        call: apigatewayv2-routes.amazonwebservicesupdaterouteresponse
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigatewayv2-routes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigatewayv2 — Routes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getroutes
+      description: Amazon Web Services Getroutes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-routes.amazonwebservicesgetroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroute
+      description: Amazon Web Services Updateroute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-routes.amazonwebservicesupdateroute
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deleterouterequestparameter
+      description: Amazon Web Services Deleterouterequestparameter
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apigatewayv2-routes.amazonwebservicesdeleterouterequestparameter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getrouteresponses
+      description: Amazon Web Services Getrouteresponses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-routes.amazonwebservicesgetrouteresponses
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updaterouteresponse
+      description: Amazon Web Services Updaterouteresponse
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigatewayv2-routes.amazonwebservicesupdaterouteresponse
+      outputParameters:
+      - type: object
+        mapping: $.

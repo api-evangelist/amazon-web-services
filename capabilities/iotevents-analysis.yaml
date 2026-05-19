@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotevents — Analysis
+  description: 'Amazon Web Services iotevents — Analysis. 3 operations. Lead operation: Amazon Web Services Startdetectormodelanalysis.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Analysis
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotevents-analysis
+    baseUri: ''
+    description: Amazon Web Services iotevents — Analysis business capability. Self-contained, no shared references.
+    resources:
+    - name: analysis-detector-models
+      path: /analysis/detector-models/
+      operations:
+      - name: amazonwebservicesstartdetectormodelanalysis
+        method: POST
+        description: Amazon Web Services Startdetectormodelanalysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analysis-detector-models-analysisId
+      path: /analysis/detector-models/{analysisId}
+      operations:
+      - name: amazonwebservicesdescribedetectormodelanalysis
+        method: GET
+        description: Amazon Web Services Describedetectormodelanalysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: analysis-detector-models-analysisId-results
+      path: /analysis/detector-models/{analysisId}/results
+      operations:
+      - name: amazonwebservicesgetdetectormodelanalysisresults
+        method: GET
+        description: Amazon Web Services Getdetectormodelanalysisresults
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotevents-analysis-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotevents — Analysis. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/analysis/detector-models
+      name: analysis-detector-models
+      description: REST surface for analysis-detector-models.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartdetectormodelanalysis
+        description: Amazon Web Services Startdetectormodelanalysis
+        call: iotevents-analysis.amazonwebservicesstartdetectormodelanalysis
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analysis/detector-models/{analysisid}
+      name: analysis-detector-models-analysisid
+      description: REST surface for analysis-detector-models-analysisId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedetectormodelanalysis
+        description: Amazon Web Services Describedetectormodelanalysis
+        call: iotevents-analysis.amazonwebservicesdescribedetectormodelanalysis
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/analysis/detector-models/{analysisid}/results
+      name: analysis-detector-models-analysisid-results
+      description: REST surface for analysis-detector-models-analysisId-results.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdetectormodelanalysisresults
+        description: Amazon Web Services Getdetectormodelanalysisresults
+        call: iotevents-analysis.amazonwebservicesgetdetectormodelanalysisresults
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotevents-analysis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotevents — Analysis. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startdetectormodelanalysis
+      description: Amazon Web Services Startdetectormodelanalysis
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iotevents-analysis.amazonwebservicesstartdetectormodelanalysis
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedetectormodelanalysis
+      description: Amazon Web Services Describedetectormodelanalysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-analysis.amazonwebservicesdescribedetectormodelanalysis
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdetectormodelanalysisresults
+      description: Amazon Web Services Getdetectormodelanalysisresults
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotevents-analysis.amazonwebservicesgetdetectormodelanalysisresults
+      outputParameters:
+      - type: object
+        mapping: $.

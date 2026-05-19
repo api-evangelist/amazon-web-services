@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services directconnect
+  description: 'Amazon Web Services directconnect. 1 operations. Lead operation: Amazon Web Services Updatevirtualinterfaceattributes.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services directconnect
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: directconnect
+    baseUri: ''
+    description: Amazon Web Services directconnect business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatevirtualinterfaceattributes
+        method: POST
+        description: Amazon Web Services Updatevirtualinterfaceattributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: directconnect-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services directconnect. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatevirtualinterfaceattributes
+        description: Amazon Web Services Updatevirtualinterfaceattributes
+        call: directconnect.amazonwebservicesupdatevirtualinterfaceattributes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: directconnect-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services directconnect. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatevirtualinterfaceattributes
+      description: Amazon Web Services Updatevirtualinterfaceattributes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: directconnect.amazonwebservicesupdatevirtualinterfaceattributes
+      outputParameters:
+      - type: object
+        mapping: $.

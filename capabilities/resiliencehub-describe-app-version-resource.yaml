@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Describe App Version Resource
+  description: 'Amazon Web Services resiliencehub — Describe App Version Resource. 1 operations. Lead operation: Amazon Web
+    Services Describeappversionresource. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Describe App Version Resource
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-describe-app-version-resource
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Describe App Version Resource business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: describe-app-version-resource
+      path: /describe-app-version-resource
+      operations:
+      - name: amazonwebservicesdescribeappversionresource
+        method: POST
+        description: Amazon Web Services Describeappversionresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-describe-app-version-resource-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Describe App Version Resource. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/describe-app-version-resource
+      name: describe-app-version-resource
+      description: REST surface for describe-app-version-resource.
+      operations:
+      - method: POST
+        name: amazonwebservicesdescribeappversionresource
+        description: Amazon Web Services Describeappversionresource
+        call: resiliencehub-describe-app-version-resource.amazonwebservicesdescribeappversionresource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-describe-app-version-resource-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Describe App Version Resource. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-describeappversionresource
+      description: Amazon Web Services Describeappversionresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-describe-app-version-resource.amazonwebservicesdescribeappversionresource
+      outputParameters:
+      - type: object
+        mapping: $.

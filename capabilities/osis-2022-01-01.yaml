@@ -1,0 +1,483 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services osis — 2022 01 01
+  description: 'Amazon Web Services osis — 2022 01 01. 14 operations. Lead operation: Amazon Web Services Createpipeline.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - 2022 01 01
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: osis-2022-01-01
+    baseUri: ''
+    description: Amazon Web Services osis — 2022 01 01 business capability. Self-contained, no shared references.
+    resources:
+    - name: 2022-01-01-osis-createPipeline
+      path: /2022-01-01/osis/createPipeline
+      operations:
+      - name: amazonwebservicescreatepipeline
+        method: POST
+        description: Amazon Web Services Createpipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-deletePipeline-PipelineName
+      path: /2022-01-01/osis/deletePipeline/{PipelineName}
+      operations:
+      - name: amazonwebservicesdeletepipeline
+        method: DELETE
+        description: Amazon Web Services Deletepipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-getPipeline-PipelineName
+      path: /2022-01-01/osis/getPipeline/{PipelineName}
+      operations:
+      - name: amazonwebservicesgetpipeline
+        method: GET
+        description: Amazon Web Services Getpipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-getPipelineBlueprint-BlueprintName
+      path: /2022-01-01/osis/getPipelineBlueprint/{BlueprintName}
+      operations:
+      - name: amazonwebservicesgetpipelineblueprint
+        method: GET
+        description: Amazon Web Services Getpipelineblueprint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-getPipelineChangeProgress-PipelineName
+      path: /2022-01-01/osis/getPipelineChangeProgress/{PipelineName}
+      operations:
+      - name: amazonwebservicesgetpipelinechangeprogress
+        method: GET
+        description: Amazon Web Services Getpipelinechangeprogress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-listPipelineBlueprints
+      path: /2022-01-01/osis/listPipelineBlueprints
+      operations:
+      - name: amazonwebserviceslistpipelineblueprints
+        method: POST
+        description: Amazon Web Services Listpipelineblueprints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-listPipelines
+      path: /2022-01-01/osis/listPipelines
+      operations:
+      - name: amazonwebserviceslistpipelines
+        method: GET
+        description: Amazon Web Services Listpipelines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-listTagsForResource
+      path: /2022-01-01/osis/listTagsForResource/
+      operations:
+      - name: amazonwebserviceslisttagsforresource
+        method: GET
+        description: Amazon Web Services Listtagsforresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-startPipeline-PipelineName
+      path: /2022-01-01/osis/startPipeline/{PipelineName}
+      operations:
+      - name: amazonwebservicesstartpipeline
+        method: PUT
+        description: Amazon Web Services Startpipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-stopPipeline-PipelineName
+      path: /2022-01-01/osis/stopPipeline/{PipelineName}
+      operations:
+      - name: amazonwebservicesstoppipeline
+        method: PUT
+        description: Amazon Web Services Stoppipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-tagResource
+      path: /2022-01-01/osis/tagResource/
+      operations:
+      - name: amazonwebservicestagresource
+        method: POST
+        description: Amazon Web Services Tagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-untagResource
+      path: /2022-01-01/osis/untagResource/
+      operations:
+      - name: amazonwebservicesuntagresource
+        method: POST
+        description: Amazon Web Services Untagresource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-updatePipeline-PipelineName
+      path: /2022-01-01/osis/updatePipeline/{PipelineName}
+      operations:
+      - name: amazonwebservicesupdatepipeline
+        method: PUT
+        description: Amazon Web Services Updatepipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: 2022-01-01-osis-validatePipeline
+      path: /2022-01-01/osis/validatePipeline
+      operations:
+      - name: amazonwebservicesvalidatepipeline
+        method: POST
+        description: Amazon Web Services Validatepipeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: osis-2022-01-01-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services osis — 2022 01 01. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2022-01-01/osis/createpipeline
+      name: 2022-01-01-osis-createpipeline
+      description: REST surface for 2022-01-01-osis-createPipeline.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatepipeline
+        description: Amazon Web Services Createpipeline
+        call: osis-2022-01-01.amazonwebservicescreatepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/deletepipeline/{pipelinename}
+      name: 2022-01-01-osis-deletepipeline-pipelinename
+      description: REST surface for 2022-01-01-osis-deletePipeline-PipelineName.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletepipeline
+        description: Amazon Web Services Deletepipeline
+        call: osis-2022-01-01.amazonwebservicesdeletepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/getpipeline/{pipelinename}
+      name: 2022-01-01-osis-getpipeline-pipelinename
+      description: REST surface for 2022-01-01-osis-getPipeline-PipelineName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpipeline
+        description: Amazon Web Services Getpipeline
+        call: osis-2022-01-01.amazonwebservicesgetpipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/getpipelineblueprint/{blueprintname}
+      name: 2022-01-01-osis-getpipelineblueprint-blueprintname
+      description: REST surface for 2022-01-01-osis-getPipelineBlueprint-BlueprintName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpipelineblueprint
+        description: Amazon Web Services Getpipelineblueprint
+        call: osis-2022-01-01.amazonwebservicesgetpipelineblueprint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/getpipelinechangeprogress/{pipelinename}
+      name: 2022-01-01-osis-getpipelinechangeprogress-pipelinename
+      description: REST surface for 2022-01-01-osis-getPipelineChangeProgress-PipelineName.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetpipelinechangeprogress
+        description: Amazon Web Services Getpipelinechangeprogress
+        call: osis-2022-01-01.amazonwebservicesgetpipelinechangeprogress
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/listpipelineblueprints
+      name: 2022-01-01-osis-listpipelineblueprints
+      description: REST surface for 2022-01-01-osis-listPipelineBlueprints.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpipelineblueprints
+        description: Amazon Web Services Listpipelineblueprints
+        call: osis-2022-01-01.amazonwebserviceslistpipelineblueprints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/listpipelines
+      name: 2022-01-01-osis-listpipelines
+      description: REST surface for 2022-01-01-osis-listPipelines.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistpipelines
+        description: Amazon Web Services Listpipelines
+        call: osis-2022-01-01.amazonwebserviceslistpipelines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/listtagsforresource
+      name: 2022-01-01-osis-listtagsforresource
+      description: REST surface for 2022-01-01-osis-listTagsForResource.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttagsforresource
+        description: Amazon Web Services Listtagsforresource
+        call: osis-2022-01-01.amazonwebserviceslisttagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/startpipeline/{pipelinename}
+      name: 2022-01-01-osis-startpipeline-pipelinename
+      description: REST surface for 2022-01-01-osis-startPipeline-PipelineName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartpipeline
+        description: Amazon Web Services Startpipeline
+        call: osis-2022-01-01.amazonwebservicesstartpipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/stoppipeline/{pipelinename}
+      name: 2022-01-01-osis-stoppipeline-pipelinename
+      description: REST surface for 2022-01-01-osis-stopPipeline-PipelineName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstoppipeline
+        description: Amazon Web Services Stoppipeline
+        call: osis-2022-01-01.amazonwebservicesstoppipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/tagresource
+      name: 2022-01-01-osis-tagresource
+      description: REST surface for 2022-01-01-osis-tagResource.
+      operations:
+      - method: POST
+        name: amazonwebservicestagresource
+        description: Amazon Web Services Tagresource
+        call: osis-2022-01-01.amazonwebservicestagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/untagresource
+      name: 2022-01-01-osis-untagresource
+      description: REST surface for 2022-01-01-osis-untagResource.
+      operations:
+      - method: POST
+        name: amazonwebservicesuntagresource
+        description: Amazon Web Services Untagresource
+        call: osis-2022-01-01.amazonwebservicesuntagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/updatepipeline/{pipelinename}
+      name: 2022-01-01-osis-updatepipeline-pipelinename
+      description: REST surface for 2022-01-01-osis-updatePipeline-PipelineName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatepipeline
+        description: Amazon Web Services Updatepipeline
+        call: osis-2022-01-01.amazonwebservicesupdatepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2022-01-01/osis/validatepipeline
+      name: 2022-01-01-osis-validatepipeline
+      description: REST surface for 2022-01-01-osis-validatePipeline.
+      operations:
+      - method: POST
+        name: amazonwebservicesvalidatepipeline
+        description: Amazon Web Services Validatepipeline
+        call: osis-2022-01-01.amazonwebservicesvalidatepipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: osis-2022-01-01-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services osis — 2022 01 01. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createpipeline
+      description: Amazon Web Services Createpipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: osis-2022-01-01.amazonwebservicescreatepipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletepipeline
+      description: Amazon Web Services Deletepipeline
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesdeletepipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpipeline
+      description: Amazon Web Services Getpipeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesgetpipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpipelineblueprint
+      description: Amazon Web Services Getpipelineblueprint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesgetpipelineblueprint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpipelinechangeprogress
+      description: Amazon Web Services Getpipelinechangeprogress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesgetpipelinechangeprogress
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpipelineblueprints
+      description: Amazon Web Services Listpipelineblueprints
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: osis-2022-01-01.amazonwebserviceslistpipelineblueprints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listpipelines
+      description: Amazon Web Services Listpipelines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebserviceslistpipelines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtagsforresource
+      description: Amazon Web Services Listtagsforresource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebserviceslisttagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startpipeline
+      description: Amazon Web Services Startpipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesstartpipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stoppipeline
+      description: Amazon Web Services Stoppipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesstoppipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-tagresource
+      description: Amazon Web Services Tagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: osis-2022-01-01.amazonwebservicestagresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-untagresource
+      description: Amazon Web Services Untagresource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: osis-2022-01-01.amazonwebservicesuntagresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatepipeline
+      description: Amazon Web Services Updatepipeline
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: osis-2022-01-01.amazonwebservicesupdatepipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-validatepipeline
+      description: Amazon Web Services Validatepipeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: osis-2022-01-01.amazonwebservicesvalidatepipeline
+      outputParameters:
+      - type: object
+        mapping: $.

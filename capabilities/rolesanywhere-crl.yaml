@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services rolesanywhere — Crl
+  description: 'Amazon Web Services rolesanywhere — Crl. 3 operations. Lead operation: Amazon Web Services Updatecrl. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Crl
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rolesanywhere-crl
+    baseUri: ''
+    description: Amazon Web Services rolesanywhere — Crl business capability. Self-contained, no shared references.
+    resources:
+    - name: crl-crlId
+      path: /crl/{crlId}
+      operations:
+      - name: amazonwebservicesupdatecrl
+        method: PATCH
+        description: Amazon Web Services Updatecrl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: crl-crlId-disable
+      path: /crl/{crlId}/disable
+      operations:
+      - name: amazonwebservicesdisablecrl
+        method: POST
+        description: Amazon Web Services Disablecrl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: crl-crlId-enable
+      path: /crl/{crlId}/enable
+      operations:
+      - name: amazonwebservicesenablecrl
+        method: POST
+        description: Amazon Web Services Enablecrl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: rolesanywhere-crl-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services rolesanywhere — Crl. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/crl/{crlid}
+      name: crl-crlid
+      description: REST surface for crl-crlId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatecrl
+        description: Amazon Web Services Updatecrl
+        call: rolesanywhere-crl.amazonwebservicesupdatecrl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/crl/{crlid}/disable
+      name: crl-crlid-disable
+      description: REST surface for crl-crlId-disable.
+      operations:
+      - method: POST
+        name: amazonwebservicesdisablecrl
+        description: Amazon Web Services Disablecrl
+        call: rolesanywhere-crl.amazonwebservicesdisablecrl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/crl/{crlid}/enable
+      name: crl-crlid-enable
+      description: REST surface for crl-crlId-enable.
+      operations:
+      - method: POST
+        name: amazonwebservicesenablecrl
+        description: Amazon Web Services Enablecrl
+        call: rolesanywhere-crl.amazonwebservicesenablecrl
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rolesanywhere-crl-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services rolesanywhere — Crl. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatecrl
+      description: Amazon Web Services Updatecrl
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rolesanywhere-crl.amazonwebservicesupdatecrl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-disablecrl
+      description: Amazon Web Services Disablecrl
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rolesanywhere-crl.amazonwebservicesdisablecrl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-enablecrl
+      description: Amazon Web Services Enablecrl
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rolesanywhere-crl.amazonwebservicesenablecrl
+      outputParameters:
+      - type: object
+        mapping: $.

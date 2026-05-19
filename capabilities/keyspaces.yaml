@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services keyspaces
+  description: 'Amazon Web Services keyspaces. 1 operations. Lead operation: Amazon Web Services Updatetable. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services keyspaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: keyspaces
+    baseUri: ''
+    description: Amazon Web Services keyspaces business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdatetable
+        method: POST
+        description: Amazon Web Services Updatetable
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: keyspaces-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services keyspaces. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetable
+        description: Amazon Web Services Updatetable
+        call: keyspaces.amazonwebservicesupdatetable
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: keyspaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services keyspaces. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatetable
+      description: Amazon Web Services Updatetable
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: keyspaces.amazonwebservicesupdatetable
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appconfig — Deploymentstrategies
+  description: 'Amazon Web Services appconfig — Deploymentstrategies. 2 operations. Lead operation: Amazon Web Services Listdeploymentstrategies.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Deploymentstrategies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appconfig-deploymentstrategies
+    baseUri: ''
+    description: Amazon Web Services appconfig — Deploymentstrategies business capability. Self-contained, no shared references.
+    resources:
+    - name: deploymentstrategies
+      path: /deploymentstrategies
+      operations:
+      - name: amazonwebserviceslistdeploymentstrategies
+        method: GET
+        description: Amazon Web Services Listdeploymentstrategies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deploymentstrategies-DeploymentStrategyId
+      path: /deploymentstrategies/{DeploymentStrategyId}
+      operations:
+      - name: amazonwebservicesupdatedeploymentstrategy
+        method: PATCH
+        description: Amazon Web Services Updatedeploymentstrategy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appconfig-deploymentstrategies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appconfig — Deploymentstrategies. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/deploymentstrategies
+      name: deploymentstrategies
+      description: REST surface for deploymentstrategies.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdeploymentstrategies
+        description: Amazon Web Services Listdeploymentstrategies
+        call: appconfig-deploymentstrategies.amazonwebserviceslistdeploymentstrategies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deploymentstrategies/{deploymentstrategyid}
+      name: deploymentstrategies-deploymentstrategyid
+      description: REST surface for deploymentstrategies-DeploymentStrategyId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedeploymentstrategy
+        description: Amazon Web Services Updatedeploymentstrategy
+        call: appconfig-deploymentstrategies.amazonwebservicesupdatedeploymentstrategy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appconfig-deploymentstrategies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appconfig — Deploymentstrategies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdeploymentstrategies
+      description: Amazon Web Services Listdeploymentstrategies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appconfig-deploymentstrategies.amazonwebserviceslistdeploymentstrategies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedeploymentstrategy
+      description: Amazon Web Services Updatedeploymentstrategy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appconfig-deploymentstrategies.amazonwebservicesupdatedeploymentstrategy
+      outputParameters:
+      - type: object
+        mapping: $.

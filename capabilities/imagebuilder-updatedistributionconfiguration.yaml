@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — UpdateDistributionConfiguration
+  description: 'Amazon Web Services imagebuilder — UpdateDistributionConfiguration. 1 operations. Lead operation: Amazon Web
+    Services Updatedistributionconfiguration. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - UpdateDistributionConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-updatedistributionconfiguration
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — UpdateDistributionConfiguration business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: UpdateDistributionConfiguration
+      path: /UpdateDistributionConfiguration
+      operations:
+      - name: amazonwebservicesupdatedistributionconfiguration
+        method: PUT
+        description: Amazon Web Services Updatedistributionconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-updatedistributionconfiguration-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — UpdateDistributionConfiguration. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updatedistributionconfiguration
+      name: updatedistributionconfiguration
+      description: REST surface for UpdateDistributionConfiguration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatedistributionconfiguration
+        description: Amazon Web Services Updatedistributionconfiguration
+        call: imagebuilder-updatedistributionconfiguration.amazonwebservicesupdatedistributionconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-updatedistributionconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — UpdateDistributionConfiguration. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatedistributionconfiguration
+      description: Amazon Web Services Updatedistributionconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-updatedistributionconfiguration.amazonwebservicesupdatedistributionconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — GetLifecyclePolicy
+  description: 'Amazon Web Services imagebuilder — GetLifecyclePolicy. 1 operations. Lead operation: Amazon Web Services Getlifecyclepolicy.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetLifecyclePolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-getlifecyclepolicy
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — GetLifecyclePolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: GetLifecyclePolicy
+      path: /GetLifecyclePolicy
+      operations:
+      - name: amazonwebservicesgetlifecyclepolicy
+        method: GET
+        description: Amazon Web Services Getlifecyclepolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-getlifecyclepolicy-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — GetLifecyclePolicy. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getlifecyclepolicy
+      name: getlifecyclepolicy
+      description: REST surface for GetLifecyclePolicy.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetlifecyclepolicy
+        description: Amazon Web Services Getlifecyclepolicy
+        call: imagebuilder-getlifecyclepolicy.amazonwebservicesgetlifecyclepolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-getlifecyclepolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — GetLifecyclePolicy. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getlifecyclepolicy
+      description: Amazon Web Services Getlifecyclepolicy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: imagebuilder-getlifecyclepolicy.amazonwebservicesgetlifecyclepolicy
+      outputParameters:
+      - type: object
+        mapping: $.

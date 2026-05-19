@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Indices
+  description: 'Amazon Web Services iot — Indices. 7 operations. Lead operation: Amazon Web Services Listindices. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Indices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-indices
+    baseUri: ''
+    description: Amazon Web Services iot — Indices business capability. Self-contained, no shared references.
+    resources:
+    - name: indices
+      path: /indices
+      operations:
+      - name: amazonwebserviceslistindices
+        method: GET
+        description: Amazon Web Services Listindices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-buckets
+      path: /indices/buckets
+      operations:
+      - name: amazonwebservicesgetbucketsaggregation
+        method: POST
+        description: Amazon Web Services Getbucketsaggregation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-cardinality
+      path: /indices/cardinality
+      operations:
+      - name: amazonwebservicesgetcardinality
+        method: POST
+        description: Amazon Web Services Getcardinality
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-percentiles
+      path: /indices/percentiles
+      operations:
+      - name: amazonwebservicesgetpercentiles
+        method: POST
+        description: Amazon Web Services Getpercentiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-search
+      path: /indices/search
+      operations:
+      - name: amazonwebservicessearchindex
+        method: POST
+        description: Amazon Web Services Searchindex
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-statistics
+      path: /indices/statistics
+      operations:
+      - name: amazonwebservicesgetstatistics
+        method: POST
+        description: Amazon Web Services Getstatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: indices-indexName
+      path: /indices/{indexName}
+      operations:
+      - name: amazonwebservicesdescribeindex
+        method: GET
+        description: Amazon Web Services Describeindex
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-indices-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Indices. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/indices
+      name: indices
+      description: REST surface for indices.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistindices
+        description: Amazon Web Services Listindices
+        call: iot-indices.amazonwebserviceslistindices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/buckets
+      name: indices-buckets
+      description: REST surface for indices-buckets.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetbucketsaggregation
+        description: Amazon Web Services Getbucketsaggregation
+        call: iot-indices.amazonwebservicesgetbucketsaggregation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/cardinality
+      name: indices-cardinality
+      description: REST surface for indices-cardinality.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetcardinality
+        description: Amazon Web Services Getcardinality
+        call: iot-indices.amazonwebservicesgetcardinality
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/percentiles
+      name: indices-percentiles
+      description: REST surface for indices-percentiles.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetpercentiles
+        description: Amazon Web Services Getpercentiles
+        call: iot-indices.amazonwebservicesgetpercentiles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/search
+      name: indices-search
+      description: REST surface for indices-search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchindex
+        description: Amazon Web Services Searchindex
+        call: iot-indices.amazonwebservicessearchindex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/statistics
+      name: indices-statistics
+      description: REST surface for indices-statistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetstatistics
+        description: Amazon Web Services Getstatistics
+        call: iot-indices.amazonwebservicesgetstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/indices/{indexname}
+      name: indices-indexname
+      description: REST surface for indices-indexName.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeindex
+        description: Amazon Web Services Describeindex
+        call: iot-indices.amazonwebservicesdescribeindex
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-indices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Indices. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listindices
+      description: Amazon Web Services Listindices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-indices.amazonwebserviceslistindices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getbucketsaggregation
+      description: Amazon Web Services Getbucketsaggregation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-indices.amazonwebservicesgetbucketsaggregation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcardinality
+      description: Amazon Web Services Getcardinality
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-indices.amazonwebservicesgetcardinality
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getpercentiles
+      description: Amazon Web Services Getpercentiles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-indices.amazonwebservicesgetpercentiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-searchindex
+      description: Amazon Web Services Searchindex
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: iot-indices.amazonwebservicessearchindex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getstatistics
+      description: Amazon Web Services Getstatistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-indices.amazonwebservicesgetstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeindex
+      description: Amazon Web Services Describeindex
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-indices.amazonwebservicesdescribeindex
+      outputParameters:
+      - type: object
+        mapping: $.

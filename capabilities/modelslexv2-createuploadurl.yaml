@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services models.lex.v2 — Createuploadurl
+  description: 'Amazon Web Services models.lex.v2 — Createuploadurl. 1 operations. Lead operation: Amazon Web Services Createuploadurl.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Createuploadurl
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: modelslexv2-createuploadurl
+    baseUri: ''
+    description: Amazon Web Services models.lex.v2 — Createuploadurl business capability. Self-contained, no shared references.
+    resources:
+    - name: createuploadurl
+      path: /createuploadurl/
+      operations:
+      - name: amazonwebservicescreateuploadurl
+        method: POST
+        description: Amazon Web Services Createuploadurl
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: modelslexv2-createuploadurl-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services models.lex.v2 — Createuploadurl. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createuploadurl
+      name: createuploadurl
+      description: REST surface for createuploadurl.
+      operations:
+      - method: POST
+        name: amazonwebservicescreateuploadurl
+        description: Amazon Web Services Createuploadurl
+        call: modelslexv2-createuploadurl.amazonwebservicescreateuploadurl
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: modelslexv2-createuploadurl-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services models.lex.v2 — Createuploadurl. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createuploadurl
+      description: Amazon Web Services Createuploadurl
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: modelslexv2-createuploadurl.amazonwebservicescreateuploadurl
+      outputParameters:
+      - type: object
+        mapping: $.

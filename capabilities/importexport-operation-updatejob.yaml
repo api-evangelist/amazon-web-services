@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services importexport — ?Operation=UpdateJob
+  description: 'Amazon Web Services importexport — ?Operation=UpdateJob. 1 operations. Lead operation: Amazon Web Services
+    Updatejob. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ?Operation=UpdateJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: importexport-operation-updatejob
+    baseUri: ''
+    description: Amazon Web Services importexport — ?Operation=UpdateJob business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Operation=UpdateJob
+      path: /?Operation=UpdateJob
+      operations:
+      - name: amazonwebservicesupdatejob
+        method: POST
+        description: Amazon Web Services Updatejob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: importexport-operation-updatejob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services importexport — ?Operation=UpdateJob. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/operation-updatejob
+      name: operation-updatejob
+      description: REST surface for ?Operation=UpdateJob.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatejob
+        description: Amazon Web Services Updatejob
+        call: importexport-operation-updatejob.amazonwebservicesupdatejob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: importexport-operation-updatejob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services importexport — ?Operation=UpdateJob. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updatejob
+      description: Amazon Web Services Updatejob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: importexport-operation-updatejob.amazonwebservicesupdatejob
+      outputParameters:
+      - type: object
+        mapping: $.

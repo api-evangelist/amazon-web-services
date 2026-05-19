@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — ListDistributionConfigurations
+  description: 'Amazon Web Services imagebuilder — ListDistributionConfigurations. 1 operations. Lead operation: Amazon Web
+    Services Listdistributionconfigurations. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListDistributionConfigurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-listdistributionconfigurations
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — ListDistributionConfigurations business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: ListDistributionConfigurations
+      path: /ListDistributionConfigurations
+      operations:
+      - name: amazonwebserviceslistdistributionconfigurations
+        method: POST
+        description: Amazon Web Services Listdistributionconfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-listdistributionconfigurations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — ListDistributionConfigurations. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listdistributionconfigurations
+      name: listdistributionconfigurations
+      description: REST surface for ListDistributionConfigurations.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistdistributionconfigurations
+        description: Amazon Web Services Listdistributionconfigurations
+        call: imagebuilder-listdistributionconfigurations.amazonwebserviceslistdistributionconfigurations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-listdistributionconfigurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — ListDistributionConfigurations. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdistributionconfigurations
+      description: Amazon Web Services Listdistributionconfigurations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: imagebuilder-listdistributionconfigurations.amazonwebserviceslistdistributionconfigurations
+      outputParameters:
+      - type: object
+        mapping: $.

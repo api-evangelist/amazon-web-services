@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — GetQueryStatistics
+  description: 'Amazon Web Services lakeformation — GetQueryStatistics. 1 operations. Lead operation: Amazon Web Services
+    Getquerystatistics. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetQueryStatistics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-getquerystatistics
+    baseUri: ''
+    description: Amazon Web Services lakeformation — GetQueryStatistics business capability. Self-contained, no shared references.
+    resources:
+    - name: GetQueryStatistics
+      path: /GetQueryStatistics
+      operations:
+      - name: amazonwebservicesgetquerystatistics
+        method: POST
+        description: Amazon Web Services Getquerystatistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-getquerystatistics-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — GetQueryStatistics. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/getquerystatistics
+      name: getquerystatistics
+      description: REST surface for GetQueryStatistics.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetquerystatistics
+        description: Amazon Web Services Getquerystatistics
+        call: lakeformation-getquerystatistics.amazonwebservicesgetquerystatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-getquerystatistics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — GetQueryStatistics. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getquerystatistics
+      description: Amazon Web Services Getquerystatistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: lakeformation-getquerystatistics.amazonwebservicesgetquerystatistics
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services serverlessrepo — Applications
+  description: 'Amazon Web Services serverlessrepo — Applications. 10 operations. Lead operation: Amazon Web Services Listapplications.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: serverlessrepo-applications
+    baseUri: ''
+    description: Amazon Web Services serverlessrepo — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: amazonwebserviceslistapplications
+        method: GET
+        description: Amazon Web Services Listapplications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId
+      path: /applications/{applicationId}
+      operations:
+      - name: amazonwebservicesupdateapplication
+        method: PATCH
+        description: Amazon Web Services Updateapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-changesets
+      path: /applications/{applicationId}/changesets
+      operations:
+      - name: amazonwebservicescreatecloudformationchangeset
+        method: POST
+        description: Amazon Web Services Createcloudformationchangeset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-dependencies
+      path: /applications/{applicationId}/dependencies
+      operations:
+      - name: amazonwebserviceslistapplicationdependencies
+        method: GET
+        description: Amazon Web Services Listapplicationdependencies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-policy
+      path: /applications/{applicationId}/policy
+      operations:
+      - name: amazonwebservicesputapplicationpolicy
+        method: PUT
+        description: Amazon Web Services Putapplicationpolicy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-templates
+      path: /applications/{applicationId}/templates
+      operations:
+      - name: amazonwebservicescreatecloudformationtemplate
+        method: POST
+        description: Amazon Web Services Createcloudformationtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-templates-templateId
+      path: /applications/{applicationId}/templates/{templateId}
+      operations:
+      - name: amazonwebservicesgetcloudformationtemplate
+        method: GET
+        description: Amazon Web Services Getcloudformationtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-unshare
+      path: /applications/{applicationId}/unshare
+      operations:
+      - name: amazonwebservicesunshareapplication
+        method: POST
+        description: Amazon Web Services Unshareapplication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-versions
+      path: /applications/{applicationId}/versions
+      operations:
+      - name: amazonwebserviceslistapplicationversions
+        method: GET
+        description: Amazon Web Services Listapplicationversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: applications-applicationId-versions-semanticVersion
+      path: /applications/{applicationId}/versions/{semanticVersion}
+      operations:
+      - name: amazonwebservicescreateapplicationversion
+        method: PUT
+        description: Amazon Web Services Createapplicationversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: serverlessrepo-applications-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services serverlessrepo — Applications. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplications
+        description: Amazon Web Services Listapplications
+        call: serverlessrepo-applications.amazonwebserviceslistapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}
+      name: applications-applicationid
+      description: REST surface for applications-applicationId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateapplication
+        description: Amazon Web Services Updateapplication
+        call: serverlessrepo-applications.amazonwebservicesupdateapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/changesets
+      name: applications-applicationid-changesets
+      description: REST surface for applications-applicationId-changesets.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecloudformationchangeset
+        description: Amazon Web Services Createcloudformationchangeset
+        call: serverlessrepo-applications.amazonwebservicescreatecloudformationchangeset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/dependencies
+      name: applications-applicationid-dependencies
+      description: REST surface for applications-applicationId-dependencies.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplicationdependencies
+        description: Amazon Web Services Listapplicationdependencies
+        call: serverlessrepo-applications.amazonwebserviceslistapplicationdependencies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/policy
+      name: applications-applicationid-policy
+      description: REST surface for applications-applicationId-policy.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputapplicationpolicy
+        description: Amazon Web Services Putapplicationpolicy
+        call: serverlessrepo-applications.amazonwebservicesputapplicationpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/templates
+      name: applications-applicationid-templates
+      description: REST surface for applications-applicationId-templates.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecloudformationtemplate
+        description: Amazon Web Services Createcloudformationtemplate
+        call: serverlessrepo-applications.amazonwebservicescreatecloudformationtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/templates/{templateid}
+      name: applications-applicationid-templates-templateid
+      description: REST surface for applications-applicationId-templates-templateId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcloudformationtemplate
+        description: Amazon Web Services Getcloudformationtemplate
+        call: serverlessrepo-applications.amazonwebservicesgetcloudformationtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/unshare
+      name: applications-applicationid-unshare
+      description: REST surface for applications-applicationId-unshare.
+      operations:
+      - method: POST
+        name: amazonwebservicesunshareapplication
+        description: Amazon Web Services Unshareapplication
+        call: serverlessrepo-applications.amazonwebservicesunshareapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/versions
+      name: applications-applicationid-versions
+      description: REST surface for applications-applicationId-versions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapplicationversions
+        description: Amazon Web Services Listapplicationversions
+        call: serverlessrepo-applications.amazonwebserviceslistapplicationversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}/versions/{semanticversion}
+      name: applications-applicationid-versions-semanticversion
+      description: REST surface for applications-applicationId-versions-semanticVersion.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreateapplicationversion
+        description: Amazon Web Services Createapplicationversion
+        call: serverlessrepo-applications.amazonwebservicescreateapplicationversion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: serverlessrepo-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services serverlessrepo — Applications. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listapplications
+      description: Amazon Web Services Listapplications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebserviceslistapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateapplication
+      description: Amazon Web Services Updateapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebservicesupdateapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createcloudformationchangeset
+      description: Amazon Web Services Createcloudformationchangeset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: serverlessrepo-applications.amazonwebservicescreatecloudformationchangeset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listapplicationdependencies
+      description: Amazon Web Services Listapplicationdependencies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebserviceslistapplicationdependencies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putapplicationpolicy
+      description: Amazon Web Services Putapplicationpolicy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebservicesputapplicationpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createcloudformationtemplate
+      description: Amazon Web Services Createcloudformationtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: serverlessrepo-applications.amazonwebservicescreatecloudformationtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcloudformationtemplate
+      description: Amazon Web Services Getcloudformationtemplate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebservicesgetcloudformationtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-unshareapplication
+      description: Amazon Web Services Unshareapplication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: serverlessrepo-applications.amazonwebservicesunshareapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listapplicationversions
+      description: Amazon Web Services Listapplicationversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebserviceslistapplicationversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createapplicationversion
+      description: Amazon Web Services Createapplicationversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: serverlessrepo-applications.amazonwebservicescreateapplicationversion
+      outputParameters:
+      - type: object
+        mapping: $.

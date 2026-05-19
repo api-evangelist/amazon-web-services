@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — StopStream
+  description: 'Amazon Web Services ivs — StopStream. 1 operations. Lead operation: Amazon Web Services Stopstream. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - StopStream
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-stopstream
+    baseUri: ''
+    description: Amazon Web Services ivs — StopStream business capability. Self-contained, no shared references.
+    resources:
+    - name: StopStream
+      path: /StopStream
+      operations:
+      - name: amazonwebservicesstopstream
+        method: POST
+        description: Amazon Web Services Stopstream
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-stopstream-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — StopStream. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/stopstream
+      name: stopstream
+      description: REST surface for StopStream.
+      operations:
+      - method: POST
+        name: amazonwebservicesstopstream
+        description: Amazon Web Services Stopstream
+        call: ivs-stopstream.amazonwebservicesstopstream
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-stopstream-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — StopStream. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-stopstream
+      description: Amazon Web Services Stopstream
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-stopstream.amazonwebservicesstopstream
+      outputParameters:
+      - type: object
+        mapping: $.

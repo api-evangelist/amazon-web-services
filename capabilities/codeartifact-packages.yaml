@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services codeartifact — Packages
+  description: 'Amazon Web Services codeartifact — Packages. 1 operations. Lead operation: Amazon Web Services Listpackages.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Packages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: codeartifact-packages
+    baseUri: ''
+    description: Amazon Web Services codeartifact — Packages business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-packages
+      path: /v1/packages
+      operations:
+      - name: amazonwebserviceslistpackages
+        method: POST
+        description: Amazon Web Services Listpackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: codeartifact-packages-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services codeartifact — Packages. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/packages
+      name: v1-packages
+      description: REST surface for v1-packages.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistpackages
+        description: Amazon Web Services Listpackages
+        call: codeartifact-packages.amazonwebserviceslistpackages
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: codeartifact-packages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services codeartifact — Packages. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listpackages
+      description: Amazon Web Services Listpackages
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: codeartifact-packages.amazonwebserviceslistpackages
+      outputParameters:
+      - type: object
+        mapping: $.

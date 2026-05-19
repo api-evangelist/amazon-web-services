@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ivs — ListPlaybackRestrictionPolicies
+  description: 'Amazon Web Services ivs — ListPlaybackRestrictionPolicies. 1 operations. Lead operation: Amazon Web Services
+    Listplaybackrestrictionpolicies. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - ListPlaybackRestrictionPolicies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ivs-listplaybackrestrictionpolicies
+    baseUri: ''
+    description: Amazon Web Services ivs — ListPlaybackRestrictionPolicies business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: ListPlaybackRestrictionPolicies
+      path: /ListPlaybackRestrictionPolicies
+      operations:
+      - name: amazonwebserviceslistplaybackrestrictionpolicies
+        method: POST
+        description: Amazon Web Services Listplaybackrestrictionpolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ivs-listplaybackrestrictionpolicies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ivs — ListPlaybackRestrictionPolicies. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listplaybackrestrictionpolicies
+      name: listplaybackrestrictionpolicies
+      description: REST surface for ListPlaybackRestrictionPolicies.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistplaybackrestrictionpolicies
+        description: Amazon Web Services Listplaybackrestrictionpolicies
+        call: ivs-listplaybackrestrictionpolicies.amazonwebserviceslistplaybackrestrictionpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ivs-listplaybackrestrictionpolicies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ivs — ListPlaybackRestrictionPolicies. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listplaybackrestrictionpolicies
+      description: Amazon Web Services Listplaybackrestrictionpolicies
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ivs-listplaybackrestrictionpolicies.amazonwebserviceslistplaybackrestrictionpolicies
+      outputParameters:
+      - type: object
+        mapping: $.

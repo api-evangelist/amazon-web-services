@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appsync — Types
+  description: 'Amazon Web Services appsync — Types. 4 operations. Lead operation: Amazon Web Services Listtypes. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Types
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appsync-types
+    baseUri: ''
+    description: Amazon Web Services appsync — Types business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-apis-apiId-types
+      path: /v1/apis/{apiId}/types
+      operations:
+      - name: amazonwebserviceslisttypes
+        method: GET
+        description: Amazon Web Services Listtypes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-types-typeName
+      path: /v1/apis/{apiId}/types/{typeName}
+      operations:
+      - name: amazonwebservicesupdatetype
+        method: POST
+        description: Amazon Web Services Updatetype
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-types-typeName-resolvers
+      path: /v1/apis/{apiId}/types/{typeName}/resolvers
+      operations:
+      - name: amazonwebserviceslistresolvers
+        method: GET
+        description: Amazon Web Services Listresolvers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-apis-apiId-types-typeName-resolvers-fieldName
+      path: /v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}
+      operations:
+      - name: amazonwebservicesupdateresolver
+        method: POST
+        description: Amazon Web Services Updateresolver
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appsync-types-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appsync — Types. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/apis/{apiid}/types
+      name: v1-apis-apiid-types
+      description: REST surface for v1-apis-apiId-types.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttypes
+        description: Amazon Web Services Listtypes
+        call: appsync-types.amazonwebserviceslisttypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/types/{typename}
+      name: v1-apis-apiid-types-typename
+      description: REST surface for v1-apis-apiId-types-typeName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatetype
+        description: Amazon Web Services Updatetype
+        call: appsync-types.amazonwebservicesupdatetype
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/types/{typename}/resolvers
+      name: v1-apis-apiid-types-typename-resolvers
+      description: REST surface for v1-apis-apiId-types-typeName-resolvers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistresolvers
+        description: Amazon Web Services Listresolvers
+        call: appsync-types.amazonwebserviceslistresolvers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/apis/{apiid}/types/{typename}/resolvers/{fieldname}
+      name: v1-apis-apiid-types-typename-resolvers-fieldname
+      description: REST surface for v1-apis-apiId-types-typeName-resolvers-fieldName.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateresolver
+        description: Amazon Web Services Updateresolver
+        call: appsync-types.amazonwebservicesupdateresolver
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appsync-types-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appsync — Types. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtypes
+      description: Amazon Web Services Listtypes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-types.amazonwebserviceslisttypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatetype
+      description: Amazon Web Services Updatetype
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-types.amazonwebservicesupdatetype
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listresolvers
+      description: Amazon Web Services Listresolvers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appsync-types.amazonwebserviceslistresolvers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateresolver
+      description: Amazon Web Services Updateresolver
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appsync-types.amazonwebservicesupdateresolver
+      outputParameters:
+      - type: object
+        mapping: $.

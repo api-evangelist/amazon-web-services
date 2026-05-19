@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services cleanroomsml — Training Dataset
+  description: 'Amazon Web Services cleanroomsml — Training Dataset. 2 operations. Lead operation: Amazon Web Services Listtrainingdatasets.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Training Dataset
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cleanroomsml-training-dataset
+    baseUri: ''
+    description: Amazon Web Services cleanroomsml — Training Dataset business capability. Self-contained, no shared references.
+    resources:
+    - name: training-dataset
+      path: /training-dataset
+      operations:
+      - name: amazonwebserviceslisttrainingdatasets
+        method: GET
+        description: Amazon Web Services Listtrainingdatasets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: training-dataset-trainingDatasetArn
+      path: /training-dataset/{trainingDatasetArn}
+      operations:
+      - name: amazonwebservicesgettrainingdataset
+        method: GET
+        description: Amazon Web Services Gettrainingdataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: cleanroomsml-training-dataset-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services cleanroomsml — Training Dataset. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/training-dataset
+      name: training-dataset
+      description: REST surface for training-dataset.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttrainingdatasets
+        description: Amazon Web Services Listtrainingdatasets
+        call: cleanroomsml-training-dataset.amazonwebserviceslisttrainingdatasets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/training-dataset/{trainingdatasetarn}
+      name: training-dataset-trainingdatasetarn
+      description: REST surface for training-dataset-trainingDatasetArn.
+      operations:
+      - method: GET
+        name: amazonwebservicesgettrainingdataset
+        description: Amazon Web Services Gettrainingdataset
+        call: cleanroomsml-training-dataset.amazonwebservicesgettrainingdataset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cleanroomsml-training-dataset-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services cleanroomsml — Training Dataset. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listtrainingdatasets
+      description: Amazon Web Services Listtrainingdatasets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanroomsml-training-dataset.amazonwebserviceslisttrainingdatasets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-gettrainingdataset
+      description: Amazon Web Services Gettrainingdataset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cleanroomsml-training-dataset.amazonwebservicesgettrainingdataset
+      outputParameters:
+      - type: object
+        mapping: $.

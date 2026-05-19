@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mq — Brokers
+  description: 'Amazon Web Services mq — Brokers. 6 operations. Lead operation: Amazon Web Services Listbrokers. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Brokers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mq-brokers
+    baseUri: ''
+    description: Amazon Web Services mq — Brokers business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-brokers
+      path: /v1/brokers
+      operations:
+      - name: amazonwebserviceslistbrokers
+        method: GET
+        description: Amazon Web Services Listbrokers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-brokers-broker-id
+      path: /v1/brokers/{broker-id}
+      operations:
+      - name: amazonwebservicesupdatebroker
+        method: PUT
+        description: Amazon Web Services Updatebroker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-brokers-broker-id-promote
+      path: /v1/brokers/{broker-id}/promote
+      operations:
+      - name: amazonwebservicespromote
+        method: POST
+        description: Amazon Web Services Promote
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-brokers-broker-id-reboot
+      path: /v1/brokers/{broker-id}/reboot
+      operations:
+      - name: amazonwebservicesrebootbroker
+        method: POST
+        description: Amazon Web Services Rebootbroker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-brokers-broker-id-users
+      path: /v1/brokers/{broker-id}/users
+      operations:
+      - name: amazonwebserviceslistusers
+        method: GET
+        description: Amazon Web Services Listusers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-brokers-broker-id-users-username
+      path: /v1/brokers/{broker-id}/users/{username}
+      operations:
+      - name: amazonwebservicesupdateuser
+        method: PUT
+        description: Amazon Web Services Updateuser
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mq-brokers-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mq — Brokers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/brokers
+      name: v1-brokers
+      description: REST surface for v1-brokers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistbrokers
+        description: Amazon Web Services Listbrokers
+        call: mq-brokers.amazonwebserviceslistbrokers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/brokers/{broker-id}
+      name: v1-brokers-broker-id
+      description: REST surface for v1-brokers-broker-id.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatebroker
+        description: Amazon Web Services Updatebroker
+        call: mq-brokers.amazonwebservicesupdatebroker
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/brokers/{broker-id}/promote
+      name: v1-brokers-broker-id-promote
+      description: REST surface for v1-brokers-broker-id-promote.
+      operations:
+      - method: POST
+        name: amazonwebservicespromote
+        description: Amazon Web Services Promote
+        call: mq-brokers.amazonwebservicespromote
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/brokers/{broker-id}/reboot
+      name: v1-brokers-broker-id-reboot
+      description: REST surface for v1-brokers-broker-id-reboot.
+      operations:
+      - method: POST
+        name: amazonwebservicesrebootbroker
+        description: Amazon Web Services Rebootbroker
+        call: mq-brokers.amazonwebservicesrebootbroker
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/brokers/{broker-id}/users
+      name: v1-brokers-broker-id-users
+      description: REST surface for v1-brokers-broker-id-users.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistusers
+        description: Amazon Web Services Listusers
+        call: mq-brokers.amazonwebserviceslistusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/brokers/{broker-id}/users/{username}
+      name: v1-brokers-broker-id-users-username
+      description: REST surface for v1-brokers-broker-id-users-username.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateuser
+        description: Amazon Web Services Updateuser
+        call: mq-brokers.amazonwebservicesupdateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mq-brokers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mq — Brokers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listbrokers
+      description: Amazon Web Services Listbrokers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mq-brokers.amazonwebserviceslistbrokers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatebroker
+      description: Amazon Web Services Updatebroker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mq-brokers.amazonwebservicesupdatebroker
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-promote
+      description: Amazon Web Services Promote
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mq-brokers.amazonwebservicespromote
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-rebootbroker
+      description: Amazon Web Services Rebootbroker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mq-brokers.amazonwebservicesrebootbroker
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listusers
+      description: Amazon Web Services Listusers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mq-brokers.amazonwebserviceslistusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateuser
+      description: Amazon Web Services Updateuser
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mq-brokers.amazonwebservicesupdateuser
+      outputParameters:
+      - type: object
+        mapping: $.

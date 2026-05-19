@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ram — Listprincipals
+  description: 'Amazon Web Services ram — Listprincipals. 1 operations. Lead operation: Amazon Web Services Listprincipals.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Listprincipals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ram-listprincipals
+    baseUri: ''
+    description: Amazon Web Services ram — Listprincipals business capability. Self-contained, no shared references.
+    resources:
+    - name: listprincipals
+      path: /listprincipals
+      operations:
+      - name: amazonwebserviceslistprincipals
+        method: POST
+        description: Amazon Web Services Listprincipals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ram-listprincipals-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ram — Listprincipals. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/listprincipals
+      name: listprincipals
+      description: REST surface for listprincipals.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistprincipals
+        description: Amazon Web Services Listprincipals
+        call: ram-listprincipals.amazonwebserviceslistprincipals
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ram-listprincipals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ram — Listprincipals. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listprincipals
+      description: Amazon Web Services Listprincipals
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ram-listprincipals.amazonwebserviceslistprincipals
+      outputParameters:
+      - type: object
+        mapping: $.

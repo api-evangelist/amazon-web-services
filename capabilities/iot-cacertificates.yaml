@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Cacertificates
+  description: 'Amazon Web Services iot — Cacertificates. 1 operations. Lead operation: Amazon Web Services Listcacertificates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Cacertificates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-cacertificates
+    baseUri: ''
+    description: Amazon Web Services iot — Cacertificates business capability. Self-contained, no shared references.
+    resources:
+    - name: cacertificates
+      path: /cacertificates
+      operations:
+      - name: amazonwebserviceslistcacertificates
+        method: GET
+        description: Amazon Web Services Listcacertificates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-cacertificates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Cacertificates. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/cacertificates
+      name: cacertificates
+      description: REST surface for cacertificates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcacertificates
+        description: Amazon Web Services Listcacertificates
+        call: iot-cacertificates.amazonwebserviceslistcacertificates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-cacertificates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Cacertificates. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcacertificates
+      description: Amazon Web Services Listcacertificates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-cacertificates.amazonwebserviceslistcacertificates
+      outputParameters:
+      - type: object
+        mapping: $.

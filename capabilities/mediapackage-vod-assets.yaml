@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediapackage-vod — Assets
+  description: 'Amazon Web Services mediapackage-vod — Assets. 2 operations. Lead operation: Amazon Web Services Listassets.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Assets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediapackage-vod-assets
+    baseUri: ''
+    description: Amazon Web Services mediapackage-vod — Assets business capability. Self-contained, no shared references.
+    resources:
+    - name: assets
+      path: /assets
+      operations:
+      - name: amazonwebserviceslistassets
+        method: GET
+        description: Amazon Web Services Listassets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: assets-id
+      path: /assets/{id}
+      operations:
+      - name: amazonwebservicesdescribeasset
+        method: GET
+        description: Amazon Web Services Describeasset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediapackage-vod-assets-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediapackage-vod — Assets. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/assets
+      name: assets
+      description: REST surface for assets.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistassets
+        description: Amazon Web Services Listassets
+        call: mediapackage-vod-assets.amazonwebserviceslistassets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assets/{id}
+      name: assets-id
+      description: REST surface for assets-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeasset
+        description: Amazon Web Services Describeasset
+        call: mediapackage-vod-assets.amazonwebservicesdescribeasset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediapackage-vod-assets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediapackage-vod — Assets. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listassets
+      description: Amazon Web Services Listassets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediapackage-vod-assets.amazonwebserviceslistassets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeasset
+      description: Amazon Web Services Describeasset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mediapackage-vod-assets.amazonwebservicesdescribeasset
+      outputParameters:
+      - type: object
+        mapping: $.

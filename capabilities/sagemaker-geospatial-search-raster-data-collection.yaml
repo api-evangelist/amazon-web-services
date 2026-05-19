@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-geospatial — Search Raster Data Collection
+  description: 'Amazon Web Services sagemaker-geospatial — Search Raster Data Collection. 1 operations. Lead operation: Amazon
+    Web Services Searchrasterdatacollection. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Search Raster Data Collection
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-geospatial-search-raster-data-collection
+    baseUri: ''
+    description: Amazon Web Services sagemaker-geospatial — Search Raster Data Collection business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: search-raster-data-collection
+      path: /search-raster-data-collection
+      operations:
+      - name: amazonwebservicessearchrasterdatacollection
+        method: POST
+        description: Amazon Web Services Searchrasterdatacollection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-geospatial-search-raster-data-collection-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-geospatial — Search Raster Data Collection. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/search-raster-data-collection
+      name: search-raster-data-collection
+      description: REST surface for search-raster-data-collection.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchrasterdatacollection
+        description: Amazon Web Services Searchrasterdatacollection
+        call: sagemaker-geospatial-search-raster-data-collection.amazonwebservicessearchrasterdatacollection
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-geospatial-search-raster-data-collection-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-geospatial — Search Raster Data Collection. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-searchrasterdatacollection
+      description: Amazon Web Services Searchrasterdatacollection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sagemaker-geospatial-search-raster-data-collection.amazonwebservicessearchrasterdatacollection
+      outputParameters:
+      - type: object
+        mapping: $.

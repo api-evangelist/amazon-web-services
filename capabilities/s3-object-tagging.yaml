@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services AWS S3 — Object Tagging
+  description: 'Amazon Web Services AWS S3 — Object Tagging. 1 operations. Lead operation: Amazon Web Services Put Object
+    Tagging. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Object Tagging
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s3-object-tagging
+    baseUri: ''
+    description: Amazon Web Services AWS S3 — Object Tagging business capability. Self-contained, no shared references.
+    resources:
+    - name: Bucket-Key+}?tagging
+      path: /{Bucket}/{Key+}?tagging
+      operations:
+      - name: putobjecttagging
+        method: PUT
+        description: Amazon Web Services Put Object Tagging
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: s3-object-tagging-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services AWS S3 — Object Tagging. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/{bucket}/key-tagging
+      name: bucket-key-tagging
+      description: REST surface for Bucket-Key+}?tagging.
+      operations:
+      - method: PUT
+        name: putobjecttagging
+        description: Amazon Web Services Put Object Tagging
+        call: s3-object-tagging.putobjecttagging
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s3-object-tagging-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services AWS S3 — Object Tagging. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-put-object
+      description: Amazon Web Services Put Object Tagging
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s3-object-tagging.putobjecttagging
+      outputParameters:
+      - type: object
+        mapping: $.

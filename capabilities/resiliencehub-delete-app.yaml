@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — Delete App
+  description: 'Amazon Web Services resiliencehub — Delete App. 1 operations. Lead operation: Amazon Web Services Deleteapp.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete App
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-delete-app
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — Delete App business capability. Self-contained, no shared references.
+    resources:
+    - name: delete-app
+      path: /delete-app
+      operations:
+      - name: amazonwebservicesdeleteapp
+        method: POST
+        description: Amazon Web Services Deleteapp
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-delete-app-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — Delete App. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-app
+      name: delete-app
+      description: REST surface for delete-app.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteapp
+        description: Amazon Web Services Deleteapp
+        call: resiliencehub-delete-app.amazonwebservicesdeleteapp
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-delete-app-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — Delete App. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteapp
+      description: Amazon Web Services Deleteapp
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: resiliencehub-delete-app.amazonwebservicesdeleteapp
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services chime-sdk-messaging — Channels?operation=search
+  description: 'Amazon Web Services chime-sdk-messaging — Channels?operation=search. 1 operations. Lead operation: Amazon
+    Web Services Searchchannels. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Channels?operation=search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chime-sdk-messaging-channels-operation-search
+    baseUri: ''
+    description: Amazon Web Services chime-sdk-messaging — Channels?operation=search business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: channels?operation=search
+      path: /channels?operation=search
+      operations:
+      - name: amazonwebservicessearchchannels
+        method: POST
+        description: Amazon Web Services Searchchannels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: chime-sdk-messaging-channels-operation-search-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services chime-sdk-messaging — Channels?operation=search. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channels-operation-search
+      name: channels-operation-search
+      description: REST surface for channels?operation=search.
+      operations:
+      - method: POST
+        name: amazonwebservicessearchchannels
+        description: Amazon Web Services Searchchannels
+        call: chime-sdk-messaging-channels-operation-search.amazonwebservicessearchchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chime-sdk-messaging-channels-operation-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services chime-sdk-messaging — Channels?operation=search. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-searchchannels
+      description: Amazon Web Services Searchchannels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: chime-sdk-messaging-channels-operation-search.amazonwebservicessearchchannels
+      outputParameters:
+      - type: object
+        mapping: $.

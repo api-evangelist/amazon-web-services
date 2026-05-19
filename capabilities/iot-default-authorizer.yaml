@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Default Authorizer
+  description: 'Amazon Web Services iot — Default Authorizer. 1 operations. Lead operation: Amazon Web Services Setdefaultauthorizer.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Default Authorizer
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-default-authorizer
+    baseUri: ''
+    description: Amazon Web Services iot — Default Authorizer business capability. Self-contained, no shared references.
+    resources:
+    - name: default-authorizer
+      path: /default-authorizer
+      operations:
+      - name: amazonwebservicessetdefaultauthorizer
+        method: POST
+        description: Amazon Web Services Setdefaultauthorizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-default-authorizer-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Default Authorizer. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/default-authorizer
+      name: default-authorizer
+      description: REST surface for default-authorizer.
+      operations:
+      - method: POST
+        name: amazonwebservicessetdefaultauthorizer
+        description: Amazon Web Services Setdefaultauthorizer
+        call: iot-default-authorizer.amazonwebservicessetdefaultauthorizer
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-default-authorizer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Default Authorizer. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-setdefaultauthorizer
+      description: Amazon Web Services Setdefaultauthorizer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-default-authorizer.amazonwebservicessetdefaultauthorizer
+      outputParameters:
+      - type: object
+        mapping: $.

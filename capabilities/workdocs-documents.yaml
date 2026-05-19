@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services workdocs — Documents
+  description: 'Amazon Web Services workdocs — Documents. 8 operations. Lead operation: Amazon Web Services Initiatedocumentversionupload.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Documents
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workdocs-documents
+    baseUri: ''
+    description: Amazon Web Services workdocs — Documents business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-documents
+      path: /api/v1/documents
+      operations:
+      - name: amazonwebservicesinitiatedocumentversionupload
+        method: POST
+        description: Amazon Web Services Initiatedocumentversionupload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId
+      path: /api/v1/documents/{DocumentId}
+      operations:
+      - name: amazonwebservicesupdatedocument
+        method: PATCH
+        description: Amazon Web Services Updatedocument
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-path
+      path: /api/v1/documents/{DocumentId}/path
+      operations:
+      - name: amazonwebservicesgetdocumentpath
+        method: GET
+        description: Amazon Web Services Getdocumentpath
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-versions
+      path: /api/v1/documents/{DocumentId}/versions
+      operations:
+      - name: amazonwebservicesdescribedocumentversions
+        method: GET
+        description: Amazon Web Services Describedocumentversions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-versions-VersionId
+      path: /api/v1/documents/{DocumentId}/versions/{VersionId}
+      operations:
+      - name: amazonwebservicesupdatedocumentversion
+        method: PATCH
+        description: Amazon Web Services Updatedocumentversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-versions-VersionId-comment
+      path: /api/v1/documents/{DocumentId}/versions/{VersionId}/comment
+      operations:
+      - name: amazonwebservicescreatecomment
+        method: POST
+        description: Amazon Web Services Createcomment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-versions-VersionId-comment-CommentId
+      path: /api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}
+      operations:
+      - name: amazonwebservicesdeletecomment
+        method: DELETE
+        description: Amazon Web Services Deletecomment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-documents-DocumentId-versions-VersionId-comments
+      path: /api/v1/documents/{DocumentId}/versions/{VersionId}/comments
+      operations:
+      - name: amazonwebservicesdescribecomments
+        method: GET
+        description: Amazon Web Services Describecomments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: workdocs-documents-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services workdocs — Documents. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/documents
+      name: api-v1-documents
+      description: REST surface for api-v1-documents.
+      operations:
+      - method: POST
+        name: amazonwebservicesinitiatedocumentversionupload
+        description: Amazon Web Services Initiatedocumentversionupload
+        call: workdocs-documents.amazonwebservicesinitiatedocumentversionupload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}
+      name: api-v1-documents-documentid
+      description: REST surface for api-v1-documents-DocumentId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedocument
+        description: Amazon Web Services Updatedocument
+        call: workdocs-documents.amazonwebservicesupdatedocument
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/path
+      name: api-v1-documents-documentid-path
+      description: REST surface for api-v1-documents-DocumentId-path.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetdocumentpath
+        description: Amazon Web Services Getdocumentpath
+        call: workdocs-documents.amazonwebservicesgetdocumentpath
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/versions
+      name: api-v1-documents-documentid-versions
+      description: REST surface for api-v1-documents-DocumentId-versions.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribedocumentversions
+        description: Amazon Web Services Describedocumentversions
+        call: workdocs-documents.amazonwebservicesdescribedocumentversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/versions/{versionid}
+      name: api-v1-documents-documentid-versions-versionid
+      description: REST surface for api-v1-documents-DocumentId-versions-VersionId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedocumentversion
+        description: Amazon Web Services Updatedocumentversion
+        call: workdocs-documents.amazonwebservicesupdatedocumentversion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/versions/{versionid}/comment
+      name: api-v1-documents-documentid-versions-versionid-comment
+      description: REST surface for api-v1-documents-DocumentId-versions-VersionId-comment.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatecomment
+        description: Amazon Web Services Createcomment
+        call: workdocs-documents.amazonwebservicescreatecomment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/versions/{versionid}/comment/{commentid}
+      name: api-v1-documents-documentid-versions-versionid-comment-commentid
+      description: REST surface for api-v1-documents-DocumentId-versions-VersionId-comment-CommentId.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletecomment
+        description: Amazon Web Services Deletecomment
+        call: workdocs-documents.amazonwebservicesdeletecomment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/documents/{documentid}/versions/{versionid}/comments
+      name: api-v1-documents-documentid-versions-versionid-comments
+      description: REST surface for api-v1-documents-DocumentId-versions-VersionId-comments.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribecomments
+        description: Amazon Web Services Describecomments
+        call: workdocs-documents.amazonwebservicesdescribecomments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workdocs-documents-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services workdocs — Documents. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-initiatedocumentversionupload
+      description: Amazon Web Services Initiatedocumentversionupload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workdocs-documents.amazonwebservicesinitiatedocumentversionupload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedocument
+      description: Amazon Web Services Updatedocument
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesupdatedocument
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getdocumentpath
+      description: Amazon Web Services Getdocumentpath
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesgetdocumentpath
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describedocumentversions
+      description: Amazon Web Services Describedocumentversions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesdescribedocumentversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedocumentversion
+      description: Amazon Web Services Updatedocumentversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesupdatedocumentversion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-createcomment
+      description: Amazon Web Services Createcomment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workdocs-documents.amazonwebservicescreatecomment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletecomment
+      description: Amazon Web Services Deletecomment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesdeletecomment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describecomments
+      description: Amazon Web Services Describecomments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workdocs-documents.amazonwebservicesdescribecomments
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot-roborunner — updateWorkerFleet
+  description: 'Amazon Web Services iot-roborunner — updateWorkerFleet. 1 operations. Lead operation: Amazon Web Services
+    Updateworkerfleet. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - updateWorkerFleet
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-roborunner-updateworkerfleet
+    baseUri: ''
+    description: Amazon Web Services iot-roborunner — updateWorkerFleet business capability. Self-contained, no shared references.
+    resources:
+    - name: updateWorkerFleet
+      path: /updateWorkerFleet
+      operations:
+      - name: amazonwebservicesupdateworkerfleet
+        method: POST
+        description: Amazon Web Services Updateworkerfleet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-roborunner-updateworkerfleet-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot-roborunner — updateWorkerFleet. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/updateworkerfleet
+      name: updateworkerfleet
+      description: REST surface for updateWorkerFleet.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateworkerfleet
+        description: Amazon Web Services Updateworkerfleet
+        call: iot-roborunner-updateworkerfleet.amazonwebservicesupdateworkerfleet
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-roborunner-updateworkerfleet-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot-roborunner — updateWorkerFleet. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateworkerfleet
+      description: Amazon Web Services Updateworkerfleet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-roborunner-updateworkerfleet.amazonwebservicesupdateworkerfleet
+      outputParameters:
+      - type: object
+        mapping: $.

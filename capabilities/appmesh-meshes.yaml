@@ -1,0 +1,483 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appmesh — Meshes
+  description: 'Amazon Web Services appmesh — Meshes. 14 operations. Lead operation: Amazon Web Services Listmeshes. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Meshes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appmesh-meshes
+    baseUri: ''
+    description: Amazon Web Services appmesh — Meshes business capability. Self-contained, no shared references.
+    resources:
+    - name: v20190125-meshes
+      path: /v20190125/meshes
+      operations:
+      - name: amazonwebserviceslistmeshes
+        method: GET
+        description: Amazon Web Services Listmeshes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName
+      path: /v20190125/meshes/{meshName}
+      operations:
+      - name: amazonwebservicesupdatemesh
+        method: PUT
+        description: Amazon Web Services Updatemesh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualGateway-virtualGatewayName-gatewayRoutes
+      path: /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes
+      operations:
+      - name: amazonwebserviceslistgatewayroutes
+        method: GET
+        description: Amazon Web Services Listgatewayroutes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualGateway-virtualGatewayName-gatewayRoutes-gatewa
+      path: /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}
+      operations:
+      - name: amazonwebservicesupdategatewayroute
+        method: PUT
+        description: Amazon Web Services Updategatewayroute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualGateways
+      path: /v20190125/meshes/{meshName}/virtualGateways
+      operations:
+      - name: amazonwebserviceslistvirtualgateways
+        method: GET
+        description: Amazon Web Services Listvirtualgateways
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualGateways-virtualGatewayName
+      path: /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}
+      operations:
+      - name: amazonwebservicesupdatevirtualgateway
+        method: PUT
+        description: Amazon Web Services Updatevirtualgateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualNodes
+      path: /v20190125/meshes/{meshName}/virtualNodes
+      operations:
+      - name: amazonwebserviceslistvirtualnodes
+        method: GET
+        description: Amazon Web Services Listvirtualnodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualNodes-virtualNodeName
+      path: /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}
+      operations:
+      - name: amazonwebservicesupdatevirtualnode
+        method: PUT
+        description: Amazon Web Services Updatevirtualnode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualRouter-virtualRouterName-routes
+      path: /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes
+      operations:
+      - name: amazonwebserviceslistroutes
+        method: GET
+        description: Amazon Web Services Listroutes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualRouter-virtualRouterName-routes-routeName
+      path: /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}
+      operations:
+      - name: amazonwebservicesupdateroute
+        method: PUT
+        description: Amazon Web Services Updateroute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualRouters
+      path: /v20190125/meshes/{meshName}/virtualRouters
+      operations:
+      - name: amazonwebserviceslistvirtualrouters
+        method: GET
+        description: Amazon Web Services Listvirtualrouters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualRouters-virtualRouterName
+      path: /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}
+      operations:
+      - name: amazonwebservicesupdatevirtualrouter
+        method: PUT
+        description: Amazon Web Services Updatevirtualrouter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualServices
+      path: /v20190125/meshes/{meshName}/virtualServices
+      operations:
+      - name: amazonwebserviceslistvirtualservices
+        method: GET
+        description: Amazon Web Services Listvirtualservices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v20190125-meshes-meshName-virtualServices-virtualServiceName
+      path: /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}
+      operations:
+      - name: amazonwebservicesupdatevirtualservice
+        method: PUT
+        description: Amazon Web Services Updatevirtualservice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appmesh-meshes-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appmesh — Meshes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v20190125/meshes
+      name: v20190125-meshes
+      description: REST surface for v20190125-meshes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmeshes
+        description: Amazon Web Services Listmeshes
+        call: appmesh-meshes.amazonwebserviceslistmeshes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}
+      name: v20190125-meshes-meshname
+      description: REST surface for v20190125-meshes-meshName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatemesh
+        description: Amazon Web Services Updatemesh
+        call: appmesh-meshes.amazonwebservicesupdatemesh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualgateway/{virtualgatewayname}/gatewayroutes
+      name: v20190125-meshes-meshname-virtualgateway-virtualgatewayname-gatewayroutes
+      description: REST surface for v20190125-meshes-meshName-virtualGateway-virtualGatewayName-gatewayRoutes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistgatewayroutes
+        description: Amazon Web Services Listgatewayroutes
+        call: appmesh-meshes.amazonwebserviceslistgatewayroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualgateway/{virtualgatewayname}/gatewayroutes/{gatewayroutename}
+      name: v20190125-meshes-meshname-virtualgateway-virtualgatewayname-gatewayroutes-gatewa
+      description: REST surface for v20190125-meshes-meshName-virtualGateway-virtualGatewayName-gatewayRoutes-gatewa.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdategatewayroute
+        description: Amazon Web Services Updategatewayroute
+        call: appmesh-meshes.amazonwebservicesupdategatewayroute
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualgateways
+      name: v20190125-meshes-meshname-virtualgateways
+      description: REST surface for v20190125-meshes-meshName-virtualGateways.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvirtualgateways
+        description: Amazon Web Services Listvirtualgateways
+        call: appmesh-meshes.amazonwebserviceslistvirtualgateways
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualgateways/{virtualgatewayname}
+      name: v20190125-meshes-meshname-virtualgateways-virtualgatewayname
+      description: REST surface for v20190125-meshes-meshName-virtualGateways-virtualGatewayName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevirtualgateway
+        description: Amazon Web Services Updatevirtualgateway
+        call: appmesh-meshes.amazonwebservicesupdatevirtualgateway
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualnodes
+      name: v20190125-meshes-meshname-virtualnodes
+      description: REST surface for v20190125-meshes-meshName-virtualNodes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvirtualnodes
+        description: Amazon Web Services Listvirtualnodes
+        call: appmesh-meshes.amazonwebserviceslistvirtualnodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualnodes/{virtualnodename}
+      name: v20190125-meshes-meshname-virtualnodes-virtualnodename
+      description: REST surface for v20190125-meshes-meshName-virtualNodes-virtualNodeName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevirtualnode
+        description: Amazon Web Services Updatevirtualnode
+        call: appmesh-meshes.amazonwebservicesupdatevirtualnode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualrouter/{virtualroutername}/routes
+      name: v20190125-meshes-meshname-virtualrouter-virtualroutername-routes
+      description: REST surface for v20190125-meshes-meshName-virtualRouter-virtualRouterName-routes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistroutes
+        description: Amazon Web Services Listroutes
+        call: appmesh-meshes.amazonwebserviceslistroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualrouter/{virtualroutername}/routes/{routename}
+      name: v20190125-meshes-meshname-virtualrouter-virtualroutername-routes-routename
+      description: REST surface for v20190125-meshes-meshName-virtualRouter-virtualRouterName-routes-routeName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdateroute
+        description: Amazon Web Services Updateroute
+        call: appmesh-meshes.amazonwebservicesupdateroute
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualrouters
+      name: v20190125-meshes-meshname-virtualrouters
+      description: REST surface for v20190125-meshes-meshName-virtualRouters.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvirtualrouters
+        description: Amazon Web Services Listvirtualrouters
+        call: appmesh-meshes.amazonwebserviceslistvirtualrouters
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualrouters/{virtualroutername}
+      name: v20190125-meshes-meshname-virtualrouters-virtualroutername
+      description: REST surface for v20190125-meshes-meshName-virtualRouters-virtualRouterName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevirtualrouter
+        description: Amazon Web Services Updatevirtualrouter
+        call: appmesh-meshes.amazonwebservicesupdatevirtualrouter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualservices
+      name: v20190125-meshes-meshname-virtualservices
+      description: REST surface for v20190125-meshes-meshName-virtualServices.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistvirtualservices
+        description: Amazon Web Services Listvirtualservices
+        call: appmesh-meshes.amazonwebserviceslistvirtualservices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v20190125/meshes/{meshname}/virtualservices/{virtualservicename}
+      name: v20190125-meshes-meshname-virtualservices-virtualservicename
+      description: REST surface for v20190125-meshes-meshName-virtualServices-virtualServiceName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatevirtualservice
+        description: Amazon Web Services Updatevirtualservice
+        call: appmesh-meshes.amazonwebservicesupdatevirtualservice
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appmesh-meshes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appmesh — Meshes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listmeshes
+      description: Amazon Web Services Listmeshes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistmeshes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemesh
+      description: Amazon Web Services Updatemesh
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdatemesh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listgatewayroutes
+      description: Amazon Web Services Listgatewayroutes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistgatewayroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updategatewayroute
+      description: Amazon Web Services Updategatewayroute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdategatewayroute
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvirtualgateways
+      description: Amazon Web Services Listvirtualgateways
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistvirtualgateways
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevirtualgateway
+      description: Amazon Web Services Updatevirtualgateway
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdatevirtualgateway
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvirtualnodes
+      description: Amazon Web Services Listvirtualnodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistvirtualnodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevirtualnode
+      description: Amazon Web Services Updatevirtualnode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdatevirtualnode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listroutes
+      description: Amazon Web Services Listroutes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateroute
+      description: Amazon Web Services Updateroute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdateroute
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvirtualrouters
+      description: Amazon Web Services Listvirtualrouters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistvirtualrouters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevirtualrouter
+      description: Amazon Web Services Updatevirtualrouter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdatevirtualrouter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listvirtualservices
+      description: Amazon Web Services Listvirtualservices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebserviceslistvirtualservices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatevirtualservice
+      description: Amazon Web Services Updatevirtualservice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: appmesh-meshes.amazonwebservicesupdatevirtualservice
+      outputParameters:
+      - type: object
+        mapping: $.

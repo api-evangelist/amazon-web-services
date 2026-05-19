@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Traffic Distribution Group
+  description: 'Amazon Web Services connect — Traffic Distribution Group. 3 operations. Lead operation: Amazon Web Services
+    Createtrafficdistributiongroup. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Traffic Distribution Group
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-traffic-distribution-group
+    baseUri: ''
+    description: Amazon Web Services connect — Traffic Distribution Group business capability. Self-contained, no shared references.
+    resources:
+    - name: traffic-distribution-group
+      path: /traffic-distribution-group
+      operations:
+      - name: amazonwebservicescreatetrafficdistributiongroup
+        method: PUT
+        description: Amazon Web Services Createtrafficdistributiongroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: traffic-distribution-group-TrafficDistributionGroupId
+      path: /traffic-distribution-group/{TrafficDistributionGroupId}
+      operations:
+      - name: amazonwebservicesdescribetrafficdistributiongroup
+        method: GET
+        description: Amazon Web Services Describetrafficdistributiongroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: traffic-distribution-group-TrafficDistributionGroupId-user
+      path: /traffic-distribution-group/{TrafficDistributionGroupId}/user
+      operations:
+      - name: amazonwebserviceslisttrafficdistributiongroupusers
+        method: GET
+        description: Amazon Web Services Listtrafficdistributiongroupusers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-traffic-distribution-group-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Traffic Distribution Group. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/traffic-distribution-group
+      name: traffic-distribution-group
+      description: REST surface for traffic-distribution-group.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreatetrafficdistributiongroup
+        description: Amazon Web Services Createtrafficdistributiongroup
+        call: connect-traffic-distribution-group.amazonwebservicescreatetrafficdistributiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/traffic-distribution-group/{trafficdistributiongroupid}
+      name: traffic-distribution-group-trafficdistributiongroupid
+      description: REST surface for traffic-distribution-group-TrafficDistributionGroupId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribetrafficdistributiongroup
+        description: Amazon Web Services Describetrafficdistributiongroup
+        call: connect-traffic-distribution-group.amazonwebservicesdescribetrafficdistributiongroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/traffic-distribution-group/{trafficdistributiongroupid}/user
+      name: traffic-distribution-group-trafficdistributiongroupid-user
+      description: REST surface for traffic-distribution-group-TrafficDistributionGroupId-user.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttrafficdistributiongroupusers
+        description: Amazon Web Services Listtrafficdistributiongroupusers
+        call: connect-traffic-distribution-group.amazonwebserviceslisttrafficdistributiongroupusers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-traffic-distribution-group-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Traffic Distribution Group. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createtrafficdistributiongroup
+      description: Amazon Web Services Createtrafficdistributiongroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-traffic-distribution-group.amazonwebservicescreatetrafficdistributiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describetrafficdistributiongroup
+      description: Amazon Web Services Describetrafficdistributiongroup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-traffic-distribution-group.amazonwebservicesdescribetrafficdistributiongroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtrafficdistributiongroupusers
+      description: Amazon Web Services Listtrafficdistributiongroupusers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: connect-traffic-distribution-group.amazonwebserviceslisttrafficdistributiongroupusers
+      outputParameters:
+      - type: object
+        mapping: $.

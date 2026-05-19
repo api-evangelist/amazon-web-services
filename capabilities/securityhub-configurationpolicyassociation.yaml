@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — configurationPolicyAssociation
+  description: 'Amazon Web Services securityhub — configurationPolicyAssociation. 5 operations. Lead operation: Amazon Web
+    Services Startconfigurationpolicyassociation. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - configurationPolicyAssociation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-configurationpolicyassociation
+    baseUri: ''
+    description: Amazon Web Services securityhub — configurationPolicyAssociation business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: configurationPolicyAssociation-associate
+      path: /configurationPolicyAssociation/associate
+      operations:
+      - name: amazonwebservicesstartconfigurationpolicyassociation
+        method: POST
+        description: Amazon Web Services Startconfigurationpolicyassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicyAssociation-batchget
+      path: /configurationPolicyAssociation/batchget
+      operations:
+      - name: amazonwebservicesbatchgetconfigurationpolicyassociations
+        method: POST
+        description: Amazon Web Services Batchgetconfigurationpolicyassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicyAssociation-disassociate
+      path: /configurationPolicyAssociation/disassociate
+      operations:
+      - name: amazonwebservicesstartconfigurationpolicydisassociation
+        method: POST
+        description: Amazon Web Services Startconfigurationpolicydisassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicyAssociation-get
+      path: /configurationPolicyAssociation/get
+      operations:
+      - name: amazonwebservicesgetconfigurationpolicyassociation
+        method: POST
+        description: Amazon Web Services Getconfigurationpolicyassociation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configurationPolicyAssociation-list
+      path: /configurationPolicyAssociation/list
+      operations:
+      - name: amazonwebserviceslistconfigurationpolicyassociations
+        method: POST
+        description: Amazon Web Services Listconfigurationpolicyassociations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-configurationpolicyassociation-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — configurationPolicyAssociation. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/configurationpolicyassociation/associate
+      name: configurationpolicyassociation-associate
+      description: REST surface for configurationPolicyAssociation-associate.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartconfigurationpolicyassociation
+        description: Amazon Web Services Startconfigurationpolicyassociation
+        call: securityhub-configurationpolicyassociation.amazonwebservicesstartconfigurationpolicyassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicyassociation/batchget
+      name: configurationpolicyassociation-batchget
+      description: REST surface for configurationPolicyAssociation-batchget.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchgetconfigurationpolicyassociations
+        description: Amazon Web Services Batchgetconfigurationpolicyassociations
+        call: securityhub-configurationpolicyassociation.amazonwebservicesbatchgetconfigurationpolicyassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicyassociation/disassociate
+      name: configurationpolicyassociation-disassociate
+      description: REST surface for configurationPolicyAssociation-disassociate.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartconfigurationpolicydisassociation
+        description: Amazon Web Services Startconfigurationpolicydisassociation
+        call: securityhub-configurationpolicyassociation.amazonwebservicesstartconfigurationpolicydisassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicyassociation/get
+      name: configurationpolicyassociation-get
+      description: REST surface for configurationPolicyAssociation-get.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetconfigurationpolicyassociation
+        description: Amazon Web Services Getconfigurationpolicyassociation
+        call: securityhub-configurationpolicyassociation.amazonwebservicesgetconfigurationpolicyassociation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurationpolicyassociation/list
+      name: configurationpolicyassociation-list
+      description: REST surface for configurationPolicyAssociation-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistconfigurationpolicyassociations
+        description: Amazon Web Services Listconfigurationpolicyassociations
+        call: securityhub-configurationpolicyassociation.amazonwebserviceslistconfigurationpolicyassociations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-configurationpolicyassociation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — configurationPolicyAssociation. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startconfigurationpolicyassociation
+      description: Amazon Web Services Startconfigurationpolicyassociation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicyassociation.amazonwebservicesstartconfigurationpolicyassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchgetconfigurationpolicyassociations
+      description: Amazon Web Services Batchgetconfigurationpolicyassociations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicyassociation.amazonwebservicesbatchgetconfigurationpolicyassociations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-startconfigurationpolicydisassociation
+      description: Amazon Web Services Startconfigurationpolicydisassociation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicyassociation.amazonwebservicesstartconfigurationpolicydisassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getconfigurationpolicyassociation
+      description: Amazon Web Services Getconfigurationpolicyassociation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicyassociation.amazonwebservicesgetconfigurationpolicyassociation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listconfigurationpolicyassociations
+      description: Amazon Web Services Listconfigurationpolicyassociations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-configurationpolicyassociation.amazonwebserviceslistconfigurationpolicyassociations
+      outputParameters:
+      - type: object
+        mapping: $.

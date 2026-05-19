@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iotdeviceadvisor — suiteRuns
+  description: 'Amazon Web Services iotdeviceadvisor — suiteRuns. 1 operations. Lead operation: Amazon Web Services Listsuiteruns.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - suiteRuns
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iotdeviceadvisor-suiteruns
+    baseUri: ''
+    description: Amazon Web Services iotdeviceadvisor — suiteRuns business capability. Self-contained, no shared references.
+    resources:
+    - name: suiteRuns
+      path: /suiteRuns
+      operations:
+      - name: amazonwebserviceslistsuiteruns
+        method: GET
+        description: Amazon Web Services Listsuiteruns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iotdeviceadvisor-suiteruns-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iotdeviceadvisor — suiteRuns. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/suiteruns
+      name: suiteruns
+      description: REST surface for suiteRuns.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsuiteruns
+        description: Amazon Web Services Listsuiteruns
+        call: iotdeviceadvisor-suiteruns.amazonwebserviceslistsuiteruns
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iotdeviceadvisor-suiteruns-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iotdeviceadvisor — suiteRuns. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsuiteruns
+      description: Amazon Web Services Listsuiteruns
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iotdeviceadvisor-suiteruns.amazonwebserviceslistsuiteruns
+      outputParameters:
+      - type: object
+        mapping: $.

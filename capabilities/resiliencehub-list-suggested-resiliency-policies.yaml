@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services resiliencehub — List Suggested Resiliency Policies
+  description: 'Amazon Web Services resiliencehub — List Suggested Resiliency Policies. 1 operations. Lead operation: Amazon
+    Web Services Listsuggestedresiliencypolicies. Self-contained Naftiko capability covering one Amazon Web Services business
+    surface.'
+  tags:
+  - Amazon Web Services
+  - List Suggested Resiliency Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: resiliencehub-list-suggested-resiliency-policies
+    baseUri: ''
+    description: Amazon Web Services resiliencehub — List Suggested Resiliency Policies business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: list-suggested-resiliency-policies
+      path: /list-suggested-resiliency-policies
+      operations:
+      - name: amazonwebserviceslistsuggestedresiliencypolicies
+        method: GET
+        description: Amazon Web Services Listsuggestedresiliencypolicies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: resiliencehub-list-suggested-resiliency-policies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services resiliencehub — List Suggested Resiliency Policies. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-suggested-resiliency-policies
+      name: list-suggested-resiliency-policies
+      description: REST surface for list-suggested-resiliency-policies.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistsuggestedresiliencypolicies
+        description: Amazon Web Services Listsuggestedresiliencypolicies
+        call: resiliencehub-list-suggested-resiliency-policies.amazonwebserviceslistsuggestedresiliencypolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: resiliencehub-list-suggested-resiliency-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services resiliencehub — List Suggested Resiliency Policies. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listsuggestedresiliencypolicies
+      description: Amazon Web Services Listsuggestedresiliencypolicies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: resiliencehub-list-suggested-resiliency-policies.amazonwebserviceslistsuggestedresiliencypolicies
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,195 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services securityhub — findingAggregator
+  description: 'Amazon Web Services securityhub — findingAggregator. 5 operations. Lead operation: Amazon Web Services Createfindingaggregator.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - findingAggregator
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: securityhub-findingaggregator
+    baseUri: ''
+    description: Amazon Web Services securityhub — findingAggregator business capability. Self-contained, no shared references.
+    resources:
+    - name: findingAggregator-create
+      path: /findingAggregator/create
+      operations:
+      - name: amazonwebservicescreatefindingaggregator
+        method: POST
+        description: Amazon Web Services Createfindingaggregator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findingAggregator-delete-FindingAggregatorArn+
+      path: /findingAggregator/delete/{FindingAggregatorArn+}
+      operations:
+      - name: amazonwebservicesdeletefindingaggregator
+        method: DELETE
+        description: Amazon Web Services Deletefindingaggregator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findingAggregator-get-FindingAggregatorArn+
+      path: /findingAggregator/get/{FindingAggregatorArn+}
+      operations:
+      - name: amazonwebservicesgetfindingaggregator
+        method: GET
+        description: Amazon Web Services Getfindingaggregator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findingAggregator-list
+      path: /findingAggregator/list
+      operations:
+      - name: amazonwebserviceslistfindingaggregators
+        method: GET
+        description: Amazon Web Services Listfindingaggregators
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: findingAggregator-update
+      path: /findingAggregator/update
+      operations:
+      - name: amazonwebservicesupdatefindingaggregator
+        method: PATCH
+        description: Amazon Web Services Updatefindingaggregator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: securityhub-findingaggregator-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services securityhub — findingAggregator. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/findingaggregator/create
+      name: findingaggregator-create
+      description: REST surface for findingAggregator-create.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatefindingaggregator
+        description: Amazon Web Services Createfindingaggregator
+        call: securityhub-findingaggregator.amazonwebservicescreatefindingaggregator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingaggregator/delete/{findingaggregatorarn}
+      name: findingaggregator-delete-findingaggregatorarn
+      description: REST surface for findingAggregator-delete-FindingAggregatorArn+.
+      operations:
+      - method: DELETE
+        name: amazonwebservicesdeletefindingaggregator
+        description: Amazon Web Services Deletefindingaggregator
+        call: securityhub-findingaggregator.amazonwebservicesdeletefindingaggregator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingaggregator/get/{findingaggregatorarn}
+      name: findingaggregator-get-findingaggregatorarn
+      description: REST surface for findingAggregator-get-FindingAggregatorArn+.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetfindingaggregator
+        description: Amazon Web Services Getfindingaggregator
+        call: securityhub-findingaggregator.amazonwebservicesgetfindingaggregator
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingaggregator/list
+      name: findingaggregator-list
+      description: REST surface for findingAggregator-list.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistfindingaggregators
+        description: Amazon Web Services Listfindingaggregators
+        call: securityhub-findingaggregator.amazonwebserviceslistfindingaggregators
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/findingaggregator/update
+      name: findingaggregator-update
+      description: REST surface for findingAggregator-update.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatefindingaggregator
+        description: Amazon Web Services Updatefindingaggregator
+        call: securityhub-findingaggregator.amazonwebservicesupdatefindingaggregator
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: securityhub-findingaggregator-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services securityhub — findingAggregator. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createfindingaggregator
+      description: Amazon Web Services Createfindingaggregator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: securityhub-findingaggregator.amazonwebservicescreatefindingaggregator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-deletefindingaggregator
+      description: Amazon Web Services Deletefindingaggregator
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: securityhub-findingaggregator.amazonwebservicesdeletefindingaggregator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getfindingaggregator
+      description: Amazon Web Services Getfindingaggregator
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-findingaggregator.amazonwebservicesgetfindingaggregator
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listfindingaggregators
+      description: Amazon Web Services Listfindingaggregators
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: securityhub-findingaggregator.amazonwebserviceslistfindingaggregators
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatefindingaggregator
+      description: Amazon Web Services Updatefindingaggregator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: securityhub-findingaggregator.amazonwebservicesupdatefindingaggregator
+      outputParameters:
+      - type: object
+        mapping: $.

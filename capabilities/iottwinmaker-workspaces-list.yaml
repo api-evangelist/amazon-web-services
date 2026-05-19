@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iottwinmaker — Workspaces List
+  description: 'Amazon Web Services iottwinmaker — Workspaces List. 1 operations. Lead operation: Amazon Web Services Listworkspaces.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Workspaces List
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iottwinmaker-workspaces-list
+    baseUri: ''
+    description: Amazon Web Services iottwinmaker — Workspaces List business capability. Self-contained, no shared references.
+    resources:
+    - name: workspaces-list
+      path: /workspaces-list
+      operations:
+      - name: amazonwebserviceslistworkspaces
+        method: POST
+        description: Amazon Web Services Listworkspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iottwinmaker-workspaces-list-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iottwinmaker — Workspaces List. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/workspaces-list
+      name: workspaces-list
+      description: REST surface for workspaces-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistworkspaces
+        description: Amazon Web Services Listworkspaces
+        call: iottwinmaker-workspaces-list.amazonwebserviceslistworkspaces
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iottwinmaker-workspaces-list-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iottwinmaker — Workspaces List. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listworkspaces
+      description: Amazon Web Services Listworkspaces
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iottwinmaker-workspaces-list.amazonwebserviceslistworkspaces
+      outputParameters:
+      - type: object
+        mapping: $.

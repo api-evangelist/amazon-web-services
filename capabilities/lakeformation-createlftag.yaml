@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services lakeformation — CreateLFTag
+  description: 'Amazon Web Services lakeformation — CreateLFTag. 1 operations. Lead operation: Amazon Web Services Createlftag.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateLFTag
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: lakeformation-createlftag
+    baseUri: ''
+    description: Amazon Web Services lakeformation — CreateLFTag business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateLFTag
+      path: /CreateLFTag
+      operations:
+      - name: amazonwebservicescreatelftag
+        method: POST
+        description: Amazon Web Services Createlftag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: lakeformation-createlftag-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services lakeformation — CreateLFTag. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/createlftag
+      name: createlftag
+      description: REST surface for CreateLFTag.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatelftag
+        description: Amazon Web Services Createlftag
+        call: lakeformation-createlftag.amazonwebservicescreatelftag
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: lakeformation-createlftag-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services lakeformation — CreateLFTag. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createlftag
+      description: Amazon Web Services Createlftag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lakeformation-createlftag.amazonwebservicescreatelftag
+      outputParameters:
+      - type: object
+        mapping: $.

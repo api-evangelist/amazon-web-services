@@ -1,0 +1,387 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services honeycode — Workbooks
+  description: 'Amazon Web Services honeycode — Workbooks. 11 operations. Lead operation: Amazon Web Services Invokescreenautomation.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Workbooks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: honeycode-workbooks
+    baseUri: ''
+    description: Amazon Web Services honeycode — Workbooks business capability. Self-contained, no shared references.
+    resources:
+    - name: workbooks-workbookId-apps-appId-screens-screenId-automations-automationId
+      path: /workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{automationId}
+      operations:
+      - name: amazonwebservicesinvokescreenautomation
+        method: POST
+        description: Amazon Web Services Invokescreenautomation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables
+      path: /workbooks/{workbookId}/tables
+      operations:
+      - name: amazonwebserviceslisttables
+        method: GET
+        description: Amazon Web Services Listtables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-columns
+      path: /workbooks/{workbookId}/tables/{tableId}/columns
+      operations:
+      - name: amazonwebserviceslisttablecolumns
+        method: GET
+        description: Amazon Web Services Listtablecolumns
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-import
+      path: /workbooks/{workbookId}/tables/{tableId}/import
+      operations:
+      - name: amazonwebservicesstarttabledataimportjob
+        method: POST
+        description: Amazon Web Services Starttabledataimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-import-jobId
+      path: /workbooks/{workbookId}/tables/{tableId}/import/{jobId}
+      operations:
+      - name: amazonwebservicesdescribetabledataimportjob
+        method: GET
+        description: Amazon Web Services Describetabledataimportjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-batchcreate
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/batchcreate
+      operations:
+      - name: amazonwebservicesbatchcreatetablerows
+        method: POST
+        description: Amazon Web Services Batchcreatetablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-batchdelete
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/batchdelete
+      operations:
+      - name: amazonwebservicesbatchdeletetablerows
+        method: POST
+        description: Amazon Web Services Batchdeletetablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-batchupdate
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/batchupdate
+      operations:
+      - name: amazonwebservicesbatchupdatetablerows
+        method: POST
+        description: Amazon Web Services Batchupdatetablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-batchupsert
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/batchupsert
+      operations:
+      - name: amazonwebservicesbatchupserttablerows
+        method: POST
+        description: Amazon Web Services Batchupserttablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-list
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/list
+      operations:
+      - name: amazonwebserviceslisttablerows
+        method: POST
+        description: Amazon Web Services Listtablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: workbooks-workbookId-tables-tableId-rows-query
+      path: /workbooks/{workbookId}/tables/{tableId}/rows/query
+      operations:
+      - name: amazonwebservicesquerytablerows
+        method: POST
+        description: Amazon Web Services Querytablerows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: honeycode-workbooks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services honeycode — Workbooks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/workbooks/{workbookid}/apps/{appid}/screens/{screenid}/automations/{automationid}
+      name: workbooks-workbookid-apps-appid-screens-screenid-automations-automationid
+      description: REST surface for workbooks-workbookId-apps-appId-screens-screenId-automations-automationId.
+      operations:
+      - method: POST
+        name: amazonwebservicesinvokescreenautomation
+        description: Amazon Web Services Invokescreenautomation
+        call: honeycode-workbooks.amazonwebservicesinvokescreenautomation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables
+      name: workbooks-workbookid-tables
+      description: REST surface for workbooks-workbookId-tables.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttables
+        description: Amazon Web Services Listtables
+        call: honeycode-workbooks.amazonwebserviceslisttables
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/columns
+      name: workbooks-workbookid-tables-tableid-columns
+      description: REST surface for workbooks-workbookId-tables-tableId-columns.
+      operations:
+      - method: GET
+        name: amazonwebserviceslisttablecolumns
+        description: Amazon Web Services Listtablecolumns
+        call: honeycode-workbooks.amazonwebserviceslisttablecolumns
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/import
+      name: workbooks-workbookid-tables-tableid-import
+      description: REST surface for workbooks-workbookId-tables-tableId-import.
+      operations:
+      - method: POST
+        name: amazonwebservicesstarttabledataimportjob
+        description: Amazon Web Services Starttabledataimportjob
+        call: honeycode-workbooks.amazonwebservicesstarttabledataimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/import/{jobid}
+      name: workbooks-workbookid-tables-tableid-import-jobid
+      description: REST surface for workbooks-workbookId-tables-tableId-import-jobId.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribetabledataimportjob
+        description: Amazon Web Services Describetabledataimportjob
+        call: honeycode-workbooks.amazonwebservicesdescribetabledataimportjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/batchcreate
+      name: workbooks-workbookid-tables-tableid-rows-batchcreate
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-batchcreate.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchcreatetablerows
+        description: Amazon Web Services Batchcreatetablerows
+        call: honeycode-workbooks.amazonwebservicesbatchcreatetablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/batchdelete
+      name: workbooks-workbookid-tables-tableid-rows-batchdelete
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-batchdelete.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchdeletetablerows
+        description: Amazon Web Services Batchdeletetablerows
+        call: honeycode-workbooks.amazonwebservicesbatchdeletetablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/batchupdate
+      name: workbooks-workbookid-tables-tableid-rows-batchupdate
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-batchupdate.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchupdatetablerows
+        description: Amazon Web Services Batchupdatetablerows
+        call: honeycode-workbooks.amazonwebservicesbatchupdatetablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/batchupsert
+      name: workbooks-workbookid-tables-tableid-rows-batchupsert
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-batchupsert.
+      operations:
+      - method: POST
+        name: amazonwebservicesbatchupserttablerows
+        description: Amazon Web Services Batchupserttablerows
+        call: honeycode-workbooks.amazonwebservicesbatchupserttablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/list
+      name: workbooks-workbookid-tables-tableid-rows-list
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-list.
+      operations:
+      - method: POST
+        name: amazonwebserviceslisttablerows
+        description: Amazon Web Services Listtablerows
+        call: honeycode-workbooks.amazonwebserviceslisttablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workbooks/{workbookid}/tables/{tableid}/rows/query
+      name: workbooks-workbookid-tables-tableid-rows-query
+      description: REST surface for workbooks-workbookId-tables-tableId-rows-query.
+      operations:
+      - method: POST
+        name: amazonwebservicesquerytablerows
+        description: Amazon Web Services Querytablerows
+        call: honeycode-workbooks.amazonwebservicesquerytablerows
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: honeycode-workbooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services honeycode — Workbooks. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-invokescreenautomation
+      description: Amazon Web Services Invokescreenautomation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesinvokescreenautomation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtables
+      description: Amazon Web Services Listtables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: honeycode-workbooks.amazonwebserviceslisttables
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtablecolumns
+      description: Amazon Web Services Listtablecolumns
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: honeycode-workbooks.amazonwebserviceslisttablecolumns
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-starttabledataimportjob
+      description: Amazon Web Services Starttabledataimportjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesstarttabledataimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describetabledataimportjob
+      description: Amazon Web Services Describetabledataimportjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: honeycode-workbooks.amazonwebservicesdescribetabledataimportjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchcreatetablerows
+      description: Amazon Web Services Batchcreatetablerows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesbatchcreatetablerows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchdeletetablerows
+      description: Amazon Web Services Batchdeletetablerows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesbatchdeletetablerows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchupdatetablerows
+      description: Amazon Web Services Batchupdatetablerows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesbatchupdatetablerows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-batchupserttablerows
+      description: Amazon Web Services Batchupserttablerows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesbatchupserttablerows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listtablerows
+      description: Amazon Web Services Listtablerows
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebserviceslisttablerows
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-querytablerows
+      description: Amazon Web Services Querytablerows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: honeycode-workbooks.amazonwebservicesquerytablerows
+      outputParameters:
+      - type: object
+        mapping: $.

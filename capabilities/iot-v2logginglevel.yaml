@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — v2LoggingLevel
+  description: 'Amazon Web Services iot — v2LoggingLevel. 1 operations. Lead operation: Amazon Web Services Setv2logginglevel.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - v2LoggingLevel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-v2logginglevel
+    baseUri: ''
+    description: Amazon Web Services iot — v2LoggingLevel business capability. Self-contained, no shared references.
+    resources:
+    - name: v2LoggingLevel
+      path: /v2LoggingLevel
+      operations:
+      - name: amazonwebservicessetv2logginglevel
+        method: POST
+        description: Amazon Web Services Setv2logginglevel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-v2logginglevel-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — v2LoggingLevel. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v2logginglevel
+      name: v2logginglevel
+      description: REST surface for v2LoggingLevel.
+      operations:
+      - method: POST
+        name: amazonwebservicessetv2logginglevel
+        description: Amazon Web Services Setv2logginglevel
+        call: iot-v2logginglevel.amazonwebservicessetv2logginglevel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-v2logginglevel-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — v2LoggingLevel. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-setv2logginglevel
+      description: Amazon Web Services Setv2logginglevel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: iot-v2logginglevel.amazonwebservicessetv2logginglevel
+      outputParameters:
+      - type: object
+        mapping: $.

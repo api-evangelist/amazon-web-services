@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-a2i-runtime — Human Loops
+  description: 'Amazon Web Services sagemaker-a2i-runtime — Human Loops. 3 operations. Lead operation: Amazon Web Services
+    Starthumanloop. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Human Loops
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-a2i-runtime-human-loops
+    baseUri: ''
+    description: Amazon Web Services sagemaker-a2i-runtime — Human Loops business capability. Self-contained, no shared references.
+    resources:
+    - name: human-loops
+      path: /human-loops
+      operations:
+      - name: amazonwebservicesstarthumanloop
+        method: POST
+        description: Amazon Web Services Starthumanloop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: human-loops-stop
+      path: /human-loops/stop
+      operations:
+      - name: amazonwebservicesstophumanloop
+        method: POST
+        description: Amazon Web Services Stophumanloop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: human-loops-HumanLoopName
+      path: /human-loops/{HumanLoopName}
+      operations:
+      - name: amazonwebservicesdescribehumanloop
+        method: GET
+        description: Amazon Web Services Describehumanloop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-a2i-runtime-human-loops-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-a2i-runtime — Human Loops. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/human-loops
+      name: human-loops
+      description: REST surface for human-loops.
+      operations:
+      - method: POST
+        name: amazonwebservicesstarthumanloop
+        description: Amazon Web Services Starthumanloop
+        call: sagemaker-a2i-runtime-human-loops.amazonwebservicesstarthumanloop
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/human-loops/stop
+      name: human-loops-stop
+      description: REST surface for human-loops-stop.
+      operations:
+      - method: POST
+        name: amazonwebservicesstophumanloop
+        description: Amazon Web Services Stophumanloop
+        call: sagemaker-a2i-runtime-human-loops.amazonwebservicesstophumanloop
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/human-loops/{humanloopname}
+      name: human-loops-humanloopname
+      description: REST surface for human-loops-HumanLoopName.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribehumanloop
+        description: Amazon Web Services Describehumanloop
+        call: sagemaker-a2i-runtime-human-loops.amazonwebservicesdescribehumanloop
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-a2i-runtime-human-loops-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-a2i-runtime — Human Loops. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-starthumanloop
+      description: Amazon Web Services Starthumanloop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-a2i-runtime-human-loops.amazonwebservicesstarthumanloop
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-stophumanloop
+      description: Amazon Web Services Stophumanloop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-a2i-runtime-human-loops.amazonwebservicesstophumanloop
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describehumanloop
+      description: Amazon Web Services Describehumanloop
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sagemaker-a2i-runtime-human-loops.amazonwebservicesdescribehumanloop
+      outputParameters:
+      - type: object
+        mapping: $.

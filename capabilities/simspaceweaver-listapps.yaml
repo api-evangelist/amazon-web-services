@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services simspaceweaver — Listapps
+  description: 'Amazon Web Services simspaceweaver — Listapps. 1 operations. Lead operation: Amazon Web Services Listapps.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Listapps
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: simspaceweaver-listapps
+    baseUri: ''
+    description: Amazon Web Services simspaceweaver — Listapps business capability. Self-contained, no shared references.
+    resources:
+    - name: listapps
+      path: /listapps
+      operations:
+      - name: amazonwebserviceslistapps
+        method: GET
+        description: Amazon Web Services Listapps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: simspaceweaver-listapps-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services simspaceweaver — Listapps. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/listapps
+      name: listapps
+      description: REST surface for listapps.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistapps
+        description: Amazon Web Services Listapps
+        call: simspaceweaver-listapps.amazonwebserviceslistapps
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: simspaceweaver-listapps-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services simspaceweaver — Listapps. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listapps
+      description: Amazon Web Services Listapps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: simspaceweaver-listapps.amazonwebserviceslistapps
+      outputParameters:
+      - type: object
+        mapping: $.

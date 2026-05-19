@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services wellarchitected — reviewTemplates
+  description: 'Amazon Web Services wellarchitected — reviewTemplates. 6 operations. Lead operation: Amazon Web Services Listreviewtemplates.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - reviewTemplates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wellarchitected-reviewtemplates
+    baseUri: ''
+    description: Amazon Web Services wellarchitected — reviewTemplates business capability. Self-contained, no shared references.
+    resources:
+    - name: reviewTemplates
+      path: /reviewTemplates
+      operations:
+      - name: amazonwebserviceslistreviewtemplates
+        method: GET
+        description: Amazon Web Services Listreviewtemplates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reviewTemplates-TemplateArn
+      path: /reviewTemplates/{TemplateArn}
+      operations:
+      - name: amazonwebservicesupdatereviewtemplate
+        method: PATCH
+        description: Amazon Web Services Updatereviewtemplate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reviewTemplates-TemplateArn-lensReviews-LensAlias
+      path: /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}
+      operations:
+      - name: amazonwebservicesupdatereviewtemplatelensreview
+        method: PATCH
+        description: Amazon Web Services Updatereviewtemplatelensreview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reviewTemplates-TemplateArn-lensReviews-LensAlias-answers
+      path: /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers
+      operations:
+      - name: amazonwebserviceslistreviewtemplateanswers
+        method: GET
+        description: Amazon Web Services Listreviewtemplateanswers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reviewTemplates-TemplateArn-lensReviews-LensAlias-answers-QuestionId
+      path: /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}
+      operations:
+      - name: amazonwebservicesupdatereviewtemplateanswer
+        method: PATCH
+        description: Amazon Web Services Updatereviewtemplateanswer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: reviewTemplates-TemplateArn-lensReviews-LensAlias-upgrade
+      path: /reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade
+      operations:
+      - name: amazonwebservicesupgradereviewtemplatelensreview
+        method: PUT
+        description: Amazon Web Services Upgradereviewtemplatelensreview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wellarchitected-reviewtemplates-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services wellarchitected — reviewTemplates. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/reviewtemplates
+      name: reviewtemplates
+      description: REST surface for reviewTemplates.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistreviewtemplates
+        description: Amazon Web Services Listreviewtemplates
+        call: wellarchitected-reviewtemplates.amazonwebserviceslistreviewtemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reviewtemplates/{templatearn}
+      name: reviewtemplates-templatearn
+      description: REST surface for reviewTemplates-TemplateArn.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatereviewtemplate
+        description: Amazon Web Services Updatereviewtemplate
+        call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reviewtemplates/{templatearn}/lensreviews/{lensalias}
+      name: reviewtemplates-templatearn-lensreviews-lensalias
+      description: REST surface for reviewTemplates-TemplateArn-lensReviews-LensAlias.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatereviewtemplatelensreview
+        description: Amazon Web Services Updatereviewtemplatelensreview
+        call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplatelensreview
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reviewtemplates/{templatearn}/lensreviews/{lensalias}/answers
+      name: reviewtemplates-templatearn-lensreviews-lensalias-answers
+      description: REST surface for reviewTemplates-TemplateArn-lensReviews-LensAlias-answers.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistreviewtemplateanswers
+        description: Amazon Web Services Listreviewtemplateanswers
+        call: wellarchitected-reviewtemplates.amazonwebserviceslistreviewtemplateanswers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reviewtemplates/{templatearn}/lensreviews/{lensalias}/answers/{questionid}
+      name: reviewtemplates-templatearn-lensreviews-lensalias-answers-questionid
+      description: REST surface for reviewTemplates-TemplateArn-lensReviews-LensAlias-answers-QuestionId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatereviewtemplateanswer
+        description: Amazon Web Services Updatereviewtemplateanswer
+        call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplateanswer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/reviewtemplates/{templatearn}/lensreviews/{lensalias}/upgrade
+      name: reviewtemplates-templatearn-lensreviews-lensalias-upgrade
+      description: REST surface for reviewTemplates-TemplateArn-lensReviews-LensAlias-upgrade.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupgradereviewtemplatelensreview
+        description: Amazon Web Services Upgradereviewtemplatelensreview
+        call: wellarchitected-reviewtemplates.amazonwebservicesupgradereviewtemplatelensreview
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wellarchitected-reviewtemplates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services wellarchitected — reviewTemplates. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listreviewtemplates
+      description: Amazon Web Services Listreviewtemplates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebserviceslistreviewtemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereviewtemplate
+      description: Amazon Web Services Updatereviewtemplate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereviewtemplatelensreview
+      description: Amazon Web Services Updatereviewtemplatelensreview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplatelensreview
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listreviewtemplateanswers
+      description: Amazon Web Services Listreviewtemplateanswers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebserviceslistreviewtemplateanswers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatereviewtemplateanswer
+      description: Amazon Web Services Updatereviewtemplateanswer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebservicesupdatereviewtemplateanswer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-upgradereviewtemplatelensreview
+      description: Amazon Web Services Upgradereviewtemplatelensreview
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: wellarchitected-reviewtemplates.amazonwebservicesupgradereviewtemplatelensreview
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services appflow — List Connector Entities
+  description: 'Amazon Web Services appflow — List Connector Entities. 1 operations. Lead operation: Amazon Web Services Listconnectorentities.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Connector Entities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: appflow-list-connector-entities
+    baseUri: ''
+    description: Amazon Web Services appflow — List Connector Entities business capability. Self-contained, no shared references.
+    resources:
+    - name: list-connector-entities
+      path: /list-connector-entities
+      operations:
+      - name: amazonwebserviceslistconnectorentities
+        method: POST
+        description: Amazon Web Services Listconnectorentities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: appflow-list-connector-entities-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services appflow — List Connector Entities. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-connector-entities
+      name: list-connector-entities
+      description: REST surface for list-connector-entities.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistconnectorentities
+        description: Amazon Web Services Listconnectorentities
+        call: appflow-list-connector-entities.amazonwebserviceslistconnectorentities
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: appflow-list-connector-entities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services appflow — List Connector Entities. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listconnectorentities
+      description: Amazon Web Services Listconnectorentities
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: appflow-list-connector-entities.amazonwebserviceslistconnectorentities
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services devops-guru — Anomalies
+  description: 'Amazon Web Services devops-guru — Anomalies. 2 operations. Lead operation: Amazon Web Services Listanomaliesforinsight.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Anomalies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: devops-guru-anomalies
+    baseUri: ''
+    description: Amazon Web Services devops-guru — Anomalies business capability. Self-contained, no shared references.
+    resources:
+    - name: anomalies-insight-InsightId
+      path: /anomalies/insight/{InsightId}
+      operations:
+      - name: amazonwebserviceslistanomaliesforinsight
+        method: POST
+        description: Amazon Web Services Listanomaliesforinsight
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: anomalies-Id
+      path: /anomalies/{Id}
+      operations:
+      - name: amazonwebservicesdescribeanomaly
+        method: GET
+        description: Amazon Web Services Describeanomaly
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: devops-guru-anomalies-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services devops-guru — Anomalies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/anomalies/insight/{insightid}
+      name: anomalies-insight-insightid
+      description: REST surface for anomalies-insight-InsightId.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistanomaliesforinsight
+        description: Amazon Web Services Listanomaliesforinsight
+        call: devops-guru-anomalies.amazonwebserviceslistanomaliesforinsight
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/anomalies/{id}
+      name: anomalies-id
+      description: REST surface for anomalies-Id.
+      operations:
+      - method: GET
+        name: amazonwebservicesdescribeanomaly
+        description: Amazon Web Services Describeanomaly
+        call: devops-guru-anomalies.amazonwebservicesdescribeanomaly
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: devops-guru-anomalies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services devops-guru — Anomalies. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listanomaliesforinsight
+      description: Amazon Web Services Listanomaliesforinsight
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: devops-guru-anomalies.amazonwebserviceslistanomaliesforinsight
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-describeanomaly
+      description: Amazon Web Services Describeanomaly
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: devops-guru-anomalies.amazonwebservicesdescribeanomaly
+      outputParameters:
+      - type: object
+        mapping: $.

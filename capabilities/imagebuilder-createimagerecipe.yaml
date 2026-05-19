@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services imagebuilder — CreateImageRecipe
+  description: 'Amazon Web Services imagebuilder — CreateImageRecipe. 1 operations. Lead operation: Amazon Web Services Createimagerecipe.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - CreateImageRecipe
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: imagebuilder-createimagerecipe
+    baseUri: ''
+    description: Amazon Web Services imagebuilder — CreateImageRecipe business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateImageRecipe
+      path: /CreateImageRecipe
+      operations:
+      - name: amazonwebservicescreateimagerecipe
+        method: PUT
+        description: Amazon Web Services Createimagerecipe
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: imagebuilder-createimagerecipe-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services imagebuilder — CreateImageRecipe. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createimagerecipe
+      name: createimagerecipe
+      description: REST surface for CreateImageRecipe.
+      operations:
+      - method: PUT
+        name: amazonwebservicescreateimagerecipe
+        description: Amazon Web Services Createimagerecipe
+        call: imagebuilder-createimagerecipe.amazonwebservicescreateimagerecipe
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: imagebuilder-createimagerecipe-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services imagebuilder — CreateImageRecipe. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createimagerecipe
+      description: Amazon Web Services Createimagerecipe
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: imagebuilder-createimagerecipe.amazonwebservicescreateimagerecipe
+      outputParameters:
+      - type: object
+        mapping: $.

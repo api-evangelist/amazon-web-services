@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services apigateway — Account
+  description: 'Amazon Web Services apigateway — Account. 1 operations. Lead operation: Amazon Web Services Updateaccount.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Account
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigateway-account
+    baseUri: ''
+    description: Amazon Web Services apigateway — Account business capability. Self-contained, no shared references.
+    resources:
+    - name: account
+      path: /account
+      operations:
+      - name: amazonwebservicesupdateaccount
+        method: PATCH
+        description: Amazon Web Services Updateaccount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: apigateway-account-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services apigateway — Account. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/account
+      name: account
+      description: REST surface for account.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateaccount
+        description: Amazon Web Services Updateaccount
+        call: apigateway-account.amazonwebservicesupdateaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigateway-account-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services apigateway — Account. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateaccount
+      description: Amazon Web Services Updateaccount
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apigateway-account.amazonwebservicesupdateaccount
+      outputParameters:
+      - type: object
+        mapping: $.

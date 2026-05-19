@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services managedblockchain — Accessors
+  description: 'Amazon Web Services managedblockchain — Accessors. 2 operations. Lead operation: Amazon Web Services Listaccessors.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Accessors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: managedblockchain-accessors
+    baseUri: ''
+    description: Amazon Web Services managedblockchain — Accessors business capability. Self-contained, no shared references.
+    resources:
+    - name: accessors
+      path: /accessors
+      operations:
+      - name: amazonwebserviceslistaccessors
+        method: GET
+        description: Amazon Web Services Listaccessors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accessors-AccessorId
+      path: /accessors/{AccessorId}
+      operations:
+      - name: amazonwebservicesgetaccessor
+        method: GET
+        description: Amazon Web Services Getaccessor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: managedblockchain-accessors-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services managedblockchain — Accessors. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/accessors
+      name: accessors
+      description: REST surface for accessors.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistaccessors
+        description: Amazon Web Services Listaccessors
+        call: managedblockchain-accessors.amazonwebserviceslistaccessors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/accessors/{accessorid}
+      name: accessors-accessorid
+      description: REST surface for accessors-AccessorId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetaccessor
+        description: Amazon Web Services Getaccessor
+        call: managedblockchain-accessors.amazonwebservicesgetaccessor
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: managedblockchain-accessors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services managedblockchain — Accessors. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listaccessors
+      description: Amazon Web Services Listaccessors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-accessors.amazonwebserviceslistaccessors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getaccessor
+      description: Amazon Web Services Getaccessor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-accessors.amazonwebservicesgetaccessor
+      outputParameters:
+      - type: object
+        mapping: $.

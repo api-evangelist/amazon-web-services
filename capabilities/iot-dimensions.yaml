@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Dimensions
+  description: 'Amazon Web Services iot — Dimensions. 2 operations. Lead operation: Amazon Web Services Listdimensions. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Dimensions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-dimensions
+    baseUri: ''
+    description: Amazon Web Services iot — Dimensions business capability. Self-contained, no shared references.
+    resources:
+    - name: dimensions
+      path: /dimensions
+      operations:
+      - name: amazonwebserviceslistdimensions
+        method: GET
+        description: Amazon Web Services Listdimensions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dimensions-name
+      path: /dimensions/{name}
+      operations:
+      - name: amazonwebservicesupdatedimension
+        method: PATCH
+        description: Amazon Web Services Updatedimension
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-dimensions-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Dimensions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/dimensions
+      name: dimensions
+      description: REST surface for dimensions.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistdimensions
+        description: Amazon Web Services Listdimensions
+        call: iot-dimensions.amazonwebserviceslistdimensions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dimensions/{name}
+      name: dimensions-name
+      description: REST surface for dimensions-name.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatedimension
+        description: Amazon Web Services Updatedimension
+        call: iot-dimensions.amazonwebservicesupdatedimension
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-dimensions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Dimensions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listdimensions
+      description: Amazon Web Services Listdimensions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-dimensions.amazonwebserviceslistdimensions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatedimension
+      description: Amazon Web Services Updatedimension
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: iot-dimensions.amazonwebservicesupdatedimension
+      outputParameters:
+      - type: object
+        mapping: $.

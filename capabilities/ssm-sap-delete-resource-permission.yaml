@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services ssm-sap — Delete Resource Permission
+  description: 'Amazon Web Services ssm-sap — Delete Resource Permission. 1 operations. Lead operation: Amazon Web Services
+    Deleteresourcepermission. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Delete Resource Permission
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ssm-sap-delete-resource-permission
+    baseUri: ''
+    description: Amazon Web Services ssm-sap — Delete Resource Permission business capability. Self-contained, no shared references.
+    resources:
+    - name: delete-resource-permission
+      path: /delete-resource-permission
+      operations:
+      - name: amazonwebservicesdeleteresourcepermission
+        method: POST
+        description: Amazon Web Services Deleteresourcepermission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: ssm-sap-delete-resource-permission-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services ssm-sap — Delete Resource Permission. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/delete-resource-permission
+      name: delete-resource-permission
+      description: REST surface for delete-resource-permission.
+      operations:
+      - method: POST
+        name: amazonwebservicesdeleteresourcepermission
+        description: Amazon Web Services Deleteresourcepermission
+        call: ssm-sap-delete-resource-permission.amazonwebservicesdeleteresourcepermission
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ssm-sap-delete-resource-permission-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services ssm-sap — Delete Resource Permission. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-deleteresourcepermission
+      description: Amazon Web Services Deleteresourcepermission
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ssm-sap-delete-resource-permission.amazonwebservicesdeleteresourcepermission
+      outputParameters:
+      - type: object
+        mapping: $.

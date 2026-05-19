@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services sagemaker-edge — SendHeartbeat
+  description: 'Amazon Web Services sagemaker-edge — SendHeartbeat. 1 operations. Lead operation: Amazon Web Services Sendheartbeat.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - SendHeartbeat
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sagemaker-edge-sendheartbeat
+    baseUri: ''
+    description: Amazon Web Services sagemaker-edge — SendHeartbeat business capability. Self-contained, no shared references.
+    resources:
+    - name: SendHeartbeat
+      path: /SendHeartbeat
+      operations:
+      - name: amazonwebservicessendheartbeat
+        method: POST
+        description: Amazon Web Services Sendheartbeat
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: sagemaker-edge-sendheartbeat-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services sagemaker-edge — SendHeartbeat. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sendheartbeat
+      name: sendheartbeat
+      description: REST surface for SendHeartbeat.
+      operations:
+      - method: POST
+        name: amazonwebservicessendheartbeat
+        description: Amazon Web Services Sendheartbeat
+        call: sagemaker-edge-sendheartbeat.amazonwebservicessendheartbeat
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sagemaker-edge-sendheartbeat-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services sagemaker-edge — SendHeartbeat. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-sendheartbeat
+      description: Amazon Web Services Sendheartbeat
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sagemaker-edge-sendheartbeat.amazonwebservicessendheartbeat
+      outputParameters:
+      - type: object
+        mapping: $.

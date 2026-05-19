@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services auditmanager — Controls
+  description: 'Amazon Web Services auditmanager — Controls. 2 operations. Lead operation: Amazon Web Services Listcontrols.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Controls
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auditmanager-controls
+    baseUri: ''
+    description: Amazon Web Services auditmanager — Controls business capability. Self-contained, no shared references.
+    resources:
+    - name: controls
+      path: /controls
+      operations:
+      - name: amazonwebserviceslistcontrols
+        method: GET
+        description: Amazon Web Services Listcontrols
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: controls-controlId
+      path: /controls/{controlId}
+      operations:
+      - name: amazonwebservicesupdatecontrol
+        method: PUT
+        description: Amazon Web Services Updatecontrol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: auditmanager-controls-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services auditmanager — Controls. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/controls
+      name: controls
+      description: REST surface for controls.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcontrols
+        description: Amazon Web Services Listcontrols
+        call: auditmanager-controls.amazonwebserviceslistcontrols
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/controls/{controlid}
+      name: controls-controlid
+      description: REST surface for controls-controlId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesupdatecontrol
+        description: Amazon Web Services Updatecontrol
+        call: auditmanager-controls.amazonwebservicesupdatecontrol
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auditmanager-controls-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services auditmanager — Controls. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listcontrols
+      description: Amazon Web Services Listcontrols
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auditmanager-controls.amazonwebserviceslistcontrols
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontrol
+      description: Amazon Web Services Updatecontrol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: auditmanager-controls.amazonwebservicesupdatecontrol
+      outputParameters:
+      - type: object
+        mapping: $.

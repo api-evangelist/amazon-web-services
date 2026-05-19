@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — listRobotApplications
+  description: 'Amazon Web Services robomaker — listRobotApplications. 1 operations. Lead operation: Amazon Web Services Listrobotapplications.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - listRobotApplications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-listrobotapplications
+    baseUri: ''
+    description: Amazon Web Services robomaker — listRobotApplications business capability. Self-contained, no shared references.
+    resources:
+    - name: listRobotApplications
+      path: /listRobotApplications
+      operations:
+      - name: amazonwebserviceslistrobotapplications
+        method: POST
+        description: Amazon Web Services Listrobotapplications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-listrobotapplications-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — listRobotApplications. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/listrobotapplications
+      name: listrobotapplications
+      description: REST surface for listRobotApplications.
+      operations:
+      - method: POST
+        name: amazonwebserviceslistrobotapplications
+        description: Amazon Web Services Listrobotapplications
+        call: robomaker-listrobotapplications.amazonwebserviceslistrobotapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-listrobotapplications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — listRobotApplications. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listrobotapplications
+      description: Amazon Web Services Listrobotapplications
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-listrobotapplications.amazonwebserviceslistrobotapplications
+      outputParameters:
+      - type: object
+        mapping: $.

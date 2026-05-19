@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services launch-wizard — getWorkload
+  description: 'Amazon Web Services launch-wizard — getWorkload. 1 operations. Lead operation: Amazon Web Services Getworkload.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - getWorkload
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: launch-wizard-getworkload
+    baseUri: ''
+    description: Amazon Web Services launch-wizard — getWorkload business capability. Self-contained, no shared references.
+    resources:
+    - name: getWorkload
+      path: /getWorkload
+      operations:
+      - name: amazonwebservicesgetworkload
+        method: POST
+        description: Amazon Web Services Getworkload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: launch-wizard-getworkload-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services launch-wizard — getWorkload. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/getworkload
+      name: getworkload
+      description: REST surface for getWorkload.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetworkload
+        description: Amazon Web Services Getworkload
+        call: launch-wizard-getworkload.amazonwebservicesgetworkload
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: launch-wizard-getworkload-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services launch-wizard — getWorkload. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getworkload
+      description: Amazon Web Services Getworkload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: launch-wizard-getworkload.amazonwebservicesgetworkload
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services outposts — List Orders
+  description: 'Amazon Web Services outposts — List Orders. 1 operations. Lead operation: Amazon Web Services Listorders.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - List Orders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: outposts-list-orders
+    baseUri: ''
+    description: Amazon Web Services outposts — List Orders business capability. Self-contained, no shared references.
+    resources:
+    - name: list-orders
+      path: /list-orders
+      operations:
+      - name: amazonwebserviceslistorders
+        method: GET
+        description: Amazon Web Services Listorders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: outposts-list-orders-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services outposts — List Orders. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/list-orders
+      name: list-orders
+      description: REST surface for list-orders.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistorders
+        description: Amazon Web Services Listorders
+        call: outposts-list-orders.amazonwebserviceslistorders
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: outposts-list-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services outposts — List Orders. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listorders
+      description: Amazon Web Services Listorders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outposts-list-orders.amazonwebserviceslistorders
+      outputParameters:
+      - type: object
+        mapping: $.

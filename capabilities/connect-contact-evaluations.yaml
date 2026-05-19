@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services connect — Contact Evaluations
+  description: 'Amazon Web Services connect — Contact Evaluations. 3 operations. Lead operation: Amazon Web Services Startcontactevaluation.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Contact Evaluations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: connect-contact-evaluations
+    baseUri: ''
+    description: Amazon Web Services connect — Contact Evaluations business capability. Self-contained, no shared references.
+    resources:
+    - name: contact-evaluations-InstanceId
+      path: /contact-evaluations/{InstanceId}
+      operations:
+      - name: amazonwebservicesstartcontactevaluation
+        method: PUT
+        description: Amazon Web Services Startcontactevaluation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-evaluations-InstanceId-EvaluationId
+      path: /contact-evaluations/{InstanceId}/{EvaluationId}
+      operations:
+      - name: amazonwebservicesupdatecontactevaluation
+        method: POST
+        description: Amazon Web Services Updatecontactevaluation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: contact-evaluations-InstanceId-EvaluationId-submit
+      path: /contact-evaluations/{InstanceId}/{EvaluationId}/submit
+      operations:
+      - name: amazonwebservicessubmitcontactevaluation
+        method: POST
+        description: Amazon Web Services Submitcontactevaluation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: connect-contact-evaluations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services connect — Contact Evaluations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/contact-evaluations/{instanceid}
+      name: contact-evaluations-instanceid
+      description: REST surface for contact-evaluations-InstanceId.
+      operations:
+      - method: PUT
+        name: amazonwebservicesstartcontactevaluation
+        description: Amazon Web Services Startcontactevaluation
+        call: connect-contact-evaluations.amazonwebservicesstartcontactevaluation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-evaluations/{instanceid}/{evaluationid}
+      name: contact-evaluations-instanceid-evaluationid
+      description: REST surface for contact-evaluations-InstanceId-EvaluationId.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdatecontactevaluation
+        description: Amazon Web Services Updatecontactevaluation
+        call: connect-contact-evaluations.amazonwebservicesupdatecontactevaluation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contact-evaluations/{instanceid}/{evaluationid}/submit
+      name: contact-evaluations-instanceid-evaluationid-submit
+      description: REST surface for contact-evaluations-InstanceId-EvaluationId-submit.
+      operations:
+      - method: POST
+        name: amazonwebservicessubmitcontactevaluation
+        description: Amazon Web Services Submitcontactevaluation
+        call: connect-contact-evaluations.amazonwebservicessubmitcontactevaluation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: connect-contact-evaluations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services connect — Contact Evaluations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startcontactevaluation
+      description: Amazon Web Services Startcontactevaluation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: connect-contact-evaluations.amazonwebservicesstartcontactevaluation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecontactevaluation
+      description: Amazon Web Services Updatecontactevaluation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-evaluations.amazonwebservicesupdatecontactevaluation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-submitcontactevaluation
+      description: Amazon Web Services Submitcontactevaluation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: connect-contact-evaluations.amazonwebservicessubmitcontactevaluation
+      outputParameters:
+      - type: object
+        mapping: $.

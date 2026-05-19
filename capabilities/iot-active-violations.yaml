@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services iot — Active Violations
+  description: 'Amazon Web Services iot — Active Violations. 1 operations. Lead operation: Amazon Web Services Listactiveviolations.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Active Violations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: iot-active-violations
+    baseUri: ''
+    description: Amazon Web Services iot — Active Violations business capability. Self-contained, no shared references.
+    resources:
+    - name: active-violations
+      path: /active-violations
+      operations:
+      - name: amazonwebserviceslistactiveviolations
+        method: GET
+        description: Amazon Web Services Listactiveviolations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: iot-active-violations-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services iot — Active Violations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/active-violations
+      name: active-violations
+      description: REST surface for active-violations.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistactiveviolations
+        description: Amazon Web Services Listactiveviolations
+        call: iot-active-violations.amazonwebserviceslistactiveviolations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: iot-active-violations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services iot — Active Violations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listactiveviolations
+      description: Amazon Web Services Listactiveviolations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: iot-active-violations.amazonwebserviceslistactiveviolations
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,68 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services migrationhubstrategy — Get Portfolio Preferences
+  description: 'Amazon Web Services migrationhubstrategy — Get Portfolio Preferences. 1 operations. Lead operation: Amazon
+    Web Services Getportfoliopreferences. Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Get Portfolio Preferences
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: migrationhubstrategy-get-portfolio-preferences
+    baseUri: ''
+    description: Amazon Web Services migrationhubstrategy — Get Portfolio Preferences business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: get-portfolio-preferences
+      path: /get-portfolio-preferences
+      operations:
+      - name: amazonwebservicesgetportfoliopreferences
+        method: GET
+        description: Amazon Web Services Getportfoliopreferences
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: migrationhubstrategy-get-portfolio-preferences-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services migrationhubstrategy — Get Portfolio Preferences. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/get-portfolio-preferences
+      name: get-portfolio-preferences
+      description: REST surface for get-portfolio-preferences.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetportfoliopreferences
+        description: Amazon Web Services Getportfoliopreferences
+        call: migrationhubstrategy-get-portfolio-preferences.amazonwebservicesgetportfoliopreferences
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: migrationhubstrategy-get-portfolio-preferences-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services migrationhubstrategy — Get Portfolio Preferences. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getportfoliopreferences
+      description: Amazon Web Services Getportfoliopreferences
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: migrationhubstrategy-get-portfolio-preferences.amazonwebservicesgetportfoliopreferences
+      outputParameters:
+      - type: object
+        mapping: $.

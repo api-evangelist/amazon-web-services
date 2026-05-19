@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services xray — GetGroup
+  description: 'Amazon Web Services xray — GetGroup. 1 operations. Lead operation: Amazon Web Services Getgroup. Self-contained
+    Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - GetGroup
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: xray-getgroup
+    baseUri: ''
+    description: Amazon Web Services xray — GetGroup business capability. Self-contained, no shared references.
+    resources:
+    - name: GetGroup
+      path: /GetGroup
+      operations:
+      - name: amazonwebservicesgetgroup
+        method: POST
+        description: Amazon Web Services Getgroup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: xray-getgroup-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services xray — GetGroup. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/getgroup
+      name: getgroup
+      description: REST surface for GetGroup.
+      operations:
+      - method: POST
+        name: amazonwebservicesgetgroup
+        description: Amazon Web Services Getgroup
+        call: xray-getgroup.amazonwebservicesgetgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: xray-getgroup-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services xray — GetGroup. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-web-services-getgroup
+      description: Amazon Web Services Getgroup
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: xray-getgroup.amazonwebservicesgetgroup
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,323 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services managedblockchain — Networks
+  description: 'Amazon Web Services managedblockchain — Networks. 9 operations. Lead operation: Amazon Web Services Listnetworks.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Networks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: managedblockchain-networks
+    baseUri: ''
+    description: Amazon Web Services managedblockchain — Networks business capability. Self-contained, no shared references.
+    resources:
+    - name: networks
+      path: /networks
+      operations:
+      - name: amazonwebserviceslistnetworks
+        method: GET
+        description: Amazon Web Services Listnetworks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId
+      path: /networks/{networkId}
+      operations:
+      - name: amazonwebservicesgetnetwork
+        method: GET
+        description: Amazon Web Services Getnetwork
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-members
+      path: /networks/{networkId}/members
+      operations:
+      - name: amazonwebserviceslistmembers
+        method: GET
+        description: Amazon Web Services Listmembers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-members-memberId
+      path: /networks/{networkId}/members/{memberId}
+      operations:
+      - name: amazonwebservicesupdatemember
+        method: PATCH
+        description: Amazon Web Services Updatemember
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-nodes
+      path: /networks/{networkId}/nodes
+      operations:
+      - name: amazonwebserviceslistnodes
+        method: GET
+        description: Amazon Web Services Listnodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-nodes-nodeId
+      path: /networks/{networkId}/nodes/{nodeId}
+      operations:
+      - name: amazonwebservicesupdatenode
+        method: PATCH
+        description: Amazon Web Services Updatenode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-proposals
+      path: /networks/{networkId}/proposals
+      operations:
+      - name: amazonwebserviceslistproposals
+        method: GET
+        description: Amazon Web Services Listproposals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-proposals-proposalId
+      path: /networks/{networkId}/proposals/{proposalId}
+      operations:
+      - name: amazonwebservicesgetproposal
+        method: GET
+        description: Amazon Web Services Getproposal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: networks-networkId-proposals-proposalId-votes
+      path: /networks/{networkId}/proposals/{proposalId}/votes
+      operations:
+      - name: amazonwebservicesvoteonproposal
+        method: POST
+        description: Amazon Web Services Voteonproposal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: managedblockchain-networks-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services managedblockchain — Networks. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/networks
+      name: networks
+      description: REST surface for networks.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistnetworks
+        description: Amazon Web Services Listnetworks
+        call: managedblockchain-networks.amazonwebserviceslistnetworks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}
+      name: networks-networkid
+      description: REST surface for networks-networkId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetnetwork
+        description: Amazon Web Services Getnetwork
+        call: managedblockchain-networks.amazonwebservicesgetnetwork
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/members
+      name: networks-networkid-members
+      description: REST surface for networks-networkId-members.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistmembers
+        description: Amazon Web Services Listmembers
+        call: managedblockchain-networks.amazonwebserviceslistmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/members/{memberid}
+      name: networks-networkid-members-memberid
+      description: REST surface for networks-networkId-members-memberId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatemember
+        description: Amazon Web Services Updatemember
+        call: managedblockchain-networks.amazonwebservicesupdatemember
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/nodes
+      name: networks-networkid-nodes
+      description: REST surface for networks-networkId-nodes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistnodes
+        description: Amazon Web Services Listnodes
+        call: managedblockchain-networks.amazonwebserviceslistnodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/nodes/{nodeid}
+      name: networks-networkid-nodes-nodeid
+      description: REST surface for networks-networkId-nodes-nodeId.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatenode
+        description: Amazon Web Services Updatenode
+        call: managedblockchain-networks.amazonwebservicesupdatenode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/proposals
+      name: networks-networkid-proposals
+      description: REST surface for networks-networkId-proposals.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistproposals
+        description: Amazon Web Services Listproposals
+        call: managedblockchain-networks.amazonwebserviceslistproposals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/proposals/{proposalid}
+      name: networks-networkid-proposals-proposalid
+      description: REST surface for networks-networkId-proposals-proposalId.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetproposal
+        description: Amazon Web Services Getproposal
+        call: managedblockchain-networks.amazonwebservicesgetproposal
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/networks/{networkid}/proposals/{proposalid}/votes
+      name: networks-networkid-proposals-proposalid-votes
+      description: REST surface for networks-networkId-proposals-proposalId-votes.
+      operations:
+      - method: POST
+        name: amazonwebservicesvoteonproposal
+        description: Amazon Web Services Voteonproposal
+        call: managedblockchain-networks.amazonwebservicesvoteonproposal
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: managedblockchain-networks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services managedblockchain — Networks. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-listnetworks
+      description: Amazon Web Services Listnetworks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebserviceslistnetworks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getnetwork
+      description: Amazon Web Services Getnetwork
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebservicesgetnetwork
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listmembers
+      description: Amazon Web Services Listmembers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebserviceslistmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatemember
+      description: Amazon Web Services Updatemember
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebservicesupdatemember
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listnodes
+      description: Amazon Web Services Listnodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebserviceslistnodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatenode
+      description: Amazon Web Services Updatenode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebservicesupdatenode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listproposals
+      description: Amazon Web Services Listproposals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebserviceslistproposals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getproposal
+      description: Amazon Web Services Getproposal
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: managedblockchain-networks.amazonwebservicesgetproposal
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-voteonproposal
+      description: Amazon Web Services Voteonproposal
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: managedblockchain-networks.amazonwebservicesvoteonproposal
+      outputParameters:
+      - type: object
+        mapping: $.

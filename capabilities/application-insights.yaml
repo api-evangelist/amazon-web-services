@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services application-insights
+  description: 'Amazon Web Services application-insights. 1 operations. Lead operation: Amazon Web Services Updateworkload.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - Amazon Web Services application-insights
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: application-insights
+    baseUri: ''
+    description: Amazon Web Services application-insights business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: amazonwebservicesupdateworkload
+        method: POST
+        description: Amazon Web Services Updateworkload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: application-insights-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services application-insights. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: POST
+        name: amazonwebservicesupdateworkload
+        description: Amazon Web Services Updateworkload
+        call: application-insights.amazonwebservicesupdateworkload
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: application-insights-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services application-insights. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-updateworkload
+      description: Amazon Web Services Updateworkload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: application-insights.amazonwebservicesupdateworkload
+      outputParameters:
+      - type: object
+        mapping: $.

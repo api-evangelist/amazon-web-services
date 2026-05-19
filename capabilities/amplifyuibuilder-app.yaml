@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services amplifyuibuilder — App
+  description: 'Amazon Web Services amplifyuibuilder — App. 10 operations. Lead operation: Amazon Web Services Startcodegenjob.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - App
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amplifyuibuilder-app
+    baseUri: ''
+    description: Amazon Web Services amplifyuibuilder — App business capability. Self-contained, no shared references.
+    resources:
+    - name: app-appId-environment-environmentName-codegen-jobs
+      path: /app/{appId}/environment/{environmentName}/codegen-jobs
+      operations:
+      - name: amazonwebservicesstartcodegenjob
+        method: POST
+        description: Amazon Web Services Startcodegenjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-codegen-jobs-id
+      path: /app/{appId}/environment/{environmentName}/codegen-jobs/{id}
+      operations:
+      - name: amazonwebservicesgetcodegenjob
+        method: GET
+        description: Amazon Web Services Getcodegenjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-components
+      path: /app/{appId}/environment/{environmentName}/components
+      operations:
+      - name: amazonwebserviceslistcomponents
+        method: GET
+        description: Amazon Web Services Listcomponents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-components-id
+      path: /app/{appId}/environment/{environmentName}/components/{id}
+      operations:
+      - name: amazonwebservicesupdatecomponent
+        method: PATCH
+        description: Amazon Web Services Updatecomponent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-forms
+      path: /app/{appId}/environment/{environmentName}/forms
+      operations:
+      - name: amazonwebserviceslistforms
+        method: GET
+        description: Amazon Web Services Listforms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-forms-id
+      path: /app/{appId}/environment/{environmentName}/forms/{id}
+      operations:
+      - name: amazonwebservicesupdateform
+        method: PATCH
+        description: Amazon Web Services Updateform
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-metadata
+      path: /app/{appId}/environment/{environmentName}/metadata
+      operations:
+      - name: amazonwebservicesgetmetadata
+        method: GET
+        description: Amazon Web Services Getmetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-metadata-features-featureName
+      path: /app/{appId}/environment/{environmentName}/metadata/features/{featureName}
+      operations:
+      - name: amazonwebservicesputmetadataflag
+        method: PUT
+        description: Amazon Web Services Putmetadataflag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-themes
+      path: /app/{appId}/environment/{environmentName}/themes
+      operations:
+      - name: amazonwebserviceslistthemes
+        method: GET
+        description: Amazon Web Services Listthemes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: app-appId-environment-environmentName-themes-id
+      path: /app/{appId}/environment/{environmentName}/themes/{id}
+      operations:
+      - name: amazonwebservicesupdatetheme
+        method: PATCH
+        description: Amazon Web Services Updatetheme
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: amplifyuibuilder-app-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services amplifyuibuilder — App. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/app/{appid}/environment/{environmentname}/codegen-jobs
+      name: app-appid-environment-environmentname-codegen-jobs
+      description: REST surface for app-appId-environment-environmentName-codegen-jobs.
+      operations:
+      - method: POST
+        name: amazonwebservicesstartcodegenjob
+        description: Amazon Web Services Startcodegenjob
+        call: amplifyuibuilder-app.amazonwebservicesstartcodegenjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/codegen-jobs/{id}
+      name: app-appid-environment-environmentname-codegen-jobs-id
+      description: REST surface for app-appId-environment-environmentName-codegen-jobs-id.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetcodegenjob
+        description: Amazon Web Services Getcodegenjob
+        call: amplifyuibuilder-app.amazonwebservicesgetcodegenjob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/components
+      name: app-appid-environment-environmentname-components
+      description: REST surface for app-appId-environment-environmentName-components.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistcomponents
+        description: Amazon Web Services Listcomponents
+        call: amplifyuibuilder-app.amazonwebserviceslistcomponents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/components/{id}
+      name: app-appid-environment-environmentname-components-id
+      description: REST surface for app-appId-environment-environmentName-components-id.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatecomponent
+        description: Amazon Web Services Updatecomponent
+        call: amplifyuibuilder-app.amazonwebservicesupdatecomponent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/forms
+      name: app-appid-environment-environmentname-forms
+      description: REST surface for app-appId-environment-environmentName-forms.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistforms
+        description: Amazon Web Services Listforms
+        call: amplifyuibuilder-app.amazonwebserviceslistforms
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/forms/{id}
+      name: app-appid-environment-environmentname-forms-id
+      description: REST surface for app-appId-environment-environmentName-forms-id.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdateform
+        description: Amazon Web Services Updateform
+        call: amplifyuibuilder-app.amazonwebservicesupdateform
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/metadata
+      name: app-appid-environment-environmentname-metadata
+      description: REST surface for app-appId-environment-environmentName-metadata.
+      operations:
+      - method: GET
+        name: amazonwebservicesgetmetadata
+        description: Amazon Web Services Getmetadata
+        call: amplifyuibuilder-app.amazonwebservicesgetmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/metadata/features/{featurename}
+      name: app-appid-environment-environmentname-metadata-features-featurename
+      description: REST surface for app-appId-environment-environmentName-metadata-features-featureName.
+      operations:
+      - method: PUT
+        name: amazonwebservicesputmetadataflag
+        description: Amazon Web Services Putmetadataflag
+        call: amplifyuibuilder-app.amazonwebservicesputmetadataflag
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/themes
+      name: app-appid-environment-environmentname-themes
+      description: REST surface for app-appId-environment-environmentName-themes.
+      operations:
+      - method: GET
+        name: amazonwebserviceslistthemes
+        description: Amazon Web Services Listthemes
+        call: amplifyuibuilder-app.amazonwebserviceslistthemes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/app/{appid}/environment/{environmentname}/themes/{id}
+      name: app-appid-environment-environmentname-themes-id
+      description: REST surface for app-appId-environment-environmentName-themes-id.
+      operations:
+      - method: PATCH
+        name: amazonwebservicesupdatetheme
+        description: Amazon Web Services Updatetheme
+        call: amplifyuibuilder-app.amazonwebservicesupdatetheme
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amplifyuibuilder-app-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services amplifyuibuilder — App. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-startcodegenjob
+      description: Amazon Web Services Startcodegenjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amplifyuibuilder-app.amazonwebservicesstartcodegenjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getcodegenjob
+      description: Amazon Web Services Getcodegenjob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesgetcodegenjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listcomponents
+      description: Amazon Web Services Listcomponents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebserviceslistcomponents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatecomponent
+      description: Amazon Web Services Updatecomponent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesupdatecomponent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listforms
+      description: Amazon Web Services Listforms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebserviceslistforms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updateform
+      description: Amazon Web Services Updateform
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesupdateform
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-getmetadata
+      description: Amazon Web Services Getmetadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesgetmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-putmetadataflag
+      description: Amazon Web Services Putmetadataflag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesputmetadataflag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-listthemes
+      description: Amazon Web Services Listthemes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebserviceslistthemes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-updatetheme
+      description: Amazon Web Services Updatetheme
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amplifyuibuilder-app.amazonwebservicesupdatetheme
+      outputParameters:
+      - type: object
+        mapping: $.

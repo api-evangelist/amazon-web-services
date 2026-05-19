@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services robomaker — createSimulationJob
+  description: 'Amazon Web Services robomaker — createSimulationJob. 1 operations. Lead operation: Amazon Web Services Createsimulationjob.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - createSimulationJob
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: robomaker-createsimulationjob
+    baseUri: ''
+    description: Amazon Web Services robomaker — createSimulationJob business capability. Self-contained, no shared references.
+    resources:
+    - name: createSimulationJob
+      path: /createSimulationJob
+      operations:
+      - name: amazonwebservicescreatesimulationjob
+        method: POST
+        description: Amazon Web Services Createsimulationjob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: robomaker-createsimulationjob-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services robomaker — createSimulationJob. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/createsimulationjob
+      name: createsimulationjob
+      description: REST surface for createSimulationJob.
+      operations:
+      - method: POST
+        name: amazonwebservicescreatesimulationjob
+        description: Amazon Web Services Createsimulationjob
+        call: robomaker-createsimulationjob.amazonwebservicescreatesimulationjob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: robomaker-createsimulationjob-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services robomaker — createSimulationJob. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-createsimulationjob
+      description: Amazon Web Services Createsimulationjob
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: robomaker-createsimulationjob.amazonwebservicescreatesimulationjob
+      outputParameters:
+      - type: object
+        mapping: $.

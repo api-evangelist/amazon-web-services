@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Web Services mediatailor — configureLogs
+  description: 'Amazon Web Services mediatailor — configureLogs. 2 operations. Lead operation: Amazon Web Services Configurelogsforchannel.
+    Self-contained Naftiko capability covering one Amazon Web Services business surface.'
+  tags:
+  - Amazon Web Services
+  - configureLogs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_WEB_SERVICES_API_KEY: AMAZON_WEB_SERVICES_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mediatailor-configurelogs
+    baseUri: ''
+    description: Amazon Web Services mediatailor — configureLogs business capability. Self-contained, no shared references.
+    resources:
+    - name: configureLogs-channel
+      path: /configureLogs/channel
+      operations:
+      - name: amazonwebservicesconfigurelogsforchannel
+        method: PUT
+        description: Amazon Web Services Configurelogsforchannel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: configureLogs-playbackConfiguration
+      path: /configureLogs/playbackConfiguration
+      operations:
+      - name: amazonwebservicesconfigurelogsforplaybackconfiguration
+        method: PUT
+        description: Amazon Web Services Configurelogsforplaybackconfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: mediatailor-configurelogs-rest
+    port: 8080
+    description: REST adapter for Amazon Web Services mediatailor — configureLogs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/configurelogs/channel
+      name: configurelogs-channel
+      description: REST surface for configureLogs-channel.
+      operations:
+      - method: PUT
+        name: amazonwebservicesconfigurelogsforchannel
+        description: Amazon Web Services Configurelogsforchannel
+        call: mediatailor-configurelogs.amazonwebservicesconfigurelogsforchannel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/configurelogs/playbackconfiguration
+      name: configurelogs-playbackconfiguration
+      description: REST surface for configureLogs-playbackConfiguration.
+      operations:
+      - method: PUT
+        name: amazonwebservicesconfigurelogsforplaybackconfiguration
+        description: Amazon Web Services Configurelogsforplaybackconfiguration
+        call: mediatailor-configurelogs.amazonwebservicesconfigurelogsforplaybackconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mediatailor-configurelogs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Web Services mediatailor — configureLogs. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: amazon-web-services-configurelogsforchannel
+      description: Amazon Web Services Configurelogsforchannel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediatailor-configurelogs.amazonwebservicesconfigurelogsforchannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-web-services-configurelogsforplaybackconfiguration
+      description: Amazon Web Services Configurelogsforplaybackconfiguration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: mediatailor-configurelogs.amazonwebservicesconfigurelogsforplaybackconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
