@@ -1,59 +1,74 @@
-extends: spectral:oas
+# amazon-web-services — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - merge: kept 8 existing, added 1 measured, upgraded 0
+#   - added: no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be present.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: title
       function: truthy
   info-description-required:
     description: Info description must be present.
     severity: warn
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
   operation-summary-required:
     description: Every operation must have a summary.
     severity: error
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: summary
       function: truthy
   operation-summary-prefix:
     description: Operation summaries must start with 'Amazon Web Services'.
     severity: warn
-    given: "$.paths[*][*].summary"
+    given: $.paths[*][*].summary
     then:
       function: pattern
       functionOptions:
-        match: "^Amazon Web Services"
+        match: ^Amazon Web Services
   operation-operationId-required:
     description: Every operation must have an operationId.
     severity: error
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: operationId
       function: truthy
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: tags
       function: truthy
   parameter-description-required:
     description: Every parameter must have a description.
     severity: warn
-    given: "$.paths[*][*].parameters[*]"
+    given: $.paths[*][*].parameters[*]
     then:
       field: description
       function: truthy
   security-schemes-defined:
     description: Security schemes must be defined.
     severity: warn
-    given: "$.components"
+    given: $.components
     then:
       field: securitySchemes
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
