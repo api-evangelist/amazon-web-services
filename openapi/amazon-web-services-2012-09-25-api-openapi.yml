@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: 2012 09 25
+paths:
+  /2012-09-25/jobs/{Id}:
+    GET:
+      summary: Amazon Web Services Readjob
+      description: The ReadJob operation returns detailed information about a job.
+      operationId: amazonWebServicesReadJob
+      tags:
+      - 2012 09 25
+  /2012-09-25/jobs:
+    POST:
+      summary: Amazon Web Services Createjob
+      description: When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified plus information about the job that is created. If you have specified more than one output for your jobs (for example, one output for the Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to list the jobs (as opposed to the AWS Console).
+      operationId: amazonWebServicesCreateJob
+      tags:
+      - 2012 09 25
+  /2012-09-25/pipelines:
+    GET:
+      summary: Amazon Web Services Listpipelines
+      description: The ListPipelines operation gets a list of the pipelines associated with the current AWS account.
+      operationId: amazonWebServicesListPipelines
+      tags:
+      - 2012 09 25
+  /2012-09-25/presets:
+    GET:
+      summary: Amazon Web Services Listpresets
+      description: The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region.
+      operationId: amazonWebServicesListPresets
+      tags:
+      - 2012 09 25
+  /2012-09-25/pipelines/{Id}:
+    PUT:
+      summary: Amazon Web Services Updatepipeline
+      description: ' Use the UpdatePipeline operation to update settings for a pipeline.  When you change pipeline settings, your changes take effect immediately. Jobs that you have already submitted and that Elastic Transcoder has not started to process are affected in addition to jobs that you submit after you change settings.  '
+      operationId: amazonWebServicesUpdatePipeline
+      tags:
+      - 2012 09 25
+  /2012-09-25/presets/{Id}:
+    GET:
+      summary: Amazon Web Services Readpreset
+      description: The ReadPreset operation gets detailed information about a preset.
+      operationId: amazonWebServicesReadPreset
+      tags:
+      - 2012 09 25
+  /2012-09-25/jobsByPipeline/{PipelineId}:
+    GET:
+      summary: Amazon Web Services Listjobsbypipeline
+      description: The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline. Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains one element for each job that satisfies the search criteria.
+      operationId: amazonWebServicesListJobsByPipeline
+      tags:
+      - 2012 09 25
+  /2012-09-25/jobsByStatus/{Status}:
+    GET:
+      summary: Amazon Web Services Listjobsbystatus
+      description: The ListJobsByStatus operation gets a list of jobs that have a specified status. The response body contains one element for each job that satisfies the search criteria.
+      operationId: amazonWebServicesListJobsByStatus
+      tags:
+      - 2012 09 25
+  /2012-09-25/roleTests:
+    POST:
+      summary: Amazon Web Services Testrole
+      description: The TestRole operation tests the IAM role used to create the pipeline. The TestRole action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.
+      operationId: amazonWebServicesTestRole
+      tags:
+      - 2012 09 25
+  /2012-09-25/pipelines/{Id}/notifications:
+    POST:
+      summary: Amazon Web Services Updatepipelinenotifications
+      description: With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline. When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.
+      operationId: amazonWebServicesUpdatePipelineNotifications
+      tags:
+      - 2012 09 25
+  /2012-09-25/pipelines/{Id}/status:
+    POST:
+      summary: Amazon Web Services Updatepipelinestatus
+      description: 'The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs. Changing the pipeline status is useful if you want to cancel one or more jobs. You can''t cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a CancelJob request. '
+      operationId: amazonWebServicesUpdatePipelineStatus
+      tags:
+      - 2012 09 25

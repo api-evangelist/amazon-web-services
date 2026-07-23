@@ -1,0 +1,189 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Instance API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Instance
+paths:
+  /instance/{InstanceId}/approved-origin:
+    DELETE:
+      summary: Amazon Web Services Disassociateapprovedorigin
+      description: This API is in preview release for Amazon Connect and is subject to change. Revokes access to integrated applications from Amazon Connect.
+      operationId: amazonWebServicesDisassociateApprovedOrigin
+      tags:
+      - Instance
+  /instance/{InstanceId}/bot:
+    POST:
+      summary: Amazon Web Services Disassociatebot
+      description: 'This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. '
+      operationId: amazonWebServicesDisassociateBot
+      tags:
+      - Instance
+  /instance/{InstanceId}/storage-config:
+    PUT:
+      summary: Amazon Web Services Associateinstancestorageconfig
+      description: This API is in preview release for Amazon Connect and is subject to change. Associates a storage resource type for the first time. You can only associate one type of storage configuration in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing chat transcripts. This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the resource being specified in the storage configuration, like an S3 bucket, exists when being used for association.
+      operationId: amazonWebServicesAssociateInstanceStorageConfig
+      tags:
+      - Instance
+  /instance/{InstanceId}/lambda-function:
+    DELETE:
+      summary: Amazon Web Services Disassociatelambdafunction
+      description: This API is in preview release for Amazon Connect and is subject to change. Remove the Lambda function from the dropdown options available in the relevant flow blocks.
+      operationId: amazonWebServicesDisassociateLambdaFunction
+      tags:
+      - Instance
+  /instance/{InstanceId}/lex-bot:
+    DELETE:
+      summary: Amazon Web Services Disassociatelexbot
+      description: This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex bot.
+      operationId: amazonWebServicesDisassociateLexBot
+      tags:
+      - Instance
+  /instance/{InstanceId}/security-key:
+    PUT:
+      summary: Amazon Web Services Associatesecuritykey
+      description: This API is in preview release for Amazon Connect and is subject to change. Associates a security key to the instance.
+      operationId: amazonWebServicesAssociateSecurityKey
+      tags:
+      - Instance
+  /instance:
+    GET:
+      summary: Amazon Web Services Listinstances
+      description: This API is in preview release for Amazon Connect and is subject to change. Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.
+      operationId: amazonWebServicesListInstances
+      tags:
+      - Instance
+  /instance/{InstanceId}/integration-associations:
+    GET:
+      summary: Amazon Web Services Listintegrationassociations
+      description: Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.
+      operationId: amazonWebServicesListIntegrationAssociations
+      tags:
+      - Instance
+  /instance/{InstanceId}/task/template:
+    GET:
+      summary: Amazon Web Services Listtasktemplates
+      description: Lists task templates for the specified Amazon Connect instance.
+      operationId: amazonWebServicesListTaskTemplates
+      tags:
+      - Instance
+  /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases:
+    GET:
+      summary: Amazon Web Services Listusecases
+      description: 'Lists the use cases for the integration association. '
+      operationId: amazonWebServicesListUseCases
+      tags:
+      - Instance
+  /instance/{InstanceId}:
+    GET:
+      summary: Amazon Web Services Describeinstance
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status, if applicable.  If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.
+      operationId: amazonWebServicesDescribeInstance
+      tags:
+      - Instance
+  /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}:
+    DELETE:
+      summary: Amazon Web Services Deleteintegrationassociation
+      description: Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.
+      operationId: amazonWebServicesDeleteIntegrationAssociation
+      tags:
+      - Instance
+  /instance/{InstanceId}/task/template/{TaskTemplateId}:
+    POST:
+      summary: Amazon Web Services Updatetasktemplate
+      description: Updates details about a specific task template in the specified Amazon Connect instance. This operation does not support partial updates. Instead it does a full update of template content.
+      operationId: amazonWebServicesUpdateTaskTemplate
+      tags:
+      - Instance
+  /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}:
+    DELETE:
+      summary: Amazon Web Services Deleteusecase
+      description: Deletes a use case from an integration association.
+      operationId: amazonWebServicesDeleteUseCase
+      tags:
+      - Instance
+  /instance/{InstanceId}/attribute/{AttributeType}:
+    POST:
+      summary: Amazon Web Services Updateinstanceattribute
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates the value for the specified attribute type.
+      operationId: amazonWebServicesUpdateInstanceAttribute
+      tags:
+      - Instance
+  /instance/{InstanceId}/storage-config/{AssociationId}:
+    POST:
+      summary: Amazon Web Services Updateinstancestorageconfig
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates an existing configuration for a resource type. This API is idempotent.
+      operationId: amazonWebServicesUpdateInstanceStorageConfig
+      tags:
+      - Instance
+  /instance/{InstanceId}/security-key/{AssociationId}:
+    DELETE:
+      summary: Amazon Web Services Disassociatesecuritykey
+      description: This API is in preview release for Amazon Connect and is subject to change. Deletes the specified security key.
+      operationId: amazonWebServicesDisassociateSecurityKey
+      tags:
+      - Instance
+  /instance/{InstanceId}/approved-origins:
+    GET:
+      summary: Amazon Web Services Listapprovedorigins
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all approved origins associated with the instance.
+      operationId: amazonWebServicesListApprovedOrigins
+      tags:
+      - Instance
+  /instance/{InstanceId}/bots:
+    GET:
+      summary: Amazon Web Services Listbots
+      description: This API is in preview release for Amazon Connect and is subject to change. For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.
+      operationId: amazonWebServicesListBots
+      tags:
+      - Instance
+  /instance/{InstanceId}/attributes:
+    GET:
+      summary: Amazon Web Services Listinstanceattributes
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all attribute types for the given instance.
+      operationId: amazonWebServicesListInstanceAttributes
+      tags:
+      - Instance
+  /instance/{InstanceId}/storage-configs:
+    GET:
+      summary: Amazon Web Services Listinstancestorageconfigs
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of storage configs for the identified instance and resource type.
+      operationId: amazonWebServicesListInstanceStorageConfigs
+      tags:
+      - Instance
+  /instance/{InstanceId}/lambda-functions:
+    GET:
+      summary: Amazon Web Services Listlambdafunctions
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow blocks.
+      operationId: amazonWebServicesListLambdaFunctions
+      tags:
+      - Instance
+  /instance/{InstanceId}/lex-bots:
+    GET:
+      summary: Amazon Web Services Listlexbots
+      description: 'This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the ListBots API. '
+      operationId: amazonWebServicesListLexBots
+      tags:
+      - Instance
+  /instance/{InstanceId}/security-keys:
+    GET:
+      summary: Amazon Web Services Listsecuritykeys
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all security keys associated with the instance.
+      operationId: amazonWebServicesListSecurityKeys
+      tags:
+      - Instance
+  /instance/{InstanceId}/replicate:
+    POST:
+      summary: Amazon Web Services Replicateinstance
+      description: Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions.  For more information about replicating an Amazon Connect instance, see Create a replica of your existing Amazon Connect instance in the Amazon Connect Administrator Guide.
+      operationId: amazonWebServicesReplicateInstance
+      tags:
+      - Instance
+  /instance/ListInstances:
+    POST:
+      summary: Amazon Web Services Listinstances
+      description: Lists the EC2 instances providing user-based subscriptions.
+      operationId: amazonWebServicesListInstances
+      tags:
+      - Instance

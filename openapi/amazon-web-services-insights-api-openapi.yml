@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Insights API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Insights
+paths:
+  /insights:
+    GET:
+      summary: Amazon Web Services Getinsights
+      description: 'Gets the latest analytics data for all your current active assessments. '
+      operationId: amazonWebServicesGetInsights
+      tags:
+      - Insights
+    POST:
+      summary: Amazon Web Services Listinsights
+      description: ' Returns a list of insights in your Amazon Web Services account. You can specify which insights are returned by their start time and status (ONGOING, CLOSED, or ANY). '
+      operationId: amazonWebServicesListInsights
+      tags:
+      - Insights
+  /insights/assessments/{assessmentId}:
+    GET:
+      summary: Amazon Web Services Getinsightsbyassessment
+      description: 'Gets the latest analytics data for a specific active assessment. '
+      operationId: amazonWebServicesGetInsightsByAssessment
+      tags:
+      - Insights
+  /insights/controls-by-assessment:
+    GET:
+      summary: Amazon Web Services Listassessmentcontrolinsightsbycontroldomain
+      description: 'Lists the latest analytics data for controls within a specific control domain and a specific active assessment.  Control insights are listed only if the control belongs to the control domain and assessment that was specified. Moreover, the control must have collected evidence on the lastUpdated date of controlInsightsByAssessment. If neither of these conditions are met, no data is listed for that control.  '
+      operationId: amazonWebServicesListAssessmentControlInsightsByControlDomain
+      tags:
+      - Insights
+  /insights/control-domains:
+    GET:
+      summary: Amazon Web Services Listcontroldomaininsights
+      description: 'Lists the latest analytics data for control domains across all of your active assessments.   A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn’t met, no data is listed for that control domain. '
+      operationId: amazonWebServicesListControlDomainInsights
+      tags:
+      - Insights
+  /insights/control-domains-by-assessment:
+    GET:
+      summary: Amazon Web Services Listcontroldomaininsightsbyassessment
+      description: 'Lists analytics data for control domains within a specified active assessment.  A control domain is listed only if at least one of the controls within that domain collected evidence on the lastUpdated date of controlDomainInsights. If this condition isn’t met, no data is listed for that domain. '
+      operationId: amazonWebServicesListControlDomainInsightsByAssessment
+      tags:
+      - Insights
+  /insights/controls:
+    GET:
+      summary: Amazon Web Services Listcontrolinsightsbycontroldomain
+      description: 'Lists the latest analytics data for controls within a specific control domain across all active assessments.  Control insights are listed only if the control belongs to the control domain that was specified and the control collected evidence on the lastUpdated date of controlInsightsMetadata. If neither of these conditions are met, no data is listed for that control.  '
+      operationId: amazonWebServicesListControlInsightsByControlDomain
+      tags:
+      - Insights
+  /insights/{Id}:
+    GET:
+      summary: Amazon Web Services Describeinsight
+      description: ' Returns details about an insight that you specify using its ID. '
+      operationId: amazonWebServicesDescribeInsight
+      tags:
+      - Insights
+  /insights/search:
+    POST:
+      summary: Amazon Web Services Searchinsights
+      description: ' Returns a list of insights in your Amazon Web Services account. You can specify which insights are returned by their start time, one or more statuses (ONGOING or CLOSED), one or more severities (LOW, MEDIUM, and HIGH), and type (REACTIVE or PROACTIVE).   Use the Filters parameter to specify status and severity search parameters. Use the Type parameter to specify REACTIVE or PROACTIVE in your search. '
+      operationId: amazonWebServicesSearchInsights
+      tags:
+      - Insights
+  /insights/{InsightArn+}:
+    PATCH:
+      summary: Amazon Web Services Updateinsight
+      description: Updates the Security Hub insight identified by the specified insight ARN.
+      operationId: amazonWebServicesUpdateInsight
+      tags:
+      - Insights
+  /insights/results/{InsightArn+}:
+    GET:
+      summary: Amazon Web Services Getinsightresults
+      description: Lists the results of the Security Hub insight specified by the insight ARN.
+      operationId: amazonWebServicesGetInsightResults
+      tags:
+      - Insights
+  /insights/get:
+    POST:
+      summary: Amazon Web Services Getinsights
+      description: Lists and describes insights for the specified insight ARNs.
+      operationId: amazonWebServicesGetInsights
+      tags:
+      - Insights

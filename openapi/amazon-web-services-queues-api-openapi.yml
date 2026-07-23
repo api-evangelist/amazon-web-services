@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Queues API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Queues
+paths:
+  /queues/{InstanceId}/{QueueId}/associate-quick-connects:
+    POST:
+      summary: Amazon Web Services Associatequeuequickconnects
+      description: This API is in preview release for Amazon Connect and is subject to change. Associates a set of quick connects with a queue.
+      operationId: amazonWebServicesAssociateQueueQuickConnects
+      tags:
+      - Queues
+  /queues/{InstanceId}:
+    PUT:
+      summary: Amazon Web Services Createqueue
+      description: 'This API is in preview release for Amazon Connect and is subject to change. Creates a new queue for the specified Amazon Connect instance.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Amazon Connect instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn''t contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region.   '
+      operationId: amazonWebServicesCreateQueue
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}:
+    GET:
+      summary: Amazon Web Services Describequeue
+      description: This API is in preview release for Amazon Connect and is subject to change. Describes the specified queue.
+      operationId: amazonWebServicesDescribeQueue
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/disassociate-quick-connects:
+    POST:
+      summary: Amazon Web Services Disassociatequeuequickconnects
+      description: This API is in preview release for Amazon Connect and is subject to change. Disassociates a set of quick connects from a queue.
+      operationId: amazonWebServicesDisassociateQueueQuickConnects
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/quick-connects:
+    GET:
+      summary: Amazon Web Services Listqueuequickconnects
+      description: This API is in preview release for Amazon Connect and is subject to change. Lists the quick connects associated with a queue.
+      operationId: amazonWebServicesListQueueQuickConnects
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/hours-of-operation:
+    POST:
+      summary: Amazon Web Services Updatequeuehoursofoperation
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates the hours of operation for the specified queue.
+      operationId: amazonWebServicesUpdateQueueHoursOfOperation
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/max-contacts:
+    POST:
+      summary: Amazon Web Services Updatequeuemaxcontacts
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates the maximum number of contacts allowed in a queue before it is considered full.
+      operationId: amazonWebServicesUpdateQueueMaxContacts
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/name:
+    POST:
+      summary: Amazon Web Services Updatequeuename
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates the name and description of a queue. At least Name or Description must be provided.
+      operationId: amazonWebServicesUpdateQueueName
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/outbound-caller-config:
+    POST:
+      summary: Amazon Web Services Updatequeueoutboundcallerconfig
+      description: 'This API is in preview release for Amazon Connect and is subject to change. Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.    If the phone number is claimed to a traffic distribution group that was created in the same Region as the Amazon Connect instance where you are calling this API, then you can use a full phone number ARN or a UUID for OutboundCallerIdNumberId. However, if the phone number is claimed to a traffic distribution group that is in one Region, and you are calling this API from an instance in another Amazon Web Services Region that is associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a ResourceNotFoundException.   Only use the phone number ARN format that doesn''t contain instance in the path, for example, arn:aws:connect:us-east-1:1234567890:phone-number/uuid. This is the same ARN format that is returned when you call the ListPhoneNumbersV2 API.   If you plan to use IAM policies to allow/deny access to this API for phone number resources claimed to a traffic distribution group, see Allow or Deny queue API actions for phone numbers in a replica Region.   '
+      operationId: amazonWebServicesUpdateQueueOutboundCallerConfig
+      tags:
+      - Queues
+  /queues/{InstanceId}/{QueueId}/status:
+    POST:
+      summary: Amazon Web Services Updatequeuestatus
+      description: This API is in preview release for Amazon Connect and is subject to change. Updates the status of the queue.
+      operationId: amazonWebServicesUpdateQueueStatus
+      tags:
+      - Queues

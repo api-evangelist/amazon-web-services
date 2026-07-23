@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Assessments API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Assessments
+paths:
+  /assessments/{assessmentId}/associateToAssessmentReport:
+    PUT:
+      summary: Amazon Web Services Associateassessmentreportevidencefolder
+      description: ' Associates an evidence folder to an assessment report in an Audit Manager assessment. '
+      operationId: amazonWebServicesAssociateAssessmentReportEvidenceFolder
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/batchAssociateToAssessmentReport:
+    PUT:
+      summary: Amazon Web Services Batchassociateassessmentreportevidence
+      description: ' Associates a list of evidence to an assessment report in an Audit Manager assessment. '
+      operationId: amazonWebServicesBatchAssociateAssessmentReportEvidence
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/delegations:
+    PUT:
+      summary: Amazon Web Services Batchdeletedelegationbyassessment
+      description: ' Deletes a batch of delegations for an assessment in Audit Manager. '
+      operationId: amazonWebServicesBatchDeleteDelegationByAssessment
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/batchDisassociateFromAssessmentReport:
+    PUT:
+      summary: Amazon Web Services Batchdisassociateassessmentreportevidence
+      description: ' Disassociates a list of evidence from an assessment report in Audit Manager. '
+      operationId: amazonWebServicesBatchDisassociateAssessmentReportEvidence
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence:
+    POST:
+      summary: Amazon Web Services Batchimportevidencetoassessmentcontrol
+      description: 'Adds one or more pieces of evidence to a control in an Audit Manager assessment.  You can import manual evidence from any S3 bucket by specifying the S3 URI of the object. You can also upload a file from your browser, or enter plain text in response to a risk assessment question.  The following restrictions apply to this action:    manualEvidence can be only one of the following: evidenceFileName, s3ResourcePath, or textResponse    Maximum size of an individual evidence file: 100 MB   Number of daily manual evidence uploads per control: 100   Supported file formats: See Supported file types for manual evidence in the Audit Manager User Guide    For more information about Audit Manager service restrictions, see Quotas and restrictions for Audit Manager.'
+      operationId: amazonWebServicesBatchImportEvidenceToAssessmentControl
+      tags:
+      - Assessments
+  /assessments:
+    GET:
+      summary: Amazon Web Services Listassessments
+      description: ' Returns a list of current and past assessments from Audit Manager. '
+      operationId: amazonWebServicesListAssessments
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/reports:
+    POST:
+      summary: Amazon Web Services Createassessmentreport
+      description: ' Creates an assessment report for the specified assessment. '
+      operationId: amazonWebServicesCreateAssessmentReport
+      tags:
+      - Assessments
+  /assessments/{assessmentId}:
+    PUT:
+      summary: Amazon Web Services Updateassessment
+      description: ' Edits an Audit Manager assessment. '
+      operationId: amazonWebServicesUpdateAssessment
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/reports/{assessmentReportId}:
+    DELETE:
+      summary: Amazon Web Services Deleteassessmentreport
+      description: 'Deletes an assessment report in Audit Manager.  When you run the DeleteAssessmentReport operation, Audit Manager attempts to delete the following data:   The specified assessment report that’s stored in your S3 bucket   The associated metadata that’s stored in Audit Manager   If Audit Manager can’t access the assessment report in your S3 bucket, the report isn’t deleted. In this event, the DeleteAssessmentReport operation doesn’t fail. Instead, it proceeds to delete the associated metadata only. You must then delete the assessment report from the S3 bucket yourself.  This scenario happens when Audit Manager receives a 403 (Forbidden) or 404 (Not Found) error from Amazon S3. To avoid this, make sure that your S3 bucket is available, and that you configured the correct permissions for Audit Manager to delete resources in your S3 bucket. For an example permissions policy that you can use, see Assessment report destination permissions in the Audit Manager User Guide. For information about the issues that could cause a 403 (Forbidden) or 404 (Not Found) error from Amazon S3, see List of Error Codes in the Amazon Simple Storage Service API Reference. '
+      operationId: amazonWebServicesDeleteAssessmentReport
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/disassociateFromAssessmentReport:
+    PUT:
+      summary: Amazon Web Services Disassociateassessmentreportevidencefolder
+      description: ' Disassociates an evidence folder from the specified assessment report in Audit Manager. '
+      operationId: amazonWebServicesDisassociateAssessmentReportEvidenceFolder
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/reports/{assessmentReportId}/url:
+    GET:
+      summary: Amazon Web Services Getassessmentreporturl
+      description: ' Gets the URL of an assessment report in Audit Manager. '
+      operationId: amazonWebServicesGetAssessmentReportUrl
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/changelogs:
+    GET:
+      summary: Amazon Web Services Getchangelogs
+      description: ' Gets a list of changelogs from Audit Manager. '
+      operationId: amazonWebServicesGetChangeLogs
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}/evidence/{evidenceId}:
+    GET:
+      summary: Amazon Web Services Getevidence
+      description: ' Gets information about a specified evidence item.'
+      operationId: amazonWebServicesGetEvidence
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}/evidence:
+    GET:
+      summary: Amazon Web Services Getevidencebyevidencefolder
+      description: ' Gets all evidence from a specified evidence folder in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceByEvidenceFolder
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}:
+    GET:
+      summary: Amazon Web Services Getevidencefolder
+      description: ' Gets an evidence folder from a specified assessment in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceFolder
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/evidenceFolders:
+    GET:
+      summary: Amazon Web Services Getevidencefoldersbyassessment
+      description: ' Gets the evidence folders from a specified assessment in Audit Manager. '
+      operationId: amazonWebServicesGetEvidenceFoldersByAssessment
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/evidenceFolders-by-assessment-control/{controlSetId}/{controlId}:
+    GET:
+      summary: Amazon Web Services Getevidencefoldersbyassessmentcontrol
+      description: ' Gets a list of evidence folders that are associated with a specified control in an Audit Manager assessment. '
+      operationId: amazonWebServicesGetEvidenceFoldersByAssessmentControl
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}:
+    PUT:
+      summary: Amazon Web Services Updateassessmentcontrol
+      description: ' Updates a control within an assessment in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentControl
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/controlSets/{controlSetId}/status:
+    PUT:
+      summary: Amazon Web Services Updateassessmentcontrolsetstatus
+      description: ' Updates the status of a control set in an Audit Manager assessment. '
+      operationId: amazonWebServicesUpdateAssessmentControlSetStatus
+      tags:
+      - Assessments
+  /assessments/{assessmentId}/status:
+    PUT:
+      summary: Amazon Web Services Updateassessmentstatus
+      description: ' Updates the status of an assessment in Audit Manager. '
+      operationId: amazonWebServicesUpdateAssessmentStatus
+      tags:
+      - Assessments

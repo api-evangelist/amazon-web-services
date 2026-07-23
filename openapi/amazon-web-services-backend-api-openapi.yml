@@ -1,0 +1,210 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Backend API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Backend
+paths:
+  /backend/{appId}/environments/{backendEnvironmentName}/clone:
+    POST:
+      summary: Amazon Web Services Clonebackend
+      description: This operation clones an existing backend.
+      operationId: amazonWebServicesCloneBackend
+      tags:
+      - Backend
+  /backend:
+    POST:
+      summary: Amazon Web Services Createbackend
+      description: This operation creates a backend for an Amplify app. Backends are automatically created at the time of app creation.
+      operationId: amazonWebServicesCreateBackend
+      tags:
+      - Backend
+  /backend/{appId}/api:
+    POST:
+      summary: Amazon Web Services Createbackendapi
+      description: Creates a new backend API resource.
+      operationId: amazonWebServicesCreateBackendAPI
+      tags:
+      - Backend
+  /backend/{appId}/auth:
+    POST:
+      summary: Amazon Web Services Createbackendauth
+      description: Creates a new backend authentication resource.
+      operationId: amazonWebServicesCreateBackendAuth
+      tags:
+      - Backend
+  /backend/{appId}/config:
+    POST:
+      summary: Amazon Web Services Createbackendconfig
+      description: Creates a config object for a backend.
+      operationId: amazonWebServicesCreateBackendConfig
+      tags:
+      - Backend
+  /backend/{appId}/storage:
+    POST:
+      summary: Amazon Web Services Createbackendstorage
+      description: Creates a backend storage resource.
+      operationId: amazonWebServicesCreateBackendStorage
+      tags:
+      - Backend
+  /backend/{appId}/challenge:
+    POST:
+      summary: Amazon Web Services Createtoken
+      description: Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.
+      operationId: amazonWebServicesCreateToken
+      tags:
+      - Backend
+  /backend/{appId}/environments/{backendEnvironmentName}/remove:
+    POST:
+      summary: Amazon Web Services Deletebackend
+      description: Removes an existing environment from your Amplify project.
+      operationId: amazonWebServicesDeleteBackend
+      tags:
+      - Backend
+  /backend/{appId}/api/{backendEnvironmentName}/remove:
+    POST:
+      summary: Amazon Web Services Deletebackendapi
+      description: Deletes an existing backend API resource.
+      operationId: amazonWebServicesDeleteBackendAPI
+      tags:
+      - Backend
+  /backend/{appId}/auth/{backendEnvironmentName}/remove:
+    POST:
+      summary: Amazon Web Services Deletebackendauth
+      description: Deletes an existing backend authentication resource.
+      operationId: amazonWebServicesDeleteBackendAuth
+      tags:
+      - Backend
+  /backend/{appId}/storage/{backendEnvironmentName}/remove:
+    POST:
+      summary: Amazon Web Services Deletebackendstorage
+      description: Removes the specified backend storage resource.
+      operationId: amazonWebServicesDeleteBackendStorage
+      tags:
+      - Backend
+  /backend/{appId}/challenge/{sessionId}/remove:
+    POST:
+      summary: Amazon Web Services Deletetoken
+      description: Deletes the challenge token based on the given appId and sessionId.
+      operationId: amazonWebServicesDeleteToken
+      tags:
+      - Backend
+  /backend/{appId}/api/{backendEnvironmentName}/generateModels:
+    POST:
+      summary: Amazon Web Services Generatebackendapimodels
+      description: Generates a model schema for an existing backend API resource.
+      operationId: amazonWebServicesGenerateBackendAPIModels
+      tags:
+      - Backend
+  /backend/{appId}/details:
+    POST:
+      summary: Amazon Web Services Getbackend
+      description: Provides project-level details for your Amplify UI project.
+      operationId: amazonWebServicesGetBackend
+      tags:
+      - Backend
+  /backend/{appId}/api/{backendEnvironmentName}/details:
+    POST:
+      summary: Amazon Web Services Getbackendapi
+      description: Gets the details for a backend API.
+      operationId: amazonWebServicesGetBackendAPI
+      tags:
+      - Backend
+  /backend/{appId}/api/{backendEnvironmentName}/getModels:
+    POST:
+      summary: Amazon Web Services Getbackendapimodels
+      description: Gets a model introspection schema for an existing backend API resource.
+      operationId: amazonWebServicesGetBackendAPIModels
+      tags:
+      - Backend
+  /backend/{appId}/auth/{backendEnvironmentName}/details:
+    POST:
+      summary: Amazon Web Services Getbackendauth
+      description: Gets a backend auth details.
+      operationId: amazonWebServicesGetBackendAuth
+      tags:
+      - Backend
+  /backend/{appId}/job/{backendEnvironmentName}/{jobId}:
+    POST:
+      summary: Amazon Web Services Updatebackendjob
+      description: Updates a specific job.
+      operationId: amazonWebServicesUpdateBackendJob
+      tags:
+      - Backend
+  /backend/{appId}/storage/{backendEnvironmentName}/details:
+    POST:
+      summary: Amazon Web Services Getbackendstorage
+      description: Gets details for a backend storage resource.
+      operationId: amazonWebServicesGetBackendStorage
+      tags:
+      - Backend
+  /backend/{appId}/challenge/{sessionId}:
+    GET:
+      summary: Amazon Web Services Gettoken
+      description: Gets the challenge token based on the given appId and sessionId.
+      operationId: amazonWebServicesGetToken
+      tags:
+      - Backend
+  /backend/{appId}/auth/{backendEnvironmentName}/import:
+    POST:
+      summary: Amazon Web Services Importbackendauth
+      description: Imports an existing backend authentication resource.
+      operationId: amazonWebServicesImportBackendAuth
+      tags:
+      - Backend
+  /backend/{appId}/storage/{backendEnvironmentName}/import:
+    POST:
+      summary: Amazon Web Services Importbackendstorage
+      description: Imports an existing backend storage resource.
+      operationId: amazonWebServicesImportBackendStorage
+      tags:
+      - Backend
+  /backend/{appId}/job/{backendEnvironmentName}:
+    POST:
+      summary: Amazon Web Services Listbackendjobs
+      description: Lists the jobs for the backend of an Amplify app.
+      operationId: amazonWebServicesListBackendJobs
+      tags:
+      - Backend
+  /backend/{appId}/remove:
+    POST:
+      summary: Amazon Web Services Removeallbackends
+      description: Removes all backend environments from your Amplify project.
+      operationId: amazonWebServicesRemoveAllBackends
+      tags:
+      - Backend
+  /backend/{appId}/config/remove:
+    POST:
+      summary: Amazon Web Services Removebackendconfig
+      description: Removes the AWS resources required to access the Amplify Admin UI.
+      operationId: amazonWebServicesRemoveBackendConfig
+      tags:
+      - Backend
+  /backend/{appId}/api/{backendEnvironmentName}:
+    POST:
+      summary: Amazon Web Services Updatebackendapi
+      description: Updates an existing backend API resource.
+      operationId: amazonWebServicesUpdateBackendAPI
+      tags:
+      - Backend
+  /backend/{appId}/auth/{backendEnvironmentName}:
+    POST:
+      summary: Amazon Web Services Updatebackendauth
+      description: Updates an existing backend authentication resource.
+      operationId: amazonWebServicesUpdateBackendAuth
+      tags:
+      - Backend
+  /backend/{appId}/config/update:
+    POST:
+      summary: Amazon Web Services Updatebackendconfig
+      description: Updates the AWS resources required to access the Amplify Admin UI.
+      operationId: amazonWebServicesUpdateBackendConfig
+      tags:
+      - Backend
+  /backend/{appId}/storage/{backendEnvironmentName}:
+    POST:
+      summary: Amazon Web Services Updatebackendstorage
+      description: Updates an existing backend storage resource.
+      operationId: amazonWebServicesUpdateBackendStorage
+      tags:
+      - Backend

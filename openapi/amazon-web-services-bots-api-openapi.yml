@@ -1,0 +1,419 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Bots API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Bots
+paths:
+  /bots/{name}/versions:
+    POST:
+      summary: Amazon Web Services Createbotversion
+      description: 'Creates a new version of the bot based on the $LATEST version. If the $LATEST version of this resource hasn''t changed since you created the last version, Amazon Lex doesn''t create a new version. It returns the last created version.  You can update only the $LATEST version of the bot. You can''t update the numbered versions that you create with the CreateBotVersion operation.   When you create the first version of a bot, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see versioning-intro.   This operation requires permission for the lex:CreateBotVersion action. '
+      operationId: amazonWebServicesCreateBotVersion
+      tags:
+      - Bots
+  /bots/{name}:
+    DELETE:
+      summary: Amazon Web Services Deletebot
+      description: Deletes all versions of the bot, including the $LATEST version. To delete a specific version of the bot, use the DeleteBotVersion operation. The DeleteBot operation doesn't immediately remove the bot schema. Instead, it is marked for deletion and removed later. Amazon Lex stores utterances indefinitely for improving the ability of your bot to respond to user inputs. These utterances are not removed when the bot is deleted. To remove the utterances, use the DeleteUtterances operation. If a bot has an alias, you can't delete it. Instead, the DeleteBot operation returns a ResourceInUseException exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the DeleteBot operation is successful. This operation requires permissions for the lex:DeleteBot action.
+      operationId: amazonWebServicesDeleteBot
+      tags:
+      - Bots
+  /bots/{botName}/aliases/{name}:
+    PUT:
+      summary: Amazon Web Services Putbotalias
+      description: 'Creates an alias for the specified version of the bot or replaces an alias for the specified bot. To change the version of the bot that the alias points to, replace the alias. For more information about aliases, see versioning-aliases. This operation requires permissions for the lex:PutBotAlias action. '
+      operationId: amazonWebServicesPutBotAlias
+      tags:
+      - Bots
+  /bots/{botName}/aliases/{aliasName}/channels/{name}:
+    GET:
+      summary: Amazon Web Services Getbotchannelassociation
+      description: Returns information about the association between an Amazon Lex bot and a messaging platform. This operation requires permissions for the lex:GetBotChannelAssociation action.
+      operationId: amazonWebServicesGetBotChannelAssociation
+      tags:
+      - Bots
+  /bots/{name}/versions/{version}:
+    DELETE:
+      summary: Amazon Web Services Deletebotversion
+      description: Deletes a specific version of a bot. To delete all versions of a bot, use the DeleteBot operation.  This operation requires permissions for the lex:DeleteBotVersion action.
+      operationId: amazonWebServicesDeleteBotVersion
+      tags:
+      - Bots
+  /bots/{botName}/utterances/{userId}:
+    DELETE:
+      summary: Amazon Web Services Deleteutterances
+      description: Deletes stored utterances. Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the GetUtterancesView operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input. Use the DeleteUtterances operation to manually delete stored utterances for a specific user. When you use the DeleteUtterances operation, utterances stored for improving your bot's ability to respond to user input are deleted immediately. Utterances stored for use with the GetUtterancesView operation are deleted after 15 days. This operation requires permissions for the lex:DeleteUtterances action.
+      operationId: amazonWebServicesDeleteUtterances
+      tags:
+      - Bots
+  /bots/{name}/versions/{versionoralias}:
+    GET:
+      summary: Amazon Web Services Getbot
+      description: 'Returns metadata information for a specific bot. You must provide the bot name and the bot version or alias.   This operation requires permissions for the lex:GetBot action. '
+      operationId: amazonWebServicesGetBot
+      tags:
+      - Bots
+  /bots/{botName}/aliases/:
+    GET:
+      summary: Amazon Web Services Getbotaliases
+      description: Returns a list of aliases for a specified Amazon Lex bot. This operation requires permissions for the lex:GetBotAliases action.
+      operationId: amazonWebServicesGetBotAliases
+      tags:
+      - Bots
+  /bots/{botName}/aliases/{aliasName}/channels/:
+    GET:
+      summary: Amazon Web Services Getbotchannelassociations
+      description: ' Returns a list of all of the channels associated with the specified bot.  The GetBotChannelAssociations operation requires permissions for the lex:GetBotChannelAssociations action.'
+      operationId: amazonWebServicesGetBotChannelAssociations
+      tags:
+      - Bots
+  /bots/{name}/versions/:
+    GET:
+      summary: Amazon Web Services Getbotversions
+      description: Gets information about all of the versions of a bot. The GetBotVersions operation returns a BotMetadata object for each version of a bot. For example, if a bot has three numbered versions, the GetBotVersions operation returns four BotMetadata objects in the response, one for each numbered version and one for the $LATEST version.  The GetBotVersions operation always returns at least one version, the $LATEST version. This operation requires permissions for the lex:GetBotVersions action.
+      operationId: amazonWebServicesGetBotVersions
+      tags:
+      - Bots
+  /bots/:
+    GET:
+      summary: Amazon Web Services Getbots
+      description: 'Returns bot information as follows:    If you provide the nameContains field, the response includes information for the $LATEST version of all bots whose name contains the specified string.   If you don''t specify the nameContains field, the operation returns information about the $LATEST version of all of your bots.   This operation requires permission for the lex:GetBots action.'
+      operationId: amazonWebServicesGetBots
+      tags:
+      - Bots
+    POST:
+      summary: Amazon Web Services Listbots
+      description: Gets a list of available bots.
+      operationId: amazonWebServicesListBots
+      tags:
+      - Bots
+  /bots/{botname}/utterances?view=aggregation:
+    GET:
+      summary: Amazon Web Services Getutterancesview
+      description: Use the GetUtterancesView operation to get information about the utterances that your users have made to your bot. You can use this list to tune the utterances that your bot responds to. For example, say that you have created a bot to order flowers. After your users have used your bot for a while, use the GetUtterancesView operation to see the requests that they have made and whether they have been successful. You might find that the utterance "I want flowers" is not being recognized. You could add this utterance to the OrderFlowers intent so that your bot recognizes that utterance. After you publish a new version of a bot, you can get information about the old version and the new so that you can compare the performance across the two versions.  Utterance statistics are generated once a day. Data is available for the last 15 days. You can request information for up to 5 versions of your bot in each request. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days. The response contains information about a maximum of 100 utterances for each version. If you set childDirected field to true when you created your bot, if you are using slot obfuscation with one or more slots, or if you opted out of participating in improving Amazon Lex, utterances are not available. This operation requires permissions for the lex:GetUtterancesView action.
+      operationId: amazonWebServicesGetUtterancesView
+      tags:
+      - Bots
+  /bots/{name}/versions/$LATEST:
+    PUT:
+      summary: Amazon Web Services Putbot
+      description: Creates an Amazon Lex conversational bot or replaces an existing bot. When you create or update a bot you are only required to specify a name, a locale, and whether the bot is directed toward children under age 13. You can use this to add intents later, or to remove intents from an existing bot. When you create a bot with the minimum information, the bot is created or updated but Amazon Lex returns the  response FAILED. You can build the bot after you add one or more intents. For more information about Amazon Lex bots, see how-it-works.  If you specify the name of an existing bot, the fields in the request replace the existing values in the $LATEST version of the bot. Amazon Lex removes any fields that you don't provide values for in the request, except for the idleTTLInSeconds and privacySettings fields, which are set to their default values. If you don't specify values for required fields, Amazon Lex throws an exception. This operation requires permissions for the lex:PutBot action. For more information, see security-iam.
+      operationId: amazonWebServicesPutBot
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate:
+    PUT:
+      summary: Amazon Web Services Batchcreatecustomvocabularyitem
+      description: Create a batch of custom vocabulary items for a given bot locale's custom vocabulary.
+      operationId: amazonWebServicesBatchCreateCustomVocabularyItem
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete:
+    POST:
+      summary: Amazon Web Services Batchdeletecustomvocabularyitem
+      description: Delete a batch of custom vocabulary items for a given bot locale's custom vocabulary.
+      operationId: amazonWebServicesBatchDeleteCustomVocabularyItem
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate:
+    PUT:
+      summary: Amazon Web Services Batchupdatecustomvocabularyitem
+      description: Update a batch of custom vocabulary items for a given bot locale's custom vocabulary.
+      operationId: amazonWebServicesBatchUpdateCustomVocabularyItem
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/:
+    PUT:
+      summary: Amazon Web Services Updatebotlocale
+      description: Updates the settings that a bot has for a specific locale.
+      operationId: amazonWebServicesUpdateBotLocale
+      tags:
+      - Bots
+  /bots/{botId}/botaliases/:
+    POST:
+      summary: Amazon Web Services Listbotaliases
+      description: Gets a list of aliases for the specified bot.
+      operationId: amazonWebServicesListBotAliases
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/:
+    POST:
+      summary: Amazon Web Services Listbotlocales
+      description: Gets a list of locales for the specified bot.
+      operationId: amazonWebServicesListBotLocales
+      tags:
+      - Bots
+  /bots/{botId}/replicas/:
+    POST:
+      summary: Amazon Web Services Listbotreplicas
+      description: The action to list the replicated bots.
+      operationId: amazonWebServicesListBotReplicas
+      tags:
+      - Bots
+  /bots/{botId}/botversions/:
+    POST:
+      summary: Amazon Web Services Listbotversions
+      description: Gets information about all of the versions of a bot. The ListBotVersions operation returns a summary of each version of a bot. For example, if a bot has three numbered versions, the ListBotVersions operation returns for summaries, one for each numbered version and one for the DRAFT version. The ListBotVersions operation always returns at least one version, the DRAFT version.
+      operationId: amazonWebServicesListBotVersions
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/:
+    POST:
+      summary: Amazon Web Services Listintents
+      description: Get a list of intents that meet the specified criteria.
+      operationId: amazonWebServicesListIntents
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/:
+    POST:
+      summary: Amazon Web Services Listslots
+      description: Gets a list of slots that match the specified criteria.
+      operationId: amazonWebServicesListSlots
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/:
+    POST:
+      summary: Amazon Web Services Listslottypes
+      description: Gets a list of slot types that match the specified criteria.
+      operationId: amazonWebServicesListSlotTypes
+      tags:
+      - Bots
+  /bots/{botId}/:
+    PUT:
+      summary: Amazon Web Services Updatebot
+      description: 'Updates the configuration of an existing bot. '
+      operationId: amazonWebServicesUpdateBot
+      tags:
+      - Bots
+  /bots/{botId}/botaliases/{botAliasId}/:
+    PUT:
+      summary: Amazon Web Services Updatebotalias
+      description: Updates the configuration of an existing bot alias.
+      operationId: amazonWebServicesUpdateBotAlias
+      tags:
+      - Bots
+  /bots/{botId}/replicas/{replicaRegion}/:
+    GET:
+      summary: Amazon Web Services Describebotreplica
+      description: Monitors the bot replication status through the UI console.
+      operationId: amazonWebServicesDescribeBotReplica
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/:
+    GET:
+      summary: Amazon Web Services Describebotversion
+      description: Provides metadata about a version of a bot.
+      operationId: amazonWebServicesDescribeBotVersion
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary:
+    DELETE:
+      summary: Amazon Web Services Deletecustomvocabulary
+      description: Removes a custom vocabulary from the specified locale in the specified bot.
+      operationId: amazonWebServicesDeleteCustomVocabulary
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/:
+    PUT:
+      summary: Amazon Web Services Updateintent
+      description: Updates the settings for an intent.
+      operationId: amazonWebServicesUpdateIntent
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}/:
+    PUT:
+      summary: Amazon Web Services Updateslot
+      description: Updates the settings for a slot.
+      operationId: amazonWebServicesUpdateSlot
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}/:
+    PUT:
+      summary: Amazon Web Services Updateslottype
+      description: Updates the configuration of an existing slot type.
+      operationId: amazonWebServicesUpdateSlotType
+      tags:
+      - Bots
+  /bots/{botId}/utterances/:
+    DELETE:
+      summary: Amazon Web Services Deleteutterances
+      description: Deletes stored utterances. Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the ListAggregatedUtterances operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.. Use the DeleteUtterances operation to manually delete utterances for a specific session. When you use the DeleteUtterances operation, utterances stored for improving your bot's ability to respond to user input are deleted immediately. Utterances stored for use with the ListAggregatedUtterances operation are deleted after 15 days.
+      operationId: amazonWebServicesDeleteUtterances
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/:
+    PUT:
+      summary: Amazon Web Services Updatebotrecommendation
+      description: Updates an existing bot recommendation request.
+      operationId: amazonWebServicesUpdateBotRecommendation
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}:
+    GET:
+      summary: Amazon Web Services Describebotresourcegeneration
+      description: Returns information about a request to generate a bot through natural language description, made through the StartBotResource API. Use the generatedBotLocaleUrl to retrieve the Amazon S3 object containing the bot locale configuration. You can then modify and import this configuration.
+      operationId: amazonWebServicesDescribeBotResourceGeneration
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/metadata:
+    GET:
+      summary: Amazon Web Services Describecustomvocabularymetadata
+      description: Provides metadata information about a custom vocabulary.
+      operationId: amazonWebServicesDescribeCustomVocabularyMetadata
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate:
+    POST:
+      summary: Amazon Web Services Generatebotelement
+      description: Generates sample utterances for an intent.
+      operationId: amazonWebServicesGenerateBotElement
+      tags:
+      - Bots
+  /bots/{botId}/aggregatedutterances/:
+    POST:
+      summary: Amazon Web Services Listaggregatedutterances
+      description: 'Provides a list of utterances that users have sent to the bot. Utterances are aggregated by the text of the utterance. For example, all instances where customers used the phrase "I want to order pizza" are aggregated into the same line in the response. You can see both detected utterances and missed utterances. A detected utterance is where the bot properly recognized the utterance and activated the associated intent. A missed utterance was not recognized by the bot and didn''t activate an intent. Utterances can be aggregated for a bot alias or for a bot version, but not both at the same time. Utterances statistics are not generated under the following conditions:   The childDirected field was set to true when the bot was created.   You are using slot obfuscation with one or more slots.   You opted out of participating in improving Amazon Lex.  '
+      operationId: amazonWebServicesListAggregatedUtterances
+      tags:
+      - Bots
+  /bots/{botId}/replicas/{replicaRegion}/botaliases/:
+    POST:
+      summary: Amazon Web Services Listbotaliasreplicas
+      description: The action to list the replicated bots created from the source bot alias.
+      operationId: amazonWebServicesListBotAliasReplicas
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/:
+    PUT:
+      summary: Amazon Web Services Startbotrecommendation
+      description: Use this to provide your transcript data, and to start the bot recommendation process.
+      operationId: amazonWebServicesStartBotRecommendation
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations:
+    POST:
+      summary: Amazon Web Services Listbotresourcegenerations
+      description: Lists the generation requests made for a bot locale.
+      operationId: amazonWebServicesListBotResourceGenerations
+      tags:
+      - Bots
+  /bots/{botId}/replicas/{replicaRegion}/botversions/:
+    POST:
+      summary: Amazon Web Services Listbotversionreplicas
+      description: Contains information about all the versions replication statuses applicable for Global Resiliency.
+      operationId: amazonWebServicesListBotVersionReplicas
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list:
+    POST:
+      summary: Amazon Web Services Listcustomvocabularyitems
+      description: Paginated list of custom vocabulary items for a given bot locale's custom vocabulary.
+      operationId: amazonWebServicesListCustomVocabularyItems
+      tags:
+      - Bots
+  /bots/{botId}/analytics/intentmetrics:
+    POST:
+      summary: Amazon Web Services Listintentmetrics
+      description: 'Retrieves summary metrics for the intents in your bot. The following fields are required:    metrics – A list of AnalyticsIntentMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can specify only one order in a given request.'
+      operationId: amazonWebServicesListIntentMetrics
+      tags:
+      - Bots
+  /bots/{botId}/analytics/intentpaths:
+    POST:
+      summary: Amazon Web Services Listintentpaths
+      description: 'Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:    startDateTime and endDateTime – Define a time range for which you want to retrieve results.    intentPath – Define an order of intents for which you want to retrieve metrics. Separate intents in the path with a forward slash. For example, populate the intentPath field with /BookCar/BookHotel to see details about how many times users invoked the BookCar and BookHotel intents in that order.   Use the optional filters field to filter the results.'
+      operationId: amazonWebServicesListIntentPaths
+      tags:
+      - Bots
+  /bots/{botId}/analytics/intentstagemetrics:
+    POST:
+      summary: Amazon Web Services Listintentstagemetrics
+      description: 'Retrieves summary metrics for the stages within intents in your bot. The following fields are required:    metrics – A list of AnalyticsIntentStageMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. You can only specify one order in a given request.'
+      operationId: amazonWebServicesListIntentStageMetrics
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents:
+    POST:
+      summary: Amazon Web Services Listrecommendedintents
+      description: Gets a list of recommended intents provided by the bot recommendation that you can use in your bot. Intents in the response are ordered by relevance.
+      operationId: amazonWebServicesListRecommendedIntents
+      tags:
+      - Bots
+  /bots/{botId}/analytics/sessions:
+    POST:
+      summary: Amazon Web Services Listsessionanalyticsdata
+      description: 'Retrieves a list of metadata for individual user sessions with your bot. The startDateTime and endDateTime fields are required. These fields define a time range for which you want to retrieve results. Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results and the sortBy field to specify the values by which to sort the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.  '
+      operationId: amazonWebServicesListSessionAnalyticsData
+      tags:
+      - Bots
+  /bots/{botId}/analytics/sessionmetrics:
+    POST:
+      summary: Amazon Web Services Listsessionmetrics
+      description: 'Retrieves summary metrics for the user sessions with your bot. The following fields are required:    metrics – A list of AnalyticsSessionMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both.'
+      operationId: amazonWebServicesListSessionMetrics
+      tags:
+      - Bots
+  /bots/{botId}/analytics/utterances:
+    POST:
+      summary: Amazon Web Services Listutteranceanalyticsdata
+      description: ' To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results and the sortBy field to specify the values by which to sort the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.  '
+      operationId: amazonWebServicesListUtteranceAnalyticsData
+      tags:
+      - Bots
+  /bots/{botId}/analytics/utterancemetrics:
+    POST:
+      summary: Amazon Web Services Listutterancemetrics
+      description: ' To use this API operation, your IAM role must have permissions to perform the ListAggregatedUtterances operation, which provides access to utterance-related analytics. See Viewing utterance statistics for the IAM policy to apply to the IAM role.  Retrieves summary metrics for the utterances in your bot. The following fields are required:    metrics – A list of AnalyticsUtteranceMetric objects. In each object, use the name field to specify the metric to calculate, the statistic field to specify whether to calculate the Sum, Average, or Max number, and the order field to specify whether to sort the results in Ascending or Descending order.    startDateTime and endDateTime – Define a time range for which you want to retrieve results.   Of the optional fields, you can organize the results in the following ways:   Use the filters field to filter the results, the groupBy field to specify categories by which to group the results, and the binBy field to specify time intervals by which to group the results.   Use the maxResults field to limit the number of results to return in a single response and the nextToken field to return the next batch of results if the response does not return the full set of results.   Note that an order field exists in both binBy and metrics. Currently, you can specify it in either field, but not in both.'
+      operationId: amazonWebServicesListUtteranceMetrics
+      tags:
+      - Bots
+  ? /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts
+  : POST:
+      summary: Amazon Web Services Searchassociatedtranscripts
+      description: Search for associated transcripts that meet the specified criteria.
+      operationId: amazonWebServicesSearchAssociatedTranscripts
+      tags:
+      - Bots
+  /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration:
+    PUT:
+      summary: Amazon Web Services Startbotresourcegeneration
+      description: Starts a request for the descriptive bot builder to generate a bot locale configuration based on the prompt you provide it. After you make this call, use the DescribeBotResourceGeneration operation to check on the status of the generation and for the generatedBotLocaleUrl when the generation is complete. Use that value to retrieve the Amazon S3 object containing the bot locale configuration. You can then modify and import this configuration.
+      operationId: amazonWebServicesStartBotResourceGeneration
+      tags:
+      - Bots
+  ? /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation
+  : PUT:
+      summary: Amazon Web Services Stopbotrecommendation
+      description: Stop an already running Bot Recommendation request.
+      operationId: amazonWebServicesStopBotRecommendation
+      tags:
+      - Bots
+  /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}:
+    POST:
+      summary: Amazon Web Services Putsession
+      description: Creates a new session or modifies an existing session with an Amazon Lex V2 bot. Use this operation to enable your application to set the state of the bot.
+      operationId: amazonWebServicesPutSession
+      tags:
+      - Bots
+  /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text:
+    POST:
+      summary: Amazon Web Services Recognizetext
+      description: Sends user input to Amazon Lex V2. Client applications use this API to send requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input using the machine learning model that it build for the bot. In response, Amazon Lex V2 returns the next message to convey to the user and an optional response card to display. If the optional post-fulfillment response is specified, the messages are returned as follows. For more information, see PostFulfillmentStatusSpecification.    Success message - Returned if the Lambda function completes successfully and the intent state is fulfilled or ready fulfillment if the message is present.    Failed message - The failed message is returned if the Lambda function throws an exception or if the Lambda function returns a failed intent state without a message.    Timeout message - If you don't configure a timeout message and a timeout, and the Lambda function doesn't return within 30 seconds, the timeout message is returned. If you configure a timeout, the timeout message is returned when the period times out.    For more information, see Completion message.
+      operationId: amazonWebServicesRecognizeText
+      tags:
+      - Bots
+  /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance:
+    POST:
+      summary: Amazon Web Services Recognizeutterance
+      description: Sends user input to Amazon Lex V2. You can send text or speech. Clients use this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2 interprets the user input using the machine learning model built for the bot. The following request fields must be compressed with gzip and then base64 encoded before you send them to Amazon Lex V2.    requestAttributes   sessionState   The following response fields are compressed using gzip and then base64 encoded by Amazon Lex V2. Before you can use these fields, you must decode and decompress them.    inputTranscript   interpretations   messages   requestAttributes   sessionState   The example contains a Java application that compresses and encodes a Java object to send to Amazon Lex V2, and a second that decodes and decompresses a response from Amazon Lex V2. If the optional post-fulfillment response is specified, the messages are returned as follows. For more information, see PostFulfillmentStatusSpecification.    Success message - Returned if the Lambda function completes successfully and the intent state is fulfilled or ready fulfillment if the message is present.    Failed message - The failed message is returned if the Lambda function throws an exception or if the Lambda function returns a failed intent state without a message.    Timeout message - If you don't configure a timeout message and a timeout, and the Lambda function doesn't return within 30 seconds, the timeout message is returned. If you configure a timeout, the timeout message is returned when the period times out.    For more information, see Completion message.
+      operationId: amazonWebServicesRecognizeUtterance
+      tags:
+      - Bots
+  /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation:
+    POST:
+      summary: Amazon Web Services Startconversation
+      description: 'Starts an HTTP/2 bidirectional event stream that enables you to send audio, text, or DTMF input in real time. After your application starts a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2 processes the incoming events and responds with streaming text or audio events.  Audio input must be in the following format: audio/lpcm sample-rate=8000 sample-size-bits=16 channel-count=1; is-big-endian=false. If the optional post-fulfillment response is specified, the messages are returned as follows. For more information, see PostFulfillmentStatusSpecification.    Success message - Returned if the Lambda function completes successfully and the intent state is fulfilled or ready fulfillment if the message is present.    Failed message - The failed message is returned if the Lambda function throws an exception or if the Lambda function returns a failed intent state without a message.    Timeout message - If you don''t configure a timeout message and a timeout, and the Lambda function doesn''t return within 30 seconds, the timeout message is returned. If you configure a timeout, the timeout message is returned when the period times out.    For more information, see Completion message. If the optional update message is configured, it is played at the specified frequency while the Lambda function is running and the update message state is active. If the fulfillment update message is not active, the Lambda function runs with a 30 second timeout.  For more information, see Update message   The StartConversation operation is supported only in the following SDKs:     AWS SDK for C++     AWS SDK for Java V2     AWS SDK for Ruby V3   '
+      operationId: amazonWebServicesStartConversation
+      tags:
+      - Bots

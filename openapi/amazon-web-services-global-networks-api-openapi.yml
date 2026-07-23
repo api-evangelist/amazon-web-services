@@ -1,0 +1,196 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Global Networks API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Global Networks
+paths:
+  /global-networks/{globalNetworkId}/connect-peer-associations:
+    GET:
+      summary: Amazon Web Services Getconnectpeerassociations
+      description: Returns information about a core network Connect peer associations.
+      operationId: amazonWebServicesGetConnectPeerAssociations
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/customer-gateway-associations:
+    GET:
+      summary: Amazon Web Services Getcustomergatewayassociations
+      description: Gets the association information for customer gateways that are associated with devices and links in your global network.
+      operationId: amazonWebServicesGetCustomerGatewayAssociations
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/link-associations:
+    GET:
+      summary: Amazon Web Services Getlinkassociations
+      description: Gets the link associations for a device or a link. Either the device ID or the link ID must be specified.
+      operationId: amazonWebServicesGetLinkAssociations
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations:
+    GET:
+      summary: Amazon Web Services Gettransitgatewayconnectpeerassociations
+      description: Gets information about one or more of your transit gateway Connect peer associations in a global network.
+      operationId: amazonWebServicesGetTransitGatewayConnectPeerAssociations
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/connections:
+    GET:
+      summary: Amazon Web Services Getconnections
+      description: Gets information about one or more of your connections in a global network.
+      operationId: amazonWebServicesGetConnections
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/devices:
+    GET:
+      summary: Amazon Web Services Getdevices
+      description: Gets information about one or more of your devices in a global network.
+      operationId: amazonWebServicesGetDevices
+      tags:
+      - Global Networks
+  /global-networks:
+    GET:
+      summary: Amazon Web Services Describeglobalnetworks
+      description: Describes one or more global networks. By default, all global networks are described. To describe the objects in your global network, you must use the appropriate Get* action. For example, to list the transit gateways in your global network, use GetTransitGatewayRegistrations.
+      operationId: amazonWebServicesDescribeGlobalNetworks
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/links:
+    GET:
+      summary: Amazon Web Services Getlinks
+      description: Gets information about one or more links in a specified global network. If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.
+      operationId: amazonWebServicesGetLinks
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/sites:
+    GET:
+      summary: Amazon Web Services Getsites
+      description: Gets information about one or more of your sites in a global network.
+      operationId: amazonWebServicesGetSites
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/connections/{connectionId}:
+    PATCH:
+      summary: Amazon Web Services Updateconnection
+      description: Updates the information for an existing connection. To remove information for any of the parameters, specify an empty string.
+      operationId: amazonWebServicesUpdateConnection
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/devices/{deviceId}:
+    PATCH:
+      summary: Amazon Web Services Updatedevice
+      description: Updates the details for an existing device. To remove information for any of the parameters, specify an empty string.
+      operationId: amazonWebServicesUpdateDevice
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}:
+    PATCH:
+      summary: Amazon Web Services Updateglobalnetwork
+      description: Updates an existing global network. To remove information for any of the parameters, specify an empty string.
+      operationId: amazonWebServicesUpdateGlobalNetwork
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/links/{linkId}:
+    PATCH:
+      summary: Amazon Web Services Updatelink
+      description: Updates the details for an existing link. To remove information for any of the parameters, specify an empty string.
+      operationId: amazonWebServicesUpdateLink
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/sites/{siteId}:
+    PATCH:
+      summary: Amazon Web Services Updatesite
+      description: Updates the information for an existing site. To remove information for any of the parameters, specify an empty string.
+      operationId: amazonWebServicesUpdateSite
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/transit-gateway-registrations/{transitGatewayArn}:
+    DELETE:
+      summary: Amazon Web Services Deregistertransitgateway
+      description: Deregisters a transit gateway from your global network. This action does not delete your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.
+      operationId: amazonWebServicesDeregisterTransitGateway
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/connect-peer-associations/{connectPeerId}:
+    DELETE:
+      summary: Amazon Web Services Disassociateconnectpeer
+      description: 'Disassociates a core network Connect peer from a device and a link. '
+      operationId: amazonWebServicesDisassociateConnectPeer
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/customer-gateway-associations/{customerGatewayArn}:
+    DELETE:
+      summary: Amazon Web Services Disassociatecustomergateway
+      description: Disassociates a customer gateway from a device and a link.
+      operationId: amazonWebServicesDisassociateCustomerGateway
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/transit-gateway-connect-peer-associations/{transitGatewayConnectPeerArn}:
+    DELETE:
+      summary: Amazon Web Services Disassociatetransitgatewayconnectpeer
+      description: Disassociates a transit gateway Connect peer from a device and link.
+      operationId: amazonWebServicesDisassociateTransitGatewayConnectPeer
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-resource-count:
+    GET:
+      summary: Amazon Web Services Getnetworkresourcecounts
+      description: Gets the count of network resources, by resource type, for the specified global network.
+      operationId: amazonWebServicesGetNetworkResourceCounts
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-resource-relationships:
+    GET:
+      summary: Amazon Web Services Getnetworkresourcerelationships
+      description: Gets the network resource relationships for the specified global network.
+      operationId: amazonWebServicesGetNetworkResourceRelationships
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-resources:
+    GET:
+      summary: Amazon Web Services Getnetworkresources
+      description: Describes the network resources for the specified global network. The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.
+      operationId: amazonWebServicesGetNetworkResources
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-routes:
+    POST:
+      summary: Amazon Web Services Getnetworkroutes
+      description: Gets the network routes of the specified global network.
+      operationId: amazonWebServicesGetNetworkRoutes
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-telemetry:
+    GET:
+      summary: Amazon Web Services Getnetworktelemetry
+      description: Gets the network telemetry of the specified global network.
+      operationId: amazonWebServicesGetNetworkTelemetry
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/route-analyses/{routeAnalysisId}:
+    GET:
+      summary: Amazon Web Services Getrouteanalysis
+      description: Gets information about the specified route analysis.
+      operationId: amazonWebServicesGetRouteAnalysis
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/transit-gateway-registrations:
+    POST:
+      summary: Amazon Web Services Registertransitgateway
+      description: Registers a transit gateway in your global network. Not all Regions support transit gateways for global networks. For a list of the supported Regions, see Region Availability in the Amazon Web Services Transit Gateways for Global Networks User Guide. The transit gateway can be in any of the supported Amazon Web Services Regions, but it must be owned by the same Amazon Web Services account that owns the global network. You cannot register a transit gateway in more than one global network.
+      operationId: amazonWebServicesRegisterTransitGateway
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/route-analyses:
+    POST:
+      summary: Amazon Web Services Startrouteanalysis
+      description: Starts analyzing the routing path between the specified source and destination. For more information, see Route Analyzer.
+      operationId: amazonWebServicesStartRouteAnalysis
+      tags:
+      - Global Networks
+  /global-networks/{globalNetworkId}/network-resources/{resourceArn}/metadata:
+    PATCH:
+      summary: Amazon Web Services Updatenetworkresourcemetadata
+      description: Updates the resource metadata for the specified global network.
+      operationId: amazonWebServicesUpdateNetworkResourceMetadata
+      tags:
+      - Global Networks

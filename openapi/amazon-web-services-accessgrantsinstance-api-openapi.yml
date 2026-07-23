@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Accessgrantsinstance API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Accessgrantsinstance
+paths:
+  /v20180820/accessgrantsinstance/identitycenter:
+    DELETE:
+      summary: Amazon Web Services Dissociateaccessgrantsidentitycenter
+      description: 'Dissociates the Amazon Web Services IAM Identity Center instance from the S3 Access Grants instance.   Permissions  You must have the s3:DissociateAccessGrantsIdentityCenter permission to use this operation.   Additional Permissions  You must have the sso:DeleteApplication permission to use this operation.   '
+      operationId: amazonWebServicesDissociateAccessGrantsIdentityCenter
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/grant:
+    POST:
+      summary: Amazon Web Services Createaccessgrant
+      description: 'Creates an access grant that gives a grantee access to your S3 data. The grantee can be an IAM user or role or a directory user, or group. Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants instance using the CreateAccessGrantsInstance. You must also have registered at least one S3 data location in your S3 Access Grants instance using CreateAccessGrantsLocation.   Permissions  You must have the s3:CreateAccessGrant permission to use this operation.   Additional Permissions  For any directory identity - sso:DescribeInstance and sso:DescribeApplication  For directory users - identitystore:DescribeUser  For directory groups - identitystore:DescribeGroup   '
+      operationId: amazonWebServicesCreateAccessGrant
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance:
+    GET:
+      summary: Amazon Web Services Getaccessgrantsinstance
+      description: 'Retrieves the S3 Access Grants instance for a Region in your account.   Permissions  You must have the s3:GetAccessGrantsInstance permission to use this operation.   '
+      operationId: amazonWebServicesGetAccessGrantsInstance
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/location:
+    POST:
+      summary: Amazon Web Services Createaccessgrantslocation
+      description: 'The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following:    The default S3 location s3://    A bucket - S3://&lt;bucket-name&gt;    A bucket and prefix - S3://&lt;bucket-name&gt;/&lt;prefix&gt;    When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role using a policy. S3 Access Grants assumes this role to manage access to the location and to vend temporary credentials to grantees or client applications.   Permissions  You must have the s3:CreateAccessGrantsLocation permission to use this operation.   Additional Permissions  You must also have the following permission for the specified IAM role: iam:PassRole   '
+      operationId: amazonWebServicesCreateAccessGrantsLocation
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/grant/{id}:
+    GET:
+      summary: Amazon Web Services Getaccessgrant
+      description: 'Get the details of an access grant from your S3 Access Grants instance.  Permissions  You must have the s3:GetAccessGrant permission to use this operation.   '
+      operationId: amazonWebServicesGetAccessGrant
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/resourcepolicy:
+    PUT:
+      summary: Amazon Web Services Putaccessgrantsinstanceresourcepolicy
+      description: 'Updates the resource policy of the S3 Access Grants instance.   Permissions  You must have the s3:PutAccessGrantsInstanceResourcePolicy permission to use this operation.   '
+      operationId: amazonWebServicesPutAccessGrantsInstanceResourcePolicy
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/location/{id}:
+    PUT:
+      summary: Amazon Web Services Updateaccessgrantslocation
+      description: 'Updates the IAM role of a registered location in your S3 Access Grants instance.  Permissions  You must have the s3:UpdateAccessGrantsLocation permission to use this operation.   Additional Permissions  You must also have the following permission: iam:PassRole   '
+      operationId: amazonWebServicesUpdateAccessGrantsLocation
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/prefix:
+    GET:
+      summary: Amazon Web Services Getaccessgrantsinstanceforprefix
+      description: 'Retrieve the S3 Access Grants instance that contains a particular prefix.   Permissions  You must have the s3:GetAccessGrantsInstanceForPrefix permission for the caller account to use this operation.   Additional Permissions  The prefix owner account must grant you the following permissions to their S3 Access Grants instance: s3:GetAccessGrantsInstanceForPrefix.   '
+      operationId: amazonWebServicesGetAccessGrantsInstanceForPrefix
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/dataaccess:
+    GET:
+      summary: Amazon Web Services Getdataaccess
+      description: 'Returns a temporary access credential from S3 Access Grants to the grantee or client application. The temporary credential is an Amazon Web Services STS token that grants them access to the S3 data.   Permissions  You must have the s3:GetDataAccess permission to use this operation.   Additional Permissions  The IAM role that S3 Access Grants assumes must have the following permissions specified in the trust policy when registering the location: sts:AssumeRole, for directory users or groups sts:SetContext, and for IAM users or roles sts:SourceIdentity.   '
+      operationId: amazonWebServicesGetDataAccess
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/grants:
+    GET:
+      summary: Amazon Web Services Listaccessgrants
+      description: 'Returns the list of access grants in your S3 Access Grants instance.  Permissions  You must have the s3:ListAccessGrants permission to use this operation.   '
+      operationId: amazonWebServicesListAccessGrants
+      tags:
+      - Accessgrantsinstance
+  /v20180820/accessgrantsinstance/locations:
+    GET:
+      summary: Amazon Web Services Listaccessgrantslocations
+      description: 'Returns a list of the locations registered in your S3 Access Grants instance.  Permissions  You must have the s3:ListAccessGrantsLocations permission to use this operation.   '
+      operationId: amazonWebServicesListAccessGrantsLocations
+      tags:
+      - Accessgrantsinstance

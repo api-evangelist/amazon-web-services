@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Channels API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Channels
+paths:
+  /channels/{channelArn}/memberships?operation=batch-create:
+    POST:
+      summary: Amazon Web Services Batchcreatechannelmembership
+      description: 'Adds a specified number of users to a channel.   This API is is no longer supported and will not be updated. We recommend using the latest version, BatchCreateChannelMembership, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesBatchCreateChannelMembership
+      tags:
+      - Channels
+  /channels:
+    GET:
+      summary: Amazon Web Services Listchannels
+      description: 'Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.  Functionality &amp; restrictions    Use privacy = PUBLIC to retrieve all public channels in the account.   Only an AppInstanceAdmin can set privacy = PRIVATE to list the private channels in an account.    The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListChannels, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListChannels
+      tags:
+      - Channels
+    POST:
+      summary: Amazon Web Services Listnotificationchannels
+      description: ' Returns a list of notification channels configured for DevOps Guru. Each notification channel is used to notify you when DevOps Guru generates an insight that contains information about how to improve your operations. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS). '
+      operationId: amazonWebServicesListNotificationChannels
+      tags:
+      - Channels
+  /channels/{channelArn}/bans:
+    GET:
+      summary: Amazon Web Services Listchannelbans
+      description: 'Lists all the users banned from a particular channel.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListChannelBans, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListChannelBans
+      tags:
+      - Channels
+  /channels/{channelArn}/memberships:
+    GET:
+      summary: Amazon Web Services Listchannelmemberships
+      description: 'Lists all channel memberships in a channel.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListChannelMemberships, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListChannelMemberships
+      tags:
+      - Channels
+  /channels/{channelArn}/moderators:
+    GET:
+      summary: Amazon Web Services Listchannelmoderators
+      description: 'Lists all the moderators for a channel.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, ListChannelModerators, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListChannelModerators
+      tags:
+      - Channels
+  /channels/{channelArn}:
+    PUT:
+      summary: Amazon Web Services Updatechannel
+      description: 'Update a channel''s attributes.  Restriction: You can''t change a channel''s privacy.   The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, UpdateChannel, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesUpdateChannel
+      tags:
+      - Channels
+  /channels/{channelArn}/bans/{memberArn}:
+    GET:
+      summary: Amazon Web Services Describechannelban
+      description: 'Returns the full details of a channel ban.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelBan, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDescribeChannelBan
+      tags:
+      - Channels
+  /channels/{channelArn}/memberships/{memberArn}:
+    GET:
+      summary: Amazon Web Services Describechannelmembership
+      description: 'Returns the full details of a user''s channel membership.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelMembership, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDescribeChannelMembership
+      tags:
+      - Channels
+  /channels/{channelArn}/messages/{messageId}:
+    PUT:
+      summary: Amazon Web Services Updatechannelmessage
+      description: 'Updates the content of a message.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, UpdateChannelMessage, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesUpdateChannelMessage
+      tags:
+      - Channels
+  /channels/{channelArn}/moderators/{channelModeratorArn}:
+    GET:
+      summary: Amazon Web Services Describechannelmoderator
+      description: 'Returns the full details of a single ChannelModerator.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelModerator, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDescribeChannelModerator
+      tags:
+      - Channels
+  /channels/{channelArn}?scope=app-instance-user-membership:
+    GET:
+      summary: Amazon Web Services Describechannelmembershipforappinstanceuser
+      description: ' Returns the details of a channel based on the membership of the specified AppInstanceUser.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelMembershipForAppInstanceUser, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDescribeChannelMembershipForAppInstanceUser
+      tags:
+      - Channels
+  /channels/{channelArn}?scope=app-instance-user-moderated-channel:
+    GET:
+      summary: Amazon Web Services Describechannelmoderatedbyappinstanceuser
+      description: 'Returns the full details of a channel moderated by the specified AppInstanceUser.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, DescribeChannelModeratedByAppInstanceUser, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDescribeChannelModeratedByAppInstanceUser
+      tags:
+      - Channels
+  /channels/{channelArn}/messages:
+    POST:
+      summary: Amazon Web Services Sendchannelmessage
+      description: 'Sends a message to a particular channel that the member is a part of.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header. Also, STANDARD messages can contain 4KB of data and the 1KB of metadata. CONTROL messages can contain 30 bytes of data and no metadata.    This API is is no longer supported and will not be updated. We recommend using the latest version, SendChannelMessage, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesSendChannelMessage
+      tags:
+      - Channels
+  /channels/{channelArn}/messages/{messageId}?operation=redact:
+    POST:
+      summary: Amazon Web Services Redactchannelmessage
+      description: 'Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, RedactChannelMessage, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesRedactChannelMessage
+      tags:
+      - Channels
+  /channels/{channelArn}/readMarker:
+    PUT:
+      summary: Amazon Web Services Updatechannelreadmarker
+      description: 'The details of the time when a user last read messages in a channel.  The x-amz-chime-bearer request header is mandatory. Use the AppInstanceUserArn of the user that makes the API call as the value in the header.    This API is is no longer supported and will not be updated. We recommend using the latest version, UpdateChannelReadMarker, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesUpdateChannelReadMarker
+      tags:
+      - Channels
+  /channels/{channelArn}/channel-flow:
+    PUT:
+      summary: Amazon Web Services Associatechannelflow
+      description: 'Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the DisassociateChannelFlow API.  Only administrators or channel moderators can associate a channel flow. The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header. '
+      operationId: amazonWebServicesAssociateChannelFlow
+      tags:
+      - Channels
+  /channels/{channelArn}?operation=channel-flow-callback:
+    POST:
+      summary: Amazon Web Services Channelflowcallback
+      description: 'Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API. You can return one of the following processing responses:   Update message content or metadata   Deny a message   Make no changes to the message  '
+      operationId: amazonWebServicesChannelFlowCallback
+      tags:
+      - Channels
+  /channels/{channelArn}/channel-flow/{channelFlowArn}:
+    DELETE:
+      summary: Amazon Web Services Disassociatechannelflow
+      description: 'Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.  Only administrators or channel moderators can disassociate a channel flow. The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header. '
+      operationId: amazonWebServicesDisassociateChannelFlow
+      tags:
+      - Channels
+  /channels/{channelArn}/memberships/{memberArn}/preferences:
+    PUT:
+      summary: Amazon Web Services Putchannelmembershippreferences
+      description: 'Sets the membership preferences of an AppInstanceUser or AppInstanceBot for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the membership can set preferences. Users or bots in the AppInstanceAdmin and channel moderator roles can''t set preferences for other users. Banned users or bots can''t set membership preferences for the channel from which they are banned.  The x-amz-chime-bearer request header is mandatory. Use the ARN of an AppInstanceUser or AppInstanceBot that makes the API call as the value in the header. '
+      operationId: amazonWebServicesPutChannelMembershipPreferences
+      tags:
+      - Channels
+  /channels/{channelArn}/messages/{messageId}?scope=message-status:
+    GET:
+      summary: Amazon Web Services Getchannelmessagestatus
+      description: 'Gets message status for a specified messageId. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn''t connected to a websocket.  Messages can have any one of these statuses.  SENT  Message processed successfully  PENDING  Ongoing processing  FAILED  Processing failed  DENIED  Message denied by the processor      This API does not return statuses for denied messages, because we don''t store them once the processor denies them.    Only the message sender can invoke this API.   The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header.   '
+      operationId: amazonWebServicesGetChannelMessageStatus
+      tags:
+      - Channels
+  /channels/{channelArn}/subchannels:
+    GET:
+      summary: Amazon Web Services Listsubchannels
+      description: Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.
+      operationId: amazonWebServicesListSubChannels
+      tags:
+      - Channels
+  /channels/{channelArn}/expiration-settings:
+    PUT:
+      summary: Amazon Web Services Putchannelexpirationsettings
+      description: 'Sets the number of days before the channel is automatically deleted.    A background process deletes expired channels within 6 hours of expiration. Actual deletion times may vary.   Expired channels that have not yet been deleted appear as active, and you can update their expiration settings. The system honors the new settings.   The x-amz-chime-bearer request header is mandatory. Use the ARN of the AppInstanceUser or AppInstanceBot that makes the API call as the value in the header.   '
+      operationId: amazonWebServicesPutChannelExpirationSettings
+      tags:
+      - Channels
+  /channels/{Id}:
+    DELETE:
+      summary: Amazon Web Services Removenotificationchannel
+      description: ' Removes a notification channel from DevOps Guru. A notification channel is used to notify you when DevOps Guru generates an insight that contains information about how to improve your operations. '
+      operationId: amazonWebServicesRemoveNotificationChannel
+      tags:
+      - Channels
+  /channels/{channelName}:
+    PUT:
+      summary: Amazon Web Services Updatechannel
+      description: Used to update the settings of a channel.
+      operationId: amazonWebServicesUpdateChannel
+      tags:
+      - Channels
+  /channels/{channelName}/sample:
+    GET:
+      summary: Amazon Web Services Samplechanneldata
+      description: Retrieves a sample of messages from the specified channel ingested during the specified timeframe. Up to 10 messages can be retrieved.
+      operationId: amazonWebServicesSampleChannelData
+      tags:
+      - Channels
+  /channels/{id}/configure_logs:
+    PUT:
+      summary: Amazon Web Services Configurelogs
+      description: Changes the Channel's properities to configure log subscription
+      operationId: amazonWebServicesConfigureLogs
+      tags:
+      - Channels
+  /channels/{id}:
+    PUT:
+      summary: Amazon Web Services Updatechannel
+      description: Updates an existing Channel.
+      operationId: amazonWebServicesUpdateChannel
+      tags:
+      - Channels
+  /channels/{id}/credentials:
+    PUT:
+      summary: Amazon Web Services Rotatechannelcredentials
+      description: Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
+      operationId: amazonWebServicesRotateChannelCredentials
+      tags:
+      - Channels
+  /channels/{id}/ingest_endpoints/{ingest_endpoint_id}/credentials:
+    PUT:
+      summary: Amazon Web Services Rotateingestendpointcredentials
+      description: Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
+      operationId: amazonWebServicesRotateIngestEndpointCredentials
+      tags:
+      - Channels

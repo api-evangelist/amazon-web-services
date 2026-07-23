@@ -1,0 +1,888 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Accounts API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Accounts
+paths:
+  /accounts/{accountId}/users/{userId}?operation=associate-phone-number:
+    POST:
+      summary: Amazon Web Services Associatephonenumberwithuser
+      description: Associates a phone number with the specified Amazon Chime user.
+      operationId: amazonWebServicesAssociatePhoneNumberWithUser
+      tags:
+      - Accounts
+  /accounts/{accountId}?operation=associate-signin-delegate-groups:
+    POST:
+      summary: Amazon Web Services Associatesignindelegategroupswithaccount
+      description: Associates the specified sign-in delegate groups with the specified Amazon Chime account.
+      operationId: amazonWebServicesAssociateSigninDelegateGroupsWithAccount
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms/{roomId}/memberships?operation=batch-create:
+    POST:
+      summary: Amazon Web Services Batchcreateroommembership
+      description: Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.
+      operationId: amazonWebServicesBatchCreateRoomMembership
+      tags:
+      - Accounts
+  /accounts/{accountId}/users?operation=suspend:
+    POST:
+      summary: Amazon Web Services Batchsuspenduser
+      description: Suspends up to 50 users from a Team or EnterpriseLWA Amazon Chime account. For more information about different account types, see Managing Your Amazon Chime Accounts in the Amazon Chime Administration Guide. Users suspended from a Team account are disassociated from the account,but they can continue to use Amazon Chime as free users. To remove the suspension from suspended Team account users, invite them to the Team account again. You can use the InviteUsers action to do so. Users suspended from an EnterpriseLWA account are immediately signed out of Amazon Chime and can no longer sign in. To remove the suspension from suspended EnterpriseLWA account users, use the BatchUnsuspendUser action.  To sign out users without suspending them, use the LogoutUser action.
+      operationId: amazonWebServicesBatchSuspendUser
+      tags:
+      - Accounts
+  /accounts/{accountId}/users?operation=unsuspend:
+    POST:
+      summary: Amazon Web Services Batchunsuspenduser
+      description: Removes the suspension from up to 50 previously suspended users for the specified Amazon Chime EnterpriseLWA account. Only users on EnterpriseLWA accounts can be unsuspended using this action. For more information about different account types, see  Managing Your Amazon Chime Accounts  in the account types, in the Amazon Chime Administration Guide.  Previously suspended users who are unsuspended using this action are returned to Registered status. Users who are not previously suspended are ignored.
+      operationId: amazonWebServicesBatchUnsuspendUser
+      tags:
+      - Accounts
+  /accounts/{accountId}/users:
+    GET:
+      summary: Amazon Web Services Listusers
+      description: Lists the users that belong to the specified Amazon Chime account. You can specify an email address to list only the user that the email address belongs to.
+      operationId: amazonWebServicesListUsers
+      tags:
+      - Accounts
+  /accounts:
+    GET:
+      summary: Amazon Web Services Listaccounts
+      description: Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts by account name prefix. To find out which Amazon Chime account a user belongs to, you can filter by the user's email address, which returns one account result.
+      operationId: amazonWebServicesListAccounts
+      tags:
+      - Accounts
+    PATCH:
+      summary: Amazon Web Services Updatesecurityhubconfiguration
+      description: Updates configuration options for Security Hub.
+      operationId: amazonWebServicesUpdateSecurityHubConfiguration
+      tags:
+      - Accounts
+  /accounts/{accountId}/bots:
+    GET:
+      summary: Amazon Web Services Listbots
+      description: Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.
+      operationId: amazonWebServicesListBots
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms:
+    GET:
+      summary: Amazon Web Services Listrooms
+      description: Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.
+      operationId: amazonWebServicesListRooms
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms/{roomId}/memberships:
+    GET:
+      summary: Amazon Web Services Listroommemberships
+      description: Lists the membership details for the specified room in an Amazon Chime Enterprise account, such as the members' IDs, email addresses, and names.
+      operationId: amazonWebServicesListRoomMemberships
+      tags:
+      - Accounts
+  /accounts/{accountId}/users?operation=create:
+    POST:
+      summary: Amazon Web Services Createuser
+      description: Creates a user under the specified Amazon Chime account.
+      operationId: amazonWebServicesCreateUser
+      tags:
+      - Accounts
+  /accounts/{accountId}:
+    POST:
+      summary: Amazon Web Services Updateaccount
+      description: Updates account details for the specified Amazon Chime account. Currently, only account name and default license updates are supported for this action.
+      operationId: amazonWebServicesUpdateAccount
+      tags:
+      - Accounts
+  /accounts/{accountId}/bots/{botId}/events-configuration:
+    PUT:
+      summary: Amazon Web Services Puteventsconfiguration
+      description: Creates an events configuration that allows a bot to receive outgoing events sent by Amazon Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information, see Bot.
+      operationId: amazonWebServicesPutEventsConfiguration
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms/{roomId}:
+    POST:
+      summary: Amazon Web Services Updateroom
+      description: Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.
+      operationId: amazonWebServicesUpdateRoom
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms/{roomId}/memberships/{memberId}:
+    POST:
+      summary: Amazon Web Services Updateroommembership
+      description: Updates room membership details, such as the member role, for a room in an Amazon Chime Enterprise account. The member role designates whether the member is a chat room administrator or a general chat room member. The member role can be updated only for user IDs.
+      operationId: amazonWebServicesUpdateRoomMembership
+      tags:
+      - Accounts
+  /accounts/{accountId}/users/{userId}?operation=disassociate-phone-number:
+    POST:
+      summary: Amazon Web Services Disassociatephonenumberfromuser
+      description: Disassociates the primary provisioned phone number from the specified Amazon Chime user.
+      operationId: amazonWebServicesDisassociatePhoneNumberFromUser
+      tags:
+      - Accounts
+  /accounts/{accountId}?operation=disassociate-signin-delegate-groups:
+    POST:
+      summary: Amazon Web Services Disassociatesignindelegategroupsfromaccount
+      description: Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.
+      operationId: amazonWebServicesDisassociateSigninDelegateGroupsFromAccount
+      tags:
+      - Accounts
+  /accounts/{accountId}/settings:
+    PUT:
+      summary: Amazon Web Services Updateaccountsettings
+      description: Updates the settings for the specified Amazon Chime account. You can update settings for remote control of shared screens, or for the dial-out option. For more information about these settings, see Use the Policies Page in the Amazon Chime Administration Guide.
+      operationId: amazonWebServicesUpdateAccountSettings
+      tags:
+      - Accounts
+  /accounts/{accountId}/bots/{botId}:
+    POST:
+      summary: Amazon Web Services Updatebot
+      description: Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.
+      operationId: amazonWebServicesUpdateBot
+      tags:
+      - Accounts
+  /accounts/{accountId}/retention-settings:
+    PUT:
+      summary: Amazon Web Services Putretentionsettings
+      description: ' Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see Logging Amazon Chime API Calls with AWS CloudTrail in the Amazon Chime Administration Guide.  To turn off existing retention settings, remove the number of days from the corresponding RetentionDays field in the RetentionSettings object. For more information about retention settings, see Managing Chat Retention Policies in the Amazon Chime Administration Guide.'
+      operationId: amazonWebServicesPutRetentionSettings
+      tags:
+      - Accounts
+  /accounts/{accountId}/users/{userId}:
+    POST:
+      summary: Amazon Web Services Updateuser
+      description: Updates user details for a specified user ID. Currently, only LicenseType updates are supported for this action.
+      operationId: amazonWebServicesUpdateUser
+      tags:
+      - Accounts
+  /accounts/{accountId}/users/{userId}/settings:
+    PUT:
+      summary: Amazon Web Services Updateusersettings
+      description: Updates the settings for the specified user, such as phone number settings.
+      operationId: amazonWebServicesUpdateUserSettings
+      tags:
+      - Accounts
+  /accounts/{accountId}/users?operation=add:
+    POST:
+      summary: Amazon Web Services Inviteusers
+      description: Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime Team account. Only Team account types are currently supported for this action.
+      operationId: amazonWebServicesInviteUsers
+      tags:
+      - Accounts
+  /accounts/{accountId}/users/{userId}?operation=logout:
+    POST:
+      summary: Amazon Web Services Logoutuser
+      description: Logs out the specified user from all of the devices they are currently logged into.
+      operationId: amazonWebServicesLogoutUser
+      tags:
+      - Accounts
+  /accounts/{accountId}/conversations/{conversationId}/messages/{messageId}?operation=redact:
+    POST:
+      summary: Amazon Web Services Redactconversationmessage
+      description: Redacts the specified message from the specified Amazon Chime conversation.
+      operationId: amazonWebServicesRedactConversationMessage
+      tags:
+      - Accounts
+  /accounts/{accountId}/rooms/{roomId}/messages/{messageId}?operation=redact:
+    POST:
+      summary: Amazon Web Services Redactroommessage
+      description: Redacts the specified message from the specified Amazon Chime channel.
+      operationId: amazonWebServicesRedactRoomMessage
+      tags:
+      - Accounts
+  /accounts/{accountId}/bots/{botId}?operation=regenerate-security-token:
+    POST:
+      summary: Amazon Web Services Regeneratesecuritytoken
+      description: Regenerates the security token for a bot.
+      operationId: amazonWebServicesRegenerateSecurityToken
+      tags:
+      - Accounts
+  /accounts/{accountId}/users/{userId}?operation=reset-personal-pin:
+    POST:
+      summary: Amazon Web Services Resetpersonalpin
+      description: Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns the User object with the updated personal meeting PIN.
+      operationId: amazonWebServicesResetPersonalPIN
+      tags:
+      - Accounts
+  /accounts/health:
+    GET:
+      summary: Amazon Web Services Describeaccounthealth
+      description: ' Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the health of operations in your Amazon Web Services account. '
+      operationId: amazonWebServicesDescribeAccountHealth
+      tags:
+      - Accounts
+  /accounts/overview:
+    POST:
+      summary: Amazon Web Services Describeaccountoverview
+      description: ' For the time range passed in, returns the number of open reactive insight that were created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all closed reactive insights. '
+      operationId: amazonWebServicesDescribeAccountOverview
+      tags:
+      - Accounts
+  /accounts/health/resource-collection/{ResourceCollectionType}:
+    GET:
+      summary: Amazon Web Services Describeresourcecollectionhealth
+      description: ' Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in resource collections in your account. You specify the type of Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag key. You can specify up to 500 Amazon Web Services CloudFormation stacks. '
+      operationId: amazonWebServicesDescribeResourceCollectionHealth
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}:
+    GET:
+      summary: Amazon Web Services Describeingestion
+      description: Describes a SPICE ingestion.
+      operationId: amazonWebServicesDescribeIngestion
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/customizations:
+    PUT:
+      summary: Amazon Web Services Updateaccountcustomization
+      description: 'Updates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, the only customization that you can use is a theme. You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a Amazon QuickSight namespace instead. Customizations that apply to a namespace override customizations that apply to an Amazon Web Services account. To find out which customizations apply, use the DescribeAccountCustomization API operation. '
+      operationId: amazonWebServicesUpdateAccountCustomization
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/analyses/{AnalysisId}:
+    PUT:
+      summary: Amazon Web Services Updateanalysis
+      description: Updates an analysis in Amazon QuickSight
+      operationId: amazonWebServicesUpdateAnalysis
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}:
+    PUT:
+      summary: Amazon Web Services Updatedashboard
+      description: 'Updates a dashboard in an Amazon Web Services account.  Updating a Dashboard creates a new dashboard version but does not immediately publish the new version. You can update the published version of a dashboard by using the  UpdateDashboardPublishedVersion  API operation. '
+      operationId: amazonWebServicesUpdateDashboard
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets:
+    GET:
+      summary: Amazon Web Services Listdatasets
+      description: Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region. The permissions resource is arn:aws:quicksight:region:aws-account-id:dataset/*.
+      operationId: amazonWebServicesListDataSets
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sources:
+    GET:
+      summary: Amazon Web Services Listdatasources
+      description: Lists data sources in current Amazon Web Services Region that belong to this Amazon Web Services account.
+      operationId: amazonWebServicesListDataSources
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders/{FolderId}:
+    PUT:
+      summary: Amazon Web Services Updatefolder
+      description: Updates the name of a folder.
+      operationId: amazonWebServicesUpdateFolder
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}:
+    DELETE:
+      summary: Amazon Web Services Deletefoldermembership
+      description: Removes an asset, such as a dashboard, analysis, or dataset, from a folder.
+      operationId: amazonWebServicesDeleteFolderMembership
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/groups:
+    GET:
+      summary: Amazon Web Services Listgroups
+      description: 'Lists all user groups in Amazon QuickSight. '
+      operationId: amazonWebServicesListGroups
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}:
+    GET:
+      summary: Amazon Web Services Describegroupmembership
+      description: Use the DescribeGroupMembership operation to determine if a user is a member of the specified group. If the user exists and is a member of the specified group, an associated GroupMember object is returned.
+      operationId: amazonWebServicesDescribeGroupMembership
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/:
+    POST:
+      summary: Amazon Web Services Createiampolicyassignment
+      description: Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name (ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight. Assignment names are unique per Amazon Web Services account. To avoid overwriting rules in other namespaces, use assignment names that are unique.
+      operationId: amazonWebServicesCreateIAMPolicyAssignment
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}:
+    POST:
+      summary: Amazon Web Services Createnamespace
+      description: '(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight. A namespace allows you to isolate the Amazon QuickSight users and groups that are registered for that namespace. Users that access the namespace can share assets only with other users or groups in the same namespace. They can''t see users and groups in other namespaces. You can create a namespace after your Amazon Web Services account is subscribed to Amazon QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with Amazon Web Services Support. '
+      operationId: amazonWebServicesCreateNamespace
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules:
+    PUT:
+      summary: Amazon Web Services Updaterefreshschedule
+      description: Updates a refresh schedule for a dataset.
+      operationId: amazonWebServicesUpdateRefreshSchedule
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}:
+    DELETE:
+      summary: Amazon Web Services Deleterolemembership
+      description: Removes a group from a role.
+      operationId: amazonWebServicesDeleteRoleMembership
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}:
+    PUT:
+      summary: Amazon Web Services Updatetemplate
+      description: Updates a template from an existing Amazon QuickSight analysis or another template.
+      operationId: amazonWebServicesUpdateTemplate
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}:
+    PUT:
+      summary: Amazon Web Services Updatetemplatealias
+      description: Updates the template alias of a template.
+      operationId: amazonWebServicesUpdateTemplateAlias
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes/{ThemeId}:
+    PUT:
+      summary: Amazon Web Services Updatetheme
+      description: Updates a theme.
+      operationId: amazonWebServicesUpdateTheme
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}:
+    PUT:
+      summary: Amazon Web Services Updatethemealias
+      description: Updates an alias of a theme.
+      operationId: amazonWebServicesUpdateThemeAlias
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics:
+    GET:
+      summary: Amazon Web Services Listtopics
+      description: Lists all of the topics within an account.
+      operationId: amazonWebServicesListTopics
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics/{TopicId}/schedules:
+    GET:
+      summary: Amazon Web Services Listtopicrefreshschedules
+      description: Lists all of the refresh schedules for a topic.
+      operationId: amazonWebServicesListTopicRefreshSchedules
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/vpc-connections:
+    GET:
+      summary: Amazon Web Services Listvpcconnections
+      description: Lists all of the VPC connections in the current set Amazon Web Services Region of an Amazon Web Services account.
+      operationId: amazonWebServicesListVPCConnections
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}:
+    PUT:
+      summary: Amazon Web Services Updatedataset
+      description: Updates a dataset. This operation doesn't support datasets that include uploaded files as a source. Partial updates are not supported by this operation.
+      operationId: amazonWebServicesUpdateDataSet
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties:
+    PUT:
+      summary: Amazon Web Services Putdatasetrefreshproperties
+      description: Creates or updates the dataset refresh properties for the dataset.
+      operationId: amazonWebServicesPutDataSetRefreshProperties
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sources/{DataSourceId}:
+    PUT:
+      summary: Amazon Web Services Updatedatasource
+      description: Updates a data source.
+      operationId: amazonWebServicesUpdateDataSource
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}:
+    PUT:
+      summary: Amazon Web Services Updategroup
+      description: 'Changes a group description. '
+      operationId: amazonWebServicesUpdateGroup
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}:
+    DELETE:
+      summary: Amazon Web Services Deleteiampolicyassignment
+      description: Deletes an existing IAM policy assignment.
+      operationId: amazonWebServicesDeleteIAMPolicyAssignment
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/identity-propagation-config/{Service}:
+    POST:
+      summary: Amazon Web Services Updateidentitypropagationconfig
+      description: Adds or updates services and authorized targets to configure what the Amazon QuickSight IAM Identity Center application can access. This operation is only supported for Amazon QuickSight accounts using IAM Identity Center
+      operationId: amazonWebServicesUpdateIdentityPropagationConfig
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}:
+    GET:
+      summary: Amazon Web Services Describenamespace
+      description: Describes the current namespace.
+      operationId: amazonWebServicesDescribeNamespace
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}:
+    GET:
+      summary: Amazon Web Services Describerefreshschedule
+      description: Provides a summary of a refresh schedule.
+      operationId: amazonWebServicesDescribeRefreshSchedule
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission:
+    PUT:
+      summary: Amazon Web Services Updaterolecustompermission
+      description: Updates the custom permissions that are associated with a role.
+      operationId: amazonWebServicesUpdateRoleCustomPermission
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics/{TopicId}:
+    PUT:
+      summary: Amazon Web Services Updatetopic
+      description: Updates a topic.
+      operationId: amazonWebServicesUpdateTopic
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}:
+    PUT:
+      summary: Amazon Web Services Updatetopicrefreshschedule
+      description: Updates a topic refresh schedule.
+      operationId: amazonWebServicesUpdateTopicRefreshSchedule
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}:
+    PUT:
+      summary: Amazon Web Services Updateuser
+      description: Updates an Amazon QuickSight user.
+      operationId: amazonWebServicesUpdateUser
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}:
+    DELETE:
+      summary: Amazon Web Services Deleteuserbyprincipalid
+      description: 'Deletes a user identified by its principal ID. '
+      operationId: amazonWebServicesDeleteUserByPrincipalId
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}:
+    PUT:
+      summary: Amazon Web Services Updatevpcconnection
+      description: Updates a VPC connection.
+      operationId: amazonWebServicesUpdateVPCConnection
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/settings:
+    PUT:
+      summary: Amazon Web Services Updateaccountsettings
+      description: Updates the Amazon QuickSight settings in your Amazon Web Services account.
+      operationId: amazonWebServicesUpdateAccountSettings
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/analyses/{AnalysisId}/definition:
+    GET:
+      summary: Amazon Web Services Describeanalysisdefinition
+      description: 'Provides a detailed description of the definition of an analysis.  If you do not need to know details about the content of an Analysis, for instance if you are trying to check the status of a recently created or updated Analysis, use the  DescribeAnalysis  instead.  '
+      operationId: amazonWebServicesDescribeAnalysisDefinition
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updateanalysispermissions
+      description: Updates the read and write permissions for an analysis.
+      operationId: amazonWebServicesUpdateAnalysisPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}:
+    GET:
+      summary: Amazon Web Services Describeassetbundleexportjob
+      description: Describes an existing export job. Poll job descriptions after a job starts to know the status of the job. When a job succeeds, a URL is provided to download the exported assets' data from. Download URLs are valid for five minutes after they are generated. You can call the DescribeAssetBundleExportJob API for a new download URL as needed. Job descriptions are available for 14 days after the job starts.
+      operationId: amazonWebServicesDescribeAssetBundleExportJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}:
+    GET:
+      summary: Amazon Web Services Describeassetbundleimportjob
+      description: Describes an existing import job. Poll job descriptions after starting a job to know when it has succeeded or failed. Job descriptions are available for 14 days after job starts.
+      operationId: amazonWebServicesDescribeAssetBundleImportJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/definition:
+    GET:
+      summary: Amazon Web Services Describedashboarddefinition
+      description: 'Provides a detailed description of the definition of a dashboard.  If you do not need to know details about the content of a dashboard, for instance if you are trying to check the status of a recently created or updated dashboard, use the  DescribeDashboard  instead.  '
+      operationId: amazonWebServicesDescribeDashboardDefinition
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updatedashboardpermissions
+      description: Updates read and write permissions on a dashboard.
+      operationId: amazonWebServicesUpdateDashboardPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}:
+    GET:
+      summary: Amazon Web Services Describedashboardsnapshotjob
+      description: Describes an existing snapshot job. Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see JobStatus.
+      operationId: amazonWebServicesDescribeDashboardSnapshotJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result:
+    GET:
+      summary: Amazon Web Services Describedashboardsnapshotjobresult
+      description: Describes the result of an existing snapshot job that has finished running. A finished snapshot job will return a COMPLETED or FAILED status when you poll the job with a DescribeDashboardSnapshotJob API call. If the job has not finished running, this operation returns a message that says Dashboard Snapshot Job with id &lt;SnapshotjobId&gt; has not reached a terminal state..
+      operationId: amazonWebServicesDescribeDashboardSnapshotJobResult
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions:
+    POST:
+      summary: Amazon Web Services Updatedatasetpermissions
+      description: Updates the permissions on a dataset. The permissions resource is arn:aws:quicksight:region:aws-account-id:dataset/data-set-id.
+      operationId: amazonWebServicesUpdateDataSetPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions:
+    POST:
+      summary: Amazon Web Services Updatedatasourcepermissions
+      description: Updates the permissions to a data source.
+      operationId: amazonWebServicesUpdateDataSourcePermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders/{FolderId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updatefolderpermissions
+      description: Updates permissions of a folder.
+      operationId: amazonWebServicesUpdateFolderPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions:
+    GET:
+      summary: Amazon Web Services Describefolderresolvedpermissions
+      description: Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.
+      operationId: amazonWebServicesDescribeFolderResolvedPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}:
+    PUT:
+      summary: Amazon Web Services Updateiampolicyassignment
+      description: 'Updates an existing IAM policy assignment. This operation updates only the optional parameter or parameters that are specified in the request. This overwrites all of the users included in Identities. '
+      operationId: amazonWebServicesUpdateIAMPolicyAssignment
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/ip-restriction:
+    POST:
+      summary: Amazon Web Services Updateiprestriction
+      description: Updates the content and status of IP rules. To use this operation, you must provide the entire map of rules. You can use the DescribeIpRestriction operation to get the current rule map.
+      operationId: amazonWebServicesUpdateIpRestriction
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}/definition:
+    GET:
+      summary: Amazon Web Services Describetemplatedefinition
+      description: 'Provides a detailed description of the definition of a template.  If you do not need to know details about the content of a template, for instance if you are trying to check the status of a recently created or updated template, use the  DescribeTemplate  instead.  '
+      operationId: amazonWebServicesDescribeTemplateDefinition
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updatetemplatepermissions
+      description: Updates the resource permissions for a template.
+      operationId: amazonWebServicesUpdateTemplatePermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes/{ThemeId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updatethemepermissions
+      description: 'Updates the resource permissions for a theme. Permissions apply to the action to grant or revoke permissions on, for example "quicksight:DescribeTheme". Theme permissions apply in groupings. Valid groupings include the following for the three levels of permissions, which are user, owner, or no permissions:    User    "quicksight:DescribeTheme"     "quicksight:DescribeThemeAlias"     "quicksight:ListThemeAliases"     "quicksight:ListThemeVersions"      Owner    "quicksight:DescribeTheme"     "quicksight:DescribeThemeAlias"     "quicksight:ListThemeAliases"     "quicksight:ListThemeVersions"     "quicksight:DeleteTheme"     "quicksight:UpdateTheme"     "quicksight:CreateThemeAlias"     "quicksight:DeleteThemeAlias"     "quicksight:UpdateThemeAlias"     "quicksight:UpdateThemePermissions"     "quicksight:DescribeThemePermissions"      To specify no permissions, omit the permissions list.  '
+      operationId: amazonWebServicesUpdateThemePermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics/{TopicId}/permissions:
+    PUT:
+      summary: Amazon Web Services Updatetopicpermissions
+      description: Updates the permissions of a topic.
+      operationId: amazonWebServicesUpdateTopicPermissions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}:
+    GET:
+      summary: Amazon Web Services Describetopicrefresh
+      description: Describes the status of a topic refresh.
+      operationId: amazonWebServicesDescribeTopicRefresh
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/embed-url/anonymous-user:
+    POST:
+      summary: Amazon Web Services Generateembedurlforanonymoususer
+      description: 'Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   For more information, see Embedded Analytics in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal.'
+      operationId: amazonWebServicesGenerateEmbedUrlForAnonymousUser
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/embed-url/registered-user:
+    POST:
+      summary: Amazon Web Services Generateembedurlforregistereduser
+      description: 'Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account. Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions. The following rules apply to the generated URL:   It contains a temporary bearer token. It is valid for 5 minutes after it is generated. Once redeemed within this period, it cannot be re-used again.   The URL validity period should not be confused with the actual session lifetime that can be customized using the  SessionLifetimeInMinutes  parameter. The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   For more information, see Embedded Analytics in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal.'
+      operationId: amazonWebServicesGenerateEmbedUrlForRegisteredUser
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url:
+    GET:
+      summary: Amazon Web Services Getdashboardembedurl
+      description: 'Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions.  Currently, you can use GetDashboardEmbedURL only from the server, not from the user''s browser. The following rules apply to the generated URL:   They must be used together.   They can be used one time only.   They are valid for 5 minutes after you run this command.   You are charged only when the URL is used or there is interaction with Amazon QuickSight.   The resulting user session is valid for 15 minutes (default) up to 10 hours (maximum). You can use the optional SessionLifetimeInMinutes parameter to customize session duration.   For more information, see Embedding Analytics Using GetDashboardEmbedUrl in the Amazon QuickSight User Guide. For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the Amazon QuickSight Developer Portal.'
+      operationId: amazonWebServicesGetDashboardEmbedUrl
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/session-embed-url:
+    GET:
+      summary: Amazon Web Services Getsessionembedurl
+      description: 'Generates a session URL and authorization code that you can use to embed the Amazon Amazon QuickSight console in your web server code. Use GetSessionEmbedUrl where you want to provide an authoring portal that allows users to create data sources, datasets, analyses, and dashboards. The users who access an embedded Amazon QuickSight console need belong to the author or admin security cohort. If you want to restrict permissions to some of these features, add a custom permissions profile to the user with the  UpdateUser  API operation. Use  RegisterUser  API operation to add a new user with a custom permission profile attached. For more information, see the following sections in the Amazon QuickSight User Guide:    Embedding Analytics     Customizing Access to the Amazon QuickSight Console   '
+      operationId: amazonWebServicesGetSessionEmbedUrl
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/analyses:
+    GET:
+      summary: Amazon Web Services Listanalyses
+      description: Lists Amazon QuickSight analyses that exist in the specified Amazon Web Services account.
+      operationId: amazonWebServicesListAnalyses
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-export-jobs:
+    GET:
+      summary: Amazon Web Services Listassetbundleexportjobs
+      description: Lists all asset bundle export jobs that have been taken place in the last 14 days. Jobs created more than 14 days ago are deleted forever and are not returned. If you are using the same job ID for multiple jobs, ListAssetBundleExportJobs only returns the most recent job that uses the repeated job ID.
+      operationId: amazonWebServicesListAssetBundleExportJobs
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-import-jobs:
+    GET:
+      summary: Amazon Web Services Listassetbundleimportjobs
+      description: Lists all asset bundle import jobs that have taken place in the last 14 days. Jobs created more than 14 days ago are deleted forever and are not returned. If you are using the same job ID for multiple jobs, ListAssetBundleImportJobs only returns the most recent job that uses the repeated job ID.
+      operationId: amazonWebServicesListAssetBundleImportJobs
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions:
+    GET:
+      summary: Amazon Web Services Listdashboardversions
+      description: Lists all the versions of the dashboards in the Amazon QuickSight subscription.
+      operationId: amazonWebServicesListDashboardVersions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards:
+    GET:
+      summary: Amazon Web Services Listdashboards
+      description: Lists dashboards in an Amazon Web Services account.
+      operationId: amazonWebServicesListDashboards
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders/{FolderId}/members:
+    GET:
+      summary: Amazon Web Services Listfoldermembers
+      description: 'List all assets (DASHBOARD, ANALYSIS, and DATASET) in a folder. '
+      operationId: amazonWebServicesListFolderMembers
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/folders:
+    GET:
+      summary: Amazon Web Services Listfolders
+      description: Lists all folders in an account.
+      operationId: amazonWebServicesListFolders
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members:
+    GET:
+      summary: Amazon Web Services Listgroupmemberships
+      description: Lists member users in a group.
+      operationId: amazonWebServicesListGroupMemberships
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments:
+    GET:
+      summary: Amazon Web Services Listiampolicyassignments
+      description: Lists the IAM policy assignments in the current Amazon QuickSight account.
+      operationId: amazonWebServicesListIAMPolicyAssignments
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments:
+    GET:
+      summary: Amazon Web Services Listiampolicyassignmentsforuser
+      description: Lists all of the IAM policy assignments, including the Amazon Resource Names (ARNs), for the IAM policies assigned to the specified user and group, or groups that the user belongs to.
+      operationId: amazonWebServicesListIAMPolicyAssignmentsForUser
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/identity-propagation-config:
+    GET:
+      summary: Amazon Web Services Listidentitypropagationconfigs
+      description: Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access. This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.
+      operationId: amazonWebServicesListIdentityPropagationConfigs
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions:
+    GET:
+      summary: Amazon Web Services Listingestions
+      description: Lists the history of SPICE ingestions for a dataset.
+      operationId: amazonWebServicesListIngestions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces:
+    GET:
+      summary: Amazon Web Services Listnamespaces
+      description: Lists the namespaces for the specified Amazon Web Services account. This operation doesn't list deleted namespaces.
+      operationId: amazonWebServicesListNamespaces
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members:
+    GET:
+      summary: Amazon Web Services Listrolememberships
+      description: Lists all groups that are associated with a role.
+      operationId: amazonWebServicesListRoleMemberships
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}/aliases:
+    GET:
+      summary: Amazon Web Services Listtemplatealiases
+      description: Lists all the aliases of a template.
+      operationId: amazonWebServicesListTemplateAliases
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates/{TemplateId}/versions:
+    GET:
+      summary: Amazon Web Services Listtemplateversions
+      description: Lists all the versions of the templates in the current Amazon QuickSight account.
+      operationId: amazonWebServicesListTemplateVersions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/templates:
+    GET:
+      summary: Amazon Web Services Listtemplates
+      description: Lists all the templates in the current Amazon QuickSight account.
+      operationId: amazonWebServicesListTemplates
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes/{ThemeId}/aliases:
+    GET:
+      summary: Amazon Web Services Listthemealiases
+      description: Lists all the aliases of a theme.
+      operationId: amazonWebServicesListThemeAliases
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes/{ThemeId}/versions:
+    GET:
+      summary: Amazon Web Services Listthemeversions
+      description: Lists all the versions of the themes in the current Amazon Web Services account.
+      operationId: amazonWebServicesListThemeVersions
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/themes:
+    GET:
+      summary: Amazon Web Services Listthemes
+      description: Lists all the themes in the current Amazon Web Services account.
+      operationId: amazonWebServicesListThemes
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups:
+    GET:
+      summary: Amazon Web Services Listusergroups
+      description: Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.
+      operationId: amazonWebServicesListUserGroups
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/users:
+    POST:
+      summary: Amazon Web Services Registeruser
+      description: Creates an Amazon QuickSight user whose identity is associated with the Identity and Access Management (IAM) identity or role specified in the request. When you register a new user from the Amazon QuickSight API, Amazon QuickSight generates a registration URL. The user accesses this registration URL to create their account. Amazon QuickSight doesn't send a registration email to users who are registered from the Amazon QuickSight API. If you want new users to receive a registration email, then add those users in the Amazon QuickSight console. For more information on registering a new user in the Amazon QuickSight console, see  Inviting users to access Amazon QuickSight.
+      operationId: amazonWebServicesRegisterUser
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/restore/analyses/{AnalysisId}:
+    POST:
+      summary: Amazon Web Services Restoreanalysis
+      description: Restores an analysis.
+      operationId: amazonWebServicesRestoreAnalysis
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/search/analyses:
+    POST:
+      summary: Amazon Web Services Searchanalyses
+      description: 'Searches for analyses that belong to the user specified in the filter.  This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes. '
+      operationId: amazonWebServicesSearchAnalyses
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/search/dashboards:
+    POST:
+      summary: Amazon Web Services Searchdashboards
+      description: 'Searches for dashboards that belong to a user.   This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes. '
+      operationId: amazonWebServicesSearchDashboards
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/search/data-sets:
+    POST:
+      summary: Amazon Web Services Searchdatasets
+      description: Use the SearchDataSets operation to search for datasets that belong to an account.
+      operationId: amazonWebServicesSearchDataSets
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/search/data-sources:
+    POST:
+      summary: Amazon Web Services Searchdatasources
+      description: Use the SearchDataSources operation to search for data sources that belong to an account.
+      operationId: amazonWebServicesSearchDataSources
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/search/folders:
+    POST:
+      summary: Amazon Web Services Searchfolders
+      description: Searches the subfolders in a folder.
+      operationId: amazonWebServicesSearchFolders
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search:
+    POST:
+      summary: Amazon Web Services Searchgroups
+      description: Use the SearchGroups operation to search groups in a specified Amazon QuickSight namespace using the supplied filters.
+      operationId: amazonWebServicesSearchGroups
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-export-jobs/export:
+    POST:
+      summary: Amazon Web Services Startassetbundleexportjob
+      description: Starts an Asset Bundle export job. An Asset Bundle export job exports specified Amazon QuickSight assets. You can also choose to export any asset dependencies in the same job. Export jobs run asynchronously and can be polled with a DescribeAssetBundleExportJob API call. When a job is successfully completed, a download URL that contains the exported assets is returned. The URL is valid for 5 minutes and can be refreshed with a DescribeAssetBundleExportJob API call. Each Amazon QuickSight account can run up to 5 export jobs concurrently. The API caller must have the necessary permissions in their IAM role to access each resource before the resources can be exported.
+      operationId: amazonWebServicesStartAssetBundleExportJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/asset-bundle-import-jobs/import:
+    POST:
+      summary: Amazon Web Services Startassetbundleimportjob
+      description: Starts an Asset Bundle import job. An Asset Bundle import job imports specified Amazon QuickSight assets into an Amazon QuickSight account. You can also choose to import a naming prefix and specified configuration overrides. The assets that are contained in the bundle file that you provide are used to create or update a new or existing asset in your Amazon QuickSight account. Each Amazon QuickSight account can run up to 5 import jobs concurrently. The API caller must have the necessary "create", "describe", and "update" permissions in their IAM role to access each resource type that is contained in the bundle file before the resources can be imported.
+      operationId: amazonWebServicesStartAssetBundleImportJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs:
+    POST:
+      summary: Amazon Web Services Startdashboardsnapshotjob
+      description: Starts an asynchronous job that generates a dashboard snapshot. You can request one of the following format configurations per API call.   1 paginated PDF   1 Excel workbook   5 CSVs   Poll job descriptions with a DescribeDashboardSnapshotJob API call. Once the job succeeds, use the DescribeDashboardSnapshotJobResult API to obtain the download URIs that the job generates.
+      operationId: amazonWebServicesStartDashboardSnapshotJob
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities:
+    PUT:
+      summary: Amazon Web Services Updatedashboardlinks
+      description: Updates the linked analyses on a dashboard.
+      operationId: amazonWebServicesUpdateDashboardLinks
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}:
+    PUT:
+      summary: Amazon Web Services Updatedashboardpublishedversion
+      description: Updates the published version of a dashboard.
+      operationId: amazonWebServicesUpdateDashboardPublishedVersion
+      tags:
+      - Accounts
+  /accounts/{AwsAccountId}/public-sharing-settings:
+    PUT:
+      summary: Amazon Web Services Updatepublicsharingsettings
+      description: Use the UpdatePublicSharingSettings operation to turn on or turn off the public sharing settings of an Amazon QuickSight dashboard. To use this operation, turn on session capacity pricing for your Amazon QuickSight account. Before you can turn on public sharing on your account, make sure to give public sharing permissions to an administrative user in the Identity and Access Management (IAM) console. For more information on using IAM with Amazon QuickSight, see Using Amazon QuickSight with IAM in the Amazon QuickSight User Guide.
+      operationId: amazonWebServicesUpdatePublicSharingSettings
+      tags:
+      - Accounts

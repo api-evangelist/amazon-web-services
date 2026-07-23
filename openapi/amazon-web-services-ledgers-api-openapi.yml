@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Ledgers API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Ledgers
+paths:
+  /ledgers/{name}/journal-kinesis-streams/{streamId}:
+    GET:
+      summary: Amazon Web Services Describejournalkinesisstream
+      description: Returns detailed information about a given Amazon QLDB journal stream. The output includes the Amazon Resource Name (ARN), stream name, current status, creation time, and the parameters of the original stream creation request. This action does not return any expired journal streams. For more information, see Expiration for terminal streams in the Amazon QLDB Developer Guide.
+      operationId: amazonWebServicesDescribeJournalKinesisStream
+      tags:
+      - Ledgers
+  /ledgers:
+    GET:
+      summary: Amazon Web Services Listledgers
+      description: Returns all ledgers that are associated with the current Amazon Web Services account and Region. This action returns a maximum of MaxResults items and is paginated so that you can retrieve all the items by calling ListLedgers multiple times.
+      operationId: amazonWebServicesListLedgers
+      tags:
+      - Ledgers
+  /ledgers/{name}:
+    PATCH:
+      summary: Amazon Web Services Updateledger
+      description: Updates properties on a ledger.
+      operationId: amazonWebServicesUpdateLedger
+      tags:
+      - Ledgers
+  /ledgers/{name}/journal-s3-exports/{exportId}:
+    GET:
+      summary: Amazon Web Services Describejournals3export
+      description: Returns information about a journal export job, including the ledger name, export ID, creation time, current status, and the parameters of the original export creation request. This action does not return any expired export jobs. For more information, see Export job expiration in the Amazon QLDB Developer Guide. If the export job with the given ExportId doesn't exist, then throws ResourceNotFoundException. If the ledger with the given Name doesn't exist, then throws ResourceNotFoundException.
+      operationId: amazonWebServicesDescribeJournalS3Export
+      tags:
+      - Ledgers
+  /ledgers/{name}/journal-s3-exports:
+    GET:
+      summary: Amazon Web Services Listjournals3exportsforledger
+      description: Returns all journal export jobs for a specified ledger. This action returns a maximum of MaxResults items, and is paginated so that you can retrieve all the items by calling ListJournalS3ExportsForLedger multiple times. This action does not return any expired export jobs. For more information, see Export job expiration in the Amazon QLDB Developer Guide.
+      operationId: amazonWebServicesListJournalS3ExportsForLedger
+      tags:
+      - Ledgers
+  /ledgers/{name}/block:
+    POST:
+      summary: Amazon Web Services Getblock
+      description: Returns a block object at a specified address in a journal. Also returns a proof of the specified block for verification if DigestTipAddress is provided. For information about the data contents in a block, see Journal contents in the Amazon QLDB Developer Guide. If the specified ledger doesn't exist or is in DELETING status, then throws ResourceNotFoundException. If the specified ledger is in CREATING status, then throws ResourcePreconditionNotMetException. If no block exists with the specified address, then throws InvalidParameterException.
+      operationId: amazonWebServicesGetBlock
+      tags:
+      - Ledgers
+  /ledgers/{name}/digest:
+    POST:
+      summary: Amazon Web Services Getdigest
+      description: Returns the digest of a ledger at the latest committed block in the journal. The response includes a 256-bit hash value and a block address.
+      operationId: amazonWebServicesGetDigest
+      tags:
+      - Ledgers
+  /ledgers/{name}/revision:
+    POST:
+      summary: Amazon Web Services Getrevision
+      description: Returns a revision data object for a specified document ID and block address. Also returns a proof of the specified revision for verification if DigestTipAddress is provided.
+      operationId: amazonWebServicesGetRevision
+      tags:
+      - Ledgers
+  /ledgers/{name}/journal-kinesis-streams:
+    POST:
+      summary: Amazon Web Services Streamjournaltokinesis
+      description: Creates a journal stream for a given Amazon QLDB ledger. The stream captures every document revision that is committed to the ledger's journal and delivers the data to a specified Amazon Kinesis Data Streams resource.
+      operationId: amazonWebServicesStreamJournalToKinesis
+      tags:
+      - Ledgers
+  /ledgers/{name}/permissions-mode:
+    PATCH:
+      summary: Amazon Web Services Updateledgerpermissionsmode
+      description: 'Updates the permissions mode of a ledger.  Before you switch to the STANDARD permissions mode, you must first create all required IAM policies and table tags to avoid disruption to your users. To learn more, see Migrating to the standard permissions mode in the Amazon QLDB Developer Guide. '
+      operationId: amazonWebServicesUpdateLedgerPermissionsMode
+      tags:
+      - Ledgers

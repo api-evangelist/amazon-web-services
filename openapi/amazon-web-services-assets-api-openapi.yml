@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Assets API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Assets
+paths:
+  /assets/{assetId}/associate:
+    POST:
+      summary: Amazon Web Services Associateassets
+      description: Associates a child asset with the given parent asset through a hierarchy defined in the parent asset's model. For more information, see Associating assets in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesAssociateAssets
+      tags:
+      - Assets
+  /assets:
+    GET:
+      summary: Amazon Web Services Listassets
+      description: 'Retrieves a paginated list of asset summaries. You can use this operation to do the following:   List assets based on a specific asset model.   List top-level assets.   You can''t use this operation to list all assets. To retrieve summaries for all of your assets, use ListAssetModels to get all of your asset model IDs. Then, use ListAssets to get all assets for each asset model.'
+      operationId: amazonWebServicesListAssets
+      tags:
+      - Assets
+  /assets/{assetId}:
+    PUT:
+      summary: Amazon Web Services Updateasset
+      description: Updates an asset's name. For more information, see Updating assets and models in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesUpdateAsset
+      tags:
+      - Assets
+  /assets/{assetId}/composite-models/{assetCompositeModelId}:
+    GET:
+      summary: Amazon Web Services Describeassetcompositemodel
+      description: Retrieves information about an asset composite model (also known as an asset component). An AssetCompositeModel is an instance of an AssetModelCompositeModel. If you want to see information about the model this is based on, call DescribeAssetModelCompositeModel.
+      operationId: amazonWebServicesDescribeAssetCompositeModel
+      tags:
+      - Assets
+  /assets/{assetId}/properties/{propertyId}:
+    PUT:
+      summary: Amazon Web Services Updateassetproperty
+      description: 'Updates an asset property''s alias and notification state.  This operation overwrites the property''s existing alias and notification state. To keep your existing property''s alias or notification state, you must include the existing values in the UpdateAssetProperty request. For more information, see DescribeAssetProperty. '
+      operationId: amazonWebServicesUpdateAssetProperty
+      tags:
+      - Assets
+  /assets/{assetId}/disassociate:
+    POST:
+      summary: Amazon Web Services Disassociateassets
+      description: Disassociates a child asset from the given parent asset through a hierarchy defined in the parent asset's model.
+      operationId: amazonWebServicesDisassociateAssets
+      tags:
+      - Assets
+  /assets/{assetId}/properties:
+    GET:
+      summary: Amazon Web Services Listassetproperties
+      description: Retrieves a paginated list of properties associated with an asset. If you update properties associated with the model before you finish listing all the properties, you need to start all over again.
+      operationId: amazonWebServicesListAssetProperties
+      tags:
+      - Assets
+  /assets/{assetId}/assetRelationships:
+    GET:
+      summary: Amazon Web Services Listassetrelationships
+      description: Retrieves a paginated list of asset relationships for an asset. You can use this operation to identify an asset's root asset and all associated assets between that asset and its root.
+      operationId: amazonWebServicesListAssetRelationships
+      tags:
+      - Assets
+  /assets/{assetId}/hierarchies:
+    GET:
+      summary: Amazon Web Services Listassociatedassets
+      description: 'Retrieves a paginated list of associated assets. You can use this operation to do the following:   List child assets associated to a parent asset by a hierarchy that you specify.   List an asset''s parent asset.  '
+      operationId: amazonWebServicesListAssociatedAssets
+      tags:
+      - Assets
+  /assets/{id}:
+    GET:
+      summary: Amazon Web Services Describeasset
+      description: Returns a description of a MediaPackage VOD Asset resource.
+      operationId: amazonWebServicesDescribeAsset
+      tags:
+      - Assets

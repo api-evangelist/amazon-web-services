@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Jobs API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Jobs
+paths:
+  /jobs:
+    POST:
+      summary: Amazon Web Services Searchjobs
+      description: Searches for Amazon Braket jobs that match the specified filter values.
+      operationId: amazonWebServicesSearchJobs
+      tags:
+      - Jobs
+    GET:
+      summary: Amazon Web Services Listjobs
+      description: Lists all of the DataBrew jobs that are defined.
+      operationId: amazonWebServicesListJobs
+      tags:
+      - Jobs
+  /jobs/{name}:
+    GET:
+      summary: Amazon Web Services Describejob
+      description: Returns the definition of a specific DataBrew job.
+      operationId: amazonWebServicesDescribeJob
+      tags:
+      - Jobs
+  /jobs/{name}/jobRun/{runId}:
+    GET:
+      summary: Amazon Web Services Describejobrun
+      description: Represents one run of a DataBrew job.
+      operationId: amazonWebServicesDescribeJobRun
+      tags:
+      - Jobs
+  /jobs/{name}/jobRuns:
+    GET:
+      summary: Amazon Web Services Listjobruns
+      description: Lists all of the previous runs of a particular DataBrew job.
+      operationId: amazonWebServicesListJobRuns
+      tags:
+      - Jobs
+  /jobs/{name}/startJobRun:
+    POST:
+      summary: Amazon Web Services Startjobrun
+      description: Runs a DataBrew job.
+      operationId: amazonWebServicesStartJobRun
+      tags:
+      - Jobs
+  /jobs/{name}/jobRun/{runId}/stopJobRun:
+    POST:
+      summary: Amazon Web Services Stopjobrun
+      description: Stops a particular run of a job.
+      operationId: amazonWebServicesStopJobRun
+      tags:
+      - Jobs
+  /v1/jobs/{JobId}:
+    PATCH:
+      summary: Amazon Web Services Startjob
+      description: This operation starts a job.
+      operationId: amazonWebServicesStartJob
+      tags:
+      - Jobs
+  /v1/jobs:
+    GET:
+      summary: Amazon Web Services Listjobs
+      description: This operation lists your jobs sorted by CreatedAt in descending order.
+      operationId: amazonWebServicesListJobs
+      tags:
+      - Jobs
+  /jobs/{jobId}/targets:
+    POST:
+      summary: Amazon Web Services Associatetargetswithjob
+      description: 'Associates a group with a continuous job. The following criteria must be met:    The job must have been created with the targetSelection field set to "CONTINUOUS".   The job status must currently be "IN_PROGRESS".   The total number of targets associated with a job must not exceed 100.   Requires permission to access the AssociateTargetsWithJob action.'
+      operationId: amazonWebServicesAssociateTargetsWithJob
+      tags:
+      - Jobs
+  /jobs/{jobId}/cancel:
+    PUT:
+      summary: Amazon Web Services Canceljob
+      description: Cancels a job. Requires permission to access the CancelJob action.
+      operationId: amazonWebServicesCancelJob
+      tags:
+      - Jobs
+  /jobs/{jobId}:
+    PATCH:
+      summary: Amazon Web Services Updatejob
+      description: Updates supported fields of the specified job. Requires permission to access the UpdateJob action.
+      operationId: amazonWebServicesUpdateJob
+      tags:
+      - Jobs
+    GET:
+      summary: Amazon Web Services Describebulkimportjob
+      description: Retrieves information about a bulk import job request. For more information, see Describe a bulk import job (CLI) in the Amazon Simple Storage Service User Guide.
+      operationId: amazonWebServicesDescribeBulkImportJob
+      tags:
+      - Jobs
+  /jobs/{jobId}/job-document:
+    GET:
+      summary: Amazon Web Services Getjobdocument
+      description: Gets a job document. Requires permission to access the GetJobDocument action.
+      operationId: amazonWebServicesGetJobDocument
+      tags:
+      - Jobs
+  /jobs/{jobId}/things:
+    GET:
+      summary: Amazon Web Services Listjobexecutionsforjob
+      description: Lists the job executions for a job. Requires permission to access the ListJobExecutionsForJob action.
+      operationId: amazonWebServicesListJobExecutionsForJob
+      tags:
+      - Jobs
+  /jobs/list:
+    POST:
+      summary: Amazon Web Services Listclassificationjobs
+      description: Retrieves a subset of information about one or more classification jobs.
+      operationId: amazonWebServicesListClassificationJobs
+      tags:
+      - Jobs
+  /jobs/{JobId}:
+    GET:
+      summary: Amazon Web Services Describedevicejob
+      description: Returns information about a device job.
+      operationId: amazonWebServicesDescribeDeviceJob
+      tags:
+      - Jobs
+  /v20180820/jobs:
+    GET:
+      summary: Amazon Web Services Listjobs
+      description: 'Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 30 days for the Amazon Web Services account making the request. For more information, see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use the ListJobs operation, you must have permission to perform the s3:ListJobs action.   Related actions include:     CreateJob     DescribeJob     UpdateJobPriority     UpdateJobStatus   '
+      operationId: amazonWebServicesListJobs
+      tags:
+      - Jobs
+  /v20180820/jobs/{id}/tagging:
+    PUT:
+      summary: Amazon Web Services Putjobtagging
+      description: 'Sets the supplied tag-set on an S3 Batch Operations job. A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending a PUT request against the tagging subresource that is associated with the job. To modify the existing tag set, you can either replace the existing tag set entirely, or make changes within the existing tag set by retrieving the existing tag set using GetJobTagging, modify that tag set, and use this operation to replace the tag set with the one you modified. For more information, see Controlling access and labeling jobs using tags in the Amazon S3 User Guide.     If you send this request with an empty tag set, Amazon S3 deletes the existing tag set on the Batch Operations job. If you use this method, you are charged for a Tier 1 Request (PUT). For more information, see Amazon S3 pricing.   For deleting existing tags for your Batch Operations job, a DeleteJobTagging request is preferred because it achieves the same result without incurring charges.   A few things to consider about using tags:   Amazon S3 limits the maximum number of tags to 50 tags per job.   You can associate up to 50 tags with a job as long as they have unique tag keys.   A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length.   The key and values are case sensitive.   For tagging-related restrictions related to characters and encodings, see User-Defined Tag Restrictions in the Billing and Cost Management User Guide.       Permissions  To use the PutJobTagging operation, you must have permission to perform the s3:PutJobTagging action.   Related actions include:    CreateJob     GetJobTagging     DeleteJobTagging   '
+      operationId: amazonWebServicesPutJobTagging
+      tags:
+      - Jobs
+  /v20180820/jobs/{id}:
+    GET:
+      summary: Amazon Web Services Describejob
+      description: 'Retrieves the configuration parameters and status for a Batch Operations job. For more information, see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use the DescribeJob operation, you must have permission to perform the s3:DescribeJob action.   Related actions include:    CreateJob     ListJobs     UpdateJobPriority     UpdateJobStatus   '
+      operationId: amazonWebServicesDescribeJob
+      tags:
+      - Jobs
+  /v20180820/jobs/{id}/priority:
+    POST:
+      summary: Amazon Web Services Updatejobpriority
+      description: 'Updates an existing S3 Batch Operations job''s priority. For more information, see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use the UpdateJobPriority operation, you must have permission to perform the s3:UpdateJobPriority action.   Related actions include:    CreateJob     ListJobs     DescribeJob     UpdateJobStatus   '
+      operationId: amazonWebServicesUpdateJobPriority
+      tags:
+      - Jobs
+  /v20180820/jobs/{id}/status:
+    POST:
+      summary: Amazon Web Services Updatejobstatus
+      description: 'Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job. For more information, see S3 Batch Operations in the Amazon S3 User Guide.  Permissions  To use the UpdateJobStatus operation, you must have permission to perform the s3:UpdateJobStatus action.   Related actions include:    CreateJob     ListJobs     DescribeJob     UpdateJobStatus   '
+      operationId: amazonWebServicesUpdateJobStatus
+      tags:
+      - Jobs

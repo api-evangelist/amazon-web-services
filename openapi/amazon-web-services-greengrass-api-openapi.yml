@@ -1,0 +1,462 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Greengrass API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Greengrass
+paths:
+  /greengrass/groups/{GroupId}/role:
+    GET:
+      summary: Amazon Web Services Getassociatedrole
+      description: Retrieves the role associated with a particular group.
+      operationId: amazonWebServicesGetAssociatedRole
+      tags:
+      - Greengrass
+  /greengrass/servicerole:
+    GET:
+      summary: Amazon Web Services Getserviceroleforaccount
+      description: Retrieves the service role that is attached to your account.
+      operationId: amazonWebServicesGetServiceRoleForAccount
+      tags:
+      - Greengrass
+  /greengrass/definition/connectors:
+    GET:
+      summary: Amazon Web Services Listconnectordefinitions
+      description: Retrieves a list of connector definitions.
+      operationId: amazonWebServicesListConnectorDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/connectors/{ConnectorDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listconnectordefinitionversions
+      description: Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
+      operationId: amazonWebServicesListConnectorDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/definition/cores:
+    GET:
+      summary: Amazon Web Services Listcoredefinitions
+      description: Retrieves a list of core definitions.
+      operationId: amazonWebServicesListCoreDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/cores/{CoreDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listcoredefinitionversions
+      description: Lists the versions of a core definition.
+      operationId: amazonWebServicesListCoreDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/deployments:
+    GET:
+      summary: Amazon Web Services Listdeployments
+      description: Returns a history of deployments for the group.
+      operationId: amazonWebServicesListDeployments
+      tags:
+      - Greengrass
+  /greengrass/definition/devices:
+    GET:
+      summary: Amazon Web Services Listdevicedefinitions
+      description: Retrieves a list of device definitions.
+      operationId: amazonWebServicesListDeviceDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/devices/{DeviceDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listdevicedefinitionversions
+      description: Lists the versions of a device definition.
+      operationId: amazonWebServicesListDeviceDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/definition/functions:
+    GET:
+      summary: Amazon Web Services Listfunctiondefinitions
+      description: Retrieves a list of Lambda function definitions.
+      operationId: amazonWebServicesListFunctionDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/functions/{FunctionDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listfunctiondefinitionversions
+      description: Lists the versions of a Lambda function definition.
+      operationId: amazonWebServicesListFunctionDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/groups:
+    GET:
+      summary: Amazon Web Services Listgroups
+      description: Retrieves a list of groups.
+      operationId: amazonWebServicesListGroups
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/certificateauthorities:
+    GET:
+      summary: Amazon Web Services Listgroupcertificateauthorities
+      description: Retrieves the current CAs for a group.
+      operationId: amazonWebServicesListGroupCertificateAuthorities
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/versions:
+    GET:
+      summary: Amazon Web Services Listgroupversions
+      description: Lists the versions of a group.
+      operationId: amazonWebServicesListGroupVersions
+      tags:
+      - Greengrass
+  /greengrass/definition/loggers:
+    GET:
+      summary: Amazon Web Services Listloggerdefinitions
+      description: Retrieves a list of logger definitions.
+      operationId: amazonWebServicesListLoggerDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/loggers/{LoggerDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listloggerdefinitionversions
+      description: Lists the versions of a logger definition.
+      operationId: amazonWebServicesListLoggerDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/definition/resources:
+    GET:
+      summary: Amazon Web Services Listresourcedefinitions
+      description: Retrieves a list of resource definitions.
+      operationId: amazonWebServicesListResourceDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/resources/{ResourceDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listresourcedefinitionversions
+      description: Lists the versions of a resource definition.
+      operationId: amazonWebServicesListResourceDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/updates:
+    POST:
+      summary: Amazon Web Services Createsoftwareupdatejob
+      description: Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
+      operationId: amazonWebServicesCreateSoftwareUpdateJob
+      tags:
+      - Greengrass
+  /greengrass/definition/subscriptions:
+    GET:
+      summary: Amazon Web Services Listsubscriptiondefinitions
+      description: Retrieves a list of subscription definitions.
+      operationId: amazonWebServicesListSubscriptionDefinitions
+      tags:
+      - Greengrass
+  /greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions:
+    GET:
+      summary: Amazon Web Services Listsubscriptiondefinitionversions
+      description: Lists the versions of a subscription definition.
+      operationId: amazonWebServicesListSubscriptionDefinitionVersions
+      tags:
+      - Greengrass
+  /greengrass/definition/connectors/{ConnectorDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updateconnectordefinition
+      description: Updates a connector definition.
+      operationId: amazonWebServicesUpdateConnectorDefinition
+      tags:
+      - Greengrass
+  /greengrass/definition/cores/{CoreDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updatecoredefinition
+      description: Updates a core definition.
+      operationId: amazonWebServicesUpdateCoreDefinition
+      tags:
+      - Greengrass
+  /greengrass/definition/devices/{DeviceDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updatedevicedefinition
+      description: Updates a device definition.
+      operationId: amazonWebServicesUpdateDeviceDefinition
+      tags:
+      - Greengrass
+  /greengrass/definition/functions/{FunctionDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updatefunctiondefinition
+      description: Updates a Lambda function definition.
+      operationId: amazonWebServicesUpdateFunctionDefinition
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}:
+    PUT:
+      summary: Amazon Web Services Updategroup
+      description: Updates a group.
+      operationId: amazonWebServicesUpdateGroup
+      tags:
+      - Greengrass
+  /greengrass/definition/loggers/{LoggerDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updateloggerdefinition
+      description: Updates a logger definition.
+      operationId: amazonWebServicesUpdateLoggerDefinition
+      tags:
+      - Greengrass
+  /greengrass/definition/resources/{ResourceDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updateresourcedefinition
+      description: Updates a resource definition.
+      operationId: amazonWebServicesUpdateResourceDefinition
+      tags:
+      - Greengrass
+  /greengrass/definition/subscriptions/{SubscriptionDefinitionId}:
+    PUT:
+      summary: Amazon Web Services Updatesubscriptiondefinition
+      description: Updates a subscription definition.
+      operationId: amazonWebServicesUpdateSubscriptionDefinition
+      tags:
+      - Greengrass
+  /greengrass/bulk/deployments/{BulkDeploymentId}/status:
+    GET:
+      summary: Amazon Web Services Getbulkdeploymentstatus
+      description: Returns the status of a bulk deployment.
+      operationId: amazonWebServicesGetBulkDeploymentStatus
+      tags:
+      - Greengrass
+  /greengrass/things/{ThingName}/connectivityInfo:
+    PUT:
+      summary: Amazon Web Services Updateconnectivityinfo
+      description: Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.
+      operationId: amazonWebServicesUpdateConnectivityInfo
+      tags:
+      - Greengrass
+  /greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getconnectordefinitionversion
+      description: Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.
+      operationId: amazonWebServicesGetConnectorDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getcoredefinitionversion
+      description: Retrieves information about a core definition version.
+      operationId: amazonWebServicesGetCoreDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/deployments/{DeploymentId}/status:
+    GET:
+      summary: Amazon Web Services Getdeploymentstatus
+      description: Returns the status of a deployment.
+      operationId: amazonWebServicesGetDeploymentStatus
+      tags:
+      - Greengrass
+  /greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getdevicedefinitionversion
+      description: Retrieves information about a device definition version.
+      operationId: amazonWebServicesGetDeviceDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getfunctiondefinitionversion
+      description: Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
+      operationId: amazonWebServicesGetFunctionDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}:
+    GET:
+      summary: Amazon Web Services Getgroupcertificateauthority
+      description: Retreives the CA associated with a group. Returns the public key of the CA.
+      operationId: amazonWebServicesGetGroupCertificateAuthority
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry:
+    PUT:
+      summary: Amazon Web Services Updategroupcertificateconfiguration
+      description: Updates the Certificate expiry time for a group.
+      operationId: amazonWebServicesUpdateGroupCertificateConfiguration
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/versions/{GroupVersionId}:
+    GET:
+      summary: Amazon Web Services Getgroupversion
+      description: Retrieves information about a group version.
+      operationId: amazonWebServicesGetGroupVersion
+      tags:
+      - Greengrass
+  /greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getloggerdefinitionversion
+      description: Retrieves information about a logger definition version.
+      operationId: amazonWebServicesGetLoggerDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getresourcedefinitionversion
+      description: Retrieves information about a resource definition version, including which resources are included in the version.
+      operationId: amazonWebServicesGetResourceDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}:
+    GET:
+      summary: Amazon Web Services Getsubscriptiondefinitionversion
+      description: Retrieves information about a subscription definition version.
+      operationId: amazonWebServicesGetSubscriptionDefinitionVersion
+      tags:
+      - Greengrass
+  /greengrass/things/{ThingName}/runtimeconfig:
+    PUT:
+      summary: Amazon Web Services Updatethingruntimeconfiguration
+      description: Updates the runtime configuration of a thing.
+      operationId: amazonWebServicesUpdateThingRuntimeConfiguration
+      tags:
+      - Greengrass
+  /greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports:
+    GET:
+      summary: Amazon Web Services Listbulkdeploymentdetailedreports
+      description: Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
+      operationId: amazonWebServicesListBulkDeploymentDetailedReports
+      tags:
+      - Greengrass
+  /greengrass/bulk/deployments:
+    POST:
+      summary: Amazon Web Services Startbulkdeployment
+      description: Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
+      operationId: amazonWebServicesStartBulkDeployment
+      tags:
+      - Greengrass
+  /greengrass/groups/{GroupId}/deployments/$reset:
+    POST:
+      summary: Amazon Web Services Resetdeployments
+      description: Resets a group's deployments.
+      operationId: amazonWebServicesResetDeployments
+      tags:
+      - Greengrass
+  /greengrass/bulk/deployments/{BulkDeploymentId}/$stop:
+    PUT:
+      summary: Amazon Web Services Stopbulkdeployment
+      description: Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
+      operationId: amazonWebServicesStopBulkDeployment
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices:
+    POST:
+      summary: Amazon Web Services Batchassociateclientdevicewithcoredevice
+      description: 'Associates a list of client devices with a core device. Use this API operation to specify which client devices can discover a core device through cloud discovery. With cloud discovery, client devices connect to IoT Greengrass to retrieve associated core devices'' connectivity information and certificates. For more information, see Configure cloud discovery in the IoT Greengrass V2 Developer Guide.  Client devices are local IoT devices that connect to and communicate with an IoT Greengrass core device over MQTT. You can connect client devices to a core device to sync MQTT messages and data to Amazon Web Services IoT Core and interact with client devices in Greengrass components. For more information, see Interact with local IoT devices in the IoT Greengrass V2 Developer Guide. '
+      operationId: amazonWebServicesBatchAssociateClientDeviceWithCoreDevice
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices:
+    POST:
+      summary: Amazon Web Services Batchdisassociateclientdevicefromcoredevice
+      description: Disassociates a list of client devices from a core device. After you disassociate a client device from a core device, the client device won't be able to use cloud discovery to retrieve the core device's connectivity information and certificates.
+      operationId: amazonWebServicesBatchDisassociateClientDeviceFromCoreDevice
+      tags:
+      - Greengrass
+  /greengrass/v2/deployments/{deploymentId}/cancel:
+    POST:
+      summary: Amazon Web Services Canceldeployment
+      description: Cancels a deployment. This operation cancels the deployment for devices that haven't yet received it. If a device already received the deployment, this operation doesn't change anything for that device.
+      operationId: amazonWebServicesCancelDeployment
+      tags:
+      - Greengrass
+  /greengrass/v2/createComponentVersion:
+    POST:
+      summary: Amazon Web Services Createcomponentversion
+      description: 'Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to IoT Greengrass. Then, you can deploy the component to other core devices. You can use this operation to do the following:    Create components from recipes  Create a component from a recipe, which is a file that defines the component''s metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see IoT Greengrass component recipe reference in the IoT Greengrass V2 Developer Guide. To create a component from a recipe, specify inlineRecipe when you call this operation.    Create components from Lambda functions  Create a component from an Lambda function that runs on IoT Greengrass. This creates a recipe and artifacts from the Lambda function''s deployment package. You can use this operation to migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2. This function only accepts Lambda functions that use the following runtimes:   Python 2.7 – python2.7    Python 3.7 – python3.7    Python 3.8 – python3.8    Python 3.9 – python3.9    Java 8 – java8    Java 11 – java11    Node.js 10 – nodejs10.x    Node.js 12 – nodejs12.x    Node.js 14 – nodejs14.x    To create a component from a Lambda function, specify lambdaFunction when you call this operation.  IoT Greengrass currently supports Lambda functions on only Linux core devices.   '
+      operationId: amazonWebServicesCreateComponentVersion
+      tags:
+      - Greengrass
+  /greengrass/v2/deployments:
+    GET:
+      summary: Amazon Web Services Listdeployments
+      description: Retrieves a paginated list of deployments.
+      operationId: amazonWebServicesListDeployments
+      tags:
+      - Greengrass
+  /greengrass/v2/components/{arn}:
+    GET:
+      summary: Amazon Web Services Getcomponent
+      description: Gets the recipe for a version of a component.
+      operationId: amazonWebServicesGetComponent
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}:
+    GET:
+      summary: Amazon Web Services Getcoredevice
+      description: 'Retrieves metadata for a Greengrass core device.  IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core software isn''t running on the device, or if device isn''t connected to the Amazon Web Services Cloud, then the reported status of that device might not reflect its current status. The status timestamp indicates when the device status was last updated. Core devices send status updates at the following times:   When the IoT Greengrass Core software starts   When the core device receives a deployment from the Amazon Web Services Cloud   When the status of any component on the core device becomes BROKEN    At a regular interval that you can configure, which defaults to 24 hours   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and cloud deployment   '
+      operationId: amazonWebServicesGetCoreDevice
+      tags:
+      - Greengrass
+  /greengrass/v2/deployments/{deploymentId}:
+    GET:
+      summary: Amazon Web Services Getdeployment
+      description: Gets a deployment. Deployments define the components that run on Greengrass core devices.
+      operationId: amazonWebServicesGetDeployment
+      tags:
+      - Greengrass
+  /greengrass/v2/components/{arn}/metadata:
+    GET:
+      summary: Amazon Web Services Describecomponent
+      description: Retrieves metadata for a version of a component.
+      operationId: amazonWebServicesDescribeComponent
+      tags:
+      - Greengrass
+  /greengrass/v2/components/{arn}/artifacts/{artifactName+}:
+    GET:
+      summary: Amazon Web Services Getcomponentversionartifact
+      description: Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices call this operation to identify the URL that they can use to download an artifact to install.
+      operationId: amazonWebServicesGetComponentVersionArtifact
+      tags:
+      - Greengrass
+  /greengrass/things/{thingName}/connectivityInfo:
+    PUT:
+      summary: Amazon Web Services Updateconnectivityinfo
+      description: Updates connectivity information for a Greengrass core device. Connectivity information includes endpoints and ports where client devices can connect to an MQTT broker on the core device. When a client device calls the IoT Greengrass discovery API, IoT Greengrass returns connectivity information for all of the core devices where the client device can connect. For more information, see Connect client devices to core devices in the IoT Greengrass Version 2 Developer Guide.
+      operationId: amazonWebServicesUpdateConnectivityInfo
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices:
+    GET:
+      summary: Amazon Web Services Listclientdevicesassociatedwithcoredevice
+      description: Retrieves a paginated list of client devices that are associated with a core device.
+      operationId: amazonWebServicesListClientDevicesAssociatedWithCoreDevice
+      tags:
+      - Greengrass
+  /greengrass/v2/components/{arn}/versions:
+    GET:
+      summary: Amazon Web Services Listcomponentversions
+      description: Retrieves a paginated list of all versions for a component. Greater versions are listed first.
+      operationId: amazonWebServicesListComponentVersions
+      tags:
+      - Greengrass
+  /greengrass/v2/components:
+    GET:
+      summary: Amazon Web Services Listcomponents
+      description: Retrieves a paginated list of component summaries. This list includes components that you have permission to view.
+      operationId: amazonWebServicesListComponents
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices:
+    GET:
+      summary: Amazon Web Services Listcoredevices
+      description: 'Retrieves a paginated list of Greengrass core devices.  IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core software isn''t running on the device, or if device isn''t connected to the Amazon Web Services Cloud, then the reported status of that device might not reflect its current status. The status timestamp indicates when the device status was last updated. Core devices send status updates at the following times:   When the IoT Greengrass Core software starts   When the core device receives a deployment from the Amazon Web Services Cloud   When the status of any component on the core device becomes BROKEN    At a regular interval that you can configure, which defaults to 24 hours   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and cloud deployment   '
+      operationId: amazonWebServicesListCoreDevices
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments:
+    GET:
+      summary: Amazon Web Services Listeffectivedeployments
+      description: Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core devices.
+      operationId: amazonWebServicesListEffectiveDeployments
+      tags:
+      - Greengrass
+  /greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents:
+    GET:
+      summary: Amazon Web Services Listinstalledcomponents
+      description: 'Retrieves a paginated list of the components that a Greengrass core device runs. By default, this list doesn''t include components that are deployed as dependencies of other components. To include dependencies in the response, set the topologyFilter parameter to ALL.  IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core software isn''t running on the device, or if device isn''t connected to the Amazon Web Services Cloud, then the reported status of that device might not reflect its current status. The status timestamp indicates when the device status was last updated. Core devices send status updates at the following times:   When the IoT Greengrass Core software starts   When the core device receives a deployment from the Amazon Web Services Cloud   When the status of any component on the core device becomes BROKEN    At a regular interval that you can configure, which defaults to 24 hours   For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and cloud deployment   '
+      operationId: amazonWebServicesListInstalledComponents
+      tags:
+      - Greengrass
+  /greengrass/v2/resolveComponentCandidates:
+    POST:
+      summary: Amazon Web Services Resolvecomponentcandidates
+      description: 'Retrieves a list of components that meet the component, version, and platform requirements of a deployment. Greengrass core devices call this operation when they receive a deployment to identify the components to install. This operation identifies components that meet all dependency requirements for a deployment. If the requirements conflict, then this operation returns an error and the deployment fails. For example, this occurs if component A requires version &gt;2.0.0 and component B requires version &lt;2.0.0 of a component dependency. When you specify the component candidates to resolve, IoT Greengrass compares each component''s digest from the core device with the component''s digest in the Amazon Web Services Cloud. If the digests don''t match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.  To use this operation, you must use the data plane API endpoint and authenticate with an IoT device certificate. For more information, see IoT Greengrass endpoints and quotas. '
+      operationId: amazonWebServicesResolveComponentCandidates
+      tags:
+      - Greengrass

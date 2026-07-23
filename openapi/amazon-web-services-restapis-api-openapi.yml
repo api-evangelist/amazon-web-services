@@ -1,0 +1,217 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Restapis API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Restapis
+paths:
+  /restapis/{restapi_id}/authorizers:
+    GET:
+      summary: Amazon Web Services Getauthorizers
+      description: Describe an existing Authorizers resource.
+      operationId: amazonWebServicesGetAuthorizers
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/deployments:
+    GET:
+      summary: Amazon Web Services Getdeployments
+      description: Gets information about a Deployments collection.
+      operationId: amazonWebServicesGetDeployments
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/documentation/parts:
+    PUT:
+      summary: Amazon Web Services Importdocumentationparts
+      description: Imports documentation parts
+      operationId: amazonWebServicesImportDocumentationParts
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/documentation/versions:
+    GET:
+      summary: Amazon Web Services Getdocumentationversions
+      description: Gets documentation versions.
+      operationId: amazonWebServicesGetDocumentationVersions
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/models:
+    GET:
+      summary: Amazon Web Services Getmodels
+      description: Describes existing Models defined for a RestApi resource.
+      operationId: amazonWebServicesGetModels
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/requestvalidators:
+    GET:
+      summary: Amazon Web Services Getrequestvalidators
+      description: Gets the RequestValidators collection of a given RestApi.
+      operationId: amazonWebServicesGetRequestValidators
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{parent_id}:
+    POST:
+      summary: Amazon Web Services Createresource
+      description: Creates a Resource resource.
+      operationId: amazonWebServicesCreateResource
+      tags:
+      - Restapis
+  /restapis:
+    GET:
+      summary: Amazon Web Services Getrestapis
+      description: Lists the RestApis resources for your collection.
+      operationId: amazonWebServicesGetRestApis
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages:
+    GET:
+      summary: Amazon Web Services Getstages
+      description: Gets information about one or more Stage resources.
+      operationId: amazonWebServicesGetStages
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/authorizers/{authorizer_id}:
+    PATCH:
+      summary: Amazon Web Services Updateauthorizer
+      description: Updates an existing Authorizer resource.
+      operationId: amazonWebServicesUpdateAuthorizer
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/deployments/{deployment_id}:
+    PATCH:
+      summary: Amazon Web Services Updatedeployment
+      description: Changes information about a Deployment resource.
+      operationId: amazonWebServicesUpdateDeployment
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/documentation/parts/{part_id}:
+    PATCH:
+      summary: Amazon Web Services Updatedocumentationpart
+      description: Updates a documentation part.
+      operationId: amazonWebServicesUpdateDocumentationPart
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/documentation/versions/{doc_version}:
+    PATCH:
+      summary: Amazon Web Services Updatedocumentationversion
+      description: Updates a documentation version.
+      operationId: amazonWebServicesUpdateDocumentationVersion
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/gatewayresponses/{response_type}:
+    PATCH:
+      summary: Amazon Web Services Updategatewayresponse
+      description: Updates a GatewayResponse of a specified response type on the given RestApi.
+      operationId: amazonWebServicesUpdateGatewayResponse
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration:
+    PATCH:
+      summary: Amazon Web Services Updateintegration
+      description: Represents an update integration.
+      operationId: amazonWebServicesUpdateIntegration
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/integration/responses/{status_code}:
+    PATCH:
+      summary: Amazon Web Services Updateintegrationresponse
+      description: Represents an update integration response.
+      operationId: amazonWebServicesUpdateIntegrationResponse
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}:
+    PATCH:
+      summary: Amazon Web Services Updatemethod
+      description: Updates an existing Method resource.
+      operationId: amazonWebServicesUpdateMethod
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{resource_id}/methods/{http_method}/responses/{status_code}:
+    PATCH:
+      summary: Amazon Web Services Updatemethodresponse
+      description: Updates an existing MethodResponse resource.
+      operationId: amazonWebServicesUpdateMethodResponse
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/models/{model_name}:
+    PATCH:
+      summary: Amazon Web Services Updatemodel
+      description: Changes information about a model.
+      operationId: amazonWebServicesUpdateModel
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/requestvalidators/{requestvalidator_id}:
+    PATCH:
+      summary: Amazon Web Services Updaterequestvalidator
+      description: Updates a RequestValidator of a given RestApi.
+      operationId: amazonWebServicesUpdateRequestValidator
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources/{resource_id}:
+    PATCH:
+      summary: Amazon Web Services Updateresource
+      description: Changes information about a Resource resource.
+      operationId: amazonWebServicesUpdateResource
+      tags:
+      - Restapis
+  /restapis/{restapi_id}:
+    PATCH:
+      summary: Amazon Web Services Updaterestapi
+      description: Changes information about the specified API.
+      operationId: amazonWebServicesUpdateRestApi
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages/{stage_name}:
+    PATCH:
+      summary: Amazon Web Services Updatestage
+      description: Changes information about a Stage resource.
+      operationId: amazonWebServicesUpdateStage
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages/{stage_name}/cache/authorizers:
+    DELETE:
+      summary: Amazon Web Services Flushstageauthorizerscache
+      description: Flushes all authorizer cache entries on a stage.
+      operationId: amazonWebServicesFlushStageAuthorizersCache
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages/{stage_name}/cache/data:
+    DELETE:
+      summary: Amazon Web Services Flushstagecache
+      description: Flushes a stage's cache.
+      operationId: amazonWebServicesFlushStageCache
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages/{stage_name}/exports/{export_type}:
+    GET:
+      summary: Amazon Web Services Getexport
+      description: Exports a deployed version of a RestApi in a specified format.
+      operationId: amazonWebServicesGetExport
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/gatewayresponses:
+    GET:
+      summary: Amazon Web Services Getgatewayresponses
+      description: Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.
+      operationId: amazonWebServicesGetGatewayResponses
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/models/{model_name}/default_template:
+    GET:
+      summary: Amazon Web Services Getmodeltemplate
+      description: Generates a sample mapping template that can be used to transform a payload into the structure of a model.
+      operationId: amazonWebServicesGetModelTemplate
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/resources:
+    GET:
+      summary: Amazon Web Services Getresources
+      description: Lists information about a collection of Resource resources.
+      operationId: amazonWebServicesGetResources
+      tags:
+      - Restapis
+  /restapis/{restapi_id}/stages/{stage_name}/sdks/{sdk_type}:
+    GET:
+      summary: Amazon Web Services Getsdk
+      description: Generates a client SDK for a RestApi and Stage.
+      operationId: amazonWebServicesGetSdk
+      tags:
+      - Restapis

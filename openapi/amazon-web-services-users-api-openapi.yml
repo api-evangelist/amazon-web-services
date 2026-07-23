@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Users API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Users
+paths:
+  /users/{InstanceId}/{UserId}/associate-proficiencies:
+    POST:
+      summary: Amazon Web Services Associateuserproficiencies
+      description: '&gt;Associates a set of proficiencies with a user.'
+      operationId: amazonWebServicesAssociateUserProficiencies
+      tags:
+      - Users
+  /users/{InstanceId}:
+    PUT:
+      summary: Amazon Web Services Createuser
+      description: Creates a user account for the specified Amazon Connect instance.  Certain UserIdentityInfo parameters are required in some situations. For example, Email is required if you are using SAML for identity management. FirstName and LastName are required if you are using Amazon Connect or SAML for identity management.  For information about how to create users using the Amazon Connect admin website, see Add Users in the Amazon Connect Administrator Guide.
+      operationId: amazonWebServicesCreateUser
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}:
+    GET:
+      summary: Amazon Web Services Describeuser
+      description: Describes the specified user. You can find the instance ID in the Amazon Connect console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.
+      operationId: amazonWebServicesDescribeUser
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/disassociate-proficiencies:
+    POST:
+      summary: Amazon Web Services Disassociateuserproficiencies
+      description: Disassociates a set of proficiencies from a user.
+      operationId: amazonWebServicesDisassociateUserProficiencies
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/contact:
+    POST:
+      summary: Amazon Web Services Dismissusercontact
+      description: Dismisses contacts from an agent’s CCP and returns the agent to an available state, which allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a MISSED, ERROR, ENDED, or REJECTED state in the Agent Event Stream.
+      operationId: amazonWebServicesDismissUserContact
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/proficiencies:
+    POST:
+      summary: Amazon Web Services Updateuserproficiencies
+      description: Updates the properties associated with the proficiencies of a user.
+      operationId: amazonWebServicesUpdateUserProficiencies
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/status:
+    PUT:
+      summary: Amazon Web Services Putuserstatus
+      description: Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status. For more information, see Agent status and Set your next status in the Amazon Connect Administrator Guide.
+      operationId: amazonWebServicesPutUserStatus
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/hierarchy:
+    POST:
+      summary: Amazon Web Services Updateuserhierarchy
+      description: Assigns the specified hierarchy group to the specified user.
+      operationId: amazonWebServicesUpdateUserHierarchy
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/identity-info:
+    POST:
+      summary: Amazon Web Services Updateuseridentityinfo
+      description: 'Updates the identity information for the specified user.  We strongly recommend limiting who has the ability to invoke UpdateUserIdentityInfo. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker''s email address, and then reset the password through email. For more information, see Best Practices for Security Profiles in the Amazon Connect Administrator Guide. '
+      operationId: amazonWebServicesUpdateUserIdentityInfo
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/phone-config:
+    POST:
+      summary: Amazon Web Services Updateuserphoneconfig
+      description: Updates the phone configuration settings for the specified user.
+      operationId: amazonWebServicesUpdateUserPhoneConfig
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/routing-profile:
+    POST:
+      summary: Amazon Web Services Updateuserroutingprofile
+      description: Assigns the specified routing profile to the specified user.
+      operationId: amazonWebServicesUpdateUserRoutingProfile
+      tags:
+      - Users
+  /users/{InstanceId}/{UserId}/security-profiles:
+    POST:
+      summary: Amazon Web Services Updateusersecurityprofiles
+      description: Assigns the specified security profiles to the specified user.
+      operationId: amazonWebServicesUpdateUserSecurityProfiles
+      tags:
+      - Users
+  /users:
+    POST:
+      summary: Amazon Web Services Putusers
+      description: Adds one or more users to a Users dataset. For more information see Importing users individually.
+      operationId: amazonWebServicesPutUsers
+      tags:
+      - Users
+  /api/v1/users/{UserId}/activation:
+    DELETE:
+      summary: Amazon Web Services Deactivateuser
+      description: Deactivates the specified user, which revokes the user's access to Amazon WorkDocs.
+      operationId: amazonWebServicesDeactivateUser
+      tags:
+      - Users
+  /api/v1/users:
+    GET:
+      summary: Amazon Web Services Describeusers
+      description: Describes the specified users. You can describe all users or filter the results (for example, by status or organization). By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.
+      operationId: amazonWebServicesDescribeUsers
+      tags:
+      - Users
+  /api/v1/users/{UserId}:
+    PATCH:
+      summary: Amazon Web Services Updateuser
+      description: Updates the specified attributes of the specified user, and grants or revokes administrative privileges to the Amazon WorkDocs site.
+      operationId: amazonWebServicesUpdateUser
+      tags:
+      - Users

@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Participant API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Participant
+paths:
+  /participant/complete-attachment-upload:
+    POST:
+      summary: Amazon Web Services Completeattachmentupload
+      description: Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API.    ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesCompleteAttachmentUpload
+      tags:
+      - Participant
+  /participant/connection:
+    POST:
+      summary: Amazon Web Services Createparticipantconnection
+      description: 'Creates the participant''s connection.    ParticipantToken is used for invoking this API instead of ConnectionToken.  The participant token is valid for the lifetime of the participant – until they are part of a contact. The response URL for WEBSOCKET Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic.  For chat, you need to publish the following on the established websocket connection:  {"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}  Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.  Message streaming support: This API can also be used together with the StartContactStreaming API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, Enable real-time chat message streaming in the Amazon Connect Administrator Guide.  Feature specifications: For information about feature specifications, such as the allowed number of open websocket connections per participant, see Feature specifications in the Amazon Connect Administrator Guide.   The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication. '
+      operationId: amazonWebServicesCreateParticipantConnection
+      tags:
+      - Participant
+  /participant/views/{ViewToken}:
+    GET:
+      summary: Amazon Web Services Describeview
+      description: Retrieves the view for the specified view token.
+      operationId: amazonWebServicesDescribeView
+      tags:
+      - Participant
+  /participant/disconnect:
+    POST:
+      summary: Amazon Web Services Disconnectparticipant
+      description: Disconnects a participant.    ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesDisconnectParticipant
+      tags:
+      - Participant
+  /participant/attachment:
+    POST:
+      summary: Amazon Web Services Getattachment
+      description: Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.   ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesGetAttachment
+      tags:
+      - Participant
+  /participant/transcript:
+    POST:
+      summary: Amazon Web Services Gettranscript
+      description: Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see Enable persistent chat.    ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesGetTranscript
+      tags:
+      - Participant
+  /participant/event:
+    POST:
+      summary: Amazon Web Services Sendevent
+      description: Sends an event.    ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesSendEvent
+      tags:
+      - Participant
+  /participant/message:
+    POST:
+      summary: Amazon Web Services Sendmessage
+      description: Sends a message.   ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesSendMessage
+      tags:
+      - Participant
+  /participant/start-attachment-upload:
+    POST:
+      summary: Amazon Web Services Startattachmentupload
+      description: Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.   ConnectionToken is used for invoking this API instead of ParticipantToken.  The Amazon Connect Participant Service APIs do not use Signature Version 4 authentication.
+      operationId: amazonWebServicesStartAttachmentUpload
+      tags:
+      - Participant

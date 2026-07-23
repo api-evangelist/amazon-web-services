@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Contact API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Contact
+paths:
+  /contact/batch/{InstanceId}:
+    PUT:
+      summary: Amazon Web Services Batchputcontact
+      description: ' Only the Amazon Connect outbound campaigns service principal is allowed to assume a role in your account and call this API.  Allows you to create a batch of contacts in Amazon Connect. The outbound campaigns capability ingests dial requests via the PutDialRequestBatch API. It then uses BatchPutContact to create contacts corresponding to those dial requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting voice call uses the same contactId that was created by BatchPutContact. '
+      operationId: amazonWebServicesBatchPutContact
+      tags:
+      - Contact
+  /contact/create-participant:
+    POST:
+      summary: Amazon Web Services Createparticipant
+      description: Adds a new participant into an on-going chat contact. For more information, see Customize chat flow experiences by integrating custom participants.
+      operationId: amazonWebServicesCreateParticipant
+      tags:
+      - Contact
+  /contact/persistent-contact-association/{InstanceId}/{InitialContactId}:
+    POST:
+      summary: Amazon Web Services Createpersistentcontactassociation
+      description: 'Enables rehydration of chats for the lifespan of a contact. For more information about chat rehydration, see Enable persistent chat in the Amazon Connect Administrator Guide. '
+      operationId: amazonWebServicesCreatePersistentContactAssociation
+      tags:
+      - Contact
+  /contact/attributes/{InstanceId}/{InitialContactId}:
+    GET:
+      summary: Amazon Web Services Getcontactattributes
+      description: Retrieves the contact attributes for the specified contact.
+      operationId: amazonWebServicesGetContactAttributes
+      tags:
+      - Contact
+  /contact/references/{InstanceId}/{ContactId}:
+    GET:
+      summary: Amazon Web Services Listcontactreferences
+      description: 'This API is in preview release for Amazon Connect and is subject to change. For the specified referenceTypes, returns a list of references associated with the contact. '
+      operationId: amazonWebServicesListContactReferences
+      tags:
+      - Contact
+  /contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}:
+    POST:
+      summary: Amazon Web Services Listrealtimecontactanalysissegmentsv2
+      description: 'Provides a list of analysis segments for a real-time analysis session. '
+      operationId: amazonWebServicesListRealtimeContactAnalysisSegmentsV2
+      tags:
+      - Contact
+  /contact/monitor:
+    POST:
+      summary: Amazon Web Services Monitorcontact
+      description: Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by userId will be set to silent monitoring mode on the contact.
+      operationId: amazonWebServicesMonitorContact
+      tags:
+      - Contact
+  /contact/pause:
+    POST:
+      summary: Amazon Web Services Pausecontact
+      description: Allows pausing an ongoing task contact.
+      operationId: amazonWebServicesPauseContact
+      tags:
+      - Contact
+  /contact/resume:
+    POST:
+      summary: Amazon Web Services Resumecontact
+      description: Allows resuming a task contact in a paused state.
+      operationId: amazonWebServicesResumeContact
+      tags:
+      - Contact
+  /contact/resume-recording:
+    POST:
+      summary: Amazon Web Services Resumecontactrecording
+      description: 'When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording whatever recording is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would resume. Voice and screen recordings are supported.'
+      operationId: amazonWebServicesResumeContactRecording
+      tags:
+      - Contact
+  /contact/chat:
+    PUT:
+      summary: Amazon Web Services Startchatcontact
+      description: 'Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the CreateParticipantConnection API in the Amazon Connect Participant Service. When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking CreateParticipantConnection with WEBSOCKET and CONNECTION_CREDENTIALS.  A 429 error occurs in the following situations:   API rate limit is exceeded. API TPS throttling returns a TooManyRequests exception.   The quota for concurrent active chats is exceeded. Active chat throttling returns a LimitExceededException.   If you use the ChatDurationInMinutes parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.  For more information about chat, see Chat in the Amazon Connect Administrator Guide.'
+      operationId: amazonWebServicesStartChatContact
+      tags:
+      - Contact
+  /contact/start-recording:
+    POST:
+      summary: Amazon Web Services Startcontactrecording
+      description: 'Starts recording the contact:    If the API is called before the agent joins the call, recording starts when the agent joins the call.   If the API is called after the agent joins the call, recording starts at the time of the API call.   StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can''t use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording. You can use this API to override the recording behavior configured in the Set recording behavior block. Only voice recordings are supported at this time.'
+      operationId: amazonWebServicesStartContactRecording
+      tags:
+      - Contact
+  /contact/start-streaming:
+    POST:
+      summary: Amazon Web Services Startcontactstreaming
+      description: ' Initiates real-time message streaming for a new chat contact.  For more information about message streaming, see Enable real-time chat message streaming in the Amazon Connect Administrator Guide.'
+      operationId: amazonWebServicesStartContactStreaming
+      tags:
+      - Contact
+  /contact/outbound-voice:
+    PUT:
+      summary: Amazon Web Services Startoutboundvoicecontact
+      description: 'Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that''s specified (in ContactFlowId). Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case. There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.  UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see Amazon Connect Service Quotas in the Amazon Connect Administrator Guide.    Campaign calls are not allowed by default. Before you can make a call with TrafficType = CAMPAIGN, you must submit a service quota increase request to the quota Amazon Connect campaigns.  '
+      operationId: amazonWebServicesStartOutboundVoiceContact
+      tags:
+      - Contact
+  /contact/task:
+    PUT:
+      summary: Amazon Web Services Starttaskcontact
+      description: 'Initiates a flow to start a new task contact. For more information about task contacts, see Concepts: Tasks in Amazon Connect in the Amazon Connect Administrator Guide.  When using PreviousContactId and RelatedContactId input parameters, note the following:    PreviousContactId    Any updates to user-defined task contact attributes on any contact linked through the same PreviousContactId will affect every contact in the chain.   There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that share the same PreviousContactId.      RelatedContactId    Copies contact attributes from the related task contact to the new contact.   Any update on attributes in a new task contact does not update attributes on previous contact.   There’s no limit on the number of task contacts that can be created that use the same RelatedContactId.     In addition, when calling StartTaskContact include only one of these parameters: ContactFlowID, QuickConnectID, or TaskTemplateID. Only one parameter is required as long as the task template has a flow configured to run it. If more than one parameter is specified, or only the TaskTemplateID is specified but it does not have a flow configured, the request returns an error because Amazon Connect cannot identify the unique flow to run when the task is created. A ServiceQuotaExceededException occurs when the number of open tasks exceeds the active tasks quota or there are already 12 tasks referencing the same PreviousContactId. For more information about service quotas for task contacts, see Amazon Connect service quotas in the Amazon Connect Administrator Guide. '
+      operationId: amazonWebServicesStartTaskContact
+      tags:
+      - Contact
+  /contact/webrtc:
+    PUT:
+      summary: Amazon Web Services Startwebrtccontact
+      description: Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It performs the actions in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as InstanceId).
+      operationId: amazonWebServicesStartWebRTCContact
+      tags:
+      - Contact
+  /contact/stop:
+    POST:
+      summary: Amazon Web Services Stopcontact
+      description: 'Ends the specified contact. This call does not work for voice contacts that use the following initiation methods:   DISCONNECT   TRANSFER   QUEUE_TRANSFER   Chat and task contacts, however, can be terminated in any state, regardless of initiation method.'
+      operationId: amazonWebServicesStopContact
+      tags:
+      - Contact
+  /contact/stop-recording:
+    POST:
+      summary: Amazon Web Services Stopcontactrecording
+      description: Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend it for sensitive information (for example, to collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording. Only voice recordings are supported at this time.
+      operationId: amazonWebServicesStopContactRecording
+      tags:
+      - Contact
+  /contact/stop-streaming:
+    POST:
+      summary: Amazon Web Services Stopcontactstreaming
+      description: ' Ends message streaming on a specified contact. To restart message streaming on that contact, call the StartContactStreaming API. '
+      operationId: amazonWebServicesStopContactStreaming
+      tags:
+      - Contact
+  /contact/suspend-recording:
+    POST:
+      summary: Amazon Web Services Suspendcontactrecording
+      description: 'When a contact is being recorded, this API suspends recording whatever is selected in the flow configuration: call, screen, or both. If only call recording or only screen recording is enabled, then it would be suspended. For example, you might suspend the screen recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording the screen. The period of time that the recording is suspended is filled with silence in the final recording. Voice and screen recordings are supported.'
+      operationId: amazonWebServicesSuspendContactRecording
+      tags:
+      - Contact
+  /contact/tags:
+    POST:
+      summary: Amazon Web Services Tagcontact
+      description: 'Adds the specified tags to the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Amazon Connect usage. '
+      operationId: amazonWebServicesTagContact
+      tags:
+      - Contact
+  /contact/transfer:
+    POST:
+      summary: Amazon Web Services Transfercontact
+      description: 'Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers. Note the following requirements:   Transfer is supported for only TASK contacts.   Do not use both QueueId and UserId in the same call.   The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.   The TransferContact API can be called only on active contacts.   A contact cannot be transferred more than 11 times.  '
+      operationId: amazonWebServicesTransferContact
+      tags:
+      - Contact
+  /contact/tags/{InstanceId}/{ContactId}:
+    DELETE:
+      summary: Amazon Web Services Untagcontact
+      description: Removes the specified tags from the contact resource. For more information about this API is used, see Set up granular billing for a detailed view of your Amazon Connect usage.
+      operationId: amazonWebServicesUntagContact
+      tags:
+      - Contact
+  /contact/attributes:
+    POST:
+      summary: Amazon Web Services Updatecontactattributes
+      description: 'Creates or updates user-defined contact attributes associated with the specified contact. You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer''s name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers. Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about contact record retention and the maximum size of the contact record attributes section, see Feature specifications in the Amazon Connect Administrator Guide. '
+      operationId: amazonWebServicesUpdateContactAttributes
+      tags:
+      - Contact
+  /contact/schedule:
+    POST:
+      summary: Amazon Web Services Updatecontactschedule
+      description: Updates the scheduled time of a task contact that is already scheduled.
+      operationId: amazonWebServicesUpdateContactSchedule
+      tags:
+      - Contact
+  /contact/participant-role-config/{InstanceId}/{ContactId}:
+    PUT:
+      summary: Amazon Web Services Updateparticipantroleconfig
+      description: 'Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:   Customer idle timeout   Customer auto-disconnect timeout   Agent idle timeout   Agent auto-disconnect timeout   For more information about how chat timeouts work, see Set up chat timeouts for human participants. '
+      operationId: amazonWebServicesUpdateParticipantRoleConfig
+      tags:
+      - Contact
+  /contact/{contactId}:
+    GET:
+      summary: Amazon Web Services Describecontact
+      description: Describes an existing contact.
+      operationId: amazonWebServicesDescribeContact
+      tags:
+      - Contact
+  /contact:
+    POST:
+      summary: Amazon Web Services Reservecontact
+      description: Reserves a contact using specified parameters.
+      operationId: amazonWebServicesReserveContact
+      tags:
+      - Contact

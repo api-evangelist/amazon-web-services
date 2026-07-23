@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Geofencing API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Geofencing
+paths:
+  /geofencing/v0/collections/{CollectionName}/delete-geofences:
+    POST:
+      summary: Amazon Web Services Batchdeletegeofence
+      description: 'Deletes a batch of geofences from a geofence collection.  This operation deletes the resource permanently. '
+      operationId: amazonWebServicesBatchDeleteGeofence
+      tags:
+      - Geofencing
+  /geofencing/v0/collections/{CollectionName}/positions:
+    POST:
+      summary: Amazon Web Services Batchevaluategeofences
+      description: 'Evaluates device positions against the geofence geometries from a given geofence collection. This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:    ENTER if Amazon Location determines that the tracked device has entered a geofenced area.    EXIT if Amazon Location determines that the tracked device has exited a geofenced area.    The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.   Geofence evaluation uses the given device position. It does not account for the optional Accuracy of a DevicePositionUpdate.   The DeviceID is used as a string to represent the device. You do not need to have a Tracker associated with the DeviceID. '
+      operationId: amazonWebServicesBatchEvaluateGeofences
+      tags:
+      - Geofencing
+  /geofencing/v0/collections/{CollectionName}/put-geofences:
+    POST:
+      summary: Amazon Web Services Batchputgeofence
+      description: A batch request for storing geofence geometries into a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request.
+      operationId: amazonWebServicesBatchPutGeofence
+      tags:
+      - Geofencing
+  /geofencing/v0/collections:
+    POST:
+      summary: Amazon Web Services Creategeofencecollection
+      description: Creates a geofence collection, which manages and stores geofences.
+      operationId: amazonWebServicesCreateGeofenceCollection
+      tags:
+      - Geofencing
+  /geofencing/v0/collections/{CollectionName}:
+    PATCH:
+      summary: Amazon Web Services Updategeofencecollection
+      description: Updates the specified properties of a given geofence collection.
+      operationId: amazonWebServicesUpdateGeofenceCollection
+      tags:
+      - Geofencing
+  /geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}:
+    PUT:
+      summary: Amazon Web Services Putgeofence
+      description: 'Stores a geofence geometry in a given geofence collection, or updates the geometry of an existing geofence if a geofence ID is included in the request. '
+      operationId: amazonWebServicesPutGeofence
+      tags:
+      - Geofencing
+  /geofencing/v0/list-collections:
+    POST:
+      summary: Amazon Web Services Listgeofencecollections
+      description: Lists geofence collections in your Amazon Web Services account.
+      operationId: amazonWebServicesListGeofenceCollections
+      tags:
+      - Geofencing
+  /geofencing/v0/collections/{CollectionName}/list-geofences:
+    POST:
+      summary: Amazon Web Services Listgeofences
+      description: Lists geofences stored in a given geofence collection.
+      operationId: amazonWebServicesListGeofences
+      tags:
+      - Geofencing

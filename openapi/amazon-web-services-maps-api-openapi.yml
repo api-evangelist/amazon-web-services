@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Maps API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Maps
+paths:
+  /maps/v0/maps:
+    POST:
+      summary: Amazon Web Services Createmap
+      description: 'Creates a map resource in your Amazon Web Services account, which provides map tiles of different styles sourced from global location data providers.  If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the Amazon Web Services service terms for more details. '
+      operationId: amazonWebServicesCreateMap
+      tags:
+      - Maps
+  /maps/v0/maps/{MapName}:
+    PATCH:
+      summary: Amazon Web Services Updatemap
+      description: Updates the specified properties of a given map resource.
+      operationId: amazonWebServicesUpdateMap
+      tags:
+      - Maps
+  /maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}:
+    GET:
+      summary: Amazon Web Services Getmapglyphs
+      description: Retrieves glyphs used to display labels on a map.
+      operationId: amazonWebServicesGetMapGlyphs
+      tags:
+      - Maps
+  /maps/v0/maps/{MapName}/sprites/{FileName}:
+    GET:
+      summary: Amazon Web Services Getmapsprites
+      description: Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG image paired with a JSON document describing the offsets of individual icons that will be displayed on a rendered map.
+      operationId: amazonWebServicesGetMapSprites
+      tags:
+      - Maps
+  /maps/v0/maps/{MapName}/style-descriptor:
+    GET:
+      summary: Amazon Web Services Getmapstyledescriptor
+      description: Retrieves the map style descriptor from a map resource.  The style descriptor contains speciﬁcations on how features render on a map. For example, what data to display, what order to display the data in, and the style for the data. Style descriptors follow the Mapbox Style Specification.
+      operationId: amazonWebServicesGetMapStyleDescriptor
+      tags:
+      - Maps
+  /maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}:
+    GET:
+      summary: Amazon Web Services Getmaptile
+      description: Retrieves a vector data tile from the map resource. Map tiles are used by clients to render a map. they're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level.  The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles both the X and Y dimensions, so a tile containing data for the entire world at (0/0/0) will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).
+      operationId: amazonWebServicesGetMapTile
+      tags:
+      - Maps
+  /maps/v0/list-maps:
+    POST:
+      summary: Amazon Web Services Listmaps
+      description: Lists map resources in your Amazon Web Services account.
+      operationId: amazonWebServicesListMaps
+      tags:
+      - Maps

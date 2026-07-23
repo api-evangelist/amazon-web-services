@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 User API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: User
+paths:
+  /user/federate/{InstanceId}:
+    GET:
+      summary: Amazon Web Services Getfederationtoken
+      description: 'Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is for the Amazon Connect user which corresponds to the IAM credentials that were used to invoke this action.  For more information about how SAML sign-in works in Amazon Connect, see Configure SAML with IAM for Amazon Connect in the Amazon Connect Administrator Guide.   This API doesn''t support root users. If you try to invoke GetFederationToken with root credentials, an error message similar to the following one appears:   Provided identity: Principal: .... User: .... cannot be used for federation with Amazon Connect  '
+      operationId: amazonWebServicesGetFederationToken
+      tags:
+      - User
+  /user:
+    GET:
+      summary: Amazon Web Services Listusers
+      description: Lists all available users in FinSpace.
+      operationId: amazonWebServicesListUsers
+      tags:
+      - User
+  /user/{userId}/disable:
+    POST:
+      summary: Amazon Web Services Disableuser
+      description: Denies access to the FinSpace web application and API for the specified user.
+      operationId: amazonWebServicesDisableUser
+      tags:
+      - User
+  /user/{userId}/enable:
+    POST:
+      summary: Amazon Web Services Enableuser
+      description: ' Allows the specified user to access the FinSpace web application and API.'
+      operationId: amazonWebServicesEnableUser
+      tags:
+      - User
+  /user/{userId}:
+    PUT:
+      summary: Amazon Web Services Updateuser
+      description: Modifies the details of the specified user. You cannot update the userId for a user.
+      operationId: amazonWebServicesUpdateUser
+      tags:
+      - User
+  /user/{userId}/permission-groups:
+    GET:
+      summary: Amazon Web Services Listpermissiongroupsbyuser
+      description: Lists all the permission groups that are associated with a specific user.
+      operationId: amazonWebServicesListPermissionGroupsByUser
+      tags:
+      - User
+  /user/{userId}/password:
+    POST:
+      summary: Amazon Web Services Resetuserpassword
+      description: Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.
+      operationId: amazonWebServicesResetUserPassword
+      tags:
+      - User
+  /user/AssociateUser:
+    POST:
+      summary: Amazon Web Services Associateuser
+      description: 'Associates the user to an EC2 instance to utilize user-based subscriptions.  Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven''t closed (marked as Pending billing status) in Amazon Web Services Billing. For more information, see Viewing your monthly charges in the Amazon Web Services Billing User Guide. '
+      operationId: amazonWebServicesAssociateUser
+      tags:
+      - User
+  /user/DisassociateUser:
+    POST:
+      summary: Amazon Web Services Disassociateuser
+      description: Disassociates the user from an EC2 instance providing user-based subscriptions.
+      operationId: amazonWebServicesDisassociateUser
+      tags:
+      - User
+  /user/ListProductSubscriptions:
+    POST:
+      summary: Amazon Web Services Listproductsubscriptions
+      description: Lists the user-based subscription products available from an identity provider.
+      operationId: amazonWebServicesListProductSubscriptions
+      tags:
+      - User
+  /user/ListUserAssociations:
+    POST:
+      summary: Amazon Web Services Listuserassociations
+      description: Lists user associations for an identity provider.
+      operationId: amazonWebServicesListUserAssociations
+      tags:
+      - User
+  /user/StartProductSubscription:
+    POST:
+      summary: Amazon Web Services Startproductsubscription
+      description: 'Starts a product subscription for a user with the specified identity provider.  Your estimated bill for charges on the number of users and related costs will take 48 hours to appear for billing periods that haven''t closed (marked as Pending billing status) in Amazon Web Services Billing. For more information, see Viewing your monthly charges in the Amazon Web Services Billing User Guide. '
+      operationId: amazonWebServicesStartProductSubscription
+      tags:
+      - User
+  /user/StopProductSubscription:
+    POST:
+      summary: Amazon Web Services Stopproductsubscription
+      description: Stops a product subscription for a user with the specified identity provider.
+      operationId: amazonWebServicesStopProductSubscription
+      tags:
+      - User

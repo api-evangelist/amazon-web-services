@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Projects API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Projects
+paths:
+  /projects:
+    GET:
+      summary: Amazon Web Services Listprojects
+      description: Lists all of the DataBrew projects that are defined.
+      operationId: amazonWebServicesListProjects
+      tags:
+      - Projects
+  /projects/{name}:
+    PUT:
+      summary: Amazon Web Services Updateproject
+      description: Modifies the definition of an existing DataBrew project.
+      operationId: amazonWebServicesUpdateProject
+      tags:
+      - Projects
+  /projects/{name}/sendProjectSessionAction:
+    PUT:
+      summary: Amazon Web Services Sendprojectsessionaction
+      description: Performs a recipe step within an interactive DataBrew session that's currently open.
+      operationId: amazonWebServicesSendProjectSessionAction
+      tags:
+      - Projects
+  /projects/{name}/startProjectSession:
+    PUT:
+      summary: Amazon Web Services Startprojectsession
+      description: Creates an interactive session, enabling you to manipulate data in a DataBrew project.
+      operationId: amazonWebServicesStartProjectSession
+      tags:
+      - Projects
+  /projects/{project}/evaluations:
+    POST:
+      summary: Amazon Web Services Batchevaluatefeature
+      description: This operation assigns feature variation to user sessions. For each user session, you pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. Next, if there is a launch of the feature, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment.  If the user is not assigned to a launch or experiment, they are served the default variation.
+      operationId: amazonWebServicesBatchEvaluateFeature
+      tags:
+      - Projects
+  /projects/{project}/experiments:
+    GET:
+      summary: Amazon Web Services Listexperiments
+      description: Returns configuration details about all the experiments in the specified project.
+      operationId: amazonWebServicesListExperiments
+      tags:
+      - Projects
+  /projects/{project}/features:
+    GET:
+      summary: Amazon Web Services Listfeatures
+      description: Returns configuration details about all the features in the specified project.
+      operationId: amazonWebServicesListFeatures
+      tags:
+      - Projects
+  /projects/{project}/launches:
+    GET:
+      summary: Amazon Web Services Listlaunches
+      description: Returns configuration details about all the launches in the specified project.
+      operationId: amazonWebServicesListLaunches
+      tags:
+      - Projects
+  /projects/{project}/experiments/{experiment}:
+    PATCH:
+      summary: Amazon Web Services Updateexperiment
+      description: 'Updates an Evidently experiment.  Don''t use this operation to update an experiment''s tag. Instead, use TagResource. '
+      operationId: amazonWebServicesUpdateExperiment
+      tags:
+      - Projects
+  /projects/{project}/features/{feature}:
+    PATCH:
+      summary: Amazon Web Services Updatefeature
+      description: 'Updates an existing feature. You can''t use this operation to update the tags of an existing feature. Instead, use TagResource. '
+      operationId: amazonWebServicesUpdateFeature
+      tags:
+      - Projects
+  /projects/{project}/launches/{launch}:
+    PATCH:
+      summary: Amazon Web Services Updatelaunch
+      description: 'Updates a launch of a given feature.  Don''t use this operation to update the tags of an existing launch. Instead, use TagResource. '
+      operationId: amazonWebServicesUpdateLaunch
+      tags:
+      - Projects
+  /projects/{project}:
+    PATCH:
+      summary: Amazon Web Services Updateproject
+      description: 'Updates the description of an existing project. To create a new project, use CreateProject. Don''t use this operation to update the data storage options of a project. Instead, use UpdateProjectDataDelivery.  Don''t use this operation to update the tags of a project. Instead, use TagResource. '
+      operationId: amazonWebServicesUpdateProject
+      tags:
+      - Projects
+  /projects/{project}/evaluations/{feature}:
+    POST:
+      summary: Amazon Web Services Evaluatefeature
+      description: This operation assigns a feature variation to one given user session. You pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. If there is a current launch with this feature that uses segment overrides, and if the user session's evaluationContext matches a segment rule defined in a segment override, the configuration in the segment overrides is used. For more information about segments, see CreateSegment and Use segments to focus your audience. If there is a launch with no segment overrides, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the experiment uses a segment, then only user sessions with evaluationContext values that match the segment rule are used in the experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment.  If the user is not assigned to a launch or experiment, they are served the default variation.
+      operationId: amazonWebServicesEvaluateFeature
+      tags:
+      - Projects
+  /projects/{project}/experiments/{experiment}/results:
+    POST:
+      summary: Amazon Web Services Getexperimentresults
+      description: Retrieves the results of a running or completed experiment. No results are available until there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment. To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment. Offline p-value analysis can detect statistical significance in some cases where the anytime p-values used during the experiment do not find statistical significance. Experiment results are available up to 63 days after the start of the experiment. They are not available after that because of CloudWatch data retention policies.
+      operationId: amazonWebServicesGetExperimentResults
+      tags:
+      - Projects
+  /projects/{project}/experiments/{experiment}/start:
+    POST:
+      summary: Amazon Web Services Startexperiment
+      description: Starts an existing experiment. To create an experiment, use CreateExperiment.
+      operationId: amazonWebServicesStartExperiment
+      tags:
+      - Projects
+  /projects/{project}/launches/{launch}/start:
+    POST:
+      summary: Amazon Web Services Startlaunch
+      description: Starts an existing launch. To create a launch, use CreateLaunch.
+      operationId: amazonWebServicesStartLaunch
+      tags:
+      - Projects
+  /projects/{project}/experiments/{experiment}/cancel:
+    POST:
+      summary: Amazon Web Services Stopexperiment
+      description: Stops an experiment that is currently running. If you stop an experiment, you can't resume it or restart it.
+      operationId: amazonWebServicesStopExperiment
+      tags:
+      - Projects
+  /projects/{project}/launches/{launch}/cancel:
+    POST:
+      summary: Amazon Web Services Stoplaunch
+      description: Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it. Also, it will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch will instead be available to the feature's experiment, if there is one. Otherwise, all traffic will be served the default variation after the launch is stopped.
+      operationId: amazonWebServicesStopLaunch
+      tags:
+      - Projects
+  /projects/{project}/data-delivery:
+    PATCH:
+      summary: Amazon Web Services Updateprojectdatadelivery
+      description: Updates the data storage options for this project. If you store evaluation events, you an keep them and analyze them on your own. If you choose not to store evaluation events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. You can't specify both cloudWatchLogs and s3Destination in the same operation.
+      operationId: amazonWebServicesUpdateProjectDataDelivery
+      tags:
+      - Projects
+  /projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}:
+    DELETE:
+      summary: Amazon Web Services Disassociatedevicefromplacement
+      description: Removes a physical device from a placement.
+      operationId: amazonWebServicesDisassociateDeviceFromPlacement
+      tags:
+      - Projects
+  /projects/{projectName}/placements:
+    GET:
+      summary: Amazon Web Services Listplacements
+      description: Lists the placement(s) of a project.
+      operationId: amazonWebServicesListPlacements
+      tags:
+      - Projects
+  /projects/{projectName}/placements/{placementName}:
+    PUT:
+      summary: Amazon Web Services Updateplacement
+      description: Updates a placement with the given attributes. To clear an attribute, pass an empty value (i.e., "").
+      operationId: amazonWebServicesUpdatePlacement
+      tags:
+      - Projects
+  /projects/{projectName}:
+    PUT:
+      summary: Amazon Web Services Updateproject
+      description: Updates a project associated with your AWS account and region. With the exception of device template names, you can pass just the values that need to be updated because the update request will change only the values that are provided. To clear a value, pass the empty string (i.e., "").
+      operationId: amazonWebServicesUpdateProject
+      tags:
+      - Projects
+  /projects/{projectName}/placements/{placementName}/devices:
+    GET:
+      summary: Amazon Web Services Getdevicesinplacement
+      description: Returns an object enumerating the devices in a placement.
+      operationId: amazonWebServicesGetDevicesInPlacement
+      tags:
+      - Projects
+  /projects/{projectId}/assets/associate:
+    POST:
+      summary: Amazon Web Services Batchassociateprojectassets
+      description: Associates a group (batch) of assets with an IoT SiteWise Monitor project.
+      operationId: amazonWebServicesBatchAssociateProjectAssets
+      tags:
+      - Projects
+  /projects/{projectId}/assets/disassociate:
+    POST:
+      summary: Amazon Web Services Batchdisassociateprojectassets
+      description: Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
+      operationId: amazonWebServicesBatchDisassociateProjectAssets
+      tags:
+      - Projects
+  /projects/{projectId}:
+    PUT:
+      summary: Amazon Web Services Updateproject
+      description: Updates an IoT SiteWise Monitor project.
+      operationId: amazonWebServicesUpdateProject
+      tags:
+      - Projects
+    DELETE:
+      summary: Amazon Web Services Deleteproject
+      description: ' Delets a project in AWS Mobile Hub. '
+      operationId: amazonWebServicesDeleteProject
+      tags:
+      - Projects
+  /projects/{projectId}/assets:
+    GET:
+      summary: Amazon Web Services Listprojectassets
+      description: Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.
+      operationId: amazonWebServicesListProjectAssets
+      tags:
+      - Projects

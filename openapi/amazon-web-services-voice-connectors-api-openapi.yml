@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Voice Connectors API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Voice Connectors
+paths:
+  /voice-connectors/{voiceConnectorId}?operation=associate-phone-numbers:
+    POST:
+      summary: Amazon Web Services Associatephonenumberswithvoiceconnector
+      description: 'Associates phone numbers with the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, AssociatePhoneNumbersWithVoiceConnector, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesAssociatePhoneNumbersWithVoiceConnector
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/proxy-sessions:
+    GET:
+      summary: Amazon Web Services Listproxysessions
+      description: 'Lists the proxy sessions for the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, ListProxySessions, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListProxySessions
+      tags:
+      - Voice Connectors
+  /voice-connectors:
+    GET:
+      summary: Amazon Web Services Listvoiceconnectors
+      description: 'Lists the Amazon Chime Voice Connectors for the administrator''s AWS account.   This API is is no longer supported and will not be updated. We recommend using the latest version, ListVoiceConnectors, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListVoiceConnectors
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/proxy-sessions/{proxySessionId}:
+    POST:
+      summary: Amazon Web Services Updateproxysession
+      description: 'Updates the specified proxy session details, such as voice or SMS capabilities.   This API is is no longer supported and will not be updated. We recommend using the latest version, UpdateProxySession, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesUpdateProxySession
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}:
+    PUT:
+      summary: Amazon Web Services Updatevoiceconnector
+      description: 'Updates details for the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, UpdateVoiceConnector, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesUpdateVoiceConnector
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/emergency-calling-configuration:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectoremergencycallingconfiguration
+      description: 'Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.   This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorEmergencyCallingConfiguration, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorEmergencyCallingConfiguration
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/origination:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectororigination
+      description: 'Adds origination settings for the specified Amazon Chime Voice Connector.  If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off origination settings.    This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorOrigination, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorOrigination
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/programmable-numbers/proxy:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectorproxy
+      description: 'Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorProxy, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorProxy
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/streaming-configuration:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectorstreamingconfiguration
+      description: 'Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis data.   This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorStreamingConfiguration, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorStreamingConfiguration
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/termination:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectortermination
+      description: 'Adds termination settings for the specified Amazon Chime Voice Connector.  If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.    This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorTermination, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorTermination
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/termination/credentials?operation=delete:
+    POST:
+      summary: Amazon Web Services Deletevoiceconnectorterminationcredentials
+      description: 'Deletes the specified SIP credentials used by your equipment to authenticate during call termination.   This API is is no longer supported and will not be updated. We recommend using the latest version, DeleteVoiceConnectorTerminationCredentials, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDeleteVoiceConnectorTerminationCredentials
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}?operation=disassociate-phone-numbers:
+    POST:
+      summary: Amazon Web Services Disassociatephonenumbersfromvoiceconnector
+      description: 'Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, DisassociatePhoneNumbersFromVoiceConnector, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesDisassociatePhoneNumbersFromVoiceConnector
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/logging-configuration:
+    PUT:
+      summary: Amazon Web Services Putvoiceconnectorloggingconfiguration
+      description: 'Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.   This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorLoggingConfiguration, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorLoggingConfiguration
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/termination/health:
+    GET:
+      summary: Amazon Web Services Getvoiceconnectorterminationhealth
+      description: '  This API is is no longer supported and will not be updated. We recommend using the latest version, GetVoiceConnectorTerminationHealth, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide.  Retrieves information about the last time a SIP OPTIONS ping was received from your SIP infrastructure for the specified Amazon Chime Voice Connector.'
+      operationId: amazonWebServicesGetVoiceConnectorTerminationHealth
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/termination/credentials:
+    GET:
+      summary: Amazon Web Services Listvoiceconnectorterminationcredentials
+      description: 'Lists the SIP credentials for the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, ListVoiceConnectorTerminationCredentials, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesListVoiceConnectorTerminationCredentials
+      tags:
+      - Voice Connectors
+  /voice-connectors/{voiceConnectorId}/termination/credentials?operation=put:
+    POST:
+      summary: Amazon Web Services Putvoiceconnectorterminationcredentials
+      description: 'Adds termination SIP credentials for the specified Amazon Chime Voice Connector.   This API is is no longer supported and will not be updated. We recommend using the latest version, PutVoiceConnectorTerminationCredentials, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide. '
+      operationId: amazonWebServicesPutVoiceConnectorTerminationCredentials
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}:
+    GET:
+      summary: Amazon Web Services Getspeakersearchtask
+      description: Retrieves the details of the specified speaker search task.
+      operationId: amazonWebServicesGetSpeakerSearchTask
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}:
+    GET:
+      summary: Amazon Web Services Getvoicetoneanalysistask
+      description: Retrieves the details of a voice tone analysis task.
+      operationId: amazonWebServicesGetVoiceToneAnalysisTask
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/speaker-search-tasks:
+    POST:
+      summary: Amazon Web Services Startspeakersearchtask
+      description: 'Starts a speaker search task.  Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the AWS service terms for the Amazon Chime SDK. '
+      operationId: amazonWebServicesStartSpeakerSearchTask
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks:
+    POST:
+      summary: Amazon Web Services Startvoicetoneanalysistask
+      description: 'Starts a voice tone analysis task. For more information about voice tone analysis, see Using Amazon Chime SDK voice analytics in the Amazon Chime SDK Developer Guide.  Before starting any voice tone analysis tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the AWS service terms for the Amazon Chime SDK. '
+      operationId: amazonWebServicesStartVoiceToneAnalysisTask
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}?operation=stop:
+    POST:
+      summary: Amazon Web Services Stopspeakersearchtask
+      description: Stops a speaker search task.
+      operationId: amazonWebServicesStopSpeakerSearchTask
+      tags:
+      - Voice Connectors
+  /voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop:
+    POST:
+      summary: Amazon Web Services Stopvoicetoneanalysistask
+      description: Stops a voice tone analysis task.
+      operationId: amazonWebServicesStopVoiceToneAnalysisTask
+      tags:
+      - Voice Connectors

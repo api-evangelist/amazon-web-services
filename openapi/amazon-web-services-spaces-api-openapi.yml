@@ -1,0 +1,196 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Spaces API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Spaces
+paths:
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments:
+    PUT:
+      summary: Amazon Web Services Createdevenvironment
+      description: 'Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development environment that you can use to quickly work on the code stored in the source repositories of your project.   When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these defaults apply to a Dev Environment created programmatically. '
+      operationId: amazonWebServicesCreateDevEnvironment
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects:
+    POST:
+      summary: Amazon Web Services Listprojects
+      description: Retrieves a list of projects.
+      operationId: amazonWebServicesListProjects
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}:
+    GET:
+      summary: Amazon Web Services Getsourcerepository
+      description: Returns information about a source repository.
+      operationId: amazonWebServicesGetSourceRepository
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches/{name}:
+    PUT:
+      summary: Amazon Web Services Createsourcerepositorybranch
+      description: 'Creates a branch in a specified source repository in Amazon CodeCatalyst.   This API only creates a branch in a source repository hosted in Amazon CodeCatalyst. You cannot use this API to create a branch in a linked repository. '
+      operationId: amazonWebServicesCreateSourceRepositoryBranch
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}:
+    PATCH:
+      summary: Amazon Web Services Updatedevenvironment
+      description: Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.
+      operationId: amazonWebServicesUpdateDevEnvironment
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{name}:
+    PATCH:
+      summary: Amazon Web Services Updateproject
+      description: Changes one or more values for a project.
+      operationId: amazonWebServicesUpdateProject
+      tags:
+      - Spaces
+  /v1/spaces/{name}:
+    PATCH:
+      summary: Amazon Web Services Updatespace
+      description: Changes one or more values for a space.
+      operationId: amazonWebServicesUpdateSpace
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/cloneUrls:
+    GET:
+      summary: Amazon Web Services Getsourcerepositorycloneurls
+      description: Returns information about the URLs that can be used with a Git client to clone a source repository.
+      operationId: amazonWebServicesGetSourceRepositoryCloneUrls
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/subscription:
+    GET:
+      summary: Amazon Web Services Getsubscription
+      description: Returns information about the Amazon Web Services account used for billing purposes and the billing plan for the space.
+      operationId: amazonWebServicesGetSubscription
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}:
+    GET:
+      summary: Amazon Web Services Getworkflow
+      description: Returns information about a workflow.
+      operationId: amazonWebServicesGetWorkflow
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}:
+    GET:
+      summary: Amazon Web Services Getworkflowrun
+      description: Returns information about a specified run of a workflow.
+      operationId: amazonWebServicesGetWorkflowRun
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions:
+    POST:
+      summary: Amazon Web Services Listdevenvironmentsessions
+      description: Retrieves a list of active sessions for a Dev Environment in a project.
+      operationId: amazonWebServicesListDevEnvironmentSessions
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/devEnvironments:
+    POST:
+      summary: Amazon Web Services Listdevenvironments
+      description: Retrieves a list of Dev Environments in a project.
+      operationId: amazonWebServicesListDevEnvironments
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/eventLogs:
+    POST:
+      summary: Amazon Web Services Listeventlogs
+      description: 'Retrieves a list of events that occurred during a specific time in a space. You can use these events to audit user and system activity in a space. For more information, see Monitoring in the Amazon CodeCatalyst User Guide.  ListEventLogs guarantees events for the last 30 days in a given space. You can also view and retrieve a list of management events over the last 90 days for Amazon CodeCatalyst in the CloudTrail console by viewing Event history, or by creating a trail to create and maintain a record of events that extends past 90 days. For more information, see Working with CloudTrail Event History and Working with CloudTrail trails. '
+      operationId: amazonWebServicesListEventLogs
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories:
+    POST:
+      summary: Amazon Web Services Listsourcerepositories
+      description: Retrieves a list of source repositories in a project.
+      operationId: amazonWebServicesListSourceRepositories
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches:
+    POST:
+      summary: Amazon Web Services Listsourcerepositorybranches
+      description: Retrieves a list of branches in a specified source repository.
+      operationId: amazonWebServicesListSourceRepositoryBranches
+      tags:
+      - Spaces
+  /v1/spaces:
+    POST:
+      summary: Amazon Web Services Listspaces
+      description: Retrieves a list of spaces.
+      operationId: amazonWebServicesListSpaces
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/workflowRuns:
+    PUT:
+      summary: Amazon Web Services Startworkflowrun
+      description: Begins a run of a specified workflow.
+      operationId: amazonWebServicesStartWorkflowRun
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/workflows:
+    POST:
+      summary: Amazon Web Services Listworkflows
+      description: Retrieves a list of workflows in a specified project.
+      operationId: amazonWebServicesListWorkflows
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start:
+    PUT:
+      summary: Amazon Web Services Startdevenvironment
+      description: 'Starts a specified Dev Environment and puts it into an active state. '
+      operationId: amazonWebServicesStartDevEnvironment
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session:
+    PUT:
+      summary: Amazon Web Services Startdevenvironmentsession
+      description: Starts a session for a specified Dev Environment.
+      operationId: amazonWebServicesStartDevEnvironmentSession
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop:
+    PUT:
+      summary: Amazon Web Services Stopdevenvironment
+      description: Pauses a specified Dev Environment and places it in a non-running state. Stopped Dev Environments do not consume compute minutes.
+      operationId: amazonWebServicesStopDevEnvironment
+      tags:
+      - Spaces
+  /v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}:
+    DELETE:
+      summary: Amazon Web Services Stopdevenvironmentsession
+      description: Stops a session for a specified Dev Environment.
+      operationId: amazonWebServicesStopDevEnvironmentSession
+      tags:
+      - Spaces
+  /spaces:
+    GET:
+      summary: Amazon Web Services Listspaces
+      description: Returns a list of AWS re:Post Private private re:Posts in the account with some information about each private re:Post.
+      operationId: amazonWebServicesListSpaces
+      tags:
+      - Spaces
+  /spaces/{spaceId}:
+    PUT:
+      summary: Amazon Web Services Updatespace
+      description: Modifies an existing AWS re:Post Private private re:Post.
+      operationId: amazonWebServicesUpdateSpace
+      tags:
+      - Spaces
+  /spaces/{spaceId}/admins/{adminId}:
+    POST:
+      summary: Amazon Web Services Registeradmin
+      description: Adds a user or group to the list of administrators of the private re:Post.
+      operationId: amazonWebServicesRegisterAdmin
+      tags:
+      - Spaces
+  /spaces/{spaceId}/invite:
+    POST:
+      summary: Amazon Web Services Sendinvites
+      description: Sends an invitation email to selected users and groups.
+      operationId: amazonWebServicesSendInvites
+      tags:
+      - Spaces

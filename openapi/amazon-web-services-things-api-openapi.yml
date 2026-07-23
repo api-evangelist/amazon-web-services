@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Things API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Things
+paths:
+  /things/{thingName}/shadow:
+    POST:
+      summary: Amazon Web Services Updatethingshadow
+      description: Updates the shadow for the specified thing. Requires permission to access the UpdateThingShadow action. For more information, see UpdateThingShadow in the IoT Developer Guide.
+      operationId: amazonWebServicesUpdateThingShadow
+      tags:
+      - Things
+  /api/things/shadow/ListNamedShadowsForThing/{thingName}:
+    GET:
+      summary: Amazon Web Services Listnamedshadowsforthing
+      description: Lists the shadows for the specified thing. Requires permission to access the ListNamedShadowsForThing action.
+      operationId: amazonWebServicesListNamedShadowsForThing
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}:
+    POST:
+      summary: Amazon Web Services Updatejobexecution
+      description: Updates the status of a job execution.
+      operationId: amazonWebServicesUpdateJobExecution
+      tags:
+      - Things
+    GET:
+      summary: Amazon Web Services Describejobexecution
+      description: Describes a job execution. Requires permission to access the DescribeJobExecution action.
+      operationId: amazonWebServicesDescribeJobExecution
+      tags:
+      - Things
+  /things/{thingName}/jobs:
+    GET:
+      summary: Amazon Web Services Getpendingjobexecutions
+      description: Gets the list of all jobs for a thing that are not in a terminal status.
+      operationId: amazonWebServicesGetPendingJobExecutions
+      tags:
+      - Things
+  /things/{thingName}/jobs/$next:
+    PUT:
+      summary: Amazon Web Services Startnextpendingjobexecution
+      description: Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.
+      operationId: amazonWebServicesStartNextPendingJobExecution
+      tags:
+      - Things
+  /things/{thingName}/principals:
+    GET:
+      summary: Amazon Web Services Listthingprincipals
+      description: Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. Requires permission to access the ListThingPrincipals action.
+      operationId: amazonWebServicesListThingPrincipals
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}/cancel:
+    PUT:
+      summary: Amazon Web Services Canceljobexecution
+      description: Cancels the execution of a job for a given thing. Requires permission to access the CancelJobExecution action.
+      operationId: amazonWebServicesCancelJobExecution
+      tags:
+      - Things
+  /things/{thingName}:
+    PATCH:
+      summary: Amazon Web Services Updatething
+      description: Updates the data for a thing. Requires permission to access the UpdateThing action.
+      operationId: amazonWebServicesUpdateThing
+      tags:
+      - Things
+  /things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}:
+    DELETE:
+      summary: Amazon Web Services Deletejobexecution
+      description: Deletes a job execution. Requires permission to access the DeleteJobExecution action.
+      operationId: amazonWebServicesDeleteJobExecution
+      tags:
+      - Things
+  /things/{thingName}/thing-groups:
+    GET:
+      summary: Amazon Web Services Listthinggroupsforthing
+      description: List the thing groups to which the specified thing belongs. Requires permission to access the ListThingGroupsForThing action.
+      operationId: amazonWebServicesListThingGroupsForThing
+      tags:
+      - Things
+  /things:
+    POST:
+      summary: Amazon Web Services Registerthing
+      description: Provisions a thing in the device registry. RegisterThing calls other IoT control plane APIs. These calls might exceed your account level  IoT Throttling Limits and cause throttle errors. Please contact Amazon Web Services Customer Support to raise your throttling limits if necessary. Requires permission to access the RegisterThing action.
+      operationId: amazonWebServicesRegisterThing
+      tags:
+      - Things

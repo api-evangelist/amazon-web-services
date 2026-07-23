@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Rules API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Rules
+paths:
+  /rules/{InstanceId}:
+    GET:
+      summary: Amazon Web Services Listrules
+      description: List all rules for the specified Amazon Connect instance.
+      operationId: amazonWebServicesListRules
+      tags:
+      - Rules
+  /rules/{InstanceId}/{RuleId}:
+    PUT:
+      summary: Amazon Web Services Updaterule
+      description: 'Updates a rule for the specified Amazon Connect instance. Use the Rules Function language to code conditions for the rule. '
+      operationId: amazonWebServicesUpdateRule
+      tags:
+      - Rules
+  /rules/{ruleName}:
+    PATCH:
+      summary: Amazon Web Services Replacetopicrule
+      description: Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule. Requires permission to access the ReplaceTopicRule action.
+      operationId: amazonWebServicesReplaceTopicRule
+      tags:
+      - Rules
+  /rules/{ruleName}/disable:
+    POST:
+      summary: Amazon Web Services Disabletopicrule
+      description: Disables the rule. Requires permission to access the DisableTopicRule action.
+      operationId: amazonWebServicesDisableTopicRule
+      tags:
+      - Rules
+  /rules/{ruleName}/enable:
+    POST:
+      summary: Amazon Web Services Enabletopicrule
+      description: Enables the rule. Requires permission to access the EnableTopicRule action.
+      operationId: amazonWebServicesEnableTopicRule
+      tags:
+      - Rules
+  /rules:
+    GET:
+      summary: Amazon Web Services Listtopicrules
+      description: Lists the rules for the specific topic. Requires permission to access the ListTopicRules action.
+      operationId: amazonWebServicesListTopicRules
+      tags:
+      - Rules
+    POST:
+      summary: Amazon Web Services Createrule
+      description: Creates a Recycle Bin retention rule. For more information, see  Create Recycle Bin retention rules in the Amazon Elastic Compute Cloud User Guide.
+      operationId: amazonWebServicesCreateRule
+      tags:
+      - Rules
+  /rules/{identifier}:
+    PATCH:
+      summary: Amazon Web Services Updaterule
+      description: Updates an existing Recycle Bin retention rule. You can update a retention rule's description, resource tags, and retention period at any time after creation. You can't update a retention rule's resource type after creation. For more information, see  Update Recycle Bin retention rules in the Amazon Elastic Compute Cloud User Guide.
+      operationId: amazonWebServicesUpdateRule
+      tags:
+      - Rules
+  /rules/{identifier}/lock:
+    PATCH:
+      summary: Amazon Web Services Lockrule
+      description: Locks a retention rule. A locked retention rule can't be modified or deleted.
+      operationId: amazonWebServicesLockRule
+      tags:
+      - Rules
+  /rules/{identifier}/unlock:
+    PATCH:
+      summary: Amazon Web Services Unlockrule
+      description: Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted only after the unlock delay period expires.
+      operationId: amazonWebServicesUnlockRule
+      tags:
+      - Rules

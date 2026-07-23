@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Monitors API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Monitors
+paths:
+  /v20210603/Monitors:
+    GET:
+      summary: Amazon Web Services Listmonitors
+      description: Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.
+      operationId: amazonWebServicesListMonitors
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}:
+    PATCH:
+      summary: Amazon Web Services Updatemonitor
+      description: Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks (locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor. The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. For more information, see Choosing a city-network maximum value in the Amazon CloudWatch User Guide.
+      operationId: amazonWebServicesUpdateMonitor
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}:
+    GET:
+      summary: Amazon Web Services Gethealthevent
+      description: Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations, and all the information related to the event, by location. The information returned includes the impact on performance, availability, and round-trip time, information about the network providers (ASNs), the event type, and so on. Information rolled up at the global traffic level is also returned, including the impact type and total traffic impact.
+      operationId: amazonWebServicesGetHealthEvent
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results:
+    GET:
+      summary: Amazon Web Services Getqueryresults
+      description: Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing a QueryId and a monitor name. For more information about using the query interface, including examples, see Using the Amazon CloudWatch Internet Monitor query interface in the Amazon CloudWatch Internet Monitor User Guide.
+      operationId: amazonWebServicesGetQueryResults
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status:
+    GET:
+      summary: Amazon Web Services Getquerystatus
+      description: 'Returns the current status of a query for the Amazon CloudWatch Internet Monitor query interface, for a specified query ID and monitor. When you run a query, check the status to make sure that the query has SUCCEEDED before you review the results.    QUEUED: The query is scheduled to run.    RUNNING: The query is in progress but not complete.    SUCCEEDED: The query completed sucessfully.    FAILED: The query failed due to an error.    CANCELED: The query was canceled.  '
+      operationId: amazonWebServicesGetQueryStatus
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/HealthEvents:
+    GET:
+      summary: Amazon Web Services Listhealthevents
+      description: 'Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns information for health events including the event start and end time and the status.  Health events that have start times during the time frame that is requested are not included in the list of health events. '
+      operationId: amazonWebServicesListHealthEvents
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/Queries:
+    POST:
+      summary: Amazon Web Services Startquery
+      description: Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using StartTime and EndTime. You filter the query results to return by providing parameters that you specify with FilterParameters. For more information about using the query interface, including examples, see Using the Amazon CloudWatch Internet Monitor query interface in the Amazon CloudWatch Internet Monitor User Guide.
+      operationId: amazonWebServicesStartQuery
+      tags:
+      - Monitors
+  /v20210603/Monitors/{MonitorName}/Queries/{QueryId}:
+    DELETE:
+      summary: Amazon Web Services Stopquery
+      description: Stop a query that is progress for a specific monitor.
+      operationId: amazonWebServicesStopQuery
+      tags:
+      - Monitors
+  /monitors:
+    GET:
+      summary: Amazon Web Services Listmonitors
+      description: Returns a list of all of your monitors.
+      operationId: amazonWebServicesListMonitors
+      tags:
+      - Monitors
+  /monitors/{monitorName}/probes:
+    POST:
+      summary: Amazon Web Services Createprobe
+      description: 'Create a probe within a monitor. Once you create a probe, and it begins monitoring your network traffic, you''ll incur billing charges for that probe. '
+      operationId: amazonWebServicesCreateProbe
+      tags:
+      - Monitors
+  /monitors/{monitorName}:
+    PATCH:
+      summary: Amazon Web Services Updatemonitor
+      description: Updates the aggregationPeriod for a monitor. Monitors support an aggregationPeriod of either 30 or 60 seconds.
+      operationId: amazonWebServicesUpdateMonitor
+      tags:
+      - Monitors
+  /monitors/{monitorName}/probes/{probeId}:
+    PATCH:
+      summary: Amazon Web Services Updateprobe
+      description: 'Updates a monitor probe. This action requires both the monitorName and probeId parameters. Run ListMonitors to get a list of monitor names. Run GetMonitor to get a list of probes and probe IDs. '
+      operationId: amazonWebServicesUpdateProbe
+      tags:
+      - Monitors

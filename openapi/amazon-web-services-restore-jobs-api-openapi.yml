@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Restore Jobs API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Restore Jobs
+paths:
+  /restore-jobs/{restoreJobId}:
+    GET:
+      summary: Amazon Web Services Describerestorejob
+      description: Returns metadata associated with a restore job that is specified by a job ID.
+      operationId: amazonWebServicesDescribeRestoreJob
+      tags:
+      - Restore Jobs
+  /restore-jobs/{restoreJobId}/metadata:
+    GET:
+      summary: Amazon Web Services Getrestorejobmetadata
+      description: This request returns the metadata for the specified restore job.
+      operationId: amazonWebServicesGetRestoreJobMetadata
+      tags:
+      - Restore Jobs
+  /restore-jobs/:
+    GET:
+      summary: Amazon Web Services Listrestorejobs
+      description: Returns a list of jobs that Backup initiated to restore a saved resource, including details about the recovery process.
+      operationId: amazonWebServicesListRestoreJobs
+      tags:
+      - Restore Jobs
+  /restore-jobs/{restoreJobId}/validations:
+    PUT:
+      summary: Amazon Web Services Putrestorevalidationresult
+      description: This request allows you to send your independent self-run restore test validation results. RestoreJobId and ValidationStatus are required. Optionally, you can input a ValidationStatusMessage.
+      operationId: amazonWebServicesPutRestoreValidationResult
+      tags:
+      - Restore Jobs
+  /restore-jobs:
+    PUT:
+      summary: Amazon Web Services Startrestorejob
+      description: Recovers the saved resource identified by an Amazon Resource Name (ARN).
+      operationId: amazonWebServicesStartRestoreJob
+      tags:
+      - Restore Jobs
+  /restore-jobs/{jobId}/chunk/{chunkToken}:
+    GET:
+      summary: Amazon Web Services Getchunk
+      description: Gets the specified object's chunk.
+      operationId: amazonWebServicesGetChunk
+      tags:
+      - Restore Jobs
+  /restore-jobs/{jobId}/object/{objectToken}/metadata:
+    GET:
+      summary: Amazon Web Services Getobjectmetadata
+      description: Get metadata associated with an Object.
+      operationId: amazonWebServicesGetObjectMetadata
+      tags:
+      - Restore Jobs
+  /restore-jobs/{jobId}/chunks/{objectToken}/list:
+    GET:
+      summary: Amazon Web Services Listchunks
+      description: List chunks in a given Object
+      operationId: amazonWebServicesListChunks
+      tags:
+      - Restore Jobs
+  /restore-jobs/{jobId}/objects/list:
+    GET:
+      summary: Amazon Web Services Listobjects
+      description: List all Objects in a given Backup.
+      operationId: amazonWebServicesListObjects
+      tags:
+      - Restore Jobs

@@ -1,0 +1,350 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Clusters API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Clusters
+paths:
+  /clusters:
+    GET:
+      summary: Amazon Web Services Listclusters
+      description: Returns information about provisioned Elastic DocumentDB clusters.
+      operationId: amazonWebServicesListClusters
+      tags:
+      - Clusters
+  /clusters/{clusterName}/assume-role-for-pod-identity:
+    POST:
+      summary: Amazon Web Services Assumeroleforpodidentity
+      description: The Amazon EKS Auth API and the AssumeRoleForPodIdentity action are only used by the EKS Pod Identity Agent. We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if credentials from an EKS Pod Identity association are available in the pod, the latest versions of the SDKs use them automatically.
+      operationId: amazonWebServicesAssumeRoleForPodIdentity
+      tags:
+      - Clusters
+  /clusters/{name}/access-entries/{principalArn}/access-policies:
+    GET:
+      summary: Amazon Web Services Listassociatedaccesspolicies
+      description: Lists the access policies associated with an access entry.
+      operationId: amazonWebServicesListAssociatedAccessPolicies
+      tags:
+      - Clusters
+  /clusters/{name}/encryption-config/associate:
+    POST:
+      summary: Amazon Web Services Associateencryptionconfig
+      description: Associates an encryption configuration to an existing cluster. Use this API to enable encryption on existing clusters that don't already have encryption enabled. This allows you to implement a defense-in-depth security strategy without migrating applications to new Amazon EKS clusters.
+      operationId: amazonWebServicesAssociateEncryptionConfig
+      tags:
+      - Clusters
+  /clusters/{name}/identity-provider-configs/associate:
+    POST:
+      summary: Amazon Web Services Associateidentityproviderconfig
+      description: Associates an identity provider configuration to a cluster. If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes Role and ClusterRole objects, assign permissions to them, and then bind them to the identities using Kubernetes RoleBinding and ClusterRoleBinding objects. For more information see Using RBAC Authorization in the Kubernetes documentation.
+      operationId: amazonWebServicesAssociateIdentityProviderConfig
+      tags:
+      - Clusters
+  /clusters/{name}/access-entries:
+    GET:
+      summary: Amazon Web Services Listaccessentries
+      description: Lists the access entries for your cluster.
+      operationId: amazonWebServicesListAccessEntries
+      tags:
+      - Clusters
+  /clusters/{name}/addons:
+    GET:
+      summary: Amazon Web Services Listaddons
+      description: Lists the installed add-ons.
+      operationId: amazonWebServicesListAddons
+      tags:
+      - Clusters
+  /clusters/{name}/fargate-profiles:
+    GET:
+      summary: Amazon Web Services Listfargateprofiles
+      description: Lists the Fargate profiles associated with the specified cluster in your Amazon Web Services account in the specified Amazon Web Services Region.
+      operationId: amazonWebServicesListFargateProfiles
+      tags:
+      - Clusters
+  /clusters/{name}/node-groups:
+    GET:
+      summary: Amazon Web Services Listnodegroups
+      description: Lists the managed node groups associated with the specified cluster in your Amazon Web Services account in the specified Amazon Web Services Region. Self-managed node groups aren't listed.
+      operationId: amazonWebServicesListNodegroups
+      tags:
+      - Clusters
+  /clusters/{name}/pod-identity-associations:
+    GET:
+      summary: Amazon Web Services Listpodidentityassociations
+      description: List the EKS Pod Identity associations in a cluster. You can filter the list by the namespace that the association is in or the service account that the association uses.
+      operationId: amazonWebServicesListPodIdentityAssociations
+      tags:
+      - Clusters
+  /clusters/{name}/access-entries/{principalArn}:
+    POST:
+      summary: Amazon Web Services Updateaccessentry
+      description: Updates an access entry.
+      operationId: amazonWebServicesUpdateAccessEntry
+      tags:
+      - Clusters
+  /clusters/{name}/addons/{addonName}:
+    GET:
+      summary: Amazon Web Services Describeaddon
+      description: Describes an Amazon EKS add-on.
+      operationId: amazonWebServicesDescribeAddon
+      tags:
+      - Clusters
+  /clusters/{name}:
+    GET:
+      summary: Amazon Web Services Describecluster
+      description: 'Describes an Amazon EKS cluster. The API server endpoint and certificate authority data returned by this operation are required for kubelet and kubectl to communicate with your Kubernetes API server. For more information, see Creating or updating a kubeconfig file for an Amazon EKS cluster.  The API server endpoint and certificate authority data aren''t available until the cluster reaches the ACTIVE state. '
+      operationId: amazonWebServicesDescribeCluster
+      tags:
+      - Clusters
+  /clusters/{name}/fargate-profiles/{fargateProfileName}:
+    GET:
+      summary: Amazon Web Services Describefargateprofile
+      description: Describes an Fargate profile.
+      operationId: amazonWebServicesDescribeFargateProfile
+      tags:
+      - Clusters
+  /clusters/{name}/node-groups/{nodegroupName}:
+    GET:
+      summary: Amazon Web Services Describenodegroup
+      description: Describes a managed node group.
+      operationId: amazonWebServicesDescribeNodegroup
+      tags:
+      - Clusters
+  /clusters/{name}/pod-identity-associations/{associationId}:
+    POST:
+      summary: Amazon Web Services Updatepodidentityassociation
+      description: Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved between clusters, namespaces, or service accounts. If you need to edit the namespace or service account, you need to delete the association and then create a new association with your desired settings.
+      operationId: amazonWebServicesUpdatePodIdentityAssociation
+      tags:
+      - Clusters
+  /clusters/{name}/identity-provider-configs/describe:
+    POST:
+      summary: Amazon Web Services Describeidentityproviderconfig
+      description: Describes an identity provider configuration.
+      operationId: amazonWebServicesDescribeIdentityProviderConfig
+      tags:
+      - Clusters
+  /clusters/{name}/insights/{id}:
+    GET:
+      summary: Amazon Web Services Describeinsight
+      description: Returns details about an insight that you specify using its ID.
+      operationId: amazonWebServicesDescribeInsight
+      tags:
+      - Clusters
+  /clusters/{name}/updates/{updateId}:
+    GET:
+      summary: Amazon Web Services Describeupdate
+      description: Describes an update to an Amazon EKS resource. When the status of the update is Succeeded, the update is complete. If an update fails, the status is Failed, and an error detail explains the reason for the failure.
+      operationId: amazonWebServicesDescribeUpdate
+      tags:
+      - Clusters
+  /clusters/{name}/access-entries/{principalArn}/access-policies/{policyArn}:
+    DELETE:
+      summary: Amazon Web Services Disassociateaccesspolicy
+      description: Disassociates an access policy from an access entry.
+      operationId: amazonWebServicesDisassociateAccessPolicy
+      tags:
+      - Clusters
+  /clusters/{name}/identity-provider-configs/disassociate:
+    POST:
+      summary: Amazon Web Services Disassociateidentityproviderconfig
+      description: Disassociates an identity provider configuration from a cluster. If you disassociate an identity provider from your cluster, users included in the provider can no longer access the cluster. However, you can still access the cluster with IAM principals.
+      operationId: amazonWebServicesDisassociateIdentityProviderConfig
+      tags:
+      - Clusters
+  /clusters/{name}/identity-provider-configs:
+    GET:
+      summary: Amazon Web Services Listidentityproviderconfigs
+      description: Lists the identity provider configurations for your cluster.
+      operationId: amazonWebServicesListIdentityProviderConfigs
+      tags:
+      - Clusters
+  /clusters/{name}/insights:
+    POST:
+      summary: Amazon Web Services Listinsights
+      description: Returns a list of all insights checked for against the specified cluster. You can filter which insights are returned by category, associated Kubernetes version, and status.
+      operationId: amazonWebServicesListInsights
+      tags:
+      - Clusters
+  /clusters/{name}/updates:
+    POST:
+      summary: Amazon Web Services Updateclusterversion
+      description: Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues to function during the update. The response output includes an update ID that you can use to track the status of your cluster update with the DescribeUpdate API operation. Cluster updates are asynchronous, and they should finish within a few minutes. During an update, the cluster status moves to UPDATING (this status transition is eventually consistent). When the update is complete (either Failed or Successful), the cluster status moves to Active. If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes versions must match the cluster’s Kubernetes version in order to update the cluster to a new Kubernetes version.
+      operationId: amazonWebServicesUpdateClusterVersion
+      tags:
+      - Clusters
+  /clusters/{name}/addons/{addonName}/update:
+    POST:
+      summary: Amazon Web Services Updateaddon
+      description: Updates an Amazon EKS add-on.
+      operationId: amazonWebServicesUpdateAddon
+      tags:
+      - Clusters
+  /clusters/{name}/update-config:
+    POST:
+      summary: Amazon Web Services Updateclusterconfig
+      description: Updates an Amazon EKS cluster configuration. Your cluster continues to function during the update. The response output includes an update ID that you can use to track the status of your cluster update with DescribeUpdate"/&gt;. You can use this API operation to enable or disable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more information, see Amazon EKS Cluster control plane logs in the  Amazon EKS User Guide .  CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported control plane logs. For more information, see CloudWatch Pricing.  You can also use this API operation to enable or disable public and private access to your cluster's Kubernetes API server endpoint. By default, public access is enabled, and private access is disabled. For more information, see Amazon EKS cluster endpoint access control in the  Amazon EKS User Guide . You can also use this API operation to choose different subnets and security groups for the cluster. You must specify at least two subnets that are in different Availability Zones. You can't change which VPC the subnets are from, the subnets must be in the same VPC as the subnets that the cluster was created with. For more information about the VPC requirements, see https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html in the  Amazon EKS User Guide . Cluster updates are asynchronous, and they should finish within a few minutes. During an update, the cluster status moves to UPDATING (this status transition is eventually consistent). When the update is complete (either Failed or Successful), the cluster status moves to Active.
+      operationId: amazonWebServicesUpdateClusterConfig
+      tags:
+      - Clusters
+  /clusters/{name}/node-groups/{nodegroupName}/update-config:
+    POST:
+      summary: Amazon Web Services Updatenodegroupconfig
+      description: Updates an Amazon EKS managed node group configuration. Your node group continues to function during the update. The response output includes an update ID that you can use to track the status of your node group update with the DescribeUpdate API operation. Currently you can update the Kubernetes labels for a node group or the scaling configuration.
+      operationId: amazonWebServicesUpdateNodegroupConfig
+      tags:
+      - Clusters
+  /clusters/{name}/node-groups/{nodegroupName}/update-version:
+    POST:
+      summary: Amazon Web Services Updatenodegroupversion
+      description: Updates the Kubernetes version or AMI version of an Amazon EKS managed node group. You can update a node group using a launch template only if the node group was originally deployed with a launch template. If you need to update a custom AMI in a node group that was deployed with a launch template, then update your custom AMI, specify the new ID in a new version of the launch template, and then update the node group to the new version of the launch template. If you update without a launch template, then you can update to the latest available AMI version of a node group's current Kubernetes version by not specifying a Kubernetes version in the request. You can update to the latest AMI version of your cluster's current Kubernetes version by specifying your cluster's Kubernetes version in the request. For information about Linux versions, see Amazon EKS optimized Amazon Linux AMI versions in the Amazon EKS User Guide. For information about Windows versions, see Amazon EKS optimized Windows AMI versions in the Amazon EKS User Guide.  You cannot roll back a node group to an earlier Kubernetes version or AMI version. When a node in a managed node group is terminated due to a scaling action or update, every Pod on that node is drained first. Amazon EKS attempts to drain the nodes gracefully and will fail if it is unable to do so. You can force the update if Amazon EKS is unable to drain the nodes as a result of a Pod disruption budget issue.
+      operationId: amazonWebServicesUpdateNodegroupVersion
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/scram-secrets:
+    GET:
+      summary: Amazon Web Services Listscramsecrets
+      description: Returns a list of the Scram Secrets associated with an Amazon MSK cluster.
+      operationId: amazonWebServicesListScramSecrets
+      tags:
+      - Clusters
+  /v1/clusters:
+    GET:
+      summary: Amazon Web Services Listclusters
+      description: Returns a list of all the MSK clusters in the current Region.
+      operationId: amazonWebServicesListClusters
+      tags:
+      - Clusters
+  /api/v2/clusters:
+    GET:
+      summary: Amazon Web Services Listclustersv2
+      description: Returns a list of all the MSK clusters in the current Region.
+      operationId: amazonWebServicesListClustersV2
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}:
+    GET:
+      summary: Amazon Web Services Describecluster
+      description: Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.
+      operationId: amazonWebServicesDescribeCluster
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/policy:
+    PUT:
+      summary: Amazon Web Services Putclusterpolicy
+      description: Creates or updates the specified MSK cluster policy. If updating the policy, the currentVersion field is required in the request payload.
+      operationId: amazonWebServicesPutClusterPolicy
+      tags:
+      - Clusters
+  /api/v2/clusters/{clusterArn}:
+    GET:
+      summary: Amazon Web Services Describeclusterv2
+      description: Returns a description of the MSK cluster of either the provisioned or the serverless type whose Amazon Resource Name (ARN) is specified in the request.
+      operationId: amazonWebServicesDescribeClusterV2
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/bootstrap-brokers:
+    GET:
+      summary: Amazon Web Services Getbootstrapbrokers
+      description: A list of brokers that a client application can use to bootstrap.
+      operationId: amazonWebServicesGetBootstrapBrokers
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/client-vpc-connections:
+    GET:
+      summary: Amazon Web Services Listclientvpcconnections
+      description: Displays a list of client VPC connections.
+      operationId: amazonWebServicesListClientVpcConnections
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/operations:
+    GET:
+      summary: Amazon Web Services Listclusteroperations
+      description: Returns a list of all the operations that have been performed on the specified MSK cluster.
+      operationId: amazonWebServicesListClusterOperations
+      tags:
+      - Clusters
+  /api/v2/clusters/{clusterArn}/operations:
+    GET:
+      summary: Amazon Web Services Listclusteroperationsv2
+      description: Returns a list of all the operations that have been performed on the specified MSK cluster.
+      operationId: amazonWebServicesListClusterOperationsV2
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/nodes:
+    GET:
+      summary: Amazon Web Services Listnodes
+      description: Returns a list of the broker nodes in the cluster.
+      operationId: amazonWebServicesListNodes
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/reboot-broker:
+    PUT:
+      summary: Amazon Web Services Rebootbroker
+      description: Executes a reboot on a broker.
+      operationId: amazonWebServicesRebootBroker
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/nodes/count:
+    PUT:
+      summary: Amazon Web Services Updatebrokercount
+      description: Updates the number of broker nodes in the cluster. You can use this operation to increase the number of brokers in an existing cluster. You can't decrease the number of brokers.
+      operationId: amazonWebServicesUpdateBrokerCount
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/nodes/type:
+    PUT:
+      summary: Amazon Web Services Updatebrokertype
+      description: Updates all the brokers in the cluster to the specified type.
+      operationId: amazonWebServicesUpdateBrokerType
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/nodes/storage:
+    PUT:
+      summary: Amazon Web Services Updatebrokerstorage
+      description: Updates the EBS storage associated with MSK brokers.
+      operationId: amazonWebServicesUpdateBrokerStorage
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/connectivity:
+    PUT:
+      summary: Amazon Web Services Updateconnectivity
+      description: Updates the connectivity configuration for the MSK cluster.
+      operationId: amazonWebServicesUpdateConnectivity
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/configuration:
+    PUT:
+      summary: Amazon Web Services Updateclusterconfiguration
+      description: Updates the cluster with the configuration that is specified in the request body.
+      operationId: amazonWebServicesUpdateClusterConfiguration
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/version:
+    PUT:
+      summary: Amazon Web Services Updateclusterkafkaversion
+      description: Updates the Apache Kafka version for the cluster.
+      operationId: amazonWebServicesUpdateClusterKafkaVersion
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/monitoring:
+    PUT:
+      summary: Amazon Web Services Updatemonitoring
+      description: Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.
+      operationId: amazonWebServicesUpdateMonitoring
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/security:
+    PATCH:
+      summary: Amazon Web Services Updatesecurity
+      description: You can use this operation to update the encrypting and authentication settings for an existing cluster.
+      operationId: amazonWebServicesUpdateSecurity
+      tags:
+      - Clusters
+  /v1/clusters/{clusterArn}/storage:
+    PUT:
+      summary: Amazon Web Services Updatestorage
+      description: Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
+      operationId: amazonWebServicesUpdateStorage
+      tags:
+      - Clusters

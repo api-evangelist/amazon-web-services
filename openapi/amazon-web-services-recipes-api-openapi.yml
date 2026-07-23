@@ -1,0 +1,42 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Recipes API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Recipes
+paths:
+  /recipes/{name}/batchDeleteRecipeVersion:
+    POST:
+      summary: Amazon Web Services Batchdeleterecipeversion
+      description: 'Deletes one or more versions of a recipe at a time. The entire request will be rejected if:   The recipe does not exist.   There is an invalid version identifier in the list of versions.   The version list is empty.   The version list size exceeds 50.   The version list contains duplicate entries.   The request will complete successfully, but with partial failures, if:   A version does not exist.   A version is being used by a job.   You specify LATEST_WORKING, but it''s being used by a project.   The version fails to be deleted.   The LATEST_WORKING version will only be deleted if the recipe has no other versions. If you try to delete LATEST_WORKING while other versions exist (or if they can''t be deleted), then LATEST_WORKING will be listed as partial failure in the response.'
+      operationId: amazonWebServicesBatchDeleteRecipeVersion
+      tags:
+      - Recipes
+  /recipes:
+    GET:
+      summary: Amazon Web Services Listrecipes
+      description: Lists all of the DataBrew recipes that are defined.
+      operationId: amazonWebServicesListRecipes
+      tags:
+      - Recipes
+  /recipes/{name}/recipeVersion/{recipeVersion}:
+    DELETE:
+      summary: Amazon Web Services Deleterecipeversion
+      description: Deletes a single version of a DataBrew recipe.
+      operationId: amazonWebServicesDeleteRecipeVersion
+      tags:
+      - Recipes
+  /recipes/{name}:
+    PUT:
+      summary: Amazon Web Services Updaterecipe
+      description: Modifies the definition of the LATEST_WORKING version of a DataBrew recipe.
+      operationId: amazonWebServicesUpdateRecipe
+      tags:
+      - Recipes
+  /recipes/{name}/publishRecipe:
+    POST:
+      summary: Amazon Web Services Publishrecipe
+      description: Publishes a new version of a DataBrew recipe.
+      operationId: amazonWebServicesPublishRecipe
+      tags:
+      - Recipes

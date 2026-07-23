@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Backup Vaults API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Backup Vaults
+paths:
+  /backup-vaults/{backupVaultName}:
+    GET:
+      summary: Amazon Web Services Describebackupvault
+      description: Returns metadata about a backup vault specified by its name.
+      operationId: amazonWebServicesDescribeBackupVault
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/access-policy:
+    PUT:
+      summary: Amazon Web Services Putbackupvaultaccesspolicy
+      description: Sets a resource-based policy that is used to manage access permissions on the target backup vault. Requires a backup vault name and an access policy document in JSON format.
+      operationId: amazonWebServicesPutBackupVaultAccessPolicy
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/vault-lock:
+    PUT:
+      summary: Amazon Web Services Putbackupvaultlockconfiguration
+      description: 'Applies Backup Vault Lock to a backup vault, preventing attempts to delete any recovery point stored in or created in a backup vault. Vault Lock also prevents attempts to update the lifecycle policy that controls the retention period of any recovery point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and maximum retention period for future backup and copy jobs that target a backup vault.  Backup Vault Lock has been assessed by Cohasset Associates for use in environments that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about how Backup Vault Lock relates to these regulations, see the Cohasset Associates Compliance Assessment.  '
+      operationId: amazonWebServicesPutBackupVaultLockConfiguration
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/notification-configuration:
+    PUT:
+      summary: Amazon Web Services Putbackupvaultnotifications
+      description: Turns on notifications on a backup vault for the specified topic and events.
+      operationId: amazonWebServicesPutBackupVaultNotifications
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}:
+    POST:
+      summary: Amazon Web Services Updaterecoverypointlifecycle
+      description: Sets the transition lifecycle of a recovery point. The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition to cold after days” setting. The “transition to cold after days” setting cannot be changed after a backup has been transitioned to cold. Resource types that are able to be transitioned to cold storage are listed in the "Lifecycle to cold storage" section of the  Feature availability by resource table. Backup ignores this expression for other resource types. This operation does not support continuous backups.
+      operationId: amazonWebServicesUpdateRecoveryPointLifecycle
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/disassociate:
+    POST:
+      summary: Amazon Web Services Disassociaterecoverypoint
+      description: Deletes the specified continuous backup recovery point from Backup and releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the lifecycle that you specified in your original backup plan. Does not support snapshot backup recovery points.
+      operationId: amazonWebServicesDisassociateRecoveryPoint
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/parentAssociation:
+    DELETE:
+      summary: Amazon Web Services Disassociaterecoverypointfromparent
+      description: This action to a specific child (nested) recovery point removes the relationship between the specified recovery point and its parent (composite) recovery point.
+      operationId: amazonWebServicesDisassociateRecoveryPointFromParent
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/recovery-points/{recoveryPointArn}/restore-metadata:
+    GET:
+      summary: Amazon Web Services Getrecoverypointrestoremetadata
+      description: Returns a set of metadata key-value pairs that were used to create the backup.
+      operationId: amazonWebServicesGetRecoveryPointRestoreMetadata
+      tags:
+      - Backup Vaults
+  /backup-vaults/:
+    GET:
+      summary: Amazon Web Services Listbackupvaults
+      description: Returns a list of recovery point storage containers along with information about them.
+      operationId: amazonWebServicesListBackupVaults
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/resources/:
+    GET:
+      summary: Amazon Web Services Listprotectedresourcesbybackupvault
+      description: This request lists the protected resources corresponding to each backup vault.
+      operationId: amazonWebServicesListProtectedResourcesByBackupVault
+      tags:
+      - Backup Vaults
+  /backup-vaults/{backupVaultName}/recovery-points/:
+    GET:
+      summary: Amazon Web Services Listrecoverypointsbybackupvault
+      description: Returns detailed information about the recovery points stored in a backup vault.
+      operationId: amazonWebServicesListRecoveryPointsByBackupVault
+      tags:
+      - Backup Vaults

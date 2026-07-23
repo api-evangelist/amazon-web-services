@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Collaborations API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Collaborations
+paths:
+  /collaborations/{collaborationIdentifier}/batch-analysistemplates:
+    POST:
+      summary: Amazon Web Services Batchgetcollaborationanalysistemplate
+      description: Retrieves multiple analysis templates within a collaboration by their Amazon Resource Names (ARNs).
+      operationId: amazonWebServicesBatchGetCollaborationAnalysisTemplate
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/batch-schema:
+    POST:
+      summary: Amazon Web Services Batchgetschema
+      description: Retrieves multiple schemas by their identifiers.
+      operationId: amazonWebServicesBatchGetSchema
+      tags:
+      - Collaborations
+  /collaborations:
+    GET:
+      summary: Amazon Web Services Listcollaborations
+      description: Lists collaborations the caller owns, is active in, or has been invited to.
+      operationId: amazonWebServicesListCollaborations
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updatecollaboration
+      description: Updates collaboration metadata and can only be called by the collaboration owner.
+      operationId: amazonWebServicesUpdateCollaboration
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/member/{accountId}:
+    DELETE:
+      summary: Amazon Web Services Deletemember
+      description: Removes the specified member from a collaboration. The removed member is placed in the Removed status and can't interact with the collaboration. The removed member's data is inaccessible to active members of the collaboration.
+      operationId: amazonWebServicesDeleteMember
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}:
+    GET:
+      summary: Amazon Web Services Getcollaborationanalysistemplate
+      description: Retrieves an analysis template within a collaboration.
+      operationId: amazonWebServicesGetCollaborationAnalysisTemplate
+      tags:
+      - Collaborations
+  ? /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}
+  : GET:
+      summary: Amazon Web Services Getcollaborationconfiguredaudiencemodelassociation
+      description: Retrieves a configured audience model association within a collaboration.
+      operationId: amazonWebServicesGetCollaborationConfiguredAudienceModelAssociation
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}:
+    GET:
+      summary: Amazon Web Services Getcollaborationprivacybudgettemplate
+      description: Returns details about a specified privacy budget template.
+      operationId: amazonWebServicesGetCollaborationPrivacyBudgetTemplate
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/schemas/{name}:
+    GET:
+      summary: Amazon Web Services Getschema
+      description: Retrieves the schema for a relation within a collaboration.
+      operationId: amazonWebServicesGetSchema
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}:
+    GET:
+      summary: Amazon Web Services Getschemaanalysisrule
+      description: Retrieves a schema analysis rule.
+      operationId: amazonWebServicesGetSchemaAnalysisRule
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/analysistemplates:
+    GET:
+      summary: Amazon Web Services Listcollaborationanalysistemplates
+      description: Lists analysis templates within a collaboration.
+      operationId: amazonWebServicesListCollaborationAnalysisTemplates
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations:
+    GET:
+      summary: Amazon Web Services Listcollaborationconfiguredaudiencemodelassociations
+      description: Lists configured audience model associations within a collaboration.
+      operationId: amazonWebServicesListCollaborationConfiguredAudienceModelAssociations
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/privacybudgettemplates:
+    GET:
+      summary: Amazon Web Services Listcollaborationprivacybudgettemplates
+      description: Returns an array that summarizes each privacy budget template in a specified collaboration.
+      operationId: amazonWebServicesListCollaborationPrivacyBudgetTemplates
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/privacybudgets:
+    GET:
+      summary: Amazon Web Services Listcollaborationprivacybudgets
+      description: Returns an array that summarizes each privacy budget in a specified collaboration. The summary includes the collaboration ARN, creation time, creating account, and privacy budget details.
+      operationId: amazonWebServicesListCollaborationPrivacyBudgets
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/members:
+    GET:
+      summary: Amazon Web Services Listmembers
+      description: Lists all members within a collaboration.
+      operationId: amazonWebServicesListMembers
+      tags:
+      - Collaborations
+  /collaborations/{collaborationIdentifier}/schemas:
+    GET:
+      summary: Amazon Web Services Listschemas
+      description: Lists the schemas for relations within a collaboration.
+      operationId: amazonWebServicesListSchemas
+      tags:
+      - Collaborations

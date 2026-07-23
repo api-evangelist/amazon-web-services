@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Tracking API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Tracking
+paths:
+  /tracking/v0/trackers/{TrackerName}/consumers:
+    POST:
+      summary: Amazon Web Services Associatetrackerconsumer
+      description: 'Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection.  You can associate up to five geofence collections to each tracker resource.  Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account. '
+      operationId: amazonWebServicesAssociateTrackerConsumer
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/delete-positions:
+    POST:
+      summary: Amazon Web Services Batchdeletedevicepositionhistory
+      description: Deletes the position history of one or more devices from a tracker resource.
+      operationId: amazonWebServicesBatchDeleteDevicePositionHistory
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/get-positions:
+    POST:
+      summary: Amazon Web Services Batchgetdeviceposition
+      description: Lists the latest device positions for requested devices.
+      operationId: amazonWebServicesBatchGetDevicePosition
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/positions:
+    POST:
+      summary: Amazon Web Services Batchupdatedeviceposition
+      description: 'Uploads position update data for one or more devices to a tracker resource (up to 10 devices per batch). Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.  Position updates are handled based on the PositionFiltering property of the tracker. When PositionFiltering is set to TimeBased, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID. When PositionFiltering is set to DistanceBased filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft). When PositionFiltering is set to AccuracyBased filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If PositionFiltering is set to AccuracyBased filtering, Amazon Location uses the default value { "Horizontal": 0} when accuracy is not provided on a DevicePositionUpdate. '
+      operationId: amazonWebServicesBatchUpdateDevicePosition
+      tags:
+      - Tracking
+  /tracking/v0/trackers:
+    POST:
+      summary: Amazon Web Services Createtracker
+      description: Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and historical location of devices.
+      operationId: amazonWebServicesCreateTracker
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}:
+    PATCH:
+      summary: Amazon Web Services Updatetracker
+      description: Updates the specified properties of a given tracker resource.
+      operationId: amazonWebServicesUpdateTracker
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}:
+    DELETE:
+      summary: Amazon Web Services Disassociatetrackerconsumer
+      description: 'Removes the association between a tracker resource and a geofence collection.  Once you unlink a tracker resource from a geofence collection, the tracker positions will no longer be automatically evaluated against geofences. '
+      operationId: amazonWebServicesDisassociateTrackerConsumer
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest:
+    GET:
+      summary: Amazon Web Services Getdeviceposition
+      description: 'Retrieves a device''s most recent position according to its sample time.  Device positions are deleted after 30 days. '
+      operationId: amazonWebServicesGetDevicePosition
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions:
+    POST:
+      summary: Amazon Web Services Getdevicepositionhistory
+      description: 'Retrieves the device position history from a tracker resource within a specified range of time.  Device positions are deleted after 30 days. '
+      operationId: amazonWebServicesGetDevicePositionHistory
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/list-positions:
+    POST:
+      summary: Amazon Web Services Listdevicepositions
+      description: A batch request to retrieve all device positions.
+      operationId: amazonWebServicesListDevicePositions
+      tags:
+      - Tracking
+  /tracking/v0/trackers/{TrackerName}/list-consumers:
+    POST:
+      summary: Amazon Web Services Listtrackerconsumers
+      description: Lists geofence collections currently associated to the given tracker resource.
+      operationId: amazonWebServicesListTrackerConsumers
+      tags:
+      - Tracking
+  /tracking/v0/list-trackers:
+    POST:
+      summary: Amazon Web Services Listtrackers
+      description: Lists tracker resources in your Amazon Web Services account.
+      operationId: amazonWebServicesListTrackers
+      tags:
+      - Tracking

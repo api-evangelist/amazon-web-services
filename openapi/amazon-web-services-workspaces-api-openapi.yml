@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Workspaces API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Workspaces
+paths:
+  /workspaces/{workspaceId}/alertmanager/definition:
+    PUT:
+      summary: Amazon Web Services Putalertmanagerdefinition
+      description: Updates an existing alert manager definition in a workspace. If the workspace does not already have an alert manager definition, don't use this operation to create it. Instead, use CreateAlertManagerDefinition.
+      operationId: amazonWebServicesPutAlertManagerDefinition
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/logging:
+    PUT:
+      summary: Amazon Web Services Updateloggingconfiguration
+      description: Updates the log group ARN or the workspace ID of the current logging configuration.
+      operationId: amazonWebServicesUpdateLoggingConfiguration
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/rulegroupsnamespaces:
+    GET:
+      summary: Amazon Web Services Listrulegroupsnamespaces
+      description: Returns a list of rule groups namespaces in a workspace.
+      operationId: amazonWebServicesListRuleGroupsNamespaces
+      tags:
+      - Workspaces
+  /workspaces:
+    GET:
+      summary: Amazon Web Services Listworkspaces
+      description: 'Lists all of the Amazon Managed Service for Prometheus workspaces in your account. This includes workspaces being created or deleted. '
+      operationId: amazonWebServicesListWorkspaces
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/rulegroupsnamespaces/{name}:
+    PUT:
+      summary: Amazon Web Services Putrulegroupsnamespace
+      description: Updates an existing rule groups namespace within a workspace. A rule groups namespace is associated with exactly one rules file. A workspace can have multiple rule groups namespaces. Use this operation only to update existing rule groups namespaces. To create a new rule groups namespace, use CreateRuleGroupsNamespace. You can't use this operation to add tags to an existing rule groups namespace. Instead, use TagResource.
+      operationId: amazonWebServicesPutRuleGroupsNamespace
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}:
+    GET:
+      summary: Amazon Web Services Describeworkspace
+      description: 'Returns information about an existing workspace. '
+      operationId: amazonWebServicesDescribeWorkspace
+      tags:
+      - Workspaces
+    PUT:
+      summary: Amazon Web Services Updateworkspace
+      description: Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit any optional parameters, the existing values of those parameters are not changed. To modify the user authentication methods that the workspace uses, such as SAML or IAM Identity Center, use UpdateWorkspaceAuthentication. To modify which users in the workspace have the Admin and Editor Grafana roles, use UpdatePermissions.
+      operationId: amazonWebServicesUpdateWorkspace
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/alias:
+    POST:
+      summary: Amazon Web Services Updateworkspacealias
+      description: 'Updates the alias of an existing workspace. '
+      operationId: amazonWebServicesUpdateWorkspaceAlias
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/licenses/{licenseType}:
+    DELETE:
+      summary: Amazon Web Services Disassociatelicense
+      description: Removes the Grafana Enterprise license from a workspace.
+      operationId: amazonWebServicesDisassociateLicense
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/apikeys:
+    POST:
+      summary: Amazon Web Services Createworkspaceapikey
+      description: Creates a Grafana API key for the workspace. This key can be used to authenticate requests sent to the workspace's HTTP API. See https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html for available APIs and example requests.
+      operationId: amazonWebServicesCreateWorkspaceApiKey
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/apikeys/{keyName}:
+    DELETE:
+      summary: Amazon Web Services Deleteworkspaceapikey
+      description: Deletes a Grafana API key for the workspace.
+      operationId: amazonWebServicesDeleteWorkspaceApiKey
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/authentication:
+    POST:
+      summary: Amazon Web Services Updateworkspaceauthentication
+      description: 'Use this operation to define the identity provider (IdP) that this workspace authenticates users from, using SAML. You can also map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the Admin and Editor roles in the workspace.  Changes to the authentication method for a workspace may take a few minutes to take effect. '
+      operationId: amazonWebServicesUpdateWorkspaceAuthentication
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/configuration:
+    PUT:
+      summary: Amazon Web Services Updateworkspaceconfiguration
+      description: Updates the configuration string for the given workspace
+      operationId: amazonWebServicesUpdateWorkspaceConfiguration
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/permissions:
+    PATCH:
+      summary: Amazon Web Services Updatepermissions
+      description: Updates which users in a workspace have the Grafana Admin or Editor roles.
+      operationId: amazonWebServicesUpdatePermissions
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entity-properties:
+    POST:
+      summary: Amazon Web Services Batchputpropertyvalues
+      description: Sets values for multiple time series properties.
+      operationId: amazonWebServicesBatchPutPropertyValues
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/component-types/{componentTypeId}:
+    PUT:
+      summary: Amazon Web Services Updatecomponenttype
+      description: Updates information in a component type.
+      operationId: amazonWebServicesUpdateComponentType
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entities:
+    POST:
+      summary: Amazon Web Services Createentity
+      description: Creates an entity.
+      operationId: amazonWebServicesCreateEntity
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/scenes:
+    POST:
+      summary: Amazon Web Services Createscene
+      description: Creates a scene.
+      operationId: amazonWebServicesCreateScene
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/sync-jobs/{syncSource}:
+    DELETE:
+      summary: Amazon Web Services Deletesyncjob
+      description: Delete the SyncJob.
+      operationId: amazonWebServicesDeleteSyncJob
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entities/{entityId}:
+    PUT:
+      summary: Amazon Web Services Updateentity
+      description: Updates an entity.
+      operationId: amazonWebServicesUpdateEntity
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/scenes/{sceneId}:
+    PUT:
+      summary: Amazon Web Services Updatescene
+      description: Updates a scene.
+      operationId: amazonWebServicesUpdateScene
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entity-properties/value:
+    POST:
+      summary: Amazon Web Services Getpropertyvalue
+      description: Gets the property values for a component, component type, entity, or workspace. You must specify a value for either componentName, componentTypeId, entityId, or workspaceId.
+      operationId: amazonWebServicesGetPropertyValue
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entity-properties/history:
+    POST:
+      summary: Amazon Web Services Getpropertyvaluehistory
+      description: Retrieves information about the history of a time series property value for a component, component type, entity, or workspace. You must specify a value for workspaceId. For entity-specific queries, specify values for componentName and entityId. For cross-entity quries, specify a value for componentTypeId.
+      operationId: amazonWebServicesGetPropertyValueHistory
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/component-types-list:
+    POST:
+      summary: Amazon Web Services Listcomponenttypes
+      description: Lists all component types in a workspace.
+      operationId: amazonWebServicesListComponentTypes
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entities/{entityId}/components-list:
+    POST:
+      summary: Amazon Web Services Listcomponents
+      description: This API lists the components of an entity.
+      operationId: amazonWebServicesListComponents
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/entities-list:
+    POST:
+      summary: Amazon Web Services Listentities
+      description: Lists all entities in a workspace.
+      operationId: amazonWebServicesListEntities
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/properties-list:
+    POST:
+      summary: Amazon Web Services Listproperties
+      description: This API lists the properties of a component.
+      operationId: amazonWebServicesListProperties
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/scenes-list:
+    POST:
+      summary: Amazon Web Services Listscenes
+      description: Lists all scenes in a workspace.
+      operationId: amazonWebServicesListScenes
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/sync-jobs-list:
+    POST:
+      summary: Amazon Web Services Listsyncjobs
+      description: List all SyncJobs.
+      operationId: amazonWebServicesListSyncJobs
+      tags:
+      - Workspaces
+  /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list:
+    POST:
+      summary: Amazon Web Services Listsyncresources
+      description: Lists the sync resources.
+      operationId: amazonWebServicesListSyncResources
+      tags:
+      - Workspaces

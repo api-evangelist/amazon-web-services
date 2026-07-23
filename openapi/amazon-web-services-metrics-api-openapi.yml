@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Metrics API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Metrics
+paths:
+  /metrics/summary:
+    GET:
+      summary: Amazon Web Services Getmetricssummary
+      description: 'Returns top level metrics about an account from a specified date, including number of open findings, the categories with most findings, the scans with most open findings, and scans with most open critical findings. '
+      operationId: amazonWebServicesGetMetricsSummary
+      tags:
+      - Metrics
+  /metrics/findings:
+    GET:
+      summary: Amazon Web Services Listfindingsmetrics
+      description: Returns metrics about all findings in an account within a specified time range.
+      operationId: amazonWebServicesListFindingsMetrics
+      tags:
+      - Metrics
+  /metrics/current/{InstanceId}:
+    POST:
+      summary: Amazon Web Services Getcurrentmetricdata
+      description: Gets the real-time metric data from the specified Amazon Connect instance. For a description of each metric, see Real-time Metrics Definitions in the Amazon Connect Administrator Guide.
+      operationId: amazonWebServicesGetCurrentMetricData
+      tags:
+      - Metrics
+  /metrics/userdata/{InstanceId}:
+    POST:
+      summary: Amazon Web Services Getcurrentuserdata
+      description: 'Gets the real-time active user data from the specified Amazon Connect instance. '
+      operationId: amazonWebServicesGetCurrentUserData
+      tags:
+      - Metrics
+  /metrics/historical/{InstanceId}:
+    POST:
+      summary: Amazon Web Services Getmetricdata
+      description: 'Gets historical metric data from the specified Amazon Connect instance. For a description of each historical metric, see Historical Metrics Definitions in the Amazon Connect Administrator Guide.  We recommend using the GetMetricDataV2 API. It provides more flexibility, features, and the ability to query longer time ranges than GetMetricData. Use it to retrieve historical agent and contact metrics for the last 3 months, at varying intervals. You can also use it to build custom dashboards to measure historical queue and agent performance. For example, you can track the number of incoming contacts for the last 7 days, with data split by day, to see how contact volume changed per day of the week. '
+      operationId: amazonWebServicesGetMetricData
+      tags:
+      - Metrics
+  /metrics/data:
+    POST:
+      summary: Amazon Web Services Getmetricdatav2
+      description: Gets metric data from the specified Amazon Connect instance.   GetMetricDataV2 offers more features than GetMetricData, the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals.  For a description of the historical metrics that are supported by GetMetricDataV2 and GetMetricData, see Historical metrics definitions in the Amazon Connect Administrator's Guide.
+      operationId: amazonWebServicesGetMetricDataV2
+      tags:
+      - Metrics
+  /metrics/environments/{EnvironmentName}:
+    POST:
+      summary: Amazon Web Services Publishmetrics
+      description: ' Internal only. Publishes environment health metrics to Amazon CloudWatch.'
+      operationId: amazonWebServicesPublishMetrics
+      tags:
+      - Metrics

@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Graph API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Graph
+paths:
+  /graph/datasources/get:
+    POST:
+      summary: Amazon Web Services Batchgetgraphmemberdatasources
+      description: Gets data source package information for the behavior graph.
+      operationId: amazonWebServicesBatchGetGraphMemberDatasources
+      tags:
+      - Graph
+  /graph:
+    POST:
+      summary: Amazon Web Services Creategraph
+      description: Creates a new behavior graph for the calling account, and sets that account as the administrator account. This operation is called by the account that is enabling Detective. Before you try to enable Detective, make sure that your account has been enrolled in Amazon GuardDuty for at least 48 hours. If you do not meet this requirement, you cannot enable Detective. If you do meet the GuardDuty prerequisite, then when you make the request to enable Detective, it checks whether your data volume is within the Detective quota. If it exceeds the quota, then you cannot enable Detective.  The operation also enables Detective for the calling account in the currently selected Region. It returns the ARN of the new behavior graph.  CreateGraph triggers a process to create the corresponding data tables for the new behavior graph. An account can only be the administrator account for one behavior graph within a Region. If the same account calls CreateGraph with the same administrator account, it always returns the same behavior graph ARN. It does not create a new behavior graph.
+      operationId: amazonWebServicesCreateGraph
+      tags:
+      - Graph
+  /graph/members:
+    POST:
+      summary: Amazon Web Services Createmembers
+      description: ' CreateMembers is used to send invitations to accounts. For the organization behavior graph, the Detective administrator account uses CreateMembers to enable organization accounts as member accounts. For invited accounts, CreateMembers sends a request to invite the specified Amazon Web Services accounts to be member accounts in the behavior graph. This operation can only be called by the administrator account for a behavior graph.   CreateMembers verifies the accounts and then invites the verified accounts. The administrator can optionally specify to not send invitation emails to the member accounts. This would be used when the administrator manages their member accounts centrally. For organization accounts in the organization behavior graph, CreateMembers attempts to enable the accounts. The organization accounts do not receive invitations. The request provides the behavior graph ARN and the list of accounts to invite or to enable. The response separates the requested accounts into two lists:   The accounts that CreateMembers was able to process. For invited accounts, includes member accounts that are being verified, that have passed verification and are to be invited, and that have failed verification. For organization accounts in the organization behavior graph, includes accounts that can be enabled and that cannot be enabled.   The accounts that CreateMembers was unable to process. This list includes accounts that were already invited to be member accounts in the behavior graph.  '
+      operationId: amazonWebServicesCreateMembers
+      tags:
+      - Graph
+  /graph/removal:
+    POST:
+      summary: Amazon Web Services Deletegraph
+      description: Disables the specified behavior graph and queues it to be deleted. This operation removes the behavior graph from each member account's list of behavior graphs.  DeleteGraph can only be called by the administrator account for a behavior graph.
+      operationId: amazonWebServicesDeleteGraph
+      tags:
+      - Graph
+  /graph/members/removal:
+    POST:
+      summary: Amazon Web Services Deletemembers
+      description: Removes the specified member accounts from the behavior graph. The removed accounts no longer contribute data to the behavior graph. This operation can only be called by the administrator account for the behavior graph. For invited accounts, the removed accounts are deleted from the list of accounts in the behavior graph. To restore the account, the administrator account must send another invitation. For organization accounts in the organization behavior graph, the Detective administrator account can always enable the organization account again. Organization accounts that are not enabled as member accounts are not included in the ListMembers results for the organization behavior graph. An administrator account cannot use DeleteMembers to remove their own account from the behavior graph. To disable a behavior graph, the administrator account uses the DeleteGraph API method.
+      operationId: amazonWebServicesDeleteMembers
+      tags:
+      - Graph
+  /graph/members/get:
+    POST:
+      summary: Amazon Web Services Getmembers
+      description: Returns the membership details for specified member accounts for a behavior graph.
+      operationId: amazonWebServicesGetMembers
+      tags:
+      - Graph
+  /graph/datasources/list:
+    POST:
+      summary: Amazon Web Services Listdatasourcepackages
+      description: Lists data source packages in the behavior graph.
+      operationId: amazonWebServicesListDatasourcePackages
+      tags:
+      - Graph
+  /graph/members/list:
+    POST:
+      summary: Amazon Web Services Listmembers
+      description: Retrieves the list of member accounts for a behavior graph. For invited accounts, the results do not include member accounts that were removed from the behavior graph. For the organization behavior graph, the results do not include organization accounts that the Detective administrator account has not enabled as member accounts.
+      operationId: amazonWebServicesListMembers
+      tags:
+      - Graph
+  /graph/member/monitoringstate:
+    POST:
+      summary: Amazon Web Services Startmonitoringmember
+      description: 'Sends a request to enable data ingest for a member account that has a status of ACCEPTED_BUT_DISABLED. For valid member accounts, the status is updated as follows.   If Detective enabled the member account, then the new status is ENABLED.   If Detective cannot enable the member account, the status remains ACCEPTED_BUT_DISABLED.   '
+      operationId: amazonWebServicesStartMonitoringMember
+      tags:
+      - Graph
+  /graph/datasources/update:
+    POST:
+      summary: Amazon Web Services Updatedatasourcepackages
+      description: Starts a data source packages for the behavior graph.
+      operationId: amazonWebServicesUpdateDatasourcePackages
+      tags:
+      - Graph

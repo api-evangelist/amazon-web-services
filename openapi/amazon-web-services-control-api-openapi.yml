@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Control API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Control
+paths:
+  /control/create-slack-channel-configuration:
+    POST:
+      summary: Amazon Web Services Createslackchannelconfiguration
+      description: 'Creates a Slack channel configuration for your Amazon Web Services account.    You can add up to 5 Slack workspaces for your account.   You can add up to 20 Slack channels for your account.    A Slack channel can have up to 100 Amazon Web Services accounts. This means that only 100 accounts can add the same Slack channel to the Amazon Web Services Support App. We recommend that you only add the accounts that you need to manage support cases for your organization. This can reduce the notifications about case updates that you receive in the Slack channel.  We recommend that you choose a private Slack channel so that only members in that channel have read and write access to your support cases. Anyone in your Slack channel can create, update, or resolve support cases for your account. Users require an invitation to join private channels.  '
+      operationId: amazonWebServicesCreateSlackChannelConfiguration
+      tags:
+      - Control
+  /control/delete-account-alias:
+    POST:
+      summary: Amazon Web Services Deleteaccountalias
+      description: Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+      operationId: amazonWebServicesDeleteAccountAlias
+      tags:
+      - Control
+  /control/delete-slack-channel-configuration:
+    POST:
+      summary: Amazon Web Services Deleteslackchannelconfiguration
+      description: Deletes a Slack channel configuration from your Amazon Web Services account. This operation doesn't delete your Slack channel.
+      operationId: amazonWebServicesDeleteSlackChannelConfiguration
+      tags:
+      - Control
+  /control/delete-slack-workspace-configuration:
+    POST:
+      summary: Amazon Web Services Deleteslackworkspaceconfiguration
+      description: Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't delete your Slack workspace.
+      operationId: amazonWebServicesDeleteSlackWorkspaceConfiguration
+      tags:
+      - Control
+  /control/get-account-alias:
+    POST:
+      summary: Amazon Web Services Getaccountalias
+      description: Retrieves the alias from an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+      operationId: amazonWebServicesGetAccountAlias
+      tags:
+      - Control
+  /control/list-slack-channel-configurations:
+    POST:
+      summary: Amazon Web Services Listslackchannelconfigurations
+      description: Lists the Slack channel configurations for an Amazon Web Services account.
+      operationId: amazonWebServicesListSlackChannelConfigurations
+      tags:
+      - Control
+  /control/list-slack-workspace-configurations:
+    POST:
+      summary: Amazon Web Services Listslackworkspaceconfigurations
+      description: Lists the Slack workspace configurations for an Amazon Web Services account.
+      operationId: amazonWebServicesListSlackWorkspaceConfigurations
+      tags:
+      - Control
+  /control/put-account-alias:
+    POST:
+      summary: Amazon Web Services Putaccountalias
+      description: Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+      operationId: amazonWebServicesPutAccountAlias
+      tags:
+      - Control
+  /control/register-slack-workspace-for-organization:
+    POST:
+      summary: Amazon Web Services Registerslackworkspacefororganization
+      description: 'Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be part of an organization in Organizations. If you''re the management account and you want to register Slack workspaces for your organization, you must complete the following tasks:   Sign in to the Amazon Web Services Support Center and authorize the Slack workspaces where you want your organization to have access to. See Authorize a Slack workspace in the Amazon Web Services Support User Guide.   Call the RegisterSlackWorkspaceForOrganization API to authorize each Slack workspace for the organization.   After the management account authorizes the Slack workspace, member accounts can call this API to authorize the same Slack workspace for their individual accounts. Member accounts don''t need to authorize the Slack workspace manually through the Amazon Web Services Support Center. To use the Amazon Web Services Support App, each account must then complete the following tasks:   Create an Identity and Access Management (IAM) role with the required permission. For more information, see Managing access to the Amazon Web Services Support App.   Configure a Slack channel to use the Amazon Web Services Support App for support cases for that account. For more information, see Configuring a Slack channel.  '
+      operationId: amazonWebServicesRegisterSlackWorkspaceForOrganization
+      tags:
+      - Control
+  /control/update-slack-channel-configuration:
+    POST:
+      summary: Amazon Web Services Updateslackchannelconfiguration
+      description: Updates the configuration for a Slack channel, such as case update notifications.
+      operationId: amazonWebServicesUpdateSlackChannelConfiguration
+      tags:
+      - Control

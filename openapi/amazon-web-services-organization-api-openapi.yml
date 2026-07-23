@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Organization API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Organization
+paths:
+  /organization/health:
+    POST:
+      summary: Amazon Web Services Describeorganizationhealth
+      description: Returns active insights, predictive insights, and resource hours analyzed in last hour.
+      operationId: amazonWebServicesDescribeOrganizationHealth
+      tags:
+      - Organization
+  /organization/overview:
+    POST:
+      summary: Amazon Web Services Describeorganizationoverview
+      description: Returns an overview of your organization's history based on the specified time range. The overview includes the total reactive and proactive insights.
+      operationId: amazonWebServicesDescribeOrganizationOverview
+      tags:
+      - Organization
+  /organization/health/resource-collection:
+    POST:
+      summary: Amazon Web Services Describeorganizationresourcecollectionhealth
+      description: Provides an overview of your system's health. If additional member accounts are part of your organization, you can filter those accounts using the AccountIds field.
+      operationId: amazonWebServicesDescribeOrganizationResourceCollectionHealth
+      tags:
+      - Organization
+  /organization/insights:
+    POST:
+      summary: Amazon Web Services Listorganizationinsights
+      description: Returns a list of insights associated with the account or OU Id.
+      operationId: amazonWebServicesListOrganizationInsights
+      tags:
+      - Organization
+  /organization/insights/search:
+    POST:
+      summary: Amazon Web Services Searchorganizationinsights
+      description: ' Returns a list of insights in your organization. You can specify which insights are returned by their start time, one or more statuses (ONGOING, CLOSED, and CLOSED), one or more severities (LOW, MEDIUM, and HIGH), and type (REACTIVE or PROACTIVE).   Use the Filters parameter to specify status and severity search parameters. Use the Type parameter to specify REACTIVE or PROACTIVE in your search. '
+      operationId: amazonWebServicesSearchOrganizationInsights
+      tags:
+      - Organization
+  /organization/statistics:
+    GET:
+      summary: Amazon Web Services Getorganizationstatistics
+      description: Retrieves how many active member accounts in your Amazon Web Services organization have each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API. When you create a new Amazon Web Services organization, it might take up to 24 hours to generate the statistics for the entire organization.
+      operationId: amazonWebServicesGetOrganizationStatistics
+      tags:
+      - Organization
+  /organization/configuration:
+    POST:
+      summary: Amazon Web Services Updateorganizationconfiguration
+      description: Updates the configuration of your organization in Security Hub. Only the Security Hub administrator account can invoke this operation.
+      operationId: amazonWebServicesUpdateOrganizationConfiguration
+      tags:
+      - Organization
+  /organization/admin/disable:
+    POST:
+      summary: Amazon Web Services Disableorganizationadminaccount
+      description: Disables a Security Hub administrator account. Can only be called by the organization management account.
+      operationId: amazonWebServicesDisableOrganizationAdminAccount
+      tags:
+      - Organization
+  /organization/admin/enable:
+    POST:
+      summary: Amazon Web Services Enableorganizationadminaccount
+      description: Designates the Security Hub administrator account for an organization. Can only be called by the organization management account.
+      operationId: amazonWebServicesEnableOrganizationAdminAccount
+      tags:
+      - Organization
+  /organization/admin:
+    GET:
+      summary: Amazon Web Services Listorganizationadminaccounts
+      description: Lists the Security Hub administrator accounts. Can only be called by the organization management account.
+      operationId: amazonWebServicesListOrganizationAdminAccounts
+      tags:
+      - Organization

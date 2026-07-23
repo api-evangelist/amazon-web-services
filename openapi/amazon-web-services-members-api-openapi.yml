@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Members API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Members
+paths:
+  /members/associate:
+    POST:
+      summary: Amazon Web Services Associatemember
+      description: Associates an Amazon Web Services account with an Amazon Inspector delegated administrator. An HTTP 200 response indicates the association was successfully started, but doesn’t indicate whether it was completed. You can check if the association completed by using ListMembers for multiple accounts or GetMembers for a single account.
+      operationId: amazonWebServicesAssociateMember
+      tags:
+      - Members
+  /members/disassociate:
+    POST:
+      summary: Amazon Web Services Disassociatemember
+      description: Disassociates a member account from an Amazon Inspector delegated administrator.
+      operationId: amazonWebServicesDisassociateMember
+      tags:
+      - Members
+  /members/get:
+    POST:
+      summary: Amazon Web Services Getmember
+      description: Gets member information for your organization.
+      operationId: amazonWebServicesGetMember
+      tags:
+      - Members
+  /members/list:
+    POST:
+      summary: Amazon Web Services Listmembers
+      description: List members associated with the Amazon Inspector delegated administrator for your organization.
+      operationId: amazonWebServicesListMembers
+      tags:
+      - Members
+  /members:
+    GET:
+      summary: Amazon Web Services Listmembers
+      description: Retrieves information about the accounts that are associated with an Amazon Macie administrator account.
+      operationId: amazonWebServicesListMembers
+      tags:
+      - Members
+  /members/{id}:
+    GET:
+      summary: Amazon Web Services Getmember
+      description: Retrieves information about an account that's associated with an Amazon Macie administrator account.
+      operationId: amazonWebServicesGetMember
+      tags:
+      - Members
+  /members/disassociate/{id}:
+    POST:
+      summary: Amazon Web Services Disassociatemember
+      description: Disassociates an Amazon Macie administrator account from a member account.
+      operationId: amazonWebServicesDisassociateMember
+      tags:
+      - Members
+  /members/delete:
+    POST:
+      summary: Amazon Web Services Deletemembers
+      description: Deletes the specified member accounts from Security Hub. You can invoke this API only to delete accounts that became members through invitation. You can't invoke this API to delete accounts that belong to an Organizations organization.
+      operationId: amazonWebServicesDeleteMembers
+      tags:
+      - Members
+  /members/invite:
+    POST:
+      summary: Amazon Web Services Invitemembers
+      description: Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that the invitation is sent from. This operation is only used to invite accounts that do not belong to an organization. Organization accounts do not receive invitations. Before you can use this action to invite a member, you must first use the CreateMembers action to create the member account in Security Hub. When the account owner enables Security Hub and accepts the invitation to become a member account, the administrator account can view the findings generated from the member account.
+      operationId: amazonWebServicesInviteMembers
+      tags:
+      - Members

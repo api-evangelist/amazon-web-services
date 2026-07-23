@@ -1,0 +1,82 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Configuration API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Configuration
+paths:
+  /configuration:
+    GET:
+      summary: Amazon Web Services Getlatestconfiguration
+      description: 'Retrieves the latest deployed configuration. This API may return empty configuration data if the client already has the latest version. For more information about this API action and to view example CLI commands that show how to use it with the StartConfigurationSession API action, see Retrieving the configuration in the AppConfig User Guide.   Note the following important information.   Each configuration token is only valid for one call to GetLatestConfiguration. The GetLatestConfiguration response includes a NextPollConfigurationToken that should always replace the token used for the just-completed call in preparation for the next one.     GetLatestConfiguration is a priced call. For more information, see Pricing.   '
+      operationId: amazonWebServicesGetLatestConfiguration
+      tags:
+      - Configuration
+    POST:
+      summary: Amazon Web Services Createpracticerunconfiguration
+      description: A practice run configuration for zonal autoshift is required when you enable zonal autoshift. A practice run configuration includes specifications for blocked dates and blocked time windows, and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an outcome alarm, to monitor application health during practice runs and, optionally, a blocking alarm, to block practice runs from starting. For more information, see  Considerations when you configure zonal autoshift in the Amazon Route 53 Application Recovery Controller Developer Guide.
+      operationId: amazonWebServicesCreatePracticeRunConfiguration
+      tags:
+      - Configuration
+    PUT:
+      summary: Amazon Web Services Putconfiguration
+      description: ' Associates a TagKey configuration to an account. '
+      operationId: amazonWebServicesPutConfiguration
+      tags:
+      - Configuration
+  /configuration/{resourceIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updatepracticerunconfiguration
+      description: 'Update a practice run configuration to change one or more of the following: add, change, or remove the blocking alarm; change the outcome alarm; or add, change, or remove blocking dates or time windows.'
+      operationId: amazonWebServicesUpdatePracticeRunConfiguration
+      tags:
+      - Configuration
+  /configuration/get:
+    POST:
+      summary: Amazon Web Services Getconfiguration
+      description: Retrieves setting configurations for Inspector scans.
+      operationId: amazonWebServicesGetConfiguration
+      tags:
+      - Configuration
+  /configuration/update:
+    POST:
+      summary: Amazon Web Services Updateconfiguration
+      description: Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.
+      operationId: amazonWebServicesUpdateConfiguration
+      tags:
+      - Configuration
+  /configuration/account/encryption:
+    POST:
+      summary: Amazon Web Services Putdefaultencryptionconfiguration
+      description: Sets the default encryption configuration for the Amazon Web Services account. For more information, see Key management in the IoT SiteWise User Guide.
+      operationId: amazonWebServicesPutDefaultEncryptionConfiguration
+      tags:
+      - Configuration
+  /configuration/account/storage:
+    POST:
+      summary: Amazon Web Services Putstorageconfiguration
+      description: Configures storage settings for IoT SiteWise.
+      operationId: amazonWebServicesPutStorageConfiguration
+      tags:
+      - Configuration
+  /v20180820/configuration/publicAccessBlock:
+    PUT:
+      summary: Amazon Web Services Putpublicaccessblock
+      description: ' This operation is not supported by directory buckets.  Creates or modifies the PublicAccessBlock configuration for an Amazon Web Services account. For this operation, users must have the s3:PutAccountPublicAccessBlock permission. For more information, see  Using Amazon S3 block public access. Related actions include:    GetPublicAccessBlock     DeletePublicAccessBlock   '
+      operationId: amazonWebServicesPutPublicAccessBlock
+      tags:
+      - Configuration
+  /api/configuration/instances/{instanceId}/bill-of-materials-import-jobs:
+    POST:
+      summary: Amazon Web Services Createbillofmaterialsimportjob
+      description: CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of Materials (BOM) entity. For information on the product_bom entity, see the AWS Supply Chain User Guide. The CSV file must be located in an Amazon S3 location accessible to AWS Supply Chain. It is recommended to use the same Amazon S3 bucket created during your AWS Supply Chain instance creation.
+      operationId: amazonWebServicesCreateBillOfMaterialsImportJob
+      tags:
+      - Configuration
+  /api/configuration/instances/{instanceId}/bill-of-materials-import-jobs/{jobId}:
+    GET:
+      summary: Amazon Web Services Getbillofmaterialsimportjob
+      description: Get status and details of a BillOfMaterialsImportJob.
+      operationId: amazonWebServicesGetBillOfMaterialsImportJob
+      tags:
+      - Configuration

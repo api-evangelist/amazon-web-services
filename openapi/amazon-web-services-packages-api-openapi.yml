@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Packages API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Packages
+paths:
+  /v1/packages:
+    POST:
+      summary: Amazon Web Services Listpackages
+      description: ' Returns a list of PackageSummary objects for packages in a repository that match the request parameters. '
+      operationId: amazonWebServicesListPackages
+      tags:
+      - Packages
+  /packages/{packageName}:
+    PATCH:
+      summary: Amazon Web Services Updatepackage
+      description: Updates the supported fields for a specific software package. Requires permission to access the UpdatePackage and GetIndexingConfiguration actions.
+      operationId: amazonWebServicesUpdatePackage
+      tags:
+      - Packages
+  /packages/{packageName}/versions/{versionName}:
+    PATCH:
+      summary: Amazon Web Services Updatepackageversion
+      description: Updates the supported fields for a specific package version. Requires permission to access the UpdatePackageVersion and GetIndexingConfiguration actions.
+      operationId: amazonWebServicesUpdatePackageVersion
+      tags:
+      - Packages
+  /packages/{packageName}/versions:
+    GET:
+      summary: Amazon Web Services Listpackageversions
+      description: Lists the software package versions associated to the account. Requires permission to access the ListPackageVersions action.
+      operationId: amazonWebServicesListPackageVersions
+      tags:
+      - Packages
+  /packages:
+    GET:
+      summary: Amazon Web Services Listpackages
+      description: Lists the software packages associated to the account. Requires permission to access the ListPackages action.
+      operationId: amazonWebServicesListPackages
+      tags:
+      - Packages
+  /packages/template-job:
+    GET:
+      summary: Amazon Web Services Listnodefromtemplatejobs
+      description: Returns a list of camera stream node jobs.
+      operationId: amazonWebServicesListNodeFromTemplateJobs
+      tags:
+      - Packages
+  /packages/import-jobs:
+    GET:
+      summary: Amazon Web Services Listpackageimportjobs
+      description: Returns a list of package import jobs.
+      operationId: amazonWebServicesListPackageImportJobs
+      tags:
+      - Packages
+  /packages/{PackageId}:
+    DELETE:
+      summary: Amazon Web Services Deletepackage
+      description: 'Deletes a package.  To delete a package, you need permission to call s3:DeleteObject in addition to permissions for the AWS Panorama API. '
+      operationId: amazonWebServicesDeletePackage
+      tags:
+      - Packages
+  /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
+    PUT:
+      summary: Amazon Web Services Registerpackageversion
+      description: Registers a package version.
+      operationId: amazonWebServicesRegisterPackageVersion
+      tags:
+      - Packages
+  /packages/template-job/{JobId}:
+    GET:
+      summary: Amazon Web Services Describenodefromtemplatejob
+      description: Returns information about a job to create a camera stream node.
+      operationId: amazonWebServicesDescribeNodeFromTemplateJob
+      tags:
+      - Packages
+  /packages/metadata/{PackageId}:
+    GET:
+      summary: Amazon Web Services Describepackage
+      description: Returns information about a package.
+      operationId: amazonWebServicesDescribePackage
+      tags:
+      - Packages
+  /packages/import-jobs/{JobId}:
+    GET:
+      summary: Amazon Web Services Describepackageimportjob
+      description: Returns information about a package import job.
+      operationId: amazonWebServicesDescribePackageImportJob
+      tags:
+      - Packages
+  /packages/metadata/{PackageId}/versions/{PackageVersion}:
+    GET:
+      summary: Amazon Web Services Describepackageversion
+      description: Returns information about a package version.
+      operationId: amazonWebServicesDescribePackageVersion
+      tags:
+      - Packages

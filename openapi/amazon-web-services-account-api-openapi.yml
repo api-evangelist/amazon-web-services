@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Account API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Account
+paths:
+  /account:
+    PATCH:
+      summary: Amazon Web Services Updateaccount
+      description: Changes information about the current Account resource.
+      operationId: amazonWebServicesUpdateAccount
+      tags:
+      - Account
+  /account/deregisterAccount:
+    POST:
+      summary: Amazon Web Services Deregisteraccount
+      description: ' Deregisters an account in Audit Manager.   Before you deregister, you can use the UpdateSettings API operation to set your preferred data retention policy. By default, Audit Manager retains your data. If you want to delete your data, you can use the DeregistrationPolicy attribute to request the deletion of your data.  For more information about data retention, see Data Protection in the Audit Manager User Guide.  '
+      operationId: amazonWebServicesDeregisterAccount
+      tags:
+      - Account
+  /account/deregisterOrganizationAdminAccount:
+    POST:
+      summary: Amazon Web Services Deregisterorganizationadminaccount
+      description: 'Removes the specified Amazon Web Services account as a delegated administrator for Audit Manager.  When you remove a delegated administrator from your Audit Manager settings, you continue to have access to the evidence that you previously collected under that account. This is also the case when you deregister a delegated administrator from Organizations. However, Audit Manager stops collecting and attaching evidence to that delegated administrator account moving forward.  Keep in mind the following cleanup task if you use evidence finder: Before you use your management account to remove a delegated administrator, make sure that the current delegated administrator account signs in to Audit Manager and disables evidence finder first. Disabling evidence finder automatically deletes the event data store that was created in their account when they enabled evidence finder. If this task isn’t completed, the event data store remains in their account. In this case, we recommend that the original delegated administrator goes to CloudTrail Lake and manually deletes the event data store. This cleanup task is necessary to ensure that you don''t end up with multiple event data stores. Audit Manager ignores an unused event data store after you remove or change a delegated administrator account. However, the unused event data store continues to incur storage costs from CloudTrail Lake if you don''t delete it.  When you deregister a delegated administrator account for Audit Manager, the data for that account isn’t deleted. If you want to delete resource data for a delegated administrator account, you must perform that task separately before you deregister the account. Either, you can do this in the Audit Manager console. Or, you can use one of the delete API operations that are provided by Audit Manager.  To delete your Audit Manager resource data, see the following instructions:     DeleteAssessment (see also: Deleting an assessment in the Audit Manager User Guide)    DeleteAssessmentFramework (see also: Deleting a custom framework in the Audit Manager User Guide)    DeleteAssessmentFrameworkShare (see also: Deleting a share request in the Audit Manager User Guide)    DeleteAssessmentReport (see also: Deleting an assessment report in the Audit Manager User Guide)    DeleteControl (see also: Deleting a custom control in the Audit Manager User Guide)   At this time, Audit Manager doesn''t provide an option to delete evidence for a specific delegated administrator. Instead, when your management account deregisters Audit Manager, we perform a cleanup for the current delegated administrator account at the time of deregistration.'
+      operationId: amazonWebServicesDeregisterOrganizationAdminAccount
+      tags:
+      - Account
+  /account/status:
+    GET:
+      summary: Amazon Web Services Getaccountstatus
+      description: ' Gets the registration status of an account in Audit Manager. '
+      operationId: amazonWebServicesGetAccountStatus
+      tags:
+      - Account
+  /account/organizationAdminAccount:
+    GET:
+      summary: Amazon Web Services Getorganizationadminaccount
+      description: ' Gets the name of the delegated Amazon Web Services administrator account for a specified organization. '
+      operationId: amazonWebServicesGetOrganizationAdminAccount
+      tags:
+      - Account
+  /account/registerAccount:
+    POST:
+      summary: Amazon Web Services Registeraccount
+      description: ' Enables Audit Manager for the specified Amazon Web Services account. '
+      operationId: amazonWebServicesRegisterAccount
+      tags:
+      - Account
+  /account/registerOrganizationAdminAccount:
+    POST:
+      summary: Amazon Web Services Registerorganizationadminaccount
+      description: ' Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager. '
+      operationId: amazonWebServicesRegisterOrganizationAdminAccount
+      tags:
+      - Account
+  /account/{AwsAccountId}:
+    GET:
+      summary: Amazon Web Services Describeaccountsubscription
+      description: Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an AccountInfo object that includes an account's name, subscription status, authentication type, edition, and notification email address.
+      operationId: amazonWebServicesDescribeAccountSubscription
+      tags:
+      - Account

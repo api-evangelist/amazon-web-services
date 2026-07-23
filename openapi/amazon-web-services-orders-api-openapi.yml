@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Orders API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Orders
+paths:
+  /orders/{OrderId}/cancel:
+    POST:
+      summary: Amazon Web Services Cancelorder
+      description: Cancels the specified order for an Outpost.
+      operationId: amazonWebServicesCancelOrder
+      tags:
+      - Orders
+  /orders:
+    POST:
+      summary: Amazon Web Services Createorder
+      description: Creates an order for an Outpost.
+      operationId: amazonWebServicesCreateOrder
+      tags:
+      - Orders
+  /orders/{OrderId}:
+    GET:
+      summary: Amazon Web Services Getorder
+      description: Gets information about the specified order.
+      operationId: amazonWebServicesGetOrder
+      tags:
+      - Orders
+  /v1/orders/acknowledge:
+    POST:
+      summary: Amazon Web Services Acknowledgeorderreceipt
+      description: Acknowledges that the specified network order was received.
+      operationId: amazonWebServicesAcknowledgeOrderReceipt
+      tags:
+      - Orders
+  /v1/orders/{orderArn}:
+    GET:
+      summary: Amazon Web Services Getorder
+      description: Gets the specified order.
+      operationId: amazonWebServicesGetOrder
+      tags:
+      - Orders
+  /v1/orders/list:
+    POST:
+      summary: Amazon Web Services Listorders
+      description: Lists orders. Add filters to your request to return a more specific list of results. Use filters to match the Amazon Resource Name (ARN) of the network site or the status of the order. If you specify multiple filters, filters are joined with an OR, and the request returns results that match all of the specified filters.
+      operationId: amazonWebServicesListOrders
+      tags:
+      - Orders

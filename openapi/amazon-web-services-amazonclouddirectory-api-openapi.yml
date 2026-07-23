@@ -1,0 +1,455 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Amazonclouddirectory API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Amazonclouddirectory
+paths:
+  /amazonclouddirectory/2017-01-11/object/facets:
+    PUT:
+      summary: Amazon Web Services Addfacettoobject
+      description: Adds a new Facet to an object. An object can have more than one facet applied on it.
+      operationId: amazonWebServicesAddFacetToObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/apply:
+    PUT:
+      summary: Amazon Web Services Applyschema
+      description: Copies the input published schema, at the specified version, into the Directory with the same name and version as that of the published schema.
+      operationId: amazonWebServicesApplySchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/attach:
+    PUT:
+      summary: Amazon Web Services Attachobject
+      description: 'Attaches an existing object to another object. An object can be accessed in two ways:   Using the path   Using ObjectIdentifier   '
+      operationId: amazonWebServicesAttachObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/policy/attach:
+    PUT:
+      summary: Amazon Web Services Attachpolicy
+      description: Attaches a policy object to a regular object. An object can have a limited number of attached policies.
+      operationId: amazonWebServicesAttachPolicy
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/index/attach:
+    PUT:
+      summary: Amazon Web Services Attachtoindex
+      description: Attaches the specified object to the specified index.
+      operationId: amazonWebServicesAttachToIndex
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/attach:
+    PUT:
+      summary: Amazon Web Services Attachtypedlink
+      description: Attaches a typed link to a specified source and target object. For more information, see Typed Links.
+      operationId: amazonWebServicesAttachTypedLink
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/batchread:
+    POST:
+      summary: Amazon Web Services Batchread
+      description: 'Performs all the read operations in a batch. '
+      operationId: amazonWebServicesBatchRead
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/batchwrite:
+    PUT:
+      summary: Amazon Web Services Batchwrite
+      description: Performs all the write operations in a batch. Either all the operations succeed or none.
+      operationId: amazonWebServicesBatchWrite
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory/create:
+    PUT:
+      summary: Amazon Web Services Createdirectory
+      description: Creates a Directory by copying the published schema into the directory. A directory cannot be created without a schema. You can also quickly create a directory using a managed schema, called the QuickStartSchema. For more information, see Managed Schema in the Amazon Cloud Directory Developer Guide.
+      operationId: amazonWebServicesCreateDirectory
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/facet/create:
+    PUT:
+      summary: Amazon Web Services Createfacet
+      description: Creates a new Facet in a schema. Facet creation is allowed only in development or applied schemas.
+      operationId: amazonWebServicesCreateFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/index:
+    PUT:
+      summary: Amazon Web Services Createindex
+      description: Creates an index object. See Indexing and search for more information.
+      operationId: amazonWebServicesCreateIndex
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object:
+    PUT:
+      summary: Amazon Web Services Createobject
+      description: 'Creates an object in a Directory. Additionally attaches the object to a parent, if a parent reference and LinkName is specified. An object is simply a collection of Facet attributes. You can also use this API call to create a policy object, if the facet from which you create the object is a policy facet. '
+      operationId: amazonWebServicesCreateObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/create:
+    PUT:
+      summary: Amazon Web Services Createschema
+      description: 'Creates a new schema in a development state. A schema can exist in three phases:    Development: This is a mutable phase of the schema. All new schemas are in the development phase. Once the schema is finalized, it can be published.    Published: Published schemas are immutable and have a version associated with them.    Applied: Applied schemas are mutable in a way that allows you to add new schema facets. You can also add new, nonrequired attributes to existing schema facets. You can apply only published schemas to directories.   '
+      operationId: amazonWebServicesCreateSchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet/create:
+    PUT:
+      summary: Amazon Web Services Createtypedlinkfacet
+      description: Creates a TypedLinkFacet. For more information, see Typed Links.
+      operationId: amazonWebServicesCreateTypedLinkFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory:
+    PUT:
+      summary: Amazon Web Services Deletedirectory
+      description: Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme caution when deleting directories.
+      operationId: amazonWebServicesDeleteDirectory
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/facet/delete:
+    PUT:
+      summary: Amazon Web Services Deletefacet
+      description: Deletes a given Facet. All attributes and Rules that are associated with the facet will be deleted. Only development schema facets are allowed deletion.
+      operationId: amazonWebServicesDeleteFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/delete:
+    PUT:
+      summary: Amazon Web Services Deleteobject
+      description: Deletes an object and its associated attributes. Only objects with no children and no parents can be deleted. The maximum number of attributes that can be deleted during an object deletion is 30. For more information, see Amazon Cloud Directory Limits.
+      operationId: amazonWebServicesDeleteObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema:
+    PUT:
+      summary: Amazon Web Services Deleteschema
+      description: 'Deletes a given schema. Schemas in a development and published state can only be deleted. '
+      operationId: amazonWebServicesDeleteSchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet/delete:
+    PUT:
+      summary: Amazon Web Services Deletetypedlinkfacet
+      description: Deletes a TypedLinkFacet. For more information, see Typed Links.
+      operationId: amazonWebServicesDeleteTypedLinkFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/index/detach:
+    PUT:
+      summary: Amazon Web Services Detachfromindex
+      description: Detaches the specified object from the specified index.
+      operationId: amazonWebServicesDetachFromIndex
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/detach:
+    PUT:
+      summary: Amazon Web Services Detachobject
+      description: Detaches a given object from the parent object. The object that is to be detached from the parent is specified by the link name.
+      operationId: amazonWebServicesDetachObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/policy/detach:
+    PUT:
+      summary: Amazon Web Services Detachpolicy
+      description: Detaches a policy from an object.
+      operationId: amazonWebServicesDetachPolicy
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/detach:
+    PUT:
+      summary: Amazon Web Services Detachtypedlink
+      description: Detaches a typed link from a specified source and target object. For more information, see Typed Links.
+      operationId: amazonWebServicesDetachTypedLink
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory/disable:
+    PUT:
+      summary: Amazon Web Services Disabledirectory
+      description: Disables the specified directory. Disabled directories cannot be read or written to. Only enabled directories can be disabled. Disabled directories may be reenabled.
+      operationId: amazonWebServicesDisableDirectory
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory/enable:
+    PUT:
+      summary: Amazon Web Services Enabledirectory
+      description: Enables the specified directory. Only disabled directories can be enabled. Once enabled, the directory can then be read and written to.
+      operationId: amazonWebServicesEnableDirectory
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/getappliedschema:
+    POST:
+      summary: Amazon Web Services Getappliedschemaversion
+      description: Returns current applied schema version ARN, including the minor version in use.
+      operationId: amazonWebServicesGetAppliedSchemaVersion
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory/get:
+    POST:
+      summary: Amazon Web Services Getdirectory
+      description: Retrieves metadata about a directory.
+      operationId: amazonWebServicesGetDirectory
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/facet:
+    PUT:
+      summary: Amazon Web Services Updatefacet
+      description: 'Does the following:   Adds new Attributes, Rules, or ObjectTypes.   Updates existing Attributes, Rules, or ObjectTypes.   Deletes existing Attributes, Rules, or ObjectTypes.  '
+      operationId: amazonWebServicesUpdateFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/attributes/get:
+    POST:
+      summary: Amazon Web Services Getlinkattributes
+      description: Retrieves attributes that are associated with a typed link.
+      operationId: amazonWebServicesGetLinkAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/attributes/get:
+    POST:
+      summary: Amazon Web Services Getobjectattributes
+      description: Retrieves attributes within a facet that are associated with an object.
+      operationId: amazonWebServicesGetObjectAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/information:
+    POST:
+      summary: Amazon Web Services Getobjectinformation
+      description: Retrieves metadata about an object.
+      operationId: amazonWebServicesGetObjectInformation
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/json:
+    PUT:
+      summary: Amazon Web Services Putschemafromjson
+      description: Allows a schema to be updated using JSON upload. Only available for development schemas. See JSON Schema Format for more information.
+      operationId: amazonWebServicesPutSchemaFromJson
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet/get:
+    POST:
+      summary: Amazon Web Services Gettypedlinkfacetinformation
+      description: Returns the identity attribute order for a specific TypedLinkFacet. For more information, see Typed Links.
+      operationId: amazonWebServicesGetTypedLinkFacetInformation
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/applied:
+    POST:
+      summary: Amazon Web Services Listappliedschemaarns
+      description: Lists schema major versions applied to a directory. If SchemaArn is provided, lists the minor version.
+      operationId: amazonWebServicesListAppliedSchemaArns
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/indices:
+    POST:
+      summary: Amazon Web Services Listattachedindices
+      description: Lists indices attached to the specified object.
+      operationId: amazonWebServicesListAttachedIndices
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/development:
+    POST:
+      summary: Amazon Web Services Listdevelopmentschemaarns
+      description: Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
+      operationId: amazonWebServicesListDevelopmentSchemaArns
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/directory/list:
+    POST:
+      summary: Amazon Web Services Listdirectories
+      description: Lists directories created within an account.
+      operationId: amazonWebServicesListDirectories
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/facet/attributes:
+    POST:
+      summary: Amazon Web Services Listfacetattributes
+      description: Retrieves attributes attached to the facet.
+      operationId: amazonWebServicesListFacetAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/facet/list:
+    POST:
+      summary: Amazon Web Services Listfacetnames
+      description: Retrieves the names of facets that exist in a schema.
+      operationId: amazonWebServicesListFacetNames
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/incoming:
+    POST:
+      summary: Amazon Web Services Listincomingtypedlinks
+      description: Returns a paginated list of all the incoming TypedLinkSpecifier information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see Typed Links.
+      operationId: amazonWebServicesListIncomingTypedLinks
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/index/targets:
+    POST:
+      summary: Amazon Web Services Listindex
+      description: Lists objects attached to the specified index.
+      operationId: amazonWebServicesListIndex
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/managed:
+    POST:
+      summary: Amazon Web Services Listmanagedschemaarns
+      description: Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.
+      operationId: amazonWebServicesListManagedSchemaArns
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/attributes:
+    POST:
+      summary: Amazon Web Services Listobjectattributes
+      description: 'Lists all attributes that are associated with an object. '
+      operationId: amazonWebServicesListObjectAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/children:
+    POST:
+      summary: Amazon Web Services Listobjectchildren
+      description: Returns a paginated list of child objects that are associated with a given object.
+      operationId: amazonWebServicesListObjectChildren
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/parentpaths:
+    POST:
+      summary: Amazon Web Services Listobjectparentpaths
+      description: Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see Directory Structure. Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined MaxResults, in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.
+      operationId: amazonWebServicesListObjectParentPaths
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/parent:
+    POST:
+      summary: Amazon Web Services Listobjectparents
+      description: Lists parent objects that are associated with a given object in pagination fashion.
+      operationId: amazonWebServicesListObjectParents
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/policy:
+    POST:
+      summary: Amazon Web Services Listobjectpolicies
+      description: Returns policies attached to an object in pagination fashion.
+      operationId: amazonWebServicesListObjectPolicies
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/outgoing:
+    POST:
+      summary: Amazon Web Services Listoutgoingtypedlinks
+      description: Returns a paginated list of all the outgoing TypedLinkSpecifier information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see Typed Links.
+      operationId: amazonWebServicesListOutgoingTypedLinks
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/policy/attachment:
+    POST:
+      summary: Amazon Web Services Listpolicyattachments
+      description: Returns all of the ObjectIdentifiers to which a given policy is attached.
+      operationId: amazonWebServicesListPolicyAttachments
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/published:
+    POST:
+      summary: Amazon Web Services Listpublishedschemaarns
+      description: Lists the major version families of each published schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.
+      operationId: amazonWebServicesListPublishedSchemaArns
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/tags:
+    POST:
+      summary: Amazon Web Services Listtagsforresource
+      description: Returns tags for a resource. Tagging is currently supported only for directories with a limit of 50 tags per directory. All 50 tags are returned for a given directory with this API call.
+      operationId: amazonWebServicesListTagsForResource
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet/attributes:
+    POST:
+      summary: Amazon Web Services Listtypedlinkfacetattributes
+      description: Returns a paginated list of all attribute definitions for a particular TypedLinkFacet. For more information, see Typed Links.
+      operationId: amazonWebServicesListTypedLinkFacetAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet/list:
+    POST:
+      summary: Amazon Web Services Listtypedlinkfacetnames
+      description: Returns a paginated list of TypedLink facet names for a particular schema. For more information, see Typed Links.
+      operationId: amazonWebServicesListTypedLinkFacetNames
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/policy/lookup:
+    POST:
+      summary: Amazon Web Services Lookuppolicy
+      description: Lists all policies from the root of the Directory to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the ObjectIdentifier for such objects. If policies are present, it returns ObjectIdentifier, policyId, and policyType. Paths that don't lead to the root from the target object are ignored. For more information, see Policies.
+      operationId: amazonWebServicesLookupPolicy
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/publish:
+    PUT:
+      summary: Amazon Web Services Publishschema
+      description: Publishes a development schema with a major version and a recommended minor version.
+      operationId: amazonWebServicesPublishSchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/facets/delete:
+    PUT:
+      summary: Amazon Web Services Removefacetfromobject
+      description: Removes the specified facet from the specified object.
+      operationId: amazonWebServicesRemoveFacetFromObject
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/tags/add:
+    PUT:
+      summary: Amazon Web Services Tagresource
+      description: An API operation for adding tags to a resource.
+      operationId: amazonWebServicesTagResource
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/tags/remove:
+    PUT:
+      summary: Amazon Web Services Untagresource
+      description: An API operation for removing tags from a resource.
+      operationId: amazonWebServicesUntagResource
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/attributes/update:
+    POST:
+      summary: Amazon Web Services Updatelinkattributes
+      description: Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its IdentityAttributeOrder.
+      operationId: amazonWebServicesUpdateLinkAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/object/update:
+    PUT:
+      summary: Amazon Web Services Updateobjectattributes
+      description: Updates a given object's attributes.
+      operationId: amazonWebServicesUpdateObjectAttributes
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/update:
+    PUT:
+      summary: Amazon Web Services Updateschema
+      description: Updates the schema name with a new name. Only development schema names can be updated.
+      operationId: amazonWebServicesUpdateSchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/typedlink/facet:
+    PUT:
+      summary: Amazon Web Services Updatetypedlinkfacet
+      description: Updates a TypedLinkFacet. For more information, see Typed Links.
+      operationId: amazonWebServicesUpdateTypedLinkFacet
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/upgradeapplied:
+    PUT:
+      summary: Amazon Web Services Upgradeappliedschema
+      description: 'Upgrades a single directory in-place using the PublishedSchemaArn with schema updates found in MinorVersion. Backwards-compatible minor version upgrades are instantaneously available for readers on all objects in the directory. Note: This is a synchronous API call and upgrades only one schema on a given directory per call. To upgrade multiple directories from one schema, you would need to call this API on each directory.'
+      operationId: amazonWebServicesUpgradeAppliedSchema
+      tags:
+      - Amazonclouddirectory
+  /amazonclouddirectory/2017-01-11/schema/upgradepublished:
+    PUT:
+      summary: Amazon Web Services Upgradepublishedschema
+      description: Upgrades a published schema under a new minor version revision using the current contents of DevelopmentSchemaArn.
+      operationId: amazonWebServicesUpgradePublishedSchema
+      tags:
+      - Amazonclouddirectory

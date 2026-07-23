@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Audit API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Audit
+paths:
+  /audit/frameworks:
+    GET:
+      summary: Amazon Web Services Listframeworks
+      description: Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.
+      operationId: amazonWebServicesListFrameworks
+      tags:
+      - Audit
+  /audit/report-plans:
+    GET:
+      summary: Amazon Web Services Listreportplans
+      description: Returns a list of your report plans. For detailed information about a single report plan, use DescribeReportPlan.
+      operationId: amazonWebServicesListReportPlans
+      tags:
+      - Audit
+  /audit/frameworks/{frameworkName}:
+    PUT:
+      summary: Amazon Web Services Updateframework
+      description: Updates an existing framework identified by its FrameworkName with the input document in JSON format.
+      operationId: amazonWebServicesUpdateFramework
+      tags:
+      - Audit
+  /audit/report-plans/{reportPlanName}:
+    PUT:
+      summary: Amazon Web Services Updatereportplan
+      description: Updates an existing report plan identified by its ReportPlanName with the input document in JSON format.
+      operationId: amazonWebServicesUpdateReportPlan
+      tags:
+      - Audit
+  /audit/report-jobs/{reportJobId}:
+    GET:
+      summary: Amazon Web Services Describereportjob
+      description: Returns the details associated with creating a report as specified by its ReportJobId.
+      operationId: amazonWebServicesDescribeReportJob
+      tags:
+      - Audit
+  /audit/backup-job-summaries:
+    GET:
+      summary: Amazon Web Services Listbackupjobsummaries
+      description: This is a request for a summary of backup jobs created or running within the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results. This request returns a summary that contains Region, Account, State, ResourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+      operationId: amazonWebServicesListBackupJobSummaries
+      tags:
+      - Audit
+  /audit/copy-job-summaries:
+    GET:
+      summary: Amazon Web Services Listcopyjobsummaries
+      description: This request obtains a list of copy jobs created or running within the the most recent 30 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results. This request returns a summary that contains Region, Account, State, RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+      operationId: amazonWebServicesListCopyJobSummaries
+      tags:
+      - Audit
+  /audit/report-jobs:
+    GET:
+      summary: Amazon Web Services Listreportjobs
+      description: Returns details about your report jobs.
+      operationId: amazonWebServicesListReportJobs
+      tags:
+      - Audit
+  /audit/restore-job-summaries:
+    GET:
+      summary: Amazon Web Services Listrestorejobsummaries
+      description: This request obtains a summary of restore jobs created or running within the the most recent 30 days. You can include parameters AccountID, State, ResourceType, AggregationPeriod, MaxResults, or NextToken to filter results. This request returns a summary that contains Region, Account, State, RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+      operationId: amazonWebServicesListRestoreJobSummaries
+      tags:
+      - Audit
+  /audit/report-jobs/{reportPlanName}:
+    POST:
+      summary: Amazon Web Services Startreportjob
+      description: Starts an on-demand report job for the specified report plan.
+      operationId: amazonWebServicesStartReportJob
+      tags:
+      - Audit
+  /audit/mitigationactions/tasks/{taskId}/cancel:
+    PUT:
+      summary: Amazon Web Services Cancelauditmitigationactionstask
+      description: Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs. Requires permission to access the CancelAuditMitigationActionsTask action.
+      operationId: amazonWebServicesCancelAuditMitigationActionsTask
+      tags:
+      - Audit
+  /audit/tasks/{taskId}/cancel:
+    PUT:
+      summary: Amazon Web Services Cancelaudittask
+      description: Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs. Requires permission to access the CancelAuditTask action.
+      operationId: amazonWebServicesCancelAuditTask
+      tags:
+      - Audit
+  /audit/suppressions/create:
+    POST:
+      summary: Amazon Web Services Createauditsuppression
+      description: ' Creates a Device Defender audit suppression.  Requires permission to access the CreateAuditSuppression action.'
+      operationId: amazonWebServicesCreateAuditSuppression
+      tags:
+      - Audit
+  /audit/scheduledaudits/{scheduledAuditName}:
+    PATCH:
+      summary: Amazon Web Services Updatescheduledaudit
+      description: Updates a scheduled audit, including which checks are performed and how often the audit takes place. Requires permission to access the UpdateScheduledAudit action.
+      operationId: amazonWebServicesUpdateScheduledAudit
+      tags:
+      - Audit
+  /audit/configuration:
+    PATCH:
+      summary: Amazon Web Services Updateaccountauditconfiguration
+      description: Configures or reconfigures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. Requires permission to access the UpdateAccountAuditConfiguration action.
+      operationId: amazonWebServicesUpdateAccountAuditConfiguration
+      tags:
+      - Audit
+  /audit/suppressions/delete:
+    POST:
+      summary: Amazon Web Services Deleteauditsuppression
+      description: ' Deletes a Device Defender audit suppression.  Requires permission to access the DeleteAuditSuppression action.'
+      operationId: amazonWebServicesDeleteAuditSuppression
+      tags:
+      - Audit
+  /audit/findings/{findingId}:
+    GET:
+      summary: Amazon Web Services Describeauditfinding
+      description: Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and the start time when the audit that returned the finding. Requires permission to access the DescribeAuditFinding action.
+      operationId: amazonWebServicesDescribeAuditFinding
+      tags:
+      - Audit
+  /audit/mitigationactions/tasks/{taskId}:
+    POST:
+      summary: Amazon Web Services Startauditmitigationactionstask
+      description: Starts a task that applies a set of mitigation actions to the specified target. Requires permission to access the StartAuditMitigationActionsTask action.
+      operationId: amazonWebServicesStartAuditMitigationActionsTask
+      tags:
+      - Audit
+  /audit/suppressions/describe:
+    POST:
+      summary: Amazon Web Services Describeauditsuppression
+      description: ' Gets information about a Device Defender audit suppression. '
+      operationId: amazonWebServicesDescribeAuditSuppression
+      tags:
+      - Audit
+  /audit/tasks/{taskId}:
+    GET:
+      summary: Amazon Web Services Describeaudittask
+      description: Gets information about a Device Defender audit. Requires permission to access the DescribeAuditTask action.
+      operationId: amazonWebServicesDescribeAuditTask
+      tags:
+      - Audit
+  /audit/findings:
+    POST:
+      summary: Amazon Web Services Listauditfindings
+      description: Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.) Requires permission to access the ListAuditFindings action.
+      operationId: amazonWebServicesListAuditFindings
+      tags:
+      - Audit
+  /audit/mitigationactions/executions:
+    GET:
+      summary: Amazon Web Services Listauditmitigationactionsexecutions
+      description: Gets the status of audit mitigation action tasks that were executed. Requires permission to access the ListAuditMitigationActionsExecutions action.
+      operationId: amazonWebServicesListAuditMitigationActionsExecutions
+      tags:
+      - Audit
+  /audit/mitigationactions/tasks:
+    GET:
+      summary: Amazon Web Services Listauditmitigationactionstasks
+      description: Gets a list of audit mitigation action tasks that match the specified filters. Requires permission to access the ListAuditMitigationActionsTasks action.
+      operationId: amazonWebServicesListAuditMitigationActionsTasks
+      tags:
+      - Audit
+  /audit/suppressions/list:
+    POST:
+      summary: Amazon Web Services Listauditsuppressions
+      description: ' Lists your Device Defender audit listings.  Requires permission to access the ListAuditSuppressions action.'
+      operationId: amazonWebServicesListAuditSuppressions
+      tags:
+      - Audit
+  /audit/tasks:
+    POST:
+      summary: Amazon Web Services Startondemandaudittask
+      description: Starts an on-demand Device Defender audit. Requires permission to access the StartOnDemandAuditTask action.
+      operationId: amazonWebServicesStartOnDemandAuditTask
+      tags:
+      - Audit
+  /audit/relatedResources:
+    GET:
+      summary: Amazon Web Services Listrelatedresourcesforauditfinding
+      description: 'The related resources of an Audit finding. The following resources can be returned from calling this API:   DEVICE_CERTIFICATE   CA_CERTIFICATE   IOT_POLICY   COGNITO_IDENTITY_POOL   CLIENT_ID   ACCOUNT_SETTINGS   ROLE_ALIAS   IAM_ROLE   ISSUER_CERTIFICATE    This API is similar to DescribeAuditFinding''s RelatedResources but provides pagination and is not limited to 10 resources. When calling DescribeAuditFinding for the intermediate CA revoked for active device certificates check, RelatedResources will not be populated. You must use this API, ListRelatedResourcesForAuditFinding, to list the certificates. '
+      operationId: amazonWebServicesListRelatedResourcesForAuditFinding
+      tags:
+      - Audit
+  /audit/scheduledaudits:
+    GET:
+      summary: Amazon Web Services Listscheduledaudits
+      description: Lists all of your scheduled audits. Requires permission to access the ListScheduledAudits action.
+      operationId: amazonWebServicesListScheduledAudits
+      tags:
+      - Audit
+  /audit/suppressions/update:
+    PATCH:
+      summary: Amazon Web Services Updateauditsuppression
+      description: ' Updates a Device Defender audit suppression. '
+      operationId: amazonWebServicesUpdateAuditSuppression
+      tags:
+      - Audit

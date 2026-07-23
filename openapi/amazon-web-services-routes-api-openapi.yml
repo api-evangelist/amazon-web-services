@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Routes API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Routes
+paths:
+  /v2/apis/{apiId}/routes:
+    GET:
+      summary: Amazon Web Services Getroutes
+      description: Gets the Routes for an API.
+      operationId: amazonWebServicesGetRoutes
+      tags:
+      - Routes
+  /v2/apis/{apiId}/routes/{routeId}/routeresponses:
+    GET:
+      summary: Amazon Web Services Getrouteresponses
+      description: Gets the RouteResponses for a Route.
+      operationId: amazonWebServicesGetRouteResponses
+      tags:
+      - Routes
+  /v2/apis/{apiId}/routes/{routeId}:
+    PATCH:
+      summary: Amazon Web Services Updateroute
+      description: Updates a Route.
+      operationId: amazonWebServicesUpdateRoute
+      tags:
+      - Routes
+  /v2/apis/{apiId}/routes/{routeId}/requestparameters/{requestParameterKey}:
+    DELETE:
+      summary: Amazon Web Services Deleterouterequestparameter
+      description: Deletes a route request parameter.
+      operationId: amazonWebServicesDeleteRouteRequestParameter
+      tags:
+      - Routes
+  /v2/apis/{apiId}/routes/{routeId}/routeresponses/{routeResponseId}:
+    PATCH:
+      summary: Amazon Web Services Updaterouteresponse
+      description: Updates a RouteResponse.
+      operationId: amazonWebServicesUpdateRouteResponse
+      tags:
+      - Routes
+  /routes/v0/calculators/{CalculatorName}/calculate/route:
+    POST:
+      summary: Amazon Web Services Calculateroute
+      description: ' Calculates a route given the following required parameters: DeparturePosition and DestinationPosition. Requires that you first create a route calculator resource. By default, a request that doesn''t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route. Additional options include:    Specifying a departure time using either DepartureTime or DepartNow. This calculates a route based on predictive traffic data at the given time.   You can''t specify both DepartureTime and DepartNow in a single request. Specifying both parameters returns a validation error.     Specifying a travel mode using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in CarModeOptions if traveling by Car, or TruckModeOptions if traveling by Truck.  If you specify walking for the travel mode and your data provider is Esri, the start and destination must be within 40km.   '
+      operationId: amazonWebServicesCalculateRoute
+      tags:
+      - Routes
+  /routes/v0/calculators/{CalculatorName}/calculate/route-matrix:
+    POST:
+      summary: Amazon Web Services Calculateroutematrix
+      description: '  Calculates a route matrix given the following required parameters: DeparturePositions and DestinationPositions. CalculateRouteMatrix calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, CalculateRouteMatrix will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of DeparturePositions times the number of DestinationPositions.  Your account is charged for each route calculated, not the number of requests.  Requires that you first create a route calculator resource. By default, a request that doesn''t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes. Additional options include:     Specifying a departure time using either DepartureTime or DepartNow. This calculates routes based on predictive traffic data at the given time.   You can''t specify both DepartureTime and DepartNow in a single request. Specifying both parameters returns a validation error.     Specifying a travel mode using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in CarModeOptions if traveling by Car, or TruckModeOptions if traveling by Truck.  '
+      operationId: amazonWebServicesCalculateRouteMatrix
+      tags:
+      - Routes
+  /routes/v0/calculators:
+    POST:
+      summary: Amazon Web Services Createroutecalculator
+      description: 'Creates a route calculator resource in your Amazon Web Services account. You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.  If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the Amazon Web Services service terms for more details. '
+      operationId: amazonWebServicesCreateRouteCalculator
+      tags:
+      - Routes
+  /routes/v0/calculators/{CalculatorName}:
+    PATCH:
+      summary: Amazon Web Services Updateroutecalculator
+      description: Updates the specified properties for a given route calculator resource.
+      operationId: amazonWebServicesUpdateRouteCalculator
+      tags:
+      - Routes
+  /routes/v0/list-calculators:
+    POST:
+      summary: Amazon Web Services Listroutecalculators
+      description: Lists route calculator resources in your Amazon Web Services account.
+      operationId: amazonWebServicesListRouteCalculators
+      tags:
+      - Routes

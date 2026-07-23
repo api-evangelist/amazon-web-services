@@ -1,0 +1,524 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Applications API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Applications
+paths:
+  /applications:
+    GET:
+      summary: Amazon Web Services Listapplications
+      description: Lists all applications in your Amazon Web Services account.
+      operationId: amazonWebServicesListApplications
+      tags:
+      - Applications
+  /applications/{ApplicationId}/configurationprofiles:
+    GET:
+      summary: Amazon Web Services Listconfigurationprofiles
+      description: Lists the configuration profiles for an application.
+      operationId: amazonWebServicesListConfigurationProfiles
+      tags:
+      - Applications
+  /applications/{ApplicationId}/environments:
+    GET:
+      summary: Amazon Web Services Listenvironments
+      description: Lists the environments for an application.
+      operationId: amazonWebServicesListEnvironments
+      tags:
+      - Applications
+  /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions:
+    GET:
+      summary: Amazon Web Services Listhostedconfigurationversions
+      description: Lists configurations stored in the AppConfig hosted configuration store by version.
+      operationId: amazonWebServicesListHostedConfigurationVersions
+      tags:
+      - Applications
+  /applications/{ApplicationId}:
+    PATCH:
+      summary: Amazon Web Services Updateapplication
+      description: Updates an application.
+      operationId: amazonWebServicesUpdateApplication
+      tags:
+      - Applications
+  /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}:
+    PATCH:
+      summary: Amazon Web Services Updateconfigurationprofile
+      description: Updates a configuration profile.
+      operationId: amazonWebServicesUpdateConfigurationProfile
+      tags:
+      - Applications
+  /applications/{ApplicationId}/environments/{EnvironmentId}:
+    PATCH:
+      summary: Amazon Web Services Updateenvironment
+      description: Updates an environment.
+      operationId: amazonWebServicesUpdateEnvironment
+      tags:
+      - Applications
+  /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}:
+    GET:
+      summary: Amazon Web Services Gethostedconfigurationversion
+      description: Retrieves information about a specific configuration version.
+      operationId: amazonWebServicesGetHostedConfigurationVersion
+      tags:
+      - Applications
+  /applications/{Application}/environments/{Environment}/configurations/{Configuration}:
+    GET:
+      summary: Amazon Web Services Getconfiguration
+      description: '(Deprecated) Retrieves the latest deployed configuration.  Note the following important information.   This API action is deprecated. Calls to receive configuration data should use the StartConfigurationSession and GetLatestConfiguration APIs instead.     GetConfiguration is a priced call. For more information, see Pricing.   '
+      operationId: amazonWebServicesGetConfiguration
+      tags:
+      - Applications
+  /applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}:
+    DELETE:
+      summary: Amazon Web Services Stopdeployment
+      description: Stops a deployment. This API action works only on deployments that have a status of DEPLOYING. This action moves the deployment to a status of ROLLED_BACK.
+      operationId: amazonWebServicesStopDeployment
+      tags:
+      - Applications
+  /applications/{ApplicationId}/environments/{EnvironmentId}/deployments:
+    POST:
+      summary: Amazon Web Services Startdeployment
+      description: Starts a deployment.
+      operationId: amazonWebServicesStartDeployment
+      tags:
+      - Applications
+  /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators:
+    POST:
+      summary: Amazon Web Services Validateconfiguration
+      description: Uses the validators in a configuration profile to validate a configuration.
+      operationId: amazonWebServicesValidateConfiguration
+      tags:
+      - Applications
+  /applications/{ApplicationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateapplication
+      description: This API is in preview release and subject to change. Updates and persists an Application resource.
+      operationId: amazonWebServicesUpdateApplication
+      tags:
+      - Applications
+  /applications/{ApplicationIdentifier}/associations:
+    GET:
+      summary: Amazon Web Services Listapplicationassociations
+      description: Returns a paginated list of application associations for an application.
+      operationId: amazonWebServicesListApplicationAssociations
+      tags:
+      - Applications
+  /applications/{applicationId}/jobruns/{jobRunId}:
+    GET:
+      summary: Amazon Web Services Getjobrun
+      description: Displays detailed information about a job run.
+      operationId: amazonWebServicesGetJobRun
+      tags:
+      - Applications
+  /applications/{applicationId}:
+    PATCH:
+      summary: Amazon Web Services Updateapplication
+      description: Updates a specified application. An application has to be in a stopped or created state in order to be updated.
+      operationId: amazonWebServicesUpdateApplication
+      tags:
+      - Applications
+    PUT:
+      summary: Amazon Web Services Updateapplication
+      description: Updates an existing Amazon Q application.
+      operationId: amazonWebServicesUpdateApplication
+      tags:
+      - Applications
+  /applications/{applicationId}/jobruns/{jobRunId}/dashboard:
+    GET:
+      summary: Amazon Web Services Getdashboardforjobrun
+      description: 'Creates and returns a URL that you can use to access the application UIs for a job run. For jobs in a running state, the application UI is a live user interface such as the Spark or Tez web UI. For completed jobs, the application UI is a persistent application user interface such as the Spark History Server or persistent Tez UI.  The URL is valid for one hour after you generate it. To access the application UI after that hour elapses, you must invoke the API again to generate a new URL. '
+      operationId: amazonWebServicesGetDashboardForJobRun
+      tags:
+      - Applications
+  /applications/{applicationId}/jobruns:
+    POST:
+      summary: Amazon Web Services Startjobrun
+      description: Starts a job run.
+      operationId: amazonWebServicesStartJobRun
+      tags:
+      - Applications
+  /applications/{applicationId}/start:
+    POST:
+      summary: Amazon Web Services Startapplication
+      description: Starts a specified application and initializes initial capacity if configured.
+      operationId: amazonWebServicesStartApplication
+      tags:
+      - Applications
+  /applications/{applicationId}/stop:
+    POST:
+      summary: Amazon Web Services Stopapplication
+      description: Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.
+      operationId: amazonWebServicesStopApplication
+      tags:
+      - Applications
+  /applications/{applicationId}/batch-job-executions/{executionId}/cancel:
+    POST:
+      summary: Amazon Web Services Cancelbatchjobexecution
+      description: Cancels the running of a specific batch job execution.
+      operationId: amazonWebServicesCancelBatchJobExecution
+      tags:
+      - Applications
+  /applications/{applicationId}/dataset-import-task:
+    POST:
+      summary: Amazon Web Services Createdatasetimporttask
+      description: Starts a data set import task for a specific application.
+      operationId: amazonWebServicesCreateDataSetImportTask
+      tags:
+      - Applications
+  /applications/{applicationId}/deployments:
+    GET:
+      summary: Amazon Web Services Listdeployments
+      description: Returns a list of all deployments of a specific application. A deployment is a combination of a specific application and a specific version of that application. Each deployment is mapped to a particular application version.
+      operationId: amazonWebServicesListDeployments
+      tags:
+      - Applications
+  /applications/{applicationId}/environment/{environmentId}:
+    DELETE:
+      summary: Amazon Web Services Deleteapplicationfromenvironment
+      description: Deletes a specific application from the specific runtime environment where it was previously deployed. You cannot delete a runtime environment using DeleteEnvironment if any application has ever been deployed to it. This API removes the association of the application with the runtime environment so you can delete the environment smoothly.
+      operationId: amazonWebServicesDeleteApplicationFromEnvironment
+      tags:
+      - Applications
+  /applications/{applicationId}/versions/{applicationVersion}:
+    GET:
+      summary: Amazon Web Services Getapplicationversion
+      description: Returns details about a specific version of a specific application.
+      operationId: amazonWebServicesGetApplicationVersion
+      tags:
+      - Applications
+  /applications/{applicationId}/batch-job-executions/{executionId}:
+    GET:
+      summary: Amazon Web Services Getbatchjobexecution
+      description: Gets the details of a specific batch job execution for a specific application.
+      operationId: amazonWebServicesGetBatchJobExecution
+      tags:
+      - Applications
+  /applications/{applicationId}/datasets/{dataSetName}:
+    GET:
+      summary: Amazon Web Services Getdatasetdetails
+      description: Gets the details of a specific data set.
+      operationId: amazonWebServicesGetDataSetDetails
+      tags:
+      - Applications
+  /applications/{applicationId}/dataset-import-tasks/{taskId}:
+    GET:
+      summary: Amazon Web Services Getdatasetimporttask
+      description: Gets the status of a data set import task initiated with the CreateDataSetImportTask operation.
+      operationId: amazonWebServicesGetDataSetImportTask
+      tags:
+      - Applications
+  /applications/{applicationId}/deployments/{deploymentId}:
+    GET:
+      summary: Amazon Web Services Getdeployment
+      description: Gets details of a specific deployment with a given deployment identifier.
+      operationId: amazonWebServicesGetDeployment
+      tags:
+      - Applications
+  /applications/{applicationId}/versions:
+    GET:
+      summary: Amazon Web Services Listapplicationversions
+      description: Returns a list of the application versions for a specific application.
+      operationId: amazonWebServicesListApplicationVersions
+      tags:
+      - Applications
+  /applications/{applicationId}/batch-job-definitions:
+    GET:
+      summary: Amazon Web Services Listbatchjobdefinitions
+      description: Lists all the available batch job definitions based on the batch job resources uploaded during the application creation. You can use the batch job definitions in the list to start a batch job.
+      operationId: amazonWebServicesListBatchJobDefinitions
+      tags:
+      - Applications
+  /applications/{applicationId}/batch-job-executions:
+    GET:
+      summary: Amazon Web Services Listbatchjobexecutions
+      description: Lists historical, current, and scheduled batch job executions for a specific application.
+      operationId: amazonWebServicesListBatchJobExecutions
+      tags:
+      - Applications
+  /applications/{applicationId}/dataset-import-tasks:
+    GET:
+      summary: Amazon Web Services Listdatasetimporthistory
+      description: Lists the data set imports for the specified application.
+      operationId: amazonWebServicesListDataSetImportHistory
+      tags:
+      - Applications
+  /applications/{applicationId}/datasets:
+    GET:
+      summary: Amazon Web Services Listdatasets
+      description: Lists the data sets imported for a specific application. In Amazon Web Services Mainframe Modernization, data sets are associated with applications deployed on runtime environments. This is known as importing data sets. Currently, Amazon Web Services Mainframe Modernization can import data sets into catalogs using CreateDataSetImportTask.
+      operationId: amazonWebServicesListDataSets
+      tags:
+      - Applications
+  /applications/{applicationId}/batch-job:
+    POST:
+      summary: Amazon Web Services Startbatchjob
+      description: Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.
+      operationId: amazonWebServicesStartBatchJob
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/documents/delete:
+    POST:
+      summary: Amazon Web Services Batchdeletedocument
+      description: Asynchronously deletes one or more documents added using the BatchPutDocument API from an Amazon Q index. You can see the progress of the deletion, and any error messages related to the process, by using CloudWatch.
+      operationId: amazonWebServicesBatchDeleteDocument
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/documents:
+    POST:
+      summary: Amazon Web Services Batchputdocument
+      description: 'Adds one or more documents to an Amazon Q index. You use this API to:   ingest your structured and unstructured documents and documents stored in an Amazon S3 bucket into an Amazon Q index.   add custom attributes to documents in an Amazon Q index.   attach an access control list to the documents added to an Amazon Q index.   You can see the progress of the deletion, and any error messages related to the process, by using CloudWatch.'
+      operationId: amazonWebServicesBatchPutDocument
+      tags:
+      - Applications
+  /applications/{applicationId}/conversations?sync:
+    POST:
+      summary: Amazon Web Services Chatsync
+      description: Starts or continues a non-streaming Amazon Q conversation.
+      operationId: amazonWebServicesChatSync
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/datasources:
+    GET:
+      summary: Amazon Web Services Listdatasources
+      description: Lists the Amazon Q data source connectors that you have created.
+      operationId: amazonWebServicesListDataSources
+      tags:
+      - Applications
+  /applications/{applicationId}/indices:
+    GET:
+      summary: Amazon Web Services Listindices
+      description: Lists the Amazon Q indices you have created.
+      operationId: amazonWebServicesListIndices
+      tags:
+      - Applications
+  /applications/{applicationId}/plugins:
+    GET:
+      summary: Amazon Web Services Listplugins
+      description: Lists configured Amazon Q plugins.
+      operationId: amazonWebServicesListPlugins
+      tags:
+      - Applications
+  /applications/{applicationId}/retrievers:
+    GET:
+      summary: Amazon Web Services Listretrievers
+      description: Lists the retriever used by an Amazon Q application.
+      operationId: amazonWebServicesListRetrievers
+      tags:
+      - Applications
+  /applications/{applicationId}/users:
+    POST:
+      summary: Amazon Web Services Createuser
+      description: Creates a universally unique identifier (UUID) mapped to a list of local user ids within an application.
+      operationId: amazonWebServicesCreateUser
+      tags:
+      - Applications
+  /applications/{applicationId}/experiences:
+    GET:
+      summary: Amazon Web Services Listwebexperiences
+      description: Lists one or more Amazon Q Web Experiences.
+      operationId: amazonWebServicesListWebExperiences
+      tags:
+      - Applications
+  /applications/{applicationId}/chatcontrols:
+    PATCH:
+      summary: Amazon Web Services Updatechatcontrolsconfiguration
+      description: Updates an set of chat controls configured for an existing Amazon Q application.
+      operationId: amazonWebServicesUpdateChatControlsConfiguration
+      tags:
+      - Applications
+  /applications/{applicationId}/conversations/{conversationId}:
+    GET:
+      summary: Amazon Web Services Listmessages
+      description: Gets a list of messages associated with an Amazon Q web experience.
+      operationId: amazonWebServicesListMessages
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}:
+    PUT:
+      summary: Amazon Web Services Updatedatasource
+      description: Updates an existing Amazon Q data source connector.
+      operationId: amazonWebServicesUpdateDataSource
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/groups/{groupName}:
+    GET:
+      summary: Amazon Web Services Getgroup
+      description: Describes a group by group name.
+      operationId: amazonWebServicesGetGroup
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}:
+    PUT:
+      summary: Amazon Web Services Updateindex
+      description: Updates an Amazon Q index.
+      operationId: amazonWebServicesUpdateIndex
+      tags:
+      - Applications
+  /applications/{applicationId}/plugins/{pluginId}:
+    PUT:
+      summary: Amazon Web Services Updateplugin
+      description: Updates an Amazon Q plugin.
+      operationId: amazonWebServicesUpdatePlugin
+      tags:
+      - Applications
+  /applications/{applicationId}/retrievers/{retrieverId}:
+    PUT:
+      summary: Amazon Web Services Updateretriever
+      description: Updates the retriever used for your Amazon Q application.
+      operationId: amazonWebServicesUpdateRetriever
+      tags:
+      - Applications
+  /applications/{applicationId}/users/{userId}:
+    PUT:
+      summary: Amazon Web Services Updateuser
+      description: Updates a information associated with a user id.
+      operationId: amazonWebServicesUpdateUser
+      tags:
+      - Applications
+  /applications/{applicationId}/experiences/{webExperienceId}:
+    PUT:
+      summary: Amazon Web Services Updatewebexperience
+      description: 'Updates an Amazon Q web experience. '
+      operationId: amazonWebServicesUpdateWebExperience
+      tags:
+      - Applications
+  /applications/{applicationId}/conversations:
+    GET:
+      summary: Amazon Web Services Listconversations
+      description: Lists one or more Amazon Q conversations.
+      operationId: amazonWebServicesListConversations
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/syncjobs:
+    GET:
+      summary: Amazon Web Services Listdatasourcesyncjobs
+      description: Get information about an Amazon Q data source connector synchronization.
+      operationId: amazonWebServicesListDataSourceSyncJobs
+      tags:
+      - Applications
+  /applications/{applicationId}/index/{indexId}/documents:
+    GET:
+      summary: Amazon Web Services Listdocuments
+      description: A list of documents attached to an index.
+      operationId: amazonWebServicesListDocuments
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/groups:
+    PUT:
+      summary: Amazon Web Services Putgroup
+      description: Create, or updates, a mapping of users—who have access to a document—to groups. You can also map sub groups to groups. For example, the group "Company Intellectual Property Teams" includes sub groups "Research" and "Engineering". These sub groups include their own list of users or people who work in these teams. Only users who work in research and engineering, and therefore belong in the intellectual property group, can see top-secret company documents in their Amazon Q chat results.
+      operationId: amazonWebServicesPutGroup
+      tags:
+      - Applications
+  /applications/{applicationId}/conversations/{conversationId}/messages/{messageId}/feedback:
+    POST:
+      summary: Amazon Web Services Putfeedback
+      description: Enables your end user to to provide feedback on their Amazon Q generated chat responses.
+      operationId: amazonWebServicesPutFeedback
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/startsync:
+    POST:
+      summary: Amazon Web Services Startdatasourcesyncjob
+      description: Starts a data source connector synchronization job. If a synchronization job is already in progress, Amazon Q returns a ConflictException.
+      operationId: amazonWebServicesStartDataSourceSyncJob
+      tags:
+      - Applications
+  /applications/{applicationId}/indices/{indexId}/datasources/{dataSourceId}/stopsync:
+    POST:
+      summary: Amazon Web Services Stopdatasourcesyncjob
+      description: Stops an Amazon Q data source connector synchronization job already in progress.
+      operationId: amazonWebServicesStopDataSourceSyncJob
+      tags:
+      - Applications
+  /applications/{applicationId}/versions/{semanticVersion}:
+    PUT:
+      summary: Amazon Web Services Createapplicationversion
+      description: Creates an application version.
+      operationId: amazonWebServicesCreateApplicationVersion
+      tags:
+      - Applications
+  /applications/{applicationId}/changesets:
+    POST:
+      summary: Amazon Web Services Createcloudformationchangeset
+      description: Creates an AWS CloudFormation change set for the given application.
+      operationId: amazonWebServicesCreateCloudFormationChangeSet
+      tags:
+      - Applications
+  /applications/{applicationId}/templates:
+    POST:
+      summary: Amazon Web Services Createcloudformationtemplate
+      description: Creates an AWS CloudFormation template.
+      operationId: amazonWebServicesCreateCloudFormationTemplate
+      tags:
+      - Applications
+  /applications/{applicationId}/policy:
+    PUT:
+      summary: Amazon Web Services Putapplicationpolicy
+      description: Sets the permission policy for an application. For the list of actions supported for this operation, see<br> Application <br> Permissions<br> .
+      operationId: amazonWebServicesPutApplicationPolicy
+      tags:
+      - Applications
+  /applications/{applicationId}/templates/{templateId}:
+    GET:
+      summary: Amazon Web Services Getcloudformationtemplate
+      description: Gets the specified AWS CloudFormation template.
+      operationId: amazonWebServicesGetCloudFormationTemplate
+      tags:
+      - Applications
+  /applications/{applicationId}/dependencies:
+    GET:
+      summary: Amazon Web Services Listapplicationdependencies
+      description: Retrieves the list of applications nested in the containing application.
+      operationId: amazonWebServicesListApplicationDependencies
+      tags:
+      - Applications
+  /applications/{applicationId}/unshare:
+    POST:
+      summary: Amazon Web Services Unshareapplication
+      description: Unshares an application from an AWS Organization.This operation can be called only from the organization's master account.
+      operationId: amazonWebServicesUnshareApplication
+      tags:
+      - Applications
+  /applications/{application}/attribute-groups/{attributeGroup}:
+    DELETE:
+      summary: Amazon Web Services Disassociateattributegroup
+      description: Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts AssociateAttributeGroup.
+      operationId: amazonWebServicesDisassociateAttributeGroup
+      tags:
+      - Applications
+  /applications/{application}/resources/{resourceType}/{resource}:
+    GET:
+      summary: Amazon Web Services Getassociatedresource
+      description: Gets the resource associated with the application.
+      operationId: amazonWebServicesGetAssociatedResource
+      tags:
+      - Applications
+  /applications/{application}:
+    PATCH:
+      summary: Amazon Web Services Updateapplication
+      description: Updates an existing application with new attributes.
+      operationId: amazonWebServicesUpdateApplication
+      tags:
+      - Applications
+  /applications/{application}/attribute-groups:
+    GET:
+      summary: Amazon Web Services Listassociatedattributegroups
+      description: Lists all attribute groups that are associated with specified application. Results are paginated.
+      operationId: amazonWebServicesListAssociatedAttributeGroups
+      tags:
+      - Applications
+  /applications/{application}/resources:
+    GET:
+      summary: Amazon Web Services Listassociatedresources
+      description: ' Lists all of the resources that are associated with the specified application. Results are paginated.    If you share an application, and a consumer account associates a tag query to the application, all of the users who can access the application can also view the tag values in all accounts that are associated with it using this API.  '
+      operationId: amazonWebServicesListAssociatedResources
+      tags:
+      - Applications
+  /applications/{application}/attribute-group-details:
+    GET:
+      summary: Amazon Web Services Listattributegroupsforapplication
+      description: Lists the details of all attribute groups associated with a specific application. The results display in pages.
+      operationId: amazonWebServicesListAttributeGroupsForApplication
+      tags:
+      - Applications

@@ -1,0 +1,154 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Sequencestore API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Sequencestore
+paths:
+  /sequencestore/{sequenceStoreId}/upload/{uploadId}/abort:
+    DELETE:
+      summary: Amazon Web Services Abortmultipartreadsetupload
+      description: ' Stops a multipart upload. '
+      operationId: amazonWebServicesAbortMultipartReadSetUpload
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/readset/batch/delete:
+    POST:
+      summary: Amazon Web Services Batchdeletereadset
+      description: Deletes one or more read sets.
+      operationId: amazonWebServicesBatchDeleteReadSet
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/upload/{uploadId}/complete:
+    POST:
+      summary: Amazon Web Services Completemultipartreadsetupload
+      description: ' Concludes a multipart upload once you have uploaded all the components. '
+      operationId: amazonWebServicesCompleteMultipartReadSetUpload
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/upload:
+    POST:
+      summary: Amazon Web Services Createmultipartreadsetupload
+      description: ' Begins a multipart read set upload. '
+      operationId: amazonWebServicesCreateMultipartReadSetUpload
+      tags:
+      - Sequencestore
+  /sequencestore:
+    POST:
+      summary: Amazon Web Services Createsequencestore
+      description: Creates a sequence store.
+      operationId: amazonWebServicesCreateSequenceStore
+      tags:
+      - Sequencestore
+  /sequencestore/{id}:
+    GET:
+      summary: Amazon Web Services Getsequencestore
+      description: Gets information about a sequence store.
+      operationId: amazonWebServicesGetSequenceStore
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/readset/{id}:
+    GET:
+      summary: Amazon Web Services Getreadset
+      description: Gets a file from a read set.
+      operationId: amazonWebServicesGetReadSet
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/activationjob/{id}:
+    GET:
+      summary: Amazon Web Services Getreadsetactivationjob
+      description: Gets information about a read set activation job.
+      operationId: amazonWebServicesGetReadSetActivationJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/exportjob/{id}:
+    GET:
+      summary: Amazon Web Services Getreadsetexportjob
+      description: Gets information about a read set export job.
+      operationId: amazonWebServicesGetReadSetExportJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/importjob/{id}:
+    GET:
+      summary: Amazon Web Services Getreadsetimportjob
+      description: Gets information about a read set import job.
+      operationId: amazonWebServicesGetReadSetImportJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/readset/{id}/metadata:
+    GET:
+      summary: Amazon Web Services Getreadsetmetadata
+      description: Gets details about a read set.
+      operationId: amazonWebServicesGetReadSetMetadata
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/uploads:
+    POST:
+      summary: Amazon Web Services Listmultipartreadsetuploads
+      description: ' Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the respone. '
+      operationId: amazonWebServicesListMultipartReadSetUploads
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/activationjobs:
+    POST:
+      summary: Amazon Web Services Listreadsetactivationjobs
+      description: Retrieves a list of read set activation jobs.
+      operationId: amazonWebServicesListReadSetActivationJobs
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/exportjobs:
+    POST:
+      summary: Amazon Web Services Listreadsetexportjobs
+      description: Retrieves a list of read set export jobs.
+      operationId: amazonWebServicesListReadSetExportJobs
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/importjobs:
+    POST:
+      summary: Amazon Web Services Listreadsetimportjobs
+      description: Retrieves a list of read set import jobs.
+      operationId: amazonWebServicesListReadSetImportJobs
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/upload/{uploadId}/parts:
+    POST:
+      summary: Amazon Web Services Listreadsetuploadparts
+      description: ' This operation will list all parts in a requested multipart upload for a sequence store. '
+      operationId: amazonWebServicesListReadSetUploadParts
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/readsets:
+    POST:
+      summary: Amazon Web Services Listreadsets
+      description: Retrieves a list of read sets.
+      operationId: amazonWebServicesListReadSets
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/activationjob:
+    POST:
+      summary: Amazon Web Services Startreadsetactivationjob
+      description: Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read sets after 30 days.
+      operationId: amazonWebServicesStartReadSetActivationJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/exportjob:
+    POST:
+      summary: Amazon Web Services Startreadsetexportjob
+      description: Exports a read set to Amazon S3.
+      operationId: amazonWebServicesStartReadSetExportJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/importjob:
+    POST:
+      summary: Amazon Web Services Startreadsetimportjob
+      description: Starts a read set import job.
+      operationId: amazonWebServicesStartReadSetImportJob
+      tags:
+      - Sequencestore
+  /sequencestore/{sequenceStoreId}/upload/{uploadId}/part:
+    PUT:
+      summary: Amazon Web Services Uploadreadsetpart
+      description: ' This operation uploads a specific part of a read set. If you upload a new part using a previously used part number, the previously uploaded part will be overwritten. '
+      operationId: amazonWebServicesUploadReadSetPart
+      tags:
+      - Sequencestore

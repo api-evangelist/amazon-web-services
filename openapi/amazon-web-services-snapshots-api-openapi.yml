@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Snapshots API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Snapshots
+paths:
+  /snapshots/completion/{snapshotId}:
+    POST:
+      summary: Amazon Web Services Completesnapshot
+      description: 'Seals and completes the snapshot after all of the required blocks of data have been written to it. Completing the snapshot changes the status to completed. You cannot write new blocks to a snapshot after it has been completed.  You should always retry requests that receive server (5xx) error responses, and ThrottlingException and RequestThrottledException client error responses. For more information see Error retries in the Amazon Elastic Compute Cloud User Guide. '
+      operationId: amazonWebServicesCompleteSnapshot
+      tags:
+      - Snapshots
+  /snapshots/{snapshotId}/blocks/{blockIndex}:
+    PUT:
+      summary: Amazon Web Services Putsnapshotblock
+      description: 'Writes a block of data to a snapshot. If the specified block contains data, the existing data is overwritten. The target snapshot must be in the pending state. Data written to a snapshot must be aligned with 512-KiB sectors.  You should always retry requests that receive server (5xx) error responses, and ThrottlingException and RequestThrottledException client error responses. For more information see Error retries in the Amazon Elastic Compute Cloud User Guide. '
+      operationId: amazonWebServicesPutSnapshotBlock
+      tags:
+      - Snapshots
+  /snapshots/{secondSnapshotId}/changedblocks:
+    GET:
+      summary: Amazon Web Services Listchangedblocks
+      description: 'Returns information about the blocks that are different between two Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.  You should always retry requests that receive server (5xx) error responses, and ThrottlingException and RequestThrottledException client error responses. For more information see Error retries in the Amazon Elastic Compute Cloud User Guide. '
+      operationId: amazonWebServicesListChangedBlocks
+      tags:
+      - Snapshots
+  /snapshots/{snapshotId}/blocks:
+    GET:
+      summary: Amazon Web Services Listsnapshotblocks
+      description: 'Returns information about the blocks in an Amazon Elastic Block Store snapshot.  You should always retry requests that receive server (5xx) error responses, and ThrottlingException and RequestThrottledException client error responses. For more information see Error retries in the Amazon Elastic Compute Cloud User Guide. '
+      operationId: amazonWebServicesListSnapshotBlocks
+      tags:
+      - Snapshots
+  /snapshots:
+    POST:
+      summary: Amazon Web Services Startsnapshot
+      description: 'Creates a new Amazon EBS snapshot. The new snapshot enters the pending state after the request completes.  After creating the snapshot, use  PutSnapshotBlock to write blocks of data to the snapshot.  You should always retry requests that receive server (5xx) error responses, and ThrottlingException and RequestThrottledException client error responses. For more information see Error retries in the Amazon Elastic Compute Cloud User Guide. '
+      operationId: amazonWebServicesStartSnapshot
+      tags:
+      - Snapshots
+    GET:
+      summary: Amazon Web Services Listgraphsnapshots
+      description: Lists available snapshots of a specified Neptune Analytics graph.
+      operationId: amazonWebServicesListGraphSnapshots
+      tags:
+      - Snapshots
+  /snapshots/{snapshotIdentifier}:
+    GET:
+      summary: Amazon Web Services Getgraphsnapshot
+      description: Retrieves a specified graph snapshot.
+      operationId: amazonWebServicesGetGraphSnapshot
+      tags:
+      - Snapshots
+  /snapshots/{snapshotIdentifier}/restore:
+    POST:
+      summary: Amazon Web Services Restoregraphfromsnapshot
+      description: Restores a graph from a snapshot.
+      operationId: amazonWebServicesRestoreGraphFromSnapshot
+      tags:
+      - Snapshots

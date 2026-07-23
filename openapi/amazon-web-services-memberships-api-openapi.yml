@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: Amazon Web Services accessanalyzer 2012 09 25 Memberships API
+  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+tags:
+- name: Memberships
+paths:
+  /memberships/{membershipIdentifier}/analysistemplates:
+    GET:
+      summary: Amazon Web Services Listanalysistemplates
+      description: Lists analysis templates that the caller owns.
+      operationId: amazonWebServicesListAnalysisTemplates
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/configuredaudiencemodelassociations:
+    GET:
+      summary: Amazon Web Services Listconfiguredaudiencemodelassociations
+      description: Lists information about requested configured audience model associations.
+      operationId: amazonWebServicesListConfiguredAudienceModelAssociations
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/configuredTableAssociations:
+    GET:
+      summary: Amazon Web Services Listconfiguredtableassociations
+      description: Lists configured table associations for a membership.
+      operationId: amazonWebServicesListConfiguredTableAssociations
+      tags:
+      - Memberships
+  /memberships:
+    GET:
+      summary: Amazon Web Services Listmemberships
+      description: Lists all memberships resources within the caller's account.
+      operationId: amazonWebServicesListMemberships
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/privacybudgettemplates:
+    GET:
+      summary: Amazon Web Services Listprivacybudgettemplates
+      description: Returns detailed information about the privacy budget templates in a specified membership.
+      operationId: amazonWebServicesListPrivacyBudgetTemplates
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateanalysistemplate
+      description: Updates the analysis template metadata.
+      operationId: amazonWebServicesUpdateAnalysisTemplate
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateconfiguredaudiencemodelassociation
+      description: Provides the details necessary to update a configured audience model association.
+      operationId: amazonWebServicesUpdateConfiguredAudienceModelAssociation
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateconfiguredtableassociation
+      description: Updates a configured table association.
+      operationId: amazonWebServicesUpdateConfiguredTableAssociation
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updatemembership
+      description: Updates a membership.
+      operationId: amazonWebServicesUpdateMembership
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateprivacybudgettemplate
+      description: Updates the privacy budget template for the specified membership.
+      operationId: amazonWebServicesUpdatePrivacyBudgetTemplate
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateprotectedquery
+      description: Updates the processing of a currently running query.
+      operationId: amazonWebServicesUpdateProtectedQuery
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/privacybudgets:
+    GET:
+      summary: Amazon Web Services Listprivacybudgets
+      description: Returns detailed information about the privacy budgets in a specified membership.
+      operationId: amazonWebServicesListPrivacyBudgets
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/protectedQueries:
+    POST:
+      summary: Amazon Web Services Startprotectedquery
+      description: Creates a protected query that is started by Clean Rooms.
+      operationId: amazonWebServicesStartProtectedQuery
+      tags:
+      - Memberships
+  /memberships/{membershipIdentifier}/previewprivacyimpact:
+    POST:
+      summary: Amazon Web Services Previewprivacyimpact
+      description: An estimate of the number of aggregation functions that the member who can query can run given epsilon and noise parameters.
+      operationId: amazonWebServicesPreviewPrivacyImpact
+      tags:
+      - Memberships
