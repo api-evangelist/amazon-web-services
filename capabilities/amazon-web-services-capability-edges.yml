@@ -1,0 +1,813 @@
+slug: amazon-web-services
+provider: Amazon Web Services
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 83
+edges:
+- tag: Amazon Web Services Ec2
+  spec_file: amazon-web-services-amazon-web-services-ec2-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: operation "amazonWebServicesWithdrawByoipCidr  Amazon Web Services Withdrawbyoipcidr"
+  reason: Withdrawing a bring-your-own-IP CIDR advertisement is compute/network address management in
+    EC2 — squarely cloud infrastructure management.
+- tag: Amazon Web Services Iam
+  spec_file: amazon-web-services-amazon-web-services-iam-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: amazonWebServicesUploadSigningCertificate  Amazon Web Services Uploadsigningcertificate
+  reason: Uploading a signing certificate for an IAM principal is credential/identity administration,
+    squarely Identity & Access Management; the doc description also concerns IAM policies and access.
+- tag: Ml
+  spec_file: amazon-web-services-ml-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.85
+  evidence: POST /ml/modeltraining amazonWebServicesStartMLModelTrainingJob; GET /ml/endpoints amazonWebServicesListMLEndpoints;
+    POST /ml/dataprocessing Startmldataprocessingjob
+  reason: Operations start and inspect ML data-processing, model-training and model-transform jobs and
+    manage inference endpoints — the ML model lifecycle / MLOps capability.
+- tag: Model Customization Jobs
+  spec_file: amazon-web-services-model-customization-jobs-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.85
+  evidence: GET /model-customization-jobs amazonWebServicesListModelCustomizationJobs; POST /model-customization-jobs/{jobIdentifier}/stop
+    Stopmodelcustomizationjob
+  reason: Managing model customisation (fine-tuning) jobs is squarely AI/ML model lifecycle management.
+- tag: Queues
+  spec_file: amazon-web-services-queues-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.85
+  evidence: POST /queues/{InstanceId}/{QueueId}/hours-of-operation ... POST /queues/{InstanceId}/{QueueId}/outbound-caller-config
+    ... POST /queues/{InstanceId}/{QueueId}/max-contacts
+  reason: 'These are Amazon Connect contact-centre queues: hours of operation, maximum contacts, outbound
+    caller configuration and quick-connect associations. This is contact centre routing/operations configuration,
+    not message-broker queues.'
+- tag: Site to Site Vpn Attachments
+  spec_file: amazon-web-services-site-to-site-vpn-attachments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.82
+  evidence: POST /site-to-site-vpn-attachments Createsitetositevpnattachment
+  reason: Creating and reading site-to-site VPN attachments is network infrastructure provisioning (Transit
+    Gateway / Network Manager), squarely IT Infrastructure Management.
+- tag: Vulnerabilities
+  spec_file: amazon-web-services-vulnerabilities-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.82
+  evidence: POST /vulnerabilities/search amazonWebServicesSearchVulnerabilities
+  reason: Searching vulnerabilities (AWS Inspector-style) is squarely security vulnerability identification,
+    matching Vulnerability Management. Only one operation, so not maximal confidence.
+- tag: Accessgrantsinstance
+  spec_file: amazon-web-services-accessgrantsinstance-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /v20180820/accessgrantsinstance/grant amazonWebServicesCreateAccessGrant; DELETE .../identitycenter
+    amazonWebServicesDissociateAccessGrantsIdentityCenter; amazonWebServicesGetDataAccess
+  reason: Creating/listing access grants, associating an identity centre and putting resource policies
+    is directly the granting and federation of access rights to data — Identity & Access Management.
+- tag: Amazon Web Services Docdb
+  spec_file: amazon-web-services-amazon-web-services-docdb-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: operation "amazonWebServicesStopDBCluster  Amazon Web Services Stopdbcluster"
+  reason: Starting/stopping a managed DocumentDB database cluster is provisioning and operation of cloud
+    database infrastructure, mapping to IT Infrastructure Management. No business-domain reading fits.
+- tag: Amazon Web Services Dynamodb
+  spec_file: amazon-web-services-amazon-web-services-dynamodb-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: operation "amazonWebServicesUpdateTimeToLive  Amazon Web Services Updatetimetolive"
+  reason: Configuring TTL on a DynamoDB table is administration of managed cloud database infrastructure
+    — IT Infrastructure Management. Not a business capability in any industry sense.
+- tag: Amazon Web Services Identitystore
+  spec_file: amazon-web-services-amazon-web-services-identitystore-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: amazonWebServicesUpdateUser  Amazon Web Services Updateuser
+  reason: AWS Identity Store manages users and groups for SSO; UpdateUser is identity lifecycle administration,
+    mapping to Identity & Access Management rather than HR employee records.
+- tag: Clusters
+  spec_file: amazon-web-services-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: GET /clusters/{name}/node-groups Listnodegroups; GET /clusters/{name}/fargate-profiles Listfargateprofiles;
+    POST /clusters/{name}/encryption-config/associate
+  reason: Operations manage Kubernetes/container clusters, node groups, addons and Fargate profiles —
+    provisioning and stewardship of cloud compute infrastructure, i.e. IT Infrastructure Management. Some
+    access-entry/identity-provider ops hint at IAM but the dominant object is the cluster.
+- tag: Contact
+  spec_file: amazon-web-services-contact-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.8
+  evidence: PUT /contact/chat  amazonWebServicesStartChatContact; POST /contact/monitor  amazonWebServicesMonitorContact;
+    POST /contact/start-recording
+  reason: Operations start chat contacts, monitor, pause/resume contacts and control call recording within
+    an Amazon Connect instance — clearly contact-centre operations rather than CRM contact records.
+- tag: Detector
+  spec_file: amazon-web-services-detector-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.8
+  evidence: POST /detector/{detectorId}/findings/archive  amazonWebServicesArchiveFindings ... GET /detector/{detectorId}/threatintelset  amazonWebServicesListThreatIntelSets
+  reason: Detectors with findings, filters, IP sets and threat-intel sets are the GuardDuty threat-detection
+    surface — security monitoring, triage and response, i.e. Threat Detection & Response Management.
+- tag: Global Networks
+  spec_file: amazon-web-services-global-networks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: GET /global-networks/{globalNetworkId}/devices  Getdevices; GET /global-networks/{globalNetworkId}/links  Getlinks;
+    GET /global-networks/{globalNetworkId}/sites  Getsites; PATCH /global-networks/{globalNetworkId}/connections/{connectionId}  Updateconnection
+  reason: Operations manage a global network model of sites, devices, links, connections and transit-gateway
+    associations — this is network/cloud infrastructure management (AWS Network Manager), i.e. Cross-Industry
+    IT infrastructure, not any banking capability.
+- tag: Pindata
+  spec_file: amazon-web-services-pindata-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.8
+  evidence: POST /pindata/generate  amazonWebServicesGeneratePinData; POST /pindata/verify  amazonWebServicesVerifyPinData
+  reason: AWS Payment Cryptography PIN generation, translation and verification are card payment cryptographic
+    services; clearly Payments & Card Management, but the evidence spans both issuance-time PIN generation
+    and authorisation-time verification so no single L2 is named.
+- tag: Quick Connects
+  spec_file: amazon-web-services-quick-connects-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.8
+  evidence: GET /quick-connects/{InstanceId}/{QuickConnectId}  amazonWebServicesDescribeQuickConnect ...
+    POST /quick-connects/{InstanceId}/{QuickConnectId}/config
+  reason: Quick connects are Amazon Connect transfer destinations for agents, configured per contact-centre
+    instance and associated with queues — contact centre operations configuration.
+- tag: Federation
+  spec_file: amazon-web-services-federation-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /federation/credentials  amazonWebServicesGetRoleCredentials
+  reason: Issuing role credentials via a federation endpoint is federated identity and access management;
+    the service description also frames 'a federated user, an IAM user or role' access. Maps to Identity
+    & Access Management rather than any business-domain capability.
+- tag: Agents
+  spec_file: amazon-web-services-agents-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: amazonWebServicesListAgentKnowledgeBases; amazonWebServicesInvokeAgent; /agents/{agentId}/agentversions/{agentVersion}/actiongroups/
+  reason: Operations create/version/alias AI agents, attach knowledge bases and action groups, and invoke
+    agent sessions — this is generative-AI model/agent lifecycle tooling, mapping to Artificial Intelligence
+    Management rather than any human 'agent' capability.
+- tag: Amazon Web Services Codedeploy
+  spec_file: amazon-web-services-amazon-web-services-codedeploy-api-openapi.yml
+  capability_id: BC-4210.40
+  capability_id_l1: BC-4210
+  capability_name: Deployment Orchestration
+  confidence: 0.75
+  evidence: operation "amazonWebServicesUpdateDeploymentGroup" — Amazon Web Services Updatedeploymentgroup
+  reason: CodeDeploy deployment groups define how a software change is rolled out to target fleets, which
+    is deployment orchestration.
+- tag: Amazon Web Services Directconnect
+  spec_file: amazon-web-services-amazon-web-services-directconnect-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST / amazonWebServicesUpdateVirtualInterfaceAttributes — Amazon Web Services Updatevirtualinterfaceattributes
+  reason: Direct Connect manages dedicated network links and virtual interfaces into AWS; updating virtual
+    interface attributes is plainly network/cloud infrastructure management.
+- tag: Amazon Web Services Elasticache
+  spec_file: amazon-web-services-amazon-web-services-elasticache-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: operation "amazonWebServicesTestMigration  Amazon Web Services Testmigration" under tag "Amazon
+    Web Services Elasticache"
+  reason: ElastiCache is managed in-memory cache/data-store infrastructure; migration testing is an infrastructure
+    administration action. Maps to IT Infrastructure Management.
+- tag: Amazon Web Services Inspector
+  spec_file: amazon-web-services-amazon-web-services-inspector-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.75
+  evidence: amazonWebServicesUpdateAssessmentTarget  Amazon Web Services Updateassessmenttarget
+  reason: Amazon Inspector performs automated security assessment/vulnerability scanning of workloads;
+    updating an assessment target configures that scanning scope.
+- tag: Amazon Web Services Route53resolver
+  spec_file: amazon-web-services-amazon-web-services-route53resolver-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST amazonWebServicesUpdateResolverRule ("Amazon Web Services Updateresolverrule")
+  reason: Route 53 Resolver rules are DNS resolution configuration for VPC networking — plainly network/cloud
+    infrastructure management.
+- tag: Amazon Web Services Sso Admin
+  spec_file: amazon-web-services-amazon-web-services-sso-admin-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: operation "amazonWebServicesUpdateTrustedTokenIssuer  Amazon Web Services Updatetrustedtokenissuer"
+  reason: Single sign-on administration and trusted token issuer configuration is federation/identity
+    administration, squarely Identity & Access Management.
+- tag: Amazon Web Services Sts
+  spec_file: amazon-web-services-amazon-web-services-sts-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST / amazonWebServicesGetSessionToken 'Amazon Web Services Getsessiontoken'
+  reason: AWS Security Token Service issuing temporary session credentials is identity and access management
+    (credential/federation issuance), i.e. BC-620.20; some ambiguity as it is also generic auth plumbing.
+- tag: Brokers
+  spec_file: amazon-web-services-brokers-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: PUT /v1/brokers/{broker-id}  amazonWebServicesUpdateBroker ... POST /v1/brokers/{broker-id}/reboot  amazonWebServicesRebootBroker
+  reason: Lifecycle operations (list, update, promote, reboot) on managed message brokers — infrastructure
+    resource management. 'Broker' here is a messaging server, not a financial broker.
+- tag: Bucket
+  spec_file: amazon-web-services-bucket-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: PUT /v20180820/bucket/{name}/replication  amazonWebServicesPutBucketReplication
+  reason: Object-storage bucket creation/configuration (lifecycle, policy, replication, versioning) —
+    cloud storage infrastructure management.
+- tag: Model
+  spec_file: amazon-web-services-model-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: POST /model/{modelId}/invoke amazonWebServicesInvokeModel; POST /model/{modelId}/invoke-with-response-stream
+  reason: Model invocation (foundation-model inference) is AI/ML capability delivery, mapping to Artificial
+    Intelligence Management. Thin surface (two invoke operations) so moderate confidence.
+- tag: Permission Group
+  spec_file: amazon-web-services-permission-group-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: DELETE /permission-group/{permissionGroupId}/users/{userId} DisassociateUserFromPermissionGroup;
+    GET /permission-group/{permissionGroupId}/users ListUsersByPermissionGroup
+  reason: Operations manage permission groups and the association of users to them — access rights administration,
+    i.e. identity and access management.
+- tag: Policy
+  spec_file: amazon-web-services-policy-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /policy/check-access-not-granted amazonWebServicesCheckAccessNotGranted; POST /policy/validation
+    amazonWebServicesValidatePolicy; PUT /policy/{resourceArn}/ amazonWebServicesUpdateResourcePolicy
+  reason: Operations validate and check IAM/resource access policies and manage resource policy statements,
+    i.e. technical identity and access control administration.
+- tag: Routing Profiles
+  spec_file: amazon-web-services-routing-profiles-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.75
+  evidence: POST /routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues ... /agent-availability-timer
+    ... /default-outbound-queue
+  reason: 'These are Amazon Connect routing profiles: assigning contact queues, agent availability timers
+    and concurrency to agents — contact-centre operations configuration. Some ambiguity as it is platform
+    configuration rather than day-to-day centre running.'
+- tag: Appmonitor
+  spec_file: amazon-web-services-appmonitor-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.72
+  evidence: POST /appmonitor  amazonWebServicesCreateAppMonitor; POST /appmonitor/{Name}/data  amazonWebServicesGetAppMonitorData
+  reason: Creating and updating an application monitor and retrieving its monitoring data is real-user/application
+    monitoring of a running service, i.e. Observability Management. Some overlap with product telemetry
+    instrumentation keeps confidence below 0.8.
+- tag: Canary
+  spec_file: amazon-web-services-canary-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.72
+  evidence: POST /canary Createcanary; POST /canary/{name}/runs Getcanaryruns; POST /canary/{name}/start
+    Startcanary
+  reason: Creating, updating, starting/stopping canaries and reading their runs is lifecycle management
+    of synthetic monitors observing a running service, i.e. observability management.
+- tag: Codereviews
+  spec_file: amazon-web-services-codereviews-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.72
+  evidence: GET /codereviews ListCodeReviews; GET /codereviews/{CodeReviewArn}/Recommendations ListRecommendations
+  reason: Operations expose automated code reviews and their recommendations, which realises code-review
+    practice within software construction. Read-only and narrow, so confidence moderate; an argument could
+    be made for quality engineering instead.
+- tag: DeleteResourcePolicy
+  spec_file: amazon-web-services-deleteresourcepolicy-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: '"helps you to set, verify, and refine your IAM policies"; DELETE /DeleteResourcePolicy amazonWebServicesDeleteResourcePolicy'
+  reason: Operations delete a resource-based access policy, and the accompanying description is explicitly
+    about IAM policies granting access to principals — this is access control / entitlement administration,
+    mapping to Identity & Access Management. Confidence moderated because DeleteResourcePolicy exists
+    on several AWS services, though in all cases it governs access permissions.
+- tag: Principal Policies
+  spec_file: amazon-web-services-principal-policies-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: DELETE /principal-policies/{policyName} amazonWebServicesDetachPrincipalPolicy; GET /principal-policies
+    amazonWebServicesListPrincipalPolicies
+  reason: Operations attach/detach and list policies bound to a principal — access policy administration
+    for identities, i.e. Identity & Access Management. Not a banking capability despite the 'principal'
+    homograph.
+- tag: Sol
+  spec_file: amazon-web-services-sol-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: GET /sol/nslcm/v1/ns_instances Listsolnetworkinstances; GET /sol/vnfpkgm/v1/vnf_packages Listsolfunctionpackages
+  reason: ETSI SOL network-service and VNF package lifecycle operations (Telco Network Builder) — provisioning
+    and orchestration of network function infrastructure.
+- tag: Transit Gateway Peerings
+  spec_file: amazon-web-services-transit-gateway-peerings-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: POST /transit-gateway-peerings amazonWebServicesCreateTransitGatewayPeering
+  reason: Creating and reading transit gateway peerings is cloud network infrastructure provisioning,
+    which falls under IT Infrastructure Management (compute, storage, network, cloud).
+- tag: Transit Gateway Route Table Attachments
+  spec_file: amazon-web-services-transit-gateway-route-table-attachments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: POST /transit-gateway-route-table-attachments amazonWebServicesCreateTransitGatewayRouteTableAttachment
+  reason: Route table attachment creation/retrieval is cloud network routing configuration — IT infrastructure
+    (network/cloud) management, not any business-domain capability.
+- tag: identityProviders
+  spec_file: amazon-web-services-identityproviders-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: POST /identityProviders amazonWebServicesCreateIdentityProvider; PATCH /identityProviders/{identityProviderArn+}
+    amazonWebServicesUpdateIdentityProvider
+  reason: Operations create and update identity providers — federation configuration, which is squarely
+    Identity & Access Management, though the spec offers no further detail.
+- tag: 2020 05 31
+  spec_file: amazon-web-services-2020-05-31-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /2020-05-31/distribution  amazonWebServicesListDistributions ... GET /2020-05-31/cache-policy  amazonWebServicesListCachePolicies
+  reason: Operations create and list CDN distributions, cache policies, origin access identities and invalidations
+    — content delivery network infrastructure provisioning, i.e. cloud network/infrastructure management.
+- tag: 2020 11 20
+  spec_file: amazon-web-services-2020-11-20-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: GET /2020-11-20/projects/{projectName}/models  amazonWebServicesListModels ... POST /2020-11-20/projects/{projectName}/models/{modelVersion}/detect  amazonWebServicesDetectAnomalies
+  reason: Operations create datasets, describe/start models, run model packaging jobs and perform anomaly
+    detection — machine-learning model lifecycle and inference, matching AI/ML model lifecycle management.
+    Tag is a version date, so confidence is capped.
+- tag: 2021 01 01
+  spec_file: amazon-web-services-2021-01-01-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /2021-01-01/opensearch/domain  amazonWebServicesCreateDomain ... GET /2021-01-01/opensearch/vpcEndpoints  amazonWebServicesListVpcEndpoints
+  reason: Operations provision search service domains, VPC endpoints, inbound/outbound connections and
+    service software updates — managed cloud infrastructure provisioning and networking.
+- tag: Amazon Web Services Codecommit
+  spec_file: amazon-web-services-amazon-web-services-codecommit-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.7
+  evidence: operation "amazonWebServicesUpdateRepositoryName" — Amazon Web Services Updaterepositoryname
+  reason: CodeCommit is a managed Git source-control service and the operation renames a source repository,
+    which is source-control practice within software construction.
+- tag: Amazon Web Services Cognito Identity
+  spec_file: amazon-web-services-amazon-web-services-cognito-identity-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: operation "amazonWebServicesUpdateIdentityPool" — Amazon Web Services Updateidentitypool
+  reason: Cognito identity pools issue federated identities and credentials to application users; managing
+    them is identity and access management.
+- tag: Amazon Web Services Cognito Idp
+  spec_file: amazon-web-services-amazon-web-services-cognito-idp-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: operation "amazonWebServicesVerifyUserAttribute" — Amazon Web Services Verifyuserattribute
+  reason: Cognito user pools are an identity provider; verifying a user attribute (e.g. email/phone) is
+    part of user identity lifecycle and authentication, i.e. IAM.
+- tag: Amazon Web Services Cost Optimization Hub
+  spec_file: amazon-web-services-amazon-web-services-cost-optimization-hub-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.7
+  evidence: tag 'Amazon Web Services Cost Optimization Hub'; POST / amazonWebServicesUpdatePreferences
+  reason: The service is explicitly a cloud cost-optimisation hub; updating optimisation preferences is
+    IT financial management (cloud spend / cost optimisation) rather than any finance-department accounting
+    capability.
+- tag: Amazon Web Services Ecs
+  spec_file: amazon-web-services-amazon-web-services-ecs-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: operation "amazonWebServicesUpdateTaskSet  Amazon Web Services Updatetaskset"
+  reason: ECS task sets are units of container service deployment on managed compute, so this is cloud
+    compute/container infrastructure management. Deployment-orchestration is a plausible alternative reading,
+    so confidence is moderate.
+- tag: Amazon Web Services Kms
+  spec_file: amazon-web-services-amazon-web-services-kms-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: POST / amazonWebServicesVerifyMac  Amazon Web Services Verifymac
+  reason: KMS is a cryptographic key management service and the exposed operation verifies a message authentication
+    code — a security control function. L1 Cybersecurity Management only; the evidence does not pin a
+    specific sub-capability.
+- tag: Amazon Web Services Lightsail
+  spec_file: amazon-web-services-amazon-web-services-lightsail-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST / amazonWebServicesUpdateRelationalDatabaseParameters  Amazon Web Services Updaterelationaldatabaseparameters
+  reason: Lightsail provisions compute and managed relational database instances; updating relational
+    database parameters is cloud infrastructure management.
+- tag: Amazon Web Services Machinelearning
+  spec_file: amazon-web-services-amazon-web-services-machinelearning-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST / amazonWebServicesUpdateMLModel Amazon Web Services Updatemlmodel
+  reason: The tag is AWS Machine Learning and the operation updates an ML model, which is machine-learning
+    model lifecycle management (AI/ML management) rather than any industry business process. Only one
+    operation is visible, so confidence is moderate.
+- tag: Amazon Web Services Network Firewall
+  spec_file: amazon-web-services-amazon-web-services-network-firewall-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: POST / amazonWebServicesUpdateTLSInspectionConfiguration
+  reason: Managing network firewall TLS inspection configuration is a security control administration
+    surface, so it realises cybersecurity management. The evidence does not clearly distinguish security
+    architecture from threat detection, so no L2 is asserted.
+- tag: Amazon Web Services Sagemaker
+  spec_file: amazon-web-services-amazon-web-services-sagemaker-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: tag "Amazon Web Services Sagemaker"; POST amazonWebServicesUpdateWorkteam; vendor covers "AI/ML"
+  reason: SageMaker is AWS's ML platform (training, labelling workteams, deployment); the surface serves
+    AI/ML model lifecycle and MLOps.
+- tag: Amazon Web Services Storagegateway
+  spec_file: amazon-web-services-amazon-web-services-storagegateway-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: operation "amazonWebServicesUpdateVTLDeviceType  Amazon Web Services Updatevtldevicetype"
+  reason: Virtual tape library device configuration on Storage Gateway is hybrid storage infrastructure
+    administration, matching IT Infrastructure Management (compute, storage, network, cloud).
+- tag: Amazon Web Services Verifiedpermissions
+  spec_file: amazon-web-services-amazon-web-services-verifiedpermissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST / amazonWebServicesUpdatePolicyTemplate 'Amazon Web Services Updatepolicytemplate'
+  reason: Verified Permissions manages authorisation policy templates for application access decisions,
+    which is identity and access management; low-moderate confidence given only one operation is exposed.
+- tag: Analyzer
+  spec_file: amazon-web-services-analyzer-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: 'GET /analyzer amazonWebServicesListAnalyzers; GET /analyzer/{analyzerName}/archive-rule amazonWebServicesListArchiveRules;
+    description: ''helps you to set, verify, and refine your IAM policies'''
+  reason: Core IAM Access Analyzer resource management (analyzers and finding archive rules) supporting
+    review and refinement of IAM access policies — Identity & Access Management under Cybersecurity.
+- tag: Canaries
+  spec_file: amazon-web-services-canaries-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: POST /canaries  amazonWebServicesDescribeCanaries; POST /canaries/last-run  amazonWebServicesDescribeCanariesLastRun
+  reason: Canaries and their last-run results are synthetic monitoring probes (CloudWatch Synthetics),
+    which falls under observability management. The tag is not the accessanalyzer subject named in the
+    title; the operations win.
+- tag: Cardvalidationdata
+  spec_file: amazon-web-services-cardvalidationdata-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.7
+  evidence: POST /cardvalidationdata/generate  amazonWebServicesGenerateCardValidationData; POST /cardvalidationdata/verify  amazonWebServicesVerifyCardValidationData
+  reason: These are AWS Payment Cryptography operations generating and verifying payment-card validation
+    values (CVV/CVC), which is genuinely part of payment card management. Ambiguous whether it serves
+    issuance personalisation or transaction authorisation, so no L2 asserted.
+- tag: Cluster
+  spec_file: amazon-web-services-cluster-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /cluster amazonWebServicesCreateCluster ... PUT /cluster/{clusterArn} amazonWebServicesUpdateCluster
+  reason: Create/list/update/describe of compute clusters is provisioning and stewardship of cloud compute
+    infrastructure, matching IT Infrastructure Management.
+- tag: Contact Flow Modules
+  spec_file: amazon-web-services-contact-flow-modules-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: PUT /contact-flow-modules/{InstanceId}  amazonWebServicesCreateContactFlowModule
+  reason: Creating and updating contact flow modules configures IVR/routing flows in an Amazon Connect
+    contact centre — contact centre operations.
+- tag: Contact Flows
+  spec_file: amazon-web-services-contact-flows-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: PUT /contact-flows/{InstanceId}  amazonWebServicesCreateContactFlow
+  reason: Create/describe/update of contact flows and their content and metadata is configuration of contact-centre
+    call/chat routing flows.
+- tag: Contacts
+  spec_file: amazon-web-services-contacts-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: POST /contacts/{InstanceId}/{ContactId}/routing-data  amazonWebServicesUpdateContactRoutingData
+  reason: Updating a contact and its routing data within an Amazon Connect instance is contact-centre
+    contact handling and routing, not CRM contact-master data.
+- tag: Custom Models
+  spec_file: amazon-web-services-custom-models-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: GET /custom-models/{modelIdentifier}  amazonWebServicesGetCustomModel
+  reason: Retrieving and listing custom (fine-tuned) ML models is model-lifecycle management, matching
+    Artificial Intelligence Management. Read-only surface and no schema detail keeps confidence moderate.
+- tag: Findings
+  spec_file: amazon-web-services-findings-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: POST /findings/import amazonWebServicesBatchImportFindings; GET /findings/{findingId}/reveal
+    amazonWebServicesGetSensitiveDataOccurrences; POST /findings/statistics
+  reason: Operations import, list, aggregate and reveal security findings including sensitive-data occurrences
+    — clearly security detection and triage tooling. Sub-capability spans threat detection, data protection
+    and vulnerability findings, so L1 only.
+- tag: Identity Provider
+  spec_file: amazon-web-services-identity-provider-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /identity-provider/RegisterIdentityProvider; POST /identity-provider/UpdateIdentityProviderSettings;
+    ListIdentityProviders
+  reason: Registering, listing and configuring identity providers is identity federation administration,
+    which realises Identity & Access Management. Confidence tempered because the specific AWS service
+    and user-population scope are not stated.
+- tag: Logically Air Gapped Backup Vaults
+  spec_file: amazon-web-services-logically-air-gapped-backup-vaults-api-openapi.yml
+  capability_id: BC-4220.60
+  capability_id_l1: BC-4220
+  capability_name: Disaster Recovery & Resilience
+  confidence: 0.7
+  evidence: PUT /logically-air-gapped-backup-vaults/{backupVaultName}  amazonWebServicesCreateLogicallyAirGappedBackupVault
+  reason: Creating an air-gapped backup vault is backup/restore and resilience tooling for the running
+    service. Fits Disaster Recovery & Resilience; some ambiguity versus enterprise Business Continuity
+    DR, so not higher.
+- tag: Monitors
+  spec_file: amazon-web-services-monitors-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: GET /v20210603/Monitors/{MonitorName}/HealthEvents ListHealthEvents; POST /monitors/{monitorName}/probes
+    amazonWebServicesCreateProbe
+  reason: Monitors with health events, queries and synthetic probes are production observability/monitoring
+    of running services, matching Observability Management (logs, metrics, synthetic monitoring). Could
+    alternatively be read as generic IT operations monitoring, hence 0.7.
+- tag: Mrap
+  spec_file: amazon-web-services-mrap-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /v20180820/mrap/instances/{name+} amazonWebServicesGetMultiRegionAccessPoint; PATCH /v20180820/mrap/instances/{mrap+}/routes
+    SubmitMultiRegionAccessPointRoutes
+  reason: 'S3 Multi-Region Access Points: managing multi-region storage endpoints, their policies and
+    routing — cloud storage/infrastructure management.'
+- tag: Network Resources
+  spec_file: amazon-web-services-network-resources-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /v1/network-resources/configure amazonWebServicesConfigureAccessPoint; POST /v1/network-resources/update
+    StartNetworkResourceUpdate
+  reason: Provisioning and configuring network resources such as radio access points (AWS Private 5G)
+    is network/compute infrastructure management.
+- tag: Network Sites
+  spec_file: amazon-web-services-network-sites-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /v1/network-sites amazonWebServicesCreateNetworkSite; POST /v1/network-sites/activate
+    ActivateNetworkSite; PUT /v1/network-sites/plan UpdateNetworkSitePlan
+  reason: Creating, activating and planning private network sites is network infrastructure provisioning
+    and management, not a line-of-business capability.
+- tag: Outposts
+  spec_file: amazon-web-services-outposts-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /outposts  amazonWebServicesListOutposts ... GET /outposts/{OutpostId}/instanceTypes  amazonWebServicesGetOutpostInstanceTypes
+  reason: AWS Outposts operations list and update on-premises AWS hardware racks, their instance types
+    and physical assets — management of compute/storage/network infrastructure capacity.
+- tag: Queues Summary
+  spec_file: amazon-web-services-queues-summary-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: GET /queues-summary/{InstanceId}  amazonWebServicesListQueues
+  reason: Listing of contact-centre queues per Connect instance (same InstanceId-scoped queue resource
+    as the Connect Queues surface), supporting contact-centre operations. Thinner evidence than the main
+    Queues tag, hence lower confidence.
+- tag: Search Routing Profiles
+  spec_file: amazon-web-services-search-routing-profiles-api-openapi.yml
+  capability_id: BC-430.30
+  capability_id_l1: BC-430
+  capability_name: Contact Centre Operations Management
+  confidence: 0.7
+  evidence: POST /search-routing-profiles  amazonWebServicesSearchRoutingProfiles
+  reason: Routing profiles are the Amazon Connect construct assigning agents to queues/channels, squarely
+    contact-centre operations management.
+- tag: TraceGraph
+  spec_file: amazon-web-services-tracegraph-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: POST /TraceGraph  amazonWebServicesGetTraceGraph
+  reason: Distributed-tracing service graph retrieval is application observability tooling; Observability
+    Management covers 'Logs, metrics, traces'. Confidence moderated because the tag context is only one
+    operation.
+- tag: TraceSegments
+  spec_file: amazon-web-services-tracesegments-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: POST /TraceSegments  amazonWebServicesPutTraceSegments
+  reason: Submitting trace segments is ingestion of distributed-tracing telemetry, matching Observability
+    Management ('traces').
+- tag: TraceSummaries
+  spec_file: amazon-web-services-tracesummaries-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: POST /TraceSummaries  amazonWebServicesGetTraceSummaries
+  reason: Querying trace summaries is reading distributed-tracing data for running services — observability,
+    not a domain business function.
+- tag: Traces
+  spec_file: amazon-web-services-traces-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.7
+  evidence: POST /Traces  amazonWebServicesBatchGetTraces
+  reason: Batch retrieval of traces is consumption of tracing telemetry, aligning with Observability Management.
+- tag: Usageplans
+  spec_file: amazon-web-services-usageplans-api-openapi.yml
+  capability_id: BC-4270.50
+  capability_id_l1: BC-4270
+  capability_name: API Consumption Governance
+  confidence: 0.7
+  evidence: GET /usageplans/{usageplanId}/keys  amazonWebServicesGetUsagePlanKeys; GET /usageplans/{usageplanId}/usage  amazonWebServicesGetUsage
+  reason: API Gateway usage plans bind API keys to quotas/throttle limits and report consumption — this
+    is API consumption governance (quotas, rate limits, usage analytics) for a developer-facing API platform.
+    Some doubt remains because the operations are configuration primitives rather than a full governance
+    programme.
+- tag: Vpc Attachments
+  spec_file: amazon-web-services-vpc-attachments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /vpc-attachments amazonWebServicesCreateVpcAttachment
+  reason: Creating and updating VPC attachments is cloud network infrastructure provisioning, which maps
+    to IT Infrastructure Management. Confidence moderated because the surface is only two generic CRUD
+    operations.
+- tag: Vpc Connection
+  spec_file: amazon-web-services-vpc-connection-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /v1/vpc-connection amazonWebServicesCreateVpcConnection
+  reason: Creating and describing VPC connections is management of cloud network infrastructure resources
+    — IT Infrastructure Management. Thin surface keeps confidence moderate.
+- tag: securityControl
+  spec_file: amazon-web-services-securitycontrol-api-openapi.yml
+  capability_id: BC-620.10
+  capability_id_l1: BC-620
+  capability_name: Security Strategy & Governance Management
+  confidence: 0.7
+  evidence: GET /securityControl/definition  amazonWebServicesGetSecurityControlDefinition; PATCH /securityControl/update
+  reason: Retrieving and updating security control definitions is security control/standards governance
+    (AWS Security Hub controls), fitting security strategy & governance rather than a specific detection
+    or IAM sub-capability.
+- tag: securityControls
+  spec_file: amazon-web-services-securitycontrols-api-openapi.yml
+  capability_id: BC-620.10
+  capability_id_l1: BC-620
+  capability_name: Security Strategy & Governance Management
+  confidence: 0.7
+  evidence: GET /securityControls/definitions  amazonWebServicesListSecurityControlDefinitions; POST /securityControls/batchGet
+  reason: Batch retrieval and listing of security control definitions is management of the security control
+    framework/standards, mapping to security governance.
