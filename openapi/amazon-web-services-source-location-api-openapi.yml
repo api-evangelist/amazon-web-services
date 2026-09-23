@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services mediatailor Source Location API
+  description: Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels.
+tags:
+- name: Source Location
+paths:
+  /sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}:
+    PUT:
+      summary: Amazon Web Services Updatelivesource
+      description: Updates a live source's configuration.
+      operationId: amazonWebServicesUpdateLiveSource
+      tags:
+      - Source Location
+  /sourceLocation/{SourceLocationName}:
+    PUT:
+      summary: Amazon Web Services Updatesourcelocation
+      description: Updates a source location. A source location is a container for sources. For more information about source locations, see Working with source locations in the MediaTailor User Guide.
+      operationId: amazonWebServicesUpdateSourceLocation
+      tags:
+      - Source Location
+  /sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}:
+    PUT:
+      summary: Amazon Web Services Updatevodsource
+      description: Updates a VOD source's configuration.
+      operationId: amazonWebServicesUpdateVodSource
+      tags:
+      - Source Location
+  /sourceLocation/{SourceLocationName}/liveSources:
+    GET:
+      summary: Amazon Web Services Listlivesources
+      description: Lists the live sources contained in a source location. A source represents a piece of content.
+      operationId: amazonWebServicesListLiveSources
+      tags:
+      - Source Location
+  /sourceLocation/{SourceLocationName}/vodSources:
+    GET:
+      summary: Amazon Web Services Listvodsources
+      description: Lists the VOD sources contained in a source location. A source represents a piece of content.
+      operationId: amazonWebServicesListVodSources
+      tags:
+      - Source Location

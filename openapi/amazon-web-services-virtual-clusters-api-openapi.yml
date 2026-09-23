@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services emr-containers Virtualclusters API
+  description: Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
+tags:
+- name: Virtual Clusters
+paths:
+  /virtualclusters/{virtualClusterId}/jobruns/{jobRunId}:
+    GET:
+      summary: Amazon Web Services Describejobrun
+      description: Displays detailed information about a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
+      operationId: amazonWebServicesDescribeJobRun
+      tags:
+      - Virtual Clusters
+  /virtualclusters/{virtualClusterId}/endpoints:
+    GET:
+      summary: Amazon Web Services Listmanagedendpoints
+      description: Lists managed endpoints based on a set of parameters. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.
+      operationId: amazonWebServicesListManagedEndpoints
+      tags:
+      - Virtual Clusters
+  /virtualclusters:
+    GET:
+      summary: Amazon Web Services Listvirtualclusters
+      description: Lists information about the specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
+      operationId: amazonWebServicesListVirtualClusters
+      tags:
+      - Virtual Clusters
+  /virtualclusters/{virtualClusterId}/endpoints/{endpointId}:
+    GET:
+      summary: Amazon Web Services Describemanagedendpoint
+      description: Displays detailed information about a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.
+      operationId: amazonWebServicesDescribeManagedEndpoint
+      tags:
+      - Virtual Clusters
+  /virtualclusters/{virtualClusterId}:
+    GET:
+      summary: Amazon Web Services Describevirtualcluster
+      description: Displays detailed information about a specified virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any additional resource in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
+      operationId: amazonWebServicesDescribeVirtualCluster
+      tags:
+      - Virtual Clusters
+  /virtualclusters/{virtualClusterId}/endpoints/{endpointId}/credentials:
+    POST:
+      summary: Amazon Web Services Getmanagedendpointsessioncredentials
+      description: Generate a session token to connect to a managed endpoint.
+      operationId: amazonWebServicesGetManagedEndpointSessionCredentials
+      tags:
+      - Virtual Clusters
+  /virtualclusters/{virtualClusterId}/jobruns:
+    POST:
+      summary: Amazon Web Services Startjobrun
+      description: Starts a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.
+      operationId: amazonWebServicesStartJobRun
+      tags:
+      - Virtual Clusters

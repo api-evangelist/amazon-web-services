@@ -1,0 +1,35 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services cleanrooms Configured Tables API
+  description: Welcome to the Clean Rooms API Reference.
+tags:
+- name: Configured Tables
+paths:
+  /configuredTables:
+    GET:
+      summary: Amazon Web Services Listconfiguredtables
+      description: Lists configured tables.
+      operationId: amazonWebServicesListConfiguredTables
+      tags:
+      - Configured Tables
+  /configuredTables/{configuredTableIdentifier}/analysisRule:
+    POST:
+      summary: Amazon Web Services Createconfiguredtableanalysisrule
+      description: Creates a new analysis rule for a configured table. Currently, only one analysis rule can be created for a given configured table.
+      operationId: amazonWebServicesCreateConfiguredTableAnalysisRule
+      tags:
+      - Configured Tables
+  /configuredTables/{configuredTableIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateconfiguredtable
+      description: Updates a configured table.
+      operationId: amazonWebServicesUpdateConfiguredTable
+      tags:
+      - Configured Tables
+  /configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}:
+    PATCH:
+      summary: Amazon Web Services Updateconfiguredtableanalysisrule
+      description: Updates a configured table analysis rule.
+      operationId: amazonWebServicesUpdateConfiguredTableAnalysisRule
+      tags:
+      - Configured Tables

@@ -1,0 +1,39 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services Apikeys API
+  version: '1.0'
+  description: 'Operations tagged Apikeys across 2 of this provider''s published API definitions: apigateway-openapi-original.yml, appsync-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: API Keys
+paths:
+  /apikeys:
+    GET:
+      summary: Amazon Web Services Getapikeys
+      description: Gets information about the current ApiKeys resource.
+      operationId: amazonWebServicesGetApiKeys
+      tags:
+      - API Keys
+  /apikeys/{api_Key}:
+    PATCH:
+      summary: Amazon Web Services Updateapikey
+      description: Changes information about an ApiKey resource.
+      operationId: amazonWebServicesUpdateApiKey
+      tags:
+      - API Keys
+  /v1/apis/{apiId}/apikeys:
+    GET:
+      summary: Amazon Web Services Listapikeys
+      description: Lists the API keys for a given API. API keys are deleted automatically 60 days after they expire. However, they may still be included in the response until they have actually been deleted. You can safely call DeleteApiKey to manually delete a key before it's automatically deleted.
+      operationId: amazonWebServicesListApiKeys
+      tags:
+      - API Keys
+  /v1/apis/{apiId}/apikeys/{id}:
+    POST:
+      summary: Amazon Web Services Updateapikey
+      description: Updates an API key. You can update the key as long as it's not deleted.
+      operationId: amazonWebServicesUpdateApiKey
+      tags:
+      - API Keys
+x-refined-from:
+- apigateway-openapi-original.yml
+- appsync-openapi-original.yml

@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 Instance API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services Instance API
+  version: '1.0'
+  description: 'Operations tagged Instance across 2 of this provider''s published API definitions: connect-openapi-original.yml, license-manager-user-subscriptions-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Instance
 paths:
@@ -15,7 +16,7 @@ paths:
   /instance/{InstanceId}/bot:
     POST:
       summary: Amazon Web Services Disassociatebot
-      description: 'This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. '
+      description: This API is in preview release for Amazon Connect and is subject to change. Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot.
       operationId: amazonWebServicesDisassociateBot
       tags:
       - Instance
@@ -71,14 +72,14 @@ paths:
   /instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases:
     GET:
       summary: Amazon Web Services Listusecases
-      description: 'Lists the use cases for the integration association. '
+      description: Lists the use cases for the integration association.
       operationId: amazonWebServicesListUseCases
       tags:
       - Instance
   /instance/{InstanceId}:
     GET:
       summary: Amazon Web Services Describeinstance
-      description: This API is in preview release for Amazon Connect and is subject to change. Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status, if applicable.  If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status, if applicable. If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.
       operationId: amazonWebServicesDescribeInstance
       tags:
       - Instance
@@ -162,7 +163,7 @@ paths:
   /instance/{InstanceId}/lex-bots:
     GET:
       summary: Amazon Web Services Listlexbots
-      description: 'This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the ListBots API. '
+      description: This API is in preview release for Amazon Connect and is subject to change. Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the ListBots API.
       operationId: amazonWebServicesListLexBots
       tags:
       - Instance
@@ -176,7 +177,7 @@ paths:
   /instance/{InstanceId}/replicate:
     POST:
       summary: Amazon Web Services Replicateinstance
-      description: Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions.  For more information about replicating an Amazon Connect instance, see Create a replica of your existing Amazon Connect instance in the Amazon Connect Administrator Guide.
+      description: Replicates an Amazon Connect instance in the specified Amazon Web Services Region and copies configuration information for Amazon Connect resources across Amazon Web Services Regions. For more information about replicating an Amazon Connect instance, see Create a replica of your existing Amazon Connect instance in the Amazon Connect Administrator Guide.
       operationId: amazonWebServicesReplicateInstance
       tags:
       - Instance
@@ -187,3 +188,6 @@ paths:
       operationId: amazonWebServicesListInstances
       tags:
       - Instance
+x-refined-from:
+- connect-openapi-original.yml
+- license-manager-user-subscriptions-openapi-original.yml

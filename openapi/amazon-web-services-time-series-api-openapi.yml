@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services iotsitewise Timeseries API
+  description: Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects Industrial Internet of Things (IIoT) devices to the power of the Amazon Web Services Cloud. For more information, see the IoT SiteWise User Guide. For information about IoT SiteWise quotas, see Quotas in the IoT SiteWise User Guide.
+tags:
+- name: Time Series
+paths:
+  /timeseries/associate/:
+    POST:
+      summary: Amazon Web Services Associatetimeseriestoassetproperty
+      description: Associates a time series (data stream) with an asset property.
+      operationId: amazonWebServicesAssociateTimeSeriesToAssetProperty
+      tags:
+      - Time Series
+  /timeseries/delete/:
+    POST:
+      summary: Amazon Web Services Deletetimeseries
+      description: 'Deletes a time series (data stream). If you delete a time series that''s associated with an asset property, the asset property still exists, but the time series will no longer be associated with this asset property. To identify a time series, do one of the following: If the time series isn''t associated with an asset property, specify the alias of the time series. If the time series is associated with an asset property, specify one of the following: The alias of the time series. The assetId and propertyId that identifies the asset property.'
+      operationId: amazonWebServicesDeleteTimeSeries
+      tags:
+      - Time Series
+  /timeseries/describe/:
+    GET:
+      summary: Amazon Web Services Describetimeseries
+      description: 'Retrieves information about a time series (data stream). To identify a time series, do one of the following: If the time series isn''t associated with an asset property, specify the alias of the time series. If the time series is associated with an asset property, specify one of the following: The alias of the time series. The assetId and propertyId that identifies the asset property.'
+      operationId: amazonWebServicesDescribeTimeSeries
+      tags:
+      - Time Series
+  /timeseries/disassociate/:
+    POST:
+      summary: Amazon Web Services Disassociatetimeseriesfromassetproperty
+      description: Disassociates a time series (data stream) from an asset property.
+      operationId: amazonWebServicesDisassociateTimeSeriesFromAssetProperty
+      tags:
+      - Time Series
+  /timeseries/:
+    GET:
+      summary: Amazon Web Services Listtimeseries
+      description: Retrieves a paginated list of time series (data streams).
+      operationId: amazonWebServicesListTimeSeries
+      tags:
+      - Time Series

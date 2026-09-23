@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 Projects API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services Projects API
+  version: '1.0'
+  description: 'Operations tagged Projects across 5 of this provider''s published API definitions: databrew-openapi-original.yml, evidently-openapi-original.yml, iot1click-projects-openapi-original.yml, iotsitewise-openapi-original.yml, mobile-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Projects
 paths:
@@ -36,7 +37,7 @@ paths:
   /projects/{project}/evaluations:
     POST:
       summary: Amazon Web Services Batchevaluatefeature
-      description: This operation assigns feature variation to user sessions. For each user session, you pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. Next, if there is a launch of the feature, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment.  If the user is not assigned to a launch or experiment, they are served the default variation.
+      description: This operation assigns feature variation to user sessions. For each user session, you pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. Next, if there is a launch of the feature, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment. If the user is not assigned to a launch or experiment, they are served the default variation.
       operationId: amazonWebServicesBatchEvaluateFeature
       tags:
       - Projects
@@ -64,35 +65,35 @@ paths:
   /projects/{project}/experiments/{experiment}:
     PATCH:
       summary: Amazon Web Services Updateexperiment
-      description: 'Updates an Evidently experiment.  Don''t use this operation to update an experiment''s tag. Instead, use TagResource. '
+      description: Updates an Evidently experiment. Don't use this operation to update an experiment's tag. Instead, use TagResource.
       operationId: amazonWebServicesUpdateExperiment
       tags:
       - Projects
   /projects/{project}/features/{feature}:
     PATCH:
       summary: Amazon Web Services Updatefeature
-      description: 'Updates an existing feature. You can''t use this operation to update the tags of an existing feature. Instead, use TagResource. '
+      description: Updates an existing feature. You can't use this operation to update the tags of an existing feature. Instead, use TagResource.
       operationId: amazonWebServicesUpdateFeature
       tags:
       - Projects
   /projects/{project}/launches/{launch}:
     PATCH:
       summary: Amazon Web Services Updatelaunch
-      description: 'Updates a launch of a given feature.  Don''t use this operation to update the tags of an existing launch. Instead, use TagResource. '
+      description: Updates a launch of a given feature. Don't use this operation to update the tags of an existing launch. Instead, use TagResource.
       operationId: amazonWebServicesUpdateLaunch
       tags:
       - Projects
   /projects/{project}:
     PATCH:
       summary: Amazon Web Services Updateproject
-      description: 'Updates the description of an existing project. To create a new project, use CreateProject. Don''t use this operation to update the data storage options of a project. Instead, use UpdateProjectDataDelivery.  Don''t use this operation to update the tags of a project. Instead, use TagResource. '
+      description: Updates the description of an existing project. To create a new project, use CreateProject. Don't use this operation to update the data storage options of a project. Instead, use UpdateProjectDataDelivery. Don't use this operation to update the tags of a project. Instead, use TagResource.
       operationId: amazonWebServicesUpdateProject
       tags:
       - Projects
   /projects/{project}/evaluations/{feature}:
     POST:
       summary: Amazon Web Services Evaluatefeature
-      description: This operation assigns a feature variation to one given user session. You pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. If there is a current launch with this feature that uses segment overrides, and if the user session's evaluationContext matches a segment rule defined in a segment override, the configuration in the segment overrides is used. For more information about segments, see CreateSegment and Use segments to focus your audience. If there is a launch with no segment overrides, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the experiment uses a segment, then only user sessions with evaluationContext values that match the segment rule are used in the experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment.  If the user is not assigned to a launch or experiment, they are served the default variation.
+      description: This operation assigns a feature variation to one given user session. You pass in an entityID that represents the user. Evidently then checks the evaluation rules and assigns the variation. The first rules that are evaluated are the override rules. If the user's entityID matches an override rule, the user is served the variation specified by that rule. If there is a current launch with this feature that uses segment overrides, and if the user session's evaluationContext matches a segment rule defined in a segment override, the configuration in the segment overrides is used. For more information about segments, see CreateSegment and Use segments to focus your audience. If there is a launch with no segment overrides, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch. If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the experiment uses a segment, then only user sessions with evaluationContext values that match the segment rule are used in the experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment. If the user is not assigned to a launch or experiment, they are served the default variation.
       operationId: amazonWebServicesEvaluateFeature
       tags:
       - Projects
@@ -196,7 +197,7 @@ paths:
       - Projects
     DELETE:
       summary: Amazon Web Services Deleteproject
-      description: ' Delets a project in AWS Mobile Hub. '
+      description: Delets a project in AWS Mobile Hub.
       operationId: amazonWebServicesDeleteProject
       tags:
       - Projects
@@ -207,3 +208,9 @@ paths:
       operationId: amazonWebServicesListProjectAssets
       tags:
       - Projects
+x-refined-from:
+- databrew-openapi-original.yml
+- evidently-openapi-original.yml
+- iot1click-projects-openapi-original.yml
+- iotsitewise-openapi-original.yml
+- mobile-openapi-original.yml

@@ -1,0 +1,24 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services polly Synthesis Tasks API
+  description: 'Amazon Polly is a web service that makes it easy to synthesize speech from text.
+
+
+    The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.'
+tags:
+- name: Synthesis Tasks
+paths:
+  /v1/synthesisTasks/{TaskId}:
+    GET:
+      summary: Amazon Web Services Getspeechsynthesistask
+      description: Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.
+      operationId: amazonWebServicesGetSpeechSynthesisTask
+      tags:
+      - Synthesis Tasks
+  /v1/synthesisTasks:
+    POST:
+      summary: Amazon Web Services Startspeechsynthesistask
+      description: Allows the creation of an asynchronous synthesis task, by starting a new SpeechSynthesisTask. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status. The SpeechSynthesisTask object is available for 72 hours after starting the asynchronous synthesis task.
+      operationId: amazonWebServicesStartSpeechSynthesisTask
+      tags:
+      - Synthesis Tasks

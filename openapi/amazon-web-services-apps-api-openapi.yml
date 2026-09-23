@@ -1,119 +1,120 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 Apps API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services Apps API
+  version: '1.0'
+  description: 'Operations tagged Apps across 2 of this provider''s published API definitions: amplify-openapi-original.yml, pinpoint-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Apps
 paths:
   /apps:
     GET:
       summary: Amazon Web Services Listapps
-      description: 'Returns a list of the existing Amplify apps. '
+      description: Returns a list of the existing Amplify apps.
       operationId: amazonWebServicesListApps
       tags:
       - Apps
   /apps/{appId}/backendenvironments:
     GET:
       summary: Amazon Web Services Listbackendenvironments
-      description: 'Lists the backend environments for an Amplify app. '
+      description: Lists the backend environments for an Amplify app.
       operationId: amazonWebServicesListBackendEnvironments
       tags:
       - Apps
   /apps/{appId}/branches:
     GET:
       summary: Amazon Web Services Listbranches
-      description: ' Lists the branches of an Amplify app. '
+      description: Lists the branches of an Amplify app.
       operationId: amazonWebServicesListBranches
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/deployments:
     POST:
       summary: Amazon Web Services Createdeployment
-      description: Creates a deployment for a manually deployed Amplify app. Manually deployed apps are not connected to a repository.  The maximum duration between the CreateDeployment call and the StartDeployment call cannot exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment call and the associated Job will fail.
+      description: Creates a deployment for a manually deployed Amplify app. Manually deployed apps are not connected to a repository. The maximum duration between the CreateDeployment call and the StartDeployment call cannot exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment call and the associated Job will fail.
       operationId: amazonWebServicesCreateDeployment
       tags:
       - Apps
   /apps/{appId}/domains:
     GET:
       summary: Amazon Web Services Listdomainassociations
-      description: ' Returns the domain associations for an Amplify app. '
+      description: Returns the domain associations for an Amplify app.
       operationId: amazonWebServicesListDomainAssociations
       tags:
       - Apps
   /apps/{appId}/webhooks:
     GET:
       summary: Amazon Web Services Listwebhooks
-      description: 'Returns a list of webhooks for an Amplify app. '
+      description: Returns a list of webhooks for an Amplify app.
       operationId: amazonWebServicesListWebhooks
       tags:
       - Apps
   /apps/{appId}:
     POST:
       summary: Amazon Web Services Updateapp
-      description: 'Updates an existing Amplify app. '
+      description: Updates an existing Amplify app.
       operationId: amazonWebServicesUpdateApp
       tags:
       - Apps
   /apps/{appId}/backendenvironments/{environmentName}:
     GET:
       summary: Amazon Web Services Getbackendenvironment
-      description: 'Returns a backend environment for an Amplify app. '
+      description: Returns a backend environment for an Amplify app.
       operationId: amazonWebServicesGetBackendEnvironment
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}:
     POST:
       summary: Amazon Web Services Updatebranch
-      description: ' Updates a branch for an Amplify app. '
+      description: Updates a branch for an Amplify app.
       operationId: amazonWebServicesUpdateBranch
       tags:
       - Apps
   /apps/{appId}/domains/{domainName}:
     POST:
       summary: Amazon Web Services Updatedomainassociation
-      description: ' Creates a new domain association for an Amplify app.'
+      description: Creates a new domain association for an Amplify app.
       operationId: amazonWebServicesUpdateDomainAssociation
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/jobs/{jobId}:
     GET:
       summary: Amazon Web Services Getjob
-      description: ' Returns a job for a branch of an Amplify app. '
+      description: Returns a job for a branch of an Amplify app.
       operationId: amazonWebServicesGetJob
       tags:
       - Apps
   /apps/{appId}/accesslogs:
     POST:
       summary: Amazon Web Services Generateaccesslogs
-      description: 'Returns the website access logs for a specific time range using a presigned URL. '
+      description: Returns the website access logs for a specific time range using a presigned URL.
       operationId: amazonWebServicesGenerateAccessLogs
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts:
     GET:
       summary: Amazon Web Services Listartifacts
-      description: 'Returns a list of artifacts for a specified app, branch, and job. '
+      description: Returns a list of artifacts for a specified app, branch, and job.
       operationId: amazonWebServicesListArtifacts
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/jobs:
     POST:
       summary: Amazon Web Services Startjob
-      description: ' Starts a new job for a branch of an Amplify app. '
+      description: Starts a new job for a branch of an Amplify app.
       operationId: amazonWebServicesStartJob
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/deployments/start:
     POST:
       summary: Amazon Web Services Startdeployment
-      description: Starts a deployment for a manually deployed app. Manually deployed apps are not connected to a repository.  The maximum duration between the CreateDeployment call and the StartDeployment call cannot exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment call and the associated Job will fail.
+      description: Starts a deployment for a manually deployed app. Manually deployed apps are not connected to a repository. The maximum duration between the CreateDeployment call and the StartDeployment call cannot exceed 8 hours. If the duration exceeds 8 hours, the StartDeployment call and the associated Job will fail.
       operationId: amazonWebServicesStartDeployment
       tags:
       - Apps
   /apps/{appId}/branches/{branchName}/jobs/{jobId}/stop:
     DELETE:
       summary: Amazon Web Services Stopjob
-      description: ' Stops a job that is in progress for a branch of an Amplify app. '
+      description: Stops a job that is in progress for a branch of an Amplify app.
       operationId: amazonWebServicesStopJob
       tags:
       - Apps
@@ -474,3 +475,6 @@ paths:
       operationId: amazonWebServicesVerifyOTPMessage
       tags:
       - Apps
+x-refined-from:
+- amplify-openapi-original.yml
+- pinpoint-openapi-original.yml

@@ -1,21 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 Domains API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services Domains API
+  version: '1.0'
+  description: 'Operations tagged Domains across 4 of this provider''s published API definitions: codeartifact-openapi-original.yml, connectcases-openapi-original.yml, customer-profiles-openapi-original.yml, datazone-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Domains
 paths:
   /v1/domains:
     POST:
       summary: Amazon Web Services Listdomains
-      description: ' Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes this call. Each returned DomainSummary object contains information about a domain. '
+      description: Returns a list of DomainSummary objects for all domains owned by the Amazon Web Services account that makes this call. Each returned DomainSummary object contains information about a domain.
       operationId: amazonWebServicesListDomains
       tags:
       - Domains
   /domains/{domainId}/fields-batch:
     POST:
       summary: Amazon Web Services Batchgetfield
-      description: 'Returns the description for the list of fields in the request parameters. '
+      description: Returns the description for the list of fields in the request parameters.
       operationId: amazonWebServicesBatchGetField
       tags:
       - Domains
@@ -29,14 +30,14 @@ paths:
   /domains/{domainId}/cases:
     POST:
       summary: Amazon Web Services Createcase
-      description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.&lt;/p&gt; &lt;p&gt;The following fields are required when creating a case:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You must provide the full customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;title&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; '
+      description: 'If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide <p>Creates a case in the specified Cases domain. Case system and custom fields are taken as an array id/value pairs with a declared data types.</p> <p>The following fields are required when creating a case:</p> <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul>'
       operationId: amazonWebServicesCreateCase
       tags:
       - Domains
   /domains:
     POST:
       summary: Amazon Web Services Createdomain
-      description: 'Creates a domain, which is a container for all case data, such as cases, fields, templates and layouts. Each Amazon Connect instance can be associated with only one Cases domain.  This will not associate your connect instance to Cases domain. Instead, use the Amazon Connect CreateIntegrationAssociation API. You need specific IAM permissions to successfully associate the Cases domain. For more information, see Onboard to Cases.  &lt;/important&gt; '
+      description: Creates a domain, which is a container for all case data, such as cases, fields, templates and layouts. Each Amazon Connect instance can be associated with only one Cases domain. This will not associate your connect instance to Cases domain. Instead, use the Amazon Connect CreateIntegrationAssociation API. You need specific IAM permissions to successfully associate the Cases domain. For more information, see Onboard to Cases. </important>
       operationId: amazonWebServicesCreateDomain
       tags:
       - Domains
@@ -49,21 +50,21 @@ paths:
   /domains/{domainId}/fields:
     POST:
       summary: Amazon Web Services Createfield
-      description: 'Creates a field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain. '
+      description: Creates a field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.
       operationId: amazonWebServicesCreateField
       tags:
       - Domains
   /domains/{domainId}/layouts:
     POST:
       summary: Amazon Web Services Createlayout
-      description: 'Creates a layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface:   Fields to display to the users   Field ordering    Title and Status fields cannot be part of layouts since they are not configurable. '
+      description: 'Creates a layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users Field ordering Title and Status fields cannot be part of layouts since they are not configurable.'
       operationId: amazonWebServicesCreateLayout
       tags:
       - Domains
   /domains/{domainId}/cases/{caseId}/related-items/:
     POST:
       summary: Amazon Web Services Createrelateditem
-      description: 'Creates a related item (comments, tasks, and contacts) and associates it with a case.    A Related Item is a resource that is associated with a case. It may or may not have an external identifier linking it to an external resource (for example, a contactArn). All Related Items have their own internal identifier, the relatedItemArn. Examples of related items include comments and contacts.   If you provide a value for performedBy.userArn you must also have DescribeUser permission on the ARN of the user that you provide.    &lt;/note&gt; '
+      description: Creates a related item (comments, tasks, and contacts) and associates it with a case. A Related Item is a resource that is associated with a case. It may or may not have an external identifier linking it to an external resource (for example, a contactArn). All Related Items have their own internal identifier, the relatedItemArn. Examples of related items include comments and contacts. If you provide a value for performedBy.userArn you must also have DescribeUser permission on the ARN of the user that you provide. </note>
       operationId: amazonWebServicesCreateRelatedItem
       tags:
       - Domains
@@ -77,14 +78,14 @@ paths:
   /domains/{domainId}:
     POST:
       summary: Amazon Web Services Getdomain
-      description: 'Returns information about a specific domain if it exists. '
+      description: Returns information about a specific domain if it exists.
       operationId: amazonWebServicesGetDomain
       tags:
       - Domains
   /domains/{domainId}/cases/{caseId}:
     PUT:
       summary: Amazon Web Services Updatecase
-      description: ' If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide   &lt;p&gt;Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the &lt;code&gt;CreateCase&lt;/code&gt; input .&lt;/p&gt; &lt;p&gt;If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.&lt;/p&gt; '
+      description: If you provide a value for PerformedBy.UserArn you must also have connect:DescribeUser permission on the User ARN resource that you provide <p>Updates the values of fields on a case. Fields to be updated are received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p> <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
       operationId: amazonWebServicesUpdateCase
       tags:
       - Domains
@@ -98,14 +99,14 @@ paths:
   /domains/{domainId}/case-event-configuration:
     PUT:
       summary: Amazon Web Services Putcaseeventconfiguration
-      description: 'Adds case event publishing configuration. For a complete list of fields you can add to the event message, see Create case fields in the Amazon Connect Administrator Guide '
+      description: Adds case event publishing configuration. For a complete list of fields you can add to the event message, see Create case fields in the Amazon Connect Administrator Guide
       operationId: amazonWebServicesPutCaseEventConfiguration
       tags:
       - Domains
   /domains/{domainId}/layouts/{layoutId}:
     PUT:
       summary: Amazon Web Services Updatelayout
-      description: 'Updates the attributes of an existing layout. If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body. A ValidationException is returned when you add non-existent fieldIds to a layout.  Title and Status fields cannot be part of layouts because they are not configurable. '
+      description: Updates the attributes of an existing layout. If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body. A ValidationException is returned when you add non-existent fieldIds to a layout. Title and Status fields cannot be part of layouts because they are not configurable.
       operationId: amazonWebServicesUpdateLayout
       tags:
       - Domains
@@ -126,7 +127,7 @@ paths:
   /domains/{domainId}/fields/{fieldId}/options-list:
     POST:
       summary: Amazon Web Services Listfieldoptions
-      description: 'Lists all of the field options for a field identifier in the domain. '
+      description: Lists all of the field options for a field identifier in the domain.
       operationId: amazonWebServicesListFieldOptions
       tags:
       - Domains
@@ -147,28 +148,28 @@ paths:
   /domains/{domainId}/templates-list:
     POST:
       summary: Amazon Web Services Listtemplates
-      description: 'Lists all of the templates in a Cases domain. Each list item is a condensed summary object of the template. '
+      description: Lists all of the templates in a Cases domain. Each list item is a condensed summary object of the template.
       operationId: amazonWebServicesListTemplates
       tags:
       - Domains
   /domains/{domainId}/cases-search:
     POST:
       summary: Amazon Web Services Searchcases
-      description: 'Searches for cases within their associated Cases domain. Search results are returned as a paginated list of abridged case documents.  For customer_id you must provide the full customer profile ARN in this format:  arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain name/profiles/profile ID.  '
+      description: 'Searches for cases within their associated Cases domain. Search results are returned as a paginated list of abridged case documents. For customer_id you must provide the full customer profile ARN in this format: arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain name/profiles/profile ID.'
       operationId: amazonWebServicesSearchCases
       tags:
       - Domains
   /domains/{domainId}/cases/{caseId}/related-items-search:
     POST:
       summary: Amazon Web Services Searchrelateditems
-      description: 'Searches for related items that are associated with a case.  If no filters are provided, this returns all related items associated with a case. '
+      description: Searches for related items that are associated with a case. If no filters are provided, this returns all related items associated with a case.
       operationId: amazonWebServicesSearchRelatedItems
       tags:
       - Domains
   /domains/{domainId}/fields/{fieldId}:
     PUT:
       summary: Amazon Web Services Updatefield
-      description: 'Updates the properties of an existing field. '
+      description: Updates the properties of an existing field.
       operationId: amazonWebServicesUpdateField
       tags:
       - Domains
@@ -189,7 +190,7 @@ paths:
   /domains/{DomainName}:
     PUT:
       summary: Amazon Web Services Updatedomain
-      description: 'Updates the properties of a domain, including creating or selecting a dead letter queue or an encryption key. After a domain is created, the name can’t be changed. Use this API or CreateDomain to enable identity resolution: set Matching to true. To prevent cross-service impersonation when you call this API, see Cross-service confused deputy prevention for sample policies that you should apply.  To add or remove tags on an existing Domain, see TagResource/UntagResource.'
+      description: 'Updates the properties of a domain, including creating or selecting a dead letter queue or an encryption key. After a domain is created, the name can’t be changed. Use this API or CreateDomain to enable identity resolution: set Matching to true. To prevent cross-service impersonation when you call this API, see Cross-service confused deputy prevention for sample policies that you should apply. To add or remove tags on an existing Domain, see TagResource/UntagResource.'
       operationId: amazonWebServicesUpdateDomain
       tags:
       - Domains
@@ -203,7 +204,7 @@ paths:
   /domains/{DomainName}/workflows/integrations:
     POST:
       summary: Amazon Web Services Createintegrationworkflow
-      description: ' Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo. '
+      description: Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
       operationId: amazonWebServicesCreateIntegrationWorkflow
       tags:
       - Domains
@@ -245,7 +246,7 @@ paths:
   /domains/{DomainName}/object-types/{ObjectTypeName}:
     PUT:
       summary: Amazon Web Services Putprofileobjecttype
-      description: Defines a ProfileObjectType. To add or remove tags on an existing ObjectType, see  TagResource/UntagResource.
+      description: Defines a ProfileObjectType. To add or remove tags on an existing ObjectType, see TagResource/UntagResource.
       operationId: amazonWebServicesPutProfileObjectType
       tags:
       - Domains
@@ -266,7 +267,7 @@ paths:
   /domains/{DomainName}/identity-resolution-jobs/auto-merging-preview:
     POST:
       summary: Amazon Web Services Getautomergingpreview
-      description: 'Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly selects a sample of matching groups from the existing matching results, and applies the automerging settings that you provided. You can then view the number of profiles in the sample, the number of matches, and the number of profiles identified to be merged. This enables you to evaluate the accuracy of the attributes in your matching list.  You can''t view which profiles are matched and would be merged.  We strongly recommend you use this API to do a dry run of the automerging process before running the Identity Resolution Job. Include at least two matching attributes. If your matching list includes too few attributes (such as only FirstName or only LastName), there may be a large number of matches. This increases the chances of erroneous merges. '
+      description: Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly selects a sample of matching groups from the existing matching results, and applies the automerging settings that you provided. You can then view the number of profiles in the sample, the number of matches, and the number of profiles identified to be merged. This enables you to evaluate the accuracy of the attributes in your matching list. You can't view which profiles are matched and would be merged. We strongly recommend you use this API to do a dry run of the automerging process before running the Identity Resolution Job. Include at least two matching attributes. If your matching list includes too few attributes (such as only FirstName or only LastName), there may be a large number of matches. This increases the chances of erroneous merges.
       operationId: amazonWebServicesGetAutoMergingPreview
       tags:
       - Domains
@@ -280,14 +281,14 @@ paths:
   /domains/{DomainName}/identity-resolution-jobs/{JobId}:
     GET:
       summary: Amazon Web Services Getidentityresolutionjob
-      description: Returns information about an Identity Resolution Job in a specific domain.  Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see Use Identity Resolution to consolidate similar profiles.
+      description: Returns information about an Identity Resolution Job in a specific domain. Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see Use Identity Resolution to consolidate similar profiles.
       operationId: amazonWebServicesGetIdentityResolutionJob
       tags:
       - Domains
   /domains/{DomainName}/integrations:
     PUT:
       summary: Amazon Web Services Putintegration
-      description: Adds an integration between the service and a third-party service, which includes Amazon AppFlow and Amazon Connect. An integration can belong to only one domain. To add or remove tags on an existing Integration, see  TagResource / UntagResource.
+      description: Adds an integration between the service and a third-party service, which includes Amazon AppFlow and Amazon Connect. An integration can belong to only one domain. To add or remove tags on an existing Integration, see TagResource / UntagResource.
       operationId: amazonWebServicesPutIntegration
       tags:
       - Domains
@@ -364,7 +365,7 @@ paths:
   /domains/{DomainName}/profiles/objects/merge:
     POST:
       summary: Amazon Web Services Mergeprofiles
-      description: 'Runs an AWS Lambda job that does the following:   All the profileKeys in the ProfileToBeMerged will be moved to the main profile.   All the objects in the ProfileToBeMerged will be moved to the main profile.   All the ProfileToBeMerged will be deleted at the end.   All the profileKeys in the ProfileIdsToBeMerged will be moved to the main profile.   Standard fields are merged as follows:   Fields are always "union"-ed if there are no conflicts in standard fields or attributeKeys.   When there are conflicting fields:   If no SourceProfileIds entry is specified, the main Profile value is always taken.    If a SourceProfileIds entry is specified, the specified profileId is always taken, even if it is a NULL value.       You can use MergeProfiles together with GetMatches, which returns potentially matching profiles, or use it with the results of another matching system. After profiles have been merged, they cannot be separated (unmerged).'
+      description: 'Runs an AWS Lambda job that does the following: All the profileKeys in the ProfileToBeMerged will be moved to the main profile. All the objects in the ProfileToBeMerged will be moved to the main profile. All the ProfileToBeMerged will be deleted at the end. All the profileKeys in the ProfileIdsToBeMerged will be moved to the main profile. Standard fields are merged as follows: Fields are always "union"-ed if there are no conflicts in standard fields or attributeKeys. When there are conflicting fields: If no SourceProfileIds entry is specified, the main Profile value is always taken. If a SourceProfileIds entry is specified, the specified profileId is always taken, even if it is a NULL value. You can use MergeProfiles together with GetMatches, which returns potentially matching profiles, or use it with the results of another matching system. After profiles have been merged, they cannot be separated (unmerged).'
       operationId: amazonWebServicesMergeProfiles
       tags:
       - Domains
@@ -385,7 +386,7 @@ paths:
   /v2/domains/{domainIdentifier}/subscription-requests/{identifier}/accept:
     PUT:
       summary: Amazon Web Services Acceptsubscriptionrequest
-      description: 'Accepts a subscription request to a specific asset. '
+      description: Accepts a subscription request to a specific asset.
       operationId: amazonWebServicesAcceptSubscriptionRequest
       tags:
       - Domains
@@ -788,3 +789,8 @@ paths:
       operationId: amazonWebServicesUpdateSubscriptionGrantStatus
       tags:
       - Domains
+x-refined-from:
+- codeartifact-openapi-original.yml
+- connectcases-openapi-original.yml
+- customer-profiles-openapi-original.yml
+- datazone-openapi-original.yml

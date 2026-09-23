@@ -1,0 +1,84 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services appfabric Appbundles API
+  description: Amazon Web Services AppFabric quickly connects software as a service (SaaS) applications across your organization.
+tags:
+- name: App Bundles
+paths:
+  /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect:
+    POST:
+      summary: Amazon Web Services Connectappauthorization
+      description: Establishes a connection between Amazon Web Services AppFabric and an application, which allows AppFabric to call the APIs of the application.
+      operationId: amazonWebServicesConnectAppAuthorization
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/appauthorizations:
+    GET:
+      summary: Amazon Web Services Listappauthorizations
+      description: Returns a list of all app authorizations configured for an app bundle.
+      operationId: amazonWebServicesListAppAuthorizations
+      tags:
+      - App Bundles
+  /appbundles:
+    GET:
+      summary: Amazon Web Services Listappbundles
+      description: Returns a list of app bundles.
+      operationId: amazonWebServicesListAppBundles
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions:
+    GET:
+      summary: Amazon Web Services Listingestions
+      description: Returns a list of all ingestions configured for an app bundle.
+      operationId: amazonWebServicesListIngestions
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations:
+    GET:
+      summary: Amazon Web Services Listingestiondestinations
+      description: Returns a list of all ingestion destinations configured for an ingestion.
+      operationId: amazonWebServicesListIngestionDestinations
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateappauthorization
+      description: Updates an app authorization within an app bundle, which allows AppFabric to connect to an application. If the app authorization was in a connected state, updating the app authorization will set it back to a PendingConnect state.
+      operationId: amazonWebServicesUpdateAppAuthorization
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}:
+    GET:
+      summary: Amazon Web Services Getappbundle
+      description: Returns information about an app bundle.
+      operationId: amazonWebServicesGetAppBundle
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}:
+    GET:
+      summary: Amazon Web Services Getingestion
+      description: Returns information about an ingestion.
+      operationId: amazonWebServicesGetIngestion
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updateingestiondestination
+      description: Updates an ingestion destination, which specifies how an application's ingested data is processed by Amazon Web Services AppFabric and where it's delivered.
+      operationId: amazonWebServicesUpdateIngestionDestination
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start:
+    POST:
+      summary: Amazon Web Services Startingestion
+      description: Starts (enables) an ingestion, which collects data from an application.
+      operationId: amazonWebServicesStartIngestion
+      tags:
+      - App Bundles
+  /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop:
+    POST:
+      summary: Amazon Web Services Stopingestion
+      description: Stops (disables) an ingestion.
+      operationId: amazonWebServicesStopIngestion
+      tags:
+      - App Bundles

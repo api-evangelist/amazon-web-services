@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 Kx API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services finspace Kx API
+  description: The FinSpace management service provides the APIs for managing FinSpace environments.
 tags:
 - name: Kx
 paths:
@@ -29,7 +29,7 @@ paths:
   /kx/environments/{environmentId}/databases/{databaseName}/dataviews:
     GET:
       summary: Amazon Web Services Listkxdataviews
-      description: ' Returns a list of all the dataviews in the database.'
+      description: Returns a list of all the dataviews in the database.
       operationId: amazonWebServicesListKxDataviews
       tags:
       - Kx
@@ -43,7 +43,7 @@ paths:
   /kx/environments/{environmentId}/scalingGroups:
     GET:
       summary: Amazon Web Services Listkxscalinggroups
-      description: ' Returns a list of scaling groups in a kdb environment.'
+      description: Returns a list of scaling groups in a kdb environment.
       operationId: amazonWebServicesListKxScalingGroups
       tags:
       - Kx
@@ -57,7 +57,7 @@ paths:
   /kx/environments/{environmentId}/kxvolumes:
     GET:
       summary: Amazon Web Services Listkxvolumes
-      description: ' Lists all the volumes in a kdb environment. '
+      description: Lists all the volumes in a kdb environment.
       operationId: amazonWebServicesListKxVolumes
       tags:
       - Kx
@@ -78,7 +78,7 @@ paths:
   /kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}:
     PUT:
       summary: Amazon Web Services Updatekxdataview
-      description: ' Updates the specified dataview. The dataviews get automatically updated when any new changesets are ingested. Each update of the dataview creates a new version, including changeset details and cache configurations'
+      description: Updates the specified dataview. The dataviews get automatically updated when any new changesets are ingested. Each update of the dataview creates a new version, including changeset details and cache configurations
       operationId: amazonWebServicesUpdateKxDataview
       tags:
       - Kx
@@ -92,7 +92,7 @@ paths:
   /kx/environments/{environmentId}/scalingGroups/{scalingGroupName}:
     GET:
       summary: Amazon Web Services Getkxscalinggroup
-      description: ' Retrieves details of a scaling group.'
+      description: Retrieves details of a scaling group.
       operationId: amazonWebServicesGetKxScalingGroup
       tags:
       - Kx
@@ -106,7 +106,7 @@ paths:
   /kx/environments/{environmentId}/kxvolumes/{volumeName}:
     PATCH:
       summary: Amazon Web Services Updatekxvolume
-      description: ' Updates the throughput or capacity of a volume. During the update process, the filesystem might be unavailable for a few minutes. You can retry any operations after the update is complete. '
+      description: Updates the throughput or capacity of a volume. During the update process, the filesystem might be unavailable for a few minutes. You can retry any operations after the update is complete.
       operationId: amazonWebServicesUpdateKxVolume
       tags:
       - Kx
@@ -120,7 +120,7 @@ paths:
   /kx/environments/{environmentId}/connectionString:
     GET:
       summary: Amazon Web Services Getkxconnectionstring
-      description: 'Retrieves a connection string for a user to connect to a kdb cluster. You must call this API using the same role that you have defined while creating a user. '
+      description: Retrieves a connection string for a user to connect to a kdb cluster. You must call this API using the same role that you have defined while creating a user.
       operationId: amazonWebServicesGetKxConnectionString
       tags:
       - Kx
@@ -134,14 +134,14 @@ paths:
   /kx/environments/{environmentId}/clusters/{clusterName}/configuration/code:
     PUT:
       summary: Amazon Web Services Updatekxclustercodeconfiguration
-      description: ' Allows you to update code configuration on a running cluster. By using this API you can update the code, the initialization script path, and the command line arguments for a specific cluster. The configuration that you want to update will override any existing configurations on the cluster. '
+      description: Allows you to update code configuration on a running cluster. By using this API you can update the code, the initialization script path, and the command line arguments for a specific cluster. The configuration that you want to update will override any existing configurations on the cluster.
       operationId: amazonWebServicesUpdateKxClusterCodeConfiguration
       tags:
       - Kx
   /kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases:
     PUT:
       summary: Amazon Web Services Updatekxclusterdatabases
-      description: Updates the databases mounted on a kdb cluster, which includes the changesetId and all the dbPaths to be cached. This API does not allow you to change a database name or add a database if you created a cluster without one.  Using this API you can point a cluster to a different changeset and modify a list of partitions being cached.
+      description: Updates the databases mounted on a kdb cluster, which includes the changesetId and all the dbPaths to be cached. This API does not allow you to change a database name or add a database if you created a cluster without one. Using this API you can point a cluster to a different changeset and modify a list of partitions being cached.
       operationId: amazonWebServicesUpdateKxClusterDatabases
       tags:
       - Kx

@@ -1,0 +1,60 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services Datasources API
+  version: '1.0'
+  description: 'Operations tagged Datasources across 2 of this provider''s published API definitions: appsync-openapi-original.yml, macie2-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Data Sources
+paths:
+  /v1/apis/{apiId}/datasources:
+    GET:
+      summary: Amazon Web Services Listdatasources
+      description: Lists the data sources for a given API.
+      operationId: amazonWebServicesListDataSources
+      tags:
+      - Data Sources
+  /v1/apis/{apiId}/datasources/{name}:
+    POST:
+      summary: Amazon Web Services Updatedatasource
+      description: Updates a DataSource object.
+      operationId: amazonWebServicesUpdateDataSource
+      tags:
+      - Data Sources
+  /v1/datasources/introspections/{introspectionId}:
+    GET:
+      summary: Amazon Web Services Getdatasourceintrospection
+      description: Retrieves the record of an existing introspection. If the retrieval is successful, the result of the instrospection will also be returned. If the retrieval fails the operation, an error message will be returned instead.
+      operationId: amazonWebServicesGetDataSourceIntrospection
+      tags:
+      - Data Sources
+  /v1/datasources/introspections:
+    POST:
+      summary: Amazon Web Services Startdatasourceintrospection
+      description: Creates a new introspection. Returns the introspectionId of the new introspection after its creation.
+      operationId: amazonWebServicesStartDataSourceIntrospection
+      tags:
+      - Data Sources
+  /datasources/s3:
+    POST:
+      summary: Amazon Web Services Describebuckets
+      description: Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.
+      operationId: amazonWebServicesDescribeBuckets
+      tags:
+      - Data Sources
+  /datasources/s3/statistics:
+    POST:
+      summary: Amazon Web Services Getbucketstatistics
+      description: Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.
+      operationId: amazonWebServicesGetBucketStatistics
+      tags:
+      - Data Sources
+  /datasources/search-resources:
+    POST:
+      summary: Amazon Web Services Searchresources
+      description: Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.
+      operationId: amazonWebServicesSearchResources
+      tags:
+      - Data Sources
+x-refined-from:
+- appsync-openapi-original.yml
+- macie2-openapi-original.yml

@@ -1,7 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services accessanalyzer 2012 09 25 2020 05 31 API
-  description: <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. Its features include findings for external and unused access, basic and custom policy checks for validating policies, and policy generation to generate fine-grained policies. To start using IAM Access Analyzer to identify external or unused access, you first need to create an analyzer.</p> <p> <b>External access analyzers</b> help identify potential risks of accessing resources by enabling you to identify any resource policies that grant access to an external principal. It does this by using logic-based reasoning to analyze resource-based policies in your Amazon Web Services environment. An external principal can be another Amazon Web Services account, a root user, an IAM user or role, a federated user, an Amazon Web Services service, or an anonymous user. You can also use IAM Access Analyzer to preview public and cross-account access to your resources before deploying permissions changes.</p> <p> <b>Unused access analyzers</b> help identify potential identity access risks by enabling you to identify unused IAM roles, unused access keys, unused console passwords, and IAM principals with unused service and action-level permissions.</p> <p>Beyond findings, IAM Access Analyzer provides basic and custom policy checks to validate IAM policies before deploying permissions changes. You can use policy generation to refine permissions by attaching a policy generated using access activity logged in CloudTrail logs. </p> <p>This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
+  title: Amazon Web Services cloudfront 2020 05 31 API
+  description: 'Amazon CloudFront
+
+    This is the Amazon CloudFront API Reference. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the Amazon CloudFront Developer Guide.'
 tags:
 - name: 2020 05 31
 paths:
@@ -15,7 +17,7 @@ paths:
   /2020-05-31/distribution/{PrimaryDistributionId}/copy:
     POST:
       summary: Amazon Web Services Copydistribution
-      description: 'Creates a staging distribution using the configuration of the provided primary distribution. A staging distribution is a copy of an existing distribution (called the primary distribution) that you can use in a continuous deployment workflow. After you create a staging distribution, you can use UpdateDistribution to modify the staging distribution''s configuration. Then you can use CreateContinuousDeploymentPolicy to incrementally move traffic to the staging distribution. This API operation requires the following IAM permissions:    GetDistribution     CreateDistribution     CopyDistribution   '
+      description: 'Creates a staging distribution using the configuration of the provided primary distribution. A staging distribution is a copy of an existing distribution (called the primary distribution) that you can use in a continuous deployment workflow. After you create a staging distribution, you can use UpdateDistribution to modify the staging distribution''s configuration. Then you can use CreateContinuousDeploymentPolicy to incrementally move traffic to the staging distribution. This API operation requires the following IAM permissions: GetDistribution CreateDistribution CopyDistribution'
       operationId: amazonWebServicesCopyDistribution
       tags:
       - 2020 05 31
@@ -50,7 +52,7 @@ paths:
   /2020-05-31/distribution?WithTags:
     POST:
       summary: Amazon Web Services Createdistributionwithtags
-      description: 'Create a new distribution with tags. This API operation requires the following IAM permissions:    CreateDistribution     TagResource   '
+      description: 'Create a new distribution with tags. This API operation requires the following IAM permissions: CreateDistribution TagResource'
       operationId: amazonWebServicesCreateDistributionWithTags
       tags:
       - 2020 05 31
@@ -155,7 +157,7 @@ paths:
   /2020-05-31/cache-policy/{Id}:
     PUT:
       summary: Amazon Web Services Updatecachepolicy
-      description: 'Updates a cache policy configuration. When you update a cache policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a cache policy configuration:   Use GetCachePolicyConfig to get the current configuration.   Locally modify the fields in the cache policy configuration that you want to update.   Call UpdateCachePolicy by providing the entire cache policy configuration, including the fields that you modified and those that you didn''t.  '
+      description: 'Updates a cache policy configuration. When you update a cache policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a cache policy configuration: Use GetCachePolicyConfig to get the current configuration. Locally modify the fields in the cache policy configuration that you want to update. Call UpdateCachePolicy by providing the entire cache policy configuration, including the fields that you modified and those that you didn''t.'
       operationId: amazonWebServicesUpdateCachePolicy
       tags:
       - 2020 05 31
@@ -169,7 +171,7 @@ paths:
   /2020-05-31/continuous-deployment-policy/{Id}:
     PUT:
       summary: Amazon Web Services Updatecontinuousdeploymentpolicy
-      description: 'Updates a continuous deployment policy. You can update a continuous deployment policy to enable or disable it, to change the percentage of traffic that it sends to the staging distribution, or to change the staging distribution that it sends traffic to. When you update a continuous deployment policy configuration, all the fields are updated with the values that are provided in the request. You cannot update some fields independent of others. To update a continuous deployment policy configuration:   Use GetContinuousDeploymentPolicyConfig to get the current configuration.   Locally modify the fields in the continuous deployment policy configuration that you want to update.   Use UpdateContinuousDeploymentPolicy, providing the entire continuous deployment policy configuration, including the fields that you modified and those that you didn''t.  '
+      description: 'Updates a continuous deployment policy. You can update a continuous deployment policy to enable or disable it, to change the percentage of traffic that it sends to the staging distribution, or to change the staging distribution that it sends traffic to. When you update a continuous deployment policy configuration, all the fields are updated with the values that are provided in the request. You cannot update some fields independent of others. To update a continuous deployment policy configuration: Use GetContinuousDeploymentPolicyConfig to get the current configuration. Locally modify the fields in the continuous deployment policy configuration that you want to update. Use UpdateContinuousDeploymentPolicy, providing the entire continuous deployment policy configuration, including the fields that you modified and those that you didn''t.'
       operationId: amazonWebServicesUpdateContinuousDeploymentPolicy
       tags:
       - 2020 05 31
@@ -204,7 +206,7 @@ paths:
   /2020-05-31/key-group/{Id}:
     PUT:
       summary: Amazon Web Services Updatekeygroup
-      description: 'Updates a key group. When you update a key group, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a key group:   Get the current key group with GetKeyGroup or GetKeyGroupConfig.   Locally modify the fields in the key group that you want to update. For example, add or remove public key IDs.   Call UpdateKeyGroup with the entire key group object, including the fields that you modified and those that you didn''t.  '
+      description: 'Updates a key group. When you update a key group, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a key group: Get the current key group with GetKeyGroup or GetKeyGroupConfig. Locally modify the fields in the key group that you want to update. For example, add or remove public key IDs. Call UpdateKeyGroup with the entire key group object, including the fields that you modified and those that you didn''t.'
       operationId: amazonWebServicesUpdateKeyGroup
       tags:
       - 2020 05 31
@@ -225,7 +227,7 @@ paths:
   /2020-05-31/origin-request-policy/{Id}:
     PUT:
       summary: Amazon Web Services Updateoriginrequestpolicy
-      description: 'Updates an origin request policy configuration. When you update an origin request policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update an origin request policy configuration:   Use GetOriginRequestPolicyConfig to get the current configuration.   Locally modify the fields in the origin request policy configuration that you want to update.   Call UpdateOriginRequestPolicy by providing the entire origin request policy configuration, including the fields that you modified and those that you didn''t.  '
+      description: 'Updates an origin request policy configuration. When you update an origin request policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update an origin request policy configuration: Use GetOriginRequestPolicyConfig to get the current configuration. Locally modify the fields in the origin request policy configuration that you want to update. Call UpdateOriginRequestPolicy by providing the entire origin request policy configuration, including the fields that you modified and those that you didn''t.'
       operationId: amazonWebServicesUpdateOriginRequestPolicy
       tags:
       - 2020 05 31
@@ -246,7 +248,7 @@ paths:
   /2020-05-31/response-headers-policy/{Id}:
     PUT:
       summary: Amazon Web Services Updateresponseheaderspolicy
-      description: 'Updates a response headers policy. When you update a response headers policy, the entire policy is replaced. You cannot update some policy fields independent of others. To update a response headers policy configuration:   Use GetResponseHeadersPolicyConfig to get the current policy''s configuration.   Modify the fields in the response headers policy configuration that you want to update.   Call UpdateResponseHeadersPolicy, providing the entire response headers policy configuration, including the fields that you modified and those that you didn''t.  '
+      description: 'Updates a response headers policy. When you update a response headers policy, the entire policy is replaced. You cannot update some policy fields independent of others. To update a response headers policy configuration: Use GetResponseHeadersPolicyConfig to get the current policy''s configuration. Modify the fields in the response headers policy configuration that you want to update. Call UpdateResponseHeadersPolicy, providing the entire response headers policy configuration, including the fields that you modified and those that you didn''t.'
       operationId: amazonWebServicesUpdateResponseHeadersPolicy
       tags:
       - 2020 05 31
@@ -288,7 +290,7 @@ paths:
   /2020-05-31/distribution/{Id}/config:
     PUT:
       summary: Amazon Web Services Updatedistribution
-      description: 'Updates the configuration for a CloudFront distribution. The update process includes getting the current distribution configuration, updating it to make your changes, and then submitting an UpdateDistribution request to make the updates.  To update a web distribution using the CloudFront API    Use GetDistributionConfig to get the current configuration, including the version identifier (ETag).   Update the distribution configuration that was returned in the response. Note the following important requirements and restrictions:   You must rename the ETag field to IfMatch, leaving the value unchanged. (Set the value of IfMatch to the value of ETag, then remove the ETag field.)   You can''t change the value of CallerReference.     Submit an UpdateDistribution request, providing the distribution configuration. The new configuration replaces the existing configuration. The values that you specify in an UpdateDistribution request are not merged into your existing configuration. Make sure to include all fields: the ones that you modified and also the ones that you didn''t.  '
+      description: 'Updates the configuration for a CloudFront distribution. The update process includes getting the current distribution configuration, updating it to make your changes, and then submitting an UpdateDistribution request to make the updates. To update a web distribution using the CloudFront API Use GetDistributionConfig to get the current configuration, including the version identifier (ETag). Update the distribution configuration that was returned in the response. Note the following important requirements and restrictions: You must rename the ETag field to IfMatch, leaving the value unchanged. (Set the value of IfMatch to the value of ETag, then remove the ETag field.) You can''t change the value of CallerReference. Submit an UpdateDistribution request, providing the distribution configuration. The new configuration replaces the existing configuration. The values that you specify in an UpdateDistribution request are not merged into your existing configuration. Make sure to include all fields: the ones that you modified and also the ones that you didn''t.'
       operationId: amazonWebServicesUpdateDistribution
       tags:
       - 2020 05 31
@@ -456,14 +458,14 @@ paths:
   /2020-05-31/distribution/{Id}/promote-staging-config:
     PUT:
       summary: Amazon Web Services Updatedistributionwithstagingconfig
-      description: 'Copies the staging distribution''s configuration to its corresponding primary distribution. The primary distribution retains its Aliases (also known as alternate domain names or CNAMEs) and ContinuousDeploymentPolicyId value, but otherwise its configuration is overwritten to match the staging distribution. You can use this operation in a continuous deployment workflow after you have tested configuration changes on the staging distribution. After using a continuous deployment policy to move a portion of your domain name''s traffic to the staging distribution and verifying that it works as intended, you can use this operation to copy the staging distribution''s configuration to the primary distribution. This action will disable the continuous deployment policy and move your domain''s traffic back to the primary distribution. This API operation requires the following IAM permissions:    GetDistribution     UpdateDistribution   '
+      description: 'Copies the staging distribution''s configuration to its corresponding primary distribution. The primary distribution retains its Aliases (also known as alternate domain names or CNAMEs) and ContinuousDeploymentPolicyId value, but otherwise its configuration is overwritten to match the staging distribution. You can use this operation in a continuous deployment workflow after you have tested configuration changes on the staging distribution. After using a continuous deployment policy to move a portion of your domain name''s traffic to the staging distribution and verifying that it works as intended, you can use this operation to copy the staging distribution''s configuration to the primary distribution. This action will disable the continuous deployment policy and move your domain''s traffic back to the primary distribution. This API operation requires the following IAM permissions: GetDistribution UpdateDistribution'
       operationId: amazonWebServicesUpdateDistributionWithStagingConfig
       tags:
       - 2020 05 31
   /2020-05-31/realtime-log-config/:
     PUT:
       summary: Amazon Web Services Updaterealtimelogconfig
-      description: 'Updates a real-time log configuration. When you update a real-time log configuration, all the parameters are updated with the values provided in the request. You cannot update some parameters independent of others. To update a real-time log configuration:   Call GetRealtimeLogConfig to get the current real-time log configuration.   Locally modify the parameters in the real-time log configuration that you want to update.   Call this API (UpdateRealtimeLogConfig) by providing the entire real-time log configuration, including the parameters that you modified and those that you didn''t.   You cannot update a real-time log configuration''s Name or ARN.'
+      description: 'Updates a real-time log configuration. When you update a real-time log configuration, all the parameters are updated with the values provided in the request. You cannot update some parameters independent of others. To update a real-time log configuration: Call GetRealtimeLogConfig to get the current real-time log configuration. Locally modify the parameters in the real-time log configuration that you want to update. Call this API (UpdateRealtimeLogConfig) by providing the entire real-time log configuration, including the parameters that you modified and those that you didn''t. You cannot update a real-time log configuration''s Name or ARN.'
       operationId: amazonWebServicesUpdateRealtimeLogConfig
       tags:
       - 2020 05 31

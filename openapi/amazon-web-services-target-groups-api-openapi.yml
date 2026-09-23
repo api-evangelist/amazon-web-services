@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services vpc-lattice Targetgroups API
+  description: Amazon VPC Lattice is a fully managed application networking service that you use to connect, secure, and monitor all of your services across multiple accounts and virtual private clouds (VPCs). Amazon VPC Lattice interconnects your microservices and legacy services within a logical boundary, so that you can discover and manage them more efficiently. For more information, see the Amazon VPC Lattice User Guide
+tags:
+- name: Target Groups
+paths:
+  /targetgroups:
+    GET:
+      summary: Amazon Web Services Listtargetgroups
+      description: Lists your target groups. You can narrow your search by using the filters below in your request.
+      operationId: amazonWebServicesListTargetGroups
+      tags:
+      - Target Groups
+  /targetgroups/{targetGroupIdentifier}:
+    PATCH:
+      summary: Amazon Web Services Updatetargetgroup
+      description: Updates the specified target group.
+      operationId: amazonWebServicesUpdateTargetGroup
+      tags:
+      - Target Groups
+  /targetgroups/{targetGroupIdentifier}/deregistertargets:
+    POST:
+      summary: Amazon Web Services Deregistertargets
+      description: Deregisters the specified targets from the specified target group.
+      operationId: amazonWebServicesDeregisterTargets
+      tags:
+      - Target Groups
+  /targetgroups/{targetGroupIdentifier}/listtargets:
+    POST:
+      summary: Amazon Web Services Listtargets
+      description: Lists the targets for the target group. By default, all targets are included. You can use this API to check the health status of targets. You can also ﬁlter the results by target.
+      operationId: amazonWebServicesListTargets
+      tags:
+      - Target Groups
+  /targetgroups/{targetGroupIdentifier}/registertargets:
+    POST:
+      summary: Amazon Web Services Registertargets
+      description: Registers the targets with the target group. If it's a Lambda target, you can only have one target in a target group.
+      operationId: amazonWebServicesRegisterTargets
+      tags:
+      - Target Groups

@@ -1,0 +1,37 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services neptunedata Opencypher API
+  description: 'Neptune Data API
+
+    The Amazon Neptune data API provides SDK support for more than 40 of Neptune''s data operations, including data loading, query execution, data inquiry, and machine learning. It supports the Gremlin and openCypher query languages, and is available in all SDK languages. It automatically signs API requests and greatly simplifies integrating Neptune into your applications.'
+tags:
+- name: open Cypher
+paths:
+  /opencypher/status/{queryId}:
+    GET:
+      summary: Amazon Web Services Getopencypherquerystatus
+      description: Retrieves the status of a specified openCypher query. When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the neptune-db:GetQueryStatus IAM action in that cluster. Note that the neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the policy document to restrict the use of openCypher queries (see Condition keys available in Neptune IAM data-access policy statements).
+      operationId: amazonWebServicesGetOpenCypherQueryStatus
+      tags:
+      - open Cypher
+  /opencypher/explain:
+    POST:
+      summary: Amazon Web Services Executeopencypherexplainquery
+      description: Executes an openCypher explain request. See The openCypher explain feature for more information. When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the neptune-db:ReadDataViaQuery IAM action in that cluster. Note that the neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the policy document to restrict the use of openCypher queries (see Condition keys available in Neptune IAM data-access policy statements).
+      operationId: amazonWebServicesExecuteOpenCypherExplainQuery
+      tags:
+      - open Cypher
+  /opencypher:
+    POST:
+      summary: Amazon Web Services Executeopencypherquery
+      description: 'Executes an openCypher query. See Accessing the Neptune Graph with openCypher for more information. Neptune supports building graph applications using openCypher, which is currently one of the most popular query languages among developers working with graph databases. Developers, business analysts, and data scientists like openCypher''s declarative, SQL-inspired syntax because it provides a familiar structure in which to querying property graphs. The openCypher language was originally developed by Neo4j, then open-sourced in 2015 and contributed to the openCypher project under an Apache 2 open-source license. Note that when invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows one of the following IAM actions in that cluster, depending on the query: neptune-db:ReadDataViaQuery neptune-db:WriteDataViaQuery neptune-db:DeleteDataViaQuery Note also that the neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the policy document to restrict the use of openCypher queries (see Condition keys available in Neptune IAM data-access policy statements).'
+      operationId: amazonWebServicesExecuteOpenCypherQuery
+      tags:
+      - open Cypher
+  /opencypher/status:
+    GET:
+      summary: Amazon Web Services Listopencypherqueries
+      description: Lists active openCypher queries. See Neptune openCypher status endpoint for more information. When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the neptune-db:GetQueryStatus IAM action in that cluster. Note that the neptune-db:QueryLanguage:OpenCypher IAM condition key can be used in the policy document to restrict the use of openCypher queries (see Condition keys available in Neptune IAM data-access policy statements).
+      operationId: amazonWebServicesListOpenCypherQueries
+      tags:
+      - open Cypher

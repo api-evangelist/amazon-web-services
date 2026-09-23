@@ -1,0 +1,31 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services appintegrations Data Integrations API
+  description: 'The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.
+
+
+    For information about how you can use external applications with Amazon Connect, see Set up pre-built integrations and Deliver information to agents using Amazon Connect Wisdom in the Amazon Connect Administrator Guide.'
+tags:
+- name: Data Integrations
+paths:
+  /dataIntegrations:
+    GET:
+      summary: Amazon Web Services Listdataintegrations
+      description: Returns a paginated list of DataIntegrations in the account. You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.
+      operationId: amazonWebServicesListDataIntegrations
+      tags:
+      - Data Integrations
+  /dataIntegrations/{Identifier}:
+    PATCH:
+      summary: Amazon Web Services Updatedataintegration
+      description: Updates the description of a DataIntegration. You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.
+      operationId: amazonWebServicesUpdateDataIntegration
+      tags:
+      - Data Integrations
+  /dataIntegrations/{Identifier}/associations:
+    GET:
+      summary: Amazon Web Services Listdataintegrationassociations
+      description: Returns a paginated list of DataIntegration associations in the account. You cannot create a DataIntegration association for a DataIntegration that has been previously associated. Use a different DataIntegration, or recreate the DataIntegration using the CreateDataIntegration API.
+      operationId: amazonWebServicesListDataIntegrationAssociations
+      tags:
+      - Data Integrations

@@ -1,0 +1,51 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services apigateway Usageplans API
+  description: 'Amazon API Gateway
+
+    Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.'
+tags:
+- name: Usage Plans
+paths:
+  /usageplans:
+    GET:
+      summary: Amazon Web Services Getusageplans
+      description: Gets all the usage plans of the caller's account.
+      operationId: amazonWebServicesGetUsagePlans
+      tags:
+      - Usage Plans
+  /usageplans/{usageplanId}/keys:
+    GET:
+      summary: Amazon Web Services Getusageplankeys
+      description: Gets all the usage plan keys representing the API keys added to a specified usage plan.
+      operationId: amazonWebServicesGetUsagePlanKeys
+      tags:
+      - Usage Plans
+  /usageplans/{usageplanId}:
+    PATCH:
+      summary: Amazon Web Services Updateusageplan
+      description: Updates a usage plan of a given plan Id.
+      operationId: amazonWebServicesUpdateUsagePlan
+      tags:
+      - Usage Plans
+  /usageplans/{usageplanId}/keys/{keyId}:
+    GET:
+      summary: Amazon Web Services Getusageplankey
+      description: Gets a usage plan key of a given key identifier.
+      operationId: amazonWebServicesGetUsagePlanKey
+      tags:
+      - Usage Plans
+  /usageplans/{usageplanId}/usage:
+    GET:
+      summary: Amazon Web Services Getusage
+      description: Gets the usage data of a usage plan in a specified time interval.
+      operationId: amazonWebServicesGetUsage
+      tags:
+      - Usage Plans
+  /usageplans/{usageplanId}/keys/{keyId}/usage:
+    PATCH:
+      summary: Amazon Web Services Updateusage
+      description: Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.
+      operationId: amazonWebServicesUpdateUsage
+      tags:
+      - Usage Plans

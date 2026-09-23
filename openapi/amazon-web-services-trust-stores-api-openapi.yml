@@ -1,0 +1,35 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services workspaces-web Trust Stores API
+  description: WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate secure, web-based workloads.
+tags:
+- name: Trust Stores
+paths:
+  /trustStores:
+    GET:
+      summary: Amazon Web Services Listtruststores
+      description: Retrieves a list of trust stores.
+      operationId: amazonWebServicesListTrustStores
+      tags:
+      - Trust Stores
+  /trustStores/{trustStoreArn+}:
+    PATCH:
+      summary: Amazon Web Services Updatetruststore
+      description: Updates the trust store.
+      operationId: amazonWebServicesUpdateTrustStore
+      tags:
+      - Trust Stores
+  /trustStores/{trustStoreArn+}/certificate:
+    GET:
+      summary: Amazon Web Services Gettruststorecertificate
+      description: Gets the trust store certificate.
+      operationId: amazonWebServicesGetTrustStoreCertificate
+      tags:
+      - Trust Stores
+  /trustStores/{trustStoreArn+}/certificates:
+    GET:
+      summary: Amazon Web Services Listtruststorecertificates
+      description: Retrieves a list of trust store certificates.
+      operationId: amazonWebServicesListTrustStoreCertificates
+      tags:
+      - Trust Stores
