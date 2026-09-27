@@ -45,9 +45,11 @@ paths:
     GET:
       summary: Amazon Web Services Getdomainnames
       description: Gets the domain names for an AWS account.
-      operationId: amazonWebServicesGetDomainNames
+      operationId: getV2Domainnames
       tags:
       - Domain Names
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesGetDomainNames
   /v2/domainnames/{domainName}/apimappings/{apiMappingId}:
     PATCH:
       summary: Amazon Web Services Updateapimapping
@@ -59,9 +61,11 @@ paths:
     PATCH:
       summary: Amazon Web Services Updatedomainname
       description: Updates a domain name.
-      operationId: amazonWebServicesUpdateDomainName
+      operationId: patchV2DomainnamesByDomainName
       tags:
       - Domain Names
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateDomainName
   /v1/domainnames/{domainName}/apiassociation:
     GET:
       summary: Amazon Web Services Getapiassociation
@@ -80,9 +84,11 @@ paths:
     POST:
       summary: Amazon Web Services Updatedomainname
       description: Updates a custom DomainName object.
-      operationId: amazonWebServicesUpdateDomainName
+      operationId: postV1DomainnamesByDomainName
       tags:
       - Domain Names
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateDomainName
 x-refined-from:
 - apigateway-openapi-original.yml
 - apigatewayv2-openapi-original.yml

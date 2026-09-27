@@ -1,0 +1,30 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services cloudfront Cache Policy API
+  description: 'Amazon CloudFront
+
+    This is the Amazon CloudFront API Reference. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the Amazon CloudFront Developer Guide.'
+tags:
+- name: Cache Policy
+paths:
+  /2020-05-31/cache-policy:
+    GET:
+      summary: Amazon Web Services Listcachepolicies
+      description: Gets a list of cache policies. You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or only the custom policies created in your Amazon Web Services account. You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the NextMarker value from the current response as the Marker value in the subsequent request.
+      operationId: amazonWebServicesListCachePolicies
+      tags:
+      - Cache Policy
+  /2020-05-31/cache-policy/{Id}:
+    PUT:
+      summary: Amazon Web Services Updatecachepolicy
+      description: 'Updates a cache policy configuration. When you update a cache policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a cache policy configuration: Use GetCachePolicyConfig to get the current configuration. Locally modify the fields in the cache policy configuration that you want to update. Call UpdateCachePolicy by providing the entire cache policy configuration, including the fields that you modified and those that you didn''t.'
+      operationId: amazonWebServicesUpdateCachePolicy
+      tags:
+      - Cache Policy
+  /2020-05-31/cache-policy/{Id}/config:
+    GET:
+      summary: Amazon Web Services Getcachepolicyconfig
+      description: Gets a cache policy configuration. To get a cache policy configuration, you must provide the policy's identifier. If the cache policy is attached to a distribution's cache behavior, you can get the policy's identifier using ListDistributions or GetDistribution. If the cache policy is not attached to a cache behavior, you can get the identifier using ListCachePolicies.
+      operationId: amazonWebServicesGetCachePolicyConfig
+      tags:
+      - Cache Policy

@@ -1,17 +1,48 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services mediaconnect Gateways API
-  description: API for AWS Elemental MediaConnect
+  title: Amazon Web Services Gateways API
+  version: '1.0'
+  description: 'Operations tagged Gateways across 2 of this provider''s published API definitions: iotsitewise-openapi-original.yml, mediaconnect-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Gateways
 paths:
+  /20200301/gateways:
+    GET:
+      summary: Amazon Web Services Listgateways
+      description: Retrieves a paginated list of gateways.
+      operationId: amazonWebServicesListGateways
+      tags:
+      - Gateways
+  /20200301/gateways/{gatewayId}:
+    PUT:
+      summary: Amazon Web Services Updategateway
+      description: Updates a gateway's name.
+      operationId: amazonWebServicesUpdateGateway
+      tags:
+      - Gateways
+  /20200301/gateways/{gatewayId}/capability/{capabilityNamespace}:
+    GET:
+      summary: Amazon Web Services Describegatewaycapabilityconfiguration
+      description: Retrieves information about a gateway capability configuration. Each gateway capability defines data sources for a gateway. A capability configuration can contain multiple data source configurations. If you define OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To list all capability configurations for a gateway, use DescribeGateway.
+      operationId: amazonWebServicesDescribeGatewayCapabilityConfiguration
+      tags:
+      - Gateways
+  /20200301/gateways/{gatewayId}/capability:
+    POST:
+      summary: Amazon Web Services Updategatewaycapabilityconfiguration
+      description: Updates a gateway capability configuration or defines a new capability configuration. Each gateway capability defines data sources for a gateway. A capability configuration can contain multiple data source configurations. If you define OPC-UA sources for a gateway in the IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To list all capability configurations for a gateway, use DescribeGateway.
+      operationId: amazonWebServicesUpdateGatewayCapabilityConfiguration
+      tags:
+      - Gateways
   /v1/gateways:
     GET:
       summary: Amazon Web Services Listgateways
       description: Displays a list of gateways that are associated with this account. This request returns a paginated result.
-      operationId: amazonWebServicesListGateways
+      operationId: getV1Gateways
       tags:
       - Gateways
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListGateways
   /v1/gateways/{gatewayArn}:
     GET:
       summary: Amazon Web Services Describegateway
@@ -19,3 +50,6 @@ paths:
       operationId: amazonWebServicesDescribeGateway
       tags:
       - Gateways
+x-refined-from:
+- iotsitewise-openapi-original.yml
+- mediaconnect-openapi-original.yml

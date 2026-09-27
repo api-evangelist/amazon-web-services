@@ -1,0 +1,23 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services elasticfilesystem Access Points API
+  description: 'Amazon Elastic File System
+
+    Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so that your applications have the storage they need, when they need it. For more information, see the Amazon Elastic File System API Reference and the Amazon Elastic File System User Guide.'
+tags:
+- name: Access Points
+paths:
+  /2015-02-01/access-points:
+    GET:
+      summary: Amazon Web Services Describeaccesspoints
+      description: Returns the description of a specific Amazon EFS access point if the AccessPointId is provided. If you provide an EFS FileSystemId, it returns descriptions of all access points for that file system. You can provide either an AccessPointId or a FileSystemId in the request, but not both. This operation requires permissions for the elasticfilesystem:DescribeAccessPoints action.
+      operationId: amazonWebServicesDescribeAccessPoints
+      tags:
+      - Access Points
+  /2015-02-01/access-points/{AccessPointId}:
+    DELETE:
+      summary: Amazon Web Services Deleteaccesspoint
+      description: Deletes the specified access point. After deletion is complete, new clients can no longer connect to the access points. Clients connected to the access point at the time of deletion will continue to function until they terminate their connection. This operation requires permissions for the elasticfilesystem:DeleteAccessPoint action.
+      operationId: amazonWebServicesDeleteAccessPoint
+      tags:
+      - Access Points

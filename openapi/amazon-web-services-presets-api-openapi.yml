@@ -1,0 +1,41 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services Presets API
+  version: '1.0'
+  description: 'Operations tagged Presets across 2 of this provider''s published API definitions: elastictranscoder-openapi-original.yml, mediaconvert-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Presets
+paths:
+  /2012-09-25/presets:
+    GET:
+      summary: Amazon Web Services Listpresets
+      description: The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region.
+      operationId: amazonWebServicesListPresets
+      tags:
+      - Presets
+  /2012-09-25/presets/{Id}:
+    GET:
+      summary: Amazon Web Services Readpreset
+      description: The ReadPreset operation gets detailed information about a preset.
+      operationId: amazonWebServicesReadPreset
+      tags:
+      - Presets
+  /2017-08-29/presets:
+    GET:
+      summary: Amazon Web Services Listpresets
+      description: Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
+      operationId: get20170829Presets
+      tags:
+      - Presets
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListPresets
+  /2017-08-29/presets/{name}:
+    PUT:
+      summary: Amazon Web Services Updatepreset
+      description: Modify one of your existing presets.
+      operationId: amazonWebServicesUpdatePreset
+      tags:
+      - Presets
+x-refined-from:
+- elastictranscoder-openapi-original.yml
+- mediaconvert-openapi-original.yml

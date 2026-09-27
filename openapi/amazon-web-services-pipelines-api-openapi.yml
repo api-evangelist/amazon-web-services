@@ -1,10 +1,39 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services iotanalytics Pipelines API
-  description: IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
+  title: Amazon Web Services Pipelines API
+  version: '1.0'
+  description: 'Operations tagged Pipelines across 2 of this provider''s published API definitions: elastictranscoder-openapi-original.yml, iotanalytics-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Pipelines
 paths:
+  /2012-09-25/pipelines:
+    GET:
+      summary: Amazon Web Services Listpipelines
+      description: The ListPipelines operation gets a list of the pipelines associated with the current AWS account.
+      operationId: amazonWebServicesListPipelines
+      tags:
+      - Pipelines
+  /2012-09-25/pipelines/{Id}:
+    PUT:
+      summary: Amazon Web Services Updatepipeline
+      description: Use the UpdatePipeline operation to update settings for a pipeline. When you change pipeline settings, your changes take effect immediately. Jobs that you have already submitted and that Elastic Transcoder has not started to process are affected in addition to jobs that you submit after you change settings.
+      operationId: amazonWebServicesUpdatePipeline
+      tags:
+      - Pipelines
+  /2012-09-25/pipelines/{Id}/notifications:
+    POST:
+      summary: Amazon Web Services Updatepipelinenotifications
+      description: With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline. When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.
+      operationId: amazonWebServicesUpdatePipelineNotifications
+      tags:
+      - Pipelines
+  /2012-09-25/pipelines/{Id}/status:
+    POST:
+      summary: Amazon Web Services Updatepipelinestatus
+      description: The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs. Changing the pipeline status is useful if you want to cancel one or more jobs. You can't cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a CancelJob request.
+      operationId: amazonWebServicesUpdatePipelineStatus
+      tags:
+      - Pipelines
   /pipelines/{pipelineName}/reprocessing/{reprocessingId}:
     DELETE:
       summary: Amazon Web Services Cancelpipelinereprocessing
@@ -16,16 +45,20 @@ paths:
     GET:
       summary: Amazon Web Services Listpipelines
       description: Retrieves a list of pipelines.
-      operationId: amazonWebServicesListPipelines
+      operationId: getPipelines
       tags:
       - Pipelines
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListPipelines
   /pipelines/{pipelineName}:
     PUT:
       summary: Amazon Web Services Updatepipeline
       description: Updates the settings of a pipeline. You must specify both a channel and a datastore activity and, optionally, as many as 23 additional activities in the pipelineActivities array.
-      operationId: amazonWebServicesUpdatePipeline
+      operationId: putPipelinesByPipelineName
       tags:
       - Pipelines
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdatePipeline
   /pipelines/{pipelineName}/reprocessing:
     POST:
       summary: Amazon Web Services Startpipelinereprocessing
@@ -33,3 +66,6 @@ paths:
       operationId: amazonWebServicesStartPipelineReprocessing
       tags:
       - Pipelines
+x-refined-from:
+- elastictranscoder-openapi-original.yml
+- iotanalytics-openapi-original.yml

@@ -1,0 +1,44 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services cloudfront Function API
+  description: 'Amazon CloudFront
+
+    This is the Amazon CloudFront API Reference. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the Amazon CloudFront Developer Guide.'
+tags:
+- name: Function
+paths:
+  /2020-05-31/function:
+    GET:
+      summary: Amazon Web Services Listfunctions
+      description: Gets a list of all CloudFront functions in your Amazon Web Services account. You can optionally apply a filter to return only the functions that are in the specified stage, either DEVELOPMENT or LIVE. You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the NextMarker value from the current response as the Marker value in the subsequent request.
+      operationId: amazonWebServicesListFunctions
+      tags:
+      - Function
+  /2020-05-31/function/{Name}:
+    PUT:
+      summary: Amazon Web Services Updatefunction
+      description: Updates a CloudFront function. You can update a function's code or the comment that describes the function. You cannot update a function's name. To update a function, you provide the function's name and version (ETag value) along with the updated function code. To get the name and version, you can use ListFunctions and DescribeFunction.
+      operationId: amazonWebServicesUpdateFunction
+      tags:
+      - Function
+  /2020-05-31/function/{Name}/describe:
+    GET:
+      summary: Amazon Web Services Describefunction
+      description: Gets configuration information and metadata about a CloudFront function, but not the function's code. To get a function's code, use GetFunction. To get configuration information and metadata about a function, you must provide the function's name and stage. To get these values, you can use ListFunctions.
+      operationId: amazonWebServicesDescribeFunction
+      tags:
+      - Function
+  /2020-05-31/function/{Name}/publish:
+    POST:
+      summary: Amazon Web Services Publishfunction
+      description: Publishes a CloudFront function by copying the function code from the DEVELOPMENT stage to LIVE. This automatically updates all cache behaviors that are using this function to use the newly published copy in the LIVE stage. When a function is published to the LIVE stage, you can attach the function to a distribution's cache behavior, using the function's Amazon Resource Name (ARN). To publish a function, you must provide the function's name and version (ETag value). To get these values, you can use ListFunctions and DescribeFunction.
+      operationId: amazonWebServicesPublishFunction
+      tags:
+      - Function
+  /2020-05-31/function/{Name}/test:
+    POST:
+      summary: Amazon Web Services Testfunction
+      description: Tests a CloudFront function. To test a function, you provide an event object that represents an HTTP request or response that your CloudFront distribution could receive in production. CloudFront runs the function, passing it the event object that you provided, and returns the function's result (the modified event object) in the response. The response also contains function logs and error messages, if any exist. For more information about testing functions, see Testing functions in the Amazon CloudFront Developer Guide. To test a function, you provide the function's name and version (ETag value) along with the event object. To get the function's name and version, you can use ListFunctions and DescribeFunction.
+      operationId: amazonWebServicesTestFunction
+      tags:
+      - Function

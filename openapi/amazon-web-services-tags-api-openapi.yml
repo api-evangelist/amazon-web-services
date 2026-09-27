@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Tags API
   version: '1.0'
-  description: 'Operations tagged Tags across 131 of this provider''s published API definitions: accessanalyzer-openapi-original.yml, amp-openapi-original.yml, amplify-openapi-original.yml, apigateway-openapi-original.yml, apigatewayv2-openapi-original.yml, appconfig-openapi-original.yml, appfabric-openapi-original.yml, appflow-openapi-original.yml, appintegrations-openapi-original.yml, appmesh-openapi-original.yml, appsync-openapi-original.yml, auditmanager-openapi-original.yml, backup-openapi-original.yml…'
+  description: 'Operations tagged Tags across 139 of this provider''s published API definitions: accessanalyzer-openapi-original.yml, amp-openapi-original.yml, amplify-openapi-original.yml, apigateway-openapi-original.yml, apigatewayv2-openapi-original.yml, appconfig-openapi-original.yml, appfabric-openapi-original.yml, appflow-openapi-original.yml, appintegrations-openapi-original.yml, appmesh-openapi-original.yml, appsync-openapi-original.yml, auditmanager-openapi-original.yml, backup-openapi-original.yml…'
 tags:
 - name: Tags
 paths:
@@ -23,16 +23,20 @@ paths:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from a given resource.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTagsByResourceArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /v2/tags/{resource-arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Deletes a Tag.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteV2TagsByResourceArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /tags/{ResourceArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -51,9 +55,11 @@ paths:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untags a resource.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteV1TagsByResourceArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /tags/{resourceArn}/:
     GET:
       summary: Amazon Web Services Listtags
@@ -65,35 +71,68 @@ paths:
     GET:
       summary: Amazon Web Services Listtagsforresource
       description: 'Lists the tags applied to an Amazon Chime SDK meeting and messaging resources. This API is is no longer supported and will not be updated. We recommend using the applicable latest version in the Amazon Chime SDK. For meetings: ListTagsForResource. For messaging: ListTagsForResource. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide.'
-      operationId: amazonWebServicesListTagsForResource
+      operationId: getTags
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTagsForResource
     POST:
       summary: Amazon Web Services Tagresource
       description: Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource. Requires permission to access the TagResource action.
-      operationId: amazonWebServicesTagResource
+      operationId: postTags
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesTagResource
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes the given tags (metadata) from the resource.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTags
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /v1/tags:
     POST:
       summary: Amazon Web Services Listtagsforresource
       description: Gets information about Amazon Web Services tags for a specified Amazon Resource Name (ARN) in CodeArtifact.
-      operationId: amazonWebServicesListTagsForResource
+      operationId: postV1Tags
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTagsForResource
   /tags/{arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Untag a resource.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTagsByArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2015-02-01/tags/{FileSystemId}/:
+    GET:
+      summary: Amazon Web Services Describetags
+      description: DEPRECATED - The DescribeTags action is deprecated and not maintained. To view tags associated with EFS resources, use the ListTagsForResource API action. Returns the tags associated with a file system. The order of tags returned in the response of one DescribeTags call and the order of tags returned across the responses of a multiple-call iteration (when using pagination) is unspecified. This operation requires permissions for the elasticfilesystem:DescribeTags action.
+      operationId: amazonWebServicesDescribeTags
+      tags:
+      - Tags
+  /2015-01-01/tags:
+    POST:
+      summary: Amazon Web Services Addtags
+      description: Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See Tagging Amazon Elasticsearch Service Domains for more information.
+      operationId: amazonWebServicesAddTags
+      tags:
+      - Tags
+  /2015-01-01/tags/:
+    GET:
+      summary: Amazon Web Services Listtags
+      description: Returns all tags for the given Elasticsearch domain.
+      operationId: get20150101Tags
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTags
   /tags/{resource-arn}:
     DELETE:
       summary: Amazon Web Services Untagresource
@@ -101,54 +140,145 @@ paths:
       operationId: amazonWebServicesUntagResource
       tags:
       - Tags
+  /2017-03-31/tags/{ARN}:
+    DELETE:
+      summary: Amazon Web Services Untagresource
+      description: Removes tags from a function.
+      operationId: delete20170331TagsByARN
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2020-11-20/tags/{resourceArn}:
+    DELETE:
+      summary: Amazon Web Services Untagresource
+      description: Removes one or more tags from an Amazon Lookout for Vision model. For more information, see Tagging a model in the Amazon Lookout for Vision Developer Guide. This operation requires permissions to perform the lookoutvision:UntagResource operation.
+      operationId: delete20201120TagsByResourceArn
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2017-08-29/tags/{arn}:
+    PUT:
+      summary: Amazon Web Services Untagresource
+      description: Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+      operationId: put20170829TagsByArn
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2017-08-29/tags:
+    POST:
+      summary: Amazon Web Services Tagresource
+      description: Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
+      operationId: post20170829Tags
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesTagResource
   /tags/{resourceARN}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes tags from a bot, bot alias, or bot channel.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTagsByResourceARN
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /v1/tags/{resource-arn}:
     GET:
       summary: Amazon Web Services Listtags
       description: Lists tags for a resource.
-      operationId: amazonWebServicesListTags
+      operationId: getV1TagsByResourceArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTags
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags (keys and values) from an application, campaign, message template, or segment.
       operationId: amazonWebServicesUntagResource
       tags:
       - Tags
+  /2020-08-01/tags/{resourceArn}:
+    DELETE:
+      summary: Amazon Web Services Untagresource
+      description: Deletes the tags for a resource.
+      operationId: delete20200801TagsByResourceArn
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2021-01-01/tags:
+    POST:
+      summary: Amazon Web Services Addtags
+      description: Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see Tagging Amazon OpenSearch Service domains.
+      operationId: post20210101Tags
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesAddTags
+  /2021-01-01/tags/:
+    GET:
+      summary: Amazon Web Services Listtags
+      description: Returns all resource tags for an Amazon OpenSearch Service domain. For more information, see Tagging Amazon OpenSearch Service domains.
+      operationId: get20210101Tags
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTags
   /v1/tags/{resourceARN}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes a tag from an Amazon Q application or a data source.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteV1TagsByResourceARN
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
+  /2013-04-01/tags/{ResourceType}/{ResourceId}:
+    GET:
+      summary: Amazon Web Services Listtagsforresource
+      description: Lists tags for one health check or hosted zone. For information about using tags for cost allocation, see Using Cost Allocation Tags in the Billing and Cost Management User Guide.
+      operationId: get20130401TagsByResourceTypeByResourceId
+      tags:
+      - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListTagsForResource
+  /2013-04-01/tags/{ResourceType}:
+    POST:
+      summary: Amazon Web Services Listtagsforresources
+      description: Lists tags for up to 10 health checks or hosted zones. For information about using tags for cost allocation, see Using Cost Allocation Tags in the Billing and Cost Management User Guide.
+      operationId: amazonWebServicesListTagsForResources
       tags:
       - Tags
   /v20180820/tags/{resourceArn+}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: This operation removes the specified Amazon Web Services resource tags from an S3 resource. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. This operation is only supported for S3 Storage Lens groups and for S3 Access Grants. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant. Permissions You must have the s3:UntagResource permission to use this operation. For more information about the required Storage Lens Groups permissions, see Setting account permissions to use S3 Storage Lens groups. For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteV20180820TagsByResourceArn+
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /tags/{WorkloadArn}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: 'Deletes specified tags from a resource. The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN. To specify multiple tags, use separate tagKeys parameters, for example: DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2'
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTagsByWorkloadArn
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
   /tags/{resourceArn+}:
     DELETE:
       summary: Amazon Web Services Untagresource
       description: Removes one or more tags from the specified resource.
-      operationId: amazonWebServicesUntagResource
+      operationId: deleteTagsByResourceArn+
       tags:
       - Tags
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUntagResource
 x-refined-from:
 - accessanalyzer-openapi-original.yml
 - amp-openapi-original.yml
@@ -193,9 +323,11 @@ x-refined-from:
 - drs-openapi-original.yml
 - eks-openapi-original.yml
 - elastic-inference-openapi-original.yml
+- elasticfilesystem-openapi-original.yml
 - emr-containers-openapi-original.yml
 - emr-serverless-openapi-original.yml
 - entityresolution-openapi-original.yml
+- es-openapi-original.yml
 - evidently-openapi-original.yml
 - finspace-openapi-original.yml
 - fis-openapi-original.yml
@@ -221,14 +353,17 @@ x-refined-from:
 - ivs-realtime-openapi-original.yml
 - ivschat-openapi-original.yml
 - kafka-openapi-original.yml
+- lambda-openapi-original.yml
 - lex-models-openapi-original.yml
 - location-openapi-original.yml
 - lookoutmetrics-openapi-original.yml
+- lookoutvision-openapi-original.yml
 - m2-openapi-original.yml
 - macie2-openapi-original.yml
 - managedblockchain-openapi-original.yml
 - marketplace-deployment-openapi-original.yml
 - mediaconnect-openapi-original.yml
+- mediaconvert-openapi-original.yml
 - mediapackage-openapi-original.yml
 - mediapackage-vod-openapi-original.yml
 - mediapackagev2-openapi-original.yml
@@ -243,8 +378,10 @@ x-refined-from:
 - neptune-graph-openapi-original.yml
 - networkmanager-openapi-original.yml
 - networkmonitor-openapi-original.yml
+- nimble-openapi-original.yml
 - oam-openapi-original.yml
 - omics-openapi-original.yml
+- opensearch-openapi-original.yml
 - outposts-openapi-original.yml
 - panorama-openapi-original.yml
 - pca-connector-ad-openapi-original.yml
@@ -259,6 +396,7 @@ x-refined-from:
 - resiliencehub-openapi-original.yml
 - resource-explorer-2-openapi-original.yml
 - robomaker-openapi-original.yml
+- route53-openapi-original.yml
 - route53-recovery-control-config-openapi-original.yml
 - route53-recovery-readiness-openapi-original.yml
 - rum-openapi-original.yml

@@ -1,0 +1,105 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services route53 Hostedzone API
+  description: 'Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
+
+
+    You can use Route 53 to:
+
+
+    Register domain names.
+
+
+    For more information, see How domain registration works.
+
+
+    Route internet traffic to the resources for your domain
+
+
+    For more information, see How internet traffic is routed to your website or web application.
+
+
+    Check the health of your resources.
+
+
+    For more information, see How Route 53 checks the health of your resources.'
+tags:
+- name: Hostedzone
+paths:
+  /2013-04-01/hostedzone/{Id}/associatevpc:
+    POST:
+      summary: Amazon Web Services Associatevpcwithhostedzone
+      description: 'Associates an Amazon VPC with a private hosted zone. To perform the association, the VPC and the private hosted zone must already exist. You can''t convert a public hosted zone into a private hosted zone. If you want to associate a VPC that was created by using one Amazon Web Services account with a private hosted zone that was created by using a different account, the Amazon Web Services account that created the private hosted zone must first submit a CreateVPCAssociationAuthorization request. Then the account that created the VPC must submit an AssociateVPCWithHostedZone request. When granting access, the hosted zone and the Amazon VPC must belong to the same partition. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition. The following are the supported partitions: aws - Amazon Web Services Regions aws-cn - China Regions aws-us-gov - Amazon Web Services GovCloud (US) Region For more information, see Access Management in the Amazon Web Services General Reference.'
+      operationId: amazonWebServicesAssociateVPCWithHostedZone
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/rrset/:
+    POST:
+      summary: Amazon Web Services Changeresourcerecordsets
+      description: 'Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified domain name or subdomain name. For example, you can use ChangeResourceRecordSets to create a resource record set that routes traffic for test.example.com to a web server that has an IP address of 192.0.2.44. Deleting Resource Record Sets To delete a resource record set, you must specify all the same values that you specified when you created it. Change Batches and Transactional Changes The request body must include a document with a ChangeResourceRecordSetsRequest element. The request body contains a list of change items, known as a change batch. Change batches are considered transactional changes. Route 53 validates the changes in the request and then either makes all or none of the changes in the change batch request. This ensures that DNS routing isn''t adversely affected by partial changes to the resource record sets in a hosted zone. For example, suppose a change batch request contains two changes: it deletes the CNAME resource record set for www.example.com and creates an alias resource record set for www.example.com. If validation for both records succeeds, Route 53 deletes the first resource record set and creates the second resource record set in a single operation. If validation for either the DELETE or the CREATE action fails, then the request is canceled, and the original CNAME record continues to exist. If you try to delete the same resource record set more than once in a single change batch, Route 53 returns an InvalidChangeBatch error. Traffic Flow To create resource record sets for complex routing configurations, use either the traffic flow visual editor in the Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn''t performing as expected. For more information, see Using Traffic Flow to Route DNS Traffic in the Amazon Route 53 Developer Guide. Create, Delete, and Upsert Use ChangeResourceRecordsSetsRequest to perform the following actions: CREATE: Creates a resource record set that has the specified values. DELETE: Deletes an existing resource record set that has the specified values. UPSERT: If a resource set doesn''t exist, Route 53 creates it. If a resource set exists Route 53 updates it with the values in the request. Syntaxes for Creating, Updating, and Deleting Resource Record Sets The syntax for a request depends on the type of resource record set that you want to create, delete, or update, such as weighted, alias, or failover. The XML elements in your request must appear in the order listed in the syntax. For an example for each type of resource record set, see "Examples." Don''t refer to the syntax in the "Parameter Syntax" section, which includes all of the elements for every kind of resource record set that you can create, delete, or update by using ChangeResourceRecordSets. Change Propagation to Route 53 DNS Servers When you submit a ChangeResourceRecordSets request, Route 53 propagates your changes to all of the Route 53 authoritative DNS servers managing the hosted zone. While your changes are propagating, GetChange returns a status of PENDING. When propagation is complete, GetChange returns a status of INSYNC. Changes generally propagate to all Route 53 name servers managing the hosted zone within 60 seconds. For more information, see GetChange. Limits on ChangeResourceRecordSets Requests For information about the limits on a ChangeResourceRecordSets request, see Limits in the Amazon Route 53 Developer Guide.'
+      operationId: amazonWebServicesChangeResourceRecordSets
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone:
+    GET:
+      summary: Amazon Web Services Listhostedzones
+      description: Retrieves a list of the public and private hosted zones that are associated with the current Amazon Web Services account. The response includes a HostedZones child element for each hosted zone. Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the maxitems parameter to list them in groups of up to 100.
+      operationId: amazonWebServicesListHostedZones
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/authorizevpcassociation:
+    GET:
+      summary: Amazon Web Services Listvpcassociationauthorizations
+      description: Gets a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone because you've submitted one or more CreateVPCAssociationAuthorization requests. The response includes a VPCs element with a VPC child element for each VPC that can be associated with the hosted zone.
+      operationId: amazonWebServicesListVPCAssociationAuthorizations
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}:
+    POST:
+      summary: Amazon Web Services Updatehostedzonecomment
+      description: Updates the comment for a specified hosted zone.
+      operationId: amazonWebServicesUpdateHostedZoneComment
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/deauthorizevpcassociation:
+    POST:
+      summary: Amazon Web Services Deletevpcassociationauthorization
+      description: Removes authorization to submit an AssociateVPCWithHostedZone request to associate a specified VPC with a hosted zone that was created by a different account. You must use the account that created the hosted zone to submit a DeleteVPCAssociationAuthorization request. Sending this request only prevents the Amazon Web Services account that created the VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone, DeleteVPCAssociationAuthorization won't disassociate the VPC from the hosted zone. If you want to delete an existing association, use DisassociateVPCFromHostedZone.
+      operationId: amazonWebServicesDeleteVPCAssociationAuthorization
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/disable-dnssec:
+    POST:
+      summary: Amazon Web Services Disablehostedzonednssec
+      description: Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any key-signing keys (KSKs) that are active in the hosted zone.
+      operationId: amazonWebServicesDisableHostedZoneDNSSEC
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/disassociatevpc:
+    POST:
+      summary: Amazon Web Services Disassociatevpcfromhostedzone
+      description: 'Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53 private hosted zone. Note the following: You can''t disassociate the last Amazon VPC from a private hosted zone. You can''t convert a private hosted zone into a public hosted zone. You can submit a DisassociateVPCFromHostedZone request using either the account that created the hosted zone or the account that created the Amazon VPC. Some services, such as Cloud Map and Amazon Elastic File System (Amazon EFS) automatically create hosted zones and associate VPCs with the hosted zones. A service can create a hosted zone using your account or using its own account. You can disassociate a VPC from a hosted zone only if the service created the hosted zone using your account. When you run DisassociateVPCFromHostedZone, if the hosted zone has a value for OwningAccount, you can use DisassociateVPCFromHostedZone. If the hosted zone has a value for OwningService, you can''t use DisassociateVPCFromHostedZone. When revoking access, the hosted zone and the Amazon VPC must belong to the same partition. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition. The following are the supported partitions: aws - Amazon Web Services Regions aws-cn - China Regions aws-us-gov - Amazon Web Services GovCloud (US) Region For more information, see Access Management in the Amazon Web Services General Reference.'
+      operationId: amazonWebServicesDisassociateVPCFromHostedZone
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/enable-dnssec:
+    POST:
+      summary: Amazon Web Services Enablehostedzonednssec
+      description: Enables DNSSEC signing in a specific hosted zone.
+      operationId: amazonWebServicesEnableHostedZoneDNSSEC
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/dnssec:
+    GET:
+      summary: Amazon Web Services Getdnssec
+      description: Returns information about DNSSEC for a specific hosted zone, including the key-signing keys (KSKs) in the hosted zone.
+      operationId: amazonWebServicesGetDNSSEC
+      tags:
+      - Hostedzone
+  /2013-04-01/hostedzone/{Id}/rrset:
+    GET:
+      summary: Amazon Web Services Listresourcerecordsets
+      description: 'Lists the resource record sets in a specified hosted zone. ListResourceRecordSets returns up to 300 resource record sets at a time in ASCII order, beginning at a position specified by the name and type elements. Sort order ListResourceRecordSets sorts results first by DNS name with the labels reversed, for example: com.example.www. Note the trailing dot, which can change the sort order when the record name contains characters that appear before . (decimal 46) in the ASCII table. These characters include the following: ! " # $ % & '' ( ) * + , - When multiple records have the same DNS name, ListResourceRecordSets sorts results by the record type. Specifying where to start listing records You can use the name and type elements to specify the resource record set that the list begins with: If you do not specify Name or Type The results begin with the first resource record set that the hosted zone contains. If you specify Name but not Type The results begin with the first resource record set in the list whose name is greater than or equal to Name. If you specify Type but not Name Amazon Route 53 returns the InvalidInput error. If you specify both Name and Type The results begin with the first resource record set in the list whose name is greater than or equal to Name, and whose type is greater than or equal to Type. Resource record sets that are PENDING This action returns the most current version of the records. This includes records that are PENDING, and that are not yet available on all Route 53 DNS servers. Changing resource record sets To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a ChangeResourceRecordSets request while you''re paging through the results of a ListResourceRecordSets request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes. Displaying the next page of results If a ListResourceRecordSets command returns more than one page of results, the value of IsTruncated is true. To display the next page of results, get the values of NextRecordName, NextRecordType, and NextRecordIdentifier (if any) from the response. Then submit another ListResourceRecordSets request, and specify those values for StartRecordName, StartRecordType, and StartRecordIdentifier.'
+      operationId: amazonWebServicesListResourceRecordSets
+      tags:
+      - Hostedzone

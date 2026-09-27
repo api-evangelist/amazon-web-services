@@ -1,0 +1,254 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services Es API
+  description: 'Amazon Elasticsearch Configuration Service
+
+    Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch domains.'
+tags:
+- name: Es
+paths:
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/accept:
+    PUT:
+      summary: Amazon Web Services Acceptinboundcrossclustersearchconnection
+      description: Allows the destination domain owner to accept an inbound cross-cluster search connection request.
+      operationId: amazonWebServicesAcceptInboundCrossClusterSearchConnection
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess:
+    POST:
+      summary: Amazon Web Services Authorizevpcendpointaccess
+      description: Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+      operationId: amazonWebServicesAuthorizeVpcEndpointAccess
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/config/cancel:
+    POST:
+      summary: Amazon Web Services Canceldomainconfigchange
+      description: Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+      operationId: amazonWebServicesCancelDomainConfigChange
+      tags:
+      - Es
+  /2015-01-01/es/serviceSoftwareUpdate/cancel:
+    POST:
+      summary: Amazon Web Services Cancelelasticsearchservicesoftwareupdate
+      description: Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the AutomatedUpdateDate and when the UpdateStatus is in the PENDING_UPDATE state.
+      operationId: amazonWebServicesCancelElasticsearchServiceSoftwareUpdate
+      tags:
+      - Es
+  /2015-01-01/es/domain:
+    POST:
+      summary: Amazon Web Services Createelasticsearchdomain
+      description: Creates a new Elasticsearch domain. For more information, see Creating Elasticsearch Domains in the Amazon Elasticsearch Service Developer Guide.
+      operationId: amazonWebServicesCreateElasticsearchDomain
+      tags:
+      - Es
+  /2015-01-01/es/ccs/outboundConnection:
+    POST:
+      summary: Amazon Web Services Createoutboundcrossclustersearchconnection
+      description: Creates a new cross-cluster search connection from a source domain to a destination domain.
+      operationId: amazonWebServicesCreateOutboundCrossClusterSearchConnection
+      tags:
+      - Es
+  /2015-01-01/es/vpcEndpoints:
+    GET:
+      summary: Amazon Web Services Listvpcendpoints
+      description: Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current account and Region.
+      operationId: amazonWebServicesListVpcEndpoints
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}:
+    GET:
+      summary: Amazon Web Services Describeelasticsearchdomain
+      description: Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.
+      operationId: amazonWebServicesDescribeElasticsearchDomain
+      tags:
+      - Es
+  /2015-01-01/es/role:
+    DELETE:
+      summary: Amazon Web Services Deleteelasticsearchservicerole
+      description: Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See Deleting Elasticsearch Service Role in VPC Endpoints for Amazon Elasticsearch Service Domains.
+      operationId: amazonWebServicesDeleteElasticsearchServiceRole
+      tags:
+      - Es
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}:
+    DELETE:
+      summary: Amazon Web Services Deleteinboundcrossclustersearchconnection
+      description: Allows the destination domain owner to delete an existing inbound cross-cluster search connection.
+      operationId: amazonWebServicesDeleteInboundCrossClusterSearchConnection
+      tags:
+      - Es
+  /2015-01-01/es/ccs/outboundConnection/{ConnectionId}:
+    DELETE:
+      summary: Amazon Web Services Deleteoutboundcrossclustersearchconnection
+      description: Allows the source domain owner to delete an existing outbound cross-cluster search connection.
+      operationId: amazonWebServicesDeleteOutboundCrossClusterSearchConnection
+      tags:
+      - Es
+  /2015-01-01/es/vpcEndpoints/{VpcEndpointId}:
+    DELETE:
+      summary: Amazon Web Services Deletevpcendpoint
+      description: Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+      operationId: amazonWebServicesDeleteVpcEndpoint
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/autoTunes:
+    GET:
+      summary: Amazon Web Services Describedomainautotunes
+      description: Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.
+      operationId: amazonWebServicesDescribeDomainAutoTunes
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/progress:
+    GET:
+      summary: Amazon Web Services Describedomainchangeprogress
+      description: Returns information about the current blue/green deployment happening on a domain, including a change ID, status, and progress stages.
+      operationId: amazonWebServicesDescribeDomainChangeProgress
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/config:
+    POST:
+      summary: Amazon Web Services Updateelasticsearchdomainconfig
+      description: Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances.
+      operationId: amazonWebServicesUpdateElasticsearchDomainConfig
+      tags:
+      - Es
+  /2015-01-01/es/domain-info:
+    POST:
+      summary: Amazon Web Services Describeelasticsearchdomains
+      description: Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.
+      operationId: amazonWebServicesDescribeElasticsearchDomains
+      tags:
+      - Es
+  /2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}:
+    GET:
+      summary: Amazon Web Services Describeelasticsearchinstancetypelimits
+      description: Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the DomainName to know what Limits are supported for modifying.
+      operationId: amazonWebServicesDescribeElasticsearchInstanceTypeLimits
+      tags:
+      - Es
+  /2015-01-01/es/ccs/inboundConnection/search:
+    POST:
+      summary: Amazon Web Services Describeinboundcrossclustersearchconnections
+      description: Lists all the inbound cross-cluster search connections for a destination domain.
+      operationId: amazonWebServicesDescribeInboundCrossClusterSearchConnections
+      tags:
+      - Es
+  /2015-01-01/es/ccs/outboundConnection/search:
+    POST:
+      summary: Amazon Web Services Describeoutboundcrossclustersearchconnections
+      description: Lists all the outbound cross-cluster search connections for a source domain.
+      operationId: amazonWebServicesDescribeOutboundCrossClusterSearchConnections
+      tags:
+      - Es
+  /2015-01-01/es/reservedInstanceOfferings:
+    GET:
+      summary: Amazon Web Services Describereservedelasticsearchinstanceofferings
+      description: Lists available reserved Elasticsearch instance offerings.
+      operationId: amazonWebServicesDescribeReservedElasticsearchInstanceOfferings
+      tags:
+      - Es
+  /2015-01-01/es/reservedInstances:
+    GET:
+      summary: Amazon Web Services Describereservedelasticsearchinstances
+      description: Returns information about reserved Elasticsearch instances for this account.
+      operationId: amazonWebServicesDescribeReservedElasticsearchInstances
+      tags:
+      - Es
+  /2015-01-01/es/vpcEndpoints/describe:
+    POST:
+      summary: Amazon Web Services Describevpcendpoints
+      description: Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+      operationId: amazonWebServicesDescribeVpcEndpoints
+      tags:
+      - Es
+  /2015-01-01/es/compatibleVersions:
+    GET:
+      summary: Amazon Web Services Getcompatibleelasticsearchversions
+      description: Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a DomainName to get all upgrade compatible Elasticsearch versions for that specific domain.
+      operationId: amazonWebServicesGetCompatibleElasticsearchVersions
+      tags:
+      - Es
+  /2015-01-01/es/upgradeDomain/{DomainName}/history:
+    GET:
+      summary: Amazon Web Services Getupgradehistory
+      description: Retrieves the complete history of the last 10 upgrades that were performed on the domain.
+      operationId: amazonWebServicesGetUpgradeHistory
+      tags:
+      - Es
+  /2015-01-01/es/upgradeDomain/{DomainName}/status:
+    GET:
+      summary: Amazon Web Services Getupgradestatus
+      description: Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.
+      operationId: amazonWebServicesGetUpgradeStatus
+      tags:
+      - Es
+  /2015-01-01/es/instanceTypes/{ElasticsearchVersion}:
+    GET:
+      summary: Amazon Web Services Listelasticsearchinstancetypes
+      description: List all Elasticsearch instance types that are supported for given ElasticsearchVersion
+      operationId: amazonWebServicesListElasticsearchInstanceTypes
+      tags:
+      - Es
+  /2015-01-01/es/versions:
+    GET:
+      summary: Amazon Web Services Listelasticsearchversions
+      description: List all supported Elasticsearch versions
+      operationId: amazonWebServicesListElasticsearchVersions
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess:
+    GET:
+      summary: Amazon Web Services Listvpcendpointaccess
+      description: Retrieves information about each principal that is allowed to access a given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+      operationId: amazonWebServicesListVpcEndpointAccess
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/vpcEndpoints:
+    GET:
+      summary: Amazon Web Services Listvpcendpointsfordomain
+      description: Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain.
+      operationId: amazonWebServicesListVpcEndpointsForDomain
+      tags:
+      - Es
+  /2015-01-01/es/purchaseReservedInstanceOffering:
+    POST:
+      summary: Amazon Web Services Purchasereservedelasticsearchinstanceoffering
+      description: Allows you to purchase reserved Elasticsearch instances.
+      operationId: amazonWebServicesPurchaseReservedElasticsearchInstanceOffering
+      tags:
+      - Es
+  /2015-01-01/es/ccs/inboundConnection/{ConnectionId}/reject:
+    PUT:
+      summary: Amazon Web Services Rejectinboundcrossclustersearchconnection
+      description: Allows the destination domain owner to reject an inbound cross-cluster search connection request.
+      operationId: amazonWebServicesRejectInboundCrossClusterSearchConnection
+      tags:
+      - Es
+  /2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess:
+    POST:
+      summary: Amazon Web Services Revokevpcendpointaccess
+      description: Revokes access to an Amazon OpenSearch Service domain that was provided through an interface VPC endpoint.
+      operationId: amazonWebServicesRevokeVpcEndpointAccess
+      tags:
+      - Es
+  /2015-01-01/es/serviceSoftwareUpdate/start:
+    POST:
+      summary: Amazon Web Services Startelasticsearchservicesoftwareupdate
+      description: Schedules a service software update for an Amazon ES domain.
+      operationId: amazonWebServicesStartElasticsearchServiceSoftwareUpdate
+      tags:
+      - Es
+  /2015-01-01/es/vpcEndpoints/update:
+    POST:
+      summary: Amazon Web Services Updatevpcendpoint
+      description: Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+      operationId: amazonWebServicesUpdateVpcEndpoint
+      tags:
+      - Es
+  /2015-01-01/es/upgradeDomain:
+    POST:
+      summary: Amazon Web Services Upgradeelasticsearchdomain
+      description: Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.
+      operationId: amazonWebServicesUpgradeElasticsearchDomain
+      tags:
+      - Es

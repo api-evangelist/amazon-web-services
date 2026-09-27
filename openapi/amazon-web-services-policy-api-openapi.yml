@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Policy API
   version: '1.0'
-  description: 'Operations tagged Policy across 3 of this provider''s published API definitions: accessanalyzer-openapi-original.yml, modelslexv2-openapi-original.yml, schemas-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Policy across 4 of this provider''s published API definitions: accessanalyzer-openapi-original.yml, mediaconvert-openapi-original.yml, modelslexv2-openapi-original.yml, schemas-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Policy
 paths:
@@ -41,6 +41,13 @@ paths:
       operationId: amazonWebServicesValidatePolicy
       tags:
       - Policy
+  /2017-08-29/policy:
+    PUT:
+      summary: Amazon Web Services Putpolicy
+      description: Create or change your policy. For more information about policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+      operationId: amazonWebServicesPutPolicy
+      tags:
+      - Policy
   /policy/{resourceArn}/:
     PUT:
       summary: Amazon Web Services Updateresourcepolicy
@@ -71,5 +78,6 @@ paths:
       - Policy
 x-refined-from:
 - accessanalyzer-openapi-original.yml
+- mediaconvert-openapi-original.yml
 - modelslexv2-openapi-original.yml
 - schemas-openapi-original.yml

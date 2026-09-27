@@ -1,0 +1,308 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services Opensearch API
+  description: Use the Amazon OpenSearch Service configuration API to create, configure, and manage OpenSearch Service domains.
+tags:
+- name: Open Search
+paths:
+  /2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept:
+    PUT:
+      summary: Amazon Web Services Acceptinboundconnection
+      description: Allows the destination Amazon OpenSearch Service domain owner to accept an inbound cross-cluster search connection request. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesAcceptInboundConnection
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/dataSource:
+    GET:
+      summary: Amazon Web Services Listdatasources
+      description: Lists direct-query data sources for a specific domain. For more information, see For more information, see Working with Amazon OpenSearch Service direct queries with Amazon S3.
+      operationId: amazonWebServicesListDataSources
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess:
+    POST:
+      summary: Amazon Web Services Authorizevpcendpointaccess
+      description: Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+      operationId: amazonWebServicesAuthorizeVpcEndpointAccess
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/config/cancel:
+    POST:
+      summary: Amazon Web Services Canceldomainconfigchange
+      description: Cancels a pending configuration change on an Amazon OpenSearch Service domain.
+      operationId: amazonWebServicesCancelDomainConfigChange
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/serviceSoftwareUpdate/cancel:
+    POST:
+      summary: Amazon Web Services Cancelservicesoftwareupdate
+      description: Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before the AutomatedUpdateDate and when the domain's UpdateStatus is PENDING_UPDATE. For more information, see Service software updates in Amazon OpenSearch Service.
+      operationId: amazonWebServicesCancelServiceSoftwareUpdate
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain:
+    POST:
+      summary: Amazon Web Services Createdomain
+      description: Creates an Amazon OpenSearch Service domain. For more information, see Creating and managing Amazon OpenSearch Service domains.
+      operationId: amazonWebServicesCreateDomain
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/outboundConnection:
+    POST:
+      summary: Amazon Web Services Createoutboundconnection
+      description: Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain to a destination domain. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesCreateOutboundConnection
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/vpcEndpoints:
+    GET:
+      summary: Amazon Web Services Listvpcendpoints
+      description: Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current Amazon Web Services account and Region.
+      operationId: amazonWebServicesListVpcEndpoints
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/dataSource/{DataSourceName}:
+    PUT:
+      summary: Amazon Web Services Updatedatasource
+      description: Updates a direct-query data source. For more information, see Working with Amazon OpenSearch Service data source integrations with Amazon S3.
+      operationId: amazonWebServicesUpdateDataSource
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}:
+    GET:
+      summary: Amazon Web Services Describedomain
+      description: Describes the domain configuration for the specified Amazon OpenSearch Service domain, including the domain ID, domain service endpoint, and domain ARN.
+      operationId: amazonWebServicesDescribeDomain
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}:
+    DELETE:
+      summary: Amazon Web Services Deleteinboundconnection
+      description: Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound cross-cluster search connection. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesDeleteInboundConnection
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/outboundConnection/{ConnectionId}:
+    DELETE:
+      summary: Amazon Web Services Deleteoutboundconnection
+      description: Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound cross-cluster search connection. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesDeleteOutboundConnection
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/vpcEndpoints/{VpcEndpointId}:
+    DELETE:
+      summary: Amazon Web Services Deletevpcendpoint
+      description: Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.
+      operationId: amazonWebServicesDeleteVpcEndpoint
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/autoTunes:
+    GET:
+      summary: Amazon Web Services Describedomainautotunes
+      description: Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service domain. For more information, see Auto-Tune for Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeDomainAutoTunes
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/progress:
+    GET:
+      summary: Amazon Web Services Describedomainchangeprogress
+      description: Returns information about the current blue/green deployment happening on an Amazon OpenSearch Service domain. For more information, see Making configuration changes in Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeDomainChangeProgress
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/config:
+    POST:
+      summary: Amazon Web Services Updatedomainconfig
+      description: Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.
+      operationId: amazonWebServicesUpdateDomainConfig
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/health:
+    GET:
+      summary: Amazon Web Services Describedomainhealth
+      description: Returns information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node.
+      operationId: amazonWebServicesDescribeDomainHealth
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/nodes:
+    GET:
+      summary: Amazon Web Services Describedomainnodes
+      description: Returns information about domain and nodes, including data nodes, master nodes, ultrawarm nodes, Availability Zone(s), standby nodes, node configurations, and node states.
+      operationId: amazonWebServicesDescribeDomainNodes
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain-info:
+    POST:
+      summary: Amazon Web Services Describedomains
+      description: Returns domain configuration information about the specified Amazon OpenSearch Service domains.
+      operationId: amazonWebServicesDescribeDomains
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/dryRun:
+    GET:
+      summary: Amazon Web Services Describedryrunprogress
+      description: Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch Service domain. For more information, see Determining whether a change will cause a blue/green deployment.
+      operationId: amazonWebServicesDescribeDryRunProgress
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/inboundConnection/search:
+    POST:
+      summary: Amazon Web Services Describeinboundconnections
+      description: Lists all the inbound cross-cluster search connections for a destination (remote) Amazon OpenSearch Service domain. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeInboundConnections
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/instanceTypeLimits/{EngineVersion}/{InstanceType}:
+    GET:
+      summary: Amazon Web Services Describeinstancetypelimits
+      description: Describes the instance count, storage, and master node limits for a given OpenSearch or Elasticsearch version and instance type.
+      operationId: amazonWebServicesDescribeInstanceTypeLimits
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/outboundConnection/search:
+    POST:
+      summary: Amazon Web Services Describeoutboundconnections
+      description: Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch Service domain. For more information, see Cross-cluster search for Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeOutboundConnections
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/reservedInstanceOfferings:
+    GET:
+      summary: Amazon Web Services Describereservedinstanceofferings
+      description: Describes the available Amazon OpenSearch Service Reserved Instance offerings for a given Region. For more information, see Reserved Instances in Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeReservedInstanceOfferings
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/reservedInstances:
+    GET:
+      summary: Amazon Web Services Describereservedinstances
+      description: Describes the Amazon OpenSearch Service instances that you have reserved in a given Region. For more information, see Reserved Instances in Amazon OpenSearch Service.
+      operationId: amazonWebServicesDescribeReservedInstances
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/vpcEndpoints/describe:
+    POST:
+      summary: Amazon Web Services Describevpcendpoints
+      description: Describes one or more Amazon OpenSearch Service-managed VPC endpoints.
+      operationId: amazonWebServicesDescribeVpcEndpoints
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/compatibleVersions:
+    GET:
+      summary: Amazon Web Services Getcompatibleversions
+      description: Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them to.
+      operationId: amazonWebServicesGetCompatibleVersions
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/domainMaintenance:
+    POST:
+      summary: Amazon Web Services Startdomainmaintenance
+      description: Starts the node maintenance process on the data node. These processes can include a node reboot, an Opensearch or Elasticsearch process restart, or a Dashboard or Kibana restart.
+      operationId: amazonWebServicesStartDomainMaintenance
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/upgradeDomain/{DomainName}/history:
+    GET:
+      summary: Amazon Web Services Getupgradehistory
+      description: Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch Service domain.
+      operationId: amazonWebServicesGetUpgradeHistory
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/upgradeDomain/{DomainName}/status:
+    GET:
+      summary: Amazon Web Services Getupgradestatus
+      description: Returns the most recent status of the last upgrade or upgrade eligibility check performed on an Amazon OpenSearch Service domain.
+      operationId: amazonWebServicesGetUpgradeStatus
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/domainMaintenances:
+    GET:
+      summary: Amazon Web Services Listdomainmaintenances
+      description: A list of maintenance actions for the domain.
+      operationId: amazonWebServicesListDomainMaintenances
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/instanceTypeDetails/{EngineVersion}:
+    GET:
+      summary: Amazon Web Services Listinstancetypedetails
+      description: Lists all instance types and available features for a given OpenSearch or Elasticsearch version.
+      operationId: amazonWebServicesListInstanceTypeDetails
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/scheduledActions:
+    GET:
+      summary: Amazon Web Services Listscheduledactions
+      description: Retrieves a list of configuration changes that are scheduled for a domain. These changes can be service software updates or blue/green Auto-Tune enhancements.
+      operationId: amazonWebServicesListScheduledActions
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/versions:
+    GET:
+      summary: Amazon Web Services Listversions
+      description: Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service supports.
+      operationId: amazonWebServicesListVersions
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/listVpcEndpointAccess:
+    GET:
+      summary: Amazon Web Services Listvpcendpointaccess
+      description: Retrieves information about each Amazon Web Services principal that is allowed to access a given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.
+      operationId: amazonWebServicesListVpcEndpointAccess
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/vpcEndpoints:
+    GET:
+      summary: Amazon Web Services Listvpcendpointsfordomain
+      description: Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain.
+      operationId: amazonWebServicesListVpcEndpointsForDomain
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/purchaseReservedInstanceOffering:
+    POST:
+      summary: Amazon Web Services Purchasereservedinstanceoffering
+      description: Allows you to purchase Amazon OpenSearch Service Reserved Instances.
+      operationId: amazonWebServicesPurchaseReservedInstanceOffering
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/reject:
+    PUT:
+      summary: Amazon Web Services Rejectinboundconnection
+      description: Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster connection request.
+      operationId: amazonWebServicesRejectInboundConnection
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess:
+    POST:
+      summary: Amazon Web Services Revokevpcendpointaccess
+      description: Revokes access to an Amazon OpenSearch Service domain that was provided through an interface VPC endpoint.
+      operationId: amazonWebServicesRevokeVpcEndpointAccess
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/serviceSoftwareUpdate/start:
+    POST:
+      summary: Amazon Web Services Startservicesoftwareupdate
+      description: Schedules a service software update for an Amazon OpenSearch Service domain. For more information, see Service software updates in Amazon OpenSearch Service.
+      operationId: amazonWebServicesStartServiceSoftwareUpdate
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update:
+    PUT:
+      summary: Amazon Web Services Updatescheduledaction
+      description: Reschedules a planned domain configuration change for a later time. This change can be a scheduled service software update or a blue/green Auto-Tune enhancement.
+      operationId: amazonWebServicesUpdateScheduledAction
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/vpcEndpoints/update:
+    POST:
+      summary: Amazon Web Services Updatevpcendpoint
+      description: Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.
+      operationId: amazonWebServicesUpdateVpcEndpoint
+      tags:
+      - Open Search
+  /2021-01-01/opensearch/upgradeDomain:
+    POST:
+      summary: Amazon Web Services Upgradedomain
+      description: Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade eligibility check to a compatible version of OpenSearch or Elasticsearch.
+      operationId: amazonWebServicesUpgradeDomain
+      tags:
+      - Open Search

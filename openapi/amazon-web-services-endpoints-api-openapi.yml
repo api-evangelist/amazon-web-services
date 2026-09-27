@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Endpoints API
   version: '1.0'
-  description: 'Operations tagged Endpoints across 3 of this provider''s published API definitions: chime-openapi-original.yml, chime-sdk-messaging-openapi-original.yml, runtimesagemaker-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Endpoints across 4 of this provider''s published API definitions: chime-openapi-original.yml, chime-sdk-messaging-openapi-original.yml, mediaconvert-openapi-original.yml, runtimesagemaker-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Endpoints
 paths:
@@ -11,6 +11,13 @@ paths:
       summary: Amazon Web Services Getmessagingsessionendpoint
       description: The details of the endpoint for the messaging session. This API is is no longer supported and will not be updated. We recommend using the latest version, GetMessagingSessionEndpoint, in the Amazon Chime SDK. Using the latest version requires migrating to a dedicated namespace. For more information, refer to Migrating from the Amazon Chime namespace in the Amazon Chime SDK Developer Guide.
       operationId: amazonWebServicesGetMessagingSessionEndpoint
+      tags:
+      - Endpoints
+  /2017-08-29/endpoints:
+    POST:
+      summary: Amazon Web Services Describeendpoints
+      description: Send an request with an empty body to the regional API endpoint to get your account API endpoint.
+      operationId: amazonWebServicesDescribeEndpoints
       tags:
       - Endpoints
   /endpoints/{EndpointName}/invocations:
@@ -37,4 +44,5 @@ paths:
 x-refined-from:
 - chime-openapi-original.yml
 - chime-sdk-messaging-openapi-original.yml
+- mediaconvert-openapi-original.yml
 - runtimesagemaker-openapi-original.yml

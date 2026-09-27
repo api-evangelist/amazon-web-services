@@ -66,9 +66,11 @@ paths:
     GET:
       summary: Amazon Web Services Listmonitors
       description: Returns a list of all of your monitors.
-      operationId: amazonWebServicesListMonitors
+      operationId: getMonitors
       tags:
       - Monitors
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListMonitors
   /monitors/{monitorName}/probes:
     POST:
       summary: Amazon Web Services Createprobe
@@ -80,9 +82,11 @@ paths:
     PATCH:
       summary: Amazon Web Services Updatemonitor
       description: Updates the aggregationPeriod for a monitor. Monitors support an aggregationPeriod of either 30 or 60 seconds.
-      operationId: amazonWebServicesUpdateMonitor
+      operationId: patchMonitorsByMonitorName
       tags:
       - Monitors
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateMonitor
   /monitors/{monitorName}/probes/{probeId}:
     PATCH:
       summary: Amazon Web Services Updateprobe

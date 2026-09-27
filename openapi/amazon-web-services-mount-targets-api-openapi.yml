@@ -1,0 +1,30 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services elasticfilesystem Mount Targets API
+  description: 'Amazon Elastic File System
+
+    Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so that your applications have the storage they need, when they need it. For more information, see the Amazon Elastic File System API Reference and the Amazon Elastic File System User Guide.'
+tags:
+- name: Mount Targets
+paths:
+  /2015-02-01/mount-targets:
+    GET:
+      summary: Amazon Web Services Describemounttargets
+      description: Returns the descriptions of all the current mount targets, or a specific mount target, for a file system. When requesting all of the current mount targets, the order of mount targets returned in the response is unspecified. This operation requires permissions for the elasticfilesystem:DescribeMountTargets action, on either the file system ID that you specify in FileSystemId, or on the file system of the mount target that you specify in MountTargetId.
+      operationId: amazonWebServicesDescribeMountTargets
+      tags:
+      - Mount Targets
+  /2015-02-01/mount-targets/{MountTargetId}:
+    DELETE:
+      summary: Amazon Web Services Deletemounttarget
+      description: 'Deletes the specified mount target. This operation forcibly breaks any mounts of the file system by using the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes might be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC by using another mount target. This operation requires permissions for the following action on the file system: elasticfilesystem:DeleteMountTarget The DeleteMountTarget call returns while the mount target state is still deleting. You can check the mount target deletion by calling the DescribeMountTargets operation, which returns a list of mount target descriptions for the given file system. The operation also requires permissions for the following Amazon EC2 action on the mount target''s network interface: ec2:DeleteNetworkInterface'
+      operationId: amazonWebServicesDeleteMountTarget
+      tags:
+      - Mount Targets
+  /2015-02-01/mount-targets/{MountTargetId}/security-groups:
+    PUT:
+      summary: Amazon Web Services Modifymounttargetsecuritygroups
+      description: 'Modifies the set of security groups in effect for a mount target. When you create a mount target, Amazon EFS also creates a new network interface. For more information, see CreateMountTarget. This operation replaces the security groups in effect for the network interface associated with a mount target, with the SecurityGroups provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not deleted. The operation requires permissions for the following actions: elasticfilesystem:ModifyMountTargetSecurityGroups action on the mount target''s file system. ec2:ModifyNetworkInterfaceAttribute action on the mount target''s network interface.'
+      operationId: amazonWebServicesModifyMountTargetSecurityGroups
+      tags:
+      - Mount Targets

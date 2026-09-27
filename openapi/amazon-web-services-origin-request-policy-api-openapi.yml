@@ -1,0 +1,30 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services cloudfront Origin Request Policy API
+  description: 'Amazon CloudFront
+
+    This is the Amazon CloudFront API Reference. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the Amazon CloudFront Developer Guide.'
+tags:
+- name: Origin Request Policy
+paths:
+  /2020-05-31/origin-request-policy:
+    GET:
+      summary: Amazon Web Services Listoriginrequestpolicies
+      description: Gets a list of origin request policies. You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or only the custom policies created in your Amazon Web Services account. You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the NextMarker value from the current response as the Marker value in the subsequent request.
+      operationId: amazonWebServicesListOriginRequestPolicies
+      tags:
+      - Origin Request Policy
+  /2020-05-31/origin-request-policy/{Id}:
+    PUT:
+      summary: Amazon Web Services Updateoriginrequestpolicy
+      description: 'Updates an origin request policy configuration. When you update an origin request policy configuration, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update an origin request policy configuration: Use GetOriginRequestPolicyConfig to get the current configuration. Locally modify the fields in the origin request policy configuration that you want to update. Call UpdateOriginRequestPolicy by providing the entire origin request policy configuration, including the fields that you modified and those that you didn''t.'
+      operationId: amazonWebServicesUpdateOriginRequestPolicy
+      tags:
+      - Origin Request Policy
+  /2020-05-31/origin-request-policy/{Id}/config:
+    GET:
+      summary: Amazon Web Services Getoriginrequestpolicyconfig
+      description: Gets an origin request policy configuration. To get an origin request policy configuration, you must provide the policy's identifier. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using ListDistributions or GetDistribution. If the origin request policy is not attached to a cache behavior, you can get the identifier using ListOriginRequestPolicies.
+      operationId: amazonWebServicesGetOriginRequestPolicyConfig
+      tags:
+      - Origin Request Policy

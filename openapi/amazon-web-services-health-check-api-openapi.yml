@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services route53 Healthcheck API
+  description: 'Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
+
+
+    You can use Route 53 to:
+
+
+    Register domain names.
+
+
+    For more information, see How domain registration works.
+
+
+    Route internet traffic to the resources for your domain
+
+
+    For more information, see How internet traffic is routed to your website or web application.
+
+
+    Check the health of your resources.
+
+
+    For more information, see How Route 53 checks the health of your resources.'
+tags:
+- name: Health Check
+paths:
+  /2013-04-01/healthcheck:
+    GET:
+      summary: Amazon Web Services Listhealthchecks
+      description: Retrieve a list of the health checks that are associated with the current Amazon Web Services account.
+      operationId: amazonWebServicesListHealthChecks
+      tags:
+      - Health Check
+  /2013-04-01/healthcheck/{HealthCheckId}:
+    POST:
+      summary: Amazon Web Services Updatehealthcheck
+      description: Updates an existing health check. Note that some values can't be updated. For more information about updating health checks, see Creating, Updating, and Deleting Health Checks in the Amazon Route 53 Developer Guide.
+      operationId: amazonWebServicesUpdateHealthCheck
+      tags:
+      - Health Check
+  /2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason:
+    GET:
+      summary: Amazon Web Services Gethealthchecklastfailurereason
+      description: Gets the reason that a specified health check failed most recently.
+      operationId: amazonWebServicesGetHealthCheckLastFailureReason
+      tags:
+      - Health Check
+  /2013-04-01/healthcheck/{HealthCheckId}/status:
+    GET:
+      summary: Amazon Web Services Gethealthcheckstatus
+      description: Gets status of a specified health check. This API is intended for use during development to diagnose behavior. It doesn’t support production use-cases with high query rates that require immediate and actionable responses.
+      operationId: amazonWebServicesGetHealthCheckStatus
+      tags:
+      - Health Check

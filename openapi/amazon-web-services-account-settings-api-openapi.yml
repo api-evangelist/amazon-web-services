@@ -1,9 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services backup Account Settings API
-  description: 'Backup
-
-    Backup is a unified backup service designed to protect Amazon Web Services services and their associated data. Backup simplifies the creation, migration, restoration, and deletion of backups, while also providing reporting and auditing.'
+  title: Amazon Web Services Account Settings API
+  version: '1.0'
+  description: 'Operations tagged Account Settings across 2 of this provider''s published API definitions: backup-openapi-original.yml, lambda-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Account Settings
 paths:
@@ -14,3 +13,13 @@ paths:
       operationId: amazonWebServicesUpdateRegionSettings
       tags:
       - Account Settings
+  /2016-08-19/account-settings/:
+    GET:
+      summary: Amazon Web Services Getaccountsettings
+      description: Retrieves details about your account's limits and usage in an Amazon Web Services Region.
+      operationId: amazonWebServicesGetAccountSettings
+      tags:
+      - Account Settings
+x-refined-from:
+- backup-openapi-original.yml
+- lambda-openapi-original.yml

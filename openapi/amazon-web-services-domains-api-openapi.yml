@@ -44,9 +44,11 @@ paths:
     GET:
       summary: Amazon Web Services Listdomains
       description: Returns a list of all the domains for an AWS account that have been created.
-      operationId: amazonWebServicesListDomains
+      operationId: getDomains
       tags:
       - Domains
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListDomains
   /domains/{domainId}/fields:
     POST:
       summary: Amazon Web Services Createfield
@@ -429,9 +431,11 @@ paths:
     GET:
       summary: Amazon Web Services Listdomains
       description: Lists Amazon DataZone domains.
-      operationId: amazonWebServicesListDomains
+      operationId: getV2Domains
       tags:
       - Domains
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListDomains
   /v2/domains/{domainIdentifier}/environments:
     GET:
       summary: Amazon Web Services Listenvironments
@@ -548,9 +552,11 @@ paths:
     PUT:
       summary: Amazon Web Services Updatedomain
       description: Updates a Amazon DataZone domain.
-      operationId: amazonWebServicesUpdateDomain
+      operationId: putV2DomainsByIdentifier
       tags:
       - Domains
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateDomain
   /v2/domains/{domainIdentifier}/environments/{identifier}:
     PATCH:
       summary: Amazon Web Services Updateenvironment

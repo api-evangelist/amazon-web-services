@@ -213,9 +213,11 @@ paths:
     GET:
       summary: Amazon Web Services Listclusters
       description: Returns a list of all the MSK clusters in the current Region.
-      operationId: amazonWebServicesListClusters
+      operationId: getV1Clusters
       tags:
       - Clusters
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListClusters
   /api/v2/clusters:
     GET:
       summary: Amazon Web Services Listclustersv2
@@ -227,9 +229,11 @@ paths:
     GET:
       summary: Amazon Web Services Describecluster
       description: Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.
-      operationId: amazonWebServicesDescribeCluster
+      operationId: getV1ClustersByClusterArn
       tags:
       - Clusters
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDescribeCluster
   /v1/clusters/{clusterArn}/policy:
     PUT:
       summary: Amazon Web Services Putclusterpolicy

@@ -1,0 +1,65 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services elasticfilesystem File Systems API
+  description: 'Amazon Elastic File System
+
+    Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so that your applications have the storage they need, when they need it. For more information, see the Amazon Elastic File System API Reference and the Amazon Elastic File System User Guide.'
+tags:
+- name: Filesystems
+paths:
+  /2015-02-01/file-systems:
+    GET:
+      summary: Amazon Web Services Describefilesystems
+      description: Returns the description of a specific Amazon EFS file system if either the file system CreationToken or the FileSystemId is provided. Otherwise, it returns descriptions of all file systems owned by the caller's Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling. When retrieving all file system descriptions, you can optionally specify the MaxItems parameter to limit the number of descriptions in a response. This number is automatically set to 100. If more file system descriptions remain, Amazon EFS returns a NextMarker, an opaque token, in the response. In this case, you should send a subsequent request with the Marker request parameter set to the value of NextMarker. To retrieve a list of your file system descriptions, this operation is used in an iterative process, where DescribeFileSystems is called first without the Marker and then the operation continues to call it with the Marker parameter set to the value of the NextMarker from the previous response until the response has no NextMarker. The order of file systems returned in the response of one DescribeFileSystems call and the order of file systems returned across the responses of a multi-call iteration is unspecified. This operation requires permissions for the elasticfilesystem:DescribeFileSystems action.
+      operationId: amazonWebServicesDescribeFileSystems
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration:
+    DELETE:
+      summary: Amazon Web Services Deletereplicationconfiguration
+      description: Deletes a replication configuration. Deleting a replication configuration ends the replication process. After a replication configuration is deleted, the destination file system becomes Writeable and its replication overwrite protection is re-enabled. For more information, see Delete a replication configuration. This operation requires permissions for the elasticfilesystem:DeleteReplicationConfiguration action.
+      operationId: amazonWebServicesDeleteReplicationConfiguration
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{FileSystemId}:
+    PUT:
+      summary: Amazon Web Services Updatefilesystem
+      description: Updates the throughput mode or the amount of provisioned throughput of an existing file system.
+      operationId: amazonWebServicesUpdateFileSystem
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{FileSystemId}/policy:
+    PUT:
+      summary: Amazon Web Services Putfilesystempolicy
+      description: Applies an Amazon EFS FileSystemPolicy to an Amazon EFS file system. A file system policy is an IAM resource-based policy and can contain multiple policy statements. A file system always has exactly one file system policy, which can be the default policy or an explicit policy set or updated using this API operation. EFS file system policies have a 20,000 character limit. When an explicit policy is set, it overrides the default policy. For more information about the default file system policy, see Default EFS File System Policy. EFS file system policies have a 20,000 character limit. This operation requires permissions for the elasticfilesystem:PutFileSystemPolicy action.
+      operationId: amazonWebServicesPutFileSystemPolicy
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{FileSystemId}/backup-policy:
+    PUT:
+      summary: Amazon Web Services Putbackuppolicy
+      description: Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system.
+      operationId: amazonWebServicesPutBackupPolicy
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration:
+    PUT:
+      summary: Amazon Web Services Putlifecycleconfiguration
+      description: 'Use this action to manage storage for your file system. A LifecycleConfiguration consists of one or more LifecyclePolicy objects that define the following: TransitionToIA – When to move files in the file system from primary storage (Standard storage class) into the Infrequent Access (IA) storage. TransitionToArchive – When to move files in the file system from their current storage class (either IA or Standard storage) into the Archive storage. File systems cannot transition into Archive storage before transitioning into IA storage. Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA. The Archive storage class is available only for file systems that use the Elastic Throughput mode and the General Purpose Performance mode. TransitionToPrimaryStorageClass – Whether to move files in the file system back to primary storage (Standard storage class) after they are accessed in IA or Archive storage. For more information, see Managing file system storage. Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a LifecycleConfiguration object already exists for the specified file system, a PutLifecycleConfiguration call modifies the existing configuration. A PutLifecycleConfiguration call with an empty LifecyclePolicies array in the request body deletes any existing LifecycleConfiguration. In the request, specify the following: The ID for the file system for which you are enabling, disabling, or modifying Lifecycle management. A LifecyclePolicies array of LifecyclePolicy objects that define when to move files to IA storage, to Archive storage, and back to primary storage. Amazon EFS requires that each LifecyclePolicy object have only have a single transition, so the LifecyclePolicies array needs to be structured with separate LifecyclePolicy objects. See the example requests in the following section for more information. This operation requires permissions for the elasticfilesystem:PutLifecycleConfiguration operation. To apply a LifecycleConfiguration object to an encrypted file system, you need the same Key Management Service permissions as when you created the encrypted file system.'
+      operationId: amazonWebServicesPutLifecycleConfiguration
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/replication-configurations:
+    GET:
+      summary: Amazon Web Services Describereplicationconfigurations
+      description: Retrieves the replication configuration for a specific file system. If a file system is not specified, all of the replication configurations for the Amazon Web Services account in an Amazon Web Services Region are retrieved.
+      operationId: amazonWebServicesDescribeReplicationConfigurations
+      tags:
+      - Filesystems
+  /2015-02-01/file-systems/{FileSystemId}/protection:
+    PUT:
+      summary: Amazon Web Services Updatefilesystemprotection
+      description: Updates protection on the file system. This operation requires permissions for the elasticfilesystem:UpdateFileSystemProtection action.
+      operationId: amazonWebServicesUpdateFileSystemProtection
+      tags:
+      - Filesystems

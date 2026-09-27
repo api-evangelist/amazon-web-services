@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Packages API
   version: '1.0'
-  description: 'Operations tagged Packages across 3 of this provider''s published API definitions: codeartifact-openapi-original.yml, iot-openapi-original.yml, panorama-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Packages across 5 of this provider''s published API definitions: codeartifact-openapi-original.yml, es-openapi-original.yml, iot-openapi-original.yml, opensearch-openapi-original.yml, panorama-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Packages
 paths:
@@ -13,13 +13,71 @@ paths:
       operationId: amazonWebServicesListPackages
       tags:
       - Packages
+  /2015-01-01/packages/associate/{PackageID}/{DomainName}:
+    POST:
+      summary: Amazon Web Services Associatepackage
+      description: Associates a package with an Amazon ES domain.
+      operationId: amazonWebServicesAssociatePackage
+      tags:
+      - Packages
+  /2015-01-01/packages:
+    POST:
+      summary: Amazon Web Services Createpackage
+      description: Create a package for use with Amazon ES domains.
+      operationId: amazonWebServicesCreatePackage
+      tags:
+      - Packages
+  /2015-01-01/packages/{PackageID}:
+    DELETE:
+      summary: Amazon Web Services Deletepackage
+      description: Delete the package.
+      operationId: amazonWebServicesDeletePackage
+      tags:
+      - Packages
+  /2015-01-01/packages/describe:
+    POST:
+      summary: Amazon Web Services Describepackages
+      description: Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.
+      operationId: amazonWebServicesDescribePackages
+      tags:
+      - Packages
+  /2015-01-01/packages/dissociate/{PackageID}/{DomainName}:
+    POST:
+      summary: Amazon Web Services Dissociatepackage
+      description: Dissociates a package from the Amazon ES domain.
+      operationId: amazonWebServicesDissociatePackage
+      tags:
+      - Packages
+  /2015-01-01/packages/{PackageID}/history:
+    GET:
+      summary: Amazon Web Services Getpackageversionhistory
+      description: Returns a list of versions of the package, along with their creation time and commit message.
+      operationId: amazonWebServicesGetPackageVersionHistory
+      tags:
+      - Packages
+  /2015-01-01/packages/{PackageID}/domains:
+    GET:
+      summary: Amazon Web Services Listdomainsforpackage
+      description: Lists all Amazon ES domains associated with the package.
+      operationId: amazonWebServicesListDomainsForPackage
+      tags:
+      - Packages
+  /2015-01-01/packages/update:
+    POST:
+      summary: Amazon Web Services Updatepackage
+      description: Updates a package for use with Amazon ES domains.
+      operationId: amazonWebServicesUpdatePackage
+      tags:
+      - Packages
   /packages/{packageName}:
     PATCH:
       summary: Amazon Web Services Updatepackage
       description: Updates the supported fields for a specific software package. Requires permission to access the UpdatePackage and GetIndexingConfiguration actions.
-      operationId: amazonWebServicesUpdatePackage
+      operationId: patchPackagesByPackageName
       tags:
       - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdatePackage
   /packages/{packageName}/versions/{versionName}:
     PATCH:
       summary: Amazon Web Services Updatepackageversion
@@ -38,9 +96,83 @@ paths:
     GET:
       summary: Amazon Web Services Listpackages
       description: Lists the software packages associated to the account. Requires permission to access the ListPackages action.
-      operationId: amazonWebServicesListPackages
+      operationId: getPackages
       tags:
       - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListPackages
+  /2021-01-01/packages/associate/{PackageID}/{DomainName}:
+    POST:
+      summary: Amazon Web Services Associatepackage
+      description: Associates a package with an Amazon OpenSearch Service domain. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: post20210101PackagesAssociateByPackageIDByDomainName
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesAssociatePackage
+  /2021-01-01/packages:
+    POST:
+      summary: Amazon Web Services Createpackage
+      description: Creates a package for use with Amazon OpenSearch Service domains. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: post20210101Packages
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesCreatePackage
+  /2021-01-01/packages/{PackageID}:
+    DELETE:
+      summary: Amazon Web Services Deletepackage
+      description: Deletes an Amazon OpenSearch Service package. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: delete20210101PackagesByPackageID
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDeletePackage
+  /2021-01-01/packages/describe:
+    POST:
+      summary: Amazon Web Services Describepackages
+      description: Describes all packages available to OpenSearch Service. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: post20210101PackagesDescribe
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDescribePackages
+  /2021-01-01/packages/dissociate/{PackageID}/{DomainName}:
+    POST:
+      summary: Amazon Web Services Dissociatepackage
+      description: Removes a package from the specified Amazon OpenSearch Service domain. The package can't be in use with any OpenSearch index for the dissociation to succeed. The package is still available in OpenSearch Service for association later. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: post20210101PackagesDissociateByPackageIDByDomainName
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDissociatePackage
+  /2021-01-01/packages/{PackageID}/history:
+    GET:
+      summary: Amazon Web Services Getpackageversionhistory
+      description: Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the package is a zip plugin package). For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: get20210101PackagesByPackageIDHistory
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesGetPackageVersionHistory
+  /2021-01-01/packages/{PackageID}/domains:
+    GET:
+      summary: Amazon Web Services Listdomainsforpackage
+      description: Lists all Amazon OpenSearch Service domains associated with a given package. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: get20210101PackagesByPackageIDDomains
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListDomainsForPackage
+  /2021-01-01/packages/update:
+    POST:
+      summary: Amazon Web Services Updatepackage
+      description: Updates a package for use with Amazon OpenSearch Service domains. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: post20210101PackagesUpdate
+      tags:
+      - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdatePackage
   /packages/template-job:
     GET:
       summary: Amazon Web Services Listnodefromtemplatejobs
@@ -59,9 +191,11 @@ paths:
     DELETE:
       summary: Amazon Web Services Deletepackage
       description: Deletes a package. To delete a package, you need permission to call s3:DeleteObject in addition to permissions for the AWS Panorama API.
-      operationId: amazonWebServicesDeletePackage
+      operationId: deletePackagesByPackageId
       tags:
       - Packages
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDeletePackage
   /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
     PUT:
       summary: Amazon Web Services Registerpackageversion
@@ -99,5 +233,7 @@ paths:
       - Packages
 x-refined-from:
 - codeartifact-openapi-original.yml
+- es-openapi-original.yml
 - iot-openapi-original.yml
+- opensearch-openapi-original.yml
 - panorama-openapi-original.yml

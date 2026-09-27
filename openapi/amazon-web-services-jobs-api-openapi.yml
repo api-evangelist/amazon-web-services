@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Jobs API
   version: '1.0'
-  description: 'Operations tagged Jobs across 8 of this provider''s published API definitions: braket-openapi-original.yml, databrew-openapi-original.yml, dataexchange-openapi-original.yml, iot-openapi-original.yml, iotsitewise-openapi-original.yml, macie2-openapi-original.yml, panorama-openapi-original.yml, s3control-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Jobs across 10 of this provider''s published API definitions: braket-openapi-original.yml, databrew-openapi-original.yml, dataexchange-openapi-original.yml, elastictranscoder-openapi-original.yml, iot-openapi-original.yml, iotsitewise-openapi-original.yml, macie2-openapi-original.yml, mediaconvert-openapi-original.yml, panorama-openapi-original.yml, s3control-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Jobs
 paths:
@@ -65,7 +65,23 @@ paths:
     GET:
       summary: Amazon Web Services Listjobs
       description: This operation lists your jobs sorted by CreatedAt in descending order.
-      operationId: amazonWebServicesListJobs
+      operationId: getV1Jobs
+      tags:
+      - Jobs
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListJobs
+  /2012-09-25/jobs/{Id}:
+    GET:
+      summary: Amazon Web Services Readjob
+      description: The ReadJob operation returns detailed information about a job.
+      operationId: amazonWebServicesReadJob
+      tags:
+      - Jobs
+  /2012-09-25/jobs:
+    POST:
+      summary: Amazon Web Services Createjob
+      description: When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified plus information about the job that is created. If you have specified more than one output for your jobs (for example, one output for the Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to list the jobs (as opposed to the AWS Console).
+      operationId: amazonWebServicesCreateJob
       tags:
       - Jobs
   /jobs/{jobId}/targets:
@@ -116,6 +132,22 @@ paths:
       operationId: amazonWebServicesListClassificationJobs
       tags:
       - Jobs
+  /2017-08-29/jobs/{id}:
+    GET:
+      summary: Amazon Web Services Getjob
+      description: Retrieve the JSON for a specific transcoding job.
+      operationId: amazonWebServicesGetJob
+      tags:
+      - Jobs
+  /2017-08-29/jobs:
+    GET:
+      summary: Amazon Web Services Listjobs
+      description: Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
+      operationId: get20170829Jobs
+      tags:
+      - Jobs
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListJobs
   /jobs/{JobId}:
     GET:
       summary: Amazon Web Services Describedevicejob
@@ -127,9 +159,11 @@ paths:
     GET:
       summary: Amazon Web Services Listjobs
       description: 'Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 30 days for the Amazon Web Services account making the request. For more information, see S3 Batch Operations in the Amazon S3 User Guide. Permissions To use the ListJobs operation, you must have permission to perform the s3:ListJobs action. Related actions include: CreateJob DescribeJob UpdateJobPriority UpdateJobStatus'
-      operationId: amazonWebServicesListJobs
+      operationId: getV20180820Jobs
       tags:
       - Jobs
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListJobs
   /v20180820/jobs/{id}/tagging:
     PUT:
       summary: Amazon Web Services Putjobtagging
@@ -141,9 +175,11 @@ paths:
     GET:
       summary: Amazon Web Services Describejob
       description: 'Retrieves the configuration parameters and status for a Batch Operations job. For more information, see S3 Batch Operations in the Amazon S3 User Guide. Permissions To use the DescribeJob operation, you must have permission to perform the s3:DescribeJob action. Related actions include: CreateJob ListJobs UpdateJobPriority UpdateJobStatus'
-      operationId: amazonWebServicesDescribeJob
+      operationId: getV20180820JobsById
       tags:
       - Jobs
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesDescribeJob
   /v20180820/jobs/{id}/priority:
     POST:
       summary: Amazon Web Services Updatejobpriority
@@ -162,8 +198,10 @@ x-refined-from:
 - braket-openapi-original.yml
 - databrew-openapi-original.yml
 - dataexchange-openapi-original.yml
+- elastictranscoder-openapi-original.yml
 - iot-openapi-original.yml
 - iotsitewise-openapi-original.yml
 - macie2-openapi-original.yml
+- mediaconvert-openapi-original.yml
 - panorama-openapi-original.yml
 - s3control-openapi-original.yml

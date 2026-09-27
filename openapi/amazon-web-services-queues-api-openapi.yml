@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services connect Queues API
-  description: Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.
+  title: Amazon Web Services Queues API
+  version: '1.0'
+  description: 'Operations tagged Queues across 2 of this provider''s published API definitions: connect-openapi-original.yml, mediaconvert-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Queues
 paths:
@@ -75,3 +76,20 @@ paths:
       operationId: amazonWebServicesUpdateQueueStatus
       tags:
       - Queues
+  /2017-08-29/queues:
+    GET:
+      summary: Amazon Web Services Listqueues
+      description: Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
+      operationId: amazonWebServicesListQueues
+      tags:
+      - Queues
+  /2017-08-29/queues/{name}:
+    PUT:
+      summary: Amazon Web Services Updatequeue
+      description: Modify one of your existing queues.
+      operationId: amazonWebServicesUpdateQueue
+      tags:
+      - Queues
+x-refined-from:
+- connect-openapi-original.yml
+- mediaconvert-openapi-original.yml

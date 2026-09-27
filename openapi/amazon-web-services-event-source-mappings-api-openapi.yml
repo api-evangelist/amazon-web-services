@@ -1,0 +1,26 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services lambda Event Source Mappings API
+  description: 'Lambda
+
+    Overview
+
+
+    Lambda is a compute service that lets you run code without provisioning or managing servers.'
+tags:
+- name: Event Source Mappings
+paths:
+  /2015-03-31/event-source-mappings/:
+    GET:
+      summary: Amazon Web Services Listeventsourcemappings
+      description: Lists event source mappings. Specify an EventSourceArn to show only event source mappings for a single event source.
+      operationId: amazonWebServicesListEventSourceMappings
+      tags:
+      - Event Source Mappings
+  /2015-03-31/event-source-mappings/{UUID}:
+    PUT:
+      summary: Amazon Web Services Updateeventsourcemapping
+      description: 'Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location. For details about how to configure different event sources, see the following topics. Amazon DynamoDB Streams Amazon Kinesis Amazon SQS Amazon MQ and RabbitMQ Amazon MSK Apache Kafka Amazon DocumentDB The following error handling options are available only for stream sources (DynamoDB and Kinesis): BisectBatchOnFunctionError – If the function returns an error, split the batch in two and retry. DestinationConfig – Send discarded records to an Amazon SQS queue or Amazon SNS topic. MaximumRecordAgeInSeconds – Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires MaximumRetryAttempts – Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires. ParallelizationFactor – Process multiple batches from each shard concurrently. For information about which configuration parameters apply to each event source, see the following topics. Amazon DynamoDB Streams Amazon Kinesis Amazon SQS Amazon MQ and RabbitMQ Amazon MSK Apache Kafka Amazon DocumentDB'
+      operationId: amazonWebServicesUpdateEventSourceMapping
+      tags:
+      - Event Source Mappings

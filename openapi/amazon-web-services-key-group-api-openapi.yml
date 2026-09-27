@@ -1,0 +1,30 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services cloudfront Key Group API
+  description: 'Amazon CloudFront
+
+    This is the Amazon CloudFront API Reference. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the Amazon CloudFront Developer Guide.'
+tags:
+- name: Key Group
+paths:
+  /2020-05-31/key-group:
+    GET:
+      summary: Amazon Web Services Listkeygroups
+      description: Gets a list of key groups. You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the NextMarker value from the current response as the Marker value in the subsequent request.
+      operationId: amazonWebServicesListKeyGroups
+      tags:
+      - Key Group
+  /2020-05-31/key-group/{Id}:
+    PUT:
+      summary: Amazon Web Services Updatekeygroup
+      description: 'Updates a key group. When you update a key group, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a key group: Get the current key group with GetKeyGroup or GetKeyGroupConfig. Locally modify the fields in the key group that you want to update. For example, add or remove public key IDs. Call UpdateKeyGroup with the entire key group object, including the fields that you modified and those that you didn''t.'
+      operationId: amazonWebServicesUpdateKeyGroup
+      tags:
+      - Key Group
+  /2020-05-31/key-group/{Id}/config:
+    GET:
+      summary: Amazon Web Services Getkeygroupconfig
+      description: Gets a key group configuration. To get a key group configuration, you must provide the key group's identifier. If the key group is referenced in a distribution's cache behavior, you can get the key group's identifier using ListDistributions or GetDistribution. If the key group is not referenced in a cache behavior, you can get the identifier using ListKeyGroups.
+      operationId: amazonWebServicesGetKeyGroupConfig
+      tags:
+      - Key Group

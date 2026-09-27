@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services lambda Code Signing Configs API
+  description: 'Lambda
+
+    Overview
+
+
+    Lambda is a compute service that lets you run code without provisioning or managing servers.'
+tags:
+- name: Code Signing Configs
+paths:
+  /2020-04-22/code-signing-configs/:
+    GET:
+      summary: Amazon Web Services Listcodesigningconfigs
+      description: Returns a list of code signing configurations. A request returns up to 10,000 configurations per call. You can use the MaxItems parameter to return fewer configurations per call.
+      operationId: amazonWebServicesListCodeSigningConfigs
+      tags:
+      - Code Signing Configs
+  /2020-04-22/code-signing-configs/{CodeSigningConfigArn}:
+    PUT:
+      summary: Amazon Web Services Updatecodesigningconfig
+      description: Update the code signing configuration. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function.
+      operationId: amazonWebServicesUpdateCodeSigningConfig
+      tags:
+      - Code Signing Configs
+  /2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions:
+    GET:
+      summary: Amazon Web Services Listfunctionsbycodesigningconfig
+      description: List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.
+      operationId: amazonWebServicesListFunctionsByCodeSigningConfig
+      tags:
+      - Code Signing Configs

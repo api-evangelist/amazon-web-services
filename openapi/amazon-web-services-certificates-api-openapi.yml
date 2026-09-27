@@ -1,9 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services iot Certificates API
-  description: 'IoT
-
-    IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud.'
+  title: Amazon Web Services Certificates API
+  version: '1.0'
+  description: 'Operations tagged Certificates across 2 of this provider''s published API definitions: iot-openapi-original.yml, mediaconvert-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Certificates
 paths:
@@ -21,3 +20,20 @@ paths:
       operationId: amazonWebServicesUpdateCertificate
       tags:
       - Certificates
+  /2017-08-29/certificates:
+    POST:
+      summary: Amazon Web Services Associatecertificate
+      description: Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+      operationId: amazonWebServicesAssociateCertificate
+      tags:
+      - Certificates
+  /2017-08-29/certificates/{arn}:
+    DELETE:
+      summary: Amazon Web Services Disassociatecertificate
+      description: Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
+      operationId: amazonWebServicesDisassociateCertificate
+      tags:
+      - Certificates
+x-refined-from:
+- iot-openapi-original.yml
+- mediaconvert-openapi-original.yml

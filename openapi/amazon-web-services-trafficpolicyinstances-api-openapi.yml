@@ -1,0 +1,49 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services route53 Trafficpolicyinstances API
+  description: 'Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
+
+
+    You can use Route 53 to:
+
+
+    Register domain names.
+
+
+    For more information, see How domain registration works.
+
+
+    Route internet traffic to the resources for your domain
+
+
+    For more information, see How internet traffic is routed to your website or web application.
+
+
+    Check the health of your resources.
+
+
+    For more information, see How Route 53 checks the health of your resources.'
+tags:
+- name: Trafficpolicyinstances
+paths:
+  /2013-04-01/trafficpolicyinstances:
+    GET:
+      summary: Amazon Web Services Listtrafficpolicyinstances
+      description: Gets information about the traffic policy instances that you created by using the current Amazon Web Services account. After you submit an UpdateTrafficPolicyInstance request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the State response element. Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the MaxItems parameter to list them in groups of up to 100.
+      operationId: amazonWebServicesListTrafficPolicyInstances
+      tags:
+      - Trafficpolicyinstances
+  /2013-04-01/trafficpolicyinstances/hostedzone:
+    GET:
+      summary: Amazon Web Services Listtrafficpolicyinstancesbyhostedzone
+      description: Gets information about the traffic policy instances that you created in a specified hosted zone. After you submit a CreateTrafficPolicyInstance or an UpdateTrafficPolicyInstance request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the State response element. Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the MaxItems parameter to list them in groups of up to 100.
+      operationId: amazonWebServicesListTrafficPolicyInstancesByHostedZone
+      tags:
+      - Trafficpolicyinstances
+  /2013-04-01/trafficpolicyinstances/trafficpolicy:
+    GET:
+      summary: Amazon Web Services Listtrafficpolicyinstancesbypolicy
+      description: Gets information about the traffic policy instances that you created by using a specify traffic policy version. After you submit a CreateTrafficPolicyInstance or an UpdateTrafficPolicyInstance request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the State response element. Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the MaxItems parameter to list them in groups of up to 100.
+      operationId: amazonWebServicesListTrafficPolicyInstancesByPolicy
+      tags:
+      - Trafficpolicyinstances

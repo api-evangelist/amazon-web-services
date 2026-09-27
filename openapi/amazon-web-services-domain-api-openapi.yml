@@ -1,7 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Amazon Web Services codeartifact Domain API
-  description: CodeArtifact is a fully managed artifact repository compatible with language-native package managers and build tools such as npm, Apache Maven, pip, and dotnet.
+  title: Amazon Web Services Domain API
+  version: '1.0'
+  description: 'Operations tagged Domain across 3 of this provider''s published API definitions: codeartifact-openapi-original.yml, es-openapi-original.yml, opensearch-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Domain
 paths:
@@ -26,3 +27,39 @@ paths:
       operationId: amazonWebServicesListRepositoriesInDomain
       tags:
       - Domain
+  /2015-01-01/domain:
+    GET:
+      summary: Amazon Web Services Listdomainnames
+      description: Returns the name of all Elasticsearch domains owned by the current user's account.
+      operationId: amazonWebServicesListDomainNames
+      tags:
+      - Domain
+  /2015-01-01/domain/{DomainName}/packages:
+    GET:
+      summary: Amazon Web Services Listpackagesfordomain
+      description: Lists all packages associated with the Amazon ES domain.
+      operationId: amazonWebServicesListPackagesForDomain
+      tags:
+      - Domain
+  /2021-01-01/domain:
+    GET:
+      summary: Amazon Web Services Listdomainnames
+      description: Returns the names of all Amazon OpenSearch Service domains owned by the current user in the active Region.
+      operationId: get20210101Domain
+      tags:
+      - Domain
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListDomainNames
+  /2021-01-01/domain/{DomainName}/packages:
+    GET:
+      summary: Amazon Web Services Listpackagesfordomain
+      description: Lists all packages associated with an Amazon OpenSearch Service domain. For more information, see Custom packages for Amazon OpenSearch Service.
+      operationId: get20210101DomainByDomainNamePackages
+      tags:
+      - Domain
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListPackagesForDomain
+x-refined-from:
+- codeartifact-openapi-original.yml
+- es-openapi-original.yml
+- opensearch-openapi-original.yml

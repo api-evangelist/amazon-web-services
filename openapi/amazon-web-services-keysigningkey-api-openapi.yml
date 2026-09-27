@@ -1,0 +1,56 @@
+openapi: 3.2.0
+info:
+  title: Amazon Web Services route53 Keysigningkey API
+  description: 'Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
+
+
+    You can use Route 53 to:
+
+
+    Register domain names.
+
+
+    For more information, see How domain registration works.
+
+
+    Route internet traffic to the resources for your domain
+
+
+    For more information, see How internet traffic is routed to your website or web application.
+
+
+    Check the health of your resources.
+
+
+    For more information, see How Route 53 checks the health of your resources.'
+tags:
+- name: Keysigningkey
+paths:
+  /2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate:
+    POST:
+      summary: Amazon Web Services Activatekeysigningkey
+      description: Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the KSK status to ACTIVE.
+      operationId: amazonWebServicesActivateKeySigningKey
+      tags:
+      - Keysigningkey
+  /2013-04-01/keysigningkey:
+    POST:
+      summary: Amazon Web Services Createkeysigningkey
+      description: Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
+      operationId: amazonWebServicesCreateKeySigningKey
+      tags:
+      - Keysigningkey
+  /2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate:
+    POST:
+      summary: Amazon Web Services Deactivatekeysigningkey
+      description: Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the KSK status to INACTIVE.
+      operationId: amazonWebServicesDeactivateKeySigningKey
+      tags:
+      - Keysigningkey
+  /2013-04-01/keysigningkey/{HostedZoneId}/{Name}:
+    DELETE:
+      summary: Amazon Web Services Deletekeysigningkey
+      description: Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it. The KSK must be deactivated before you can delete it regardless of whether the hosted zone is enabled for DNSSEC signing. You can use DeactivateKeySigningKey to deactivate the key before you delete it. Use GetDNSSEC to verify that the KSK is in an INACTIVE status.
+      operationId: amazonWebServicesDeleteKeySigningKey
+      tags:
+      - Keysigningkey

@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Projects API
   version: '1.0'
-  description: 'Operations tagged Projects across 5 of this provider''s published API definitions: databrew-openapi-original.yml, evidently-openapi-original.yml, iot1click-projects-openapi-original.yml, iotsitewise-openapi-original.yml, mobile-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Projects across 6 of this provider''s published API definitions: databrew-openapi-original.yml, evidently-openapi-original.yml, iot1click-projects-openapi-original.yml, iotsitewise-openapi-original.yml, lookoutvision-openapi-original.yml, mobile-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Projects
 paths:
@@ -87,9 +87,11 @@ paths:
     PATCH:
       summary: Amazon Web Services Updateproject
       description: Updates the description of an existing project. To create a new project, use CreateProject. Don't use this operation to update the data storage options of a project. Instead, use UpdateProjectDataDelivery. Don't use this operation to update the tags of a project. Instead, use TagResource.
-      operationId: amazonWebServicesUpdateProject
+      operationId: patchProjectsByProject
       tags:
       - Projects
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateProject
   /projects/{project}/evaluations/{feature}:
     POST:
       summary: Amazon Web Services Evaluatefeature
@@ -164,9 +166,11 @@ paths:
     PUT:
       summary: Amazon Web Services Updateproject
       description: Updates a project associated with your AWS account and region. With the exception of device template names, you can pass just the values that need to be updated because the update request will change only the values that are provided. To clear a value, pass the empty string (i.e., "").
-      operationId: amazonWebServicesUpdateProject
+      operationId: putProjectsByProjectName
       tags:
       - Projects
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateProject
   /projects/{projectName}/placements/{placementName}/devices:
     GET:
       summary: Amazon Web Services Getdevicesinplacement
@@ -192,9 +196,11 @@ paths:
     PUT:
       summary: Amazon Web Services Updateproject
       description: Updates an IoT SiteWise Monitor project.
-      operationId: amazonWebServicesUpdateProject
+      operationId: putProjectsByProjectId
       tags:
       - Projects
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesUpdateProject
     DELETE:
       summary: Amazon Web Services Deleteproject
       description: Delets a project in AWS Mobile Hub.
@@ -208,9 +214,96 @@ paths:
       operationId: amazonWebServicesListProjectAssets
       tags:
       - Projects
+  /2020-11-20/projects/{projectName}/datasets:
+    POST:
+      summary: Amazon Web Services Createdataset
+      description: Creates a new dataset in an Amazon Lookout for Vision project. CreateDataset can create a training or a test dataset from a valid dataset source (DatasetSource). If you want a single dataset project, specify train for the value of DatasetType. To have a project with separate training and test datasets, call CreateDataset twice. On the first call, specify train for the value of DatasetType. On the second call, specify test for the value of DatasetType. This operation requires permissions to perform the lookoutvision:CreateDataset operation.
+      operationId: amazonWebServicesCreateDataset
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/models:
+    GET:
+      summary: Amazon Web Services Listmodels
+      description: Lists the versions of a model in an Amazon Lookout for Vision project. The ListModels operation is eventually consistent. Recent calls to CreateModel might take a while to appear in the response from ListProjects. This operation requires permissions to perform the lookoutvision:ListModels operation.
+      operationId: amazonWebServicesListModels
+      tags:
+      - Projects
+  /2020-11-20/projects:
+    GET:
+      summary: Amazon Web Services Listprojects
+      description: Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS Region in which you call ListProjects. The ListProjects operation is eventually consistent. Recent calls to CreateProject and DeleteProject might take a while to appear in the response from ListProjects. This operation requires permissions to perform the lookoutvision:ListProjects operation.
+      operationId: get20201120Projects
+      tags:
+      - Projects
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesListProjects
+  /2020-11-20/projects/{projectName}/datasets/{datasetType}:
+    GET:
+      summary: Amazon Web Services Describedataset
+      description: Describe an Amazon Lookout for Vision dataset. This operation requires permissions to perform the lookoutvision:DescribeDataset operation.
+      operationId: amazonWebServicesDescribeDataset
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/models/{modelVersion}:
+    GET:
+      summary: Amazon Web Services Describemodel
+      description: Describes a version of an Amazon Lookout for Vision model. This operation requires permissions to perform the lookoutvision:DescribeModel operation.
+      operationId: amazonWebServicesDescribeModel
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}:
+    GET:
+      summary: Amazon Web Services Describeproject
+      description: Describes an Amazon Lookout for Vision project. This operation requires permissions to perform the lookoutvision:DescribeProject operation.
+      operationId: amazonWebServicesDescribeProject
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/modelpackagingjobs/{jobName}:
+    GET:
+      summary: Amazon Web Services Describemodelpackagingjob
+      description: Describes an Amazon Lookout for Vision model packaging job. This operation requires permissions to perform the lookoutvision:DescribeModelPackagingJob operation. For more information, see Using your Amazon Lookout for Vision model on an edge device in the Amazon Lookout for Vision Developer Guide.
+      operationId: amazonWebServicesDescribeModelPackagingJob
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/models/{modelVersion}/detect:
+    POST:
+      summary: Amazon Web Services Detectanomalies
+      description: Detects anomalies in an image that you supply. The response from DetectAnomalies includes a boolean prediction that the image contains one or more anomalies and a confidence value for the prediction. If the model is an image segmentation model, the response also includes segmentation information for each type of anomaly found in the image. Before calling DetectAnomalies, you must first start your model with the StartModel operation. You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your model uses. If you are not using a model, use the StopModel operation to stop your model. For more information, see Detecting anomalies in an image in the Amazon Lookout for Vision developer guide. This operation requires permissions to perform the lookoutvision:DetectAnomalies operation.
+      operationId: amazonWebServicesDetectAnomalies
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/datasets/{datasetType}/entries:
+    PATCH:
+      summary: Amazon Web Services Updatedatasetentries
+      description: Adds or updates one or more JSON Line entries in a dataset. A JSON Line includes information about an image used for training or testing an Amazon Lookout for Vision model. To update an existing JSON Line, use the source-ref field to identify the JSON Line. The JSON line that you supply replaces the existing JSON line. Any existing annotations that are not in the new JSON line are removed from the dataset. For more information, see Defining JSON lines for anomaly classification in the Amazon Lookout for Vision Developer Guide. The images you reference in the source-ref field of a JSON line, must be in the same S3 bucket as the existing images in the dataset. Updating a dataset might take a while to complete. To check the current status, call DescribeDataset and check the Status field in the response. This operation requires permissions to perform the lookoutvision:UpdateDatasetEntries operation.
+      operationId: amazonWebServicesUpdateDatasetEntries
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/modelpackagingjobs:
+    POST:
+      summary: Amazon Web Services Startmodelpackagingjob
+      description: 'Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass. Use the DescribeModelPackagingJob API to determine the current status of the job. The model packaging job is complete if the value of Status is SUCCEEDED. To deploy the component to the target device, use the component name and component version with the AWS IoT Greengrass CreateDeployment API. This operation requires the following permissions: lookoutvision:StartModelPackagingJob s3:PutObject s3:GetBucketLocation kms:GenerateDataKey greengrass:CreateComponentVersion greengrass:DescribeComponent (Optional) greengrass:TagResource. Only required if you want to tag the component. For more information, see Using your Amazon Lookout for Vision model on an edge device in the Amazon Lookout for Vision Developer Guide.'
+      operationId: amazonWebServicesStartModelPackagingJob
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/models/{modelVersion}/start:
+    POST:
+      summary: Amazon Web Services Startmodel
+      description: Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while to complete. To check the current state of the model, use DescribeModel. A model is ready to use when its status is HOSTED. Once the model is running, you can detect custom labels in new images by calling DetectAnomalies. You are charged for the amount of time that the model is running. To stop a running model, call StopModel. This operation requires permissions to perform the lookoutvision:StartModel operation.
+      operationId: amazonWebServicesStartModel
+      tags:
+      - Projects
+  /2020-11-20/projects/{projectName}/models/{modelVersion}/stop:
+    POST:
+      summary: Amazon Web Services Stopmodel
+      description: Stops the hosting of a running model. The operation might take a while to complete. To check the current status, call DescribeModel. After the model hosting stops, the Status of the model is TRAINED. This operation requires permissions to perform the lookoutvision:StopModel operation.
+      operationId: amazonWebServicesStopModel
+      tags:
+      - Projects
 x-refined-from:
 - databrew-openapi-original.yml
 - evidently-openapi-original.yml
 - iot1click-projects-openapi-original.yml
 - iotsitewise-openapi-original.yml
+- lookoutvision-openapi-original.yml
 - mobile-openapi-original.yml

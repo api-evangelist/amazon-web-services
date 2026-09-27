@@ -2,17 +2,26 @@ openapi: 3.2.0
 info:
   title: Amazon Web Services Search API
   version: '1.0'
-  description: 'Operations tagged Search across 2 of this provider''s published API definitions: resource-explorer-2-openapi-original.yml, workdocs-openapi-original.yml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Search across 3 of this provider''s published API definitions: cloudsearchdomain-openapi-original.yml, resource-explorer-2-openapi-original.yml, workdocs-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Search
 paths:
+  /2013-01-01/search?format=sdk&pretty=true:
+    GET:
+      summary: Amazon Web Services Search
+      description: 'Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers: simple: search all text and text-array fields for the specified string. Search for phrases, individual terms, and prefixes. structured: search specific fields, construct compound queries using Boolean operators, and use advanced features such as term boosting and proximity searching. lucene: specify search criteria using the Apache Lucene query parser syntax. dismax: specify search criteria using the simplified subset of the Apache Lucene query parser syntax defined by the DisMax query parser. For more information, see Searching Your Data in the Amazon CloudSearch Developer Guide. The endpoint for submitting Search requests is domain-specific. You submit search requests to a domain''s search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service DescribeDomains action. A domain''s endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console.'
+      operationId: amazonWebServicesSearch
+      tags:
+      - Search
   /Search:
     POST:
       summary: Amazon Web Services Search
       description: Searches for resources and displays details about all resources that match the specified criteria. You must specify a query string. All search queries must use a view. If you don't explicitly specify a view, then Amazon Web Services Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation. The results are the logical intersection of the results that match both the QueryString parameter supplied to this operation and the SearchFilter parameter attached to the view. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for Resource Explorer. If your search results are empty, or are missing results that you think should be there, see Troubleshooting Resource Explorer search.
-      operationId: amazonWebServicesSearch
+      operationId: postSearch
       tags:
       - Search
+      x-operation-id-source: normalized
+      x-operation-id-original: amazonWebServicesSearch
   /api/v1/search:
     POST:
       summary: Amazon Web Services Searchresources
@@ -21,5 +30,6 @@ paths:
       tags:
       - Search
 x-refined-from:
+- cloudsearchdomain-openapi-original.yml
 - resource-explorer-2-openapi-original.yml
 - workdocs-openapi-original.yml
