@@ -1,0 +1,57 @@
+generated: '2026-10-03'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: aws-api-gateway
+  name: Amazon API Gateway
+  area: api-gateway
+  host: ec2.amazonaws.com
+  evidence: header:x-amzn-requestid
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: cloudfront
+  name: Amazon CloudFront
+  area: cdn
+  host: aws.amazon.com
+  evidence: cname:cloudfront.net
+  signal: cname
+  confidence: high
+  kin_score: []
+reliance:
+  areas_vendor_served:
+  - api-gateway
+  - cdn
+  vendor_count: 2
+  areas_observed: 12
+  share_of_observable_areas: 0.167
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: custom'
+- signin.aws.amazon.com (SignUp)
+- developer.amazon.com (GettingStarted)
+- aws.amazon.com (Website)
+- aws.amazon.com (Portal)
+- docs.aws.amazon.com (Documentation)
+- health.aws.amazon.com (StatusPage)
+- aws.amazon.com (Support)
+- bedrock.amazonaws.com (baseURL)
+- ec2.amazonaws.com (baseURL)
+- rds.amazonaws.com (baseURL)
+- ecs.amazonaws.com (baseURL)
+- cassandra.amazonaws.com (baseURL)

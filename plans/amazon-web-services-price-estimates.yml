@@ -1,6 +1,7 @@
 # ESTIMATES computed by API Evangelist — not published by the provider. See `note` and `replace_by`.
 generated: '2026-09-20'
 method: estimated
+name: Amazon Web Services API Plans
 estimator: 'planning/api-economics/estimate_prices.py — design: ESTIMATION.md'
 note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this provider publishes on https://aws.amazon.com/api-gateway/pricing/
   (transcribed in plans/amazon-web-services-plans-pricing.yml). Nothing here overrides a published price.
@@ -9,16 +10,18 @@ note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this pro
 audience_of_source_pricing: developer-api
 pricing_basis: per-call
 estimate_count: 1
-estimates:
-- kind: entry_cost
-  grade: A
-  grade_meaning: quoted — the page states this figure
-  usd_per_month: 125.0
-  meaning: the cheapest published paid tier — a floor on the cost of getting in, NOT the price of the
-    API alone
-  inputs:
-  - file: plans/amazon-web-services-plans-pricing.yml
-    plan: API Gateway Portals
-    price_text: monthly Portal charge of $125
-  replace_by: 'API Commons Plans — plans[].entries[] with type: fee, a numeric `price`, `timeFrame: month`
-    and the tier that includes API access stated in `elements`'
+plans:
+  - name: "Estimated Entry Cost"
+    estimates:
+      - kind: entry_cost
+        grade: A
+        grade_meaning: quoted — the page states this figure
+        usd_per_month: 125.0
+        meaning: the cheapest published paid tier — a floor on the cost of getting in, NOT the price of the
+          API alone
+        inputs:
+          - file: plans/amazon-web-services-plans-pricing.yml
+            plan: API Gateway Portals
+            price_text: monthly Portal charge of $125
+        replace_by: 'API Commons Plans — plans[].entries[] with type: fee, a numeric `price`, `timeFrame: month`
+          and the tier that includes API access stated in `elements`'
