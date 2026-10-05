@@ -12,7 +12,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 83
+edge_count: 90
 edges:
 - tag: Amazon Web Services Ec2
   spec_file: amazon-web-services-amazon-web-services-ec2-api-openapi.yml
@@ -32,6 +32,24 @@ edges:
   evidence: amazonWebServicesUploadSigningCertificate  Amazon Web Services Uploadsigningcertificate
   reason: Uploading a signing certificate for an IAM principal is credential/identity administration,
     squarely Identity & Access Management; the doc description also concerns IAM policies and access.
+- tag: Filesystems
+  spec_file: amazon-web-services-filesystems-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage ... DescribeFileSystems,
+    UpdateFileSystem, PutBackupPolicy, PutLifecycleConfiguration
+  reason: Provisioning and stewardship of cloud storage resources is IT Infrastructure Management (compute,
+    storage, network, cloud infrastructure).
+- tag: Hostedzone
+  spec_file: amazon-web-services-hostedzone-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: ListHostedZones, ChangeResourceRecordSets, AssociateVPCWithHostedZone, EnableHostedZoneDNSSEC
+  reason: DNS zone and record-set administration plus VPC association is core network infrastructure management.
 - tag: Ml
   spec_file: amazon-web-services-ml-api-openapi.yml
   capability_id: BC-610.60
@@ -188,6 +206,16 @@ edges:
   reason: Issuing role credentials via a federation endpoint is federated identity and access management;
     the service description also frames 'a federated user, an IAM user or role' access. Maps to Identity
     & Access Management rather than any business-domain capability.
+- tag: Mount Targets
+  spec_file: amazon-web-services-mount-targets-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.78
+  evidence: GET /2015-02-01/mount-targets  amazonWebServicesDescribeMountTargets; "Amazon Elastic File
+    System (Amazon EFS) provides simple, scalable file storage"
+  reason: Describe/delete mount targets and modify their security groups is configuration of elastic file
+    storage and network attachment points — plainly cloud storage/network infrastructure management.
 - tag: Agents
   spec_file: amazon-web-services-agents-api-openapi.yml
   capability_id: BC-610.60
@@ -361,6 +389,17 @@ edges:
     about IAM policies granting access to principals — this is access control / entitlement administration,
     mapping to Identity & Access Management. Confidence moderated because DeleteResourcePolicy exists
     on several AWS services, though in all cases it governs access permissions.
+- tag: Es
+  spec_file: amazon-web-services-es-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: '''Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch
+    domains'' and ''Amazon Web Services Createelasticsearchdomain'''
+  reason: Operations provision and configure managed Elasticsearch clusters, VPC endpoints and cross-cluster
+    connections — provisioning and stewardship of cloud compute/storage/network resources, i.e. IT Infrastructure
+    Management.
 - tag: Principal Policies
   spec_file: amazon-web-services-principal-policies-api-openapi.yml
   capability_id: BC-620.20
@@ -438,6 +477,16 @@ edges:
   evidence: POST /2021-01-01/opensearch/domain  amazonWebServicesCreateDomain ... GET /2021-01-01/opensearch/vpcEndpoints  amazonWebServicesListVpcEndpoints
   reason: Operations provision search service domains, VPC endpoints, inbound/outbound connections and
     service software updates — managed cloud infrastructure provisioning and networking.
+- tag: Access Points
+  spec_file: amazon-web-services-access-points-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /2015-02-01/access-points DescribeAccessPoints — "Amazon Elastic File System (Amazon EFS)
+    provides simple, scalable file storage"
+  reason: Despite the 'Access Points' name, the operations describe and delete EFS file-system access
+    points, i.e. cloud storage resources — IT infrastructure management, not identity or security.
 - tag: Amazon Web Services Codecommit
   spec_file: amazon-web-services-amazon-web-services-codecommit-api-openapi.yml
   capability_id: BC-4200.40
@@ -626,6 +675,17 @@ edges:
   evidence: GET /custom-models/{modelIdentifier}  amazonWebServicesGetCustomModel
   reason: Retrieving and listing custom (fine-tuned) ML models is model-lifecycle management, matching
     Artificial Intelligence Management. Read-only surface and no schema detail keeps confidence moderate.
+- tag: Distribution
+  spec_file: amazon-web-services-distribution-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: '''Amazon Web Services Createdistributionwithtags'', ''Amazon Web Services Updatedistribution'',
+    ''GET /2020-05-31/distribution/{DistributionId}/invalidation'' — Amazon CloudFront distribution lifecycle'
+  reason: The operations create, copy, list, update and invalidate CloudFront CDN distributions — provisioning
+    and operating cloud content-delivery infrastructure, which is IT Infrastructure Management. No business-domain
+    reading fits; this is a cloud infrastructure control plane.
 - tag: Findings
   spec_file: amazon-web-services-findings-api-openapi.yml
   capability_id: BC-620
@@ -637,6 +697,16 @@ edges:
   reason: Operations import, list, aggregate and reveal security findings including sensitive-data occurrences
     — clearly security detection and triage tooling. Sub-capability spans threat detection, data protection
     and vulnerability findings, so L1 only.
+- tag: Health Check
+  spec_file: amazon-web-services-health-check-api-openapi.yml
+  capability_id: BC-600.40
+  capability_id_l1: BC-600
+  capability_name: IT Operations Management
+  confidence: 0.7
+  evidence: ListHealthChecks, UpdateHealthCheck, GetHealthCheckLastFailureReason, GetHealthCheckStatus
+    — 'Check the health of your resources'
+  reason: Route 53 health checks are infrastructure availability monitoring, mapping to IT Operations
+    Management (monitoring), not any business health concept.
 - tag: Identity Provider
   spec_file: amazon-web-services-identity-provider-api-openapi.yml
   capability_id: BC-620.20
