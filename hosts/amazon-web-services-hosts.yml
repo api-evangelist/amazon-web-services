@@ -1,0 +1,260 @@
+generated: '2026-10-03'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 20
+  own: 11
+  other_domain: 1
+  platform: 8
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - portal
+  - source
+  - status
+  - website
+hosts:
+- host: api.amazon.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: amazon.com
+  role: api
+  relation: own
+- host: api.amazonaws.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: amazonaws.com
+  role: api
+  relation: platform
+- host: aws.amazon.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - well-known
+  - vendor-detect
+  types:
+  - Compliance
+  - Security
+  - Newsroom
+  - Pricing
+  - Blog
+  - Website
+  - Portal
+  - SDKs
+  - Support
+  - TermsOfService
+  - PrivacyPolicy
+  - ChangeLog
+  - Integrations
+  - MCPServer
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: amazon.com
+  role: website
+  relation: own
+- host: bedrock.amazonaws.com
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: cassandra.amazonaws.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: console.aws.amazon.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - Console
+  serves:
+  - docs
+  registrable_domain: amazon.com
+  role: other
+  relation: own
+- host: developer.amazon.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - namespace-probe
+  - docs-index
+  - well-known
+  types:
+  - GettingStarted
+  serves:
+  - docs
+  title: Amazon Developer
+  status: 200
+  registrable_domain: amazon.com
+  role: docs
+  relation: own
+- host: developer.amazon.com:443
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: amazon.com:443
+  role: portal
+  relation: other-domain
+- host: developers.amazon.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: Amazon Developer
+  status: 200
+  registrable_domain: amazon.com
+  role: portal
+  relation: own
+- host: docs.amazon.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - docs-index
+  - well-known
+  types: []
+  serves:
+  - docs
+  title: Employee Documents Portal
+  status: 200
+  registrable_domain: amazon.com
+  role: docs
+  relation: own
+- host: docs.aws.amazon.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - Documentation
+  - Authentication
+  serves:
+  - docs
+  registrable_domain: amazon.com
+  role: docs
+  relation: own
+- host: ec2.amazonaws.com
+  found_by:
+  - apis[]
+  - contract-discovery
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - api-gateway
+  vendor: aws-api-gateway
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: ecs.amazonaws.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: health.aws.amazon.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: amazon.com
+  role: status
+  relation: own
+- host: midway-auth.amazon.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: amazon.com
+  role: other
+  relation: own
+- host: portal.aws.amazon.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: amazon.com
+  role: other
+  relation: own
+- host: rds.amazonaws.com
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: signin.aws.amazon.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - SignUp
+  serves: []
+  platform: us-east-1.oauth.signin.aws
+  registrable_domain: amazon.com
+  role: identity
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
