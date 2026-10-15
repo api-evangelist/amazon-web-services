@@ -10,6 +10,9 @@ checked:
 - https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/amazon-web-services
 - https://ddex.net/membership/current-members/
+- https://focus.finops.org/data-generators/
+- https://github.com/cncf/k8s-conformance
+- https://github.com/cncf/landscape
 - https://marketplace.atlassian.com/
 - https://marketplace.odva.org/organizations
 - https://marketplace.visualstudio.com/vscode
@@ -13614,4 +13617,151 @@ edges:
   listing_count: 19
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
+- partner_name: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Cloud native landscape
+  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
+    spec_file: null
+    standard: Cloud Native (CNCF)
+    role: cncf-member (Platinum)
+    registered_name: Amazon Web Services
+    registered_names:
+    - AWS Cloud Map
+    - AWS CloudFormation
+    - AWS CodePipeline
+    - AWS Server Application Model (SAM)
+    - Amazon Web Services
+    - Chalice
+    website: https://aws.amazon.com/
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    member_tier: Platinum
+    joined: '2017-08-01'
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - App Definition and Development / Continuous Integration & Delivery
+    - Orchestration & Management / Coordination & Service Discovery
+    - Provisioning / Automation & Configuration
+    - Serverless / Framework
+    landscape_entries: 5
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF Certified Kubernetes
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.36/eks-a
+  category: Certified Kubernetes
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
+    spec_file: null
+    standard: Kubernetes conformance
+    role: certified-kubernetes
+    registered_name: Amazon Web Services
+    website: https://aws.amazon.com/eks/eks-anywhere
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    certified_products:
+    - product: distribution
+      newest_version: v1.36
+      lapsed: false
+    - product: installer
+      newest_version: v1.36
+      lapsed: false
+    - product: platform
+      newest_version: v1.36
+      lapsed: false
+    versions_certified:
+    - v1.24
+    - v1.25
+    - v1.26
+    - v1.27
+    - v1.28
+    - v1.29
+    - v1.30
+    - v1.31
+    - v1.32
+    - v1.33
+    - v1.34
+    - v1.35
+    - v1.36
+    products:
+    - Amazon Elastic Kubernetes Service (Amazon EKS)
+    - Amazon Elastic Kubernetes Service Anywhere (Amazon EKS Anywhere)
+    - Amazon Elastic Kubernetes Service Distro (Amazon EKS-D)
+    current_window: v1.34+ (newest 4 minors in the register)
+    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
+      newest certified minor is outside the current window; products and versions are context, never read
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF Certified Kubernetes
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.36/eks-a
+  category: Certified Kubernetes
+  channel: standard-directory
+  relationship: compatible
+  shape: kubernetes-api
+  evidence_kind: conformance-register
+  degree: certified
+  report_only: true
+  note: the Kubernetes conformance suite was run against this product and the result merged into the CNCF register
+    (anchor kubernetes)
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
+    spec_file: null
+    standard: Kubernetes API
+    role: kubernetes-conformance
+    registered_name: Amazon Web Services
+    matched_domain: amazon.com
+    newest_version: v1.36
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: FinOps Foundation (FOCUS)
+  partner: finops-foundation
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: FOCUS billing data
+  evidence: https://focus.finops.org/docs/implementation/data-generators/aws/
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: FOCUS data generators (focus.finops.org/data-generators)
+    spec_file: null
+    standard: FOCUS (FinOps Open Cost and Usage Specification)
+    role: focus-data-generator
+    registered_name: AWS
+    matched_domain: amazon.com
+    matched_by: domain+verified
+    focus_version_supported: '1.2'
+    page_domains:
+      amazon.com: 11
+      workshops.aws: 1
+    signal_note: 'participation only: the version is context, never read'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
 templates: []
