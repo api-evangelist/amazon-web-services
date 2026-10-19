@@ -1,0 +1,25 @@
+name: AWS MCP Server
+description: AWS MCP Server. Remote Model Context Protocol server operated by the provider; 8 tools listed by a live tools/list
+  on 2026-10-18.
+generated: '2026-10-18'
+method: probed
+generator: 'probe (roadmap#958): initialize + tools/list, both 200'
+deployment:
+  mode: remote
+  endpoint: https://aws-mcp.us-east-1.api.aws/mcp
+  verified: probed
+  probe: live
+  tools: 8
+  checked: '2026-10-18'
+  source: AWS's own documentation names the regional endpoints aws-mcp.<region>.api.aws/mcp (us-east-1, us-west-2, eu-west-1,
+    eu-west-2, eu-central-1, ap-northeast-1, ap-southeast-1, ap-southeast-2)
+  documentation: https://docs.aws.amazon.com/aws-mcp/latest/userguide/getting-started-aws-mcp-server.html
+tools:
+- name: aws___get_presigned_url
+- name: aws___get_tasks
+- name: aws___run_script
+- name: aws___get_regional_availability
+- name: aws___list_regions
+- name: aws___read_documentation
+- name: aws___retrieve_skill
+- name: aws___search_documentation
