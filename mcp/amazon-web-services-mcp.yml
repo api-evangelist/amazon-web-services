@@ -28,3 +28,131 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools:
+- name: aws___get_presigned_url
+  description: 'Generate pre-signed S3 URLs for uploading or downloading files. Use BEFORE run_script
+    when an operation requires a local file. Use for direct S3 uploads/downloads. Max upload 5 GB; larger
+    files use multipart. For uploads: generates PUT URL. For downloads: generates GET URL. No special
+    headers needed unless s3_params provided—then corresponding HTTP headers MUST be included or request
+    fails with SignatureDoesNotMatch.'
+- name: aws___get_tasks
+  description: Poll status of long-running tasks. Use after a tool call returns task_id with status "working".
+    Up to 3 IDs per call. Tasks expire after 5 min. Pass poll_iteration (start at 1, increment each call)
+    and follow the recommended_wait_seconds in the response before polling again.
+- name: aws___run_script
+  description: "Execute Python code in sandboxed environment with AWS API access via `call_boto3`. No\
+    \ network except `call_boto3`.\n\n```python\nasync def call_boto3(\n    *,\n    service_name: str,\n\
+    \    operation_name: str,\n    region_name: str | None = None,\n    params: dict | None = None,\n\
+    ) -> dict: ...\n```\n\n``operation_name`` MUST be the PascalCase AWS API operation name (e.g. ``ListBuckets``,\n\
+    ``GetTable``, ``StartQueryExecution``). Do not use the snake_case boto3 method name\n(``list_buckets``,\
+    \ ``get_table``); exact matches are corrected only as a runtime fallback.\n\nResponse includes `api_calls`\
+    \ list—verify APIs ran before trusting `return_value`.\n\nREQUIRED PATTERNS:\n- Return `result={...}`\
+    \ then `result` alone as final expression\n- Call each API once; results auto-paginate\n- Return ALL\
+    \ resources—missing one is wrong\n- Return raw data fields; let LLM judge thresholds\n- Use `asyncio.gather(*[...])`\
+    \ with `return_exceptions=True` for reads; let mutations raise\n\n⚠️ LIST→DESCRIBE: List* returns\
+    \ only names/ARNs. Use Get*/Describe* for attributes.\n\n⚠️ CONTENTS vs CONTAINER: \"empty buckets\"\
+    →ListObjects; \"records\"→Scan; \"X configured\"→Get*Configuration.\n\nRULES:\n1. SELF-CONTAINED:\
+    \ Discover resources inside script.\n2. ALL-REGIONS: DescribeRegions→gather per region.\n3. PERMISSIONS:\
+    \ All policies ONE script. `bucket`≠`bucket/*`. Report YES/PARTIAL/NO.\n\nPRE-IMPORTED: asyncio, collections,\
+    \ csv, dataclasses, datetime, decimal, enum, fractions, functools, itertools, json, math, re, statistics,\
+    \ string, time, typing, uuid, ClientError, io.StringIO, io.BytesIO.\n\nBUILTIN MODULES: AWS teams\
+    \ provide higher-level functions for complex jobs. Find out more with:\n\n```python\nimport aws_mcp\n\
+    help(aws_mcp)\n```\n\nTo search for available functions:\n\n```python\nawait aws_mcp.search_functions(\"\
+    search query in natural language\")\n```"
+- name: aws___get_regional_availability
+  description: 'AWS resource availability per region.
+
+
+    - Max 10 regions; multi-region needs `filters`; single-region supports `next_token`.
+
+    - Status: isAvailableIn | isNotAvailableIn | isPlannedIn | Not Found.
+
+    - Response key: products | service_apis | cfn_resources.
+
+
+    Not for region counts/docs/vague queries -- use `search_documentation` / `list_regions`.
+
+
+    Filter values must EXACTLY match AWS''s catalog names; guessed, partial, or pluralized names are rejected
+    ("values in filter parameter do not exist"). If unsure of the exact name, first call once for a single
+    region with resource_type set and NO filters to list all valid names, then re-call filtering on the
+    exact match.'
+- name: aws___list_regions
+  description: Retrieve a list of all AWS regions.
+- name: aws___read_documentation
+  description: 'Fetch full AWS doc pages as markdown. `search_documentation` already returns verbatim
+    page chunks, so don''t re-read a URL whose chunk you already have to "confirm" or "round out" an answer
+    -- the chunk is the real page text; treat it as authoritative.
+
+
+    Reading the full page is justified ONLY when the chunks genuinely lack the content:
+
+    - an enumeration or aggregation ("list all X", "how many X") needs the complete set and the chunks
+    show only part of it;
+
+    - no search result is on-topic after refining the query, and a known doc URL would have the answer.
+
+    Otherwise, answer from the chunks. Use exact URLs from `search_documentation`; don''t guess slugs.
+
+
+    Input: `requests: [{url, max_length?, start_index?}]`. Batch 2-5.
+
+    - `max_length` default 10000.
+
+    - `start_index` default 0; use prior `end_index` to continue, TOC offset to jump.
+
+
+    Allow-listed prefixes: docs.aws.amazon.com; aws.amazon.com (not /marketplace); repost.aws/knowledge-center;
+    docs.amplify.aws; ui.docs.amplify.aws; github.com/{aws-cloudformation/aws-cloudformation-templates,
+    aws-samples/{aws-cdk-examples, generative-ai-cdk-constructs-samples, serverless-patterns}, awsdocs/aws-cdk-guide,
+    awslabs/aws-solutions-constructs, cdklabs/cdk-nag} (README on `main`); constructs.dev/packages/{@aws-cdk-containers,
+    @aws-cdk, @cdk-cloudformation, aws-analytics-reference-architecture, aws-cdk-lib, cdk-amazon-chime-resources,
+    cdk-aws-lambda-powertools-layer, cdk-ecr-deployment, cdk-lambda-powertools-python-layer, cdk-serverless-clamscan,
+    cdk8s, cdk8s-plus-33}; strandsagents.com/latest/documentation/docs/; karpenter.sh/docs/; Amazon Braket:
+    {amazon-braket-sdk-python, amazon-braket-schemas-python, amazon-braket-default-simulator-python, amazon-braket-pennylane-plugin-python,
+    amazon-braket-algorithm-library, qiskit-braket-provider, autoqasm, qirtoqasm}.readthedocs.io and github.com/amazon-braket/*
+    (blob/tree/raw).
+
+
+    Output: SUCCESS -- markdown + `total_length, start_index, end_index, truncated, redirected_url?` (truncated
+    includes TOC with char ranges). ERROR -- `error_code` in {not_found, invalid_url, throttled, downstream_error,
+    validation_error}.'
+- name: aws___retrieve_skill
+  description: 'Retrieve an AWS skill (workflows, references). Returns SKILL.md, or `file` if given.
+
+
+    Call `search_documentation` FIRST and copy `skill_name` verbatim -- it is an opaque registry ID. Never
+    guess or fabricate `skill_name` or `file`.'
+- name: aws___search_documentation
+  description: 'AWS docs search. Each result''s `context` is verbatim page text -- a real chunk of the
+    actual page, not a short snippet -- and usually already contains the answer, so answer directly from
+    it. Use `read_documentation` only when the chunks genuinely lack the needed detail.
+
+
+    Pick ONE topic. Add a 2nd ONLY if query genuinely spans domains. Extra topics dilute ranking.
+
+
+    - reference_documentation -- API/SDK/CLI specs, config params
+
+    - current_awareness -- new/released/announced
+
+    - troubleshooting -- errors, "how to fix" (NOT for conceptual/feature questions)
+
+    - amplify_docs -- Amplify (+ language)
+
+    - cdk_docs -- CDK concepts/guides
+
+    - cdk_constructs -- CDK code samples, L3
+
+    - cloudformation -- CFN/SAM templates
+
+    - strands_docs -- Strands Agents SDK (its Skills/agents concepts go here, NOT agent_skills)
+
+    - agent_skills -- this tool''s guided skills (load via `retrieve_skill`)
+
+    - general (default) -- architecture, best practices, tutorials, feature behavior
+
+
+    Results: rank_order (lower=better), url, title, context (verbatim page chunk -- answer directly from
+    it).'
+tools_count: 8
