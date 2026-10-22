@@ -10513,6 +10513,71 @@
     detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
+- slug: amazon-web-services-ismap
+  label: ISMAP
+  partner_name: ISMAP
+  category: Japan government cloud security assessment (ISMAP)
+  type: contract
+  channel: regulator-register
+  evidence: https://www.ismap.go.jp/csm?id=cloud_service_list
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ISMAP / ISMAP-LIU cloud service lists (www.ismap.go.jp)
+    standard: ISMAP
+    spec_file: null
+    role: ismap-registered
+    registrations:
+    - register_number: C21-0008-2
+      registration_type: ISMAP
+      service: Amazon Web Services
+      registered_name: Amazon Web Services, Inc.
+      service_url: https://aws.amazon.com/
+      matched_domain: amazon.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=6b008ac38347bed0aa68c6a8beaad374
+    signal_note: certified_products = one entry per ISMAP registration TYPE (ISMAP, ISMAP-LIU), never per service;
+      services are context, never counted. The lists carry current registrations only (a filed renewal keeps a registration
+      valid), so lapsed is always false
+    certified_products:
+    - product: ISMAP
+      standard: ISMAP
+      registration_type: ISMAP
+      lapsed: false
+    detected_by: sweep-japan-ismap-tisax-assessments.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: amazon-web-services-first-forum-of-incident-response-and-security-teams
+  label: FIRST (Forum of Incident Response and Security Teams)
+  partner_name: FIRST (Forum of Incident Response and Security Teams)
+  category: Incident response / PSIRT (FIRST member team)
+  type: register
+  channel: standard-directory
+  evidence: https://www.first.org/members/teams/aws_cirt
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: FIRST member teams (api.first.org/data/v1/teams, public JSON API)
+    standard: FIRST (Forum of Incident Response and Security Teams) membership
+    spec_file: null
+    role: first-member-team
+    registered_name: Amazon Web Services
+    matched_domain: amazon.com
+    matched_by: domain+name-among-holders
+    teams:
+    - id: aws_cirt
+      team: AWS CIRT
+      team_type: null
+      member_since: May 23, 2025
+      country: US
+    signal_note: FIRST full membership of an incident-response / product-security team = participation; team_type
+      names CSIRT / PSIRT / SOC; never a count
+    detected_by: sweep-vulnerability-disclosure-cna.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
 - slug: amazon-web-services-crowdstrike-own
   label: CrowdStrike (own)
   partner: crowdstrike
@@ -10602,68 +10667,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: amazon-web-services-ismap
-  label: ISMAP
-  partner_name: ISMAP
-  category: Japan government cloud security assessment (ISMAP)
-  type: contract
-  channel: regulator-register
-  evidence: https://www.ismap.go.jp/csm?id=cloud_service_list
+- slug: amazon-web-services-backstage-own
+  label: Backstage (own)
+  partner: backstage
+  partner_name: Backstage (own)
+  category: Infrastructure
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/backstage/backstage/tree/d72327203d5d0812bee2eace8688fa5ab22867be/microsite/data/plugins/aws-amazon-ecr.yaml
   source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: ISMAP / ISMAP-LIU cloud service lists (www.ismap.go.jp)
-    standard: ISMAP
-    spec_file: null
-    role: ismap-registered
-    registrations:
-    - register_number: C21-0008-2
-      registration_type: ISMAP
-      service: Amazon Web Services
-      registered_name: Amazon Web Services, Inc.
-      service_url: https://aws.amazon.com/
-      matched_domain: amazon.com
-      matched_by: domain+name-among-holders
-      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
-      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=6b008ac38347bed0aa68c6a8beaad374
-    signal_note: certified_products = one entry per ISMAP registration TYPE (ISMAP, ISMAP-LIU), never per service;
-      services are context, never counted. The lists carry current registrations only (a filed renewal keeps a registration
-      valid), so lapsed is always false
-    certified_products:
-    - product: ISMAP
-      standard: ISMAP
-      registration_type: ISMAP
-      lapsed: false
-    detected_by: sweep-japan-ismap-tisax-assessments.py
-    detected: '2026-10-22'
-  status: not-a-workflow
-  arazzo: null
-- slug: amazon-web-services-first-forum-of-incident-response-and-security-teams
-  label: FIRST (Forum of Incident Response and Security Teams)
-  partner_name: FIRST (Forum of Incident Response and Security Teams)
-  category: Incident response / PSIRT (FIRST member team)
-  type: register
-  channel: standard-directory
-  evidence: https://www.first.org/members/teams/aws_cirt
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: FIRST member teams (api.first.org/data/v1/teams, public JSON API)
-    standard: FIRST (Forum of Incident Response and Security Teams) membership
-    spec_file: null
-    role: first-member-team
-    registered_name: Amazon Web Services
-    matched_domain: amazon.com
-    matched_by: domain+name-among-holders
-    teams:
-    - id: aws_cirt
-      team: AWS CIRT
-      team_type: null
-      member_since: May 23, 2025
-      country: US
-    signal_note: FIRST full membership of an incident-response / product-security team = participation; team_type
-      names CSIRT / PSIRT / SOC; never a count
-    detected_by: sweep-vulnerability-disclosure-cna.py
-    detected: '2026-10-22'
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
