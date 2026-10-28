@@ -64,4010 +64,1868 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Amazon Web Services, Inc. is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis. Clients will often use this in combination with autoscaling.
-
-## APIs
-
-### AWS Certificate Manager
-
-Utilize the AWS Certificate Manager (ACM) to effortlessly handle the provisioning, management, and deployment of SSL/TLS certificates for both public and private use with AWS services and internal connected resources. With ACM, the tedious tasks of purchasing, uploading, and renewing SSL/TLS certificates are streamlined and automated, saving you valuable time and effort.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/certificate-manager/](https://aws.amazon.com/certificate-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/acm-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/acm-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/certificate-manager//pricing/](https://aws.amazon.com/certificate-manager//pricing/)
-- **GettingStarted**: [https://aws.amazon.com/certificate-manager//getting-started/](https://aws.amazon.com/certificate-manager//getting-started/)
-- **Partners**: [https://aws.amazon.com/certificate-manager//partners/](https://aws.amazon.com/certificate-manager//partners/)
-- **Events**: [https://aws.amazon.com/certificate-manager//events/](https://aws.amazon.com/certificate-manager//events/)
-- **Features**: [https://aws.amazon.com/certificate-manager/features/](https://aws.amazon.com/certificate-manager/features/)
-- **Resources**: [https://aws.amazon.com/certificate-manager/resources/](https://aws.amazon.com/certificate-manager/resources/)
-- **FAQ**: [https://aws.amazon.com/certificate-manager/faqs/](https://aws.amazon.com/certificate-manager/faqs/)
-
-### Amazon Identity and Access Management Access Analyzer
-
-The API for IAM Access Analyzer offers users a variety of tools to effectively manage their Identity and Access Management policies. These tools include the ability to identify external and unused access, perform basic and custom policy checks, and create highly detailed policies.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iam/access-analyzer/](https://aws.amazon.com/iam/access-analyzer/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/accessanalyzer-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/accessanalyzer-openapi-original.yml)
-
-### AWS Migration Hub
-
-The AWS Migration Hub API provides users with the ability to view server and application migration progress and easily incorporate resource-specific migration tools through a code-based interface. To ensure smooth operation, it is crucial to specify your AWS Migration Hub home region before using any API functions to prevent encountering a HomeRegionNotSetException error. Furthermore, all API requests should originate from within your assigned home region for proper functioning.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/migration-hub/](https://aws.amazon.com/migration-hub/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/awsmigrationhub-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/awsmigrationhub-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/migration-hub/features/](https://aws.amazon.com/migration-hub/features/)
-- **Pricing**: [https://aws.amazon.com/migration-hub/pricing/](https://aws.amazon.com/migration-hub/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/migration-hub/getting-started/](https://aws.amazon.com/migration-hub/getting-started/)
-- **Resources**: [https://aws.amazon.com/migration-hub/resources/](https://aws.amazon.com/migration-hub/resources/)
-- **FAQ**: [https://aws.amazon.com/migration-hub/faqs/](https://aws.amazon.com/migration-hub/faqs/)
-- **Partners**: [https://aws.amazon.com/migration-hub/partners/](https://aws.amazon.com/migration-hub/partners/)
-
-### Amazon Managed Service for Prometheus
-
-The Amazon Managed Service for Prometheus API is a serverless monitoring service designed for container metrics. It allows users to securely monitor container environments at scale using the familiar open-source Prometheus data model and query language. This service provides improved scalability, availability, and security without the need to manage underlying infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/prometheus/](https://aws.amazon.com/prometheus/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/amp-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/amp-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/prometheus/features/](https://aws.amazon.com/prometheus/features/)
-- **Pricing**: [https://aws.amazon.com/prometheus/pricing/](https://aws.amazon.com/prometheus/pricing/)
-- **FAQ**: [https://aws.amazon.com/prometheus/faqs/](https://aws.amazon.com/prometheus/faqs/)
-- **Customers**: [https://aws.amazon.com/prometheus/customers/](https://aws.amazon.com/prometheus/customers/)
-- **Partners**: [https://aws.amazon.com/prometheus/partners/](https://aws.amazon.com/prometheus/partners/)
-- **Resources**: [https://aws.amazon.com/prometheus/resources/](https://aws.amazon.com/prometheus/resources/)
-- **Videos**: [https://aws.amazon.com/prometheus/videos/](https://aws.amazon.com/prometheus/videos/)
-
-### Amazon API Gateway
-
-Amazon API Gateway is a powerful tool that enables developers to create and manage secure and scalable back ends for mobile and web applications. With API Gateway, developers can easily connect their applications to APIs running on Lambda, Amazon EC2, or other external web services. This ensures robust and reliable communication between applications and APIs, all within a secure environment.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/api-gateway/](https://aws.amazon.com/api-gateway/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/apigateway-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/apigateway-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/api-gateway/features/](https://aws.amazon.com/api-gateway/features/)
-- **Pricing**: [https://aws.amazon.com/api-gateway/pricing/](https://aws.amazon.com/api-gateway/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/api-gateway/getting-started/](https://aws.amazon.com/api-gateway/getting-started/)
-- **Resources**: [https://aws.amazon.com/api-gateway/resources/](https://aws.amazon.com/api-gateway/resources/)
-- **FAQ**: [https://aws.amazon.com/api-gateway/faqs/](https://aws.amazon.com/api-gateway/faqs/)
-- **Documentation**: [https://console.aws.amazon.com/apigateway/](https://console.aws.amazon.com/apigateway/)
-- **Websockets**: [
-https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html](
-https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html)
-
-### Amazon Web Services Private Certificate Authority
-
-The API Reference for Amazon Web Services Private Certificate Authority offers a detailed overview on setting up and controlling a private certificate authority (CA) for your organization. It provides in-depth explanations on each action and data type, including syntax and usage examples. The documentation for each action includes information on API request parameters and JSON responses.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/private-ca/](https://aws.amazon.com/private-ca/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/acm-pca-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/acm-pca-openapi-original.yml)
-
-### AWS Application Fabric
-
-The Amazon Web Services AppFabric API offers effortless incorporation of SaaS applications into your company's infrastructure, facilitating streamlined oversight and protection by IT and security professionals using a standardized data structure. Leveraging the capabilities of generative AI, employees can simplify their daily workflows.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/appfabric/](https://aws.amazon.com/appfabric/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appfabric-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appfabric-openapi-original.yml)
-
-### Amazon AppFlow
-
-This API, Amazon AppFlow, allows for seamless automation of data flows between SaaS applications and AWS services with just a few clicks. You can run these data flows at your preferred frequency, whether on a schedule, in response to a business event, or on demand. Simplify data preparation through transformations, partitioning, and aggregation.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/appflow/](https://aws.amazon.com/appflow/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appflow-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appflow-openapi-original.yml)
-
-### AWS Auto Scaling
-
-AWS Auto Scaling is a service that automatically adjusts the capacity of your applications to maintain consistent performance at the most cost-effective rate. It allows you to easily set up scaling for multiple resources across various services in just minutes. With a user-friendly interface, you can create scaling plans for resources such as Amazon EC2 instances, Amazon ECS tasks, Amazon DynamoDB tables, Amazon Aurora Replicas, and Spot Fleets.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/autoscaling/](https://aws.amazon.com/autoscaling/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/application-autoscaling-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/application-autoscaling-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/autoscaling/features/](https://aws.amazon.com/autoscaling/features/)
-- **Pricing**: [https://aws.amazon.com/autoscaling/pricing/](https://aws.amazon.com/autoscaling/pricing/)
-- **Resources**: [https://aws.amazon.com/autoscaling/resources/](https://aws.amazon.com/autoscaling/resources/)
-- **FAQ**: [https://aws.amazon.com/autoscaling/faqs/](https://aws.amazon.com/autoscaling/faqs/)
-
-### AWS Application Cost Profiler
-
-The AWS Application Cost Profiler API enables users to manage application cost report definitions, including viewing, creating, updating, and deleting them. It also allows users to import usage data into the Application Cost Profiler service. For more information on using this API, please consult the AWS Application Cost Profiler User Guide.
-
-**Properties:**
-
-- **Documentation**: [
-https://aws.amazon.com/aws-cost-management/aws-application-cost-profiler/](
-https://aws.amazon.com/aws-cost-management/aws-application-cost-profiler/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/applicationcostprofiler-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/applicationcostprofiler-openapi-original.yml)
-
-### AWS App Mesh
-
-The AWS App Mesh is a service mesh powered by the Envoy proxy that streamlines the monitoring and management of containerized microservices. It simplifies communication between microservices, providing in-depth visibility and ensuring reliable availability for applications.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/app-mesh/](https://aws.amazon.com/app-mesh/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appmesh-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appmesh-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/app-mesh/features/](https://aws.amazon.com/app-mesh/features/)
-- **Pricing**: [https://aws.amazon.com/app-mesh/pricing/](https://aws.amazon.com/app-mesh/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/app-mesh/getting-started/](https://aws.amazon.com/app-mesh/getting-started/)
-- **FAQ**: [https://aws.amazon.com/app-mesh/faqs/](https://aws.amazon.com/app-mesh/faqs/)
-- **Resources**: [https://aws.amazon.com/app-mesh/resources/](https://aws.amazon.com/app-mesh/resources/)
-
-### AWS AppSync
-
-With AWS AppSync, easily create serverless GraphQL and Pub/Sub APIs that streamline application development by providing a secure endpoint for querying, updating, and publishing data.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/appsync/](https://aws.amazon.com/appsync/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appsync-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appsync-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/appsync/pricing/](https://aws.amazon.com/appsync/pricing/)
-- **FAQ**: [https://aws.amazon.com/appsync/faqs/](https://aws.amazon.com/appsync/faqs/)
-- **Customers**: [https://aws.amazon.com/appsync/customers/](https://aws.amazon.com/appsync/customers/)
-- **Resources**: [https://aws.amazon.com/appsync/resources/](https://aws.amazon.com/appsync/resources/)
-- **Blog**: [https://aws.amazon.com/appsync/blog/](https://aws.amazon.com/appsync/blog/)
-- **Introspection**: [
-https://docs.aws.amazon.com/appsync/latest/devguide/rds-introspection.html](
-https://docs.aws.amazon.com/appsync/latest/devguide/rds-introspection.html)
-
-### Amazon AppStream
-
-Explore the Amazon AppStream 2.0 API Reference to access detailed descriptions and syntax for actions and data types within the service. Amazon AppStream 2.0 is a secure, fully managed application streaming service that allows you to effortlessly stream desktop applications to users without the need for application rewriting.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/appstream2/](https://aws.amazon.com/appstream2/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appstream-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/appstream-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/appstream2/features/](https://aws.amazon.com/appstream2/features/)
-- **Pricing**: [https://aws.amazon.com/appstream2/pricing/](https://aws.amazon.com/appstream2/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/appstream2/getting-started/](https://aws.amazon.com/appstream2/getting-started/)
-- **Resources**: [https://aws.amazon.com/appstream2/resources/](https://aws.amazon.com/appstream2/resources/)
-- **FAQ**: [https://aws.amazon.com/appstream2/faqs/](https://aws.amazon.com/appstream2/faqs/)
-- **Customers**: [https://aws.amazon.com/appstream2/customers/](https://aws.amazon.com/appstream2/customers/)
-- **Vendors**: [https://aws.amazon.com/appstream2/software-vendors/](https://aws.amazon.com/appstream2/software-vendors/)
-- **Enterprise**: [https://aws.amazon.com/appstream2/enterprises/](https://aws.amazon.com/appstream2/enterprises/)
-- **Education**: [https://aws.amazon.com/appstream2/education/](https://aws.amazon.com/appstream2/education/)
-
-### Amplify
-
-Amplify is an API designed to facilitate the development and deployment of cloud-powered mobile and web applications. Amplify Hosting offers a continuous delivery and hosting service specifically tailored for web applications. To learn more about Amplify Hosting, refer to the user guide.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/amplify/](https://aws.amazon.com/amplify/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/amplify-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/amplify-openapi-original.yml)
-
-### AWS App Runner
-
-App Runner is an application service on Amazon Web Services that allows you to quickly and easily deploy container images or source code to the cloud. It eliminates the need to learn new technologies or manually provision resources. App Runner seamlessly connects to your container registry or source code repository, providing a fully managed delivery pipeline with high performance, scalability, and security. For more information, refer to the App Runner Developer Guide and Release Notes.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/apprunner/](https://aws.amazon.com/apprunner/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/apprunner-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/apprunner-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/apprunner/features/](https://aws.amazon.com/apprunner/features/)
-- **Pricing**: [https://aws.amazon.com/apprunner/pricing/](https://aws.amazon.com/apprunner/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/apprunner/getting-started/](https://aws.amazon.com/apprunner/getting-started/)
-- **Resources**: [https://aws.amazon.com/apprunner/resources/](https://aws.amazon.com/apprunner/resources/)
-- **FAQ**: [https://aws.amazon.com/apprunner/faqs/](https://aws.amazon.com/apprunner/faqs/)
-- **Customers**: [https://aws.amazon.com/apprunner/customers/](https://aws.amazon.com/apprunner/customers/)
-- **Partners**: [https://aws.amazon.com/apprunner/partners/](https://aws.amazon.com/apprunner/partners/)
-
-### Amazon Athena
-
-Amazon Athena is a user-friendly query service that allows you to analyze data stored in Amazon S3 using standard SQL. By pointing Athena to your data in S3, you can easily run ad-hoc queries and receive results within seconds. This serverless tool eliminates the need for infrastructure setup and management, as you only pay for the queries you execute. Athena is designed to scale automatically, executing queries in parallel to deliver fast results even with large datasets and complex queries.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/athena/](https://aws.amazon.com/athena/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/athena-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/athena-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/athena/pricing/](https://aws.amazon.com/athena/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/athena/getting-started/](https://aws.amazon.com/athena/getting-started/)
-- **Resources**: [https://aws.amazon.com/athena/resources/](https://aws.amazon.com/athena/resources/)
-- **FAQ**: [https://aws.amazon.com/athena/faqs/](https://aws.amazon.com/athena/faqs/)
-- **Features**: [https://aws.amazon.com/athena/features/](https://aws.amazon.com/athena/features/)
-- **Spark**: [https://aws.amazon.com/athena/spark/](https://aws.amazon.com/athena/spark/)
-- **Connectors**: [https://docs.aws.amazon.com/athena/latest/ug/connectors-prebuilt.html](https://docs.aws.amazon.com/athena/latest/ug/connectors-prebuilt.html)
-
-### Amazon EC2 Auto Scaling
-
-The Amazon EC2 Auto Scaling API allows users to automate the launching and terminating of EC2 instances based on predefined scaling policies, scheduled actions, and health checks. Refer to the Amazon EC2 Auto Scaling User Guide and API Reference for further details.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ec2/autoscaling/](https://aws.amazon.com/ec2/autoscaling/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/autoscaling-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/autoscaling-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ec2/autoscaling/features/](https://aws.amazon.com/ec2/autoscaling/features/)
-- **Pricing**: [https://aws.amazon.com/ec2/autoscaling/pricing/](https://aws.amazon.com/ec2/autoscaling/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/ec2/autoscaling/getting-started/](https://aws.amazon.com/ec2/autoscaling/getting-started/)
-- **Resources**: [https://aws.amazon.com/ec2/autoscaling/resources/](https://aws.amazon.com/ec2/autoscaling/resources/)
-- **FAQ**: [https://aws.amazon.com/ec2/autoscaling/faqs/](https://aws.amazon.com/ec2/autoscaling/faqs/)
-- **Tutorial**: [
-https://docs.aws.amazon.com/autoscaling/latest/userguide/GettingStartedTutorial.html](
-https://docs.aws.amazon.com/autoscaling/latest/userguide/GettingStartedTutorial.html)
-
-### AWS B2B Data Interchange
-
-The Amazon Web Services B2B Data Interchange API Reference is a comprehensive guide that includes detailed descriptions, API request parameters, and XML responses for each of the B2BI API actions. B2BI facilitates the seamless exchange of EDI-based business transactions at cloud scale, offering elasticity and pay-as-you-go pricing.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/b2b-data-interchange/](https://aws.amazon.com/b2b-data-interchange/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/b2bi-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/b2bi-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/b2b-data-interchange/features/](https://aws.amazon.com/b2b-data-interchange/features/)
-- **Pricing**: [https://aws.amazon.com/b2b-data-interchange/features/](https://aws.amazon.com/b2b-data-interchange/features/)
-- **FAQ**: [https://aws.amazon.com/b2b-data-interchange/faqs/](https://aws.amazon.com/b2b-data-interchange/faqs/)
-
-### AWS Audit Manager
-
-Introducing the Audit Manager API reference, a comprehensive resource for developers looking for in-depth insights into Audit Manager API functionalities, data structures, and error handling. Audit Manager is a robust service designed to automate the collection of evidence to support ongoing auditing of your Amazon Web Services usage. With this tool, users can evaluate the effectiveness of controls, mitigate risks, and simplify compliance procedures.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/audit-manager/](https://aws.amazon.com/audit-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/auditmanager-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/auditmanager-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/audit-manager/features/](https://aws.amazon.com/audit-manager/features/)
-- **Pricing**: [https://aws.amazon.com/audit-manager/pricing/](https://aws.amazon.com/audit-manager/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/audit-manager/getting-started/](https://aws.amazon.com/audit-manager/getting-started/)
-- **FAQ**: [https://aws.amazon.com/audit-manager/faqs/](https://aws.amazon.com/audit-manager/faqs/)
-- **User Guide**: [
-https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-overviews.html](
-https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-overviews.html)
-- **Examples**: [
-https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html](
-https://docs.aws.amazon.com/audit-manager/latest/userguide/security_iam_id-based-policy-examples.html)
-- **Dashboard**: [
-https://docs.aws.amazon.com/audit-manager/latest/userguide/dashboard.html](
-https://docs.aws.amazon.com/audit-manager/latest/userguide/dashboard.html)
-
-### AWS Auto Scaling
-
-This API allows you to easily create and manage scaling plans for your applications using AWS Auto Scaling. With this service, you can define target tracking scaling policies to automatically scale your AWS resources based on utilization, as well as scale Amazon EC2 Auto Scaling groups using predictive scaling and dynamic scaling to quickly adjust your capacity.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/autoscaling/](https://aws.amazon.com/autoscaling/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/autoscaling-plans-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/autoscaling-plans-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/autoscaling/features/](https://aws.amazon.com/autoscaling/features/)
-- **Pricing**: [https://aws.amazon.com/autoscaling/pricing/](https://aws.amazon.com/autoscaling/pricing/)
-- **Resources**: [https://aws.amazon.com/autoscaling/resources/](https://aws.amazon.com/autoscaling/resources/)
-- **FAQ**: [https://aws.amazon.com/autoscaling/faqs/](https://aws.amazon.com/autoscaling/faqs/)
-
-### AWS Backup
-
-This API, Backup Backup, offers a comprehensive backup solution specifically tailored for Amazon Web Services (AWS) and its related data. With features such as simplified backup creation, migration, restoration, and deletion, as well as robust reporting and auditing capabilities, Backup Backup ensures the protection of your AWS services and data.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/backup/](https://aws.amazon.com/backup/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/backup-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/backup-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/backup/#](https://aws.amazon.com/backup/#)
-- **Pricing**: [https://aws.amazon.com/backup/pricing/?nc=sn&loc=3](https://aws.amazon.com/backup/pricing/?nc=sn&loc=3)
-- **GettingStarted**: [https://aws.amazon.com/backup/getting-started/?nc=sn&loc=4](https://aws.amazon.com/backup/getting-started/?nc=sn&loc=4)
-- **Resources**: [https://aws.amazon.com/backup/resources/](https://aws.amazon.com/backup/resources/)
-- **FAQ**: [https://aws.amazon.com/backup/faqs/?nc=sn&loc=6](https://aws.amazon.com/backup/faqs/?nc=sn&loc=6)
-- **Customers**: [https://aws.amazon.com/backup/customers/?nc=sn&loc=7](https://aws.amazon.com/backup/customers/?nc=sn&loc=7)
-
-### AWS Batch
-
-Batch Using Batch, you can run batch computing workloads on the Amazon Web Services Cloud. Batch computing is a common means for developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of the batch computing to remove the undifferentiated heavy lifting of configuring and managing required infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/batch/](https://aws.amazon.com/batch/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/batch-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/batch-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/batch/features/?nc=sn&loc=2](https://aws.amazon.com/batch/features/?nc=sn&loc=2)
-- **Pricing**: [https://aws.amazon.com/batch/pricing/?nc=sn&loc=3](https://aws.amazon.com/batch/pricing/?nc=sn&loc=3)
-- **FAQ**: [https://aws.amazon.com/batch/faqs/](https://aws.amazon.com/batch/faqs/)
-
-### Amazon Bedrock Agent
-
-Enhance the capabilities of generative AI applications by allowing them to seamlessly perform complex multi-step tasks across various company systems and data sources. Amazon Bedrock agents improve operational efficiency, customer service, and decision-making processes whilst simultaneously driving down costs and fostering innovation within the organization.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/bedrock/agents/](https://aws.amazon.com/bedrock/agents/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/bedrock-agent-runtime-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/bedrock-agent-runtime-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/bedrock/agents/#](https://aws.amazon.com/bedrock/agents/#)
-- **Pricing**: [
-https://aws.amazon.com/bedrock/pricing/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62](
-https://aws.amazon.com/bedrock/pricing/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62)
-- **Models**: [https://aws.amazon.com/bedrock/agents/](https://aws.amazon.com/bedrock/agents/)
-- **FAQ**: [
-https://aws.amazon.com/bedrock/faqs/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62](
-https://aws.amazon.com/bedrock/faqs/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62)
-- **Testimonials**: [https://aws.amazon.com/bedrock/testimonials/](https://aws.amazon.com/bedrock/testimonials/)
-- **Resources**: [
-https://aws.amazon.com/bedrock/resources/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62](
-https://aws.amazon.com/bedrock/resources/?refid=0eaabb80-ee46-4e73-94ae-368ffb759b62)
-
-### AWS Billing Conductor
-
-The Amazon Web Services Billing Conductor API is a fully managed service that allows you to customize your billing data each month for accurate showback or chargeback to your end customers. It does not alter the way you are billed by AWS, but rather enables you to configure, generate, and display rates for specific customers during a billing period. You can also compare the rates you set to your actual AWS rates.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-cost-management/aws-billing-conductor/](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/billingconductor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/billingconductor-openapi-original.yml)
-- **Features**: [
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/features/](
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/features/)
-- **Pricing**: [
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/](
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/)
-- **GettingStarted**: [
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/getting-started/](
-https://aws.amazon.com/aws-cost-management/aws-billing-conductor/getting-started/)
-- **FAQ**: [https://aws.amazon.com/aws-cost-management/aws-billing-conductor/faqs/](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/faqs/)
-
-### AWS Budgets
-
-Manage your expenses and usage with ease using the AWS Budgets API. Create personalized budgets to monitor your costs and usage, and receive instant notifications via email or SNS alerts if you surpass your set threshold. Stay on top of your spending and act swiftly to prevent overages.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-cost-management/aws-budgets/](https://aws.amazon.com/aws-cost-management/aws-budgets/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/budgets-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/budgets-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/](https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/)
-- **FAQ**: [https://aws.amazon.com/aws-cost-management/aws-budgets/faqs/](https://aws.amazon.com/aws-cost-management/aws-budgets/faqs/)
-- **Reports**: [
-https://aws.amazon.com/blogs/aws-cloud-financial-management/launch-aws-budgets-reports/](
-https://aws.amazon.com/blogs/aws-cloud-financial-management/launch-aws-budgets-reports/)
-
-### AWS  Cost Explorer
-
-The Cost Explorer API allows you to access your cost and usage data programmatically. You can retrieve aggregated information like total monthly costs or daily usage, as well as more detailed data such as specific operations for services like Amazon DynamoDB. The service endpoint for the Cost Explorer API is https://ce.us-east-1.amazonaws.com. For pricing details, refer to Amazon Web Services Cost Management Pricing.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-cost-management/aws-cost-explorer/](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ce-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ce-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/aws-cost-management/aws-cost-explorer/features/](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/features/)
-- **Pricing**: [https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/)
-- **FAQ**: [https://aws.amazon.com/aws-cost-management/aws-cost-explorer/faqs/](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/faqs/)
-- **GettingStarted**: [
-https://aws.amazon.com/aws-cost-management/aws-cost-explorer/getting-started/](
-https://aws.amazon.com/aws-cost-management/aws-cost-explorer/getting-started/)
-
-### AWS Chime
-
-The Amazon Chime API is a comprehensive communications solution that allows users to host online meetings, chat, and make business calls from a single platform. Key features include hosting high-quality video meetings, audio calls, screen sharing, meeting chat, dial-in numbers, and in-room video conferencing.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/chime/](https://aws.amazon.com/chime/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/chime-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/chime-openapi-original.yml)
-- **Contact**: [https://pages.awscloud.com/chime-contact-us](https://pages.awscloud.com/chime-contact-us)
-- **SDK**: [https://aws.amazon.com/chime/chime-sdk/](https://aws.amazon.com/chime/chime-sdk/)
-- **Downloads**: [https://aws.amazon.com/chime/download/](https://aws.amazon.com/chime/download/)
-- **Answers**: [http://answers.chime.aws](http://answers.chime.aws)
-- **Pricing**: [https://aws.amazon.com/chime/pricing/](https://aws.amazon.com/chime/pricing/)
-- **Customers**: [https://aws.amazon.com/chime/customers/](https://aws.amazon.com/chime/customers/)
-- **FAQ**: [https://aws.amazon.com/chime/faq/](https://aws.amazon.com/chime/faq/)
-- **GettingStarted**: [https://aws.amazon.com/chime/getting-started/](https://aws.amazon.com/chime/getting-started/)
-- **Features**: [https://aws.amazon.com/chime/features/](https://aws.amazon.com/chime/features/)
-
-### AWS Clean Rooms
-
-Introducing the Clean Rooms API, designed for use with Amazon Web Services. This API allows multiple parties to securely collaborate and combine their data in a shared workspace. This collaborative environment enables members to query and receive insights from aggregated datasets without exposing raw data to other parties.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/clean-rooms/](https://aws.amazon.com/clean-rooms/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cleanrooms-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cleanrooms-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/clean-rooms/#](https://aws.amazon.com/clean-rooms/#)
-- **FAQ**: [https://aws.amazon.com/clean-rooms/faqs/](https://aws.amazon.com/clean-rooms/faqs/)
-- **Customers**: [https://aws.amazon.com/clean-rooms/customers/](https://aws.amazon.com/clean-rooms/customers/)
-- **Partners**: [https://aws.amazon.com/clean-rooms/partners/](https://aws.amazon.com/clean-rooms/partners/)
-- **Pricing**: [https://aws.amazon.com/clean-rooms/pricing/](https://aws.amazon.com/clean-rooms/pricing/)
-- **Resources**: [https://aws.amazon.com/clean-rooms/resources/](https://aws.amazon.com/clean-rooms/resources/)
-
-###  Amazon Braket
-
-Amazon Braket is a comprehensive and user-friendly quantum computing service designed to support researchers and developers in leveraging the power of quantum technology to enhance their research and speed up discovery processes. With Amazon Braket, users have access to an integrated development environment that enables them to experiment with and create quantum algorithms, validate them using quantum circuit simulators, and execute them on a variety of quantum hardware platforms.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/braket/](https://aws.amazon.com/braket/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/braket-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/braket-openapi-original.yml)
-- **GettingStarted**: [https://aws.amazon.com/braket/#](https://aws.amazon.com/braket/#)
-- **Quantum Computers**: [https://aws.amazon.com/braket/#](https://aws.amazon.com/braket/#)
-- **Customers**: [https://aws.amazon.com/braket/customers/](https://aws.amazon.com/braket/customers/)
-- **Features**: [https://aws.amazon.com/braket/features/](https://aws.amazon.com/braket/features/)
-- **Pricing**: [https://aws.amazon.com/braket/pricing/](https://aws.amazon.com/braket/pricing/)
-- **FAQ**: [https://aws.amazon.com/braket/faqs/](https://aws.amazon.com/braket/faqs/)
-
-### AWS Cloud Control
-
-The AWS Cloud Control API simplifies the management of AWS and third-party services by providing a standardized set of APIs for developers and partners. With five key operations (CRUDL), users can easily create, read, update, delete, and list their cloud infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudcontrolapi/](https://aws.amazon.com/cloudcontrolapi/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudcontrol-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudcontrol-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/cloudcontrolapi/pricing/](https://aws.amazon.com/cloudcontrolapi/pricing/)
-- **Resources**: [https://aws.amazon.com/cloudcontrolapi/resources/](https://aws.amazon.com/cloudcontrolapi/resources/)
-- **FAQ**: [https://aws.amazon.com/cloudcontrolapi/faqs/](https://aws.amazon.com/cloudcontrolapi/faqs/)
-- **User Guide**: [
-https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html](
-https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html)
-
-### Amazon Cloud Directory
-
-The Amazon Cloud Directory is a feature within the AWS Directory Service designed to streamline the creation and organization of large-scale cloud applications for web, mobile, and IoT platforms. This documentation provides a comprehensive overview of Cloud Directory operations that can be accessed programmatically, offering detailed insights into data types and potential errors.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloud-directory/](https://aws.amazon.com/cloud-directory/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/clouddirectory-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/clouddirectory-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloud-directory/features/](https://aws.amazon.com/cloud-directory/features/)
-- **Pricing**: [https://aws.amazon.com/cloud-directory/pricing/](https://aws.amazon.com/cloud-directory/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloud-directory/getting-started/](https://aws.amazon.com/cloud-directory/getting-started/)
-- **FAQ**: [https://aws.amazon.com/cloud-directory/faqs/](https://aws.amazon.com/cloud-directory/faqs/)
-
-### AWS CloudFormation
-
-CloudFormation is an Amazon Web Services tool that allows users to easily create and manage infrastructure deployments in a predictable and repeatable manner. With CloudFormation, you can utilize various AWS products like EC2, EBS, SNS, ELB, and Auto Scaling to build reliable and scalable applications without needing to manually configure the underlying infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudformation/](https://aws.amazon.com/cloudformation/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudformation-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudformation-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloudformation/features/](https://aws.amazon.com/cloudformation/features/)
-- **Pricing**: [https://aws.amazon.com/cloudformation/pricing/](https://aws.amazon.com/cloudformation/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloudformation/getting-started/](https://aws.amazon.com/cloudformation/getting-started/)
-- **Resources**: [https://aws.amazon.com/cloudformation/resources/](https://aws.amazon.com/cloudformation/resources/)
-- **Partners**: [https://aws.amazon.com/cloudformation/partners/](https://aws.amazon.com/cloudformation/partners/)
-- **FAQ**: [https://aws.amazon.com/cloudformation/faqs/](https://aws.amazon.com/cloudformation/faqs/)
-
-### AWS Cloud9
-
-The Cloud9 API provides a wide range of tools for coding, building, running, testing, debugging, and releasing software in the cloud. Users can access these features through operations such as creating a development environment on Amazon EC2, managing environment memberships, deleting environments and members, getting information about environments and members, listing environments, managing tags, and updating environment settings.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloud9/](https://aws.amazon.com/cloud9/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloud9-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloud9-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/cloud9/pricing/](https://aws.amazon.com/cloud9/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloud9/getting-started/](https://aws.amazon.com/cloud9/getting-started/)
-- **FAQ**: [https://aws.amazon.com/cloud9/faqs/](https://aws.amazon.com/cloud9/faqs/)
-- **Environments**: [
-https://aws.amazon.com/blogs/aws/aws-cloud9-cloud-developer-environments/](
-https://aws.amazon.com/blogs/aws/aws-cloud9-cloud-developer-environments/)
-
-### Amazon CloudFront
-
-Amazon CloudFront is a reliable global content delivery network (CDN) service that speeds up the delivery of websites, APIs, video content, and other web assets. By seamlessly integrating with various Amazon Web Services products, developers and businesses can effortlessly optimize content delivery to end users without any mandatory usage requirements.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudfront/](https://aws.amazon.com/cloudfront/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudfront-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudfront-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloudfront/features/](https://aws.amazon.com/cloudfront/features/)
-- **Pricing**: [https://aws.amazon.com/cloudfront/pricing/](https://aws.amazon.com/cloudfront/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloudfront/getting-started/](https://aws.amazon.com/cloudfront/getting-started/)
-- **Media**: [https://aws.amazon.com/cloudfront/media/](https://aws.amazon.com/cloudfront/media/)
-- **Custoners**: [https://aws.amazon.com/cloudfront/customers/](https://aws.amazon.com/cloudfront/customers/)
-- **Partners**: [https://aws.amazon.com/cloudfront/partners/](https://aws.amazon.com/cloudfront/partners/)
-- **Resources**: [https://aws.amazon.com/cloudfront/resources/](https://aws.amazon.com/cloudfront/resources/)
-- **FAQ**: [https://aws.amazon.com/cloudfront/faqs/](https://aws.amazon.com/cloudfront/faqs/)
-
-### AWS Clean Rooms ML
-
-Introducing the Amazon Web Services Clean Rooms ML API Reference, a solution that offers a secure way for two parties to identify similar users in their datasets without sharing their data. First, one party provides training data to create and configure an audience model, which is associated with a collaboration. Then, the second party brings their seed data to generate an audience that closely resembles the training data.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/clean-rooms/ml/](https://aws.amazon.com/clean-rooms/ml/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cleanroomsml-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cleanroomsml-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/clean-rooms/ml/](https://aws.amazon.com/clean-rooms/ml/)
-- **FAQ**: [https://aws.amazon.com/clean-rooms/faqs/](https://aws.amazon.com/clean-rooms/faqs/)
-- **Customers**: [https://aws.amazon.com/clean-rooms/customers/](https://aws.amazon.com/clean-rooms/customers/)
-- **Partners**: [https://aws.amazon.com/clean-rooms/partners/](https://aws.amazon.com/clean-rooms/partners/)
-- **Pricing**: [https://aws.amazon.com/clean-rooms/pricing/](https://aws.amazon.com/clean-rooms/pricing/)
-- **Resources**: [https://aws.amazon.com/clean-rooms/resources/](https://aws.amazon.com/clean-rooms/resources/)
-
-### AWS CloudHSM
-
-The AWS CloudHSM API provides a secure and compliant solution for managing and accessing keys on FIPS-validated hardware. With customer-owned, single-tenant HSM instances running in your Virtual Private Cloud (VPC), you can easily meet corporate, contractual, and regulatory data security requirements.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudhsm/](https://aws.amazon.com/cloudhsm/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudhsmv2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudhsmv2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloudhsm/features/](https://aws.amazon.com/cloudhsm/features/)
-- **Pricing**: [https://aws.amazon.com/cloudhsm/pricing/](https://aws.amazon.com/cloudhsm/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloudhsm/getting-started/](https://aws.amazon.com/cloudhsm/getting-started/)
-- **Resources**: [https://aws.amazon.com/cloudhsm/resources/](https://aws.amazon.com/cloudhsm/resources/)
-- **Customers**: [https://aws.amazon.com/cloudhsm/customers/](https://aws.amazon.com/cloudhsm/customers/)
-- **FAQ**: [https://aws.amazon.com/cloudhsm/faqs/](https://aws.amazon.com/cloudhsm/faqs/)
-
-### Amazon CloudSearch
-
-Amazon CloudSearch, is a cloud-based service that simplifies the process of setting up, managing, and expanding a search solution for your website. It allows you to easily search through extensive datasets, including web pages, documents, forum posts, and product information. With Amazon CloudSearch, you can enhance your website with search functionality without the need for extensive expertise or concerns about hardware management.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/cloudsearch/](https://docs.aws.amazon.com/cloudsearch/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudsearch-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudsearch-openapi-original.yml)
-
-### AWS CloudTrail Data
-
-With AWS CloudTrail, you can monitor your AWS deployments in the cloud by getting a history of AWS API calls for your account, including API calls made by using the AWS Management Console, the AWS SDKs, the command line tools, and higher-level AWS services. You can also identify which users and accounts called AWS APIs for services that support CloudTrail, the source IP address from which the calls were made, and when the calls occurred.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/cloudtrail/](https://docs.aws.amazon.com/cloudtrail/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudtrail-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudtrail-data-openapi-original.yml)
-- **User Guide**: [https://docs.aws.amazon.com/awscloudtrail/latest/userguide/index.html](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/index.html)
-- **Partners**: [
-https://docs.aws.amazon.com/awscloudtrail/latest/partner-onboarding/cloudtrail-lake-partner-onboarding.html](
-https://docs.aws.amazon.com/awscloudtrail/latest/partner-onboarding/cloudtrail-lake-partner-onboarding.html)
-
-### Amazon CodeCatalyst
-
-Amazon CodeCatalyst is a unified software development service for development teams to quickly build, deliver and scale applications on AWS while adhering to organization-specific best practices. Developers can automate development tasks and innovate faster with generative AI capabilities, and spend less time setting up project tools, managing CI/CD pipelines, provisioning and configuring various development environments or coordinating with team members.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codecatalyst/](https://aws.amazon.com/codecatalyst/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codecatalyst-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codecatalyst-openapi-original.yml)
-
-### AWS CodeBuild
-
-AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces ready-to-deploy software packages. With CodeBuild, you don't need to provision, manage, and scale your own build servers. You just specify the location of your source code and choose your build settings, and CodeBuild will run your build scripts for compiling, testing, and packaging your code.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codebuild/](https://aws.amazon.com/codebuild/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codebuild-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codebuild-openapi-original.yml)
-- **Testimonials**: [https://aws.amazon.com/codebuild/customer-testimonials/](https://aws.amazon.com/codebuild/customer-testimonials/)
-- **Integrations**: [https://aws.amazon.com/codebuild/product-integrations/](https://aws.amazon.com/codebuild/product-integrations/)
-- **FAQ**: [https://aws.amazon.com/codebuild/faqs/](https://aws.amazon.com/codebuild/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/codebuild/getting-started/](https://aws.amazon.com/codebuild/getting-started/)
-- **Pricing**: [https://aws.amazon.com/codebuild/pricing/](https://aws.amazon.com/codebuild/pricing/)
-- **Features**: [https://aws.amazon.com/codebuild/features/](https://aws.amazon.com/codebuild/features/)
-
-### Amazon CodeGuru Reviewer
-
-Amazon CodeGuru Reviewer is a service that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and offers suggestions for improving your Java and Python code. This service has been released for general availability in several Regions.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/codeguru/latest/reviewer-api/index.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/index.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguru-reviewer-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguru-reviewer-openapi-original.yml)
-- **User Guide**: [https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/index.html](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/index.html)
-- **CLI**: [
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html](
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html)
-
-### AWS CodeArtifact
-
-CodeArtifact is a managed artifact repository that supports various language-native package managers and build tools like npm, Apache Maven, pip, and dotnet. It allows teams to share and pull packages from both public and CodeArtifact repositories. Additionally, CodeArtifact enables the creation of upstream relationships between repositories, effectively combining their contents for package manager clients.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codeartifact/](https://aws.amazon.com/codeartifact/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeartifact-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeartifact-openapi-original.yml)
-
-### AWS CloudTrail
-
-The CloudTrail API Reference provides detailed information on actions, data types, parameters, and errors for CloudTrail, a web service that records Amazon Web Services API calls and stores log files in an Amazon S3 bucket. The recorded information includes user identity, API call start time, source IP address, request parameters, and response elements.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudtrail/](https://aws.amazon.com/cloudtrail/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudtrail-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cloudtrail-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloudtrail/features/](https://aws.amazon.com/cloudtrail/features/)
-- **Pricing**: [https://aws.amazon.com/cloudtrail/pricing/](https://aws.amazon.com/cloudtrail/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloudtrail/getting-started/](https://aws.amazon.com/cloudtrail/getting-started/)
-- **Resources**: [https://aws.amazon.com/cloudtrail/resources/](https://aws.amazon.com/cloudtrail/resources/)
-- **FAQ**: [https://aws.amazon.com/cloudtrail/faqs/](https://aws.amazon.com/cloudtrail/faqs/)
-- **Partners**: [https://aws.amazon.com/cloudtrail/partners/](https://aws.amazon.com/cloudtrail/partners/)
-
-### AWS CodeDeploy
-
-AWS CodeDeploy is a deployment service that effortlessly automates software deployments to a range of compute services including Amazon EC2, ECS, AWS Lambda, and on-premises servers. By utilizing CodeDeploy, you can streamline software deployments, reducing the risk of errors associated with manual operations.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codedeploy/](https://aws.amazon.com/codedeploy/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codedeploy-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codedeploy-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/codedeploy/features/](https://aws.amazon.com/codedeploy/features/)
-- **Pricing**: [https://aws.amazon.com/codedeploy/pricing/](https://aws.amazon.com/codedeploy/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/codedeploy/getting-started/](https://aws.amazon.com/codedeploy/getting-started/)
-- **Resources**: [https://aws.amazon.com/codedeploy/resources/](https://aws.amazon.com/codedeploy/resources/)
-- **FAQ**: [https://aws.amazon.com/codedeploy/faqs/](https://aws.amazon.com/codedeploy/faqs/)
-- **Integrations**: [https://aws.amazon.com/codedeploy/product-integrations/](https://aws.amazon.com/codedeploy/product-integrations/)
-
-### Amazon CodeGuru Security
-
-Amazon CodeGuru Security is a static application security tool that uses machine learning to detect security policy violations and vulnerabilities. It provides suggestions for addressing security risks and generates metrics so you can track the security posture of your applications. CodeGuru Security's policies, which are informed by years of Amazon.com and AWS security best practices, help you to create and deploy secure, high-quality applications.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/codeguru/latest/security-api/index.html](https://docs.aws.amazon.com/codeguru/latest/security-api/index.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguru-security-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguru-security-openapi-original.yml)
-- **User Guide**: [https://docs.aws.amazon.com/codeguru/latest/security-ug/index.html](https://docs.aws.amazon.com/codeguru/latest/security-ug/index.html)
-- **CLI**: [
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-security/index.html](
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-security/index.html)
-
-### AWS CodeCommit
-
-Securely host highly scalable private Git repositories and collaborate on code. AWS CodeCommit is a secure, highly scalable, fully managed source control service that hosts private Git repositories.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codecommit/](https://aws.amazon.com/codecommit/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codecommit-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codecommit-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/codecommit/features/](https://aws.amazon.com/codecommit/features/)
-- **Pricing**: [https://aws.amazon.com/codecommit/pricing/](https://aws.amazon.com/codecommit/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/codecommit/getting-started/](https://aws.amazon.com/codecommit/getting-started/)
-- **Resources**: [https://aws.amazon.com/codecommit/resources/](https://aws.amazon.com/codecommit/resources/)
-- **FAQ**: [https://aws.amazon.com/codecommit/faqs/](https://aws.amazon.com/codecommit/faqs/)
-- **User Guide**: [https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html)
-
-### Amazon CodeGuru Profiler
-
-The Amazon CodeGuru Profiler API gathers real-time performance data from your applications and offers tailored suggestions to optimize their performance. By leveraging machine learning techniques, CodeGuru Profiler assists in pinpointing the most resource-intensive lines of code and suggests enhancements to increase efficiency and overcome CPU bottlenecks.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/codeguru/latest/profiler-api/index.html](https://docs.aws.amazon.com/codeguru/latest/profiler-api/index.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguruprofiler-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codeguruprofiler-openapi-original.yml)
-- **User Guide**: [https://docs.aws.amazon.com/codeguru/latest/profiler-ug/index.html](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/index.html)
-- **CLI**: [
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguruprofiler/index.html](
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguruprofiler/index.html)
-
-### AWS CodePipeline
-
-The API provided by AWS CodePipeline is a comprehensive continuous delivery service that simplifies the automation of release pipelines, facilitating swift and dependable updates to both applications and infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/codepipeline/](https://aws.amazon.com/codepipeline/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codepipeline-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codepipeline-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/codepipeline/features/](https://aws.amazon.com/codepipeline/features/)
-- **Pricing**: [https://aws.amazon.com/codepipeline/pricing/](https://aws.amazon.com/codepipeline/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/codepipeline/getting-started/](https://aws.amazon.com/codepipeline/getting-started/)
-- **FAQ**: [https://aws.amazon.com/codepipeline/faqs/](https://aws.amazon.com/codepipeline/faqs/)
-- **Integrations**: [https://aws.amazon.com/codepipeline/product-integrations/](https://aws.amazon.com/codepipeline/product-integrations/)
-
-### AWS CodeStar Notifications
-
-The AWS CodeStar Notifications API Reference offers detailed explanations and practical examples on using the various operations and data types within the AWS CodeStar Notifications API.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/codestar-notifications/latest/APIReference/Welcome.html](
-https://docs.aws.amazon.com/codestar-notifications/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codestar-notifications-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codestar-notifications-openapi-original.yml)
-
-### AWS CodeStar Connections
-
-AWS CodeStar Connections is an API provided by Amazon Web Services that allows you to work with connections and installations. Connections are configurations used to connect AWS resources to external code repositories, allowing services like CodePipeline to trigger actions based on changes in third-party code repositories.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html](
-https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codestar-connections-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/codestar-connections-openapi-original.yml)
-
-### Amazon Cognito User Pools
-
-Amazon Cognito user pool, serves as a user directory for authenticating and authorizing users in web and mobile applications. When integrated into your app, the user pool functions as an OpenID Connect (OIDC) identity provider, offering enhanced security features, identity federation capabilities, seamless app integration, and customizable user experiences.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html](
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-idp-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-idp-openapi-original.yml)
-
-### Amazon Cognito Sync
-
-Amazon Cognito Sync is an AWS service and client library that allows for seamless syncing of user data across multiple devices. With high-level client libraries available for iOS and Android, developers can easily persist data locally for offline access without the need to store credentials on the device.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync.html](
-https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-sync-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-sync-openapi-original.yml)
-
-### Amazon Comprehend Medical
-
-The Amazon Comprehend Medical API is designed to extract structured information from unstructured clinical text, allowing users to gain valuable insights from their documents. It should be noted, however, that this API only detects entities in English language texts and imposes size limits on files for various API operations.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/comprehend/medical/](https://aws.amazon.com/comprehend/medical/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/comprehendmedical-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/comprehendmedical-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/comprehend/medical/features/](https://aws.amazon.com/comprehend/medical/features/)
-- **Pricing**: [https://aws.amazon.com/comprehend/medical/pricing/](https://aws.amazon.com/comprehend/medical/pricing/)
-- **FAQ**: [https://aws.amazon.com/comprehend/medical/faqs/](https://aws.amazon.com/comprehend/medical/faqs/)
-- **Resources**: [https://aws.amazon.com/comprehend/medical/resources/](https://aws.amazon.com/comprehend/medical/resources/)
-- **Customers**: [https://aws.amazon.com/comprehend/medical/customers/](https://aws.amazon.com/comprehend/medical/customers/)
-
-### Amazon Cognito Federated Identities
-
-Amazon Cognito Federated Identities is a web service that provides scoped temporary credentials for mobile devices and other untrusted environments. It offers consistent identity management for users throughout the lifespan of an application.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html](
-https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-identity-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cognito-identity-openapi-original.yml)
-
-### Amazon Connect
-
-The API for Amazon Connect is a cloud-based solution for setting up and managing customer contact centers, offering reliable customer engagement at any scale. It provides metrics and real-time reporting for optimizing contact routing and efficiently resolving customer issues by connecting them with the appropriate agents.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/connect/](https://aws.amazon.com/connect/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/connect-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/connect-openapi-original.yml)
-- **Use Cases**: [https://aws.amazon.com/connect/](https://aws.amazon.com/connect/)
-- **Featured**: [https://aws.amazon.com/connect/](https://aws.amazon.com/connect/)
-- **Pricing**: [https://aws.amazon.com/connect/pricing/](https://aws.amazon.com/connect/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/connect/getting-started/](https://aws.amazon.com/connect/getting-started/)
-- **Resources**: [https://aws.amazon.com/connect/resources/](https://aws.amazon.com/connect/resources/)
-- **Customers**: [https://aws.amazon.com/connect/customers/](https://aws.amazon.com/connect/customers/)
-- **Partners**: [https://aws.amazon.com/connect/partners/](https://aws.amazon.com/connect/partners/)
-
-### AWS Config
-
-Config provides a comprehensive solution for monitoring and managing the configurations of Amazon Web Services resources within your AWS account. With Config, you can easily access current and historical configurations for resources such as Amazon EC2 instances, EBS volumes, ENIs, and security groups.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/config/](https://aws.amazon.com/config/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/config-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/config-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/config/features/](https://aws.amazon.com/config/features/)
-- **Pricing**: [https://aws.amazon.com/config/pricing/](https://aws.amazon.com/config/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/config/getting-started/](https://aws.amazon.com/config/getting-started/)
-- **Resources**: [https://aws.amazon.com/config/resources/](https://aws.amazon.com/config/resources/)
-- **FAQ**: [https://aws.amazon.com/config/faq/](https://aws.amazon.com/config/faq/)
-- **Customers**: [https://aws.amazon.com/config/customers/](https://aws.amazon.com/config/customers/)
-- **Partners**: [https://aws.amazon.com/config/partners/](https://aws.amazon.com/config/partners/)
-
-### Contact Lens for Amazon Connect
-
-The Contact Lens API for Amazon Connect allows users to analyze conversations between customers and agents through features such as speech transcription, natural language processing, and intelligent search. It includes sentiment analysis, issue detection, and automatic contact categorization. This tool provides real-time and post-call analytics for customer-agent interactions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/connect/contact-lens/](https://aws.amazon.com/connect/contact-lens/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/connect-contact-lens-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/connect-contact-lens-openapi-original.yml)
-- **Use Cases**: [https://aws.amazon.com/connect/contact-lens/](https://aws.amazon.com/connect/contact-lens/)
-- **Features**: [https://aws.amazon.com/connect/contact-lens/](https://aws.amazon.com/connect/contact-lens/)
-- **Pricing**: [https://aws.amazon.com/connect/pricing/](https://aws.amazon.com/connect/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/connect/getting-started/](https://aws.amazon.com/connect/getting-started/)
-- **Resources**: [https://aws.amazon.com/connect/resources/](https://aws.amazon.com/connect/resources/)
-- **Customers**: [https://aws.amazon.com/connect/customers/](https://aws.amazon.com/connect/customers/)
-- **Partners**: [https://aws.amazon.com/connect/partners/](https://aws.amazon.com/connect/partners/)
-
-### AWS Compute Optimizer
-
-Compute Optimizer is an API that evaluates the configuration and usage metrics of your AWS compute resources, including EC2 instances, Auto Scaling groups, Lambda functions, EBS volumes, and ECS services on Fargate. It provides optimization recommendations to enhance performance and reduce costs, based on current and projected utilization data.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/compute-optimizer/](https://aws.amazon.com/compute-optimizer/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/compute-optimizer-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/compute-optimizer-openapi-original.yml)
-- **Metrics**: [https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html](https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html)
-- **FAQ**: [https://aws.amazon.com/compute-optimizer/faqs/](https://aws.amazon.com/compute-optimizer/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/compute-optimizer/getting-started/](https://aws.amazon.com/compute-optimizer/getting-started/)
-- **Pricing**: [https://aws.amazon.com/compute-optimizer/pricing/](https://aws.amazon.com/compute-optimizer/pricing/)
-
-### Amazon Comprehend
-
-Amazon Comprehend is an AI-powered service from Amazon Web Services that provides deep analysis of document content. It allows users to extract topics, sentiment, language, and other insights from their documents.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/comprehend/](https://aws.amazon.com/comprehend/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/comprehend-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/comprehend-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/comprehend/pricing/](https://aws.amazon.com/comprehend/pricing/)
-- **FAQ**: [https://aws.amazon.com/comprehend/faqs/](https://aws.amazon.com/comprehend/faqs/)
-- **Customers**: [https://aws.amazon.com/comprehend/customers/](https://aws.amazon.com/comprehend/customers/)
-- **Resources**: [https://aws.amazon.com/comprehend/resources/](https://aws.amazon.com/comprehend/resources/)
-- **Features**: [https://aws.amazon.com/comprehend/features/](https://aws.amazon.com/comprehend/features/)
-- **Intelligent Document Processing**: [https://aws.amazon.com/comprehend/idp/](https://aws.amazon.com/comprehend/idp/)
-- **Trust and Safety**: [https://aws.amazon.com/comprehend/trust-and-safety/](https://aws.amazon.com/comprehend/trust-and-safety/)
-
-### AWS Cost Optimization Hub
-
-The Cost Optimization Hub API allows you to automate the identification, filtering, aggregation, and quantification of cost savings for your optimization recommendations across various Amazon Web Services Regions and accounts within your organization.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-cost-management/cost-optimization-hub/](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cost-optimization-hub-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cost-optimization-hub-openapi-original.yml)
-- **GettingStarted**: [
-https://aws.amazon.com/aws-cost-management/cost-optimization-hub/getting-started/](
-https://aws.amazon.com/aws-cost-management/cost-optimization-hub/getting-started/)
-- **FAQ**: [https://aws.amazon.com/aws-cost-management/cost-optimization-hub/faqs/](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/faqs/)
-
-### AWS Control Tower
-
-Use AWS Control Tower to set up and operate your multi-account AWS environment with prescriptive controls designed to accelerate your cloud journey. AWS Control Tower orchestrates multiple AWS services on your behalf while maintaining the security and compliance needs of your new or existing organization.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/controltower/](https://aws.amazon.com/controltower/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/controltower-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/controltower-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/controltower/features/](https://aws.amazon.com/controltower/features/)
-- **Pricing**: [https://aws.amazon.com/controltower/pricing/](https://aws.amazon.com/controltower/pricing/)
-- **FAQ**: [https://aws.amazon.com/controltower/faqs/](https://aws.amazon.com/controltower/faqs/)
-- **Customers**: [https://aws.amazon.com/controltower/customers/](https://aws.amazon.com/controltower/customers/)
-- **Partners**: [https://aws.amazon.com/controltower/partners/](https://aws.amazon.com/controltower/partners/)
-
-### AWS Glue DataBrew
-
-DataBrew is a user-friendly API designed to simplify the data preparation process by allowing users of all technical levels to visualize and transform data with just one click. This visual, cloud-scale service targets and resolves data issues that are difficult to identify and time-consuming to address, making data preparation more efficient and accessible.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/glue/features/databrew/](https://aws.amazon.com/glue/features/databrew/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/databrew-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/databrew-openapi-original.yml)
-- **About**: [https://docs.aws.amazon.com/databrew/latest/dg/what-is.html](https://docs.aws.amazon.com/databrew/latest/dg/what-is.html)
-
-### Amazon Connect Customer Profiles
-
-The Amazon Connect Customer Profiles API offers a centralized customer profile solution for contact centers, featuring pre-built connectors utilizing AppFlow technology. These connectors seamlessly integrate customer data from third-party applications like Salesforce, ServiceNow, and ERP systems with contact history from your Amazon Connect contact center. If you are a new user, the Amazon Connect Administrator Guide can assist you in familiarizing yourself with the platform.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/connect/customer-profiles/](https://aws.amazon.com/connect/customer-profiles/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/customer-profiles-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/customer-profiles-openapi-original.yml)
-- **Use Cases**: [https://aws.amazon.com/connect/customer-profiles/](https://aws.amazon.com/connect/customer-profiles/)
-
-### AWS Cost and Usage Report
-
-With the Amazon Web Services Cost and Usage Report API, you can manage Cost and Usage Report definitions programmatically. This API allows you to create, query, and delete Cost and Usage Report definitions, which track monthly costs and usage associated with your Amazon Web Services account.
-
-**Properties:**
-
-- **Documentation**: [
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/](
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cur-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/cur-openapi-original.yml)
-- **Features**: [
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/features/](
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/features/)
-- **FAQ**: [
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/faqs/](
-https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/faqs/)
-
-### AWS DataSync
-
-AWS DataSync is a secure, online service that automates and accelerates moving data between on premises and AWS Storage services.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/datasync/](https://aws.amazon.com/datasync/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datasync-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datasync-openapi-original.yml)
-- **Discovery**: [https://aws.amazon.com/datasync/discovery/](https://aws.amazon.com/datasync/discovery/)
-- **Customers**: [https://aws.amazon.com/datasync/customers/](https://aws.amazon.com/datasync/customers/)
-- **FAQ**: [https://aws.amazon.com/datasync/faqs/](https://aws.amazon.com/datasync/faqs/)
-- **Resources**: [https://aws.amazon.com/datasync/resources/](https://aws.amazon.com/datasync/resources/)
-- **GettingStarted**: [https://aws.amazon.com/datasync/getting-started/](https://aws.amazon.com/datasync/getting-started/)
-- **Pricing**: [https://aws.amazon.com/datasync/pricing/](https://aws.amazon.com/datasync/pricing/)
-
-### Amazon DataZone
-
-Amazon DataZone is a comprehensive data management service designed to streamline the organization, governance, and analysis of your data. This API allows you to easily catalog, discover, and share your data across accounts and regions. With Amazon DataZone, you can seamlessly integrate with various Amazon Web Services offerings such as Redshift, Athena, Glue, and Lake Formation to enhance your data management capabilities.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/datazone/](https://aws.amazon.com/datazone/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datazone-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datazone-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/datazone/features/](https://aws.amazon.com/datazone/features/)
-- **FAQ**: [https://aws.amazon.com/datazone/faqs/](https://aws.amazon.com/datazone/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/datazone/getting-started/](https://aws.amazon.com/datazone/getting-started/)
-- **Pricing**: [https://aws.amazon.com/datazone/pricing/](https://aws.amazon.com/datazone/pricing/)
-- **Resources**: [https://aws.amazon.com/datazone/resources/](https://aws.amazon.com/datazone/resources/)
-
-### AWS Data Exchange
-
-AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/data-exchange/](https://aws.amazon.com/data-exchange/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dataexchange-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dataexchange-openapi-original.yml)
-- **Updates**: [https://aws.amazon.com/data-exchange/latest-updates/](https://aws.amazon.com/data-exchange/latest-updates/)
-- **Updates**: [https://aws.amazon.com/data-exchange/latest-updates/](https://aws.amazon.com/data-exchange/latest-updates/)
-- **Providers**: [https://aws.amazon.com/data-exchange/providers/](https://aws.amazon.com/data-exchange/providers/)
-
-### AWS Data Pipeline
-
-AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/data-pipeline/](https://docs.aws.amazon.com/data-pipeline/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datapipeline-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/datapipeline-openapi-original.yml)
-- **Guide**: [
-https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/index.html](
-https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/index.html)
-
-### AWS Device Farm
-
-Explore the AWS Device Farm API documentation, offering APIs for two main testing services: desktop browser testing and real mobile device testing. Use Device Farm to test your web applications on desktop browsers with Selenium through the TestGrid-named APIs.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/device-farm/](https://aws.amazon.com/device-farm/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/devicefarm-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/devicefarm-openapi-original.yml)
-- **Device List**: [https://aws.amazon.com/device-farm/device-list/](https://aws.amazon.com/device-farm/device-list/)
-- **Pricing**: [https://aws.amazon.com/device-farm/pricing/](https://aws.amazon.com/device-farm/pricing/)
-- **Resources**: [https://aws.amazon.com/device-farm/resources/](https://aws.amazon.com/device-farm/resources/)
-- **FAQ**: [https://aws.amazon.com/device-farm/faqs/](https://aws.amazon.com/device-farm/faqs/)
-
-### AWS Direct Connect
-
-Direct Connect allows you to establish a high-speed, private connection between your internal network and an Direct Connect location using a standard Ethernet fiber-optic cable.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/directconnect/](https://aws.amazon.com/directconnect/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/directconnect-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/directconnect-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/directconnect/features/](https://aws.amazon.com/directconnect/features/)
-- **Pricing**: [https://aws.amazon.com/directconnect/pricing/](https://aws.amazon.com/directconnect/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/directconnect/getting-started/](https://aws.amazon.com/directconnect/getting-started/)
-- **FAQ**: [https://aws.amazon.com/directconnect/faqs/](https://aws.amazon.com/directconnect/faqs/)
-- **Partners**: [https://aws.amazon.com/directconnect/partners/](https://aws.amazon.com/directconnect/partners/)
-
-### AWS Detective
-
-The Amazon Detective API streamlines the investigation process for security teams, enabling faster and more efficient analysis. By leveraging prebuilt data aggregations, summaries, and context provided by Amazon Detective, users can quickly assess and understand potential security threats.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/detective/](https://aws.amazon.com/detective/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/detective-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/detective-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/detective/features/](https://aws.amazon.com/detective/features/)
-- **Pricing**: [https://aws.amazon.com/detective/pricing/](https://aws.amazon.com/detective/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/detective/getting-started/](https://aws.amazon.com/detective/getting-started/)
-- **FAQ**: [https://aws.amazon.com/detective/faqs/](https://aws.amazon.com/detective/faqs/)
-- **FAQ**: [https://aws.amazon.com/detective/faqs/](https://aws.amazon.com/detective/faqs/)
-
-### Amazon Data Lifecycle Manager
-
-Amazon Data Lifecycle Manager With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create lifecycle policies, which are used to automate operations on the specified resources. Amazon Data Lifecycle Manager supports Amazon EBS volumes and snapshots.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html](
-https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dlm-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dlm-openapi-original.yml)
-
-### Amazon DevOps Guru
-
-Amazon DevOps Guru is a managed service designed to detect abnormal behavior in critical operational applications. Users can select the Amazon Web Services resources they want DevOps Guru to monitor, allowing the service to analyze CloudWatch metrics and CloudTrail events related to those resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/devops-guru/](https://aws.amazon.com/devops-guru/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/devops-guru-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/devops-guru-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/devops-guru/pricing/](https://aws.amazon.com/devops-guru/pricing/)
-- **Resources**: [https://aws.amazon.com/devops-guru/resources/](https://aws.amazon.com/devops-guru/resources/)
-- **FAQ**: [https://aws.amazon.com/devops-guru/faqs/](https://aws.amazon.com/devops-guru/faqs/)
-- **Customers**: [https://aws.amazon.com/devops-guru/customers/](https://aws.amazon.com/devops-guru/customers/)
-- **Partners**: [https://aws.amazon.com/devops-guru/partners/](https://aws.amazon.com/devops-guru/partners/)
-- **Features**: [https://aws.amazon.com/devops-guru/features/](https://aws.amazon.com/devops-guru/features/)
-
-### Amazon DynamoDB Accelerator (DAX)
-
-DAX is a managed caching service designed specifically for Amazon DynamoDB. It significantly boosts database read speeds by storing frequently accessed data from DynamoDB, allowing applications to retrieve that data with extremely low latency. Setting up a DAX cluster is a straightforward process through the AWS Management Console.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/dynamodbaccelerator/](https://aws.amazon.com/dynamodbaccelerator/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dax-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dax-openapi-original.yml)
-- **Customers**: [https://aws.amazon.com/dynamodbaccelerator/customers/](https://aws.amazon.com/dynamodbaccelerator/customers/)
-
-### AWS Application Discovery Service
-
-The Amazon Web Services Application Discovery Service helps users plan application migration projects by automatically identifying servers, virtual machines, and network dependencies in on-premises data centers.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/application-discovery/](https://aws.amazon.com/application-discovery/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/discovery-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/discovery-openapi-original.yml)
-- **Feature**: [https://aws.amazon.com/application-discovery/features/](https://aws.amazon.com/application-discovery/features/)
-- **Pricing**: [https://aws.amazon.com/application-discovery/pricing/](https://aws.amazon.com/application-discovery/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/application-discovery/getting-started/](https://aws.amazon.com/application-discovery/getting-started/)
-- **Resources**: [https://aws.amazon.com/application-discovery/resources/](https://aws.amazon.com/application-discovery/resources/)
-- **FAQ**: [https://aws.amazon.com/application-discovery/faqs/](https://aws.amazon.com/application-discovery/faqs/)
-- **Partners**: [https://aws.amazon.com/application-discovery/partners/](https://aws.amazon.com/application-discovery/partners/)
-
-### AWS Directory Service
-
-API for Directory Service is a convenient web service designed to help users easily establish and manage directories in the Amazon Web Services cloud. It also allows users to connect their Amazon Web Services resources to an existing Microsoft Active Directory that they manage themselves.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/directoryservice/](https://aws.amazon.com/directoryservice/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ds-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ds-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/directoryservice/features/](https://aws.amazon.com/directoryservice/features/)
-- **Pricing**: [https://aws.amazon.com/directoryservice/pricing/](https://aws.amazon.com/directoryservice/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/directoryservice/getting-started/](https://aws.amazon.com/directoryservice/getting-started/)
-- **FAQ**: [https://aws.amazon.com/directoryservice/faqs/](https://aws.amazon.com/directoryservice/faqs/)
-
-### AWS Elastic Disaster Recovery Service
-
-AWS Elastic Disaster Recovery (AWS DRS), helps to reduce downtime and prevent data loss by quickly and reliably recovering on-premises and cloud-based applications. It utilizes cost-effective storage, minimal computing resources, and offers point-in-time recovery for optimal efficiency.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/disaster-recovery/](https://aws.amazon.com/disaster-recovery/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/drs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/drs-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/disaster-recovery/features/](https://aws.amazon.com/disaster-recovery/features/)
-- **Pricing**: [https://aws.amazon.com/disaster-recovery/pricing/](https://aws.amazon.com/disaster-recovery/pricing/)
-- **Resources**: [https://aws.amazon.com/disaster-recovery/resources/](https://aws.amazon.com/disaster-recovery/resources/)
-- **FAQ**: [https://aws.amazon.com/disaster-recovery/faqs/](https://aws.amazon.com/disaster-recovery/faqs/)
-
-### AWS Database Migration Service
-
-Our Database Migration Service (DMS) is a flexible tool that can seamlessly move data between a variety of commercial and open-source databases, including Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE).
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/dms/](https://aws.amazon.com/dms/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dms-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dms-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/dms/features/](https://aws.amazon.com/dms/features/)
-- **Schema Conversion Tool**: [https://aws.amazon.com/dms/schema-conversion-tool/](https://aws.amazon.com/dms/schema-conversion-tool/)
-- **Pricing**: [https://aws.amazon.com/dms/pricing/](https://aws.amazon.com/dms/pricing/)
-- **Resources**: [https://docs.aws.amazon.com/dms/](https://docs.aws.amazon.com/dms/)
-- **Partners**: [https://aws.amazon.com/dms/partners/](https://aws.amazon.com/dms/partners/)
-- **Customers**: [https://aws.amazon.com/dms/testimonials/](https://aws.amazon.com/dms/testimonials/)
-
-### Amazon Elastic Block Store
-
-Use the Amazon Elastic Block Store (Amazon EBS) direct APIs to easily create Amazon EBS snapshots, write data directly to your snapshots, read data on your snapshots, and identify differences or changes between two snapshots.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ebs/](https://aws.amazon.com/ebs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ebs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ebs-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ebs/features/](https://aws.amazon.com/ebs/features/)
-- **Pricing**: [https://aws.amazon.com/ebs/pricing/](https://aws.amazon.com/ebs/pricing/)
-- **Volume Types**: [https://aws.amazon.com/ebs/volume-types/](https://aws.amazon.com/ebs/volume-types/)
-- **Resources**: [https://aws.amazon.com/ebs/resources/](https://aws.amazon.com/ebs/resources/)
-- **GettingStarted**: [https://aws.amazon.com/ebs/getting-started/](https://aws.amazon.com/ebs/getting-started/)
-- **FAQ**: [https://aws.amazon.com/ebs/faqs/](https://aws.amazon.com/ebs/faqs/)
-- **Customers**: [https://aws.amazon.com/ebs/customers/](https://aws.amazon.com/ebs/customers/)
-
-### Amazon DocumentDB
-
-Amazon DocumentDB is a cloud-based database service that offers fast and reliable performance. It is fully managed and compatible with MongoDB, making it easy to set up, operate, and scale databases. With Amazon DocumentDB, you can seamlessly run your existing application code and access the same drivers and tools you currently use with MongoDB.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/documentdb/](https://aws.amazon.com/documentdb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/docdb-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/docdb-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/documentdb/features/](https://aws.amazon.com/documentdb/features/)
-- **Pricing**: [https://aws.amazon.com/documentdb/pricing/](https://aws.amazon.com/documentdb/pricing/)
-- **Resources**: [https://aws.amazon.com/documentdb/resources/](https://aws.amazon.com/documentdb/resources/)
-- **GettingStarted**: [https://aws.amazon.com/documentdb/getting-started/](https://aws.amazon.com/documentdb/getting-started/)
-- **FAQ**: [https://aws.amazon.com/documentdb/faqs/](https://aws.amazon.com/documentdb/faqs/)
-- **Customers**: [https://aws.amazon.com/documentdb/customers/](https://aws.amazon.com/documentdb/customers/)
-
-### Amazon Elastic DocumentDB
-
-The Amazon DocumentDB API offers elastic clusters that can handle high volumes of reads/writes per second and store petabytes of data. These clusters make it easier for developers to work with Amazon DocumentDB by removing the need to select, oversee, or update instances.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-using-elastic-clusters.html](
-https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-using-elastic-clusters.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/docdb-elastic-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/docdb-elastic-openapi-original.yml)
-
-### Amazon EC2 Instance Connect
-
-Amazon EC2 Instance Connect allows system administrators to generate and share one-time use SSH public keys on EC2, offering users a convenient and reliable method to access their instances securely.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-eic.html](
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-eic.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ec2-instance-connect-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ec2-instance-connect-openapi-original.yml)
-
-### Amazon DynamoDB
-
-Amazon DynamoDB, is a NoSQL database service that operates in a serverless environment, allowing you to build modern applications of any size. With DynamoDB, you only pay for the resources you use, and the database can scale down to zero, eliminating cold starts, version upgrades, maintenance windows, patching, and downtime.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/dynamodb/](https://aws.amazon.com/dynamodb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dynamodb-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/dynamodb-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/dynamodb/features/](https://aws.amazon.com/dynamodb/features/)
-- **Pricing**: [https://aws.amazon.com/dynamodb/pricing/](https://aws.amazon.com/dynamodb/pricing/)
-- **Resources**: [https://aws.amazon.com/dynamodb/resources/](https://aws.amazon.com/dynamodb/resources/)
-- **GettingStarted**: [https://aws.amazon.com/dynamodb/getting-started/](https://aws.amazon.com/dynamodb/getting-started/)
-- **Migrations**: [https://aws.amazon.com/dynamodb/migrations/](https://aws.amazon.com/dynamodb/migrations/)
-- **Partners**: [https://aws.amazon.com/dynamodb/partners/](https://aws.amazon.com/dynamodb/partners/)
-- **Solutions**: [https://aws.amazon.com/dynamodb/solutions-by-industry/](https://aws.amazon.com/dynamodb/solutions-by-industry/)
-- **FAQ**: [https://aws.amazon.com/dynamodb/faqs/](https://aws.amazon.com/dynamodb/faqs/)
-- **Customers**: [https://aws.amazon.com/dynamodb/customers/](https://aws.amazon.com/dynamodb/customers/)
-
-### Amazon Elastic Compute Cloud
-
-The Amazon Elastic Compute Cloud (Amazon EC2) API provides a comprehensive compute platform with a wide range of instance options and the latest technology choices in processors, storage, networking, operating systems, and purchase models to suit your workload requirements. We are the leading cloud provider to support Intel, AMD, and Arm processors, offer on-demand EC2 Mac instances, and feature 400 Gbps Ethernet networking.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ec2/](https://aws.amazon.com/ec2/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ec2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ec2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ec2/features/](https://aws.amazon.com/ec2/features/)
-- **Pricing**: [https://aws.amazon.com/ec2/pricing/](https://aws.amazon.com/ec2/pricing/)
-- **Instance Types**: [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)
-- **FAQ**: [https://aws.amazon.com/ec2/faqs/](https://aws.amazon.com/ec2/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/ec2/getting-started/](https://aws.amazon.com/ec2/getting-started/)
-- **Resources**: [https://aws.amazon.com/ec2/resources/](https://aws.amazon.com/ec2/resources/)
-- **Videos**: [https://aws.amazon.com/ec2/videos/](https://aws.amazon.com/ec2/videos/)
-- **Customers**: [https://aws.amazon.com/ec2/customers/](https://aws.amazon.com/ec2/customers/)
-- **Cost Optimizations**: [https://aws.amazon.com/ec2/cost-and-capacity/](https://aws.amazon.com/ec2/cost-and-capacity/)
-
-### Amazon Elastic Kubernetes Service
-
-Amazon Elastic Kubernetes Service (Amazon EKS) is a fully managed service designed to simplify the process of running Kubernetes on Amazon Web Services. With Amazon EKS, users can easily deploy, scale, and manage containerized applications without the need to set up or maintain their own Kubernetes control plane.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/eks/](https://aws.amazon.com/eks/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/eks-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/eks-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/eks/features/](https://aws.amazon.com/eks/features/)
-- **Pricing**: [https://aws.amazon.com/eks/pricing/](https://aws.amazon.com/eks/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/eks/getting-started/](https://aws.amazon.com/eks/getting-started/)
-- **FAQ**: [https://aws.amazon.com/eks/faqs/](https://aws.amazon.com/eks/faqs/)
-- **Customers**: [https://aws.amazon.com/eks/customers/](https://aws.amazon.com/eks/customers/)
-- **Partners**: [https://aws.amazon.com/eks/partners/](https://aws.amazon.com/eks/partners/)
-
-### Amazon Elastic Container Registry
-
-The Amazon Elastic Container Registry (Amazon ECR) is a managed service that allows customers to store and manage container images securely. Users can easily push, pull, and manage images using the Docker CLI or their preferred client. Amazon ECR supports private repositories with resource-based permissions using IAM, allowing specific users or Amazon EC2 instances to access repositories and images.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ecr/](https://aws.amazon.com/ecr/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecr-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecr-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ecr/features/](https://aws.amazon.com/ecr/features/)
-- **Pricing**: [https://aws.amazon.com/ecr/pricing/](https://aws.amazon.com/ecr/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/ecr/getting-started/](https://aws.amazon.com/ecr/getting-started/)
-- **Resources**: [https://aws.amazon.com/ecr/resources/](https://aws.amazon.com/ecr/resources/)
-- **FAQ**: [https://aws.amazon.com/ecr/faqs/](https://aws.amazon.com/ecr/faqs/)
-- **Customers**: [https://aws.amazon.com/ecr/customers/](https://aws.amazon.com/ecr/customers/)
-
-### Amazon Elastic Container Service
-
-Amazon Elastic Container Service (Amazon ECS) is a robust container management service provided by Amazon. It enables easy running, stopping, and management of Docker containers with high scalability and speed. Amazon ECS allows you to host your container clusters on a serverless infrastructure using Fargate or on Amazon EC2 instances that you manage.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ecs/](https://aws.amazon.com/ecs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecs-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ecs/features/](https://aws.amazon.com/ecs/features/)
-- **Pricing**: [https://aws.amazon.com/ecs/pricing/](https://aws.amazon.com/ecs/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/ecs/getting-started/](https://aws.amazon.com/ecs/getting-started/)
-- **Resources**: [https://aws.amazon.com/ecs/resources/](https://aws.amazon.com/ecs/resources/)
-- **FAQ**: [https://aws.amazon.com/ecs/faqs/](https://aws.amazon.com/ecs/faqs/)
-- **Customers**: [https://aws.amazon.com/ecs/customers/](https://aws.amazon.com/ecs/customers/)
-- **Partners**: [https://aws.amazon.com/ecs/partners/](https://aws.amazon.com/ecs/partners/)
-
-### Amazon ElastiCache
-
-Amazon ElastiCache is a convenient web service that simplifies the process of setting up, operating, and expanding a distributed cache in the cloud. By utilizing ElastiCache, users can enjoy the advantages of a high-performance, in-memory cache without the extensive administrative tasks typically associated with launching and maintaining a distributed cache. The service streamlines setup, scaling, and cluster failure management compared to a self-managed cache deployment.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/elasticache/](https://aws.amazon.com/elasticache/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticache-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticache-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/elasticache/features/](https://aws.amazon.com/elasticache/features/)
-- **Pricing**: [https://aws.amazon.com/elasticache/pricing/](https://aws.amazon.com/elasticache/pricing/)
-- **Resources**: [https://aws.amazon.com/elasticache/resources/](https://aws.amazon.com/elasticache/resources/)
-- **Migrations**: [https://aws.amazon.com/elasticache/migrations/](https://aws.amazon.com/elasticache/migrations/)
-- **FAQ**: [https://aws.amazon.com/elasticache/faqs/](https://aws.amazon.com/elasticache/faqs/)
-- **Customers**: [https://aws.amazon.com/elasticache/customers/](https://aws.amazon.com/elasticache/customers/)
-
-### Amazon Elastic Container Registry Public
-
-The Amazon Elastic Container Registry Public (Amazon ECR Public) is a managed service that allows you to host and manage container images in both public and private registries. You can utilize popular tools like the Docker CLI to push, pull, and manage images within a secure, scalable, and reliable registry for Docker or OCI images.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/AmazonECR/latest/public/what-is-ecr.html](https://docs.aws.amazon.com/AmazonECR/latest/public/what-is-ecr.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecr-public-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ecr-public-openapi-original.yml)
-- **Gallery**: [https://gallery.ecr.aws/](https://gallery.ecr.aws/)
-
-### Amazon Elastic File System
-
-Introducing Amazon Elastic File System (Amazon EFS), a user-friendly, scalable file storage solution designed for seamless integration with Amazon EC2 Linux and Mac instances within the AWS Cloud. With Amazon EFS, storage capacity dynamically adjusts to accommodate your changing file needs, ensuring your applications always have the necessary storage resources available.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/efs/](https://aws.amazon.com/efs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticfilesystem-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticfilesystem-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/efs/features/](https://aws.amazon.com/efs/features/)
-- **Pricing**: [https://aws.amazon.com/efs/pricing/](https://aws.amazon.com/efs/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/efs/getting-started/](https://aws.amazon.com/efs/getting-started/)
-- **Resources**: [https://aws.amazon.com/efs/resources/](https://aws.amazon.com/efs/resources/)
-- **FAQ**: [https://aws.amazon.com/efs/faq/](https://aws.amazon.com/efs/faq/)
-- **Customers**: [https://aws.amazon.com/efs/customers/](https://aws.amazon.com/efs/customers/)
-
-### AWS Elastic Load Balancing
-
-Elastic Load Balancing is a feature that allows you to distribute incoming traffic across your EC2 instances, increasing the availability of your application. The load balancer monitors the health of registered instances and ensures that traffic is only routed to healthy instances.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/elasticloadbalancing/](https://aws.amazon.com/elasticloadbalancing/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticloadbalancing-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticloadbalancing-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/elasticloadbalancing/pricing/](https://aws.amazon.com/elasticloadbalancing/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/elasticloadbalancing/getting-started/](https://aws.amazon.com/elasticloadbalancing/getting-started/)
-- **FAQ**: [https://aws.amazon.com/elasticloadbalancing/faqs/](https://aws.amazon.com/elasticloadbalancing/faqs/)
-- **Partners**: [https://aws.amazon.com/elasticloadbalancing/partners/](https://aws.amazon.com/elasticloadbalancing/partners/)
-- **Customers**: [https://aws.amazon.com/elasticloadbalancing/customers/](https://aws.amazon.com/elasticloadbalancing/customers/)
-- **Features**: [https://aws.amazon.com/elasticloadbalancing/features/](https://aws.amazon.com/elasticloadbalancing/features/)
-- **Application Load Balancers**: [https://aws.amazon.com/elasticloadbalancing/application-load-balancer/](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/)
-- **Network Load Balancers**: [https://aws.amazon.com/elasticloadbalancing/network-load-balancer/](https://aws.amazon.com/elasticloadbalancing/network-load-balancer/)
-- **Gateway Load Balancers**: [https://aws.amazon.com/elasticloadbalancing/gateway-load-balancer/](https://aws.amazon.com/elasticloadbalancing/gateway-load-balancer/)
-- **Classic Load Balancers**: [https://aws.amazon.com/elasticloadbalancing/classic-load-balancer/](https://aws.amazon.com/elasticloadbalancing/classic-load-balancer/)
-
-### AWS Elastic Beanstalk
-
-AWS Elastic Beanstalk makes it easy to develop, deploy, and maintain resilient and scalable applications in the Amazon Web Services cloud.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/elasticbeanstalk/](https://aws.amazon.com/elasticbeanstalk/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticbeanstalk-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticbeanstalk-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/elasticbeanstalk/pricing/](https://aws.amazon.com/elasticbeanstalk/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/elasticbeanstalk/getting-started/](https://aws.amazon.com/elasticbeanstalk/getting-started/)
-- **Resources**: [https://aws.amazon.com/elasticbeanstalk/developer-resources/](https://aws.amazon.com/elasticbeanstalk/developer-resources/)
-- **FAQ**: [https://aws.amazon.com/elasticbeanstalk/faqs/](https://aws.amazon.com/elasticbeanstalk/faqs/)
-- **Partners**: [https://aws.amazon.com/elasticbeanstalk/partners/](https://aws.amazon.com/elasticbeanstalk/partners/)
-
-### Amazon EMR
-
-The API provided by Amazon EMR is a powerful web service designed to streamline the processing of large datasets with efficiency. By leveraging Hadoop processing and integrating various Amazon Web Services, this tool allows for seamless execution of tasks like web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehouse management.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/emr/](https://aws.amazon.com/emr/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticmapreduce-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elasticmapreduce-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/emr/pricing/](https://aws.amazon.com/emr/pricing/)
-- **FAQ**: [https://aws.amazon.com/emr/faqs/](https://aws.amazon.com/emr/faqs/)
-- **Partners**: [https://aws.amazon.com/emr/partners/](https://aws.amazon.com/emr/partners/)
-- **GettingStarted**: [https://aws.amazon.com/emr/getting-started/](https://aws.amazon.com/emr/getting-started/)
-- **Features**: [https://aws.amazon.com/emr/features/](https://aws.amazon.com/emr/features/)
-- **Studio**: [https://aws.amazon.com/emr/features/studio/](https://aws.amazon.com/emr/features/studio/)
-- **Notebooks**: [https://aws.amazon.com/emr/features/notebooks/](https://aws.amazon.com/emr/features/notebooks/)
-- **Serverless**: [https://aws.amazon.com/emr/serverless/](https://aws.amazon.com/emr/serverless/)
-
-### Amazon EMR on EKS
-
-Amazon EMR on EKS is a deployment option that allows you to run big data frameworks on Amazon EKS. This option allows you to focus on analytics workloads while Amazon EMR on EKS manages containers for open-source applications. The API name for this service is Amazon EMR containers, and it is used for CLI commands, IAM policy actions, and service endpoints related to Amazon EMR on EKS. For more information about Amazon EMR on EKS concepts and tasks, please refer to the documentation.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html](
-https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/emr-containers-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/emr-containers-openapi-original.yml)
-
-### AWS Elastic Transcoder Service
-
-Amazon Elastic Transcoder is media transcoding in the cloud. It is designed to be a highly scalable, easy to use and a cost effective way for developers and businesses to convert (or "transcode") media files from their source format into versions that will playback on devices like smartphones, tablets and PCs.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/elastictranscoder/](https://aws.amazon.com/elastictranscoder/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elastictranscoder-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/elastictranscoder-openapi-original.yml)
-
-### Amazon Simple Email Service
-
-This document provides detailed information about the Amazon Simple Email Service (Amazon SES) API version 2010-12-01. It is recommended to refer to the Amazon SES Developer Guide in conjunction with this document. The Amazon SES Developer Guide also includes a list of Amazon SES endpoints for service requests.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ses/](https://aws.amazon.com/ses/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/email-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/email-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/ses/pricing/](https://aws.amazon.com/ses/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/ses/getting-started/](https://aws.amazon.com/ses/getting-started/)
-- **FAQ**: [https://aws.amazon.com/ses/faqs/](https://aws.amazon.com/ses/faqs/)
-- **Resources**: [https://aws.amazon.com/ses/developer-resources/](https://aws.amazon.com/ses/developer-resources/)
-- **Customers**: [https://aws.amazon.com/ses/customers/](https://aws.amazon.com/ses/customers/)
-- **Partners**: [https://aws.amazon.com/ses/partners/](https://aws.amazon.com/ses/partners/)
-
-### Amazon EMR Serverless
-
-Introducing Amazon EMR Serverless, a new deployment option for Amazon EMR that offers a serverless runtime environment for running analytics applications with popular open source frameworks like Apache Spark and Apache Hive.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless.html](
-https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/emr-serverless-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/emr-serverless-openapi-original.yml)
-
-### Amazon Elasticsearch Configuration Service
-
-Utilize the Amazon Elasticsearch Configuration Service API for creating, customizing, and overseeing Elasticsearch domains. Developers can refer to the Amazon Elasticsearch Service Developer Guide for sample code showcasing the Configuration API in action, as well as instructions for sending signed HTTP requests to Elasticsearch APIs.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html](
-https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/es-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/es-openapi-original.yml)
-
-### AWS Marketplace Entitlement Service
-
-The AWS Marketplace Entitlement Service API documentation provides an overview of how to use the service to determine a customer's entitlement to a specific product. Entitlements represent the capacity or access a customer has to a particular product, such as user seats in an SaaS application or data capacity in a database. The GetEntitlements function retrieves entitlement records for a Marketplace product.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/marketplace/latest/userguide/checking-entitlements.html](
-https://docs.aws.amazon.com/marketplace/latest/userguide/checking-entitlements.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/entitlementmarketplace-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/entitlementmarketplace-openapi-original.yml)
-
-### AWS Entity Resolution
-
-Discover the capabilities of the Entity Resolution API, a part of Amazon Web Services that simplifies the process of matching consumer identifiers within source records. By utilizing Entity Resolution, developers and analysts in the advertising and marketing industries can effortlessly create a comprehensive and accurate view of their customers.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/entity-resolution/](https://aws.amazon.com/entity-resolution/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/entityresolution-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/entityresolution-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/entity-resolution/features/](https://aws.amazon.com/entity-resolution/features/)
-- **FAQ**: [https://aws.amazon.com/entity-resolution/faqs/](https://aws.amazon.com/entity-resolution/faqs/)
-- **Pricing**: [https://aws.amazon.com/entity-resolution/pricing/](https://aws.amazon.com/entity-resolution/pricing/)
-- **Resources**: [https://aws.amazon.com/entity-resolution/resources/](https://aws.amazon.com/entity-resolution/resources/)
-- **Customers**: [https://aws.amazon.com/entity-resolution/customers/](https://aws.amazon.com/entity-resolution/customers/)
-- **Partners**: [https://aws.amazon.com/entity-resolution/partners/](https://aws.amazon.com/entity-resolution/partners/)
-
-### Amazon EventBridge
-
-With Amazon EventBridge, you can easily monitor and respond to changes in your AWS resources by setting up rules that trigger actions based on specific events. Events generated by your resources are sent to an event stream, allowing you to create customized rules that match certain events and direct them to designated targets for further processing. You can also schedule actions to be performed at specific intervals.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/eventbridge/](https://aws.amazon.com/eventbridge/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/eventbridge-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/eventbridge-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/eventbridge/pricing/](https://aws.amazon.com/eventbridge/pricing/)
-- **Resources**: [https://aws.amazon.com/eventbridge/resources/](https://aws.amazon.com/eventbridge/resources/)
-- **FAQ**: [https://aws.amazon.com/eventbridge/faqs/](https://aws.amazon.com/eventbridge/faqs/)
-- **Integrations**: [https://aws.amazon.com/eventbridge/integrations/](https://aws.amazon.com/eventbridge/integrations/)
-- **Features**: [https://aws.amazon.com/eventbridge/features/](https://aws.amazon.com/eventbridge/features/)
-- **Event Bus**: [https://aws.amazon.com/eventbridge/event-bus/](https://aws.amazon.com/eventbridge/event-bus/)
-- **Pipes**: [https://aws.amazon.com/eventbridge/pipes/](https://aws.amazon.com/eventbridge/pipes/)
-- **Scheduler**: [https://aws.amazon.com/eventbridge/scheduler/](https://aws.amazon.com/eventbridge/scheduler/)
-
-### Amazon Kinesis Data Firehose
-
-The Amazon Kinesis Data Firehose API is a comprehensive tool for managing real-time streaming data delivery to a variety of destinations, including Amazon S3, Amazon OpenSearch Service, Amazon Redshift, Splunk, and more. This fully managed service streamlines the process of transmitting data effectively and efficiently.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/firehose/](https://aws.amazon.com/firehose/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/firehose-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/firehose-openapi-original.yml)
-- **FAQ**: [https://aws.amazon.com/firehose/faqs/](https://aws.amazon.com/firehose/faqs/)
-- **Resources**: [https://aws.amazon.com/firehose/resources/](https://aws.amazon.com/firehose/resources/)
-- **Customers**: [https://aws.amazon.com/firehose/customers/](https://aws.amazon.com/firehose/customers/)
-- **Partners**: [https://aws.amazon.com/firehose/partners/](https://aws.amazon.com/firehose/partners/)
-- **Pricing**: [https://aws.amazon.com/firehose/pricing/](https://aws.amazon.com/firehose/pricing/)
-- **Features**: [https://aws.amazon.com/firehose/features/](https://aws.amazon.com/firehose/features/)
-
-### Amazon CloudWatch Evidently
-
-Utilize Amazon CloudWatch Evidently API to securely introduce and test new features to a percentage of your user base before full deployment. Monitoring the performance of these new features allows you to make informed decisions on when to increase user traffic.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.html](
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/evidently-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/evidently-openapi-original.yml)
-
-### Amazon Forecast
-
-Amazon Forecast, is a powerful tool designed for businesses looking to analyze and predict time-series data using machine learning.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/forecast/](https://aws.amazon.com/forecast/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/forecast-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/forecast-openapi-original.yml)
-- **Partners**: [https://aws.amazon.com/forecast/partners/](https://aws.amazon.com/forecast/partners/)
-- **Customers**: [https://aws.amazon.com/forecast/customers/](https://aws.amazon.com/forecast/customers/)
-- **Resources**: [https://aws.amazon.com/forecast/resources/](https://aws.amazon.com/forecast/resources/)
-- **Embedded Solutions**: [https://aws.amazon.com/forecast/embedded-solutions/](https://aws.amazon.com/forecast/embedded-solutions/)
-- **Pricing**: [https://aws.amazon.com/forecast/pricing/](https://aws.amazon.com/forecast/pricing/)
-- **Features**: [https://aws.amazon.com/forecast/features/](https://aws.amazon.com/forecast/features/)
-
-### AWS Fault Injection Simulator
-
-AWS Fault Injection Service (FIS), a component of the AWS Resilience Hub, is a comprehensive service designed to enhance an application's performance, observability, and resilience through the implementation of fault injection experiments. By streamlining the setup and execution of controlled fault injection tests across various AWS services, FIS empowers teams to increase their confidence in the reliability of their applications.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/fis/](https://aws.amazon.com/fis/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fis-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fis-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/fis/features/](https://aws.amazon.com/fis/features/)
-- **Pricing**: [https://aws.amazon.com/fis/pricing/](https://aws.amazon.com/fis/pricing/)
-- **FAQ**: [https://aws.amazon.com/fis/faqs/](https://aws.amazon.com/fis/faqs/)
-- **Pricing**: [https://aws.amazon.com/fis/pricing/](https://aws.amazon.com/fis/pricing/)
-
-### Amazon Fraud Detector
-
-Build, deploy, and manage fraud detection models without previous machine learning (ML) experience. Gain insights from your historical data, plus 20+ years of Amazon experience, to construct an accurate, customized fraud detection model. Start detecting fraud immediately, easily enhance models with customized business rules, and deploy results to generate critical predictions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/fraud-detector/](https://aws.amazon.com/fraud-detector/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/frauddetector-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/frauddetector-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/fraud-detector/features/](https://aws.amazon.com/fraud-detector/features/)
-- **Pricing**: [https://aws.amazon.com/fraud-detector/pricing/](https://aws.amazon.com/fraud-detector/pricing/)
-- **FAQ**: [https://aws.amazon.com/fraud-detector/faqs/](https://aws.amazon.com/fraud-detector/faqs/)
-- **Resources**: [https://aws.amazon.com/fraud-detector/resources/](https://aws.amazon.com/fraud-detector/resources/)
-- **Customers**: [https://aws.amazon.com/fraud-detector/customers/](https://aws.amazon.com/fraud-detector/customers/)
-
-### AWS Firewall Manager
-
-Welcome to the Firewall Manager API Reference. This comprehensive guide is designed for developers seeking in-depth information on the various actions, data types, and errors associated with the Firewall Manager API. For a more detailed overview of Firewall Manager features, please refer to the Firewall Manager Developer Guide.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/firewall-manager/](https://aws.amazon.com/firewall-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fms-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fms-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/firewall-manager/features/](https://aws.amazon.com/firewall-manager/features/)
-- **Pricing**: [https://aws.amazon.com/firewall-manager/pricing/](https://aws.amazon.com/firewall-manager/pricing/)
-- **Getting-started**: [https://aws.amazon.com/firewall-manager/getting-started/](https://aws.amazon.com/firewall-manager/getting-started/)
-- **Resources**: [https://aws.amazon.com/firewall-manager/resources/](https://aws.amazon.com/firewall-manager/resources/)
-- **FAQ**: [https://aws.amazon.com/firewall-manager/faqs/](https://aws.amazon.com/firewall-manager/faqs/)
-
-### Amazon GameLift
-
-The Amazon GameLift API offers comprehensive cloud hosting solutions for session-based multiplayer game servers. It includes features for deploying, managing, and expanding game servers seamlessly. Leveraging Amazon Web Services' robust global computing network, GameLift ensures top-tier performance, reliability, and cost-efficiency for your game servers.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/gamelift/](https://aws.amazon.com/gamelift/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/gamelift-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/gamelift-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/gamelift/pricing/](https://aws.amazon.com/gamelift/pricing/)
-- **Features**: [https://aws.amazon.com/gamelift/features/](https://aws.amazon.com/gamelift/features/)
-- **Resources**: [https://aws.amazon.com/gamelift/resources/](https://aws.amazon.com/gamelift/resources/)
-- **FAQ**: [https://aws.amazon.com/gamelift/faq/](https://aws.amazon.com/gamelift/faq/)
-- **Getting-started**: [https://aws.amazon.com/gamelift/getting-started/](https://aws.amazon.com/gamelift/getting-started/)
-
-### Global Accelerator
-
-Global Accelerator is a powerful API service that allows developers to create accelerators to enhance the performance of their applications for both local and global users. This API Reference provides detailed information on Global Accelerator API actions, data types, and errors, catering to developers looking to leverage Global Accelerator features.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/global-accelerator/](https://aws.amazon.com/global-accelerator/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/globalaccelerator-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/globalaccelerator-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/global-accelerator/features/](https://aws.amazon.com/global-accelerator/features/)
-- **Pricing**: [https://aws.amazon.com/global-accelerator/pricing/](https://aws.amazon.com/global-accelerator/pricing/)
-- **FAQ**: [https://aws.amazon.com/global-accelerator/faqs/](https://aws.amazon.com/global-accelerator/faqs/)
-- **Customers**: [https://aws.amazon.com/global-accelerator/customers/](https://aws.amazon.com/global-accelerator/customers/)
-
-### Amazon S3 Glacier
-
-Amazon S3 Glacier (Glacier) is a cost-effective storage solution designed for long-term storage of infrequently accessed data. It provides secure, durable, and easy-to-use storage for data backup and archival purposes. With Glacier, users can store data for extended periods without worrying about capacity planning or hardware management. Glacier is ideal for when low storage costs are a priority and data retrieval is rare.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/s3/storage-classes/glacier/](https://aws.amazon.com/s3/storage-classes/glacier/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/glacier-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/glacier-openapi-original.yml)
-- **Instant-retrieval**: [https://aws.amazon.com/s3/storage-classes/glacier/instant-retrieval/](https://aws.amazon.com/s3/storage-classes/glacier/instant-retrieval/)
-
-### AWS FinSpace
-
-Experience seamless data processing and analytics tailored for Capital Markets with our API, which offers Managed kdb Insights. Take advantage of our free AWS training to enhance your skills and advance your career with AWS Cloud Practitioner Essentials.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/finspace/](https://aws.amazon.com/finspace/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/finspace-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/finspace-data-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/finspace/pricing/](https://aws.amazon.com/finspace/pricing/)
-- **Getting-started**: [https://aws.amazon.com/finspace/getting-started/](https://aws.amazon.com/finspace/getting-started/)
-- **Partners**: [https://aws.amazon.com/finspace/partners/](https://aws.amazon.com/finspace/partners/)
-- **FAQ**: [https://aws.amazon.com/finspace/faqs/](https://aws.amazon.com/finspace/faqs/)
-- **Getting-started**: [https://aws.amazon.com/finspace/getting-started/](https://aws.amazon.com/finspace/getting-started/)
-
-### Amazon FSx
-
-The Amazon FSx API simplifies the process of launching, managing, and expanding feature-rich, high-performance file systems in the cloud. With its reliability, security, scalability, and numerous capabilities, Amazon FSx supports a variety of workloads. Leveraging the latest AWS technologies in compute, networking, and disk storage, Amazon FSx delivers high performance at a lower total cost of ownership.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/fsx/](https://aws.amazon.com/fsx/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fsx-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/fsx-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/fsx/pricing/](https://aws.amazon.com/fsx/pricing/)
-- **Netapp-ontap**: [https://aws.amazon.com/fsx/netapp-ontap/](https://aws.amazon.com/fsx/netapp-ontap/)
-- **Openzfs**: [https://aws.amazon.com/fsx/openzfs/](https://aws.amazon.com/fsx/openzfs/)
-- **Windows**: [https://aws.amazon.com/fsx/windows/](https://aws.amazon.com/fsx/windows/)
-- **Lustre**: [https://aws.amazon.com/fsx/lustre/](https://aws.amazon.com/fsx/lustre/)
-
-### AWS IoT Greengrass
-
-IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities to edge devices. This enables devices to collect and analyze data closer to the source of information, react autonomously to local events, and communicate securely with each other on local networks.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/greengrass/](https://aws.amazon.com/greengrass/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/greengrassv2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/greengrassv2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/greengrass/features/](https://aws.amazon.com/greengrass/features/)
-- **Ml**: [https://aws.amazon.com/greengrass/ml/](https://aws.amazon.com/greengrass/ml/)
-- **Pricing**: [https://aws.amazon.com/greengrass/pricing/](https://aws.amazon.com/greengrass/pricing/)
-- **Partners**: [https://aws.amazon.com/greengrass/partners/](https://aws.amazon.com/greengrass/partners/)
-- **Getting-started**: [https://aws.amazon.com/greengrass/getting-started/](https://aws.amazon.com/greengrass/getting-started/)
-- **FAQ**: [https://aws.amazon.com/greengrass/faqs/](https://aws.amazon.com/greengrass/faqs/)
-
-### AWS Glue
-
-The first step in any analytics or machine learning project is ensuring your data is prepared for quality results. AWS Glue is a serverless data integration service that streamlines and simplifies the data preparation process, making it faster and more cost-effective.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/glue/](https://aws.amazon.com/glue/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/glue-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/glue-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/glue/features/](https://aws.amazon.com/glue/features/)
-- **Pricing**: [https://aws.amazon.com/glue/pricing/](https://aws.amazon.com/glue/pricing/)
-- **Partners**: [https://aws.amazon.com/glue/partners/](https://aws.amazon.com/glue/partners/)
-- **GettingStarted**: [https://aws.amazon.com/glue/getting-started/](https://aws.amazon.com/glue/getting-started/)
-- **Resources**: [https://aws.amazon.com/glue/resources/](https://aws.amazon.com/glue/resources/)
-- **FAQ**: [https://aws.amazon.com/glue/faqs/](https://aws.amazon.com/glue/faqs/)
-- **Customers**: [https://aws.amazon.com/glue/customers/](https://aws.amazon.com/glue/customers/)
-
-### Amazon Managed Grafana
-
-Amazon Managed Grafana is a managed and secure data visualization service that allows you to easily query, correlate, and visualize operational metrics, logs, and traces from various sources. It simplifies the deployment, operation, and scalability of Grafana, a popular data visualization tool known for its flexible data support.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/grafana/](https://aws.amazon.com/grafana/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/grafana-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/grafana-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/grafana/features/](https://aws.amazon.com/grafana/features/)
-- **Pricing**: [https://aws.amazon.com/grafana/pricing/](https://aws.amazon.com/grafana/pricing/)
-- **Resources**: [https://aws.amazon.com/grafana/resources/](https://aws.amazon.com/grafana/resources/)
-- **FAQ**: [https://aws.amazon.com/grafana/faqs/](https://aws.amazon.com/grafana/faqs/)
-- **Customers**: [https://aws.amazon.com/grafana/customers/](https://aws.amazon.com/grafana/customers/)
-- **Partners**: [https://aws.amazon.com/grafana/partners/](https://aws.amazon.com/grafana/partners/)
-
-### Amazon GuardDuty
-
-Amazon GuardDuty is a security monitoring service that continuously analyzes various data sources within your Amazon Web Services environment, such as VPC flow logs, CloudTrail event logs, EKS audit logs, DNS logs, and more.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/guardduty/](https://aws.amazon.com/guardduty/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/guardduty-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/guardduty-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/guardduty/features/](https://aws.amazon.com/guardduty/features/)
-- **Pricing**: [https://aws.amazon.com/guardduty/pricing/](https://aws.amazon.com/guardduty/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/guardduty/getting-started/](https://aws.amazon.com/guardduty/getting-started/)
-- **Resources**: [https://aws.amazon.com/guardduty/resources/](https://aws.amazon.com/guardduty/resources/)
-- **FAQ**: [https://aws.amazon.com/guardduty/faqs/](https://aws.amazon.com/guardduty/faqs/)
-- **Partners**: [https://aws.amazon.com/guardduty/resources/partners/](https://aws.amazon.com/guardduty/resources/partners/)
-- **Customers**: [https://aws.amazon.com/guardduty/customers/](https://aws.amazon.com/guardduty/customers/)
-
-### AWS IoT Greengrass
-
-This API, AWS IoT Greengrass, extends the capabilities of AWS to physical devices, enabling them to process data locally while still utilizing the cloud for management, analytics, and storage. This allows devices to respond quickly to local events even with intermittent connectivity, minimizing the cost of transmitting data to the cloud by enabling the execution of AWS Lambda functions locally.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/greengrass/](https://aws.amazon.com/greengrass/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/greengrass-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/greengrass-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/greengrass/features/](https://aws.amazon.com/greengrass/features/)
-- **Ml**: [https://aws.amazon.com/greengrass/ml/](https://aws.amazon.com/greengrass/ml/)
-- **Pricing**: [https://aws.amazon.com/greengrass/pricing/](https://aws.amazon.com/greengrass/pricing/)
-- **Partners**: [https://aws.amazon.com/greengrass/partners/](https://aws.amazon.com/greengrass/partners/)
-- **Getting-started**: [https://aws.amazon.com/greengrass/getting-started/](https://aws.amazon.com/greengrass/getting-started/)
-- **FAQ**: [https://aws.amazon.com/greengrass/faqs/](https://aws.amazon.com/greengrass/faqs/)
-- **Device-tester**: [https://aws.amazon.com/greengrass/device-tester/](https://aws.amazon.com/greengrass/device-tester/)
-
-### AWS HealthLake
-
-AWS HealthLake is a service designed for healthcare companies that need a comprehensive view of individual and patient population health data. This HIPAA-eligible service utilizes FHIR API transactions to securely store and transform data into a queryable format at a large scale.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/healthlake/](https://aws.amazon.com/healthlake/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/healthlake-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/healthlake-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/healthlake/features/](https://aws.amazon.com/healthlake/features/)
-- **Pricing**: [https://aws.amazon.com/healthlake/pricing/](https://aws.amazon.com/healthlake/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/healthlake/getting-started/](https://aws.amazon.com/healthlake/getting-started/)
-- **Resources**: [https://aws.amazon.com/healthlake/resources/](https://aws.amazon.com/healthlake/resources/)
-- **Customers**: [https://aws.amazon.com/healthlake/faqs/](https://aws.amazon.com/healthlake/faqs/)
-- **Customers**: [https://aws.amazon.com/healthlake/customers/](https://aws.amazon.com/healthlake/customers/)
-- **Partners**: [https://aws.amazon.com/healthlake/partners/](https://aws.amazon.com/healthlake/partners/)
-
-### AWS Identity and Access Management
-
-IAM is a trusted web service that enables secure access control for Amazon Web Services. It offers centralized management of users, access keys, and permissions to regulate access to AWS resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iam/](https://aws.amazon.com/iam/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iam-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iam-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iam/features/](https://aws.amazon.com/iam/features/)
-- **GettingStarted**: [https://aws.amazon.com/iam/getting-started/](https://aws.amazon.com/iam/getting-started/)
-- **Resources**: [https://aws.amazon.com/iam/resources/](https://aws.amazon.com/iam/resources/)
-- **FAQ**: [https://aws.amazon.com/iam/faqs/](https://aws.amazon.com/iam/faqs/)
-
-### AWS Ground Station
-
-Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ground-station/](https://aws.amazon.com/ground-station/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/groundstation-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/groundstation-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/ground-station/features/](https://aws.amazon.com/ground-station/features/)
-- **Locations**: [https://aws.amazon.com/ground-station/locations/](https://aws.amazon.com/ground-station/locations/)
-- **Pricing**: [https://aws.amazon.com/ground-station/pricing/](https://aws.amazon.com/ground-station/pricing/)
-- **Getting-started**: [https://aws.amazon.com/ground-station/getting-started/](https://aws.amazon.com/ground-station/getting-started/)
-- **FAQ**: [https://aws.amazon.com/ground-station/faqs/](https://aws.amazon.com/ground-station/faqs/)
-- **Features**: [https://aws.amazon.com/ground-station/features/](https://aws.amazon.com/ground-station/features/)
-
-### AWS  Identity Store
-
-The API for the Identity Store service within IAM Identity Center is a central hub for accessing all user and group identities. You can find detailed information on how to use this service in the IAM Identity Center User Guide, which outlines the available identity store operations that can be accessed programmatically. The API utilizes the sso and identitystore namespaces for seamless integration with your systems.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html](
-https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/identitystore-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/identitystore-openapi-original.yml)
-
-### AWS EC2 Image Builder
-
-The API for EC2 Image Builder is a comprehensive AWS service designed to streamline the process of automating the creation, control, and distribution of personalized, secure, and current server images which are pre-loaded and pre-configured with software and settings according to required IT guidelines.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/image-builder/](https://aws.amazon.com/image-builder/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/imagebuilder-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/imagebuilder-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/image-builder/features/](https://aws.amazon.com/image-builder/features/)
-- **FAQ**: [https://aws.amazon.com/image-builder/faqs/](https://aws.amazon.com/image-builder/faqs/)
-
-### Amazon Inspector Scan
-
-The Amazon Inspector API effortlessly identifies workloads, such as Amazon EC2 instances, containers, and Lambda functions, and conducts thorough scans to detect software vulnerabilities and unintentional network risks.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/inspector/](https://aws.amazon.com/inspector/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/inspector-scan-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/inspector-scan-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/inspector/features/](https://aws.amazon.com/inspector/features/)
-- **Pricing**: [https://aws.amazon.com/inspector/pricing/](https://aws.amazon.com/inspector/pricing/)
-- **Resources**: [https://aws.amazon.com/inspector/resources/](https://aws.amazon.com/inspector/resources/)
-- **GettingStarted**: [https://aws.amazon.com/inspector/getting-started/](https://aws.amazon.com/inspector/getting-started/)
-- **FAQ**: [https://aws.amazon.com/inspector/faqs/](https://aws.amazon.com/inspector/faqs/)
-- **Customers**: [https://aws.amazon.com/inspector/customers/](https://aws.amazon.com/inspector/customers/)
-- **Partners**: [https://aws.amazon.com/inspector/partners/](https://aws.amazon.com/inspector/partners/)
-
-### AWS Health
-
-The Health API grants access to Health information displayed in the Health Dashboard. Users can utilize API operations to retrieve data on events that may impact their Amazon Web Services and resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/health/](https://aws.amazon.com/health/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/health-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/health-openapi-original.yml)
-- **Case-studies**: [https://aws.amazon.com/health/case-studies/](https://aws.amazon.com/health/case-studies/)
-- **Life Science Solutions**: [https://aws.amazon.com/health/life-sciences/solutions/](https://aws.amazon.com/health/life-sciences/solutions/)
-- **Genomics Solutions**: [https://aws.amazon.com/health/genomics/solutions/](https://aws.amazon.com/health/genomics/solutions/)
-- **Healthcare Solutions**: [https://aws.amazon.com/health/healthcare/solutions/](https://aws.amazon.com/health/healthcare/solutions/)
-- **Providers**: [https://aws.amazon.com/health/providers/](https://aws.amazon.com/health/providers/)
-- **Payors**: [https://aws.amazon.com/health/payors/](https://aws.amazon.com/health/payors/)
-- **Healthtech**: [https://aws.amazon.com/health/healthtech/](https://aws.amazon.com/health/healthtech/)
-
-### AWS IoT
-
-The IoT API enables secure communication between Internet-connected devices and the Amazon Web Services cloud. Users can access custom IoT-Data endpoints, set up data processing rules, integrate with other services, manage device resources, configure logging, and create authentication policies and credentials.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot/](https://aws.amazon.com/iot/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-openapi-original.yml)
-- **Customers**: [https://aws.amazon.com/iot/customers/](https://aws.amazon.com/iot/customers/)
-- **News**: [https://aws.amazon.com/iot/iot-events-partner-news/](https://aws.amazon.com/iot/iot-events-partner-news/)
-- **Partners**: [https://aws.amazon.com/iot/partner-solutions/](https://aws.amazon.com/iot/partner-solutions/)
-- **Solutions**: [https://aws.amazon.com/iot/solutions/](https://aws.amazon.com/iot/solutions/)
-- **Resources**: [https://aws.amazon.com/iot/resources/](https://aws.amazon.com/iot/resources/)
-- **Blog**: [https://aws.amazon.com/iot/blog/](https://aws.amazon.com/iot/blog/)
-- **Customers**: [https://aws.amazon.com/iot/customers/](https://aws.amazon.com/iot/customers/)
-- **Edukit**: [https://aws.amazon.com/iot/edukit/](https://aws.amazon.com/iot/edukit/)
-
-### AWS IoT Jobs
-
-AWS IoT Jobs is a service that allows you to create and manage a set of remote operations to be executed on devices connected to AWS IoT. These operations can include tasks such as downloading updates, installing firmware, rebooting devices, rotating certificates, and troubleshooting.
-
-**Properties:**
-
-- **Documentation**: [https://example.com](https://example.com)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-jobs-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-jobs-data-openapi-original.yml)
-
-### Amazon CloudWatch Internet Monitor
-
-Amazon CloudWatch Internet Monitor provides visibility into how internet issues impact the performance and availability between your applications hosted on Amazon Web Services and your end users. It can reduce the time it takes for you to diagnose internet issues from days to minutes.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html](
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/internetmonitor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/internetmonitor-openapi-original.yml)
-
-### AWS IoT Analytics
-
-IoT Analytics is a powerful tool designed to streamline the collection, processing, storage, and analysis of large amounts of device data. This API allows users to easily query and run sophisticated analytics on IoT data, enabling advanced exploration and visualization through integration with Jupyter Notebooks and Amazon QuickSight.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-analytics/](https://aws.amazon.com/iot-analytics/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotanalytics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotanalytics-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-analytics/features/](https://aws.amazon.com/iot-analytics/features/)
-- **Pricing**: [https://aws.amazon.com/iot-analytics/pricing/](https://aws.amazon.com/iot-analytics/pricing/)
-- **FAQ**: [https://aws.amazon.com/iot-analytics/faq/](https://aws.amazon.com/iot-analytics/faq/)
-- **Resources**: [https://aws.amazon.com/iot-analytics/resources/](https://aws.amazon.com/iot-analytics/resources/)
-- **Partners**: [https://aws.amazon.com/iot-analytics/partners/](https://aws.amazon.com/iot-analytics/partners/)
-
-### AWS IoT Core Device Advisor
-
-Amazon Web Services IoT Core Device Advisor is a cloud-based testing service designed to verify the functionality and security of IoT devices before deployment. It offers a range of pre-built tests to ensure reliable connectivity with Amazon Web Services IoT Core.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-core/device-advisor/](https://aws.amazon.com/iot-core/device-advisor/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotdeviceadvisor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotdeviceadvisor-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-core/features/](https://aws.amazon.com/iot-core/features/)
-- **Pricing**: [https://aws.amazon.com/iot-core/pricing/](https://aws.amazon.com/iot-core/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/iot-core/getting-started/](https://aws.amazon.com/iot-core/getting-started/)
-- **Features**: [https://aws.amazon.com/iot-core/faqs/](https://aws.amazon.com/iot-core/faqs/)
-- **Customers**: [https://aws.amazon.com/iot/customers/](https://aws.amazon.com/iot/customers/)
-
-###  AWS IoT 1-Click Projects
-
-This API allows AWS IoT 1-Click devices to easily and securely connect to AWS IoT Core upon deployment, eliminating the need for manual certificate management.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-1-click/](https://aws.amazon.com/iot-1-click/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot1click-projects-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot1click-projects-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-1-click/features/](https://aws.amazon.com/iot-1-click/features/)
-- **Pricing**: [https://aws.amazon.com/iot-1-click/pricing/](https://aws.amazon.com/iot-1-click/pricing/)
-- **Devices**: [https://aws.amazon.com/iot-1-click/devices/](https://aws.amazon.com/iot-1-click/devices/)
-- **FAQ**: [https://aws.amazon.com/iot-1-click/faq/](https://aws.amazon.com/iot-1-click/faq/)
-- **Features**: [https://aws.amazon.com/iot-1-click/features/](https://aws.amazon.com/iot-1-click/features/)
-
-### AWS IoT Events
-
-The IoT Events API allows you to track the status and performance of your equipment or device fleets, enabling you to detect failures or changes in operation and take appropriate actions. With IoT Events Data API, you can interact with detectors by sending inputs, listing detectors, and accessing or modifying their status.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-events/](https://aws.amazon.com/iot-events/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotevents-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotevents-data-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-events/features/](https://aws.amazon.com/iot-events/features/)
-- **Pricing**: [https://aws.amazon.com/iot-events/pricing/](https://aws.amazon.com/iot-events/pricing/)
-- **FAQ**: [https://aws.amazon.com/iot-events/faqs/](https://aws.amazon.com/iot-events/faqs/)
-- **Features**: [https://aws.amazon.com/iot-events/features/](https://aws.amazon.com/iot-events/features/)
-
-### AWS IoT Device Management
-
-AWS IoT Device Management simplifies the process of registering, organizing, monitoring, and remotely managing IoT devices on a large scale. Seamlessly integrate with AWS IoT Core for cloud device connectivity and management, as well as with AWS IoT Device Defender for auditing and monitoring the security posture of your fleet.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-device-management/](https://aws.amazon.com/iot-device-management/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotfleethub-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotfleethub-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-device-management/features/](https://aws.amazon.com/iot-device-management/features/)
-- **Pricing**: [https://aws.amazon.com/iot-device-management/pricing/](https://aws.amazon.com/iot-device-management/pricing/)
-- **Resources**: [https://aws.amazon.com/iot-device-management/resources/](https://aws.amazon.com/iot-device-management/resources/)
-- **FAQ**: [https://aws.amazon.com/iot-device-management/faq/](https://aws.amazon.com/iot-device-management/faq/)
-
-### AWS IoT Data
-
-This API, IoT data, facilitates secure communication between Internet-connected devices and the Amazon Web Services cloud. It acts as a broker for devices to publish messages via HTTP and manage shadows, persistent representations of the device state in the AWS cloud.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Data_Plane.html](
-https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Data_Plane.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot-data-openapi-original.yml)
-
-### AWS IoT 1-Click Devices
-
-Manufacturing partners of AWS IoT 1-Click develop devices that effortlessly connect to the AWS Cloud upon unboxing. These supported devices come pre-provisioned with certificates during manufacturing, eliminating the need for writing firmware or device-specific code to utilize them.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-1-click/devices/](https://aws.amazon.com/iot-1-click/devices/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot1click-devices-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iot1click-devices-openapi-original.yml)
-
-### AWS oT Secure Tunneling
-
-This API, IoT Secure Tunneling, allows users to establish secure remote connections to devices deployed in the field. This is particularly useful for devices situated behind restricted firewalls at remote sites. With IoT Secure Tunneling, users can troubleshoot, perform configuration updates, and execute other operational tasks on these devices.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html](
-https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotsecuretunneling-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotsecuretunneling-openapi-original.yml)
-
-### AWS IoT FleetWise
-
-The Amazon Web Services IoT FleetWise API is a comprehensive solution for efficiently gathering and transmitting vehicle data to the AWS cloud. This fully managed service allows users to standardize data models, regardless of communication systems in use, and set up rules for transferring only essential data to the cloud.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-fleetwise/](https://aws.amazon.com/iot-fleetwise/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotfleetwise-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotfleetwise-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-fleetwise/features/](https://aws.amazon.com/iot-fleetwise/features/)
-- **Pricing**: [https://aws.amazon.com/iot-fleetwise/pricing/](https://aws.amazon.com/iot-fleetwise/pricing/)
-- **FAQ**: [https://aws.amazon.com/iot-fleetwise/faqs/](https://aws.amazon.com/iot-fleetwise/faqs/)
-- **Customers**: [https://aws.amazon.com/iot-fleetwise/customers/](https://aws.amazon.com/iot-fleetwise/customers/)
-- **Partners**: [https://aws.amazon.com/iot-fleetwise/partners/](https://aws.amazon.com/iot-fleetwise/partners/)
-
-### Amazon Interactive Video Service (IVS)
-
-The Amazon IVS API is a REST-compatible interface utilizing standard HTTP requests and an EventBridge event stream for responses. JSON format is used for both requests and responses, including error messages. This regional service is compatible with various Amazon IVS HTTPS endpoints across supported regions as detailed in the Amazon Web Services General Reference. API Request Parameters and URLs are case-sensitive.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ivs/](https://aws.amazon.com/ivs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ivs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ivs-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/ivs/pricing/](https://aws.amazon.com/ivs/pricing/)
-- **FAQ**: [https://aws.amazon.com/ivs/faqs/](https://aws.amazon.com/ivs/faqs/)
-- **Features**: [https://aws.amazon.com/ivs/features/](https://aws.amazon.com/ivs/features/)
-- **Resources**: [https://aws.amazon.com/ivs/resources/](https://aws.amazon.com/ivs/resources/)
-- **Blogs**: [https://aws.amazon.com/ivs/blogs/](https://aws.amazon.com/ivs/blogs/)
-
-### AWS IoT Events
-
-With AWS IoT Events, you can effortlessly monitor your equipment or device fleets for any failures or operational changes, and automatically trigger actions in response to these events. The API provides operations to manage inputs and detector models, including creating, reading, updating, and deleting them, as well as listing their versions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-events/](https://aws.amazon.com/iot-events/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotevents-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotevents-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-events/features/](https://aws.amazon.com/iot-events/features/)
-- **Pricing**: [https://aws.amazon.com/iot-events/pricing/](https://aws.amazon.com/iot-events/pricing/)
-- **FAQ**: [https://aws.amazon.com/iot-events/faqs/](https://aws.amazon.com/iot-events/faqs/)
-- **Features**: [https://aws.amazon.com/iot-events/features/](https://aws.amazon.com/iot-events/features/)
-
-### AWS IoT SiteWise
-
-Introducing the IoT SiteWise API, a powerful tool for connecting Industrial Internet of Things (IIoT) devices to the Amazon Web Services Cloud. Dive into the IoT SiteWise User Guide for further details and resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-sitewise/](https://aws.amazon.com/iot-sitewise/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotsitewise-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotsitewise-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-sitewise/features/](https://aws.amazon.com/iot-sitewise/features/)
-- **Pricing**: [https://aws.amazon.com/iot-sitewise/pricing/](https://aws.amazon.com/iot-sitewise/pricing/)
-- **Resources**: [https://aws.amazon.com/iot-sitewise/resources/](https://aws.amazon.com/iot-sitewise/resources/)
-- **FAQ**: [https://aws.amazon.com/iot-sitewise/faqs/](https://aws.amazon.com/iot-sitewise/faqs/)
-- **Customers**: [https://aws.amazon.com/iot-sitewise/customers/](https://aws.amazon.com/iot-sitewise/customers/)
-
-### IoT TwinMaker
-
-IoT TwinMaker is a cutting-edge service that allows users to create accurate digital replicas, also known as digital twins, of physical systems. By integrating data from a variety of sources including sensors, cameras, and enterprise applications, users can generate detailed visualizations to effectively monitor the performance of their factories, buildings, or industrial plants. This real-time data can be utilized for operational monitoring, error detection, and troubleshooting purposes.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iot-twinmaker/](https://aws.amazon.com/iot-twinmaker/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iottwinmaker-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iottwinmaker-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iot-twinmaker/features/](https://aws.amazon.com/iot-twinmaker/features/)
-- **Pricing**: [https://aws.amazon.com/iot-twinmaker/pricing/](https://aws.amazon.com/iot-twinmaker/pricing/)
-- **Resources**: [https://aws.amazon.com/iot-twinmaker/resources/](https://aws.amazon.com/iot-twinmaker/resources/)
-- **FAQ**: [https://aws.amazon.com/iot-twinmaker/faqs/](https://aws.amazon.com/iot-twinmaker/faqs/)
-- **Customers**: [https://aws.amazon.com/iot-twinmaker/customers/](https://aws.amazon.com/iot-twinmaker/customers/)
-- **Partners**: [https://aws.amazon.com/iot-twinmaker/partners/](https://aws.amazon.com/iot-twinmaker/partners/)
-
-### Amazon IVS Chat
-
-The Amazon IVS Chat control-plane API allows you to create and manage resources for Amazon IVS Chat, and integrate with the Amazon IVS Chat Messaging API for real-time chat room interactions. This regional AWS service includes resources such as LoggingConfiguration and Room, which can be tagged for organization and access management.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ivs/features/chat/](https://aws.amazon.com/ivs/features/chat/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ivschat-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ivschat-openapi-original.yml)
-
-### Amazon MSK
-
-Amazon Managed Streaming for Apache Kafka (Amazon MSK) simplifies the process of ingesting and processing real-time streaming data by offering a fully managed Apache Kafka service.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/msk/](https://aws.amazon.com/msk/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kafka-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kafka-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/msk/pricing/](https://aws.amazon.com/msk/pricing/)
-- **Getting-started**: [https://aws.amazon.com/msk/getting-started/](https://aws.amazon.com/msk/getting-started/)
-- **Partners**: [https://aws.amazon.com/msk/partners/](https://aws.amazon.com/msk/partners/)
-- **Customer-success**: [https://aws.amazon.com/msk/customer-success/](https://aws.amazon.com/msk/customer-success/)
-- **Resources**: [https://aws.amazon.com/msk/resources/](https://aws.amazon.com/msk/resources/)
-- **FAQ**: [https://aws.amazon.com/msk/faqs/](https://aws.amazon.com/msk/faqs/)
-- **Features**: [https://aws.amazon.com/msk/features/](https://aws.amazon.com/msk/features/)
-
-### Amazon Kendra
-
-Amazon Kendra is a sophisticated enterprise search tool that simplifies the process of searching through multiple content repositories by providing pre-installed connectors.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/kendra/](https://aws.amazon.com/kendra/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kendra-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kendra-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/kendra/features/](https://aws.amazon.com/kendra/features/)
-- **Connectors**: [https://aws.amazon.com/kendra/connectors/](https://aws.amazon.com/kendra/connectors/)
-- **Pricing**: [https://aws.amazon.com/kendra/pricing/](https://aws.amazon.com/kendra/pricing/)
-- **Resources**: [https://aws.amazon.com/kendra/resources/](https://aws.amazon.com/kendra/resources/)
-- **FAQ**: [https://aws.amazon.com/kendra/faqs/](https://aws.amazon.com/kendra/faqs/)
-- **Customers**: [https://aws.amazon.com/kendra/customers/](https://aws.amazon.com/kendra/customers/)
-
-### Amazon Keyspaces
-
-Amazon Keyspaces (for Apache Cassandra) is a managed, highly scalable, and reliable database service that is compatible with Apache Cassandra. This service makes it simple to migrate, operate, and expand Cassandra workloads within the Amazon Web Services Cloud environment.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/keyspaces/](https://aws.amazon.com/keyspaces/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/keyspaces-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/keyspaces-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/keyspaces/pricing/](https://aws.amazon.com/keyspaces/pricing/)
-- **FAQ**: [https://aws.amazon.com/keyspaces/faqs/](https://aws.amazon.com/keyspaces/faqs/)
-- **Customers**: [https://aws.amazon.com/keyspaces/customers/](https://aws.amazon.com/keyspaces/customers/)
-- **Resources**: [https://aws.amazon.com/keyspaces/resources/](https://aws.amazon.com/keyspaces/resources/)
-- **Getting-started**: [https://aws.amazon.com/keyspaces/getting-started/](https://aws.amazon.com/keyspaces/getting-started/)
-- **Scaling-data**: [https://aws.amazon.com/keyspaces/scaling-data/](https://aws.amazon.com/keyspaces/scaling-data/)
-- **Features**: [https://aws.amazon.com/keyspaces/features/](https://aws.amazon.com/keyspaces/features/)
-- **Regions**: [https://aws.amazon.com/keyspaces/multi-region-replication/](https://aws.amazon.com/keyspaces/multi-region-replication/)
-
-### AWS IoT Wireless
-
-The AWS IoT Wireless API allows for bi-directional communication between internet-connected wireless devices and the AWS Cloud. It supports onboarding of LoRaWAN and Sidewalk devices, which use the Low Power Wide Area Networking (LPWAN) protocol to communicate with AWS IoT.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/iot-wireless/](https://docs.aws.amazon.com/iot-wireless/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotwireless-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/iotwireless-openapi-original.yml)
-
-### Amazon Kendra Intelligent Ranking
-
-Amazon Kendra Intelligent Ranking leverages the advanced semantic search capabilities of Amazon Kendra to intelligently re-prioritize the search results provided by a search service.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/kendra/latest/dg/intelligent-rerank.html](https://docs.aws.amazon.com/kendra/latest/dg/intelligent-rerank.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kendra-ranking-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kendra-ranking-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/kendra/intelligent-ranking-pricing/](https://aws.amazon.com/kendra/intelligent-ranking-pricing/)
-
-### AWS Lambda
-
-This is the API Reference for AWS Lambda, a serverless computing service provided by Amazon Web Services. For a more in-depth understanding of AWS Lambda, please refer to the AWS Lambda Developer Guide. You can also visit "What is AWS Lambda" for a service overview and "AWS Lambda How it Works" in the AWS Lambda Developer Guide for detailed information on how the service functions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lambda/](https://aws.amazon.com/lambda/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lambda-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lambda-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lambda/features/](https://aws.amazon.com/lambda/features/)
-- **Pricing**: [https://aws.amazon.com/lambda/pricing/](https://aws.amazon.com/lambda/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/lambda/getting-started/](https://aws.amazon.com/lambda/getting-started/)
-- **Resources**: [https://aws.amazon.com/lambda/resources/](https://aws.amazon.com/lambda/resources/)
-- **FAQ**: [https://aws.amazon.com/lambda/faqs/](https://aws.amazon.com/lambda/faqs/)
-- **Partners**: [https://aws.amazon.com/lambda/partners/](https://aws.amazon.com/lambda/partners/)
-
-### Amazon Kinesis Data Streams
-
-The Amazon Kinesis Data Streams Service API Reference provides developers with access to a managed service that can dynamically scale for processing streaming big data in real-time.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/kinesis/data-streams/](https://aws.amazon.com/kinesis/data-streams/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kinesis-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kinesis-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/kinesis/data-streams/features/](https://aws.amazon.com/kinesis/data-streams/features/)
-- **Pricing**: [https://aws.amazon.com/kinesis/data-streams/pricing/](https://aws.amazon.com/kinesis/data-streams/pricing/)
-- **Getting-started**: [https://aws.amazon.com/kinesis/data-streams/getting-started/](https://aws.amazon.com/kinesis/data-streams/getting-started/)
-- **Customers**: [https://aws.amazon.com/kinesis/data-streams/customers/](https://aws.amazon.com/kinesis/data-streams/customers/)
-- **Integrations**: [https://aws.amazon.com/kinesis/data-streams/integrations/](https://aws.amazon.com/kinesis/data-streams/integrations/)
-- **Resources**: [https://aws.amazon.com/kinesis/data-streams/resources/](https://aws.amazon.com/kinesis/data-streams/resources/)
-- **FAQ**: [https://aws.amazon.com/kinesis/data-streams/faqs/](https://aws.amazon.com/kinesis/data-streams/faqs/)
-
-### AWS Key Management Service
-
-The Key Management Service (KMS) API is an encryption and key management web service that allows you to programmatically call various operations. KMS has replaced the term customer master key (CMK) with KMS key, but the concept remains the same. Amazon Web Services provides SDKs for various programming languages and platforms to create programmatic access to KMS.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/kms/](https://aws.amazon.com/kms/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kms-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/kms-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/kms/features/](https://aws.amazon.com/kms/features/)
-- **Pricing**: [https://aws.amazon.com/kms/pricing/](https://aws.amazon.com/kms/pricing/)
-- **Getting-started**: [https://aws.amazon.com/kms/getting-started/](https://aws.amazon.com/kms/getting-started/)
-- **Resources**: [https://aws.amazon.com/kms/resources/](https://aws.amazon.com/kms/resources/)
-- **FAQ**: [https://aws.amazon.com/kms/faqs/](https://aws.amazon.com/kms/faqs/)
-
-### AWS Launch Wizard
-
-Launch Wizard is a tool that simplifies the process of sizing, configuring, and deploying Amazon Web Services resources for third party applications, including Microsoft SQL Server Always On and HANA based SAP systems. This streamlined approach eliminates the need for manual identification and provisioning of individual AWS resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/launchwizard/](https://aws.amazon.com/launchwizard/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/launch-wizard-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/launch-wizard-openapi-original.yml)
-- **FAQ**: [https://aws.amazon.com/launchwizard/faq/](https://aws.amazon.com/launchwizard/faq/)
-
-### Amazon Lex Build-Time Actions
-
-Build voice and text conversational interfaces with Amazon Lex API for AWS. These actions will allow you to easily create, update, and delete chatbots for both new and existing client applications.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/lex/latest/dg/API_Operations.html](https://docs.aws.amazon.com/lex/latest/dg/API_Operations.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lex-models-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lex-models-openapi-original.yml)
-
-### AWS License Manager
-
-The License Manager API simplifies the management of software licenses for various vendors across numerous Amazon Web Services accounts and physical servers located on-premises.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/license-manager/](https://aws.amazon.com/license-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/license-manager-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/license-manager-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/license-manager/features/](https://aws.amazon.com/license-manager/features/)
-- **Pricing**: [https://aws.amazon.com/license-manager/pricing/](https://aws.amazon.com/license-manager/pricing/)
-- **Customers**: [https://aws.amazon.com/license-manager/customers/](https://aws.amazon.com/license-manager/customers/)
-- **Resources**: [https://aws.amazon.com/license-manager/resources/](https://aws.amazon.com/license-manager/resources/)
-- **FAQ**: [https://aws.amazon.com/license-manager/faqs/](https://aws.amazon.com/license-manager/faqs/)
-
-### Amazon Lightsail
-
-The Amazon Lightsail API is a user-friendly platform that offers developers a simple way to leverage Amazon Web Services for building websites and web applications. It provides a wide range of essential features, including virtual private servers, container services, storage options, managed databases, and more, all at a cost-effective monthly rate. With the ability to manage resources through the Lightsail console, API, CLI, and SDKs, developers can easily launch and maintain their projects.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lightsail/](https://aws.amazon.com/lightsail/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lightsail-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lightsail-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/lightsail/pricing/](https://aws.amazon.com/lightsail/pricing/)
-- **Getting-started**: [https://aws.amazon.com/lightsail/getting-started/](https://aws.amazon.com/lightsail/getting-started/)
-- **Resources**: [https://aws.amazon.com/lightsail/resources/](https://aws.amazon.com/lightsail/resources/)
-- **FAQ**: [https://aws.amazon.com/lightsail/faq/](https://aws.amazon.com/lightsail/faq/)
-- **Customers**: [https://aws.amazon.com/lightsail/customers/](https://aws.amazon.com/lightsail/customers/)
-- **Features**: [https://aws.amazon.com/lightsail/features/](https://aws.amazon.com/lightsail/features/)
-- **Research**: [https://aws.amazon.com/lightsail/research/](https://aws.amazon.com/lightsail/research/)
-
-### Amazon Lookout for Equipment
-
-Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify anomalies in machines from sensor data for use in predictive maintenance.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lookout-for-equipment/](https://aws.amazon.com/lookout-for-equipment/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutequipment-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutequipment-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lookout-for-equipment/features/](https://aws.amazon.com/lookout-for-equipment/features/)
-- **Pricing**: [https://aws.amazon.com/lookout-for-equipment/pricing/](https://aws.amazon.com/lookout-for-equipment/pricing/)
-- **FAQ**: [https://aws.amazon.com/lookout-for-equipment/faqs/](https://aws.amazon.com/lookout-for-equipment/faqs/)
-- **Resources**: [https://aws.amazon.com/lookout-for-equipment/resources/](https://aws.amazon.com/lookout-for-equipment/resources/)
-- **Customers**: [https://aws.amazon.com/lookout-for-equipment/customers/](https://aws.amazon.com/lookout-for-equipment/customers/)
-- **Partners**: [https://aws.amazon.com/lookout-for-equipment/partners/](https://aws.amazon.com/lookout-for-equipment/partners/)
-
-### AWS Lake Formation
-
-The AWS Lake Formation API streamlines data permissions management and facilitates seamless sharing within and outside your organization.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lake-formation/](https://aws.amazon.com/lake-formation/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lakeformation-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lakeformation-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lake-formation/features/](https://aws.amazon.com/lake-formation/features/)
-- **Pricing**: [https://aws.amazon.com/lake-formation/pricing/](https://aws.amazon.com/lake-formation/pricing/)
-- **Resources**: [https://aws.amazon.com/lake-formation/resources/](https://aws.amazon.com/lake-formation/resources/)
-- **FAQ**: [https://aws.amazon.com/lake-formation/faqs/](https://aws.amazon.com/lake-formation/faqs/)
-
-### Amazon CloudWatch Logs
-
-This API allows you to monitor, store, and access log files from EC2 instances, CloudTrail, and other sources using Amazon CloudWatch Logs. You can retrieve log data through the CloudWatch console, AWS CLI, API, or SDK.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html](
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/logs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/logs-openapi-original.yml)
-
-### Amazon Lookout for Metrics
-
-Amazon Lookout for Metrics, leverages machine learning technology to identify and explain abnormal patterns in business and operational datasets.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lookout-for-metrics/](https://aws.amazon.com/lookout-for-metrics/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutmetrics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutmetrics-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lookout-for-metrics/features/](https://aws.amazon.com/lookout-for-metrics/features/)
-- **Pricing**: [https://aws.amazon.com/lookout-for-metrics/pricing/](https://aws.amazon.com/lookout-for-metrics/pricing/)
-- **Resources**: [https://aws.amazon.com/lookout-for-metrics/resources/](https://aws.amazon.com/lookout-for-metrics/resources/)
-- **FAQ**: [https://aws.amazon.com/lookout-for-metrics/faqs/](https://aws.amazon.com/lookout-for-metrics/faqs/)
-- **Customers**: [https://aws.amazon.com/lookout-for-metrics/customers/](https://aws.amazon.com/lookout-for-metrics/customers/)
-
-### Amazon Lookout for Vision
-
-The Amazon Lookout for Vision API offers details on actions, data types, parameters, and errors. This API allows users to detect visual defects in various industrial products with precision and efficiency. By utilizing computer vision technology, it can identify missing parts in products, damages in vehicles or structures, inconsistencies in manufacturing lines, and even tiny imperfections in items like silicon wafers or printed circuit boards.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lookout-for-vision/](https://aws.amazon.com/lookout-for-vision/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutvision-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/lookoutvision-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lookout-for-vision/features/](https://aws.amazon.com/lookout-for-vision/features/)
-- **Pricing**: [https://aws.amazon.com/lookout-for-vision/pricing/](https://aws.amazon.com/lookout-for-vision/pricing/)
-- **FAQ**: [https://aws.amazon.com/lookout-for-vision/faqs/](https://aws.amazon.com/lookout-for-vision/faqs/)
-- **Resources**: [https://aws.amazon.com/lookout-for-vision/resources/](https://aws.amazon.com/lookout-for-vision/resources/)
-- **Partners**: [https://aws.amazon.com/lookout-for-vision/partners/](https://aws.amazon.com/lookout-for-vision/partners/)
-- **Customers**: [https://aws.amazon.com/lookout-for-vision/customers/](https://aws.amazon.com/lookout-for-vision/customers/)
-
-### Amazon Machine Learning
-
-Amazon Machine Learning allows users to leverage machine learning capabilities at scale, offering a wide range of services, infrastructure, and deployment resources. Trusted by over 100,000 customers, from major corporations to new businesses, AWS machine learning services are used to tackle business challenges and foster innovation.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ai/machine-learning/](https://aws.amazon.com/ai/machine-learning/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/machinelearning-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/machinelearning-openapi-original.yml)
-- **Infrastructure**: [https://aws.amazon.com/ai/infrastructure/](https://aws.amazon.com/ai/infrastructure/)
-- **Learn**: [https://aws.amazon.com/machine-learning/learn/](https://aws.amazon.com/machine-learning/learn/)
-- **Resources**: [https://aws.amazon.com/ai/resources/](https://aws.amazon.com/ai/resources/)
-- **Use Cases**: [https://aws.amazon.com/machine-learning/ai-use-cases/](https://aws.amazon.com/machine-learning/ai-use-cases/)
-- **Partners**: [https://aws.amazon.com/machine-learning/partner-solutions/](https://aws.amazon.com/machine-learning/partner-solutions/)
-
-### Amazon Macie
-
-Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to help you discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/macie/](https://aws.amazon.com/macie/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/macie2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/macie2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/macie/features/](https://aws.amazon.com/macie/features/)
-- **Pricing**: [https://aws.amazon.com/macie/pricing/](https://aws.amazon.com/macie/pricing/)
-- **Getting-started**: [https://aws.amazon.com/macie/getting-started/](https://aws.amazon.com/macie/getting-started/)
-- **FAQ**: [https://aws.amazon.com/macie/faq/](https://aws.amazon.com/macie/faq/)
-- **Resources**: [https://aws.amazon.com/macie/resources/](https://aws.amazon.com/macie/resources/)
-
-### AWS Mainframe Modernization
-
-The Amazon Web Services Mainframe Modernization API offers a comprehensive suite of tools and support for seamlessly transitioning from mainframes to AWS managed runtime environments. It includes features for examining current mainframe applications, creating or enhancing applications with COBOL or PL/I, and setting up a streamlined automated process for continuous integration and delivery of the applications.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/mainframe-modernization/](https://aws.amazon.com/mainframe-modernization/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/m2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/m2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/mainframe-modernization/features/](https://aws.amazon.com/mainframe-modernization/features/)
-- **Pricing**: [https://aws.amazon.com/mainframe-modernization/pricing/](https://aws.amazon.com/mainframe-modernization/pricing/)
-- **Resources**: [https://aws.amazon.com/mainframe-modernization/resources/](https://aws.amazon.com/mainframe-modernization/resources/)
-- **FAQ**: [https://aws.amazon.com/mainframe-modernization/faqs/](https://aws.amazon.com/mainframe-modernization/faqs/)
-
-### AWS Location
-
-Amazon Location Service makes it easy for developers to add location functionality, such as maps, points of interest, geocoding, routing, tracking, and geofencing, to their applications without sacrificing data security and user privacy.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/location/](https://aws.amazon.com/location/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/location-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/location-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/location/features/](https://aws.amazon.com/location/features/)
-- **Pricing**: [https://aws.amazon.com/location/pricing/](https://aws.amazon.com/location/pricing/)
-- **Getting-started**: [https://aws.amazon.com/location/getting-started/](https://aws.amazon.com/location/getting-started/)
-- **FAQ**: [https://aws.amazon.com/location/faqs/](https://aws.amazon.com/location/faqs/)
-- **Customers**: [https://aws.amazon.com/location/customers/](https://aws.amazon.com/location/customers/)
-- **Data-providers**: [https://aws.amazon.com/location/data-providers/](https://aws.amazon.com/location/data-providers/)
-
-### AWS Marketplace Catalog
-
-The AWS Marketplace Catalog API enables users to interact with their entities, such as products or offers on AWS Marketplace, by providing functionality for listing, describing, and updating them. By integrating the AWS Marketplace Catalog API with product build or deployment pipelines, users can streamline the process of updating entities.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html](
-https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-catalog-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-catalog-openapi-original.yml)
-
-### Amazon Managed Blockchain (AMB)
-
-The Amazon Managed Blockchain (AMB) Query API allows users to easily access multi-blockchain network data, enabling them to extract relevant information regarding blockchain activity. This API allows users to read data from public blockchain networks like Bitcoin Mainnet and Ethereum Mainnet, providing details such as current and historical balances of addresses, as well as a list of blockchain transactions within a specified time frame.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/managed-blockchain/](https://aws.amazon.com/managed-blockchain/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/managedblockchain-query-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/managedblockchain-query-openapi-original.yml)
-- **Getting-started**: [https://aws.amazon.com/managed-blockchain/getting-started/](https://aws.amazon.com/managed-blockchain/getting-started/)
-- **Pricing**: [https://aws.amazon.com/managed-blockchain/pricing/](https://aws.amazon.com/managed-blockchain/pricing/)
-- **Resources**: [https://aws.amazon.com/managed-blockchain/resources/](https://aws.amazon.com/managed-blockchain/resources/)
-- **FAQ**: [https://aws.amazon.com/managed-blockchain/faqs/](https://aws.amazon.com/managed-blockchain/faqs/)
-
-### AWS Marketplace Deployment
-
-The AWS Marketplace Deployment Service supports the Quick Launch experience, which is a deployment option for software as a service (SaaS) products. Quick Launch simplifies and reduces the time, resources, and steps required to configure, deploy, and launch a products. The AWS Marketplace Deployment Service provides sellers with a secure method for passing deployment parameters (for example, API keys and external IDs) to buyers during the Quick Launch experience.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/welcome.html](
-https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-deployment-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-deployment-openapi-original.yml)
-
-### AWS Elemental MediaConnect
-
-AWS Elemental MediaConnect is an advanced live video transport service that combines the reliability and security of satellite and fiber-optic technology with the flexibility, agility, and cost-effectiveness of IP-based networks.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/mediaconnect/](https://aws.amazon.com/mediaconnect/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediaconnect-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediaconnect-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/mediaconnect/pricing/](https://aws.amazon.com/mediaconnect/pricing/)
-- **Getting-started**: [https://aws.amazon.com/mediaconnect/getting-started/](https://aws.amazon.com/mediaconnect/getting-started/)
-- **FAQ**: [https://aws.amazon.com/mediaconnect/faqs/](https://aws.amazon.com/mediaconnect/faqs/)
-- **Ready**: [https://aws.amazon.com/mediaconnect/ready/](https://aws.amazon.com/mediaconnect/ready/)
-- **Features**: [https://aws.amazon.com/mediaconnect/features/](https://aws.amazon.com/mediaconnect/features/)
-
-### AWS Elemental MediaConvert
-
-AWS Elemental MediaConvert is a high-quality video transcoding service designed for creating live stream content for broadcast and multi-screen delivery on a large scale.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/mediaconvert/](https://aws.amazon.com/mediaconvert/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediaconvert-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediaconvert-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/mediaconvert/features/](https://aws.amazon.com/mediaconvert/features/)
-- **Pricing**: [https://aws.amazon.com/mediaconvert/pricing/](https://aws.amazon.com/mediaconvert/pricing/)
-- **Getting-started**: [https://aws.amazon.com/mediaconvert/getting-started/](https://aws.amazon.com/mediaconvert/getting-started/)
-- **Resources**: [https://aws.amazon.com/mediaconvert/resources/](https://aws.amazon.com/mediaconvert/resources/)
-- **FAQ**: [https://aws.amazon.com/mediaconvert/faqs/](https://aws.amazon.com/mediaconvert/faqs/)
-
-### AWS Elemental MediaLive
-
-AWS Elemental MediaLive is a professional live video processing service designed to produce high-quality streams for distribution to both broadcast televisions and internet-connected devices.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/medialive/](https://aws.amazon.com/medialive/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/medialive-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/medialive-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/medialive/pricing/](https://aws.amazon.com/medialive/pricing/)
-- **Getting-started**: [https://aws.amazon.com/medialive/getting-started/](https://aws.amazon.com/medialive/getting-started/)
-- **Resources**: [https://aws.amazon.com/medialive/resources/](https://aws.amazon.com/medialive/resources/)
-- **FAQ**: [https://aws.amazon.com/medialive/faqs/](https://aws.amazon.com/medialive/faqs/)
-- **Features**: [https://aws.amazon.com/medialive/features/](https://aws.amazon.com/medialive/features/)
-
-### AWS Marketplace Agreement
-
-The AWS Marketplace API enables sellers to manage product-related agreements, including listing, searching, and filtering agreements. To use this API, sellers must ensure that their AWS IAM policies and roles are properly configured. Users must have the necessary permissions to carry out actions such as describing agreements, getting agreement terms, and searching through all agreements.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/marketplace-agreements/latest/api-reference/welcome.html](
-https://docs.aws.amazon.com/marketplace-agreements/latest/api-reference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-agreement-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplace-agreement-openapi-original.yml)
-
-### AWS Marketplace
-
-The AWS Elemental MediaStore API is designed to provide high-performance storage specifically tailored for media content, offering reliable consistency and minimal latency to support the seamless delivery of live streaming video content.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/mediastore/](https://aws.amazon.com/mediastore/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediastore-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediastore-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/mediastore/features/](https://aws.amazon.com/mediastore/features/)
-- **Pricing**: [https://aws.amazon.com/mediastore/pricing/](https://aws.amazon.com/mediastore/pricing/)
-- **Getting-started**: [https://aws.amazon.com/mediastore/getting-started/](https://aws.amazon.com/mediastore/getting-started/)
-- **Resources**: [https://aws.amazon.com/mediastore/resources/](https://aws.amazon.com/mediastore/resources/)
-- **FAQ**: [https://aws.amazon.com/mediastore/faqs/](https://aws.amazon.com/mediastore/faqs/)
-
-### AWS Marketplace Commerce Analytics Service
-
-The AWS Marketplace Commerce Analytics Service allows you to access product and customer data from AWS Marketplace through a programmable interface. Upon signing up for the service, you can retrieve usage, subscription, and billing reports using the AWS SDK.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/marketplace/latest/userguide/commerce-analytics-service.html](
-https://docs.aws.amazon.com/marketplace/latest/userguide/commerce-analytics-service.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplacecommerceanalytics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/marketplacecommerceanalytics-openapi-original.yml)
-
-### AWS Marketplace Metering Service
-
-The AWS Marketplace Metering Service API allows AWS Marketplace sellers to submit usage data for custom usage dimensions. This reference provides detailed descriptions of the low-level API functions available for use.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/marketplace/](https://docs.aws.amazon.com/marketplace/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/meteringmarketplace-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/meteringmarketplace-openapi-original.yml)
-- **Seller Guide**: [https://docs.aws.amazon.com/marketplace/latest/userguide/index.html](https://docs.aws.amazon.com/marketplace/latest/userguide/index.html)
-- **Buyer Guide**: [https://docs.aws.amazon.com/marketplace/latest/buyerguide/index.html](https://docs.aws.amazon.com/marketplace/latest/buyerguide/index.html)
-
-### AWS Application Migration Service
-
-The AWS Application Migration Service streamlines the migration of your source servers to run directly on AWS, reducing the need for manual processes that are time-consuming and prone to errors. It also offers convenient optimization options for modernizing your applications, both through pre-built configurations and custom settings.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/application-migration-service/](https://aws.amazon.com/application-migration-service/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mgn-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mgn-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/application-migration-service/pricing/](https://aws.amazon.com/application-migration-service/pricing/)
-- **FAQ**: [https://aws.amazon.com/application-migration-service/faqs/](https://aws.amazon.com/application-migration-service/faqs/)
-- **Resources**: [https://aws.amazon.com/application-migration-service/resources/](https://aws.amazon.com/application-migration-service/resources/)
-- **Windows**: [https://aws.amazon.com/application-migration-service/windows/](https://aws.amazon.com/application-migration-service/windows/)
-
-### AWS Health Imaging
-
-The AWS HealthImaging API is a secure service that meets HIPAA compliance standards. It is specifically built to help healthcare providers and their medical imaging ISV partners effectively store, manipulate, and utilize machine learning techniques on medical images.
-
-**Properties:**
-
-- **Documentation**: [https://example.com](https://example.com)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/medical-imaging-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/medical-imaging-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/healthimaging/features/](https://aws.amazon.com/healthimaging/features/)
-- **Pricing**: [https://aws.amazon.com/healthimaging/pricing/](https://aws.amazon.com/healthimaging/pricing/)
-- **FAQ**: [https://aws.amazon.com/healthimaging/faqs/](https://aws.amazon.com/healthimaging/faqs/)
-- **Customers**: [https://aws.amazon.com/healthimaging/customers/](https://aws.amazon.com/healthimaging/customers/)
-- **Resources**: [https://aws.amazon.com/healthimaging/resources/](https://aws.amazon.com/healthimaging/resources/)
-
-### Amazon Web Services Migration Hub Refactor Spaces
-
-Refactor Spaces within AWS Migration Hub serves as a comprehensive solution for gradually refactoring applications into microservices within the AWS ecosystem. By leveraging Refactor Spaces, users can seamlessly transition from monolithic to microservices architecture, minimizing the manual effort involved in setting up and managing AWS infrastructure.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/what-is-mhub-refactor-spaces.html](
-https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/what-is-mhub-refactor-spaces.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migration-hub-refactor-spaces-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migration-hub-refactor-spaces-openapi-original.yml)
-
-### AWS MemoryDB
-
-MemoryDB for Redis is a managed in-memory database that offers fast performance and Multi-AZ durability for microservices applications. It stores the entire database in-memory for low latency and high throughput access. Compatible with Redis, it supports Redis' data structures, APIs, and commands.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/memorydb/](https://aws.amazon.com/memorydb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/memorydb-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/memorydb-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/memorydb/features/](https://aws.amazon.com/memorydb/features/)
-- **Pricing**: [https://aws.amazon.com/memorydb/pricing/](https://aws.amazon.com/memorydb/pricing/)
-- **Resources**: [https://aws.amazon.com/memorydb/resources/](https://aws.amazon.com/memorydb/resources/)
-- **FAQ**: [https://aws.amazon.com/memorydb/faqs/](https://aws.amazon.com/memorydb/faqs/)
-- **Sla**: [https://aws.amazon.com/memorydb/sla/](https://aws.amazon.com/memorydb/sla/)
-
-### Migration Hub Strategy Recommendations
-
-AWS Migration Hub offers a centralized platform for monitoring migration tasks from various AWS tools and partner solutions. Through Migration Hub, users can select the migration tools that align with their requirements and gain insight into the progress of their migration projects. Additionally, Migration Hub delivers essential metrics and progress updates for specific applications, regardless of the tools employed for their migration.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/migrationhub/](https://docs.aws.amazon.com/migrationhub/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migrationhubstrategy-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migrationhubstrategy-openapi-original.yml)
-
-### AWS Migration Hub Orchestrator.
-
-This API reference provides descriptions, syntax, and other details about each of the actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.html](
-https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migrationhuborchestrator-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/migrationhuborchestrator-openapi-original.yml)
-
-### AWS Elemental MediaTailor
-
-AWS Elemental MediaTailor is a versatile platform designed for video providers to easily create customized linear over-the-top (OTT) channels by leveraging their existing video content. With this service, users can seamlessly monetize their channels and live streams through personalized ad insertion, enhancing the overall viewing experience for audiences.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/mediatailor/](https://aws.amazon.com/mediatailor/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediatailor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mediatailor-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/mediatailor/features/](https://aws.amazon.com/mediatailor/features/)
-- **Pricing**: [https://aws.amazon.com/mediatailor/pricing/](https://aws.amazon.com/mediatailor/pricing/)
-- **Getting-started**: [https://aws.amazon.com/mediatailor/getting-started/](https://aws.amazon.com/mediatailor/getting-started/)
-- **FAQ**: [https://aws.amazon.com/mediatailor/faqs/](https://aws.amazon.com/mediatailor/faqs/)
-- **Resources**: [https://aws.amazon.com/mediatailor/resources/](https://aws.amazon.com/mediatailor/resources/)
-- **Integrations**: [https://aws.amazon.com/mediatailor/integrations/](https://aws.amazon.com/mediatailor/integrations/)
-
-### Amazon Mechanical Turk
-
-This API, Amazon Mechanical Turk (MTurk), offers a platform for individuals and businesses to easily outsource tasks to a distributed workforce. These tasks can range from data validation and research to more subjective tasks like survey participation and content moderation. MTurk allows companies to leverage a global workforce to streamline processes, improve data collection and analysis, and enhance machine learning projects.
-
-**Properties:**
-
-- **Documentation**: [https://www.mturk.com/](https://www.mturk.com/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mturk-requester-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mturk-requester-openapi-original.yml)
-- **Worker**: [https://www.mturk.com/worker](https://www.mturk.com/worker)
-- **Product**: [https://www.mturk.com/product-details](https://www.mturk.com/product-details)
-- **Pricing**: [https://www.mturk.com/pricing](https://www.mturk.com/pricing)
-- **Help**: [https://www.mturk.com/help](https://www.mturk.com/help)
-- **Resources**: [https://www.mturk.com/resources](https://www.mturk.com/resources)
-- **Customers**: [https://www.mturk.com/customers](https://www.mturk.com/customers)
-
-### Amazon CloudWatch
-
-Amazon CloudWatch is a service that monitors applications, responds to performance changes, optimizes resource use, and provides insights into operational health. By collecting data across AWS resources, CloudWatch gives visibility into system-wide performance and allows users to set alarms, automatically react to changes, and gain a unified view of operational health.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloudwatch/](https://aws.amazon.com/cloudwatch/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/monitoring-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/monitoring-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloudwatch/features/](https://aws.amazon.com/cloudwatch/features/)
-- **Pricing**: [https://aws.amazon.com/cloudwatch/pricing/](https://aws.amazon.com/cloudwatch/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/cloudwatch/getting-started/](https://aws.amazon.com/cloudwatch/getting-started/)
-- **FAQ**: [https://aws.amazon.com/cloudwatch/faqs/](https://aws.amazon.com/cloudwatch/faqs/)
-- **Customers**: [https://aws.amazon.com/cloudwatch/customers/](https://aws.amazon.com/cloudwatch/customers/)
-
-### Amazon Managed Workflows for Apache Airflow
-
-Amazon Managed Workflows for Apache Airflow (Amazon MWAA) is a service that helps you organize and automate your tasks by utilizing Directed Acyclic Graphs (DAGs) written in Python. Your DAGs, plugins, and Python requirements are stored in an Amazon Simple Storage Service (S3) bucket provided by you.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/managed-workflows-for-apache-airflow/](https://aws.amazon.com/managed-workflows-for-apache-airflow/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mwaa-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mwaa-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/managed-workflows-for-apache-airflow/features/](https://aws.amazon.com/managed-workflows-for-apache-airflow/features/)
-- **Pricing**: [https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/)
-- **Getting-started**: [
-https://aws.amazon.com/managed-workflows-for-apache-airflow/getting-started/](
-https://aws.amazon.com/managed-workflows-for-apache-airflow/getting-started/)
-- **Resources**: [https://aws.amazon.com/managed-workflows-for-apache-airflow/resources/](https://aws.amazon.com/managed-workflows-for-apache-airflow/resources/)
-- **FAQ**: [https://aws.amazon.com/managed-workflows-for-apache-airflow/faqs/](https://aws.amazon.com/managed-workflows-for-apache-airflow/faqs/)
-
-### Amazon Neptune
-
-Amazon Neptune Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Amazon Neptune is a purpose-built, high-performance graph database engine optimized for storing billions of relationships and querying the graph with milliseconds latency.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/neptune/](https://aws.amazon.com/neptune/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/neptune-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/neptune-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/neptune/pricing/](https://aws.amazon.com/neptune/pricing/)
-- **FAQ**: [https://aws.amazon.com/neptune/faqs/](https://aws.amazon.com/neptune/faqs/)
-- **Features**: [https://aws.amazon.com/neptune/features/](https://aws.amazon.com/neptune/features/)
-- **Global-database**: [https://aws.amazon.com/neptune/global-database/](https://aws.amazon.com/neptune/global-database/)
-- **Machine-learning**: [https://aws.amazon.com/neptune/machine-learning/](https://aws.amazon.com/neptune/machine-learning/)
-- **Serverless**: [https://aws.amazon.com/neptune/serverless/](https://aws.amazon.com/neptune/serverless/)
-- **Getting-started**: [https://aws.amazon.com/neptune/getting-started/](https://aws.amazon.com/neptune/getting-started/)
-
-### Amazon MQ
-
-Amazon MQ is an API service that manages message brokers for Apache ActiveMQ and RabbitMQ, simplifying the setup and operation of message brokers in the cloud. Message brokers enable communication between software applications and components, supporting multiple programming languages, operating systems, and messaging protocols.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/amazon-mq/](https://aws.amazon.com/amazon-mq/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mq-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/mq-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/amazon-mq/features/](https://aws.amazon.com/amazon-mq/features/)
-- **Pricing**: [https://aws.amazon.com/amazon-mq/pricing/](https://aws.amazon.com/amazon-mq/pricing/)
-- **Resources**: [https://aws.amazon.com/amazon-mq/resources/](https://aws.amazon.com/amazon-mq/resources/)
-- **FAQ**: [https://aws.amazon.com/amazon-mq/faqs/](https://aws.amazon.com/amazon-mq/faqs/)
-- **Customers**: [https://aws.amazon.com/amazon-mq/customers/](https://aws.amazon.com/amazon-mq/customers/)
-
-### Neptune Analytics
-
-Neptune Analytics is a cutting-edge analytics database engine designed for Amazon Neptune, enabling users to efficiently analyze vast amounts of graph data. By leveraging high-speed processing capabilities and executing popular graph analytic algorithms through rapid queries, Neptune Analytics greatly accelerates the insights generation process, delivering analytics results within seconds.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html](
-https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/neptune-graph-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/neptune-graph-openapi-original.yml)
-
-### Amazon Nimble Studio
-
-Thank you for visiting the Amazon Nimble Studio API documentation. This comprehensive reference guide offers detailed information on methods, schema, resources, and parameters to maximize your utilization of Nimble Studio. Nimble Studio is a cutting-edge virtual studio designed to support visual effects, animation, and interactive content teams, enabling them to create securely within a flexible, private cloud environment.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/nimble-studio/](https://aws.amazon.com/nimble-studio/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/nimble-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/nimble-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/nimble-studio/features/](https://aws.amazon.com/nimble-studio/features/)
-- **Pricing**: [https://aws.amazon.com/nimble-studio/pricing/](https://aws.amazon.com/nimble-studio/pricing/)
-- **Getting-started**: [https://aws.amazon.com/nimble-studio/getting-started/](https://aws.amazon.com/nimble-studio/getting-started/)
-- **FAQ**: [https://aws.amazon.com/nimble-studio/faqs/](https://aws.amazon.com/nimble-studio/faqs/)
-
-### Amazon CloudWatch Network Monitor
-
-Amazon CloudWatch Network Monitor is an active network monitoring service provided by Amazon Web Services. It is designed to identify network issues within either the AWS network or your own company's network. With Network Monitor, users can select source VPCs and subnets from AWS and specify destination IP addresses from their own on-premises network.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/networkmonitor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/networkmonitor-openapi-original.yml)
-
-### AWS HealthOmics
-
-AWS HealthOmics is a specialized platform designed to assist healthcare and life science organizations, as well as their software partners, in storing, retrieving, and analyzing various omics data including genomic and transcriptomic data. By leveraging this service, users can extract valuable insights from the data to enhance health outcomes. The platform also enables large-scale analysis and facilitates collaborative research efforts.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/healthomics/](https://aws.amazon.com/healthomics/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/omics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/omics-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/healthomics/features/](https://aws.amazon.com/healthomics/features/)
-- **Pricing**: [https://aws.amazon.com/healthomics/pricing/](https://aws.amazon.com/healthomics/pricing/)
-- **Resources**: [https://aws.amazon.com/healthomics/resources/](https://aws.amazon.com/healthomics/resources/)
-- **FAQ**: [https://aws.amazon.com/healthomics/faqs/](https://aws.amazon.com/healthomics/faqs/)
-- **Customers**: [https://aws.amazon.com/healthomics/customers/](https://aws.amazon.com/healthomics/customers/)
-
-### Amazon CloudWatch Observability Access Manager
-
-Use Amazon CloudWatch Observability Access Manager to establish and manage connections between source accounts and monitoring accounts for CloudWatch cross-account observability. This feature allows you to effectively monitor and troubleshoot applications that span across multiple accounts within a specific region.
-
-**Properties:**
-
-- **Documentation**: [https://example.com](https://example.com)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/oam-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/oam-openapi-original.yml)
-
-### AWS Network Firewall
-
-Utilize AWS Network Firewall to establish customized firewall rules that offer precise management of network traffic and seamlessly implement firewall security measures across your VPCs.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/network-firewall/](https://aws.amazon.com/network-firewall/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/network-firewall-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/network-firewall-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/network-firewall/features/](https://aws.amazon.com/network-firewall/features/)
-- **Pricing**: [https://aws.amazon.com/network-firewall/pricing/](https://aws.amazon.com/network-firewall/pricing/)
-- **Resources**: [https://aws.amazon.com/network-firewall/resources/](https://aws.amazon.com/network-firewall/resources/)
-- **FAQ**: [https://aws.amazon.com/network-firewall/faqs/](https://aws.amazon.com/network-firewall/faqs/)
-- **Partners**: [https://aws.amazon.com/network-firewall/partners/](https://aws.amazon.com/network-firewall/partners/)
-- **Customers**: [https://aws.amazon.com/network-firewall/customers/](https://aws.amazon.com/network-firewall/customers/)
-
-### Amazon OpenSearch Serverless
-
-Use the Amazon OpenSearch Serverless API to create, configure, and manage OpenSearch Serverless collections and security policies. OpenSearch Serverless is an on-demand, pre-provisioned serverless configuration for Amazon OpenSearch Service. OpenSearch Serverless removes the operational complexities of provisioning, configuring, and tuning your OpenSearch clusters.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/opensearch-service/features/serverless/](https://aws.amazon.com/opensearch-service/features/serverless/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opensearchserverless-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opensearchserverless-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/opensearch-service/features/](https://aws.amazon.com/opensearch-service/features/)
-- **Pricing**: [https://aws.amazon.com/opensearch-service/pricing/](https://aws.amazon.com/opensearch-service/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/opensearch-service/getting-started/](https://aws.amazon.com/opensearch-service/getting-started/)
-- **Resources**: [https://aws.amazon.com/opensearch-service/resources/](https://aws.amazon.com/opensearch-service/resources/)
-- **Customers**: [https://aws.amazon.com/opensearch-service/customers/](https://aws.amazon.com/opensearch-service/customers/)
-- **Migrations**: [https://aws.amazon.com/big-data/datalakes-and-analytics/migrations/](https://aws.amazon.com/big-data/datalakes-and-analytics/migrations/)
-- **Partners**: [
-https://aws.amazon.com/big-data/datalakes-and-analytics/partner-solutions/](
-https://aws.amazon.com/big-data/datalakes-and-analytics/partner-solutions/)
-- **Customers**: [https://aws.amazon.com/big-data/datalakes-and-analytics/customers/](https://aws.amazon.com/big-data/datalakes-and-analytics/customers/)
-
-### Amazon OpenSearch Service
-
-Amazon OpenSearch Service makes it easy for you to perform interactive log analytics, real-time application monitoring, website search, and more. OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/opensearch-service/](https://aws.amazon.com/opensearch-service/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opensearch-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opensearch-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/opensearch-service/pricing/](https://aws.amazon.com/opensearch-service/pricing/)
-- **Partners**: [https://aws.amazon.com/opensearch-service/partners/](https://aws.amazon.com/opensearch-service/partners/)
-- **FAQ**: [https://aws.amazon.com/opensearch-service/faqs/](https://aws.amazon.com/opensearch-service/faqs/)
-- **Getting-started**: [https://aws.amazon.com/opensearch-service/getting-started/](https://aws.amazon.com/opensearch-service/getting-started/)
-- **Resources**: [https://aws.amazon.com/opensearch-service/resources/](https://aws.amazon.com/opensearch-service/resources/)
-- **Customers**: [https://aws.amazon.com/opensearch-service/customers/](https://aws.amazon.com/opensearch-service/customers/)
-- **Features**: [https://aws.amazon.com/opensearch-service/features/](https://aws.amazon.com/opensearch-service/features/)
-- **Migrations**: [https://aws.amazon.com/opensearch-service/migrations/](https://aws.amazon.com/opensearch-service/migrations/)
-
-### AWS Organizations
-
-AWS Organizations simplifies the management of policies across multiple AWS accounts by providing a policy-based management system. This feature enables users to efficiently manage policies for groups of accounts and streamline the process of creating new accounts through automation.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/organizations/](https://aws.amazon.com/organizations/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/organizations-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/organizations-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/organizations/features/](https://aws.amazon.com/organizations/features/)
-- **Resources**: [https://aws.amazon.com/organizations/resources/](https://aws.amazon.com/organizations/resources/)
-- **Best Practices**: [https://aws.amazon.com/organizations/getting-started/best-practices/](https://aws.amazon.com/organizations/getting-started/best-practices/)
-- **Resources**: [https://aws.amazon.com/organizations/resources/](https://aws.amazon.com/organizations/resources/)
-- **FAQ**: [https://aws.amazon.com/organizations/faqs/](https://aws.amazon.com/organizations/faqs/)
-- **Customers**: [https://aws.amazon.com/organizations/customers/](https://aws.amazon.com/organizations/customers/)
-
-### AWS OpsWorks
-
-The API offered by AWS OpsWorks allows for seamless configuration management through the utilization of Chef and Puppet, powerful automation platforms that enable code-based automation of server configurations. With OpsWorks, users can leverage Chef and Puppet to automate the setup, deployment, and maintenance of servers within Amazon EC2 instances or on-premises compute environments.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/opsworks/](https://aws.amazon.com/opsworks/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opsworkscm-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/opsworkscm-openapi-original.yml)
-
-### Amazon OpenSearch Ingestion
-
-The Amazon OpenSearch Ingestion API is a fully managed, serverless data collection tool designed to deliver real-time log, metric, and trace data to Amazon OpenSearch Service domains and OpenSearch Serverless collections. With OpenSearch Ingestion, there is no longer a need for third-party solutions like Logstash or Jaeger to ingest data into your OpenSearch Service domains and OpenSearch Serverless collections.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html](
-https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ingestion.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/osis-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/osis-openapi-original.yml)
-
-### AWS Panorama
-
-AWS Panorama is a set of machine learning (ML) tools and software development kit (SDK) that enables the integration of computer vision (CV) capabilities into on-site internet protocol (IP) cameras.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/panorama/](https://aws.amazon.com/panorama/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/panorama-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/panorama-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/panorama/pricing/](https://aws.amazon.com/panorama/pricing/)
-- **Resources**: [https://aws.amazon.com/panorama/resources/](https://aws.amazon.com/panorama/resources/)
-- **FAQ**: [https://aws.amazon.com/panorama/faqs/](https://aws.amazon.com/panorama/faqs/)
-- **Customers**: [https://aws.amazon.com/panorama/customers/](https://aws.amazon.com/panorama/customers/)
-- **Partners**: [https://aws.amazon.com/panorama/partners/](https://aws.amazon.com/panorama/partners/)
-- **Partners**: [https://aws.amazon.com/panorama/partners/](https://aws.amazon.com/panorama/partners/)
-- **Use-cases**: [https://aws.amazon.com/panorama/use-cases/](https://aws.amazon.com/panorama/use-cases/)
-- **Developers**: [https://aws.amazon.com/panorama/developers/](https://aws.amazon.com/panorama/developers/)
-- **Appliance**: [https://aws.amazon.com/panorama/appliance/](https://aws.amazon.com/panorama/appliance/)
-
-### AWS Payment Cryptography Control Plane
-
-The Amazon Web Services Payment Cryptography Control Plane APIs are used to manage encryption keys for payment-related cryptographic operations. With these APIs, you can create, import, export, share, manage, and delete keys, as well as manage Identity and Access Management (IAM) policies.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/payment-cryptography/](https://docs.aws.amazon.com/payment-cryptography/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/payment-cryptography-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/payment-cryptography-openapi-original.yml)
-
-### AWS Private CA Connector for Active Directory
-
-The Amazon Web Services Private CA Connector for Active Directory establishes a connection between Amazon Web Services Private CA and Active Directory, allowing you to generate security certificates for Active Directory that are signed by your own private CA. For further details, visit the Amazon Web Services Private CA Connector for Active Directory documentation.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.html](
-https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pca-connector-ad-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pca-connector-ad-openapi-original.yml)
-
-### Amazon Personalize
-
-The Amazon Personalize API enables the consumption of real-time user event data, such as streaming or click data, for model training purposes. This data can be used on its own or in combination with historical data. For further details, refer to the documentation on Recording item interaction events.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/personalize/latest/dg/API_Types_Amazon_Personalize_Events.html](
-https://docs.aws.amazon.com/personalize/latest/dg/API_Types_Amazon_Personalize_Events.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/personalize-events-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/personalize-events-openapi-original.yml)
-
-### AWS Cloud WAN Core Network 
-
-This API allows you to efficiently manage your Amazon Web Services Cloud WAN core network and Transit Gateway network across multiple AWS accounts, Regions, and on-premises locations.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html](
-https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/networkmanager-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/networkmanager-openapi-original.yml)
-
-### AWS Outposts
-
-Amazon Web Services Outposts is a service that brings Amazon Web Services infrastructure, APIs, and tools to customer premises in a fully managed capacity. With Outposts, customers can access AWS managed infrastructure locally, allowing for the development and operation of applications on premises with the same programming interfaces as in AWS Regions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/outposts/](https://aws.amazon.com/outposts/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/outposts-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/outposts-openapi-original.yml)
-
-### Amazon Personalize
-
-Amazon Personalize simplifies the process of integrating personalized recommendations powered by machine learning into various platforms, including websites, applications, and email marketing systems, thereby facilitating your digital transformation.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/personalize/](https://aws.amazon.com/personalize/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/personalize-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/personalize-openapi-original.yml)
-- **Featurs**: [https://aws.amazon.com/personalize/features/](https://aws.amazon.com/personalize/features/)
-- **Pricing**: [https://aws.amazon.com/personalize/pricing/](https://aws.amazon.com/personalize/pricing/)
-- **Resources**: [https://aws.amazon.com/personalize/resources/](https://aws.amazon.com/personalize/resources/)
-- **FAQ**: [https://aws.amazon.com/personalize/faqs/](https://aws.amazon.com/personalize/faqs/)
-- **Customers**: [https://aws.amazon.com/personalize/customers/](https://aws.amazon.com/personalize/customers/)
-- **Partners**: [https://aws.amazon.com/personalize/partners/](https://aws.amazon.com/personalize/partners/)
-
-### Amazon Pinpoint Email
-
-The Amazon Pinpoint Email API is a specialized feature within the AWS service that allows businesses to connect with customers through email messaging. This API enhances the functionality of the Amazon Pinpoint platform, enabling users to send personalized email campaigns and track performance metrics.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/pinpoint-email/latest/APIReference/Welcome.html](
-https://docs.aws.amazon.com/pinpoint-email/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pinpoint-email-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pinpoint-email-openapi-original.yml)
-
-### Amazon Pinpoint SMS and Voice
-
-The Amazon Pinpoint SMS and Voice, version 2 API allows developers to access specialized features for sending SMS messages and making voice calls, expanding upon the functionalities available in the Amazon Pinpoint API.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html](
-https://docs.aws.amazon.com/pinpoint-sms-voice/latest/APIReference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pinpoint-sms-voice-v2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pinpoint-sms-voice-v2-openapi-original.yml)
-
-### Amazon EventBridge Pipes
-
-The Amazon EventBridge Pipes API seamlessly connects event sources to targets, simplifying the development of event-driven architectures by eliminating the need for specialized knowledge and integration code. This tool ensures consistency across a company's applications by allowing any available EventBridge target to be used.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pipes-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pipes-openapi-original.yml)
-
-### AWS Proton
-
-The Proton Service API Reference provides detailed descriptions, syntax, and usage examples for the various actions and data types available within the Proton service. The API documentation includes Query API request parameters and XML responses for each action.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/proton/](https://aws.amazon.com/proton/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/proton-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/proton-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/proton/features/](https://aws.amazon.com/proton/features/)
-- **Pricing**: [https://aws.amazon.com/proton/pricing/](https://aws.amazon.com/proton/pricing/)
-- **Getting-started**: [https://aws.amazon.com/proton/getting-started/](https://aws.amazon.com/proton/getting-started/)
-- **FAQ**: [https://aws.amazon.com/proton/faqs/](https://aws.amazon.com/proton/faqs/)
-- **Partners**: [https://aws.amazon.com/proton/partners/](https://aws.amazon.com/proton/partners/)
-- **Features**: [https://aws.amazon.com/proton/features/](https://aws.amazon.com/proton/features/)
-
-### AWS Private 5G
-
-The Amazon Web Services Private 5G API offers a managed solution for setting up and expanding your private mobile network on-site. It includes pre-configured hardware and software, simplifies setup with automation, and allows for seamless scalability to accommodate more devices when necessary.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/private5g/](https://aws.amazon.com/private5g/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/privatenetworks-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/privatenetworks-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/private5g/features/](https://aws.amazon.com/private5g/features/)
-- **Pricing**: [https://aws.amazon.com/private5g/pricing/](https://aws.amazon.com/private5g/pricing/)
-- **Getting-started**: [https://aws.amazon.com/private5g/getting-started/](https://aws.amazon.com/private5g/getting-started/)
-- **FAQ**: [https://aws.amazon.com/private5g/faqs/](https://aws.amazon.com/private5g/faqs/)
-
-### Amazon Polly
-
-Amazon Polly is a web service that makes it easy to synthesize speech from text. The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/polly/](https://aws.amazon.com/polly/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/polly-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/polly-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/polly/features/](https://aws.amazon.com/polly/features/)
-- **Pricing**: [https://aws.amazon.com/polly/pricing/](https://aws.amazon.com/polly/pricing/)
-- **Getting-started**: [https://aws.amazon.com/polly/getting-started/](https://aws.amazon.com/polly/getting-started/)
-- **Resources**: [https://aws.amazon.com/polly/resources/](https://aws.amazon.com/polly/resources/)
-- **Customers**: [https://aws.amazon.com/polly/customers/](https://aws.amazon.com/polly/customers/)
-
-### Amazon Q in Connect
-
-The Amazon Q in Connect API is an upgraded version of Amazon Connect Wisdom that utilizes generative AI to provide agents with suggested responses and actions to resolve customer inquiries quickly and enhance customer satisfaction. Instead of having knowledge articles, wikis, and FAQs scattered across various repositories, Amazon Q in Connect integrates them into one platform.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/connect/q/](https://aws.amazon.com/connect/q/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qconnect-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qconnect-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/connect/pricing/](https://aws.amazon.com/connect/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/connect/getting-started/](https://aws.amazon.com/connect/getting-started/)
-- **Resources**: [https://aws.amazon.com/connect/resources/](https://aws.amazon.com/connect/resources/)
-- **Customers**: [https://aws.amazon.com/connect/customers/](https://aws.amazon.com/connect/customers/)
-- **Partners**: [https://aws.amazon.com/connect/partners/](https://aws.amazon.com/connect/partners/)
-
-### Amazon Q
-
-Amazon Q generates code, tests, debugs, and has multistep planning and reasoning capabilities that can transform and implement new code generated from developer requests.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/q/](https://aws.amazon.com/q/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qbusiness-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qbusiness-openapi-original.yml)
-- **GettingStarted**: [https://aws.amazon.com/q/getting-started/](https://aws.amazon.com/q/getting-started/)
-- **Customers**: [https://aws.amazon.com/q/customers/](https://aws.amazon.com/q/customers/)
-
-### Amazon RDS Performance Insights
-
-The Amazon RDS Performance Insights API allows you to monitor and analyze various aspects of database load by capturing data from a running DB instance. This guide provides detailed information on Performance Insights data types, parameters, and errors. With Performance Insights enabled, the API offers visibility into the performance of your DB instance.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/rds/performance-insights/](https://aws.amazon.com/rds/performance-insights/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pi-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pi-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/rds/performance-insights/pricing/](https://aws.amazon.com/rds/performance-insights/pricing/)
-- **FAQ**: [https://aws.amazon.com/rds/performance-insights/faqs/](https://aws.amazon.com/rds/performance-insights/faqs/)
-- **Customers**: [https://aws.amazon.com/rds/performance-insights/customers/](https://aws.amazon.com/rds/performance-insights/customers/)
-
-### AWS Price List
-
-The Amazon Web Services Price List API is a user-friendly tool that allows you to access Amazon Web Services' services, products, and pricing information through programmatic queries. The API utilizes standardized product attributes like Location, Storage Class, and Operating System, and provides pricing at the SKU level.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/pricing/](https://aws.amazon.com/pricing/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pricing-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/pricing-openapi-original.yml)
-- **Cost-optimization**: [https://aws.amazon.com/pricing/cost-optimization/](https://aws.amazon.com/pricing/cost-optimization/)
-
-### Amazon QLDB
-
-The recommended way to interact with the transactional data APIs for Amazon QLDB is to use the QLDB driver or the QLDB shell for executing data transactions on a ledger. When working with an AWS SDK, it is advised to use the QLDB driver, which abstracts the data plane and manages SendCommand API calls.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/qldb/](https://aws.amazon.com/qldb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qldb-session-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/qldb-session-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/qldb/features/](https://aws.amazon.com/qldb/features/)
-- **Pricing**: [https://aws.amazon.com/qldb/pricing/](https://aws.amazon.com/qldb/pricing/)
-- **Resources**: [https://aws.amazon.com/qldb/resources/](https://aws.amazon.com/qldb/resources/)
-- **FAQ**: [https://aws.amazon.com/qldb/faqs/](https://aws.amazon.com/qldb/faqs/)
-- **Customers**: [https://aws.amazon.com/qldb/customers/](https://aws.amazon.com/qldb/customers/)
-
-### Resource Access Manager
-
-The Resource Access Manager API Reference is a comprehensive guide that details all actions and data types available in RAM. RAM is a service designed to facilitate secure resource sharing between different Amazon Web Services accounts. This documentation provides users with the necessary information to effectively utilize RAM's features, including the ability to share resources with entire Organizations or specific organizational units.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/ram/](https://aws.amazon.com/ram/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ram-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ram-openapi-original.yml)
-- **FAQ**: [https://aws.amazon.com/ram/faqs/](https://aws.amazon.com/ram/faqs/)
-
-### AWS RDS
-
-The RDS Data API from Amazon RDS allows users to execute SQL statements on an Amazon Aurora DB cluster via an HTTP endpoint. This API is compatible with various types of Aurora databases, including Aurora PostgreSQL (Serverless v2, Serverless v1, and provisioned) and Aurora MySQL (Serverless v1). Detailed instructions on utilizing the Data API can be found in the Amazon Aurora User Guide.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/rds/](https://aws.amazon.com/rds/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rds-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rds-data-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/rds/features/](https://aws.amazon.com/rds/features/)
-- **Pricing**: [https://aws.amazon.com/rds/pricing/](https://aws.amazon.com/rds/pricing/)
-- **Resources**: [https://aws.amazon.com/rds/resources/](https://aws.amazon.com/rds/resources/)
-- **FAQ**: [https://aws.amazon.com/rds/faqs/](https://aws.amazon.com/rds/faqs/)
-- **Customers**: [https://aws.amazon.com/rds/customers/](https://aws.amazon.com/rds/customers/)
-- **Partners**: [https://aws.amazon.com/rds/partners/](https://aws.amazon.com/rds/partners/)
-
-### Amazon QuickSight
-
-Amazon QuickSight provides businesses with expansive and unified business intelligence solutions. Through modern interactive dashboards, paginated reports, natural language queries, and embedded analytics, all users can access reliable data to meet their analytical needs. With Amazon Q integration, business analysts and users can quickly build, discover, and share valuable insights using natural language, ultimately making informed decisions faster.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/quicksight/](https://aws.amazon.com/quicksight/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/quicksight-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/quicksight-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/quicksight/features/](https://aws.amazon.com/quicksight/features/)
-- **Gallery**: [https://aws.amazon.com/quicksight/gallery/](https://aws.amazon.com/quicksight/gallery/)
-- **Pricing**: [https://aws.amazon.com/quicksight/pricing/](https://aws.amazon.com/quicksight/pricing/)
-- **Customers**: [https://aws.amazon.com/quicksight/customers/](https://aws.amazon.com/quicksight/customers/)
-- **Partners**: [https://aws.amazon.com/quicksight/partners/](https://aws.amazon.com/quicksight/partners/)
-- **Blogs**: [https://aws.amazon.com/quicksight/resources/blog/](https://aws.amazon.com/quicksight/resources/blog/)
-- **Case Studies**: [https://aws.amazon.com/quicksight/resources/case_studies/](https://aws.amazon.com/quicksight/resources/case_studies/)
-- **Learning Resources**: [https://aws.amazon.com/quicksight/resources/](https://aws.amazon.com/quicksight/resources/)
-- **FAQ**: [https://aws.amazon.com/quicksight/resources/faqs/](https://aws.amazon.com/quicksight/resources/faqs/)
-
-### Amazon Redshift
-
-Amazon Redshift is a comprehensive data warehouse solution offered by Amazon Web Services. This API reference provides documentation for the various programming and command line interfaces available for managing Amazon Redshift clusters. It is important to note that Amazon Redshift operates asynchronously, requiring techniques such as polling or asynchronous callback handlers to track the status of commands.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/redshift/](https://aws.amazon.com/redshift/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/redshift/features/](https://aws.amazon.com/redshift/features/)
-- **Pricing**: [https://aws.amazon.com/redshift/pricing/](https://aws.amazon.com/redshift/pricing/)
-- **Customer Success**: [https://aws.amazon.com/redshift/customer-success/](https://aws.amazon.com/redshift/customer-success/)
-- **Solutions**: [https://aws.amazon.com/redshift/solutions/](https://aws.amazon.com/redshift/solutions/)
-- **Resources**: [https://aws.amazon.com/redshift/resources/](https://aws.amazon.com/redshift/resources/)
-- **GettingStarted**: [https://aws.amazon.com/redshift/getting-started/](https://aws.amazon.com/redshift/getting-started/)
-- **FAQ**: [https://aws.amazon.com/redshift/faqs/](https://aws.amazon.com/redshift/faqs/)
-- **Migrations**: [https://aws.amazon.com/big-data/datalakes-and-analytics/migrations/](https://aws.amazon.com/big-data/datalakes-and-analytics/migrations/)
-- **Partners**: [https://aws.amazon.com/redshift/partners/](https://aws.amazon.com/redshift/partners/)
-
-### AWS Recycle Bin
-
-This is the API Reference for Recycle Bin, a feature that allows you to recover accidentally deleted snapshots and EBS-backed AMIs. The documentation provides detailed descriptions and syntax for each action and data type within Recycle Bin. When you use Recycle Bin, any deleted resources are stored in the bin for a specified time period.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/recyclebin/latest/APIReference/Welcome.html](
-https://docs.aws.amazon.com/recyclebin/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rbin-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rbin-openapi-original.yml)
-- **User Guide**: [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html)
-- **Command Line Interface**: [https://docs.aws.amazon.com/cli/latest/reference/rbin/index.html](https://docs.aws.amazon.com/cli/latest/reference/rbin/index.html)
-
-### Amazon Redshift
-
-Utilize the Amazon Redshift Data API to execute queries on Amazon Redshift tables by running SQL statements. Successful statements will be committed. Refer to the Amazon Redshift Management Guide for further details on the Amazon Redshift Data API and CLI usage examples.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/redshift/](https://aws.amazon.com/redshift/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-data-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-data-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/redshift/features/](https://aws.amazon.com/redshift/features/)
-- **Pricing**: [https://aws.amazon.com/redshift/pricing/](https://aws.amazon.com/redshift/pricing/)
-- **Customer Success**: [https://aws.amazon.com/redshift/customer-success/](https://aws.amazon.com/redshift/customer-success/)
-- **Solutions**: [https://aws.amazon.com/redshift/solutions/](https://aws.amazon.com/redshift/solutions/)
-
-### Amazon Rekognition
-
-The Amazon Rekognition API provides endpoints for Amazon Rekognition Image, Amazon Rekognition Custom Labels, Amazon Rekognition Stored Video, and Amazon Rekognition Streaming Video. The API includes actions such as detecting faces, labels, text, and celebrities, as well as functionalities for creating collections, comparing faces, analyzing video content, and managing datasets and projects.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/rekognition/](https://aws.amazon.com/rekognition/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rekognition-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rekognition-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/rekognition/pricing/](https://aws.amazon.com/rekognition/pricing/)
-- **Resources**: [https://aws.amazon.com/rekognition/resources/](https://aws.amazon.com/rekognition/resources/)
-- **FAQ**: [https://aws.amazon.com/rekognition/faqs/](https://aws.amazon.com/rekognition/faqs/)
-- **Customers**: [https://aws.amazon.com/rekognition/customers/](https://aws.amazon.com/rekognition/customers/)
-
-### Amazon Redshift Serverless
-
-This API reference provides documentation for an interface for managing Amazon Redshift Serverless. This service automatically adjusts data warehouse capacity and scales resources based on workload demands, delivering high performance and simplified operations. With Amazon Redshift Serverless, users can focus on utilizing their data to gain new insights for their business and customers.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/redshift/redshift-serverless/](https://aws.amazon.com/redshift/redshift-serverless/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-serverless-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/redshift-serverless-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/redshift/features/](https://aws.amazon.com/redshift/features/)
-- **Pricing**: [https://aws.amazon.com/redshift/pricing/](https://aws.amazon.com/redshift/pricing/)
-- **Customer Success**: [https://aws.amazon.com/redshift/customer-success/](https://aws.amazon.com/redshift/customer-success/)
-- **Solutions**: [https://aws.amazon.com/redshift/solutions/](https://aws.amazon.com/redshift/solutions/)
-
-### AWS Resource Explorer
-
-Amazon Web Services Resource Explorer is a search and discovery service that allows users to explore their resources using an internet search engine-like experience. Examples of resources that can be searched for include Amazon RDS instances, Amazon S3 buckets, and Amazon DynamoDB tables. Users can search for resources using metadata such as names, tags, and IDs. Resource Explorer can search across all AWS Regions in the user's account to simplify cross-Region workloads.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/resourceexplorer/](https://aws.amazon.com/resourceexplorer/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resource-explorer-2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resource-explorer-2-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/resourceexplorer/features/](https://aws.amazon.com/resourceexplorer/features/)
-- **Pricing**: [https://aws.amazon.com/resourceexplorer/pricing/](https://aws.amazon.com/resourceexplorer/pricing/)
-- **FAQ**: [https://aws.amazon.com/resourceexplorer/faqs/](https://aws.amazon.com/resourceexplorer/faqs/)
-
-### AWS Resource Groups Tagging
-
-AWS supports tagging on all core infrastructure resources that incur charges. Most other AWS resources also support tagging. Some resources support tagging only through that service's native tagging operations, and don't yet support this API. See the documentation for an individual service for information about that service's native tagging operations.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html](
-https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/overview.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resourcegroupstaggingapi-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resourcegroupstaggingapi-openapi-original.yml)
-
-### AWS RoboMaker
-
-AWS RoboMaker is a cloud-based simulation service that enables robotics developers to run, scale, and automate simulation without managing any infrastructure.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/robomaker/](https://aws.amazon.com/robomaker/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/robomaker-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/robomaker-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/robomaker/pricing/](https://aws.amazon.com/robomaker/pricing/)
-- **Resources**: [https://aws.amazon.com/robomaker/resources/](https://aws.amazon.com/robomaker/resources/)
-- **FAQ**: [https://aws.amazon.com/robomaker/faqs/](https://aws.amazon.com/robomaker/faqs/)
-- **Customers**: [https://aws.amazon.com/robomaker/customers/](https://aws.amazon.com/robomaker/customers/)
-
-### AWS re:Post Private
-
-re:Post Private is a tailored version of AWS re:Post designed exclusively for enterprise customers with Enterprise Support or Enterprise On-Ramp Support plans. This platform grants access to a wealth of knowledge and expert guidance, enabling organizations to expedite their transition to the cloud and enhance developer productivity.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/repost-private/](https://aws.amazon.com/repost-private/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/repostspace-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/repostspace-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/repost-private/features/](https://aws.amazon.com/repost-private/features/)
-- **Pricing**: [https://aws.amazon.com/repost-private/pricing/](https://aws.amazon.com/repost-private/pricing/)
-- **FAQ**: [https://aws.amazon.com/repost-private/faqs/](https://aws.amazon.com/repost-private/faqs/)
-
-### AWS Identity and Access Management Roles Anywhere
-
-The API for Identity and Access Management Roles Anywhere enables secure access for workloads running outside of Amazon Web Services to obtain temporary AWS credentials. By leveraging IAM policies and roles, workloads can access AWS resources without the need for long-term credentials management.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iam/roles-anywhere/](https://aws.amazon.com/iam/roles-anywhere/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rolesanywhere-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rolesanywhere-openapi-original.yml)
-- **Resources**: [https://aws.amazon.com/iam/roles-anywhere/resources/](https://aws.amazon.com/iam/roles-anywhere/resources/)
-
-### AWS Resource Groups
-
-The Resource Groups API allows users to effectively organize various Amazon Web Services resources, including instances from Amazon Elastic Compute Cloud, databases from Amazon Relational Database Service, and buckets from Amazon Simple Storage Service.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/ARG/latest/APIReference/Welcome.html](https://docs.aws.amazon.com/ARG/latest/APIReference/Welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resource-groups-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resource-groups-openapi-original.yml)
-
-### AWS Routing Control
-
-Welcome to the API Reference Guide for the Routing Control (Recovery Cluster) feature in Amazon Route 53 Application Recovery Controller (ARC). With Route 53 ARC, you can utilize routing control to recover applications by redirecting traffic across different Availability Zones or Amazon Web Services Regions with high reliability. Routing controls act as simple on/off switches hosted on a highly available cluster within Route 53 ARC.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-cluster-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-cluster-openapi-original.yml)
-
-### Amazon Route 53
-
-Amazon Route 53, is a robust and reliable Domain Name System (DNS) web service that ensures high availability and scalability for connecting user requests to internet applications hosted on AWS or on-premises environments.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/route53/](https://aws.amazon.com/route53/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/route53/features/](https://aws.amazon.com/route53/features/)
-- **Pricing**: [https://aws.amazon.com/route53/pricing/](https://aws.amazon.com/route53/pricing/)
-- **Resources**: [https://aws.amazon.com/route53/resources/](https://aws.amazon.com/route53/resources/)
-- **FAQ**: [https://aws.amazon.com/route53/faqs/](https://aws.amazon.com/route53/faqs/)
-
-### Amazon Route 53 Application Recovery Controller
-
-The Amazon Route 53 Application Recovery Controller (Route 53 ARC) allows you to monitor the readiness of your applications and resources for recovery and facilitates traffic redirection between AWS Regions or away from Availability Zones to support application disaster recovery efforts.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/amazonarc/](https://docs.aws.amazon.com/amazonarc/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-readiness-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-readiness-openapi-original.yml)
-
-### AWS Resilience Hub
-
-Resilience Hub is an API designed to help you protect your Amazon Web Services applications by conducting continuous resiliency assessments and validations. Integrated into your software development pipeline, it proactively identifies and mitigates weaknesses in your applications, ensures RTO and RPO targets are met, and resolves potential issues before deployment to production.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/resilience-hub/](https://aws.amazon.com/resilience-hub/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resiliencehub-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/resiliencehub-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/resilience-hub/pricing/](https://aws.amazon.com/resilience-hub/pricing/)
-- **Resources**: [https://aws.amazon.com/resilience-hub/resources/](https://aws.amazon.com/resilience-hub/resources/)
-
-### Amazon Route 53 Domains
-
-The Amazon Route 53 API allows users to easily register domain names and carry out various related functions.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html](
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53domains-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53domains-openapi-original.yml)
-
-### AWS Route53 Resolver
-
-Amazon Route 53 Resolver offers comprehensive functionalities for efficiently resolving DNS queries across AWS, the internet, and on-premises networks. It also enables secure management of DNS within your Amazon Virtual Private Cloud (VPC).
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/route53/resolver/](https://aws.amazon.com/route53/resolver/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53resolver-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53resolver-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/route53/features/](https://aws.amazon.com/route53/features/)
-- **Pricing**: [https://aws.amazon.com/route53/pricing/](https://aws.amazon.com/route53/pricing/)
-- **Resources**: [https://aws.amazon.com/route53/resources/](https://aws.amazon.com/route53/resources/)
-- **FAQ**: [https://aws.amazon.com/route53/faqs/](https://aws.amazon.com/route53/faqs/)
-
-### Amazon Lex
-
-Amazon Lex offers build and runtime endpoints, each with a specific set of operations. Your conversational bot utilizes the runtime API to interpret user input text or voice. For instance, if a user says "I want pizza," the bot sends this input to Amazon Lex via the runtime API.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/lex/](https://aws.amazon.com/lex/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/runtimelex-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/runtimelex-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/lex/features/](https://aws.amazon.com/lex/features/)
-- **Pricing**: [https://aws.amazon.com/lex/pricing/](https://aws.amazon.com/lex/pricing/)
-- **FAQ**: [https://aws.amazon.com/lex/faqs/](https://aws.amazon.com/lex/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/lex/getting-started/](https://aws.amazon.com/lex/getting-started/)
-- **Resources**: [https://aws.amazon.com/lex/resources/](https://aws.amazon.com/lex/resources/)
-- **Customers**: [https://aws.amazon.com/lex/customers/](https://aws.amazon.com/lex/customers/)
-
-### Amazon CloudWatch RUM
-
-With Amazon CloudWatch RUM, you can monitor real user activities to gather client-side information on your web application's performance from live user sessions. This data includes load times, errors, and user actions. View this data in aggregated form or broken down by browsers and devices used by customers. Use this data to quickly pinpoint and resolve client-side performance issues.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html](
-https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rum-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/rum-openapi-original.yml)
-
-### Amazon Route 53 Application Recovery Controller
-
-The Amazon Route 53 Application Recovery Controller provides monitoring and coordination for application recovery across AWS Regions and Availability Zones. By streamlining the recovery process and reducing manual steps, this tool helps ensure that applications and resources are prepared for recovery.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/route53/application-recovery-controller/](https://aws.amazon.com/route53/application-recovery-controller/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-control-config-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/route53-recovery-control-config-openapi-original.yml)
-
-### AWS S3 Control 
-
-Amazon Web Services S3 Control, allows users to perform control plane actions on Amazon S3.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/AmazonS3/latest/API/API_Types_AWS_S3_Control.html](
-https://docs.aws.amazon.com/AmazonS3/latest/API/API_Types_AWS_S3_Control.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/s3control-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/s3control-openapi-original.yml)
-
-### Amazon Augmented AI
-
-Amazon Augmented AI (Amazon A2I) enhances machine learning applications by incorporating human judgment when necessary. Human reviewers can step in when an AI application is unable to assess data confidently, through a process known as a human review workflow.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/augmented-ai/](https://aws.amazon.com/augmented-ai/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-a2i-runtime-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-a2i-runtime-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/augmented-ai/features/](https://aws.amazon.com/augmented-ai/features/)
-- **Pricing**: [https://aws.amazon.com/augmented-ai/pricing/](https://aws.amazon.com/augmented-ai/pricing/)
-- **Resources**: [https://aws.amazon.com/augmented-ai/resources/](https://aws.amazon.com/augmented-ai/resources/)
-- **FAQ**: [https://aws.amazon.com/augmented-ai/faqs/](https://aws.amazon.com/augmented-ai/faqs/)
-- **Customers**: [https://aws.amazon.com/augmented-ai/customers/](https://aws.amazon.com/augmented-ai/customers/)
-
-### AWS SageMaker
-
-Amazon SageMaker is a fully managed service that provides a comprehensive set of tools for high-performance, cost-effective machine learning (ML) for any scenario. With SageMaker, you can create, train, and deploy ML models at scale using various tools like notebooks, debuggers, profilers, pipelines, MLOps, and more within a single integrated development environment (IDE).
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/sagemaker/](https://aws.amazon.com/sagemaker/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/sagemaker/features/](https://aws.amazon.com/sagemaker/features/)
-- **Pricing**: [https://aws.amazon.com/sagemaker/pricing/](https://aws.amazon.com/sagemaker/pricing/)
-- **FAQ**: [https://aws.amazon.com/sagemaker/faqs/](https://aws.amazon.com/sagemaker/faqs/)
-- **GettingStarted**: [https://aws.amazon.com/sagemaker/getting-started/](https://aws.amazon.com/sagemaker/getting-started/)
-- **Resources**: [https://aws.amazon.com/sagemaker/resources/](https://aws.amazon.com/sagemaker/resources/)
-- **Partners**: [https://aws.amazon.com/sagemaker/partners/](https://aws.amazon.com/sagemaker/partners/)
-- **Customers**: [https://aws.amazon.com/sagemaker/customers/](https://aws.amazon.com/sagemaker/customers/)
-
-### AWS S3
-
-The API for Amazon Simple Storage Service (Amazon S3) provides an object storage solution with top-notch scalability, data availability, security, and performance. It caters to customers of varying sizes and industries, offering the ability to store and secure any volume of data for a wide range of purposes, including data lakes, cloud-native applications, and mobile apps.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/s3/](https://aws.amazon.com/s3/)
-- **OpenAPI**: [properties/aws-s3-openapi.yml](properties/aws-s3-openapi.yml)
-- **Pricing**: [https://aws.amazon.com/s3/pricing/](https://aws.amazon.com/s3/pricing/)
-- **Security**: [https://aws.amazon.com/s3/security/](https://aws.amazon.com/s3/security/)
-- **FAQ**: [https://aws.amazon.com/s3/faqs/](https://aws.amazon.com/s3/faqs/)
-- **Features**: [https://aws.amazon.com/s3/features/](https://aws.amazon.com/s3/features/)
-- **Getting-started**: [https://aws.amazon.com/s3/getting-started/](https://aws.amazon.com/s3/getting-started/)
-- **Videos**: [https://aws.amazon.com/s3/videos/](https://aws.amazon.com/s3/videos/)
-- **Customers**: [https://aws.amazon.com/s3/customers/](https://aws.amazon.com/s3/customers/)
-- **Resources**: [https://aws.amazon.com/s3/resources/](https://aws.amazon.com/s3/resources/)
-
-### AWS SageMaker Edge
-
-The API for Amazon SageMaker Edge Manager (aws.greengrass.SageMakerEdgeManager) facilitates the installation of the SageMaker Edge Manager agent binary. This component enables edge device model management, allowing users to optimize, secure, monitor, and maintain machine learning models across fleets of edge devices. The SageMaker Edge Manager component takes care of installing and managing the SageMaker Edge Manager agent lifecycle on the core device.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/greengrass/v2/developerguide/sagemaker-edge-manager-component.html](
-https://docs.aws.amazon.com/greengrass/v2/developerguide/sagemaker-edge-manager-component.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-edge-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-edge-openapi-original.yml)
-
-### Amazon SageMaker Feature Store
-
-The Amazon SageMaker Feature Store is a fully managed repository specifically designed for storing, sharing, and managing features for machine learning (ML) models. Features are the inputs necessary for ML models during both training and inference.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/sagemaker/feature-store/](https://aws.amazon.com/sagemaker/feature-store/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-featurestore-runtime-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-featurestore-runtime-openapi-original.yml)
-
-### Amazon S3 on Outposts
-
-Amazon S3 on Outposts delivers object storage to your on-premises AWS Outposts environment to meet local data processing and data residency needs. Using the S3 APIs and features, S3 on Outposts makes it easy to store, secure, tag, retrieve, report on, and control access to the data on your Outpost.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/s3/outposts/](https://aws.amazon.com/s3/outposts/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/s3outposts-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/s3outposts-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/outposts/rack/pricing/](https://aws.amazon.com/outposts/rack/pricing/)
-- **Resources**: [https://aws.amazon.com/outposts/rack/resources/](https://aws.amazon.com/outposts/rack/resources/)
-- **GettingStarted**: [https://aws.amazon.com/outposts/rack/getting-started/](https://aws.amazon.com/outposts/rack/getting-started/)
-- **FAQ**: [https://aws.amazon.com/outposts/rack/faqs/](https://aws.amazon.com/outposts/rack/faqs/)
-- **Partners**: [https://aws.amazon.com/outposts/partners/](https://aws.amazon.com/outposts/partners/)
-
-### Amazon SageMaker Metrics
-
-Contains all data plane API operations and data types for Amazon SageMaker Metrics. Use these APIs to put and retrieve (get) features related to your training run. BatchPutMetrics.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/sagemaker/latest/dg/monitoring-cloudwatch.html](
-https://docs.aws.amazon.com/sagemaker/latest/dg/monitoring-cloudwatch.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-metrics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-metrics-openapi-original.yml)
-
-### Geospatial ML with Amazon SageMaker
-
-Amazon SageMaker offers specialized machine learning features tailored for geospatial data analysis. With this API, users can easily create, train, and deploy ML models using geospatial data sources. Additionally, the API provides access to pre-built processing operations, pretrained ML models, and visualization tools, enabling users to run geospatial ML efficiently and on a large scale.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/sagemaker/geospatial/](https://aws.amazon.com/sagemaker/geospatial/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-geospatial-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sagemaker-geospatial-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/sagemaker/geospatial/features/](https://aws.amazon.com/sagemaker/geospatial/features/)
-- **Pricing**: [https://aws.amazon.com/sagemaker/geospatial/pricing/](https://aws.amazon.com/sagemaker/geospatial/pricing/)
-- **Resources**: [https://aws.amazon.com/sagemaker/geospatial/resources/](https://aws.amazon.com/sagemaker/geospatial/resources/)
-- **FAQ**: [https://aws.amazon.com/sagemaker/geospatial/faqs/](https://aws.amazon.com/sagemaker/geospatial/faqs/)
-- **Customers**: [https://aws.amazon.com/sagemaker/geospatial/customers/](https://aws.amazon.com/sagemaker/geospatial/customers/)
-
-### AWS Savings Plans
-
-Savings Plans is a flexible pricing model that can help you reduce your bill by up to 72% compared to On-Demand prices, in exchange for a one- or three-year hourly spend commitment. AWS offers three types of Savings Plans: Compute Savings Plans, EC2 Instance Savings Plans, and Amazon SageMaker.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/savingsplans/](https://aws.amazon.com/savingsplans/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/savingsplans-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/savingsplans-openapi-original.yml)
-- **FAQ**: [https://aws.amazon.com/savingsplans/faq/](https://aws.amazon.com/savingsplans/faq/)
-- **Compute-pricing**: [https://aws.amazon.com/savingsplans/compute-pricing/](https://aws.amazon.com/savingsplans/compute-pricing/)
-- **Ml-pricing**: [https://aws.amazon.com/savingsplans/ml-pricing/](https://aws.amazon.com/savingsplans/ml-pricing/)
-- **FAQ**: [https://aws.amazon.com/savingsplans/faq/](https://aws.amazon.com/savingsplans/faq/)
-
-### Amazon EventBridge Schema Registry
-
-EventBridge offers pre-defined schemas for events generated by AWS services, but you can also create custom schemas or infer them from events on an event bus. Once you have a schema, you can download code bindings for popular programming languages to accelerate development. You can manage schemas and work with code bindings from the EventBridge console, API, or directly in your IDE using AWS toolkits.
-
-**Properties:**
-
-- **Documentation**: [https://example.com](https://example.com)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/schemas-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/schemas-openapi-original.yml)
-
-### Amazon EventBridge Scheduler
-
-The Amazon EventBridge Scheduler API is a serverless tool for scheduling and managing tasks in one centralized service. It reliably delivers tasks and adjusts schedules based on downstream target availability. This reference provides a list of available API actions and data types for EventBridge Scheduler.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/eventbridge/](https://docs.aws.amazon.com/eventbridge/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/scheduler-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/scheduler-openapi-original.yml)
-
-### Amazon SimpleDB
-
-This API, Amazon SimpleDB, is a cloud-based web service that offers essential database functionalities such as data indexing and querying. By handling the complex tasks of managing a web-scale database, SimpleDB empowers developers to concentrate on developing applications without worrying about database operations.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/simpledb/](https://aws.amazon.com/simpledb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sdb-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sdb-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/simpledb/pricing/](https://aws.amazon.com/simpledb/pricing/)
-- **Getting-started**: [https://aws.amazon.com/simpledb/getting-started/](https://aws.amazon.com/simpledb/getting-started/)
-- **Developer-resources**: [https://aws.amazon.com/simpledb/developer-resources/](https://aws.amazon.com/simpledb/developer-resources/)
-- **FAQ**: [https://aws.amazon.com/simpledb/faqs/](https://aws.amazon.com/simpledb/faqs/)
-
-### Amazon Web Services Secrets Manager
-
-The AWS Secrets Manager API allows users to securely manage, fetch, and update database credentials, API keys, and other sensitive information at various stages of their existence.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/secrets-manager/](https://aws.amazon.com/secrets-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/secretsmanager-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/secretsmanager-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/secrets-manager/features/](https://aws.amazon.com/secrets-manager/features/)
-- **Pricing**: [https://aws.amazon.com/secrets-manager/pricing/](https://aws.amazon.com/secrets-manager/pricing/)
-- **Getting-started**: [https://aws.amazon.com/secrets-manager/getting-started/](https://aws.amazon.com/secrets-manager/getting-started/)
-- **Resources**: [https://aws.amazon.com/secrets-manager/resources/](https://aws.amazon.com/secrets-manager/resources/)
-- **FAQ**: [https://aws.amazon.com/secrets-manager/faqs/](https://aws.amazon.com/secrets-manager/faqs/)
-- **Customers**: [https://aws.amazon.com/secrets-manager/customers/](https://aws.amazon.com/secrets-manager/customers/)
-
-### AWS Serverless Application Repository
-
-The AWS Serverless Application Repository simplifies the process for developers and businesses to discover and deploy serverless applications in the AWS Cloud. This integration with the AWS Lambda console allows developers of all skill levels to easily start with serverless computing.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/serverless/serverlessrepo/](https://aws.amazon.com/serverless/serverlessrepo/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/serverlessrepo-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/serverlessrepo-openapi-original.yml)
-- **Publishing**: [https://aws.amazon.com/serverless/serverlessrepo/publishing/](https://aws.amazon.com/serverless/serverlessrepo/publishing/)
-- **Resources**: [https://aws.amazon.com/serverless/serverlessrepo/resources/](https://aws.amazon.com/serverless/serverlessrepo/resources/)
-- **FAQ**: [https://aws.amazon.com/serverless/serverlessrepo/faqs/](https://aws.amazon.com/serverless/serverlessrepo/faqs/)
-
-### Amazon Security Lake
-
-Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to automatically centralize security data from cloud, on-premises, and custom sources into a data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations is an account management service that lets you consolidate multiple Amazon Web Services accounts into an organization that you create and centrally manage.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/security-lake/](https://aws.amazon.com/security-lake/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/securitylake-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/securitylake-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/security-lake/features/](https://aws.amazon.com/security-lake/features/)
-- **Pricing**: [https://aws.amazon.com/security-lake/pricing/](https://aws.amazon.com/security-lake/pricing/)
-- **Getting-started**: [https://aws.amazon.com/security-lake/getting-started/](https://aws.amazon.com/security-lake/getting-started/)
-- **FAQ**: [https://aws.amazon.com/security-lake/faqs/](https://aws.amazon.com/security-lake/faqs/)
-- **Customers**: [https://aws.amazon.com/security-lake/customers/](https://aws.amazon.com/security-lake/customers/)
-- **Resources**: [https://aws.amazon.com/security-lake/resources/](https://aws.amazon.com/security-lake/resources/)
-- **Partners**: [https://aws.amazon.com/security-lake/partners/](https://aws.amazon.com/security-lake/partners/)
-
-### AWS Service Quotas
-
-Easily monitor and control your quotas as your Amazon Web Services projects expand with Service Quotas. Limits, also known as quotas, define the maximum number of resources you can generate within your AWS account.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/service-quotas-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/service-quotas-openapi-original.yml)
-
-### AWS Cloud Map
-
-Our Cloud Map API allows you to easily set up and manage public DNS, private DNS, or HTTP namespaces for your microservice applications. By registering instances with Cloud Map via the API, you can ensure seamless integration and availability. Cloud Map automatically creates DNS records and optional health checks for public or private DNS namespaces, providing clients with up to eight healthy records in response to queries or requests.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/cloud-map/](https://aws.amazon.com/cloud-map/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicediscovery-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicediscovery-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/cloud-map/features/](https://aws.amazon.com/cloud-map/features/)
-- **Pricing**: [https://aws.amazon.com/cloud-map/pricing/](https://aws.amazon.com/cloud-map/pricing/)
-- **FAQ**: [https://aws.amazon.com/cloud-map/faqs/](https://aws.amazon.com/cloud-map/faqs/)
-
-### AWS Service Catalog
-
-AWS Service Catalog enables IT administrators to create, manage, and distribute portfolios of approved products to end users, who can then access the products they need in a personalized portal. Typical products include servers, databases, websites, or applications that are deployed using AWS resources (for example, an Amazon EC2 instance or an Amazon RDS database).
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/servicecatalog/](https://docs.aws.amazon.com/servicecatalog/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicecatalog-appregistry-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicecatalog-appregistry-openapi-original.yml)
-
-### AWS Shield Advanced
-
-The Shield Advanced API Reference is a comprehensive guide for developers seeking detailed information on the Shield Advanced API actions, data types, and errors. To learn more about the WAF and Shield Advanced features and how to effectively utilize the APIs, refer to the WAF and Shield Developer Guide.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/shield/](https://aws.amazon.com/shield/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/shield-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/shield-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/shield/features/](https://aws.amazon.com/shield/features/)
-- **Pricing**: [https://aws.amazon.com/shield/pricing/](https://aws.amazon.com/shield/pricing/)
-- **Getting-started**: [https://aws.amazon.com/shield/getting-started/](https://aws.amazon.com/shield/getting-started/)
-- **Resources**: [https://aws.amazon.com/shield/resources/](https://aws.amazon.com/shield/resources/)
-
-### AWS SimSpace Weaver 
-
-SimSpace Weaver is a cloud-based service on Amazon Web Services that enables users to construct and deploy large spatial simulations. These simulations can include crowd scenarios, real-world environments, and immersive experiences. The SimSpace Weaver API allows direct interaction with the service, providing detailed descriptions of available operations and data structures.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/simspaceweaver/](https://aws.amazon.com/simspaceweaver/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/simspaceweaver-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/simspaceweaver-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/simspaceweaver/features/](https://aws.amazon.com/simspaceweaver/features/)
-- **Pricing**: [https://aws.amazon.com/simspaceweaver/pricing/](https://aws.amazon.com/simspaceweaver/pricing/)
-- **Resources**: [https://aws.amazon.com/simspaceweaver/resources/](https://aws.amazon.com/simspaceweaver/resources/)
-
-### AWS Application Migration Service
-
-The AWS Application Migration Service streamlines the migration process by automating the conversion of source servers to run on AWS, reducing manual errors and saving time. It also offers a range of built-in and custom optimization options to simplify application modernization.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/application-migration-service/](https://aws.amazon.com/application-migration-service/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sms-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sms-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/application-migration-service/pricing/](https://aws.amazon.com/application-migration-service/pricing/)
-- **FAQ**: [https://aws.amazon.com/application-migration-service/faqs/](https://aws.amazon.com/application-migration-service/faqs/)
-- **Resources**: [https://aws.amazon.com/application-migration-service/resources/](https://aws.amazon.com/application-migration-service/resources/)
-
-### AWS Snow Family
-
-The AWS Snow Family helps customers who need to run operations in austere, non-data center environments, and in locations which lack consistent network connectivity. The Snow Family (comprised of AWS Snowcone, Snowball, and AWS Snowmobile) offers a number of physical devices and capacity profiles, most with built-in computing capabilities.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/snow/](https://aws.amazon.com/snow/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/snow-device-management-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/snow-device-management-openapi-original.yml)
-- **FAQ**: [https://aws.amazon.com/snow/faqs/](https://aws.amazon.com/snow/faqs/)
-
-### AWS Security Hub
-
-The Security Hub API offers a comprehensive view of your security state within Amazon Web Services, allowing you to assess your environment against industry standards and best practices. By collecting security data across AWS accounts and third-party products, Security Hub enables analysis of security trends and identification of high-priority issues.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/security-hub/](https://aws.amazon.com/security-hub/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/securityhub-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/securityhub-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/security-hub/features/](https://aws.amazon.com/security-hub/features/)
-- **Pricing**: [https://aws.amazon.com/security-hub/pricing/](https://aws.amazon.com/security-hub/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/security-hub/getting-started/](https://aws.amazon.com/security-hub/getting-started/)
-- **Resources**: [https://aws.amazon.com/security-hub/resources/](https://aws.amazon.com/security-hub/resources/)
-- **FAQ**: [https://aws.amazon.com/security-hub/faqs/](https://aws.amazon.com/security-hub/faqs/)
-- **Customers**: [https://aws.amazon.com/security-hub/customers/](https://aws.amazon.com/security-hub/customers/)
-- **Partners**: [https://aws.amazon.com/security-hub/partners/](https://aws.amazon.com/security-hub/partners/)
-
-### Amazon Simple Notification Service
-
-The Amazon Simple Notification Service (Amazon SNS) is a web service that allows developers to create distributed web-enabled applications. With Amazon SNS, applications can easily send real-time notification messages to subscribers using multiple delivery protocols.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/sns/](https://aws.amazon.com/sns/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sns-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sns-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/sns/features/](https://aws.amazon.com/sns/features/)
-- **Pricing**: [https://aws.amazon.com/sns/pricing/](https://aws.amazon.com/sns/pricing/)
-- **Getting-started**: [https://aws.amazon.com/sns/getting-started/](https://aws.amazon.com/sns/getting-started/)
-- **Resources**: [https://aws.amazon.com/sns/resources/](https://aws.amazon.com/sns/resources/)
-
-### Amazon Simple Queue Service
-
-Introducing the Amazon SQS API Reference, a reliable and highly-scalable hosted queue that facilitates the storage and transmission of messages between applications and microservices. Amazon SQS effectively moves data between distributed components, promoting decoupling.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/sqs/](https://aws.amazon.com/sqs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sqs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sqs-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/sqs/features/](https://aws.amazon.com/sqs/features/)
-- **Pricing**: [https://aws.amazon.com/sqs/pricing/](https://aws.amazon.com/sqs/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/sqs/getting-started/](https://aws.amazon.com/sqs/getting-started/)
-- **Resources**: [https://aws.amazon.com/sqs/resources/](https://aws.amazon.com/sqs/resources/)
-- **FAQ**: [https://aws.amazon.com/sqs/faqs/](https://aws.amazon.com/sqs/faqs/)
-
-### AWS Service Catalog
-
-AWS Service Catalog is a tool that allows you to efficiently handle your cloud resources by overseeing your infrastructure as code (IaC) templates, which can be written in either CloudFormation or Terraform configurations. This service helps you maintain compliance standards while enabling your customers to easily deploy the necessary cloud resources.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/servicecatalog/](https://aws.amazon.com/servicecatalog/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicecatalog-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/servicecatalog-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/servicecatalog/features/](https://aws.amazon.com/servicecatalog/features/)
-- **Pricing**: [https://aws.amazon.com/servicecatalog/pricing/](https://aws.amazon.com/servicecatalog/pricing/)
-- **Getting-started**: [https://aws.amazon.com/servicecatalog/getting-started/](https://aws.amazon.com/servicecatalog/getting-started/)
-- **Resources**: [https://aws.amazon.com/servicecatalog/resources/](https://aws.amazon.com/servicecatalog/resources/)
-- **FAQ**: [https://aws.amazon.com/servicecatalog/faqs/](https://aws.amazon.com/servicecatalog/faqs/)
-- **Customers**: [https://aws.amazon.com/servicecatalog/customers/](https://aws.amazon.com/servicecatalog/customers/)
-- **Partners**: [https://aws.amazon.com/servicecatalog/partners/](https://aws.amazon.com/servicecatalog/partners/)
-
-### AWS Systems Manager
-
-AWS Systems Manager provides a comprehensive and secure management solution for resources across AWS and in both multicloud and hybrid environments.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/systems-manager/](https://aws.amazon.com/systems-manager/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/systems-manager/features/](https://aws.amazon.com/systems-manager/features/)
-- **Pricing**: [https://aws.amazon.com/systems-manager/pricing/](https://aws.amazon.com/systems-manager/pricing/)
-- **Getting-started**: [https://aws.amazon.com/systems-manager/getting-started/](https://aws.amazon.com/systems-manager/getting-started/)
-- **FAQ**: [https://aws.amazon.com/systems-manager/faq/](https://aws.amazon.com/systems-manager/faq/)
-- **Customers**: [https://aws.amazon.com/systems-manager/customers/](https://aws.amazon.com/systems-manager/customers/)
-- **Partners**: [https://aws.amazon.com/systems-manager/partners/](https://aws.amazon.com/systems-manager/partners/)
-
-### AWS Signer
-
-AWS Signer is a managed code-signing service designed to ensure the trust and integrity of your code. This service supports code signing for various applications such as AWS Lambda, IoT devices supported by AWS, and container images stored in registries like Amazon Elastic Container Registry (ECR). With AWS Signer, you can create signing profiles and use them to sign Lambda deployment packages, IoT device code updates, and container images.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/signer/](https://docs.aws.amazon.com/signer/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/signer-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/signer-openapi-original.yml)
-
-### AWS Systems Manager Incident Manager
-
-This API, Systems Manager Incident Manager, is a comprehensive incident management tool specifically designed to assist users in dealing with unforeseen interruptions or service disruptions in their Amazon Web Services-hosted applications. The platform aims to enhance incident resolution by promptly alerting responders of the impact, presenting key troubleshooting information, and offering collaborative features to facilitate the swift restoration of services.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/incident-manager/latest/userguide/what-is-incident-manager.html](
-https://docs.aws.amazon.com/incident-manager/latest/userguide/what-is-incident-manager.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-incidents-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-incidents-openapi-original.yml)
-
-### AWS IAM Identity Center
-
-The AWS IAM Identity Center Portal is a web service that simplifies the assignment of user access to IAM Identity Center resources, such as the AWS access portal. Users can have AWS account applications and roles assigned to them and be federated into the application.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/iam/identity-center/](https://aws.amazon.com/iam/identity-center/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sso-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sso-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/iam/identity-center/features/](https://aws.amazon.com/iam/identity-center/features/)
-- **FAQ**: [https://aws.amazon.com/iam/identity-center/faqs/](https://aws.amazon.com/iam/identity-center/faqs/)
-- **Resources**: [https://aws.amazon.com/iam/identity-center/resources/](https://aws.amazon.com/iam/identity-center/resources/)
-
-### AWS Systems Manager for SAP
-
-AWS Systems Manager for SAP is a tool designed to automate the management and operation of SAP applications on AWS. This integration allows for seamless communication between AWS services and SAP applications running on AWS. Users can easily access and utilize AWS Systems Manager for SAP through AWS APIs.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/ssm-sap/latest/userguide/what-is-ssm-for-sap.html](
-https://docs.aws.amazon.com/ssm-sap/latest/userguide/what-is-ssm-for-sap.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-sap-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/ssm-sap-openapi-original.yml)
-
-### AWS Step Functions
-
-This API, AWS Step Functions, is a tool that allows developers to easily create visual workflows for utilizing AWS services, building distributed applications, automating processes, orchestrating microservices, and setting up data and machine learning pipelines.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/step-functions/](https://aws.amazon.com/step-functions/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/states-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/states-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/step-functions/features/](https://aws.amazon.com/step-functions/features/)
-- **Pricing**: [https://aws.amazon.com/step-functions/pricing/](https://aws.amazon.com/step-functions/pricing/)
-- **Use Cases**: [https://aws.amazon.com/step-functions/use-cases/](https://aws.amazon.com/step-functions/use-cases/)
-- **Customers**: [https://aws.amazon.com/step-functions/customers/](https://aws.amazon.com/step-functions/customers/)
-- **GettingStarted**: [https://aws.amazon.com/step-functions/getting-started/](https://aws.amazon.com/step-functions/getting-started/)
-- **FAQ**: [https://aws.amazon.com/step-functions/faqs/](https://aws.amazon.com/step-functions/faqs/)
-
-### AWS Storage Gateway Service
-
-The Storage Gateway Service API allows seamless and secure integration between on-premises software appliances and cloud-based storage within Amazon Web Services infrastructure. This service enables cost-effective backup and rapid disaster recovery by allowing secure data uploads to the AWS cloud.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/storagegateway/](https://aws.amazon.com/storagegateway/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/storagegateway-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/storagegateway-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/storagegateway/pricing/](https://aws.amazon.com/storagegateway/pricing/)
-- **Getting-started**: [https://aws.amazon.com/storagegateway/getting-started/](https://aws.amazon.com/storagegateway/getting-started/)
-- **Developer-resources**: [https://aws.amazon.com/storagegateway/developer-resources/](https://aws.amazon.com/storagegateway/developer-resources/)
-- **FAQ**: [https://aws.amazon.com/storagegateway/faqs/](https://aws.amazon.com/storagegateway/faqs/)
-- **Customers**: [https://aws.amazon.com/storagegateway/customers/](https://aws.amazon.com/storagegateway/customers/)
-- **Features**: [https://aws.amazon.com/storagegateway/features/](https://aws.amazon.com/storagegateway/features/)
-
-### AWS Supply Chain
-
-The AWS Supply Chain API is a cloud-based application designed to streamline supply chain management processes by connecting and extracting inventory, supply, and demand data from existing ERP and supply chain systems into a single data model. This API supports configuration data import for Supply Planning and all operations are authenticated and signed by Amazon certificates.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-supply-chain/](https://aws.amazon.com/aws-supply-chain/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/supplychain-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/supplychain-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/aws-supply-chain/features/](https://aws.amazon.com/aws-supply-chain/features/)
-- **Pricing**: [https://aws.amazon.com/aws-supply-chain/pricing/](https://aws.amazon.com/aws-supply-chain/pricing/)
-- **Partners**: [https://aws.amazon.com/aws-supply-chain/partners/](https://aws.amazon.com/aws-supply-chain/partners/)
-- **Resources**: [https://aws.amazon.com/aws-supply-chain/resources/](https://aws.amazon.com/aws-supply-chain/resources/)
-
-### AWS Security Token Service
-
-Introducing the Security Token Service (STS) API, which allows you to conveniently request temporary, restricted-access credentials for your users. This documentation offers comprehensive explanations of the STS API functionality, with detailed instructions on how to utilize this service effectively. For further insights on using temporary security credentials, refer to the resources on Temporary Security Credentials.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sts-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/sts-openapi-original.yml)
-
-### Amazon Simple Workflow Service
-
-The Amazon Simple Workflow Service (Amazon SWF) simplifies the process of building cloud-based applications that require coordination between distributed components. Tasks in Amazon SWF represent individual units of work within a workflow, with the service handling the management of intertask dependencies, scheduling, and concurrency to maintain the logical flow of the application.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/swf/](https://aws.amazon.com/swf/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/swf-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/swf-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/swf/pricing/](https://aws.amazon.com/swf/pricing/)
-- **Testimonials**: [https://aws.amazon.com/swf/testimonials/](https://aws.amazon.com/swf/testimonials/)
-- **Developer-resources**: [https://aws.amazon.com/swf/developer-resources/](https://aws.amazon.com/swf/developer-resources/)
-- **FAQ**: [https://aws.amazon.com/swf/faqs/](https://aws.amazon.com/swf/faqs/)
-- **Getting-started**: [https://aws.amazon.com/swf/getting-started/](https://aws.amazon.com/swf/getting-started/)
-
-### Amazon CloudWatch Synthetics
-
-Amazon CloudWatch Synthetics provides a way to continuously monitor your services by creating and managing canaries. These canaries are lightweight scripts that monitor your endpoints and APIs externally, allowing you to set them up to run 24/7, once per minute.
-
-**Properties:**
-
-- **Documentation**: [https://example.com](https://example.com)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/synthetics-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/synthetics-openapi-original.yml)
-
-### Amazon Timestream Query
-
-Easily store and analyze sensor data for IoT applications, metrics for DevOps use cases, and telemetry for application monitoring scenarios like clickstream data analysis with Amazon Timestream for LiveAnalytics. This managed time-series database engine allows developers and DevOps teams to run InfluxDB databases on AWS using open-source APIs for real-time time-series applications.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/timestream/](https://docs.aws.amazon.com/timestream/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/timestream-query-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/timestream-query-openapi-original.yml)
-
-### Amazon Textract
-
-Amazon Textract is an advanced machine learning service that effortlessly extracts text, handwriting, layout elements, and data from scanned documents. Unlike traditional OCR tools, Textract can intelligently identify and extract specific data from various types of documents, including PDFs, images, tables, and forms.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/textract/](https://aws.amazon.com/textract/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/textract-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/textract-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/textract/pricing/](https://aws.amazon.com/textract/pricing/)
-- **Resources**: [https://aws.amazon.com/textract/resources/](https://aws.amazon.com/textract/resources/)
-- **FAQ**: [https://aws.amazon.com/textract/faqs/](https://aws.amazon.com/textract/faqs/)
-- **Customers**: [https://aws.amazon.com/textract/customers/](https://aws.amazon.com/textract/customers/)
-- **Partners**: [https://aws.amazon.com/textract/partners/](https://aws.amazon.com/textract/partners/)
-- **Features**: [https://aws.amazon.com/textract/features/](https://aws.amazon.com/textract/features/)
-
-### Amazon Timestream Write
-
-Amazon Timestream is a powerful time-series database service designed for storing and analyzing large volumes of time-series data. It is fully managed and scalable, allowing you to easily store and analyze trillions of data points per day. Timestream is ideal for IoT sensor data analysis, industrial telemetry management, and log data and metric analysis for application performance improvement.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/timestream/](https://docs.aws.amazon.com/timestream/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/timestream-write-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/timestream-write-openapi-original.yml)
-
-### AWS Transfer
-
-Transfer Family is a managed service that allows for the transfer of files via FTP, FTPS, SFTP, and AS2 directly to and from Amazon S3 or Amazon EFS. Amazon Web Services facilitates the seamless migration of file transfer workflows to Transfer Family by integrating with existing authentication systems and providing DNS routing via Amazon Route 53.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/aws-transfer-family/](https://aws.amazon.com/aws-transfer-family/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/transfer-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/transfer-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/aws-transfer-family/pricing/](https://aws.amazon.com/aws-transfer-family/pricing/)
-- **Getting-started**: [https://aws.amazon.com/aws-transfer-family/getting-started/](https://aws.amazon.com/aws-transfer-family/getting-started/)
-- **Resources**: [https://aws.amazon.com/aws-transfer-family/resources/](https://aws.amazon.com/aws-transfer-family/resources/)
-- **FAQ**: [https://aws.amazon.com/aws-transfer-family/faqs/](https://aws.amazon.com/aws-transfer-family/faqs/)
-- **Customers**: [https://aws.amazon.com/aws-transfer-family/customers/](https://aws.amazon.com/aws-transfer-family/customers/)
-- **Partners**: [https://aws.amazon.com/aws-transfer-family/partners/](https://aws.amazon.com/aws-transfer-family/partners/)
-
-### Amazon Transcribe
-
-The Amazon Transcribe streaming API provides real-time transcription services in three main categories: Standard, Medical, and Call Analytics. Standard transcriptions are suitable for general use cases, while Medical transcriptions are specialized for medical professionals and incorporate medical terminology. The Call Analytics option is specifically designed for call center audio, providing insights into customer service interactions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/transcribe/](https://aws.amazon.com/transcribe/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/transcribe-streaming-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/transcribe-streaming-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/transcribe/features/](https://aws.amazon.com/transcribe/features/)
-- **Pricing**: [https://aws.amazon.com/transcribe/pricing/](https://aws.amazon.com/transcribe/pricing/)
-- **Getting-started**: [https://aws.amazon.com/transcribe/getting-started/](https://aws.amazon.com/transcribe/getting-started/)
-- **Resources**: [https://aws.amazon.com/transcribe/resources/](https://aws.amazon.com/transcribe/resources/)
-- **FAQ**: [https://aws.amazon.com/transcribe/faqs/](https://aws.amazon.com/transcribe/faqs/)
-- **Customers**: [https://aws.amazon.com/transcribe/customers/](https://aws.amazon.com/transcribe/customers/)
-
-### AWS Telco Network Builder
-
-The Amazon Web Services Telco Network Builder (TNB) is a network automation service designed to assist in the deployment and management of telecom networks. With AWS TNB, users can efficiently manage the lifecycle of their telecommunication network functions, from initial planning to deployment and ongoing maintenance.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/tnb/](https://aws.amazon.com/tnb/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/tnb-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/tnb-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/tnb/features/](https://aws.amazon.com/tnb/features/)
-- **Pricing**: [https://aws.amazon.com/tnb/pricing/](https://aws.amazon.com/tnb/pricing/)
-- **FAQ**: [https://aws.amazon.com/tnb/faqs/](https://aws.amazon.com/tnb/faqs/)
-
-### AWS Translate
-
-Amazon Translate enables users to adapt content for a global audience and efficiently translate and analyze a large amount of text to facilitate communication across different languages.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/translate/](https://aws.amazon.com/translate/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/translate-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/translate-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/translate/details/](https://aws.amazon.com/translate/details/)
-- **Pricing**: [https://aws.amazon.com/translate/pricing/](https://aws.amazon.com/translate/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/translate/getting-started/](https://aws.amazon.com/translate/getting-started/)
-- **Resources**: [https://aws.amazon.com/translate/resources/](https://aws.amazon.com/translate/resources/)
-- **FAQ**: [https://aws.amazon.com/translate/faqs/](https://aws.amazon.com/translate/faqs/)
-- **Customers**: [https://aws.amazon.com/translate/customers/](https://aws.amazon.com/translate/customers/)
-
-### Amazon Verified Permissions
-
-Amazon Web Services offers Amazon Verified Permissions, a comprehensive permissions management service for applications. By utilizing Verified Permissions, developers can control user access through authorization based on various factors such as user information, resource attributes, and requested actions.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/verified-permissions/](https://aws.amazon.com/verified-permissions/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/verifiedpermissions-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/verifiedpermissions-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/verified-permissions/features/](https://aws.amazon.com/verified-permissions/features/)
-- **GettingStarted**: [https://aws.amazon.com/verified-permissions/getting-started/](https://aws.amazon.com/verified-permissions/getting-started/)
-- **Pricing**: [https://aws.amazon.com/verified-permissions/pricing/](https://aws.amazon.com/verified-permissions/pricing/)
-- **Resources**: [https://aws.amazon.com/verified-permissions/resources/](https://aws.amazon.com/verified-permissions/resources/)
-- **FAQ**: [https://aws.amazon.com/verified-permissions/faqs/](https://aws.amazon.com/verified-permissions/faqs/)
-- **Partners**: [https://aws.amazon.com/verified-permissions/partners/](https://aws.amazon.com/verified-permissions/partners/)
-
-### AWS TrustedAdvisor
-
-The AWS Trusted Advisor API offers a comprehensive solution to help users optimize costs, enhance performance, bolster security and resilience, and effectively operate in the cloud at scale. By continuously assessing your AWS environment against industry best practices in categories like cost optimization, performance, resilience, security, operational excellence, and service limits, Trusted Advisor provides actionable recommendations to address any areas of concern.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/premiumsupport/technology/trusted-advisor/](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/trustedadvisor-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/trustedadvisor-openapi-original.yml)
-
-### Amazon VPC Lattice
-
-The Amazon VPC Lattice API is a comprehensive managed application networking service designed to seamlessly connect, secure, and monitor all services within your organization's various accounts and virtual private clouds. By providing a logical boundary for interconnecting microservices and legacy services, Amazon VPC Lattice enhances the efficiency of discovery and management. Consult the Amazon VPC Lattice User Guide for further details.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/vpc/lattice/](https://aws.amazon.com/vpc/lattice/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/vpc-lattice-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/vpc-lattice-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/vpc/lattice/features/](https://aws.amazon.com/vpc/lattice/features/)
-- **Pricing**: [https://aws.amazon.com/vpc/lattice/pricing/](https://aws.amazon.com/vpc/lattice/pricing/)
-- **FAQ**: [https://aws.amazon.com/vpc/lattice/faqs/](https://aws.amazon.com/vpc/lattice/faqs/)
-
-### AWS WAF Classic
-
-AWS WAF Classic is a web application firewall that allows you to monitor HTTP and HTTPS requests directed towards Amazon API Gateway API, Amazon CloudFront, or an Application Load Balancer. Additionally, AWS WAF Classic enables you to manage access to your content by setting conditions such as originating IP addresses or query string values.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html](
-https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/waf-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/waf-openapi-original.yml)
-
-### Amazon Connect Voice ID
-
-Amazon Connect Voice ID is a cutting-edge feature within Amazon Connect that leverages machine learning technology to revolutionize caller authentication and fraud prevention in voice interactions. While traditional contact centers rely on time-consuming knowledge-based authentication methods, Voice ID uses the caller's unique voice characteristics to provide instant and accurate caller verification at a minimal cost.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/connect/voice-id/](https://aws.amazon.com/connect/voice-id/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/voice-id-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/voice-id-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/connect/features/](https://aws.amazon.com/connect/features/)
-
-### AWS WAF Classic Regional
-
-AWS WAF Classic Regional is intended for developers who are implementing AWS WAF Classic with AWS resources such as Elastic Load Balancing (ELB) Application Load Balancers and API Gateway APIs. For the most up-to-date version of AWS WAF, refer to the AWS WAFV2 API and Developer Guide, which now offers a unified set of endpoints for both regional and global use.
-
-**Properties:**
-
-- **Documentation**: [
-https://docs.aws.amazon.com/waf/latest/APIReference/API_Operations_AWS_WAF_Regional.html](
-https://docs.aws.amazon.com/waf/latest/APIReference/API_Operations_AWS_WAF_Regional.html)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/waf-regional-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/waf-regional-openapi-original.yml)
-
-### AWS Well-Architected Tool
-
-The API offered by the AWS Well Architected Tool serves as a reliable framework to assess your cloud architecture, enabling you to develop scalable designs that can adapt and grow over time.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/well-architected-tool/](https://aws.amazon.com/well-architected-tool/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/wellarchitected-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/wellarchitected-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/well-architected-tool/features/](https://aws.amazon.com/well-architected-tool/features/)
-- **Pricing**: [https://aws.amazon.com/well-architected-tool/pricing/](https://aws.amazon.com/well-architected-tool/pricing/)
-- **Partners**: [https://aws.amazon.com/well-architected-tool/partners/](https://aws.amazon.com/well-architected-tool/partners/)
-- **Customers**: [https://aws.amazon.com/well-architected-tool/customers/](https://aws.amazon.com/well-architected-tool/customers/)
-- **FAQ**: [https://aws.amazon.com/well-architected-tool/faqs/](https://aws.amazon.com/well-architected-tool/faqs/)
-- **Resources**: [https://aws.amazon.com/well-architected-tool/resources/](https://aws.amazon.com/well-architected-tool/resources/)
-
-### AWS WAF
-
-AWS WAF is a powerful web application firewall designed to safeguard your AWS resources by monitoring and managing incoming web requests. It offers protection for various resources like Amazon CloudFront distributions, Amazon API Gateway REST APIs, Application Load Balancers, and AWS AppSync GraphQL APIs.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/waf/](https://docs.aws.amazon.com/waf/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/wafv2-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/wafv2-openapi-original.yml)
-
-### Amazon WorkMail
-
-Amazon WorkMail is a secure and managed business email and calendar service that allows users to access their email, contacts, and calendars through various client applications such as Microsoft Outlook, native iOS and Android email apps, and web browsers. It supports integration with corporate directories, email journaling for compliance, encryption key control, and data storage location control.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/workmail/](https://aws.amazon.com/workmail/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workmail-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workmail-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/workmail/features/](https://aws.amazon.com/workmail/features/)
-- **Pricing**: [https://aws.amazon.com/workmail/pricing/](https://aws.amazon.com/workmail/pricing/)
-- **Resources**: [https://aws.amazon.com/workmail/resources/](https://aws.amazon.com/workmail/resources/)
-- **FAQ**: [https://aws.amazon.com/workmail/faqs/](https://aws.amazon.com/workmail/faqs/)
-- **Features**: [https://aws.amazon.com/workmail/features/](https://aws.amazon.com/workmail/features/)
-
-### Amazon WorkSpaces
-
-Amazon WorkSpaces Service is a cloud-based platform that allows you to easily provision virtual desktops for your users, eliminating the need for hardware procurement and complex software installation. With WorkSpaces, you can quickly add or remove users as needed and provide access to virtual desktops from various devices and web browsers.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/workspaces/](https://aws.amazon.com/workspaces/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/workspaces/pricing/](https://aws.amazon.com/workspaces/pricing/)
-- **Web**: [https://aws.amazon.com/workspaces/web/](https://aws.amazon.com/workspaces/web/)
-- **Thin-client**: [https://aws.amazon.com/workspaces/thin-client/](https://aws.amazon.com/workspaces/thin-client/)
-- **All-inclusive**: [https://aws.amazon.com/workspaces/all-inclusive/](https://aws.amazon.com/workspaces/all-inclusive/)
-- **Core**: [https://aws.amazon.com/workspaces/core/](https://aws.amazon.com/workspaces/core/)
-
-### Amazon WorkSpaces Thin Client
-
-The Amazon WorkSpaces Thin Client API is designed for use with Amazon Web Services End User Computing (EUC) virtual desktops, providing users with a cost-effective cloud desktop solution. The compact WorkSpaces Thin Client device supports up to two monitors and various peripherals, such as keyboards, mice, headsets, and webcams.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/workspaces/thin-client/](https://aws.amazon.com/workspaces/thin-client/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-thin-client-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-thin-client-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/workspaces/thin-client/features/](https://aws.amazon.com/workspaces/thin-client/features/)
-- **Pricing**: [https://aws.amazon.com/workspaces/thin-client/pricing/](https://aws.amazon.com/workspaces/thin-client/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/workspaces/thin-client/getting-started/](https://aws.amazon.com/workspaces/thin-client/getting-started/)
-- **Resources**: [https://aws.amazon.com/workspaces/thin-client/resources/](https://aws.amazon.com/workspaces/thin-client/resources/)
-- **FAQ**: [https://aws.amazon.com/workspaces/thin-client/faqs/](https://aws.amazon.com/workspaces/thin-client/faqs/)
-
-### Amazon WorkDocs
-
-The Amazon WorkDocs API is tailored for a variety of use cases, including file migration, security applications, and eDiscovery/analytics. The API supports file migration applications for users looking to transfer files from different systems, while also allowing for basic metadata changes. Security applications can utilize the API actions to detect changes in WorkDocs and take necessary actions to ensure data security.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/workdocs/](https://aws.amazon.com/workdocs/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workdocs-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workdocs-openapi-original.yml)
-- **SDK**: [https://aws.amazon.com/workdocs/sdk/](https://aws.amazon.com/workdocs/sdk/)
-- **Pricing**: [https://aws.amazon.com/workdocs/pricing/](https://aws.amazon.com/workdocs/pricing/)
-- **Resources**: [https://aws.amazon.com/workdocs/resources/](https://aws.amazon.com/workdocs/resources/)
-- **FAQ**: [https://aws.amazon.com/workdocs/faq/](https://aws.amazon.com/workdocs/faq/)
-
-### AWS WorkMail Message Flow
-
-The WorkMail Message Flow API provides access to email messages as they are being sent and received by a WorkMail organization.
-
-**Properties:**
-
-- **Documentation**: [https://docs.aws.amazon.com/workmail/](https://docs.aws.amazon.com/workmail/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workmailmessageflow-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workmailmessageflow-openapi-original.yml)
-
-### WorkSpaces Web
-
-The WorkSpaces Web API is a cost-effective, fully managed solution designed to support secure web-based workloads. It streamlines the process of granting employees access to internal websites and SaaS web applications without the need for complex appliances or specialized client software.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/workspaces/web/](https://aws.amazon.com/workspaces/web/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-web-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/workspaces-web-openapi-original.yml)
-- **Pricing**: [https://aws.amazon.com/workspaces/web/pricing/](https://aws.amazon.com/workspaces/web/pricing/)
-- **FAQ**: [https://aws.amazon.com/workspaces/web/faqs/](https://aws.amazon.com/workspaces/web/faqs/)
-- **Resources**: [https://aws.amazon.com/workspaces/web/resources/](https://aws.amazon.com/workspaces/web/resources/)
-
-### AWS X-Ray
-
-AWS X-Ray offers comprehensive visibility into the flow of requests within your application, allowing you to analyze and filter visual data pertaining to payloads, functions, traces, services, APIs, and other components. Utilizing both no-code and low-code actions, AWS X-Ray provides a seamless way to track and manage requests throughout your application.
-
-**Properties:**
-
-- **Documentation**: [https://aws.amazon.com/xray/](https://aws.amazon.com/xray/)
-- **OpenAPI**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/xray-openapi-original.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/openapi/xray-openapi-original.yml)
-- **Features**: [https://aws.amazon.com/xray/features/](https://aws.amazon.com/xray/features/)
-- **Pricing**: [https://aws.amazon.com/xray/pricing/](https://aws.amazon.com/xray/pricing/)
-- **GettingStarted**: [https://aws.amazon.com/xray/getting-started/](https://aws.amazon.com/xray/getting-started/)
-- **Resources**: [https://aws.amazon.com/xray/resources/](https://aws.amazon.com/xray/resources/)
-- **FAQ**: [https://aws.amazon.com/xray/faqs/](https://aws.amazon.com/xray/faqs/)
-
-## Common Properties
-
-- **Portal**: [https://aws.amazon.com/](https://aws.amazon.com/)
-- **Developer**: [https://aws.amazon.com/developer/](https://aws.amazon.com/developer/)
-- **About**: [https://aws.amazon.com/about-aws/](https://aws.amazon.com/about-aws/)
-- **Documentation**: [https://docs.aws.amazon.com/](https://docs.aws.amazon.com/)
-- **GettingStarted**: [https://aws.amazon.com/getting-started/](https://aws.amazon.com/getting-started/)
-- **Tools**: [https://aws.amazon.com/developer/tools/](https://aws.amazon.com/developer/tools/)
-- **SDKs**: [https://aws.amazon.com/developer/tools/](https://aws.amazon.com/developer/tools/)
-- **C++**: [https://aws.amazon.com/developer/language/cpp/](https://aws.amazon.com/developer/language/cpp/)
-- **.NET**: [https://aws.amazon.com/developer/language/net/](https://aws.amazon.com/developer/language/net/)
-- **Go**: [https://aws.amazon.com/developer/language/go/](https://aws.amazon.com/developer/language/go/)
-- **JavaScript**: [https://aws.amazon.com/developer/language/javascript/](https://aws.amazon.com/developer/language/javascript/)
-- **Java**: [https://aws.amazon.com/developer/language/java/](https://aws.amazon.com/developer/language/java/)
-- **Kotlin**: [https://aws.amazon.com/developer/language/kotlin/](https://aws.amazon.com/developer/language/kotlin/)
-- **PHP**: [https://aws.amazon.com/developer/language/php/](https://aws.amazon.com/developer/language/php/)
-- **Python**: [https://aws.amazon.com/developer/language/python/](https://aws.amazon.com/developer/language/python/)
-- **Ruby**: [https://aws.amazon.com/developer/language/ruby/](https://aws.amazon.com/developer/language/ruby/)
-- **Rust**: [https://aws.amazon.com/developer/language/rust/](https://aws.amazon.com/developer/language/rust/)
-- **Swift**: [https://aws.amazon.com/developer/language/swift/](https://aws.amazon.com/developer/language/swift/)
-- **Command Line Interface**: [https://docs.aws.amazon.com/cli/](https://docs.aws.amazon.com/cli/)
-- **Open Source**: [https://aws.amazon.com/opensource/](https://aws.amazon.com/opensource/)
-- **Blog**: [https://aws.amazon.com/blogs/](https://aws.amazon.com/blogs/)
-- **Press**: [https://press.aboutamazon.com/press-release-archive](https://press.aboutamazon.com/press-release-archive)
-- **Investors**: [https://ir.aboutamazon.com/overview/default.aspx](https://ir.aboutamazon.com/overview/default.aspx)
-- **Analysts**: [https://aws.amazon.com/resources/analyst-reports/](https://aws.amazon.com/resources/analyst-reports/)
-- **Support**: [https://aws.amazon.com/premiumsupport/](https://aws.amazon.com/premiumsupport/)
-- **Support Plans**: [https://aws.amazon.com/premiumsupport/plans/](https://aws.amazon.com/premiumsupport/plans/)
-- **Support FAQs**: [https://aws.amazon.com/premiumsupport/faqs/](https://aws.amazon.com/premiumsupport/faqs/)
-- **Professional Services**: [https://aws.amazon.com/professional-services/](https://aws.amazon.com/professional-services/)
-- **Managed Services**: [https://aws.amazon.com/managed-services/](https://aws.amazon.com/managed-services/)
-- **Contact**: [https://aws.amazon.com/contact-us/](https://aws.amazon.com/contact-us/)
-- **Events**: [https://aws.amazon.com/events/](https://aws.amazon.com/events/)
-- **Webinars**: [https://aws.amazon.com/events/innovation-webinars/](https://aws.amazon.com/events/innovation-webinars/)
-- **Forum**: [https://repost.aws/](https://repost.aws/)
-- **Whats New**: [https://aws.amazon.com/new/](https://aws.amazon.com/new/)
-- **Pricing**: [https://aws.amazon.com/pricing/](https://aws.amazon.com/pricing/)
-- **Free Tier**: [https://aws.amazon.com/free/](https://aws.amazon.com/free/)
-- **Pricing Calculator**: [https://calculator.aws/](https://calculator.aws/)
-- **Cost Management**: [https://aws.amazon.com/aws-cost-management/](https://aws.amazon.com/aws-cost-management/)
-- **Legal**: [https://aws.amazon.com/legal/](https://aws.amazon.com/legal/)
-- **TermsOfService**: [https://aws.amazon.com/serviceterms/](https://aws.amazon.com/serviceterms/)
-- **PrivacyPolicy**: [https://aws.amazon.com/privacy/](https://aws.amazon.com/privacy/)
-- **Customer Agreement**: [https://aws.amazon.com/agreement/](https://aws.amazon.com/agreement/)
-- **Service Level Agreements**: [https://aws.amazon.com/legal/service-level-agreements/](https://aws.amazon.com/legal/service-level-agreements/)
-- **Acceptable Use Policy**: [https://aws.amazon.com/aup/](https://aws.amazon.com/aup/)
-- **Trademark**: [https://aws.amazon.com/trademark-guidelines/](https://aws.amazon.com/trademark-guidelines/)
-- **LinkedIn**: [https://www.linkedin.com/company/amazon-web-services/](https://www.linkedin.com/company/amazon-web-services/)
-- **Twitter**: [https://twitter.com/awscloud](https://twitter.com/awscloud)
-- **Facebook**: [https://www.facebook.com/amazonwebservices](https://www.facebook.com/amazonwebservices)
-- **Instagram**: [https://www.instagram.com/amazonwebservices/](https://www.instagram.com/amazonwebservices/)
-- **Twitch**: [https://www.twitch.tv/aws](https://www.twitch.tv/aws)
-- **YouTube**: [https://www.youtube.com/user/AmazonWebServices/Cloud/](https://www.youtube.com/user/AmazonWebServices/Cloud/)
-- **Knowledge Center**: [https://repost.aws/knowledge-center](https://repost.aws/knowledge-center)
-- **Podcast**: [https://aws.amazon.com/podcasts/](https://aws.amazon.com/podcasts/)
-- **Case Studies**: [https://aws.amazon.com/solutions/case-studies/](https://aws.amazon.com/solutions/case-studies/)
-- **Industries**: [https://aws.amazon.com/industries/](https://aws.amazon.com/industries/)
-- **Solutions**: [https://aws.amazon.com/solutions/](https://aws.amazon.com/solutions/)
-- **White Papers**: [https://aws.amazon.com/whitepapers/](https://aws.amazon.com/whitepapers/)
-- **Architecture**: [https://aws.amazon.com/architecture/](https://aws.amazon.com/architecture/)
-- **Executive Insights**: [https://aws.amazon.com/executive-insights/](https://aws.amazon.com/executive-insights/)
-- **Partners**: [https://aws.amazon.com/partners/](https://aws.amazon.com/partners/)
-- **Marketplace**: [https://aws.amazon.com/marketplace](https://aws.amazon.com/marketplace)
-- **Training**: [https://aws.amazon.com/training/](https://aws.amazon.com/training/)
-- **Careers**: [https://aws.amazon.com/careers/](https://aws.amazon.com/careers/)
-- **Students**: [https://community.aws/students](https://community.aws/students)
-- **Education**: [https://aws.amazon.com/education/](https://aws.amazon.com/education/)
-- **Security**: [https://aws.amazon.com/security/](https://aws.amazon.com/security/)
-- **Accessibility**: [https://aws.amazon.com/accessibility/](https://aws.amazon.com/accessibility/)
-- **SignUp**: [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup)
-- **Login**: [https://signin.aws.amazon.com/signin](https://signin.aws.amazon.com/signin)
-- **Console**: [https://console.aws.amazon.com](https://console.aws.amazon.com)
-- **Billing**: [https://console.aws.amazon.com/billing/home](https://console.aws.amazon.com/billing/home)
-- **Credentials**: [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home)
-- **Health Dashboard**: [https://phd.aws.amazon.com/](https://phd.aws.amazon.com/)
-- **SpectralRules**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/rules/amazon-web-services-spectral-rules.yml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/rules/amazon-web-services-spectral-rules.yml)
-- **Vocabulary**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/vocabulary/amazon-web-services-vocabulary.yaml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/vocabulary/amazon-web-services-vocabulary.yaml)
-- **NaftikoCapability**: [https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/capabilities/amazon-web-services-capability.yaml](https://raw.githubusercontent.com/api-evangelist/amazon-web-services/refs/heads/main/capabilities/amazon-web-services-capability.yaml)
-- **Features**: 2 items
-- **UseCases**: 1 items
-
-## Artifacts
-
-### Openapi
-- `openapi/accessanalyzer-openapi-original.yml`
-- `openapi/account-openapi-original.yml`
-- `openapi/acm-openapi-original.yml`
-- `openapi/acm-pca-openapi-original.yml`
-- `openapi/amp-openapi-original.yml`
-- ... and 372 more
-
-### Json Ld
-- `json-ld/amazon-web-services-context.jsonld`
-
-### Examples
-- `examples/amazon-web-services-example.json`
-
-### Rules
-- `rules/amazon-web-services-spectral-rules.yml`
-
-### Vocabulary
-- `vocabulary/amazon-web-services-vocabulary.yaml`
-
-### Capabilities
-- `capabilities/amazon-web-services-capability.yaml`
-- `capabilities/shared/amazon-web-services-shared.yaml`
+A network index of all Amazon Web Services (AWS) API profiles maintained by the API Evangelist organization, covering all AWS services across compute, storage, database, networking, security, AI/ML, and more.
+
+**Areas:** Amazon · AWS · Cloud · Networks · Index
+
+## Amazon Web Services on APIs.io
+
+Everything profiled for Amazon Web Services is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-web-services/](https://apis.io/providers/amazon-web-services/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1687)
+
+- [Amazon Web Services Accept Certificate Transfer API](https://apis.io/apis/amazon-web-services/amazon-web-services-accept-certificate-transfer-api/) — The Accept Certificate Transfer API from Amazon Web Services — 1 operation(s) for accept certificate transfer.
+- [Amazon Web Services Acceptresourceshareinvitation API](https://apis.io/apis/amazon-web-services/amazon-web-services-acceptresourceshareinvitation-api/) — The Acceptresourceshareinvitation API from Amazon Web Services — 1 operation(s) for acceptresourceshareinvitation.
+- [Amazon Web Services Access Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-access-policies-api/) — The Access Policies API from Amazon Web Services — 2 operation(s) for access policies.
+- [Amazon Web Services Access Preview API](https://apis.io/apis/amazon-web-services/amazon-web-services-access-preview-api/) — The Access Preview API from Amazon Web Services — 2 operation(s) for access preview.
+- [Amazon Web Services Accessgrantsinstance API](https://apis.io/apis/amazon-web-services/amazon-web-services-accessgrantsinstance-api/) — The Accessgrantsinstance API from Amazon Web Services — 11 operation(s) for accessgrantsinstance.
+- [Amazon Web Services Accessgrantsinstances API](https://apis.io/apis/amazon-web-services/amazon-web-services-accessgrantsinstances-api/) — The Accessgrantsinstances API from Amazon Web Services — 1 operation(s) for accessgrantsinstances.
+- [Amazon Web Services Accesslogsubscriptions API](https://apis.io/apis/amazon-web-services/amazon-web-services-accesslogsubscriptions-api/) — The Accesslogsubscriptions API from Amazon Web Services — 2 operation(s) for accesslogsubscriptions.
+- [Amazon Web Services Accessors API](https://apis.io/apis/amazon-web-services/amazon-web-services-accessors-api/) — The Accessors API from Amazon Web Services — 2 operation(s) for accessors.
+- [Amazon Web Services Accesspointforobjectlambda API](https://apis.io/apis/amazon-web-services/amazon-web-services-accesspointforobjectlambda-api/) — The Accesspointforobjectlambda API from Amazon Web Services — 5 operation(s) for accesspointforobjectlambda.
+- [Amazon Web Services Account API](https://apis.io/apis/amazon-web-services/amazon-web-services-account-api/) — The Account API from Amazon Web Services — 8 operation(s) for account.
+- [Amazon Web Services Account Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-account-settings-api/) — The Account Settings API from Amazon Web Services — 1 operation(s) for account settings.
+- [Amazon Web Services Accountpermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-accountpermissions-api/) — The Accountpermissions API from Amazon Web Services — 1 operation(s) for accountpermissions.
+- [Amazon Web Services Accounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-accounts-api/) — The Accounts API from Amazon Web Services — 125 operation(s) for accounts.
+- [Amazon Web Services Action Interactions API](https://apis.io/apis/amazon-web-services/amazon-web-services-action-interactions-api/) — The Action Interactions API from Amazon Web Services — 1 operation(s) for action interactions.
+- [Amazon Web Services Action Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-action-recommendations-api/) — The Action Recommendations API from Amazon Web Services — 1 operation(s) for action recommendations.
+- [Amazon Web Services Actions API](https://apis.io/apis/amazon-web-services/amazon-web-services-actions-api/) — The Actions API from Amazon Web Services — 3 operation(s) for actions.
+- [Amazon Web Services ActivateAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-activateanomalydetector-api/) — The ActivateAnomalyDetector API from Amazon Web Services — 1 operation(s) for activateanomalydetector.
+- [Amazon Web Services Active Violations API](https://apis.io/apis/amazon-web-services/amazon-web-services-active-violations-api/) — The Active Violations API from Amazon Web Services — 1 operation(s) for active violations.
+- [Amazon Web Services Activities API](https://apis.io/apis/amazon-web-services/amazon-web-services-activities-api/) — The Activities API from Amazon Web Services — 1 operation(s) for activities.
+- [Amazon Web Services Add Draft App Version Resource Mappings API](https://apis.io/apis/amazon-web-services/amazon-web-services-add-draft-app-version-resource-mappings-api/) — The Add Draft App Version Resource Mappings API from Amazon Web Services — 1 operation(s) for add draft app version resource mappings.
+- [Amazon Web Services AddLFTagsToResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-addlftagstoresource-api/) — The AddLFTagsToResource API from Amazon Web Services — 1 operation(s) for addlftagstoresource.
+- [Amazon Web Services Admin API](https://apis.io/apis/amazon-web-services/amazon-web-services-admin-api/) — The Admin API from Amazon Web Services — 4 operation(s) for admin.
+- [Amazon Web Services Administrator API](https://apis.io/apis/amazon-web-services/amazon-web-services-administrator-api/) — The Administrator API from Amazon Web Services — 2 operation(s) for administrator.
+- [Amazon Web Services Agent API](https://apis.io/apis/amazon-web-services/amazon-web-services-agent-api/) — The Agent API from Amazon Web Services — 3 operation(s) for agent.
+- [Amazon Web Services Agent Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-agent-status-api/) — The Agent Status API from Amazon Web Services — 2 operation(s) for agent status.
+- [Amazon Web Services Agents API](https://apis.io/apis/amazon-web-services/amazon-web-services-agents-api/) — The Agents API from Amazon Web Services — 11 operation(s) for agents.
+- [Amazon Web Services Alarm Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-alarm-models-api/) — The Alarm Models API from Amazon Web Services — 3 operation(s) for alarm models.
+- [Amazon Web Services Alarms API](https://apis.io/apis/amazon-web-services/amazon-web-services-alarms-api/) — The Alarms API from Amazon Web Services — 7 operation(s) for alarms.
+- [Amazon Web Services Alerts API](https://apis.io/apis/amazon-web-services/amazon-web-services-alerts-api/) — The Alerts API from Amazon Web Services — 1 operation(s) for alerts.
+- [Amazon Web Services Allow Lists API](https://apis.io/apis/amazon-web-services/amazon-web-services-allow-lists-api/) — The Allow Lists API from Amazon Web Services — 2 operation(s) for allow lists.
+- [Amazon Web Services Amazon Web Services Acm API](https://apis.io/apis/amazon-web-services/amazon-web-services-amazon-web-services-acm-api/) — The Amazon Web Services Acm API from Amazon Web Services — 1 operation(s) for amazon web services acm.
+- [Amazon Web Services Amazon Web Services Dataexchange API](https://apis.io/apis/amazon-web-services/amazon-web-services-amazon-web-services-dataexchange-api/) — The Amazon Web Services Dataexchange API from Amazon Web Services — 1 operation(s) for amazon web services dataexchange.
+- [Amazon Web Services Amazon Web Services Mediastore Data API](https://apis.io/apis/amazon-web-services/amazon-web-services-amazon-web-services-mediastore-data-api/) — The Amazon Web Services Mediastore Data API from Amazon Web Services — 2 operation(s) for amazon web services mediastore data.
+- [Amazon Web Services Amazonclouddirectory API](https://apis.io/apis/amazon-web-services/amazon-web-services-amazonclouddirectory-api/) — The Amazonclouddirectory API from Amazon Web Services — 64 operation(s) for amazonclouddirectory.
+- [Amazon Web Services Analysis API](https://apis.io/apis/amazon-web-services/amazon-web-services-analysis-api/) — The Analysis API from Amazon Web Services — 3 operation(s) for analysis.
+- [Amazon Web Services Analytics Data API](https://apis.io/apis/amazon-web-services/amazon-web-services-analytics-data-api/) — The Analytics Data API from Amazon Web Services — 2 operation(s) for analytics data.
+- [Amazon Web Services Analyzed Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-analyzed-resource-api/) — The Analyzed Resource API from Amazon Web Services — 1 operation(s) for analyzed resource.
+- [Amazon Web Services Analyzer API](https://apis.io/apis/amazon-web-services/amazon-web-services-analyzer-api/) — The Analyzer API from Amazon Web Services — 4 operation(s) for analyzer.
+- [Amazon Web Services Anomalies API](https://apis.io/apis/amazon-web-services/amazon-web-services-anomalies-api/) — The Anomalies API from Amazon Web Services — 2 operation(s) for anomalies.
+- [Amazon Web Services ApiCaches API](https://apis.io/apis/amazon-web-services/amazon-web-services-apicaches-api/) — The ApiCaches API from Amazon Web Services — 2 operation(s) for apicaches.
+- [Amazon Web Services Apikeys?mode=import API](https://apis.io/apis/amazon-web-services/amazon-web-services-apikeys-mode-import-api/) — The Apikeys?mode=import API from Amazon Web Services — 1 operation(s) for apikeys?mode=import.
+- [Amazon Web Services App API](https://apis.io/apis/amazon-web-services/amazon-web-services-app-api/) — The App API from Amazon Web Services — 10 operation(s) for app.
+- [Amazon Web Services App Instance Bots API](https://apis.io/apis/amazon-web-services/amazon-web-services-app-instance-bots-api/) — The App Instance Bots API from Amazon Web Services — 2 operation(s) for app instance bots.
+- [Amazon Web Services App Instance Users API](https://apis.io/apis/amazon-web-services/amazon-web-services-app-instance-users-api/) — The App Instance Users API from Amazon Web Services — 5 operation(s) for app instance users.
+- [Amazon Web Services App Instances API](https://apis.io/apis/amazon-web-services/amazon-web-services-app-instances-api/) — The App Instances API from Amazon Web Services — 6 operation(s) for app instances.
+- [Amazon Web Services Application Instances API](https://apis.io/apis/amazon-web-services/amazon-web-services-application-instances-api/) — The Application Instances API from Amazon Web Services — 6 operation(s) for application instances.
+- [Amazon Web Services Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-applications-api/) — The Applications API from Amazon Web Services — 73 operation(s) for applications.
+- [Amazon Web Services Appmonitor API](https://apis.io/apis/amazon-web-services/amazon-web-services-appmonitor-api/) — The Appmonitor API from Amazon Web Services — 3 operation(s) for appmonitor.
+- [Amazon Web Services Appmonitors API](https://apis.io/apis/amazon-web-services/amazon-web-services-appmonitors-api/) — The Appmonitors API from Amazon Web Services — 2 operation(s) for appmonitors.
+- [Amazon Web Services Apps API](https://apis.io/apis/amazon-web-services/amazon-web-services-apps-api/) — The Apps API from Amazon Web Services — 67 operation(s) for apps.
+- [Amazon Web Services Archive Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-archive-rule-api/) — The Archive Rule API from Amazon Web Services — 1 operation(s) for archive rule.
+- [Amazon Web Services ArchiveApplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-archiveapplication-api/) — The ArchiveApplication API from Amazon Web Services — 1 operation(s) for archiveapplication.
+- [Amazon Web Services ArchiveWave API](https://apis.io/apis/amazon-web-services/amazon-web-services-archivewave-api/) — The ArchiveWave API from Amazon Web Services — 1 operation(s) for archivewave.
+- [Amazon Web Services Artifacts API](https://apis.io/apis/amazon-web-services/amazon-web-services-artifacts-api/) — The Artifacts API from Amazon Web Services — 1 operation(s) for artifacts.
+- [Amazon Web Services Assessment Frameworks API](https://apis.io/apis/amazon-web-services/amazon-web-services-assessmentframeworks-api/) — The assessmentFrameworks API from Amazon Web Services — 3 operation(s) for assessmentframeworks.
+- [Amazon Web Services Assessment Framework Share Requests API](https://apis.io/apis/amazon-web-services/amazon-web-services-assessmentframeworksharerequests-api/) — The assessmentFrameworkShareRequests API from Amazon Web Services — 2 operation(s) for assessmentframeworksharerequests.
+- [Amazon Web Services Assessment Reports API](https://apis.io/apis/amazon-web-services/amazon-web-services-assessmentreports-api/) — The assessmentReports API from Amazon Web Services — 2 operation(s) for assessmentreports.
+- [Amazon Web Services Assessments API](https://apis.io/apis/amazon-web-services/amazon-web-services-assessments-api/) — The Assessments API from Amazon Web Services — 20 operation(s) for assessments.
+- [Amazon Web Services Asset Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-asset-models-api/) — The Asset Models API from Amazon Web Services — 6 operation(s) for asset models.
+- [Amazon Web Services Assets API](https://apis.io/apis/amazon-web-services/amazon-web-services-assets-api/) — The Assets API from Amazon Web Services — 10 operation(s) for assets.
+- [Amazon Web Services Assignment API](https://apis.io/apis/amazon-web-services/amazon-web-services-assignment-api/) — The Assignment API from Amazon Web Services — 2 operation(s) for assignment.
+- [Amazon Web Services Assistants API](https://apis.io/apis/amazon-web-services/amazon-web-services-assistants-api/) — The Assistants API from Amazon Web Services — 11 operation(s) for assistants.
+- [Amazon Web Services Associate Accounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-associate-accounts-api/) — The Associate Accounts API from Amazon Web Services — 1 operation(s) for associate accounts.
+- [Amazon Web Services Associate Pricing Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-associate-pricing-rules-api/) — The Associate Pricing Rules API from Amazon Web Services — 1 operation(s) for associate pricing rules.
+- [Amazon Web Services AssociateApplications API](https://apis.io/apis/amazon-web-services/amazon-web-services-associateapplications-api/) — The AssociateApplications API from Amazon Web Services — 1 operation(s) for associateapplications.
+- [Amazon Web Services AssociateDefaultView API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatedefaultview-api/) — The AssociateDefaultView API from Amazon Web Services — 1 operation(s) for associatedefaultview.
+- [Amazon Web Services Associate Domain API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatedomain-api/) — The associateDomain API from Amazon Web Services — 1 operation(s) for associatedomain.
+- [Amazon Web Services Associateresourceshare API](https://apis.io/apis/amazon-web-services/amazon-web-services-associateresourceshare-api/) — The Associateresourceshare API from Amazon Web Services — 1 operation(s) for associateresourceshare.
+- [Amazon Web Services Associateresourcesharepermission API](https://apis.io/apis/amazon-web-services/amazon-web-services-associateresourcesharepermission-api/) — The Associateresourcesharepermission API from Amazon Web Services — 1 operation(s) for associateresourcesharepermission.
+- [Amazon Web Services AssociateSourceNetworkStack API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatesourcenetworkstack-api/) — The AssociateSourceNetworkStack API from Amazon Web Services — 1 operation(s) for associatesourcenetworkstack.
+- [Amazon Web Services AssociateSourceServers API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatesourceservers-api/) — The AssociateSourceServers API from Amazon Web Services — 1 operation(s) for associatesourceservers.
+- [Amazon Web Services Associate Website Authorization Provider API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatewebsiteauthorizationprovider-api/) — The associateWebsiteAuthorizationProvider API from Amazon Web Services — 1 operation(s) for associatewebsiteauthorizationprovider.
+- [Amazon Web Services Associate Website Certificate Authority API](https://apis.io/apis/amazon-web-services/amazon-web-services-associatewebsitecertificateauthority-api/) — The associateWebsiteCertificateAuthority API from Amazon Web Services — 1 operation(s) for associatewebsitecertificateauthority.
+- [Amazon Web Services Associations API](https://apis.io/apis/amazon-web-services/amazon-web-services-associations-api/) — The Associations API from Amazon Web Services — 3 operation(s) for associations.
+- [Amazon Web Services AssumeDecoratedRoleWithSAML API](https://apis.io/apis/amazon-web-services/amazon-web-services-assumedecoratedrolewithsaml-api/) — The AssumeDecoratedRoleWithSAML API from Amazon Web Services — 1 operation(s) for assumedecoratedrolewithsaml.
+- [Amazon Web Services Async Requests API](https://apis.io/apis/amazon-web-services/amazon-web-services-async-requests-api/) — The Async Requests API from Amazon Web Services — 4 operation(s) for async requests.
+- [Amazon Web Services Attached Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-attached-policies-api/) — The Attached Policies API from Amazon Web Services — 1 operation(s) for attached policies.
+- [Amazon Web Services Attachments API](https://apis.io/apis/amazon-web-services/amazon-web-services-attachments-api/) — The Attachments API from Amazon Web Services — 4 operation(s) for attachments.
+- [Amazon Web Services Attribute Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-attribute-groups-api/) — The Attribute Groups API from Amazon Web Services — 2 operation(s) for attribute groups.
+- [Amazon Web Services Audience Export Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-audience-export-job-api/) — The Audience Export Job API from Amazon Web Services — 1 operation(s) for audience export job.
+- [Amazon Web Services Audience Generation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-audience-generation-job-api/) — The Audience Generation Job API from Amazon Web Services — 2 operation(s) for audience generation job.
+- [Amazon Web Services Audience Model API](https://apis.io/apis/amazon-web-services/amazon-web-services-audience-model-api/) — The Audience Model API from Amazon Web Services — 2 operation(s) for audience model.
+- [Amazon Web Services Audit API](https://apis.io/apis/amazon-web-services/amazon-web-services-audit-api/) — The Audit API from Amazon Web Services — 28 operation(s) for audit.
+- [Amazon Web Services Authorization Token API](https://apis.io/apis/amazon-web-services/amazon-web-services-authorization-token-api/) — The Authorization Token API from Amazon Web Services — 1 operation(s) for authorization token.
+- [Amazon Web Services Authorizer API](https://apis.io/apis/amazon-web-services/amazon-web-services-authorizer-api/) — The Authorizer API from Amazon Web Services — 2 operation(s) for authorizer.
+- [Amazon Web Services Authorizers API](https://apis.io/apis/amazon-web-services/amazon-web-services-authorizers-api/) — The Authorizers API from Amazon Web Services — 3 operation(s) for authorizers.
+- [Amazon Web Services Authpolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-authpolicy-api/) — The Authpolicy API from Amazon Web Services — 1 operation(s) for authpolicy.
+- [Amazon Web Services Automated Discovery API](https://apis.io/apis/amazon-web-services/amazon-web-services-automated-discovery-api/) — The Automated Discovery API from Amazon Web Services — 1 operation(s) for automated discovery.
+- [Amazon Web Services Autoshifts API](https://apis.io/apis/amazon-web-services/amazon-web-services-autoshifts-api/) — The Autoshifts API from Amazon Web Services — 1 operation(s) for autoshifts.
+- [Amazon Web Services Backend API](https://apis.io/apis/amazon-web-services/amazon-web-services-backend-api/) — The Backend API from Amazon Web Services — 29 operation(s) for backend.
+- [Amazon Web Services BackTestAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-backtestanomalydetector-api/) — The BackTestAnomalyDetector API from Amazon Web Services — 1 operation(s) for backtestanomalydetector.
+- [Amazon Web Services Backup API](https://apis.io/apis/amazon-web-services/amazon-web-services-backup-api/) — The Backup API from Amazon Web Services — 10 operation(s) for backup.
+- [Amazon Web Services Backup Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-backup-jobs-api/) — The Backup Jobs API from Amazon Web Services — 7 operation(s) for backup jobs.
+- [Amazon Web Services Backup Vaults API](https://apis.io/apis/amazon-web-services/amazon-web-services-backup-vaults-api/) — The Backup Vaults API from Amazon Web Services — 11 operation(s) for backup vaults.
+- [Amazon Web Services Batch Associate Resources to Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-associate-resources-to-custom-line-item-api/) — The Batch Associate Resources to Custom Line Item API from Amazon Web Services — 1 operation(s) for batch associate resources to custom line item.
+- [Amazon Web Services Batch Disassociate Resources From Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-disassociate-resources-from-custom-line-item-api/) — The Batch Disassociate Resources From Custom Line Item API from Amazon Web Services — 1 operation(s) for batch disassociate resources from custom line item.
+- [Amazon Web Services Batch Get Token Balance API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-get-token-balance-api/) — The Batch Get Token Balance API from Amazon Web Services — 1 operation(s) for batch get token balance.
+- [Amazon Web Services Batch Update Recommendation Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-update-recommendation-status-api/) — The Batch Update Recommendation Status API from Amazon Web Services — 1 operation(s) for batch update recommendation status.
+- [Amazon Web Services BatchDescribeEntities API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchdescribeentities-api/) — The BatchDescribeEntities API from Amazon Web Services — 1 operation(s) for batchdescribeentities.
+- [Amazon Web Services BatchExecute API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchexecute-api/) — The BatchExecute API from Amazon Web Services — 1 operation(s) for batchexecute.
+- [Amazon Web Services BatchGetChannel API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgetchannel-api/) — The BatchGetChannel API from Amazon Web Services — 1 operation(s) for batchgetchannel.
+- [Amazon Web Services Batch Get Incident Findings API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgetincidentfindings-api/) — The batchGetIncidentFindings API from Amazon Web Services — 1 operation(s) for batchgetincidentfindings.
+- [Amazon Web Services BatchGetRecord API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgetrecord-api/) — The BatchGetRecord API from Amazon Web Services — 1 operation(s) for batchgetrecord.
+- [Amazon Web Services BatchGetStreamKey API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgetstreamkey-api/) — The BatchGetStreamKey API from Amazon Web Services — 1 operation(s) for batchgetstreamkey.
+- [Amazon Web Services BatchGetView API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgetview-api/) — The BatchGetView API from Amazon Web Services — 1 operation(s) for batchgetview.
+- [Amazon Web Services BatchGrantPermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchgrantpermissions-api/) — The BatchGrantPermissions API from Amazon Web Services — 1 operation(s) for batchgrantpermissions.
+- [Amazon Web Services BatchPutMetrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchputmetrics-api/) — The BatchPutMetrics API from Amazon Web Services — 1 operation(s) for batchputmetrics.
+- [Amazon Web Services BatchRevokePermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchrevokepermissions-api/) — The BatchRevokePermissions API from Amazon Web Services — 1 operation(s) for batchrevokepermissions.
+- [Amazon Web Services BatchStartViewerSessionRevocation API](https://apis.io/apis/amazon-web-services/amazon-web-services-batchstartviewersessionrevocation-api/) — The BatchStartViewerSessionRevocation API from Amazon Web Services — 1 operation(s) for batchstartviewersessionrevocation.
+- [Amazon Web Services BeginTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-begintransaction-api/) — The BeginTransaction API from Amazon Web Services — 1 operation(s) for begintransaction.
+- [Amazon Web Services Behavior Model Training API](https://apis.io/apis/amazon-web-services/amazon-web-services-behavior-model-training-api/) — The Behavior Model Training API from Amazon Web Services — 1 operation(s) for behavior model training.
+- [Amazon Web Services Billing Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-billing-groups-api/) — The Billing Groups API from Amazon Web Services — 5 operation(s) for billing groups.
+- [Amazon Web Services Bot API](https://apis.io/apis/amazon-web-services/amazon-web-services-bot-api/) — The Bot API from Amazon Web Services — 4 operation(s) for bot.
+- [Amazon Web Services Bots API](https://apis.io/apis/amazon-web-services/amazon-web-services-bots-api/) — The Bots API from Amazon Web Services — 58 operation(s) for bots.
+- [Amazon Web Services Bridges API](https://apis.io/apis/amazon-web-services/amazon-web-services-bridges-api/) — The Bridges API from Amazon Web Services — 7 operation(s) for bridges.
+- [Amazon Web Services Broker Engine Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-broker-engine-types-api/) — The Broker Engine Types API from Amazon Web Services — 1 operation(s) for broker engine types.
+- [Amazon Web Services Broker Instance Options API](https://apis.io/apis/amazon-web-services/amazon-web-services-broker-instance-options-api/) — The Broker Instance Options API from Amazon Web Services — 1 operation(s) for broker instance options.
+- [Amazon Web Services Brokers API](https://apis.io/apis/amazon-web-services/amazon-web-services-brokers-api/) — The Brokers API from Amazon Web Services — 6 operation(s) for brokers.
+- [Amazon Web Services Bucket Accelerate Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-accelerate-configuration-api/) — The Bucket Accelerate Configuration API from Amazon Web Services — 1 operation(s) for bucket accelerate configuration.
+- [Amazon Web Services Bucket ACL API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-acl-api/) — The Bucket ACL API from Amazon Web Services — 1 operation(s) for bucket acl.
+- [Amazon Web Services Bucket Analytics Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-analytics-configuration-api/) — The Bucket Analytics Configuration API from Amazon Web Services — 1 operation(s) for bucket analytics configuration.
+- [Amazon Web Services Bucket API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-api/) — The Bucket API from Amazon Web Services — 7 operation(s) for bucket.
+- [Amazon Web Services Bucket CORS API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-cors-api/) — The Bucket CORS API from Amazon Web Services — 1 operation(s) for bucket cors.
+- [Amazon Web Services Bucket Encryption API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-encryption-api/) — The Bucket Encryption API from Amazon Web Services — 1 operation(s) for bucket encryption.
+- [Amazon Web Services Bucket Intelligent Tiering Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-intelligent-tiering-configuration-api/) — The Bucket Intelligent Tiering Configuration API from Amazon Web Services — 1 operation(s) for bucket intelligent tiering configuration.
+- [Amazon Web Services Bucket Inventory Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-inventory-configuration-api/) — The Bucket Inventory Configuration API from Amazon Web Services — 1 operation(s) for bucket inventory configuration.
+- [Amazon Web Services Bucket Lifecycle Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-lifecycle-configuration-api/) — The Bucket Lifecycle Configuration API from Amazon Web Services — 1 operation(s) for bucket lifecycle configuration.
+- [Amazon Web Services Bucket Location API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-location-api/) — The Bucket Location API from Amazon Web Services — 1 operation(s) for bucket location.
+- [Amazon Web Services Bucket Logging API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-logging-api/) — The Bucket Logging API from Amazon Web Services — 1 operation(s) for bucket logging.
+- [Amazon Web Services Bucket Metrics Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-metrics-configuration-api/) — The Bucket Metrics Configuration API from Amazon Web Services — 1 operation(s) for bucket metrics configuration.
+- [Amazon Web Services Bucket Notification Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-notification-configuration-api/) — The Bucket Notification Configuration API from Amazon Web Services — 1 operation(s) for bucket notification configuration.
+- [Amazon Web Services Bucket Ownership Controls API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-ownership-controls-api/) — The Bucket Ownership Controls API from Amazon Web Services — 1 operation(s) for bucket ownership controls.
+- [Amazon Web Services Bucket Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-policy-api/) — The Bucket Policy API from Amazon Web Services — 1 operation(s) for bucket policy.
+- [Amazon Web Services Bucket Policy Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-policy-status-api/) — The Bucket Policy Status API from Amazon Web Services — 1 operation(s) for bucket policy status.
+- [Amazon Web Services Bucket Replication API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-replication-api/) — The Bucket Replication API from Amazon Web Services — 1 operation(s) for bucket replication.
+- [Amazon Web Services Bucket Request Payment API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-request-payment-api/) — The Bucket Request Payment API from Amazon Web Services — 1 operation(s) for bucket request payment.
+- [Amazon Web Services Bucket Tagging API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-tagging-api/) — The Bucket Tagging API from Amazon Web Services — 1 operation(s) for bucket tagging.
+- [Amazon Web Services Bucket Versioning API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-versioning-api/) — The Bucket Versioning API from Amazon Web Services — 1 operation(s) for bucket versioning.
+- [Amazon Web Services Bucket Website API](https://apis.io/apis/amazon-web-services/amazon-web-services-bucket-website-api/) — The Bucket Website API from Amazon Web Services — 1 operation(s) for bucket website.
+- [Amazon Web Services Builtins API](https://apis.io/apis/amazon-web-services/amazon-web-services-builtins-api/) — The Builtins API from Amazon Web Services — 5 operation(s) for builtins.
+- [Amazon Web Services Bundles API](https://apis.io/apis/amazon-web-services/amazon-web-services-bundles-api/) — The Bundles API from Amazon Web Services — 2 operation(s) for bundles.
+- [Amazon Web Services Cacertificate API](https://apis.io/apis/amazon-web-services/amazon-web-services-cacertificate-api/) — The Cacertificate API from Amazon Web Services — 2 operation(s) for cacertificate.
+- [Amazon Web Services Cacertificates API](https://apis.io/apis/amazon-web-services/amazon-web-services-cacertificates-api/) — The Cacertificates API from Amazon Web Services — 1 operation(s) for cacertificates.
+- [Amazon Web Services Call Analytics Stream Transcription API](https://apis.io/apis/amazon-web-services/amazon-web-services-call-analytics-stream-transcription-api/) — The Call Analytics Stream Transcription API from Amazon Web Services — 1 operation(s) for call analytics stream transcription.
+- [Amazon Web Services Campaigns API](https://apis.io/apis/amazon-web-services/amazon-web-services-campaigns-api/) — The Campaigns API from Amazon Web Services — 11 operation(s) for campaigns.
+- [Amazon Web Services Campaigns State API](https://apis.io/apis/amazon-web-services/amazon-web-services-campaigns-state-api/) — The Campaigns State API from Amazon Web Services — 1 operation(s) for campaigns state.
+- [Amazon Web Services Campaigns Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-campaigns-summary-api/) — The Campaigns Summary API from Amazon Web Services — 1 operation(s) for campaigns summary.
+- [Amazon Web Services Canaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-canaries-api/) — The Canaries API from Amazon Web Services — 2 operation(s) for canaries.
+- [Amazon Web Services Canary API](https://apis.io/apis/amazon-web-services/amazon-web-services-canary-api/) — The Canary API from Amazon Web Services — 5 operation(s) for canary.
+- [Amazon Web Services Cancel Certificate Transfer API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-certificate-transfer-api/) — The Cancel Certificate Transfer API from Amazon Web Services — 1 operation(s) for cancel certificate transfer.
+- [Amazon Web Services Cancel Flow Executions API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-flow-executions-api/) — The Cancel Flow Executions API from Amazon Web Services — 1 operation(s) for cancel flow executions.
+- [Amazon Web Services CancelChangeSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancelchangeset-api/) — The CancelChangeSet API from Amazon Web Services — 1 operation(s) for cancelchangeset.
+- [Amazon Web Services CancelImageCreation API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancelimagecreation-api/) — The CancelImageCreation API from Amazon Web Services — 1 operation(s) for cancelimagecreation.
+- [Amazon Web Services Canceljob API](https://apis.io/apis/amazon-web-services/amazon-web-services-canceljob-api/) — The Canceljob API from Amazon Web Services — 1 operation(s) for canceljob.
+- [Amazon Web Services CancelLifecycleExecution API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancellifecycleexecution-api/) — The CancelLifecycleExecution API from Amazon Web Services — 1 operation(s) for cancellifecycleexecution.
+- [Amazon Web Services CancelTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-canceltransaction-api/) — The CancelTransaction API from Amazon Web Services — 1 operation(s) for canceltransaction.
+- [Amazon Web Services Cardvalidationdata API](https://apis.io/apis/amazon-web-services/amazon-web-services-cardvalidationdata-api/) — The Cardvalidationdata API from Amazon Web Services — 2 operation(s) for cardvalidationdata.
+- [Amazon Web Services Catalog API](https://apis.io/apis/amazon-web-services/amazon-web-services-catalog-api/) — The Catalog API from Amazon Web Services — 2 operation(s) for catalog.
+- [Amazon Web Services Catalogs API](https://apis.io/apis/amazon-web-services/amazon-web-services-catalogs-api/) — The Catalogs API from Amazon Web Services — 1 operation(s) for catalogs.
+- [Amazon Web Services Cellreadiness API](https://apis.io/apis/amazon-web-services/amazon-web-services-cellreadiness-api/) — The Cellreadiness API from Amazon Web Services — 1 operation(s) for cellreadiness.
+- [Amazon Web Services Cells API](https://apis.io/apis/amazon-web-services/amazon-web-services-cells-api/) — The Cells API from Amazon Web Services — 2 operation(s) for cells.
+- [Amazon Web Services Certificate API](https://apis.io/apis/amazon-web-services/amazon-web-services-certificate-api/) — The Certificate API from Amazon Web Services — 2 operation(s) for certificate.
+- [Amazon Web Services Certificate Providers API](https://apis.io/apis/amazon-web-services/amazon-web-services-certificate-providers-api/) — The Certificate Providers API from Amazon Web Services — 2 operation(s) for certificate providers.
+- [Amazon Web Services Certificates API](https://apis.io/apis/amazon-web-services/amazon-web-services-certificates-api/) — The Certificates API from Amazon Web Services — 2 operation(s) for certificates.
+- [Amazon Web Services Certificates by Ca API](https://apis.io/apis/amazon-web-services/amazon-web-services-certificates-by-ca-api/) — The Certificates by Ca API from Amazon Web Services — 1 operation(s) for certificates by ca.
+- [Amazon Web Services Certificates Out Going API](https://apis.io/apis/amazon-web-services/amazon-web-services-certificates-out-going-api/) — The Certificates Out Going API from Amazon Web Services — 1 operation(s) for certificates out going.
+- [Amazon Web Services ChangeServerLifeCycleState API](https://apis.io/apis/amazon-web-services/amazon-web-services-changeserverlifecyclestate-api/) — The ChangeServerLifeCycleState API from Amazon Web Services — 1 operation(s) for changeserverlifecyclestate.
+- [Amazon Web Services Channel API](https://apis.io/apis/amazon-web-services/amazon-web-services-channel-api/) — The Channel API from Amazon Web Services — 6 operation(s) for channel.
+- [Amazon Web Services Channel Flows API](https://apis.io/apis/amazon-web-services/amazon-web-services-channel-flows-api/) — The Channel Flows API from Amazon Web Services — 2 operation(s) for channel flows.
+- [Amazon Web Services Channel Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-channelgroup-api/) — The channelGroup API from Amazon Web Services — 8 operation(s) for channelgroup.
+- [Amazon Web Services Channels API](https://apis.io/apis/amazon-web-services/amazon-web-services-channels-api/) — The Channels API from Amazon Web Services — 29 operation(s) for channels.
+- [Amazon Web Services Channels?operation=search API](https://apis.io/apis/amazon-web-services/amazon-web-services-channels-operation-search-api/) — The Channels?operation=search API from Amazon Web Services — 1 operation(s) for channels?operation=search.
+- [Amazon Web Services Channels?scope=app Instance User Memberships API](https://apis.io/apis/amazon-web-services/amazon-web-services-channels-scope-app-instance-user-memberships-api/) — The Channels?scope=app Instance User Memberships API from Amazon Web Services — 1 operation(s) for channels?scope=app instance user memberships.
+- [Amazon Web Services Channels?scope=app Instance User Moderated Channels API](https://apis.io/apis/amazon-web-services/amazon-web-services-channels-scope-app-instance-user-moderated-channels-api/) — The Channels?scope=app Instance User Moderated Channels API from Amazon Web Services — 1 operation(s) for channels?scope=app instance user moderated channels.
+- [Amazon Web Services Channels?scope=channel Flow Associations API](https://apis.io/apis/amazon-web-services/amazon-web-services-channels-scope-channel-flow-associations-api/) — The Channels?scope=channel Flow Associations API from Amazon Web Services — 1 operation(s) for channels?scope=channel flow associations.
+- [Amazon Web Services Chat Integration Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-chat-integration-event-api/) — The Chat Integration Event API from Amazon Web Services — 1 operation(s) for chat integration event.
+- [Amazon Web Services Checks API](https://apis.io/apis/amazon-web-services/amazon-web-services-checks-api/) — The Checks API from Amazon Web Services — 1 operation(s) for checks.
+- [Amazon Web Services Cissession API](https://apis.io/apis/amazon-web-services/amazon-web-services-cissession-api/) — The Cissession API from Amazon Web Services — 4 operation(s) for cissession.
+- [Amazon Web Services Claims API](https://apis.io/apis/amazon-web-services/amazon-web-services-claims-api/) — The Claims API from Amazon Web Services — 1 operation(s) for claims.
+- [Amazon Web Services Classification Export Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-classification-export-configuration-api/) — The Classification Export Configuration API from Amazon Web Services — 1 operation(s) for classification export configuration.
+- [Amazon Web Services Classification Scopes API](https://apis.io/apis/amazon-web-services/amazon-web-services-classification-scopes-api/) — The Classification Scopes API from Amazon Web Services — 2 operation(s) for classification scopes.
+- [Amazon Web Services Client API](https://apis.io/apis/amazon-web-services/amazon-web-services-client-api/) — The Client API from Amazon Web Services — 1 operation(s) for client.
+- [Amazon Web Services Clientcertificates API](https://apis.io/apis/amazon-web-services/amazon-web-services-clientcertificates-api/) — The Clientcertificates API from Amazon Web Services — 2 operation(s) for clientcertificates.
+- [Amazon Web Services Clitoken API](https://apis.io/apis/amazon-web-services/amazon-web-services-clitoken-api/) — The Clitoken API from Amazon Web Services — 1 operation(s) for clitoken.
+- [Amazon Web Services Cluster API](https://apis.io/apis/amazon-web-services/amazon-web-services-cluster-api/) — The Cluster API from Amazon Web Services — 3 operation(s) for cluster.
+- [Amazon Web Services Cluster Registrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-cluster-registrations-api/) — The Cluster Registrations API from Amazon Web Services — 2 operation(s) for cluster registrations.
+- [Amazon Web Services Cluster Snapshot API](https://apis.io/apis/amazon-web-services/amazon-web-services-cluster-snapshot-api/) — The Cluster Snapshot API from Amazon Web Services — 3 operation(s) for cluster snapshot.
+- [Amazon Web Services Cluster Snapshots API](https://apis.io/apis/amazon-web-services/amazon-web-services-cluster-snapshots-api/) — The Cluster Snapshots API from Amazon Web Services — 1 operation(s) for cluster snapshots.
+- [Amazon Web Services Clusters API](https://apis.io/apis/amazon-web-services/amazon-web-services-clusters-api/) — The Clusters API from Amazon Web Services — 49 operation(s) for clusters.
+- [Amazon Web Services Codereviews API](https://apis.io/apis/amazon-web-services/amazon-web-services-codereviews-api/) — The Codereviews API from Amazon Web Services — 3 operation(s) for codereviews.
+- [Amazon Web Services Codesnippet API](https://apis.io/apis/amazon-web-services/amazon-web-services-codesnippet-api/) — The Codesnippet API from Amazon Web Services — 1 operation(s) for codesnippet.
+- [Amazon Web Services Collaborations API](https://apis.io/apis/amazon-web-services/amazon-web-services-collaborations-api/) — The Collaborations API from Amazon Web Services — 16 operation(s) for collaborations.
+- [Amazon Web Services CommitTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-committransaction-api/) — The CommitTransaction API from Amazon Web Services — 1 operation(s) for committransaction.
+- [Amazon Web Services Compatible Kafka Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-compatible-kafka-versions-api/) — The Compatible Kafka Versions API from Amazon Web Services — 1 operation(s) for compatible kafka versions.
+- [Amazon Web Services Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-config-api/) — The Config API from Amazon Web Services — 2 operation(s) for config.
+- [Amazon Web Services Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-configuration-api/) — The Configuration API from Amazon Web Services — 9 operation(s) for configuration.
+- [Amazon Web Services Configuration Policy Association API](https://apis.io/apis/amazon-web-services/amazon-web-services-configurationpolicyassociation-api/) — The configurationPolicyAssociation API from Amazon Web Services — 5 operation(s) for configurationpolicyassociation.
+- [Amazon Web Services Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-configurations-api/) — The Configurations API from Amazon Web Services — 7 operation(s) for configurations.
+- [Amazon Web Services Configurationsessions API](https://apis.io/apis/amazon-web-services/amazon-web-services-configurationsessions-api/) — The Configurationsessions API from Amazon Web Services — 1 operation(s) for configurationsessions.
+- [Amazon Web Services Configured Audience Model API](https://apis.io/apis/amazon-web-services/amazon-web-services-configured-audience-model-api/) — The Configured Audience Model API from Amazon Web Services — 3 operation(s) for configured audience model.
+- [Amazon Web Services Confirmdestination API](https://apis.io/apis/amazon-web-services/amazon-web-services-confirmdestination-api/) — The Confirmdestination API from Amazon Web Services — 1 operation(s) for confirmdestination.
+- [Amazon Web Services Connect Attachments API](https://apis.io/apis/amazon-web-services/amazon-web-services-connect-attachments-api/) — The Connect Attachments API from Amazon Web Services — 2 operation(s) for connect attachments.
+- [Amazon Web Services Connect Instance API](https://apis.io/apis/amazon-web-services/amazon-web-services-connect-instance-api/) — The Connect Instance API from Amazon Web Services — 2 operation(s) for connect instance.
+- [Amazon Web Services Connect Peers API](https://apis.io/apis/amazon-web-services/amazon-web-services-connect-peers-api/) — The Connect Peers API from Amazon Web Services — 2 operation(s) for connect peers.
+- [Amazon Web Services @Connections API](https://apis.io/apis/amazon-web-services/amazon-web-services-connections-api/) — The @Connections API from Amazon Web Services — 3 operation(s) for @connections.
+- [Amazon Web Services Connectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-connectors-api/) — The Connectors API from Amazon Web Services — 4 operation(s) for connectors.
+- [Amazon Web Services Consolidated Report API](https://apis.io/apis/amazon-web-services/amazon-web-services-consolidatedreport-api/) — The consolidatedReport API from Amazon Web Services — 1 operation(s) for consolidatedreport.
+- [Amazon Web Services Contact API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-api/) — The Contact API from Amazon Web Services — 28 operation(s) for contact.
+- [Amazon Web Services Contact Evaluations API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-evaluations-api/) — The Contact Evaluations API from Amazon Web Services — 3 operation(s) for contact evaluations.
+- [Amazon Web Services Contact Flow Modules API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-flow-modules-api/) — The Contact Flow Modules API from Amazon Web Services — 4 operation(s) for contact flow modules.
+- [Amazon Web Services Contact Flow Modules Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-flow-modules-summary-api/) — The Contact Flow Modules Summary API from Amazon Web Services — 1 operation(s) for contact flow modules summary.
+- [Amazon Web Services Contact Flows API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-flows-api/) — The Contact Flows API from Amazon Web Services — 5 operation(s) for contact flows.
+- [Amazon Web Services Contact Flows Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-contact-flows-summary-api/) — The Contact Flows Summary API from Amazon Web Services — 1 operation(s) for contact flows summary.
+- [Amazon Web Services Contacts API](https://apis.io/apis/amazon-web-services/amazon-web-services-contacts-api/) — The Contacts API from Amazon Web Services — 3 operation(s) for contacts.
+- [Amazon Web Services Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-control-api/) — The Control API from Amazon Web Services — 10 operation(s) for control.
+- [Amazon Web Services Controlpanel API](https://apis.io/apis/amazon-web-services/amazon-web-services-controlpanel-api/) — The Controlpanel API from Amazon Web Services — 4 operation(s) for controlpanel.
+- [Amazon Web Services Controlpanels API](https://apis.io/apis/amazon-web-services/amazon-web-services-controlpanels-api/) — The Controlpanels API from Amazon Web Services — 1 operation(s) for controlpanels.
+- [Amazon Web Services Controls API](https://apis.io/apis/amazon-web-services/amazon-web-services-controls-api/) — The Controls API from Amazon Web Services — 2 operation(s) for controls.
+- [Amazon Web Services Copy Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-copy-jobs-api/) — The Copy Jobs API from Amazon Web Services — 3 operation(s) for copy jobs.
+- [Amazon Web Services Core Networks API](https://apis.io/apis/amazon-web-services/amazon-web-services-core-networks-api/) — The Core Networks API from Amazon Web Services — 9 operation(s) for core networks.
+- [Amazon Web Services Cors API](https://apis.io/apis/amazon-web-services/amazon-web-services-cors-api/) — The Cors API from Amazon Web Services — 1 operation(s) for cors.
+- [Amazon Web Services Cost Estimation API](https://apis.io/apis/amazon-web-services/amazon-web-services-cost-estimation-api/) — The Cost Estimation API from Amazon Web Services — 1 operation(s) for cost estimation.
+- [Amazon Web Services Coverage API](https://apis.io/apis/amazon-web-services/amazon-web-services-coverage-api/) — The Coverage API from Amazon Web Services — 2 operation(s) for coverage.
+- [Amazon Web Services Create App API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-app-api/) — The Create App API from Amazon Web Services — 1 operation(s) for create app.
+- [Amazon Web Services Create App Version App Component API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-app-version-app-component-api/) — The Create App Version App Component API from Amazon Web Services — 1 operation(s) for create app version app component.
+- [Amazon Web Services Create App Version Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-app-version-resource-api/) — The Create App Version Resource API from Amazon Web Services — 1 operation(s) for create app version resource.
+- [Amazon Web Services Create Billing Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-billing-group-api/) — The Create Billing Group API from Amazon Web Services — 1 operation(s) for create billing group.
+- [Amazon Web Services Create Connector Profile API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-connector-profile-api/) — The Create Connector Profile API from Amazon Web Services — 1 operation(s) for create connector profile.
+- [Amazon Web Services Create Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-custom-line-item-api/) — The Create Custom Line Item API from Amazon Web Services — 1 operation(s) for create custom line item.
+- [Amazon Web Services Create Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-flow-api/) — The Create Flow API from Amazon Web Services — 1 operation(s) for create flow.
+- [Amazon Web Services Create Landingzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-landingzone-api/) — The Create Landingzone API from Amazon Web Services — 1 operation(s) for create landingzone.
+- [Amazon Web Services Create Multipart Upload API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-multipart-upload-api/) — The Create Multipart Upload API from Amazon Web Services — 1 operation(s) for create multipart upload.
+- [Amazon Web Services Create Pricing Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-pricing-plan-api/) — The Create Pricing Plan API from Amazon Web Services — 1 operation(s) for create pricing plan.
+- [Amazon Web Services Create Pricing Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-pricing-rule-api/) — The Create Pricing Rule API from Amazon Web Services — 1 operation(s) for create pricing rule.
+- [Amazon Web Services Create Recommendation Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-recommendation-template-api/) — The Create Recommendation Template API from Amazon Web Services — 1 operation(s) for create recommendation template.
+- [Amazon Web Services Create Resiliency Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-resiliency-policy-api/) — The Create Resiliency Policy API from Amazon Web Services — 1 operation(s) for create resiliency policy.
+- [Amazon Web Services Create Session API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-session-api/) — The Create Session API from Amazon Web Services — 1 operation(s) for create session.
+- [Amazon Web Services CreateAlert API](https://apis.io/apis/amazon-web-services/amazon-web-services-createalert-api/) — The CreateAlert API from Amazon Web Services — 1 operation(s) for createalert.
+- [Amazon Web Services CreateAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-createanomalydetector-api/) — The CreateAnomalyDetector API from Amazon Web Services — 1 operation(s) for createanomalydetector.
+- [Amazon Web Services CreateApplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-createapplication-api/) — The CreateApplication API from Amazon Web Services — 1 operation(s) for createapplication.
+- [Amazon Web Services CreateChannel API](https://apis.io/apis/amazon-web-services/amazon-web-services-createchannel-api/) — The CreateChannel API from Amazon Web Services — 1 operation(s) for createchannel.
+- [Amazon Web Services CreateChatToken API](https://apis.io/apis/amazon-web-services/amazon-web-services-createchattoken-api/) — The CreateChatToken API from Amazon Web Services — 1 operation(s) for createchattoken.
+- [Amazon Web Services CreateComponent API](https://apis.io/apis/amazon-web-services/amazon-web-services-createcomponent-api/) — The CreateComponent API from Amazon Web Services — 1 operation(s) for createcomponent.
+- [Amazon Web Services Createcomputeenvironment API](https://apis.io/apis/amazon-web-services/amazon-web-services-createcomputeenvironment-api/) — The Createcomputeenvironment API from Amazon Web Services — 1 operation(s) for createcomputeenvironment.
+- [Amazon Web Services CreateConnector API](https://apis.io/apis/amazon-web-services/amazon-web-services-createconnector-api/) — The CreateConnector API from Amazon Web Services — 1 operation(s) for createconnector.
+- [Amazon Web Services CreateContainerRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-createcontainerrecipe-api/) — The CreateContainerRecipe API from Amazon Web Services — 1 operation(s) for createcontainerrecipe.
+- [Amazon Web Services CreateDataCellsFilter API](https://apis.io/apis/amazon-web-services/amazon-web-services-createdatacellsfilter-api/) — The CreateDataCellsFilter API from Amazon Web Services — 1 operation(s) for createdatacellsfilter.
+- [Amazon Web Services Create Deployment API](https://apis.io/apis/amazon-web-services/amazon-web-services-createdeployment-api/) — The createDeployment API from Amazon Web Services — 1 operation(s) for createdeployment.
+- [Amazon Web Services Create Destination API](https://apis.io/apis/amazon-web-services/amazon-web-services-createdestination-api/) — The createDestination API from Amazon Web Services — 1 operation(s) for createdestination.
+- [Amazon Web Services CreateDistributionConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createdistributionconfiguration-api/) — The CreateDistributionConfiguration API from Amazon Web Services — 1 operation(s) for createdistributionconfiguration.
+- [Amazon Web Services CreateEncoderConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createencoderconfiguration-api/) — The CreateEncoderConfiguration API from Amazon Web Services — 1 operation(s) for createencoderconfiguration.
+- [Amazon Web Services CreateExtendedSourceServer API](https://apis.io/apis/amazon-web-services/amazon-web-services-createextendedsourceserver-api/) — The CreateExtendedSourceServer API from Amazon Web Services — 1 operation(s) for createextendedsourceserver.
+- [Amazon Web Services CreateGroup API](https://apis.io/apis/amazon-web-services/amazon-web-services-creategroup-api/) — The CreateGroup API from Amazon Web Services — 1 operation(s) for creategroup.
+- [Amazon Web Services CreateImagePipeline API](https://apis.io/apis/amazon-web-services/amazon-web-services-createimagepipeline-api/) — The CreateImagePipeline API from Amazon Web Services — 1 operation(s) for createimagepipeline.
+- [Amazon Web Services CreateImageRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-createimagerecipe-api/) — The CreateImageRecipe API from Amazon Web Services — 1 operation(s) for createimagerecipe.
+- [Amazon Web Services CreateIndex API](https://apis.io/apis/amazon-web-services/amazon-web-services-createindex-api/) — The CreateIndex API from Amazon Web Services — 1 operation(s) for createindex.
+- [Amazon Web Services CreateInfrastructureConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createinfrastructureconfiguration-api/) — The CreateInfrastructureConfiguration API from Amazon Web Services — 1 operation(s) for createinfrastructureconfiguration.
+- [Amazon Web Services Createjobqueue API](https://apis.io/apis/amazon-web-services/amazon-web-services-createjobqueue-api/) — The Createjobqueue API from Amazon Web Services — 1 operation(s) for createjobqueue.
+- [Amazon Web Services CreateLakeFormationIdentityCenterConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlakeformationidentitycenterconfiguration-api/) — The CreateLakeFormationIdentityCenterConfiguration API from Amazon Web Services — 1 operation(s) for createlakeformationidentitycenterconfiguration.
+- [Amazon Web Services CreateLakeFormationOptIn API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlakeformationoptin-api/) — The CreateLakeFormationOptIn API from Amazon Web Services — 1 operation(s) for createlakeformationoptin.
+- [Amazon Web Services CreateLaunchConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlaunchconfigurationtemplate-api/) — The CreateLaunchConfigurationTemplate API from Amazon Web Services — 1 operation(s) for createlaunchconfigurationtemplate.
+- [Amazon Web Services CreateLFTag API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlftag-api/) — The CreateLFTag API from Amazon Web Services — 1 operation(s) for createlftag.
+- [Amazon Web Services CreateLifecyclePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlifecyclepolicy-api/) — The CreateLifecyclePolicy API from Amazon Web Services — 1 operation(s) for createlifecyclepolicy.
+- [Amazon Web Services CreateLink API](https://apis.io/apis/amazon-web-services/amazon-web-services-createlink-api/) — The CreateLink API from Amazon Web Services — 1 operation(s) for createlink.
+- [Amazon Web Services CreateLoggingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createloggingconfiguration-api/) — The CreateLoggingConfiguration API from Amazon Web Services — 1 operation(s) for createloggingconfiguration.
+- [Amazon Web Services CreateMetricSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-createmetricset-api/) — The CreateMetricSet API from Amazon Web Services — 1 operation(s) for createmetricset.
+- [Amazon Web Services Create Notification Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-createnotificationrule-api/) — The createNotificationRule API from Amazon Web Services — 1 operation(s) for createnotificationrule.
+- [Amazon Web Services CreateParticipantToken API](https://apis.io/apis/amazon-web-services/amazon-web-services-createparticipanttoken-api/) — The CreateParticipantToken API from Amazon Web Services — 1 operation(s) for createparticipanttoken.
+- [Amazon Web Services Createpermission API](https://apis.io/apis/amazon-web-services/amazon-web-services-createpermission-api/) — The Createpermission API from Amazon Web Services — 1 operation(s) for createpermission.
+- [Amazon Web Services Createpermissionversion API](https://apis.io/apis/amazon-web-services/amazon-web-services-createpermissionversion-api/) — The Createpermissionversion API from Amazon Web Services — 1 operation(s) for createpermissionversion.
+- [Amazon Web Services CreatePlaybackRestrictionPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-createplaybackrestrictionpolicy-api/) — The CreatePlaybackRestrictionPolicy API from Amazon Web Services — 1 operation(s) for createplaybackrestrictionpolicy.
+- [Amazon Web Services CreateRecordingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createrecordingconfiguration-api/) — The CreateRecordingConfiguration API from Amazon Web Services — 1 operation(s) for createrecordingconfiguration.
+- [Amazon Web Services CreateReplicationConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-createreplicationconfigurationtemplate-api/) — The CreateReplicationConfigurationTemplate API from Amazon Web Services — 1 operation(s) for createreplicationconfigurationtemplate.
+- [Amazon Web Services Createresourceshare API](https://apis.io/apis/amazon-web-services/amazon-web-services-createresourceshare-api/) — The Createresourceshare API from Amazon Web Services — 1 operation(s) for createresourceshare.
+- [Amazon Web Services CreateRoom API](https://apis.io/apis/amazon-web-services/amazon-web-services-createroom-api/) — The CreateRoom API from Amazon Web Services — 1 operation(s) for createroom.
+- [Amazon Web Services CreateSamplingRule API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsamplingrule-api/) — The CreateSamplingRule API from Amazon Web Services — 1 operation(s) for createsamplingrule.
+- [Amazon Web Services CreateSavingsPlan API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsavingsplan-api/) — The CreateSavingsPlan API from Amazon Web Services — 1 operation(s) for createsavingsplan.
+- [Amazon Web Services Createschedulingpolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-createschedulingpolicy-api/) — The Createschedulingpolicy API from Amazon Web Services — 1 operation(s) for createschedulingpolicy.
+- [Amazon Web Services CreateSink API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsink-api/) — The CreateSink API from Amazon Web Services — 1 operation(s) for createsink.
+- [Amazon Web Services Create Site API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsite-api/) — The createSite API from Amazon Web Services — 1 operation(s) for createsite.
+- [Amazon Web Services Createsnapshot API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsnapshot-api/) — The Createsnapshot API from Amazon Web Services — 1 operation(s) for createsnapshot.
+- [Amazon Web Services CreateSourceNetwork API](https://apis.io/apis/amazon-web-services/amazon-web-services-createsourcenetwork-api/) — The CreateSourceNetwork API from Amazon Web Services — 1 operation(s) for createsourcenetwork.
+- [Amazon Web Services CreateStage API](https://apis.io/apis/amazon-web-services/amazon-web-services-createstage-api/) — The CreateStage API from Amazon Web Services — 1 operation(s) for createstage.
+- [Amazon Web Services CreateStorageConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-createstorageconfiguration-api/) — The CreateStorageConfiguration API from Amazon Web Services — 1 operation(s) for createstorageconfiguration.
+- [Amazon Web Services CreateStreamKey API](https://apis.io/apis/amazon-web-services/amazon-web-services-createstreamkey-api/) — The CreateStreamKey API from Amazon Web Services — 1 operation(s) for createstreamkey.
+- [Amazon Web Services Createuploadurl API](https://apis.io/apis/amazon-web-services/amazon-web-services-createuploadurl-api/) — The Createuploadurl API from Amazon Web Services — 1 operation(s) for createuploadurl.
+- [Amazon Web Services CreateView API](https://apis.io/apis/amazon-web-services/amazon-web-services-createview-api/) — The CreateView API from Amazon Web Services — 1 operation(s) for createview.
+- [Amazon Web Services CreateWave API](https://apis.io/apis/amazon-web-services/amazon-web-services-createwave-api/) — The CreateWave API from Amazon Web Services — 1 operation(s) for createwave.
+- [Amazon Web Services Create Worker API](https://apis.io/apis/amazon-web-services/amazon-web-services-createworker-api/) — The createWorker API from Amazon Web Services — 1 operation(s) for createworker.
+- [Amazon Web Services Create Worker Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-createworkerfleet-api/) — The createWorkerFleet API from Amazon Web Services — 1 operation(s) for createworkerfleet.
+- [Amazon Web Services CreateWorkflow API](https://apis.io/apis/amazon-web-services/amazon-web-services-createworkflow-api/) — The CreateWorkflow API from Amazon Web Services — 1 operation(s) for createworkflow.
+- [Amazon Web Services Credentials API](https://apis.io/apis/amazon-web-services/amazon-web-services-credentials-api/) — The Credentials API from Amazon Web Services — 1 operation(s) for credentials.
+- [Amazon Web Services Crl API](https://apis.io/apis/amazon-web-services/amazon-web-services-crl-api/) — The Crl API from Amazon Web Services — 3 operation(s) for crl.
+- [Amazon Web Services Crls API](https://apis.io/apis/amazon-web-services/amazon-web-services-crls-api/) — The Crls API from Amazon Web Services — 1 operation(s) for crls.
+- [Amazon Web Services Crossaccountauthorizations API](https://apis.io/apis/amazon-web-services/amazon-web-services-crossaccountauthorizations-api/) — The Crossaccountauthorizations API from Amazon Web Services — 2 operation(s) for crossaccountauthorizations.
+- [Amazon Web Services Cryptogram API](https://apis.io/apis/amazon-web-services/amazon-web-services-cryptogram-api/) — The Cryptogram API from Amazon Web Services — 1 operation(s) for cryptogram.
+- [Amazon Web Services Custom Data Identifiers API](https://apis.io/apis/amazon-web-services/amazon-web-services-custom-data-identifiers-api/) — The Custom Data Identifiers API from Amazon Web Services — 5 operation(s) for custom data identifiers.
+- [Amazon Web Services Custom Metric API](https://apis.io/apis/amazon-web-services/amazon-web-services-custom-metric-api/) — The Custom Metric API from Amazon Web Services — 1 operation(s) for custom metric.
+- [Amazon Web Services Custom Metrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-custom-metrics-api/) — The Custom Metrics API from Amazon Web Services — 1 operation(s) for custom metrics.
+- [Amazon Web Services Custom Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-custom-models-api/) — The Custom Models API from Amazon Web Services — 2 operation(s) for custom models.
+- [Amazon Web Services Custom Plugins API](https://apis.io/apis/amazon-web-services/amazon-web-services-custom-plugins-api/) — The Custom Plugins API from Amazon Web Services — 2 operation(s) for custom plugins.
+- [Amazon Web Services Dashboards API](https://apis.io/apis/amazon-web-services/amazon-web-services-dashboards-api/) — The Dashboards API from Amazon Web Services — 2 operation(s) for dashboards.
+- [Amazon Web Services Datalake API](https://apis.io/apis/amazon-web-services/amazon-web-services-datalake-api/) — The Datalake API from Amazon Web Services — 13 operation(s) for datalake.
+- [Amazon Web Services Dataplane Evaluatecode API](https://apis.io/apis/amazon-web-services/amazon-web-services-dataplane-evaluatecode-api/) — The Dataplane Evaluatecode API from Amazon Web Services — 1 operation(s) for dataplane evaluatecode.
+- [Amazon Web Services Dataplane Evaluatetemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-dataplane-evaluatetemplate-api/) — The Dataplane Evaluatetemplate API from Amazon Web Services — 1 operation(s) for dataplane evaluatetemplate.
+- [Amazon Web Services Datasets API](https://apis.io/apis/amazon-web-services/amazon-web-services-datasets-api/) — The Datasets API from Amazon Web Services — 10 operation(s) for datasets.
+- [Amazon Web Services Data Source Keywords API](https://apis.io/apis/amazon-web-services/amazon-web-services-datasourcekeywords-api/) — The dataSourceKeywords API from Amazon Web Services — 1 operation(s) for datasourcekeywords.
+- [Amazon Web Services Datastore API](https://apis.io/apis/amazon-web-services/amazon-web-services-datastore-api/) — The Datastore API from Amazon Web Services — 10 operation(s) for datastore.
+- [Amazon Web Services Datastores API](https://apis.io/apis/amazon-web-services/amazon-web-services-datastores-api/) — The Datastores API from Amazon Web Services — 2 operation(s) for datastores.
+- [Amazon Web Services DeactivateAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-deactivateanomalydetector-api/) — The DeactivateAnomalyDetector API from Amazon Web Services — 1 operation(s) for deactivateanomalydetector.
+- [Amazon Web Services Default Authorizer API](https://apis.io/apis/amazon-web-services/amazon-web-services-default-authorizer-api/) — The Default Authorizer API from Amazon Web Services — 1 operation(s) for default authorizer.
+- [Amazon Web Services Default Vocabulary API](https://apis.io/apis/amazon-web-services/amazon-web-services-default-vocabulary-api/) — The Default Vocabulary API from Amazon Web Services — 1 operation(s) for default vocabulary.
+- [Amazon Web Services Default Vocabulary Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-default-vocabulary-summary-api/) — The Default Vocabulary Summary API from Amazon Web Services — 1 operation(s) for default vocabulary summary.
+- [Amazon Web Services Delegatedadminaccounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-delegatedadminaccounts-api/) — The Delegatedadminaccounts API from Amazon Web Services — 4 operation(s) for delegatedadminaccounts.
+- [Amazon Web Services Delegations API](https://apis.io/apis/amazon-web-services/amazon-web-services-delegations-api/) — The Delegations API from Amazon Web Services — 1 operation(s) for delegations.
+- [Amazon Web Services Delete App API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-app-api/) — The Delete App API from Amazon Web Services — 1 operation(s) for delete app.
+- [Amazon Web Services Delete App Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-app-assessment-api/) — The Delete App Assessment API from Amazon Web Services — 1 operation(s) for delete app assessment.
+- [Amazon Web Services Delete App Input Source API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-app-input-source-api/) — The Delete App Input Source API from Amazon Web Services — 1 operation(s) for delete app input source.
+- [Amazon Web Services Delete App Version App Component API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-app-version-app-component-api/) — The Delete App Version App Component API from Amazon Web Services — 1 operation(s) for delete app version app component.
+- [Amazon Web Services Delete App Version Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-app-version-resource-api/) — The Delete App Version Resource API from Amazon Web Services — 1 operation(s) for delete app version resource.
+- [Amazon Web Services Delete Billing Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-billing-group-api/) — The Delete Billing Group API from Amazon Web Services — 1 operation(s) for delete billing group.
+- [Amazon Web Services Delete Connector Profile API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-connector-profile-api/) — The Delete Connector Profile API from Amazon Web Services — 1 operation(s) for delete connector profile.
+- [Amazon Web Services Delete Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-custom-line-item-api/) — The Delete Custom Line Item API from Amazon Web Services — 1 operation(s) for delete custom line item.
+- [Amazon Web Services Delete Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-flow-api/) — The Delete Flow API from Amazon Web Services — 1 operation(s) for delete flow.
+- [Amazon Web Services Delete Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-group-api/) — The Delete Group API from Amazon Web Services — 1 operation(s) for delete group.
+- [Amazon Web Services Delete Landingzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-landingzone-api/) — The Delete Landingzone API from Amazon Web Services — 1 operation(s) for delete landingzone.
+- [Amazon Web Services Delete Objects. API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-objects-api/) — The Delete Objects. API from Amazon Web Services — 1 operation(s) for delete objects..
+- [Amazon Web Services Delete Pricing Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-pricing-plan-api/) — The Delete Pricing Plan API from Amazon Web Services — 1 operation(s) for delete pricing plan.
+- [Amazon Web Services Delete Pricing Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-pricing-rule-api/) — The Delete Pricing Rule API from Amazon Web Services — 1 operation(s) for delete pricing rule.
+- [Amazon Web Services Delete Recommendation Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-recommendation-template-api/) — The Delete Recommendation Template API from Amazon Web Services — 1 operation(s) for delete recommendation template.
+- [Amazon Web Services Delete Resiliency Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-resiliency-policy-api/) — The Delete Resiliency Policy API from Amazon Web Services — 1 operation(s) for delete resiliency policy.
+- [Amazon Web Services Delete Resource Permission API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-resource-permission-api/) — The Delete Resource Permission API from Amazon Web Services — 1 operation(s) for delete resource permission.
+- [Amazon Web Services DeleteAlert API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletealert-api/) — The DeleteAlert API from Amazon Web Services — 1 operation(s) for deletealert.
+- [Amazon Web Services Delete Alternate Contact API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletealternatecontact-api/) — The deleteAlternateContact API from Amazon Web Services — 1 operation(s) for deletealternatecontact.
+- [Amazon Web Services DeleteAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteanomalydetector-api/) — The DeleteAnomalyDetector API from Amazon Web Services — 1 operation(s) for deleteanomalydetector.
+- [Amazon Web Services DeleteApplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteapplication-api/) — The DeleteApplication API from Amazon Web Services — 1 operation(s) for deleteapplication.
+- [Amazon Web Services DeleteChannel API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletechannel-api/) — The DeleteChannel API from Amazon Web Services — 1 operation(s) for deletechannel.
+- [Amazon Web Services DeleteComponent API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletecomponent-api/) — The DeleteComponent API from Amazon Web Services — 1 operation(s) for deletecomponent.
+- [Amazon Web Services Deletecomputeenvironment API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletecomputeenvironment-api/) — The Deletecomputeenvironment API from Amazon Web Services — 1 operation(s) for deletecomputeenvironment.
+- [Amazon Web Services DeleteConnector API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteconnector-api/) — The DeleteConnector API from Amazon Web Services — 1 operation(s) for deleteconnector.
+- [Amazon Web Services DeleteContainerRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletecontainerrecipe-api/) — The DeleteContainerRecipe API from Amazon Web Services — 1 operation(s) for deletecontainerrecipe.
+- [Amazon Web Services DeleteDataCellsFilter API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletedatacellsfilter-api/) — The DeleteDataCellsFilter API from Amazon Web Services — 1 operation(s) for deletedatacellsfilter.
+- [Amazon Web Services Delete Deployment API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletedeployment-api/) — The deleteDeployment API from Amazon Web Services — 1 operation(s) for deletedeployment.
+- [Amazon Web Services Delete Destination API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletedestination-api/) — The deleteDestination API from Amazon Web Services — 1 operation(s) for deletedestination.
+- [Amazon Web Services DeleteDistributionConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletedistributionconfiguration-api/) — The DeleteDistributionConfiguration API from Amazon Web Services — 1 operation(s) for deletedistributionconfiguration.
+- [Amazon Web Services Delete Edge Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteedgeconfiguration-api/) — The deleteEdgeConfiguration API from Amazon Web Services — 1 operation(s) for deleteedgeconfiguration.
+- [Amazon Web Services DeleteEncoderConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteencoderconfiguration-api/) — The DeleteEncoderConfiguration API from Amazon Web Services — 1 operation(s) for deleteencoderconfiguration.
+- [Amazon Web Services DeleteImage API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteimage-api/) — The DeleteImage API from Amazon Web Services — 1 operation(s) for deleteimage.
+- [Amazon Web Services DeleteImagePipeline API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteimagepipeline-api/) — The DeleteImagePipeline API from Amazon Web Services — 1 operation(s) for deleteimagepipeline.
+- [Amazon Web Services DeleteImageRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteimagerecipe-api/) — The DeleteImageRecipe API from Amazon Web Services — 1 operation(s) for deleteimagerecipe.
+- [Amazon Web Services DeleteIndex API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteindex-api/) — The DeleteIndex API from Amazon Web Services — 1 operation(s) for deleteindex.
+- [Amazon Web Services DeleteInfrastructureConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteinfrastructureconfiguration-api/) — The DeleteInfrastructureConfiguration API from Amazon Web Services — 1 operation(s) for deleteinfrastructureconfiguration.
+- [Amazon Web Services DeleteJob API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletejob-api/) — The DeleteJob API from Amazon Web Services — 1 operation(s) for deletejob.
+- [Amazon Web Services Deletejobqueue API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletejobqueue-api/) — The Deletejobqueue API from Amazon Web Services — 1 operation(s) for deletejobqueue.
+- [Amazon Web Services DeleteLakeFormationIdentityCenterConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelakeformationidentitycenterconfiguration-api/) — The DeleteLakeFormationIdentityCenterConfiguration API from Amazon Web Services — 1 operation(s) for deletelakeformationidentitycenterconfiguration.
+- [Amazon Web Services DeleteLakeFormationOptIn API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelakeformationoptin-api/) — The DeleteLakeFormationOptIn API from Amazon Web Services — 1 operation(s) for deletelakeformationoptin.
+- [Amazon Web Services DeleteLaunchAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelaunchaction-api/) — The DeleteLaunchAction API from Amazon Web Services — 1 operation(s) for deletelaunchaction.
+- [Amazon Web Services DeleteLaunchConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelaunchconfigurationtemplate-api/) — The DeleteLaunchConfigurationTemplate API from Amazon Web Services — 1 operation(s) for deletelaunchconfigurationtemplate.
+- [Amazon Web Services DeleteLFTag API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelftag-api/) — The DeleteLFTag API from Amazon Web Services — 1 operation(s) for deletelftag.
+- [Amazon Web Services DeleteLifecyclePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelifecyclepolicy-api/) — The DeleteLifecyclePolicy API from Amazon Web Services — 1 operation(s) for deletelifecyclepolicy.
+- [Amazon Web Services DeleteLink API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletelink-api/) — The DeleteLink API from Amazon Web Services — 1 operation(s) for deletelink.
+- [Amazon Web Services DeleteLoggingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteloggingconfiguration-api/) — The DeleteLoggingConfiguration API from Amazon Web Services — 1 operation(s) for deleteloggingconfiguration.
+- [Amazon Web Services DeleteMessage API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletemessage-api/) — The DeleteMessage API from Amazon Web Services — 1 operation(s) for deletemessage.
+- [Amazon Web Services Delete Notification Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletenotificationrule-api/) — The deleteNotificationRule API from Amazon Web Services — 1 operation(s) for deletenotificationrule.
+- [Amazon Web Services DeleteObjectsOnCancel API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteobjectsoncancel-api/) — The DeleteObjectsOnCancel API from Amazon Web Services — 1 operation(s) for deleteobjectsoncancel.
+- [Amazon Web Services Deletepermission API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletepermission-api/) — The Deletepermission API from Amazon Web Services — 1 operation(s) for deletepermission.
+- [Amazon Web Services Deletepermissionversion API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletepermissionversion-api/) — The Deletepermissionversion API from Amazon Web Services — 1 operation(s) for deletepermissionversion.
+- [Amazon Web Services DeletePlaybackKeyPair API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteplaybackkeypair-api/) — The DeletePlaybackKeyPair API from Amazon Web Services — 1 operation(s) for deleteplaybackkeypair.
+- [Amazon Web Services DeletePlaybackRestrictionPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteplaybackrestrictionpolicy-api/) — The DeletePlaybackRestrictionPolicy API from Amazon Web Services — 1 operation(s) for deleteplaybackrestrictionpolicy.
+- [Amazon Web Services DeleteQueuedSavingsPlan API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletequeuedsavingsplan-api/) — The DeleteQueuedSavingsPlan API from Amazon Web Services — 1 operation(s) for deletequeuedsavingsplan.
+- [Amazon Web Services DeleteRecordingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleterecordingconfiguration-api/) — The DeleteRecordingConfiguration API from Amazon Web Services — 1 operation(s) for deleterecordingconfiguration.
+- [Amazon Web Services DeleteRecoveryInstance API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleterecoveryinstance-api/) — The DeleteRecoveryInstance API from Amazon Web Services — 1 operation(s) for deleterecoveryinstance.
+- [Amazon Web Services DeleteReplicationConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletereplicationconfigurationtemplate-api/) — The DeleteReplicationConfigurationTemplate API from Amazon Web Services — 1 operation(s) for deletereplicationconfigurationtemplate.
+- [Amazon Web Services Delete Replication Set API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletereplicationset-api/) — The deleteReplicationSet API from Amazon Web Services — 1 operation(s) for deletereplicationset.
+- [Amazon Web Services DeleteResourcePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteresourcepolicy-api/) — The DeleteResourcePolicy API from Amazon Web Services — 2 operation(s) for deleteresourcepolicy.
+- [Amazon Web Services Deleteresourceshare API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteresourceshare-api/) — The Deleteresourceshare API from Amazon Web Services — 1 operation(s) for deleteresourceshare.
+- [Amazon Web Services DeleteRoom API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteroom-api/) — The DeleteRoom API from Amazon Web Services — 1 operation(s) for deleteroom.
+- [Amazon Web Services DeleteSamplingRule API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesamplingrule-api/) — The DeleteSamplingRule API from Amazon Web Services — 1 operation(s) for deletesamplingrule.
+- [Amazon Web Services Deleteschedulingpolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteschedulingpolicy-api/) — The Deleteschedulingpolicy API from Amazon Web Services — 1 operation(s) for deleteschedulingpolicy.
+- [Amazon Web Services Deletesimulation API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesimulation-api/) — The Deletesimulation API from Amazon Web Services — 1 operation(s) for deletesimulation.
+- [Amazon Web Services DeleteSink API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesink-api/) — The DeleteSink API from Amazon Web Services — 1 operation(s) for deletesink.
+- [Amazon Web Services Delete Site API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesite-api/) — The deleteSite API from Amazon Web Services — 1 operation(s) for deletesite.
+- [Amazon Web Services DeleteSourceNetwork API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesourcenetwork-api/) — The DeleteSourceNetwork API from Amazon Web Services — 1 operation(s) for deletesourcenetwork.
+- [Amazon Web Services DeleteSourceServer API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletesourceserver-api/) — The DeleteSourceServer API from Amazon Web Services — 1 operation(s) for deletesourceserver.
+- [Amazon Web Services DeleteStage API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletestage-api/) — The DeleteStage API from Amazon Web Services — 1 operation(s) for deletestage.
+- [Amazon Web Services DeleteStorageConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletestorageconfiguration-api/) — The DeleteStorageConfiguration API from Amazon Web Services — 1 operation(s) for deletestorageconfiguration.
+- [Amazon Web Services DeleteStreamKey API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletestreamkey-api/) — The DeleteStreamKey API from Amazon Web Services — 1 operation(s) for deletestreamkey.
+- [Amazon Web Services Delete Target API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletetarget-api/) — The deleteTarget API from Amazon Web Services — 1 operation(s) for deletetarget.
+- [Amazon Web Services DeleteVcenterClient API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletevcenterclient-api/) — The DeleteVcenterClient API from Amazon Web Services — 1 operation(s) for deletevcenterclient.
+- [Amazon Web Services DeleteView API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteview-api/) — The DeleteView API from Amazon Web Services — 1 operation(s) for deleteview.
+- [Amazon Web Services DeleteWave API](https://apis.io/apis/amazon-web-services/amazon-web-services-deletewave-api/) — The DeleteWave API from Amazon Web Services — 1 operation(s) for deletewave.
+- [Amazon Web Services Delete Worker API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteworker-api/) — The deleteWorker API from Amazon Web Services — 1 operation(s) for deleteworker.
+- [Amazon Web Services Delete Worker Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteworkerfleet-api/) — The deleteWorkerFleet API from Amazon Web Services — 1 operation(s) for deleteworkerfleet.
+- [Amazon Web Services DeleteWorkflow API](https://apis.io/apis/amazon-web-services/amazon-web-services-deleteworkflow-api/) — The DeleteWorkflow API from Amazon Web Services — 1 operation(s) for deleteworkflow.
+- [Amazon Web Services Deployementstrategies API](https://apis.io/apis/amazon-web-services/amazon-web-services-deployementstrategies-api/) — The Deployementstrategies API from Amazon Web Services — 1 operation(s) for deployementstrategies.
+- [Amazon Web Services Deployments API](https://apis.io/apis/amazon-web-services/amazon-web-services-deployments-api/) — The Deployments API from Amazon Web Services — 2 operation(s) for deployments.
+- [Amazon Web Services Deploymentstrategies API](https://apis.io/apis/amazon-web-services/amazon-web-services-deploymentstrategies-api/) — The Deploymentstrategies API from Amazon Web Services — 2 operation(s) for deploymentstrategies.
+- [Amazon Web Services Deregister Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-deregister-application-api/) — The Deregister Application API from Amazon Web Services — 1 operation(s) for deregister application.
+- [Amazon Web Services Deregister Device API](https://apis.io/apis/amazon-web-services/amazon-web-services-deregister-device-api/) — The Deregister Device API from Amazon Web Services — 1 operation(s) for deregister device.
+- [Amazon Web Services Deregisterjobdefinition API](https://apis.io/apis/amazon-web-services/amazon-web-services-deregisterjobdefinition-api/) — The Deregisterjobdefinition API from Amazon Web Services — 1 operation(s) for deregisterjobdefinition.
+- [Amazon Web Services DeregisterResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-deregisterresource-api/) — The DeregisterResource API from Amazon Web Services — 1 operation(s) for deregisterresource.
+- [Amazon Web Services Describe Accelerator Offerings API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-accelerator-offerings-api/) — The Describe Accelerator Offerings API from Amazon Web Services — 1 operation(s) for describe accelerator offerings.
+- [Amazon Web Services Describe Accelerator Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-accelerator-types-api/) — The Describe Accelerator Types API from Amazon Web Services — 1 operation(s) for describe accelerator types.
+- [Amazon Web Services Describe Accelerators API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-accelerators-api/) — The Describe Accelerators API from Amazon Web Services — 1 operation(s) for describe accelerators.
+- [Amazon Web Services Describe App API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-api/) — The Describe App API from Amazon Web Services — 1 operation(s) for describe app.
+- [Amazon Web Services Describe App Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-assessment-api/) — The Describe App Assessment API from Amazon Web Services — 1 operation(s) for describe app assessment.
+- [Amazon Web Services Describe App Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-version-api/) — The Describe App Version API from Amazon Web Services — 1 operation(s) for describe app version.
+- [Amazon Web Services Describe App Version App Component API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-version-app-component-api/) — The Describe App Version App Component API from Amazon Web Services — 1 operation(s) for describe app version app component.
+- [Amazon Web Services Describe App Version Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-version-resource-api/) — The Describe App Version Resource API from Amazon Web Services — 1 operation(s) for describe app version resource.
+- [Amazon Web Services Describe App Version Resources Resolution Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-version-resources-resolution-status-api/) — The Describe App Version Resources Resolution Status API from Amazon Web Services — 1 operation(s) for describe app version resources resolution status.
+- [Amazon Web Services Describe App Version Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-app-version-template-api/) — The Describe App Version Template API from Amazon Web Services — 1 operation(s) for describe app version template.
+- [Amazon Web Services Describe Connector API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-connector-api/) — The Describe Connector API from Amazon Web Services — 1 operation(s) for describe connector.
+- [Amazon Web Services Describe Connector Entity API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-connector-entity-api/) — The Describe Connector Entity API from Amazon Web Services — 1 operation(s) for describe connector entity.
+- [Amazon Web Services Describe Connector Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-connector-profiles-api/) — The Describe Connector Profiles API from Amazon Web Services — 1 operation(s) for describe connector profiles.
+- [Amazon Web Services Describe Connectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-connectors-api/) — The Describe Connectors API from Amazon Web Services — 1 operation(s) for describe connectors.
+- [Amazon Web Services Describe Draft App Version Resources Import Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-draft-app-version-resources-import-status-api/) — The Describe Draft App Version Resources Import Status API from Amazon Web Services — 1 operation(s) for describe draft app version resources import status.
+- [Amazon Web Services Describe Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-flow-api/) — The Describe Flow API from Amazon Web Services — 1 operation(s) for describe flow.
+- [Amazon Web Services Describe Flow Execution Records API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-flow-execution-records-api/) — The Describe Flow Execution Records API from Amazon Web Services — 1 operation(s) for describe flow execution records.
+- [Amazon Web Services Describe Resiliency Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-resiliency-policy-api/) — The Describe Resiliency Policy API from Amazon Web Services — 1 operation(s) for describe resiliency policy.
+- [Amazon Web Services DescribeAlert API](https://apis.io/apis/amazon-web-services/amazon-web-services-describealert-api/) — The DescribeAlert API from Amazon Web Services — 1 operation(s) for describealert.
+- [Amazon Web Services DescribeAnomalyDetectionExecutions API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeanomalydetectionexecutions-api/) — The DescribeAnomalyDetectionExecutions API from Amazon Web Services — 1 operation(s) for describeanomalydetectionexecutions.
+- [Amazon Web Services DescribeAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeanomalydetector-api/) — The DescribeAnomalyDetector API from Amazon Web Services — 1 operation(s) for describeanomalydetector.
+- [Amazon Web Services Describe Audit Stream Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeauditstreamconfiguration-api/) — The describeAuditStreamConfiguration API from Amazon Web Services — 1 operation(s) for describeauditstreamconfiguration.
+- [Amazon Web Services DescribeChangeSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-describechangeset-api/) — The DescribeChangeSet API from Amazon Web Services — 1 operation(s) for describechangeset.
+- [Amazon Web Services Describe Company Network Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describecompanynetworkconfiguration-api/) — The describeCompanyNetworkConfiguration API from Amazon Web Services — 1 operation(s) for describecompanynetworkconfiguration.
+- [Amazon Web Services Describecomputeenvironments API](https://apis.io/apis/amazon-web-services/amazon-web-services-describecomputeenvironments-api/) — The Describecomputeenvironments API from Amazon Web Services — 1 operation(s) for describecomputeenvironments.
+- [Amazon Web Services Describe Device API](https://apis.io/apis/amazon-web-services/amazon-web-services-describedevice-api/) — The describeDevice API from Amazon Web Services — 1 operation(s) for describedevice.
+- [Amazon Web Services Describe Device Policy Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describedevicepolicyconfiguration-api/) — The describeDevicePolicyConfiguration API from Amazon Web Services — 1 operation(s) for describedevicepolicyconfiguration.
+- [Amazon Web Services Describe Domain API](https://apis.io/apis/amazon-web-services/amazon-web-services-describedomain-api/) — The describeDomain API from Amazon Web Services — 1 operation(s) for describedomain.
+- [Amazon Web Services DescribeEntity API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeentity-api/) — The DescribeEntity API from Amazon Web Services — 1 operation(s) for describeentity.
+- [Amazon Web Services Describe Fleet Metadata API](https://apis.io/apis/amazon-web-services/amazon-web-services-describefleetmetadata-api/) — The describeFleetMetadata API from Amazon Web Services — 1 operation(s) for describefleetmetadata.
+- [Amazon Web Services Describe Identity Provider Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeidentityproviderconfiguration-api/) — The describeIdentityProviderConfiguration API from Amazon Web Services — 1 operation(s) for describeidentityproviderconfiguration.
+- [Amazon Web Services Describejobdefinitions API](https://apis.io/apis/amazon-web-services/amazon-web-services-describejobdefinitions-api/) — The Describejobdefinitions API from Amazon Web Services — 1 operation(s) for describejobdefinitions.
+- [Amazon Web Services DescribeJobLogItems API](https://apis.io/apis/amazon-web-services/amazon-web-services-describejoblogitems-api/) — The DescribeJobLogItems API from Amazon Web Services — 1 operation(s) for describejoblogitems.
+- [Amazon Web Services Describejobqueues API](https://apis.io/apis/amazon-web-services/amazon-web-services-describejobqueues-api/) — The Describejobqueues API from Amazon Web Services — 1 operation(s) for describejobqueues.
+- [Amazon Web Services Describejobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-describejobs-api/) — The Describejobs API from Amazon Web Services — 2 operation(s) for describejobs.
+- [Amazon Web Services DescribeLakeFormationIdentityCenterConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describelakeformationidentitycenterconfiguration-api/) — The DescribeLakeFormationIdentityCenterConfiguration API from Amazon Web Services — 1 operation(s) for describelakeformationidentitycenterconfiguration.
+- [Amazon Web Services DescribeLaunchConfigurationTemplates API](https://apis.io/apis/amazon-web-services/amazon-web-services-describelaunchconfigurationtemplates-api/) — The DescribeLaunchConfigurationTemplates API from Amazon Web Services — 1 operation(s) for describelaunchconfigurationtemplates.
+- [Amazon Web Services DescribeMetricSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-describemetricset-api/) — The DescribeMetricSet API from Amazon Web Services — 1 operation(s) for describemetricset.
+- [Amazon Web Services Describe Notification Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-describenotificationrule-api/) — The describeNotificationRule API from Amazon Web Services — 1 operation(s) for describenotificationrule.
+- [Amazon Web Services DescribeRecoveryInstances API](https://apis.io/apis/amazon-web-services/amazon-web-services-describerecoveryinstances-api/) — The DescribeRecoveryInstances API from Amazon Web Services — 1 operation(s) for describerecoveryinstances.
+- [Amazon Web Services DescribeRecoverySnapshots API](https://apis.io/apis/amazon-web-services/amazon-web-services-describerecoverysnapshots-api/) — The DescribeRecoverySnapshots API from Amazon Web Services — 1 operation(s) for describerecoverysnapshots.
+- [Amazon Web Services DescribeReplicationConfigurationTemplates API](https://apis.io/apis/amazon-web-services/amazon-web-services-describereplicationconfigurationtemplates-api/) — The DescribeReplicationConfigurationTemplates API from Amazon Web Services — 1 operation(s) for describereplicationconfigurationtemplates.
+- [Amazon Web Services DescribeResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeresource-api/) — The DescribeResource API from Amazon Web Services — 1 operation(s) for describeresource.
+- [Amazon Web Services DescribeSavingsPlanRates API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesavingsplanrates-api/) — The DescribeSavingsPlanRates API from Amazon Web Services — 1 operation(s) for describesavingsplanrates.
+- [Amazon Web Services DescribeSavingsPlans API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesavingsplans-api/) — The DescribeSavingsPlans API from Amazon Web Services — 1 operation(s) for describesavingsplans.
+- [Amazon Web Services DescribeSavingsPlansOfferingRates API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesavingsplansofferingrates-api/) — The DescribeSavingsPlansOfferingRates API from Amazon Web Services — 1 operation(s) for describesavingsplansofferingrates.
+- [Amazon Web Services DescribeSavingsPlansOfferings API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesavingsplansofferings-api/) — The DescribeSavingsPlansOfferings API from Amazon Web Services — 1 operation(s) for describesavingsplansofferings.
+- [Amazon Web Services Describeschedulingpolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-describeschedulingpolicies-api/) — The Describeschedulingpolicies API from Amazon Web Services — 1 operation(s) for describeschedulingpolicies.
+- [Amazon Web Services Describesimulation API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesimulation-api/) — The Describesimulation API from Amazon Web Services — 1 operation(s) for describesimulation.
+- [Amazon Web Services DescribeSourceNetworks API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesourcenetworks-api/) — The DescribeSourceNetworks API from Amazon Web Services — 1 operation(s) for describesourcenetworks.
+- [Amazon Web Services DescribeSourceServers API](https://apis.io/apis/amazon-web-services/amazon-web-services-describesourceservers-api/) — The DescribeSourceServers API from Amazon Web Services — 1 operation(s) for describesourceservers.
+- [Amazon Web Services DescribeTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-describetransaction-api/) — The DescribeTransaction API from Amazon Web Services — 1 operation(s) for describetransaction.
+- [Amazon Web Services DescribeVcenterClients API](https://apis.io/apis/amazon-web-services/amazon-web-services-describevcenterclients-api/) — The DescribeVcenterClients API from Amazon Web Services — 1 operation(s) for describevcenterclients.
+- [Amazon Web Services Describe Website Certificate Authority API](https://apis.io/apis/amazon-web-services/amazon-web-services-describewebsitecertificateauthority-api/) — The describeWebsiteCertificateAuthority API from Amazon Web Services — 1 operation(s) for describewebsitecertificateauthority.
+- [Amazon Web Services Destinations API](https://apis.io/apis/amazon-web-services/amazon-web-services-destinations-api/) — The Destinations API from Amazon Web Services — 3 operation(s) for destinations.
+- [Amazon Web Services Detect API](https://apis.io/apis/amazon-web-services/amazon-web-services-detect-api/) — The Detect API from Amazon Web Services — 4 operation(s) for detect.
+- [Amazon Web Services DetectMetricSetConfig API](https://apis.io/apis/amazon-web-services/amazon-web-services-detectmetricsetconfig-api/) — The DetectMetricSetConfig API from Amazon Web Services — 1 operation(s) for detectmetricsetconfig.
+- [Amazon Web Services Detector API](https://apis.io/apis/amazon-web-services/amazon-web-services-detector-api/) — The Detector API from Amazon Web Services — 37 operation(s) for detector.
+- [Amazon Web Services Detector Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-detector-models-api/) — The Detector Models API from Amazon Web Services — 3 operation(s) for detector models.
+- [Amazon Web Services Detectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-detectors-api/) — The Detectors API from Amazon Web Services — 4 operation(s) for detectors.
+- [Amazon Web Services Device API](https://apis.io/apis/amazon-web-services/amazon-web-services-device-api/) — The Device API from Amazon Web Services — 1 operation(s) for device.
+- [Amazon Web Services Device Authorization API](https://apis.io/apis/amazon-web-services/amazon-web-services-device-authorization-api/) — The Device Authorization API from Amazon Web Services — 1 operation(s) for device authorization.
+- [Amazon Web Services Device Identifiers API](https://apis.io/apis/amazon-web-services/amazon-web-services-device-identifiers-api/) — The Device Identifiers API from Amazon Web Services — 4 operation(s) for device identifiers.
+- [Amazon Web Services Device Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-device-profiles-api/) — The Device Profiles API from Amazon Web Services — 2 operation(s) for device profiles.
+- [Amazon Web Services Devices API](https://apis.io/apis/amazon-web-services/amazon-web-services-devices-api/) — The Devices API from Amazon Web Services — 10 operation(s) for devices.
+- [Amazon Web Services Dimensions API](https://apis.io/apis/amazon-web-services/amazon-web-services-dimensions-api/) — The Dimensions API from Amazon Web Services — 2 operation(s) for dimensions.
+- [Amazon Web Services Directory Buckets API](https://apis.io/apis/amazon-web-services/amazon-web-services-directory-buckets-api/) — The Directory Buckets API from Amazon Web Services — 1 operation(s) for directory buckets.
+- [Amazon Web Services Directory Registrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-directoryregistrations-api/) — The directoryRegistrations API from Amazon Web Services — 4 operation(s) for directoryregistrations.
+- [Amazon Web Services Disable API](https://apis.io/apis/amazon-web-services/amazon-web-services-disable-api/) — The Disable API from Amazon Web Services — 1 operation(s) for disable.
+- [Amazon Web Services Disable Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-disable-baseline-api/) — The Disable Baseline API from Amazon Web Services — 1 operation(s) for disable baseline.
+- [Amazon Web Services Disable Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-disable-control-api/) — The Disable Control API from Amazon Web Services — 1 operation(s) for disable control.
+- [Amazon Web Services Disable Region API](https://apis.io/apis/amazon-web-services/amazon-web-services-disableregion-api/) — The disableRegion API from Amazon Web Services — 1 operation(s) for disableregion.
+- [Amazon Web Services Disassociate Accounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociate-accounts-api/) — The Disassociate Accounts API from Amazon Web Services — 1 operation(s) for disassociate accounts.
+- [Amazon Web Services Disassociate Pricing Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociate-pricing-rules-api/) — The Disassociate Pricing Rules API from Amazon Web Services — 1 operation(s) for disassociate pricing rules.
+- [Amazon Web Services DisassociateApplications API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociateapplications-api/) — The DisassociateApplications API from Amazon Web Services — 1 operation(s) for disassociateapplications.
+- [Amazon Web Services DisassociateDefaultView API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociatedefaultview-api/) — The DisassociateDefaultView API from Amazon Web Services — 1 operation(s) for disassociatedefaultview.
+- [Amazon Web Services Disassociate Domain API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociatedomain-api/) — The disassociateDomain API from Amazon Web Services — 1 operation(s) for disassociatedomain.
+- [Amazon Web Services Disassociateresourceshare API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociateresourceshare-api/) — The Disassociateresourceshare API from Amazon Web Services — 1 operation(s) for disassociateresourceshare.
+- [Amazon Web Services Disassociateresourcesharepermission API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociateresourcesharepermission-api/) — The Disassociateresourcesharepermission API from Amazon Web Services — 1 operation(s) for disassociateresourcesharepermission.
+- [Amazon Web Services DisassociateSourceServers API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociatesourceservers-api/) — The DisassociateSourceServers API from Amazon Web Services — 1 operation(s) for disassociatesourceservers.
+- [Amazon Web Services Disassociate Website Authorization Provider API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociatewebsiteauthorizationprovider-api/) — The disassociateWebsiteAuthorizationProvider API from Amazon Web Services — 1 operation(s) for disassociatewebsiteauthorizationprovider.
+- [Amazon Web Services Disassociate Website Certificate Authority API](https://apis.io/apis/amazon-web-services/amazon-web-services-disassociatewebsitecertificateauthority-api/) — The disassociateWebsiteCertificateAuthority API from Amazon Web Services — 1 operation(s) for disassociatewebsitecertificateauthority.
+- [Amazon Web Services DisconnectFromService API](https://apis.io/apis/amazon-web-services/amazon-web-services-disconnectfromservice-api/) — The DisconnectFromService API from Amazon Web Services — 1 operation(s) for disconnectfromservice.
+- [Amazon Web Services DisconnectParticipant API](https://apis.io/apis/amazon-web-services/amazon-web-services-disconnectparticipant-api/) — The DisconnectParticipant API from Amazon Web Services — 1 operation(s) for disconnectparticipant.
+- [Amazon Web Services DisconnectRecoveryInstance API](https://apis.io/apis/amazon-web-services/amazon-web-services-disconnectrecoveryinstance-api/) — The DisconnectRecoveryInstance API from Amazon Web Services — 1 operation(s) for disconnectrecoveryinstance.
+- [Amazon Web Services DisconnectSourceServer API](https://apis.io/apis/amazon-web-services/amazon-web-services-disconnectsourceserver-api/) — The DisconnectSourceServer API from Amazon Web Services — 1 operation(s) for disconnectsourceserver.
+- [Amazon Web Services DisconnectUser API](https://apis.io/apis/amazon-web-services/amazon-web-services-disconnectuser-api/) — The DisconnectUser API from Amazon Web Services — 1 operation(s) for disconnectuser.
+- [Amazon Web Services Discover API](https://apis.io/apis/amazon-web-services/amazon-web-services-discover-api/) — The Discover API from Amazon Web Services — 1 operation(s) for discover.
+- [Amazon Web Services Discoverers API](https://apis.io/apis/amazon-web-services/amazon-web-services-discoverers-api/) — The Discoverers API from Amazon Web Services — 4 operation(s) for discoverers.
+- [Amazon Web Services Documents API](https://apis.io/apis/amazon-web-services/amazon-web-services-documents-api/) — The Documents API from Amazon Web Services — 8 operation(s) for documents.
+- [Amazon Web Services Domain API](https://apis.io/apis/amazon-web-services/amazon-web-services-domain-api/) — The Domain API from Amazon Web Services — 3 operation(s) for domain.
+- [Amazon Web Services Domains API](https://apis.io/apis/amazon-web-services/amazon-web-services-domains-api/) — The Domains API from Amazon Web Services — 111 operation(s) for domains.
+- [Amazon Web Services Domains List API](https://apis.io/apis/amazon-web-services/amazon-web-services-domains-list-api/) — The Domains List API from Amazon Web Services — 1 operation(s) for domains list.
+- [Amazon Web Services Dynamic Thing Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-dynamic-thing-groups-api/) — The Dynamic Thing Groups API from Amazon Web Services — 1 operation(s) for dynamic thing groups.
+- [Amazon Web Services Earth Observation Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-earth-observation-jobs-api/) — The Earth Observation Jobs API from Amazon Web Services — 3 operation(s) for earth observation jobs.
+- [Amazon Web Services Ec2deepinspectionconfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-ec2deepinspectionconfiguration-api/) — The Ec2deepinspectionconfiguration API from Amazon Web Services — 3 operation(s) for ec2deepinspectionconfiguration.
+- [Amazon Web Services Ec2deepinspectionstatus API](https://apis.io/apis/amazon-web-services/amazon-web-services-ec2deepinspectionstatus-api/) — The Ec2deepinspectionstatus API from Amazon Web Services — 2 operation(s) for ec2deepinspectionstatus.
+- [Amazon Web Services Effective Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-effective-policies-api/) — The Effective Policies API from Amazon Web Services — 1 operation(s) for effective policies.
+- [Amazon Web Services Eks Anywhere Subscriptions API](https://apis.io/apis/amazon-web-services/amazon-web-services-eks-anywhere-subscriptions-api/) — The Eks Anywhere Subscriptions API from Amazon Web Services — 2 operation(s) for eks anywhere subscriptions.
+- [Amazon Web Services Email API](https://apis.io/apis/amazon-web-services/amazon-web-services-email-api/) — The Email API from Amazon Web Services — 96 operation(s) for email.
+- [Amazon Web Services Emergency Calling API](https://apis.io/apis/amazon-web-services/amazon-web-services-emergency-calling-api/) — The Emergency Calling API from Amazon Web Services — 1 operation(s) for emergency calling.
+- [Amazon Web Services Enable API](https://apis.io/apis/amazon-web-services/amazon-web-services-enable-api/) — The Enable API from Amazon Web Services — 1 operation(s) for enable.
+- [Amazon Web Services Enable Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-enable-baseline-api/) — The Enable Baseline API from Amazon Web Services — 1 operation(s) for enable baseline.
+- [Amazon Web Services Enable Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-enable-control-api/) — The Enable Control API from Amazon Web Services — 1 operation(s) for enable control.
+- [Amazon Web Services Enable Region API](https://apis.io/apis/amazon-web-services/amazon-web-services-enableregion-api/) — The enableRegion API from Amazon Web Services — 1 operation(s) for enableregion.
+- [Amazon Web Services Enablesharingwithawsorganization API](https://apis.io/apis/amazon-web-services/amazon-web-services-enablesharingwithawsorganization-api/) — The Enablesharingwithawsorganization API from Amazon Web Services — 1 operation(s) for enablesharingwithawsorganization.
+- [Amazon Web Services EncryptionConfig API](https://apis.io/apis/amazon-web-services/amazon-web-services-encryptionconfig-api/) — The EncryptionConfig API from Amazon Web Services — 1 operation(s) for encryptionconfig.
+- [Amazon Web Services Encryptionkey API](https://apis.io/apis/amazon-web-services/amazon-web-services-encryptionkey-api/) — The Encryptionkey API from Amazon Web Services — 3 operation(s) for encryptionkey.
+- [Amazon Web Services Endpoint API](https://apis.io/apis/amazon-web-services/amazon-web-services-endpoint-api/) — The Endpoint API from Amazon Web Services — 1 operation(s) for endpoint.
+- [Amazon Web Services Endpoints API](https://apis.io/apis/amazon-web-services/amazon-web-services-endpoints-api/) — The Endpoints API from Amazon Web Services — 4 operation(s) for endpoints.
+- [Amazon Web Services Engine Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-engine-versions-api/) — The Engine Versions API from Amazon Web Services — 1 operation(s) for engine versions.
+- [Amazon Web Services Entitlements API](https://apis.io/apis/amazon-web-services/amazon-web-services-entitlements-api/) — The Entitlements API from Amazon Web Services — 1 operation(s) for entitlements.
+- [Amazon Web Services Environment API](https://apis.io/apis/amazon-web-services/amazon-web-services-environment-api/) — The Environment API from Amazon Web Services — 2 operation(s) for environment.
+- [Amazon Web Services Environments API](https://apis.io/apis/amazon-web-services/amazon-web-services-environments-api/) — The Environments API from Amazon Web Services — 12 operation(s) for environments.
+- [Amazon Web Services Ephemerides API](https://apis.io/apis/amazon-web-services/amazon-web-services-ephemerides-api/) — The Ephemerides API from Amazon Web Services — 1 operation(s) for ephemerides.
+- [Amazon Web Services Ephemeris API](https://apis.io/apis/amazon-web-services/amazon-web-services-ephemeris-api/) — The Ephemeris API from Amazon Web Services — 2 operation(s) for ephemeris.
+- [Amazon Web Services Evaluation Forms API](https://apis.io/apis/amazon-web-services/amazon-web-services-evaluation-forms-api/) — The Evaluation Forms API from Amazon Web Services — 5 operation(s) for evaluation forms.
+- [Amazon Web Services Event Actions API](https://apis.io/apis/amazon-web-services/amazon-web-services-event-actions-api/) — The Event Actions API from Amazon Web Services — 2 operation(s) for event actions.
+- [Amazon Web Services Event Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-event-configurations-api/) — The Event Configurations API from Amazon Web Services — 2 operation(s) for event configurations.
+- [Amazon Web Services Event Configurations Resource Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-event-configurations-resource-types-api/) — The Event Configurations Resource Types API from Amazon Web Services — 1 operation(s) for event configurations resource types.
+- [Amazon Web Services Event Sources API](https://apis.io/apis/amazon-web-services/amazon-web-services-event-sources-api/) — The Event Sources API from Amazon Web Services — 1 operation(s) for event sources.
+- [Amazon Web Services Event Integrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-eventintegrations-api/) — The eventIntegrations API from Amazon Web Services — 3 operation(s) for eventintegrations.
+- [Amazon Web Services Events API](https://apis.io/apis/amazon-web-services/amazon-web-services-events-api/) — The Events API from Amazon Web Services — 2 operation(s) for events.
+- [Amazon Web Services Evidence File Upload URL API](https://apis.io/apis/amazon-web-services/amazon-web-services-evidencefileuploadurl-api/) — The evidenceFileUploadUrl API from Amazon Web Services — 1 operation(s) for evidencefileuploadurl.
+- [Amazon Web Services Execute API](https://apis.io/apis/amazon-web-services/amazon-web-services-execute-api/) — The Execute API from Amazon Web Services — 1 operation(s) for execute.
+- [Amazon Web Services ExecuteSql API](https://apis.io/apis/amazon-web-services/amazon-web-services-executesql-api/) — The ExecuteSql API from Amazon Web Services — 1 operation(s) for executesql.
+- [Amazon Web Services Executions API](https://apis.io/apis/amazon-web-services/amazon-web-services-executions-api/) — The Executions API from Amazon Web Services — 1 operation(s) for executions.
+- [Amazon Web Services Experiments API](https://apis.io/apis/amazon-web-services/amazon-web-services-experiments-api/) — The Experiments API from Amazon Web Services — 5 operation(s) for experiments.
+- [Amazon Web Services Export API](https://apis.io/apis/amazon-web-services/amazon-web-services-export-api/) — The Export API from Amazon Web Services — 3 operation(s) for export.
+- [Amazon Web Services Export Earth Observation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-export-earth-observation-job-api/) — The Export Earth Observation Job API from Amazon Web Services — 1 operation(s) for export earth observation job.
+- [Amazon Web Services Export Vector Enrichment Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-export-vector-enrichment-jobs-api/) — The Export Vector Enrichment Jobs API from Amazon Web Services — 1 operation(s) for export vector enrichment jobs.
+- [Amazon Web Services Exports API](https://apis.io/apis/amazon-web-services/amazon-web-services-exports-api/) — The Exports API from Amazon Web Services — 4 operation(s) for exports.
+- [Amazon Web Services ExportSourceNetworkCfnTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-exportsourcenetworkcfntemplate-api/) — The ExportSourceNetworkCfnTemplate API from Amazon Web Services — 1 operation(s) for exportsourcenetworkcfntemplate.
+- [Amazon Web Services ExtendTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-extendtransaction-api/) — The ExtendTransaction API from Amazon Web Services — 1 operation(s) for extendtransaction.
+- [Amazon Web Services Extensionassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-extensionassociations-api/) — The Extensionassociations API from Amazon Web Services — 2 operation(s) for extensionassociations.
+- [Amazon Web Services Extensions API](https://apis.io/apis/amazon-web-services/amazon-web-services-extensions-api/) — The Extensions API from Amazon Web Services — 2 operation(s) for extensions.
+- [Amazon Web Services FeatureGroup API](https://apis.io/apis/amazon-web-services/amazon-web-services-featuregroup-api/) — The FeatureGroup API from Amazon Web Services — 1 operation(s) for featuregroup.
+- [Amazon Web Services Federation API](https://apis.io/apis/amazon-web-services/amazon-web-services-federation-api/) — The Federation API from Amazon Web Services — 1 operation(s) for federation.
+- [Amazon Web Services Feedback API](https://apis.io/apis/amazon-web-services/amazon-web-services-feedback-api/) — The Feedback API from Amazon Web Services — 3 operation(s) for feedback.
+- [Amazon Web Services Filters API](https://apis.io/apis/amazon-web-services/amazon-web-services-filters-api/) — The Filters API from Amazon Web Services — 4 operation(s) for filters.
+- [Amazon Web Services FinalizeCutover API](https://apis.io/apis/amazon-web-services/amazon-web-services-finalizecutover-api/) — The FinalizeCutover API from Amazon Web Services — 1 operation(s) for finalizecutover.
+- [Amazon Web Services Finding API](https://apis.io/apis/amazon-web-services/amazon-web-services-finding-api/) — The Finding API from Amazon Web Services — 2 operation(s) for finding.
+- [Amazon Web Services Finding Aggregator API](https://apis.io/apis/amazon-web-services/amazon-web-services-findingaggregator-api/) — The findingAggregator API from Amazon Web Services — 5 operation(s) for findingaggregator.
+- [Amazon Web Services Finding History API](https://apis.io/apis/amazon-web-services/amazon-web-services-findinghistory-api/) — The findingHistory API from Amazon Web Services — 1 operation(s) for findinghistory.
+- [Amazon Web Services Findings API](https://apis.io/apis/amazon-web-services/amazon-web-services-findings-api/) — The Findings API from Amazon Web Services — 12 operation(s) for findings.
+- [Amazon Web Services Findings Publication Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-findings-publication-configuration-api/) — The Findings Publication Configuration API from Amazon Web Services — 1 operation(s) for findings publication configuration.
+- [Amazon Web Services Findingsfilters API](https://apis.io/apis/amazon-web-services/amazon-web-services-findingsfilters-api/) — The Findingsfilters API from Amazon Web Services — 2 operation(s) for findingsfilters.
+- [Amazon Web Services Findingv2 API](https://apis.io/apis/amazon-web-services/amazon-web-services-findingv2-api/) — The Findingv2 API from Amazon Web Services — 2 operation(s) for findingv2.
+- [Amazon Web Services Fleet Metric API](https://apis.io/apis/amazon-web-services/amazon-web-services-fleet-metric-api/) — The Fleet Metric API from Amazon Web Services — 1 operation(s) for fleet metric.
+- [Amazon Web Services Fleet Metrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-fleet-metrics-api/) — The Fleet Metrics API from Amazon Web Services — 1 operation(s) for fleet metrics.
+- [Amazon Web Services Flow Associations API](https://apis.io/apis/amazon-web-services/amazon-web-services-flow-associations-api/) — The Flow Associations API from Amazon Web Services — 2 operation(s) for flow associations.
+- [Amazon Web Services Flow Associations Batch API](https://apis.io/apis/amazon-web-services/amazon-web-services-flow-associations-batch-api/) — The Flow Associations Batch API from Amazon Web Services — 1 operation(s) for flow associations batch.
+- [Amazon Web Services Flow Associations Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-flow-associations-summary-api/) — The Flow Associations Summary API from Amazon Web Services — 1 operation(s) for flow associations summary.
+- [Amazon Web Services Flows API](https://apis.io/apis/amazon-web-services/amazon-web-services-flows-api/) — The Flows API from Amazon Web Services — 15 operation(s) for flows.
+- [Amazon Web Services Folders API](https://apis.io/apis/amazon-web-services/amazon-web-services-folders-api/) — The Folders API from Amazon Web Services — 4 operation(s) for folders.
+- [Amazon Web Services Foundation Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-foundation-models-api/) — The Foundation Models API from Amazon Web Services — 2 operation(s) for foundation models.
+- [Amazon Web Services Freetrialinfo API](https://apis.io/apis/amazon-web-services/amazon-web-services-freetrialinfo-api/) — The Freetrialinfo API from Amazon Web Services — 1 operation(s) for freetrialinfo.
+- [Amazon Web Services Functions API](https://apis.io/apis/amazon-web-services/amazon-web-services-functions-api/) — The Functions API from Amazon Web Services — 3 operation(s) for functions.
+- [Amazon Web Services Fuota Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-fuota-tasks-api/) — The Fuota Tasks API from Amazon Web Services — 7 operation(s) for fuota tasks.
+- [Amazon Web Services Gateway Instances API](https://apis.io/apis/amazon-web-services/amazon-web-services-gateway-instances-api/) — The Gateway Instances API from Amazon Web Services — 2 operation(s) for gateway instances.
+- [Amazon Web Services Gateways API](https://apis.io/apis/amazon-web-services/amazon-web-services-gateways-api/) — The Gateways API from Amazon Web Services — 2 operation(s) for gateways.
+- [Amazon Web Services Geofencing API](https://apis.io/apis/amazon-web-services/amazon-web-services-geofencing-api/) — The Geofencing API from Amazon Web Services — 8 operation(s) for geofencing.
+- [Amazon Web Services Get Account Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-account-settings-api/) — The Get Account Settings API from Amazon Web Services — 1 operation(s) for get account settings.
+- [Amazon Web Services Get Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-application-api/) — The Get Application API from Amazon Web Services — 1 operation(s) for get application.
+- [Amazon Web Services Get Applicationcomponent Details API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-applicationcomponent-details-api/) — The Get Applicationcomponent Details API from Amazon Web Services — 1 operation(s) for get applicationcomponent details.
+- [Amazon Web Services Get Applicationcomponent Strategies API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-applicationcomponent-strategies-api/) — The Get Applicationcomponent Strategies API from Amazon Web Services — 1 operation(s) for get applicationcomponent strategies.
+- [Amazon Web Services Get Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-assessment-api/) — The Get Assessment API from Amazon Web Services — 1 operation(s) for get assessment.
+- [Amazon Web Services Get Asset Contract API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-asset-contract-api/) — The Get Asset Contract API from Amazon Web Services — 1 operation(s) for get asset contract.
+- [Amazon Web Services Get Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-baseline-api/) — The Get Baseline API from Amazon Web Services — 1 operation(s) for get baseline.
+- [Amazon Web Services Get Baseline Operation API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-baseline-operation-api/) — The Get Baseline Operation API from Amazon Web Services — 1 operation(s) for get baseline operation.
+- [Amazon Web Services Get Billing Group Cost Report API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-billing-group-cost-report-api/) — The Get Billing Group Cost Report API from Amazon Web Services — 1 operation(s) for get billing group cost report.
+- [Amazon Web Services Get Component API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-component-api/) — The Get Component API from Amazon Web Services — 1 operation(s) for get component.
+- [Amazon Web Services Get Control Operation API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-control-operation-api/) — The Get Control Operation API from Amazon Web Services — 1 operation(s) for get control operation.
+- [Amazon Web Services Get Database API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-database-api/) — The Get Database API from Amazon Web Services — 1 operation(s) for get database.
+- [Amazon Web Services Get Enabled Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-enabled-baseline-api/) — The Get Enabled Baseline API from Amazon Web Services — 1 operation(s) for get enabled baseline.
+- [Amazon Web Services Get Enabled Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-enabled-control-api/) — The Get Enabled Control API from Amazon Web Services — 1 operation(s) for get enabled control.
+- [Amazon Web Services Get Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-group-api/) — The Get Group API from Amazon Web Services — 1 operation(s) for get group.
+- [Amazon Web Services Get Group Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-group-configuration-api/) — The Get Group Configuration API from Amazon Web Services — 1 operation(s) for get group configuration.
+- [Amazon Web Services Get Group Query API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-group-query-api/) — The Get Group Query API from Amazon Web Services — 1 operation(s) for get group query.
+- [Amazon Web Services Get Ice Server Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-ice-server-config-api/) — The Get Ice Server Config API from Amazon Web Services — 1 operation(s) for get ice server config.
+- [Amazon Web Services Get Import File Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-import-file-task-api/) — The Get Import File Task API from Amazon Web Services — 1 operation(s) for get import file task.
+- [Amazon Web Services Get Landingzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-landingzone-api/) — The Get Landingzone API from Amazon Web Services — 1 operation(s) for get landingzone.
+- [Amazon Web Services Get Landingzone Operation API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-landingzone-operation-api/) — The Get Landingzone Operation API from Amazon Web Services — 1 operation(s) for get landingzone operation.
+- [Amazon Web Services Get Latest Assessment Id API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-latest-assessment-id-api/) — The Get Latest Assessment Id API from Amazon Web Services — 1 operation(s) for get latest assessment id.
+- [Amazon Web Services Get Operation API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-operation-api/) — The Get Operation API from Amazon Web Services — 1 operation(s) for get operation.
+- [Amazon Web Services Get Portfolio Preferences API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-portfolio-preferences-api/) — The Get Portfolio Preferences API from Amazon Web Services — 1 operation(s) for get portfolio preferences.
+- [Amazon Web Services Get Portfolio Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-portfolio-summary-api/) — The Get Portfolio Summary API from Amazon Web Services — 1 operation(s) for get portfolio summary.
+- [Amazon Web Services Get Recommendation Report Details API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-recommendation-report-details-api/) — The Get Recommendation Report Details API from Amazon Web Services — 1 operation(s) for get recommendation report details.
+- [Amazon Web Services Get Resource Permission API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-resource-permission-api/) — The Get Resource Permission API from Amazon Web Services — 1 operation(s) for get resource permission.
+- [Amazon Web Services Get Server Details API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-server-details-api/) — The Get Server Details API from Amazon Web Services — 1 operation(s) for get server details.
+- [Amazon Web Services Get Server Strategies API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-server-strategies-api/) — The Get Server Strategies API from Amazon Web Services — 1 operation(s) for get server strategies.
+- [Amazon Web Services Get Token Balance API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-token-balance-api/) — The Get Token Balance API from Amazon Web Services — 1 operation(s) for get token balance.
+- [Amazon Web Services Get Transaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-transaction-api/) — The Get Transaction API from Amazon Web Services — 1 operation(s) for get transaction.
+- [Amazon Web Services GetAccountLevelServiceConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getaccountlevelserviceconfiguration-api/) — The GetAccountLevelServiceConfiguration API from Amazon Web Services — 1 operation(s) for getaccountlevelserviceconfiguration.
+- [Amazon Web Services Get Alternate Contact API](https://apis.io/apis/amazon-web-services/amazon-web-services-getalternatecontact-api/) — The getAlternateContact API from Amazon Web Services — 1 operation(s) for getalternatecontact.
+- [Amazon Web Services GetAnomalyGroup API](https://apis.io/apis/amazon-web-services/amazon-web-services-getanomalygroup-api/) — The GetAnomalyGroup API from Amazon Web Services — 1 operation(s) for getanomalygroup.
+- [Amazon Web Services GetChannel API](https://apis.io/apis/amazon-web-services/amazon-web-services-getchannel-api/) — The GetChannel API from Amazon Web Services — 1 operation(s) for getchannel.
+- [Amazon Web Services Get Clip API](https://apis.io/apis/amazon-web-services/amazon-web-services-getclip-api/) — The getClip API from Amazon Web Services — 1 operation(s) for getclip.
+- [Amazon Web Services GetComponentPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getcomponentpolicy-api/) — The GetComponentPolicy API from Amazon Web Services — 1 operation(s) for getcomponentpolicy.
+- [Amazon Web Services GetComposition API](https://apis.io/apis/amazon-web-services/amazon-web-services-getcomposition-api/) — The GetComposition API from Amazon Web Services — 1 operation(s) for getcomposition.
+- [Amazon Web Services Get Contact Information API](https://apis.io/apis/amazon-web-services/amazon-web-services-getcontactinformation-api/) — The getContactInformation API from Amazon Web Services — 1 operation(s) for getcontactinformation.
+- [Amazon Web Services GetContainerRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-getcontainerrecipe-api/) — The GetContainerRecipe API from Amazon Web Services — 1 operation(s) for getcontainerrecipe.
+- [Amazon Web Services GetContainerRecipePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getcontainerrecipepolicy-api/) — The GetContainerRecipePolicy API from Amazon Web Services — 1 operation(s) for getcontainerrecipepolicy.
+- [Amazon Web Services Get DASH Streaming Session URL API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdashstreamingsessionurl-api/) — The getDASHStreamingSessionURL API from Amazon Web Services — 1 operation(s) for getdashstreamingsessionurl.
+- [Amazon Web Services GetDataCellsFilter API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdatacellsfilter-api/) — The GetDataCellsFilter API from Amazon Web Services — 1 operation(s) for getdatacellsfilter.
+- [Amazon Web Services GetDataLakeSettings API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdatalakesettings-api/) — The GetDataLakeSettings API from Amazon Web Services — 1 operation(s) for getdatalakesettings.
+- [Amazon Web Services GetDataQualityMetrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdataqualitymetrics-api/) — The GetDataQualityMetrics API from Amazon Web Services — 1 operation(s) for getdataqualitymetrics.
+- [Amazon Web Services GetDefaultView API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdefaultview-api/) — The GetDefaultView API from Amazon Web Services — 1 operation(s) for getdefaultview.
+- [Amazon Web Services Get Deployment API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdeployment-api/) — The getDeployment API from Amazon Web Services — 1 operation(s) for getdeployment.
+- [Amazon Web Services GetDeployments API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdeployments-api/) — The GetDeployments API from Amazon Web Services — 1 operation(s) for getdeployments.
+- [Amazon Web Services Get Destination API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdestination-api/) — The getDestination API from Amazon Web Services — 1 operation(s) for getdestination.
+- [Amazon Web Services GetDeviceRegistration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdeviceregistration-api/) — The GetDeviceRegistration API from Amazon Web Services — 1 operation(s) for getdeviceregistration.
+- [Amazon Web Services GetDistributionConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getdistributionconfiguration-api/) — The GetDistributionConfiguration API from Amazon Web Services — 1 operation(s) for getdistributionconfiguration.
+- [Amazon Web Services GetEffectivePermissionsForPath API](https://apis.io/apis/amazon-web-services/amazon-web-services-geteffectivepermissionsforpath-api/) — The GetEffectivePermissionsForPath API from Amazon Web Services — 1 operation(s) for geteffectivepermissionsforpath.
+- [Amazon Web Services GetEncoderConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getencoderconfiguration-api/) — The GetEncoderConfiguration API from Amazon Web Services — 1 operation(s) for getencoderconfiguration.
+- [Amazon Web Services GetFailbackReplicationConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getfailbackreplicationconfiguration-api/) — The GetFailbackReplicationConfiguration API from Amazon Web Services — 1 operation(s) for getfailbackreplicationconfiguration.
+- [Amazon Web Services GetFeedback API](https://apis.io/apis/amazon-web-services/amazon-web-services-getfeedback-api/) — The GetFeedback API from Amazon Web Services — 1 operation(s) for getfeedback.
+- [Amazon Web Services Get HLS Streaming Session URL API](https://apis.io/apis/amazon-web-services/amazon-web-services-gethlsstreamingsessionurl-api/) — The getHLSStreamingSessionURL API from Amazon Web Services — 1 operation(s) for gethlsstreamingsessionurl.
+- [Amazon Web Services GetImage API](https://apis.io/apis/amazon-web-services/amazon-web-services-getimage-api/) — The GetImage API from Amazon Web Services — 1 operation(s) for getimage.
+- [Amazon Web Services GetImagePipeline API](https://apis.io/apis/amazon-web-services/amazon-web-services-getimagepipeline-api/) — The GetImagePipeline API from Amazon Web Services — 1 operation(s) for getimagepipeline.
+- [Amazon Web Services GetImagePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getimagepolicy-api/) — The GetImagePolicy API from Amazon Web Services — 1 operation(s) for getimagepolicy.
+- [Amazon Web Services GetImageRecipe API](https://apis.io/apis/amazon-web-services/amazon-web-services-getimagerecipe-api/) — The GetImageRecipe API from Amazon Web Services — 1 operation(s) for getimagerecipe.
+- [Amazon Web Services GetImageRecipePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getimagerecipepolicy-api/) — The GetImageRecipePolicy API from Amazon Web Services — 1 operation(s) for getimagerecipepolicy.
+- [Amazon Web Services Get Incident Record API](https://apis.io/apis/amazon-web-services/amazon-web-services-getincidentrecord-api/) — The getIncidentRecord API from Amazon Web Services — 1 operation(s) for getincidentrecord.
+- [Amazon Web Services GetIndex API](https://apis.io/apis/amazon-web-services/amazon-web-services-getindex-api/) — The GetIndex API from Amazon Web Services — 1 operation(s) for getindex.
+- [Amazon Web Services GetInfrastructureConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getinfrastructureconfiguration-api/) — The GetInfrastructureConfiguration API from Amazon Web Services — 1 operation(s) for getinfrastructureconfiguration.
+- [Amazon Web Services GetLaunchConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getlaunchconfiguration-api/) — The GetLaunchConfiguration API from Amazon Web Services — 1 operation(s) for getlaunchconfiguration.
+- [Amazon Web Services GetLFTag API](https://apis.io/apis/amazon-web-services/amazon-web-services-getlftag-api/) — The GetLFTag API from Amazon Web Services — 1 operation(s) for getlftag.
+- [Amazon Web Services GetLifecycleExecution API](https://apis.io/apis/amazon-web-services/amazon-web-services-getlifecycleexecution-api/) — The GetLifecycleExecution API from Amazon Web Services — 1 operation(s) for getlifecycleexecution.
+- [Amazon Web Services GetLifecyclePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getlifecyclepolicy-api/) — The GetLifecyclePolicy API from Amazon Web Services — 1 operation(s) for getlifecyclepolicy.
+- [Amazon Web Services GetLink API](https://apis.io/apis/amazon-web-services/amazon-web-services-getlink-api/) — The GetLink API from Amazon Web Services — 1 operation(s) for getlink.
+- [Amazon Web Services GetLoggingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getloggingconfiguration-api/) — The GetLoggingConfiguration API from Amazon Web Services — 1 operation(s) for getloggingconfiguration.
+- [Amazon Web Services Get Media API](https://apis.io/apis/amazon-web-services/amazon-web-services-getmedia-api/) — The getMedia API from Amazon Web Services — 1 operation(s) for getmedia.
+- [Amazon Web Services Get Media For Fragment List API](https://apis.io/apis/amazon-web-services/amazon-web-services-getmediaforfragmentlist-api/) — The getMediaForFragmentList API from Amazon Web Services — 1 operation(s) for getmediaforfragmentlist.
+- [Amazon Web Services GetParticipant API](https://apis.io/apis/amazon-web-services/amazon-web-services-getparticipant-api/) — The GetParticipant API from Amazon Web Services — 1 operation(s) for getparticipant.
+- [Amazon Web Services Getpermission API](https://apis.io/apis/amazon-web-services/amazon-web-services-getpermission-api/) — The Getpermission API from Amazon Web Services — 1 operation(s) for getpermission.
+- [Amazon Web Services GetPlaybackKeyPair API](https://apis.io/apis/amazon-web-services/amazon-web-services-getplaybackkeypair-api/) — The GetPlaybackKeyPair API from Amazon Web Services — 1 operation(s) for getplaybackkeypair.
+- [Amazon Web Services GetPlaybackRestrictionPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getplaybackrestrictionpolicy-api/) — The GetPlaybackRestrictionPolicy API from Amazon Web Services — 1 operation(s) for getplaybackrestrictionpolicy.
+- [Amazon Web Services GetQueryState API](https://apis.io/apis/amazon-web-services/amazon-web-services-getquerystate-api/) — The GetQueryState API from Amazon Web Services — 1 operation(s) for getquerystate.
+- [Amazon Web Services GetQueryStatistics API](https://apis.io/apis/amazon-web-services/amazon-web-services-getquerystatistics-api/) — The GetQueryStatistics API from Amazon Web Services — 1 operation(s) for getquerystatistics.
+- [Amazon Web Services GetRecordingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getrecordingconfiguration-api/) — The GetRecordingConfiguration API from Amazon Web Services — 1 operation(s) for getrecordingconfiguration.
+- [Amazon Web Services Get Region Opt Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-getregionoptstatus-api/) — The getRegionOptStatus API from Amazon Web Services — 1 operation(s) for getregionoptstatus.
+- [Amazon Web Services GetReplicationConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getreplicationconfiguration-api/) — The GetReplicationConfiguration API from Amazon Web Services — 1 operation(s) for getreplicationconfiguration.
+- [Amazon Web Services Get Replication Set API](https://apis.io/apis/amazon-web-services/amazon-web-services-getreplicationset-api/) — The getReplicationSet API from Amazon Web Services — 1 operation(s) for getreplicationset.
+- [Amazon Web Services GetResourceLFTags API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourcelftags-api/) — The GetResourceLFTags API from Amazon Web Services — 1 operation(s) for getresourcelftags.
+- [Amazon Web Services Getresourcepolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourcepolicies-api/) — The Getresourcepolicies API from Amazon Web Services — 2 operation(s) for getresourcepolicies.
+- [Amazon Web Services GetResourcePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourcepolicy-api/) — The GetResourcePolicy API from Amazon Web Services — 1 operation(s) for getresourcepolicy.
+- [Amazon Web Services Getresourceshareassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourceshareassociations-api/) — The Getresourceshareassociations API from Amazon Web Services — 1 operation(s) for getresourceshareassociations.
+- [Amazon Web Services Getresourceshareinvitations API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourceshareinvitations-api/) — The Getresourceshareinvitations API from Amazon Web Services — 1 operation(s) for getresourceshareinvitations.
+- [Amazon Web Services Getresourceshares API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresourceshares-api/) — The Getresourceshares API from Amazon Web Services — 1 operation(s) for getresourceshares.
+- [Amazon Web Services Get Response Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-getresponseplan-api/) — The getResponsePlan API from Amazon Web Services — 1 operation(s) for getresponseplan.
+- [Amazon Web Services GetRoom API](https://apis.io/apis/amazon-web-services/amazon-web-services-getroom-api/) — The GetRoom API from Amazon Web Services — 1 operation(s) for getroom.
+- [Amazon Web Services GetSampleData API](https://apis.io/apis/amazon-web-services/amazon-web-services-getsampledata-api/) — The GetSampleData API from Amazon Web Services — 1 operation(s) for getsampledata.
+- [Amazon Web Services GetSamplingRules API](https://apis.io/apis/amazon-web-services/amazon-web-services-getsamplingrules-api/) — The GetSamplingRules API from Amazon Web Services — 1 operation(s) for getsamplingrules.
+- [Amazon Web Services GetSink API](https://apis.io/apis/amazon-web-services/amazon-web-services-getsink-api/) — The GetSink API from Amazon Web Services — 1 operation(s) for getsink.
+- [Amazon Web Services GetSinkPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-getsinkpolicy-api/) — The GetSinkPolicy API from Amazon Web Services — 1 operation(s) for getsinkpolicy.
+- [Amazon Web Services Get Site API](https://apis.io/apis/amazon-web-services/amazon-web-services-getsite-api/) — The getSite API from Amazon Web Services — 1 operation(s) for getsite.
+- [Amazon Web Services GetStage API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstage-api/) — The GetStage API from Amazon Web Services — 1 operation(s) for getstage.
+- [Amazon Web Services GetStageSession API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstagesession-api/) — The GetStageSession API from Amazon Web Services — 1 operation(s) for getstagesession.
+- [Amazon Web Services GetStorageConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstorageconfiguration-api/) — The GetStorageConfiguration API from Amazon Web Services — 1 operation(s) for getstorageconfiguration.
+- [Amazon Web Services GetStream API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstream-api/) — The GetStream API from Amazon Web Services — 1 operation(s) for getstream.
+- [Amazon Web Services GetStreamKey API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstreamkey-api/) — The GetStreamKey API from Amazon Web Services — 1 operation(s) for getstreamkey.
+- [Amazon Web Services GetStreamSession API](https://apis.io/apis/amazon-web-services/amazon-web-services-getstreamsession-api/) — The GetStreamSession API from Amazon Web Services — 1 operation(s) for getstreamsession.
+- [Amazon Web Services GetTableObjects API](https://apis.io/apis/amazon-web-services/amazon-web-services-gettableobjects-api/) — The GetTableObjects API from Amazon Web Services — 1 operation(s) for gettableobjects.
+- [Amazon Web Services GetTemporaryGluePartitionCredentials API](https://apis.io/apis/amazon-web-services/amazon-web-services-gettemporarygluepartitioncredentials-api/) — The GetTemporaryGluePartitionCredentials API from Amazon Web Services — 1 operation(s) for gettemporarygluepartitioncredentials.
+- [Amazon Web Services GetTemporaryGlueTableCredentials API](https://apis.io/apis/amazon-web-services/amazon-web-services-gettemporarygluetablecredentials-api/) — The GetTemporaryGlueTableCredentials API from Amazon Web Services — 1 operation(s) for gettemporarygluetablecredentials.
+- [Amazon Web Services Get Timeline Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-gettimelineevent-api/) — The getTimelineEvent API from Amazon Web Services — 1 operation(s) for gettimelineevent.
+- [Amazon Web Services GetView API](https://apis.io/apis/amazon-web-services/amazon-web-services-getview-api/) — The GetView API from Amazon Web Services — 1 operation(s) for getview.
+- [Amazon Web Services Get Worker API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworker-api/) — The getWorker API from Amazon Web Services — 1 operation(s) for getworker.
+- [Amazon Web Services Get Worker Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkerfleet-api/) — The getWorkerFleet API from Amazon Web Services — 1 operation(s) for getworkerfleet.
+- [Amazon Web Services GetWorkflow API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkflow-api/) — The GetWorkflow API from Amazon Web Services — 1 operation(s) for getworkflow.
+- [Amazon Web Services GetWorkflowExecution API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkflowexecution-api/) — The GetWorkflowExecution API from Amazon Web Services — 1 operation(s) for getworkflowexecution.
+- [Amazon Web Services GetWorkflowStepExecution API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkflowstepexecution-api/) — The GetWorkflowStepExecution API from Amazon Web Services — 1 operation(s) for getworkflowstepexecution.
+- [Amazon Web Services Get Workload API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkload-api/) — The getWorkload API from Amazon Web Services — 1 operation(s) for getworkload.
+- [Amazon Web Services GetWorkUnitResults API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkunitresults-api/) — The GetWorkUnitResults API from Amazon Web Services — 1 operation(s) for getworkunitresults.
+- [Amazon Web Services GetWorkUnits API](https://apis.io/apis/amazon-web-services/amazon-web-services-getworkunits-api/) — The GetWorkUnits API from Amazon Web Services — 1 operation(s) for getworkunits.
+- [Amazon Web Services Global Networks API](https://apis.io/apis/amazon-web-services/amazon-web-services-global-networks-api/) — The Global Networks API from Amazon Web Services — 27 operation(s) for global networks.
+- [Amazon Web Services Global Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-global-settings-api/) — The Global Settings API from Amazon Web Services — 1 operation(s) for global settings.
+- [Amazon Web Services GrantPermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-grantpermissions-api/) — The GrantPermissions API from Amazon Web Services — 1 operation(s) for grantpermissions.
+- [Amazon Web Services Graph API](https://apis.io/apis/amazon-web-services/amazon-web-services-graph-api/) — The Graph API from Amazon Web Services — 10 operation(s) for graph.
+- [Amazon Web Services Graphs API](https://apis.io/apis/amazon-web-services/amazon-web-services-graphs-api/) — The Graphs API from Amazon Web Services — 5 operation(s) for graphs.
+- [Amazon Web Services Greengrass API](https://apis.io/apis/amazon-web-services/amazon-web-services-greengrass-api/) — The Greengrass API from Amazon Web Services — 65 operation(s) for greengrass.
+- [Amazon Web Services Gremlin API](https://apis.io/apis/amazon-web-services/amazon-web-services-gremlin-api/) — The Gremlin API from Amazon Web Services — 5 operation(s) for gremlin.
+- [Amazon Web Services Groundstation API](https://apis.io/apis/amazon-web-services/amazon-web-services-groundstation-api/) — The Groundstation API from Amazon Web Services — 1 operation(s) for groundstation.
+- [Amazon Web Services Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-group-api/) — The Group API from Amazon Web Services — 5 operation(s) for group.
+- [Amazon Web Services Group Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-group-resources-api/) — The Group Resources API from Amazon Web Services — 1 operation(s) for group resources.
+- [Amazon Web Services Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-groups-api/) — The Groups API from Amazon Web Services — 3 operation(s) for groups.
+- [Amazon Web Services Groups List API](https://apis.io/apis/amazon-web-services/amazon-web-services-groups-list-api/) — The Groups List API from Amazon Web Services — 1 operation(s) for groups list.
+- [Amazon Web Services Harvest Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-harvest-jobs-api/) — The Harvest Jobs API from Amazon Web Services — 2 operation(s) for harvest jobs.
+- [Amazon Web Services Hours of Operations API](https://apis.io/apis/amazon-web-services/amazon-web-services-hours-of-operations-api/) — The Hours of Operations API from Amazon Web Services — 2 operation(s) for hours of operations.
+- [Amazon Web Services Hours of Operations Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-hours-of-operations-summary-api/) — The Hours of Operations Summary API from Amazon Web Services — 1 operation(s) for hours of operations summary.
+- [Amazon Web Services Human Loops API](https://apis.io/apis/amazon-web-services/amazon-web-services-human-loops-api/) — The Human Loops API from Amazon Web Services — 3 operation(s) for human loops.
+- [Amazon Web Services Identity Provider API](https://apis.io/apis/amazon-web-services/amazon-web-services-identity-provider-api/) — The Identity Provider API from Amazon Web Services — 4 operation(s) for identity provider.
+- [Amazon Web Services Identitypools API](https://apis.io/apis/amazon-web-services/amazon-web-services-identitypools-api/) — The Identitypools API from Amazon Web Services — 12 operation(s) for identitypools.
+- [Amazon Web Services Idmappingworkflows API](https://apis.io/apis/amazon-web-services/amazon-web-services-idmappingworkflows-api/) — The Idmappingworkflows API from Amazon Web Services — 4 operation(s) for idmappingworkflows.
+- [Amazon Web Services Import API](https://apis.io/apis/amazon-web-services/amazon-web-services-import-api/) — The Import API from Amazon Web Services — 6 operation(s) for import.
+- [Amazon Web Services Import Resources to Draft App Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-import-resources-to-draft-app-version-api/) — The Import Resources to Draft App Version API from Amazon Web Services — 1 operation(s) for import resources to draft app version.
+- [Amazon Web Services Import Application Usage API](https://apis.io/apis/amazon-web-services/amazon-web-services-importapplicationusage-api/) — The importApplicationUsage API from Amazon Web Services — 1 operation(s) for importapplicationusage.
+- [Amazon Web Services ImportComponent API](https://apis.io/apis/amazon-web-services/amazon-web-services-importcomponent-api/) — The ImportComponent API from Amazon Web Services — 1 operation(s) for importcomponent.
+- [Amazon Web Services ImportPlaybackKeyPair API](https://apis.io/apis/amazon-web-services/amazon-web-services-importplaybackkeypair-api/) — The ImportPlaybackKeyPair API from Amazon Web Services — 1 operation(s) for importplaybackkeypair.
+- [Amazon Web Services Imports API](https://apis.io/apis/amazon-web-services/amazon-web-services-imports-api/) — The Imports API from Amazon Web Services — 3 operation(s) for imports.
+- [Amazon Web Services ImportVmImage API](https://apis.io/apis/amazon-web-services/amazon-web-services-importvmimage-api/) — The ImportVmImage API from Amazon Web Services — 1 operation(s) for importvmimage.
+- [Amazon Web Services Indexing API](https://apis.io/apis/amazon-web-services/amazon-web-services-indexing-api/) — The Indexing API from Amazon Web Services — 1 operation(s) for indexing.
+- [Amazon Web Services Indices API](https://apis.io/apis/amazon-web-services/amazon-web-services-indices-api/) — The Indices API from Amazon Web Services — 7 operation(s) for indices.
+- [Amazon Web Services InitializeService API](https://apis.io/apis/amazon-web-services/amazon-web-services-initializeservice-api/) — The InitializeService API from Amazon Web Services — 1 operation(s) for initializeservice.
+- [Amazon Web Services Input Routings API](https://apis.io/apis/amazon-web-services/amazon-web-services-input-routings-api/) — The Input Routings API from Amazon Web Services — 1 operation(s) for input routings.
+- [Amazon Web Services Inputs API](https://apis.io/apis/amazon-web-services/amazon-web-services-inputs-api/) — The Inputs API from Amazon Web Services — 3 operation(s) for inputs.
+- [Amazon Web Services Insight API](https://apis.io/apis/amazon-web-services/amazon-web-services-insight-api/) — The Insight API from Amazon Web Services — 1 operation(s) for insight.
+- [Amazon Web Services InsightEvents API](https://apis.io/apis/amazon-web-services/amazon-web-services-insightevents-api/) — The InsightEvents API from Amazon Web Services — 1 operation(s) for insightevents.
+- [Amazon Web Services InsightImpactGraph API](https://apis.io/apis/amazon-web-services/amazon-web-services-insightimpactgraph-api/) — The InsightImpactGraph API from Amazon Web Services — 1 operation(s) for insightimpactgraph.
+- [Amazon Web Services Insights API](https://apis.io/apis/amazon-web-services/amazon-web-services-insights-api/) — The Insights API from Amazon Web Services — 11 operation(s) for insights.
+- [Amazon Web Services InsightSummaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-insightsummaries-api/) — The InsightSummaries API from Amazon Web Services — 1 operation(s) for insightsummaries.
+- [Amazon Web Services Instance API](https://apis.io/apis/amazon-web-services/amazon-web-services-instance-api/) — The Instance API from Amazon Web Services — 26 operation(s) for instance.
+- [Amazon Web Services Integrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-integrations-api/) — The Integrations API from Amazon Web Services — 5 operation(s) for integrations.
+- [Amazon Web Services Intents API](https://apis.io/apis/amazon-web-services/amazon-web-services-intents-api/) — The Intents API from Amazon Web Services — 6 operation(s) for intents.
+- [Amazon Web Services Internal API](https://apis.io/apis/amazon-web-services/amazon-web-services-internal-api/) — The Internal API from Amazon Web Services — 4 operation(s) for internal.
+- [Amazon Web Services Investigations API](https://apis.io/apis/amazon-web-services/amazon-web-services-investigations-api/) — The Investigations API from Amazon Web Services — 5 operation(s) for investigations.
+- [Amazon Web Services Invitation API](https://apis.io/apis/amazon-web-services/amazon-web-services-invitation-api/) — The Invitation API from Amazon Web Services — 5 operation(s) for invitation.
+- [Amazon Web Services Invitations API](https://apis.io/apis/amazon-web-services/amazon-web-services-invitations-api/) — The Invitations API from Amazon Web Services — 7 operation(s) for invitations.
+- [Amazon Web Services Items API](https://apis.io/apis/amazon-web-services/amazon-web-services-items-api/) — The Items API from Amazon Web Services — 1 operation(s) for items.
+- [Amazon Web Services Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-job-api/) — The Job API from Amazon Web Services — 3 operation(s) for job.
+- [Amazon Web Services Job Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-job-templates-api/) — The Job Templates API from Amazon Web Services — 2 operation(s) for job templates.
+- [Amazon Web Services Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-jobs-api/) — The Jobs API from Amazon Web Services — 20 operation(s) for jobs.
+- [Amazon Web Services Join Storage Session API](https://apis.io/apis/amazon-web-services/amazon-web-services-joinstoragesession-api/) — The joinStorageSession API from Amazon Web Services — 1 operation(s) for joinstoragesession.
+- [Amazon Web Services Journal S3 Exports API](https://apis.io/apis/amazon-web-services/amazon-web-services-journal-s3-exports-api/) — The Journal S3 Exports API from Amazon Web Services — 1 operation(s) for journal s3 exports.
+- [Amazon Web Services Kafka Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-kafka-versions-api/) — The Kafka Versions API from Amazon Web Services — 1 operation(s) for kafka versions.
+- [Amazon Web Services Key Value Stores API](https://apis.io/apis/amazon-web-services/amazon-web-services-key-value-stores-api/) — The Key Value Stores API from Amazon Web Services — 3 operation(s) for key value stores.
+- [Amazon Web Services Keys and Certificate API](https://apis.io/apis/amazon-web-services/amazon-web-services-keys-and-certificate-api/) — The Keys and Certificate API from Amazon Web Services — 1 operation(s) for keys and certificate.
+- [Amazon Web Services Keys API](https://apis.io/apis/amazon-web-services/amazon-web-services-keys-api/) — The Keys API from Amazon Web Services — 3 operation(s) for keys.
+- [Amazon Web Services Kx API](https://apis.io/apis/amazon-web-services/amazon-web-services-kx-api/) — The Kx API from Amazon Web Services — 21 operation(s) for kx.
+- [Amazon Web Services Ledgers API](https://apis.io/apis/amazon-web-services/amazon-web-services-ledgers-api/) — The Ledgers API from Amazon Web Services — 10 operation(s) for ledgers.
+- [Amazon Web Services Legal Holds API](https://apis.io/apis/amazon-web-services/amazon-web-services-legal-holds-api/) — The Legal Holds API from Amazon Web Services — 4 operation(s) for legal holds.
+- [Amazon Web Services Lenses API](https://apis.io/apis/amazon-web-services/amazon-web-services-lenses-api/) — The Lenses API from Amazon Web Services — 7 operation(s) for lenses.
+- [Amazon Web Services Lexicons API](https://apis.io/apis/amazon-web-services/amazon-web-services-lexicons-api/) — The Lexicons API from Amazon Web Services — 2 operation(s) for lexicons.
+- [Amazon Web Services List Account Associations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-account-associations-api/) — The List Account Associations API from Amazon Web Services — 1 operation(s) for list account associations.
+- [Amazon Web Services List Alarm Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-alarm-recommendations-api/) — The List Alarm Recommendations API from Amazon Web Services — 1 operation(s) for list alarm recommendations.
+- [Amazon Web Services List Analyzable Servers API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-analyzable-servers-api/) — The List Analyzable Servers API from Amazon Web Services — 1 operation(s) for list analyzable servers.
+- [Amazon Web Services List App Assessment Compliance Drifts API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-assessment-compliance-drifts-api/) — The List App Assessment Compliance Drifts API from Amazon Web Services — 1 operation(s) for list app assessment compliance drifts.
+- [Amazon Web Services List App Assessments API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-assessments-api/) — The List App Assessments API from Amazon Web Services — 1 operation(s) for list app assessments.
+- [Amazon Web Services List App Component Compliances API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-component-compliances-api/) — The List App Component Compliances API from Amazon Web Services — 1 operation(s) for list app component compliances.
+- [Amazon Web Services List App Component Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-component-recommendations-api/) — The List App Component Recommendations API from Amazon Web Services — 1 operation(s) for list app component recommendations.
+- [Amazon Web Services List App Input Sources API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-input-sources-api/) — The List App Input Sources API from Amazon Web Services — 1 operation(s) for list app input sources.
+- [Amazon Web Services List App Version App Components API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-version-app-components-api/) — The List App Version App Components API from Amazon Web Services — 1 operation(s) for list app version app components.
+- [Amazon Web Services List App Version Resource Mappings API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-version-resource-mappings-api/) — The List App Version Resource Mappings API from Amazon Web Services — 1 operation(s) for list app version resource mappings.
+- [Amazon Web Services List App Version Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-version-resources-api/) — The List App Version Resources API from Amazon Web Services — 1 operation(s) for list app version resources.
+- [Amazon Web Services List App Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-app-versions-api/) — The List App Versions API from Amazon Web Services — 1 operation(s) for list app versions.
+- [Amazon Web Services List Applicationcomponents API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-applicationcomponents-api/) — The List Applicationcomponents API from Amazon Web Services — 1 operation(s) for list applicationcomponents.
+- [Amazon Web Services List Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-applications-api/) — The List Applications API from Amazon Web Services — 1 operation(s) for list applications.
+- [Amazon Web Services List Apps API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-apps-api/) — The List Apps API from Amazon Web Services — 1 operation(s) for list apps.
+- [Amazon Web Services List Asset Contracts API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-asset-contracts-api/) — The List Asset Contracts API from Amazon Web Services — 1 operation(s) for list asset contracts.
+- [Amazon Web Services List Baselines API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-baselines-api/) — The List Baselines API from Amazon Web Services — 1 operation(s) for list baselines.
+- [Amazon Web Services List Billing Group Cost Reports API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-billing-group-cost-reports-api/) — The List Billing Group Cost Reports API from Amazon Web Services — 1 operation(s) for list billing group cost reports.
+- [Amazon Web Services List Billing Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-billing-groups-api/) — The List Billing Groups API from Amazon Web Services — 1 operation(s) for list billing groups.
+- [Amazon Web Services List Collectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-collectors-api/) — The List Collectors API from Amazon Web Services — 1 operation(s) for list collectors.
+- [Amazon Web Services List Components API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-components-api/) — The List Components API from Amazon Web Services — 1 operation(s) for list components.
+- [Amazon Web Services List Connector Entities API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-connector-entities-api/) — The List Connector Entities API from Amazon Web Services — 1 operation(s) for list connector entities.
+- [Amazon Web Services List Connectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-connectors-api/) — The List Connectors API from Amazon Web Services — 1 operation(s) for list connectors.
+- [Amazon Web Services List Custom Line Item Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-custom-line-item-versions-api/) — The List Custom Line Item Versions API from Amazon Web Services — 1 operation(s) for list custom line item versions.
+- [Amazon Web Services List Custom Line Items API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-custom-line-items-api/) — The List Custom Line Items API from Amazon Web Services — 1 operation(s) for list custom line items.
+- [Amazon Web Services List Databases API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-databases-api/) — The List Databases API from Amazon Web Services — 1 operation(s) for list databases.
+- [Amazon Web Services List Earth Observation Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-earth-observation-jobs-api/) — The List Earth Observation Jobs API from Amazon Web Services — 1 operation(s) for list earth observation jobs.
+- [Amazon Web Services List Enabled Baselines API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-enabled-baselines-api/) — The List Enabled Baselines API from Amazon Web Services — 1 operation(s) for list enabled baselines.
+- [Amazon Web Services List Enabled Controls API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-enabled-controls-api/) — The List Enabled Controls API from Amazon Web Services — 1 operation(s) for list enabled controls.
+- [Amazon Web Services List Flows API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-flows-api/) — The List Flows API from Amazon Web Services — 1 operation(s) for list flows.
+- [Amazon Web Services List Group Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-group-resources-api/) — The List Group Resources API from Amazon Web Services — 1 operation(s) for list group resources.
+- [Amazon Web Services List Import File Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-import-file-task-api/) — The List Import File Task API from Amazon Web Services — 1 operation(s) for list import file task.
+- [Amazon Web Services List Landingzones API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-landingzones-api/) — The List Landingzones API from Amazon Web Services — 1 operation(s) for list landingzones.
+- [Amazon Web Services List Log Anomalies API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-log-anomalies-api/) — The List Log Anomalies API from Amazon Web Services — 1 operation(s) for list log anomalies.
+- [Amazon Web Services List Operations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-operations-api/) — The List Operations API from Amazon Web Services — 1 operation(s) for list operations.
+- [Amazon Web Services List Orders API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-orders-api/) — The List Orders API from Amazon Web Services — 1 operation(s) for list orders.
+- [Amazon Web Services List Pricing Plans API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-pricing-plans-api/) — The List Pricing Plans API from Amazon Web Services — 1 operation(s) for list pricing plans.
+- [Amazon Web Services List Pricing Plans Associated with Pricing Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-pricing-plans-associated-with-pricing-rule-api/) — The List Pricing Plans Associated with Pricing Rule API from Amazon Web Services — 1 operation(s) for list pricing plans associated with pricing rule.
+- [Amazon Web Services List Pricing Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-pricing-rules-api/) — The List Pricing Rules API from Amazon Web Services — 1 operation(s) for list pricing rules.
+- [Amazon Web Services List Pricing Rules Associated to Pricing Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-pricing-rules-associated-to-pricing-plan-api/) — The List Pricing Rules Associated to Pricing Plan API from Amazon Web Services — 1 operation(s) for list pricing rules associated to pricing plan.
+- [Amazon Web Services List Recommendation Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-recommendation-templates-api/) — The List Recommendation Templates API from Amazon Web Services — 1 operation(s) for list recommendation templates.
+- [Amazon Web Services List Resiliency Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-resiliency-policies-api/) — The List Resiliency Policies API from Amazon Web Services — 1 operation(s) for list resiliency policies.
+- [Amazon Web Services List Resources Associated to Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-resources-associated-to-custom-line-item-api/) — The List Resources Associated to Custom Line Item API from Amazon Web Services — 1 operation(s) for list resources associated to custom line item.
+- [Amazon Web Services List Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-rules-api/) — The List Rules API from Amazon Web Services — 1 operation(s) for list rules.
+- [Amazon Web Services List Servers API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-servers-api/) — The List Servers API from Amazon Web Services — 1 operation(s) for list servers.
+- [Amazon Web Services List Sop Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-sop-recommendations-api/) — The List Sop Recommendations API from Amazon Web Services — 1 operation(s) for list sop recommendations.
+- [Amazon Web Services List Suggested Resiliency Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-suggested-resiliency-policies-api/) — The List Suggested Resiliency Policies API from Amazon Web Services — 1 operation(s) for list suggested resiliency policies.
+- [Amazon Web Services List Test Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-test-recommendations-api/) — The List Test Recommendations API from Amazon Web Services — 1 operation(s) for list test recommendations.
+- [Amazon Web Services List Token Balances API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-token-balances-api/) — The List Token Balances API from Amazon Web Services — 1 operation(s) for list token balances.
+- [Amazon Web Services List Transaction Events API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-transaction-events-api/) — The List Transaction Events API from Amazon Web Services — 1 operation(s) for list transaction events.
+- [Amazon Web Services List Transactions API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-transactions-api/) — The List Transactions API from Amazon Web Services — 1 operation(s) for list transactions.
+- [Amazon Web Services List Unsupported App Version Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-unsupported-app-version-resources-api/) — The List Unsupported App Version Resources API from Amazon Web Services — 1 operation(s) for list unsupported app version resources.
+- [Amazon Web Services List Vector Enrichment Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-vector-enrichment-jobs-api/) — The List Vector Enrichment Jobs API from Amazon Web Services — 1 operation(s) for list vector enrichment jobs.
+- [Amazon Web Services ListAlerts API](https://apis.io/apis/amazon-web-services/amazon-web-services-listalerts-api/) — The ListAlerts API from Amazon Web Services — 1 operation(s) for listalerts.
+- [Amazon Web Services ListAnomalyDetectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-listanomalydetectors-api/) — The ListAnomalyDetectors API from Amazon Web Services — 1 operation(s) for listanomalydetectors.
+- [Amazon Web Services ListAnomalyGroupRelatedMetrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-listanomalygrouprelatedmetrics-api/) — The ListAnomalyGroupRelatedMetrics API from Amazon Web Services — 1 operation(s) for listanomalygrouprelatedmetrics.
+- [Amazon Web Services ListAnomalyGroupSummaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-listanomalygroupsummaries-api/) — The ListAnomalyGroupSummaries API from Amazon Web Services — 1 operation(s) for listanomalygroupsummaries.
+- [Amazon Web Services ListAnomalyGroupTimeSeries API](https://apis.io/apis/amazon-web-services/amazon-web-services-listanomalygrouptimeseries-api/) — The ListAnomalyGroupTimeSeries API from Amazon Web Services — 1 operation(s) for listanomalygrouptimeseries.
+- [Amazon Web Services ListAttachedLinks API](https://apis.io/apis/amazon-web-services/amazon-web-services-listattachedlinks-api/) — The ListAttachedLinks API from Amazon Web Services — 1 operation(s) for listattachedlinks.
+- [Amazon Web Services ListChangeSets API](https://apis.io/apis/amazon-web-services/amazon-web-services-listchangesets-api/) — The ListChangeSets API from Amazon Web Services — 1 operation(s) for listchangesets.
+- [Amazon Web Services ListChannels API](https://apis.io/apis/amazon-web-services/amazon-web-services-listchannels-api/) — The ListChannels API from Amazon Web Services — 1 operation(s) for listchannels.
+- [Amazon Web Services ListComponentBuildVersions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listcomponentbuildversions-api/) — The ListComponentBuildVersions API from Amazon Web Services — 1 operation(s) for listcomponentbuildversions.
+- [Amazon Web Services ListCompositions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listcompositions-api/) — The ListCompositions API from Amazon Web Services — 1 operation(s) for listcompositions.
+- [Amazon Web Services ListContainerRecipes API](https://apis.io/apis/amazon-web-services/amazon-web-services-listcontainerrecipes-api/) — The ListContainerRecipes API from Amazon Web Services — 1 operation(s) for listcontainerrecipes.
+- [Amazon Web Services ListDataCellsFilter API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdatacellsfilter-api/) — The ListDataCellsFilter API from Amazon Web Services — 1 operation(s) for listdatacellsfilter.
+- [Amazon Web Services List Deployment Events API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdeploymentevents-api/) — The listDeploymentEvents API from Amazon Web Services — 1 operation(s) for listdeploymentevents.
+- [Amazon Web Services List Deployments API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdeployments-api/) — The listDeployments API from Amazon Web Services — 1 operation(s) for listdeployments.
+- [Amazon Web Services List Destinations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdestinations-api/) — The listDestinations API from Amazon Web Services — 1 operation(s) for listdestinations.
+- [Amazon Web Services List Devices API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdevices-api/) — The listDevices API from Amazon Web Services — 1 operation(s) for listdevices.
+- [Amazon Web Services ListDistributionConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdistributionconfigurations-api/) — The ListDistributionConfigurations API from Amazon Web Services — 1 operation(s) for listdistributionconfigurations.
+- [Amazon Web Services List Domains API](https://apis.io/apis/amazon-web-services/amazon-web-services-listdomains-api/) — The listDomains API from Amazon Web Services — 1 operation(s) for listdomains.
+- [Amazon Web Services List Edge Agent Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listedgeagentconfigurations-api/) — The listEdgeAgentConfigurations API from Amazon Web Services — 1 operation(s) for listedgeagentconfigurations.
+- [Amazon Web Services ListEncoderConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listencoderconfigurations-api/) — The ListEncoderConfigurations API from Amazon Web Services — 1 operation(s) for listencoderconfigurations.
+- [Amazon Web Services ListEntities API](https://apis.io/apis/amazon-web-services/amazon-web-services-listentities-api/) — The ListEntities API from Amazon Web Services — 1 operation(s) for listentities.
+- [Amazon Web Services List Event Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-listeventtypes-api/) — The listEventTypes API from Amazon Web Services — 1 operation(s) for listeventtypes.
+- [Amazon Web Services ListExportErrors API](https://apis.io/apis/amazon-web-services/amazon-web-services-listexporterrors-api/) — The ListExportErrors API from Amazon Web Services — 1 operation(s) for listexporterrors.
+- [Amazon Web Services ListExports API](https://apis.io/apis/amazon-web-services/amazon-web-services-listexports-api/) — The ListExports API from Amazon Web Services — 1 operation(s) for listexports.
+- [Amazon Web Services ListExtensibleSourceServers API](https://apis.io/apis/amazon-web-services/amazon-web-services-listextensiblesourceservers-api/) — The ListExtensibleSourceServers API from Amazon Web Services — 1 operation(s) for listextensiblesourceservers.
+- [Amazon Web Services List Fragments API](https://apis.io/apis/amazon-web-services/amazon-web-services-listfragments-api/) — The listFragments API from Amazon Web Services — 1 operation(s) for listfragments.
+- [Amazon Web Services ListImageBuildVersions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagebuildversions-api/) — The ListImageBuildVersions API from Amazon Web Services — 1 operation(s) for listimagebuildversions.
+- [Amazon Web Services ListImagePackages API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagepackages-api/) — The ListImagePackages API from Amazon Web Services — 1 operation(s) for listimagepackages.
+- [Amazon Web Services ListImagePipelineImages API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagepipelineimages-api/) — The ListImagePipelineImages API from Amazon Web Services — 1 operation(s) for listimagepipelineimages.
+- [Amazon Web Services ListImagePipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagepipelines-api/) — The ListImagePipelines API from Amazon Web Services — 1 operation(s) for listimagepipelines.
+- [Amazon Web Services ListImageRecipes API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagerecipes-api/) — The ListImageRecipes API from Amazon Web Services — 1 operation(s) for listimagerecipes.
+- [Amazon Web Services ListImageScanFindingAggregations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagescanfindingaggregations-api/) — The ListImageScanFindingAggregations API from Amazon Web Services — 1 operation(s) for listimagescanfindingaggregations.
+- [Amazon Web Services ListImageScanFindings API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimagescanfindings-api/) — The ListImageScanFindings API from Amazon Web Services — 1 operation(s) for listimagescanfindings.
+- [Amazon Web Services ListImportErrors API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimporterrors-api/) — The ListImportErrors API from Amazon Web Services — 1 operation(s) for listimporterrors.
+- [Amazon Web Services ListImports API](https://apis.io/apis/amazon-web-services/amazon-web-services-listimports-api/) — The ListImports API from Amazon Web Services — 1 operation(s) for listimports.
+- [Amazon Web Services List Incident Findings API](https://apis.io/apis/amazon-web-services/amazon-web-services-listincidentfindings-api/) — The listIncidentFindings API from Amazon Web Services — 1 operation(s) for listincidentfindings.
+- [Amazon Web Services ListIndexes API](https://apis.io/apis/amazon-web-services/amazon-web-services-listindexes-api/) — The ListIndexes API from Amazon Web Services — 1 operation(s) for listindexes.
+- [Amazon Web Services ListIndexesForMembers API](https://apis.io/apis/amazon-web-services/amazon-web-services-listindexesformembers-api/) — The ListIndexesForMembers API from Amazon Web Services — 1 operation(s) for listindexesformembers.
+- [Amazon Web Services ListInfrastructureConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listinfrastructureconfigurations-api/) — The ListInfrastructureConfigurations API from Amazon Web Services — 1 operation(s) for listinfrastructureconfigurations.
+- [Amazon Web Services Listjobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-listjobs-api/) — The Listjobs API from Amazon Web Services — 1 operation(s) for listjobs.
+- [Amazon Web Services ListLakeFormationOptIns API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlakeformationoptins-api/) — The ListLakeFormationOptIns API from Amazon Web Services — 1 operation(s) for listlakeformationoptins.
+- [Amazon Web Services ListLaunchActions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlaunchactions-api/) — The ListLaunchActions API from Amazon Web Services — 1 operation(s) for listlaunchactions.
+- [Amazon Web Services ListLFTags API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlftags-api/) — The ListLFTags API from Amazon Web Services — 1 operation(s) for listlftags.
+- [Amazon Web Services ListLifecycleExecutionResources API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlifecycleexecutionresources-api/) — The ListLifecycleExecutionResources API from Amazon Web Services — 1 operation(s) for listlifecycleexecutionresources.
+- [Amazon Web Services ListLifecycleExecutions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlifecycleexecutions-api/) — The ListLifecycleExecutions API from Amazon Web Services — 1 operation(s) for listlifecycleexecutions.
+- [Amazon Web Services ListLifecyclePolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlifecyclepolicies-api/) — The ListLifecyclePolicies API from Amazon Web Services — 1 operation(s) for listlifecyclepolicies.
+- [Amazon Web Services ListLinks API](https://apis.io/apis/amazon-web-services/amazon-web-services-listlinks-api/) — The ListLinks API from Amazon Web Services — 1 operation(s) for listlinks.
+- [Amazon Web Services ListLoggingConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listloggingconfigurations-api/) — The ListLoggingConfigurations API from Amazon Web Services — 1 operation(s) for listloggingconfigurations.
+- [Amazon Web Services ListManagedAccounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-listmanagedaccounts-api/) — The ListManagedAccounts API from Amazon Web Services — 1 operation(s) for listmanagedaccounts.
+- [Amazon Web Services ListMetricSets API](https://apis.io/apis/amazon-web-services/amazon-web-services-listmetricsets-api/) — The ListMetricSets API from Amazon Web Services — 1 operation(s) for listmetricsets.
+- [Amazon Web Services List Notification Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-listnotificationrules-api/) — The listNotificationRules API from Amazon Web Services — 1 operation(s) for listnotificationrules.
+- [Amazon Web Services ListParticipantEvents API](https://apis.io/apis/amazon-web-services/amazon-web-services-listparticipantevents-api/) — The ListParticipantEvents API from Amazon Web Services — 1 operation(s) for listparticipantevents.
+- [Amazon Web Services ListParticipants API](https://apis.io/apis/amazon-web-services/amazon-web-services-listparticipants-api/) — The ListParticipants API from Amazon Web Services — 1 operation(s) for listparticipants.
+- [Amazon Web Services Listpendinginvitationresources API](https://apis.io/apis/amazon-web-services/amazon-web-services-listpendinginvitationresources-api/) — The Listpendinginvitationresources API from Amazon Web Services — 1 operation(s) for listpendinginvitationresources.
+- [Amazon Web Services Listpermissionassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listpermissionassociations-api/) — The Listpermissionassociations API from Amazon Web Services — 1 operation(s) for listpermissionassociations.
+- [Amazon Web Services ListPermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listpermissions-api/) — The ListPermissions API from Amazon Web Services — 2 operation(s) for listpermissions.
+- [Amazon Web Services Listpermissionversions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listpermissionversions-api/) — The Listpermissionversions API from Amazon Web Services — 1 operation(s) for listpermissionversions.
+- [Amazon Web Services ListPlaybackKeyPairs API](https://apis.io/apis/amazon-web-services/amazon-web-services-listplaybackkeypairs-api/) — The ListPlaybackKeyPairs API from Amazon Web Services — 1 operation(s) for listplaybackkeypairs.
+- [Amazon Web Services ListPlaybackRestrictionPolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-listplaybackrestrictionpolicies-api/) — The ListPlaybackRestrictionPolicies API from Amazon Web Services — 1 operation(s) for listplaybackrestrictionpolicies.
+- [Amazon Web Services Listprincipals API](https://apis.io/apis/amazon-web-services/amazon-web-services-listprincipals-api/) — The Listprincipals API from Amazon Web Services — 1 operation(s) for listprincipals.
+- [Amazon Web Services ListRecordingConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listrecordingconfigurations-api/) — The ListRecordingConfigurations API from Amazon Web Services — 1 operation(s) for listrecordingconfigurations.
+- [Amazon Web Services List Regions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listregions-api/) — The listRegions API from Amazon Web Services — 1 operation(s) for listregions.
+- [Amazon Web Services Listreplacepermissionassociationswork API](https://apis.io/apis/amazon-web-services/amazon-web-services-listreplacepermissionassociationswork-api/) — The Listreplacepermissionassociationswork API from Amazon Web Services — 1 operation(s) for listreplacepermissionassociationswork.
+- [Amazon Web Services ListResourcePolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-listresourcepolicies-api/) — The ListResourcePolicies API from Amazon Web Services — 1 operation(s) for listresourcepolicies.
+- [Amazon Web Services ListResources API](https://apis.io/apis/amazon-web-services/amazon-web-services-listresources-api/) — The ListResources API from Amazon Web Services — 2 operation(s) for listresources.
+- [Amazon Web Services Listresourcesharepermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listresourcesharepermissions-api/) — The Listresourcesharepermissions API from Amazon Web Services — 1 operation(s) for listresourcesharepermissions.
+- [Amazon Web Services Listresourcetypes API](https://apis.io/apis/amazon-web-services/amazon-web-services-listresourcetypes-api/) — The Listresourcetypes API from Amazon Web Services — 1 operation(s) for listresourcetypes.
+- [Amazon Web Services ListRooms API](https://apis.io/apis/amazon-web-services/amazon-web-services-listrooms-api/) — The ListRooms API from Amazon Web Services — 1 operation(s) for listrooms.
+- [Amazon Web Services Listschedulingpolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-listschedulingpolicies-api/) — The Listschedulingpolicies API from Amazon Web Services — 1 operation(s) for listschedulingpolicies.
+- [Amazon Web Services Listsimulations API](https://apis.io/apis/amazon-web-services/amazon-web-services-listsimulations-api/) — The Listsimulations API from Amazon Web Services — 1 operation(s) for listsimulations.
+- [Amazon Web Services ListSinks API](https://apis.io/apis/amazon-web-services/amazon-web-services-listsinks-api/) — The ListSinks API from Amazon Web Services — 1 operation(s) for listsinks.
+- [Amazon Web Services List Sites API](https://apis.io/apis/amazon-web-services/amazon-web-services-listsites-api/) — The listSites API from Amazon Web Services — 1 operation(s) for listsites.
+- [Amazon Web Services ListSourceServerActions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listsourceserveractions-api/) — The ListSourceServerActions API from Amazon Web Services — 1 operation(s) for listsourceserveractions.
+- [Amazon Web Services ListStages API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststages-api/) — The ListStages API from Amazon Web Services — 1 operation(s) for liststages.
+- [Amazon Web Services ListStageSessions API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststagesessions-api/) — The ListStageSessions API from Amazon Web Services — 1 operation(s) for liststagesessions.
+- [Amazon Web Services ListStagingAccounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststagingaccounts-api/) — The ListStagingAccounts API from Amazon Web Services — 1 operation(s) for liststagingaccounts.
+- [Amazon Web Services ListStorageConfigurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststorageconfigurations-api/) — The ListStorageConfigurations API from Amazon Web Services — 1 operation(s) for liststorageconfigurations.
+- [Amazon Web Services ListStreamKeys API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststreamkeys-api/) — The ListStreamKeys API from Amazon Web Services — 1 operation(s) for liststreamkeys.
+- [Amazon Web Services ListStreams API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststreams-api/) — The ListStreams API from Amazon Web Services — 2 operation(s) for liststreams.
+- [Amazon Web Services ListStreamSessions API](https://apis.io/apis/amazon-web-services/amazon-web-services-liststreamsessions-api/) — The ListStreamSessions API from Amazon Web Services — 1 operation(s) for liststreamsessions.
+- [Amazon Web Services ListSupportedResourceTypes API](https://apis.io/apis/amazon-web-services/amazon-web-services-listsupportedresourcetypes-api/) — The ListSupportedResourceTypes API from Amazon Web Services — 1 operation(s) for listsupportedresourcetypes.
+- [Amazon Web Services ListTableStorageOptimizers API](https://apis.io/apis/amazon-web-services/amazon-web-services-listtablestorageoptimizers-api/) — The ListTableStorageOptimizers API from Amazon Web Services — 1 operation(s) for listtablestorageoptimizers.
+- [Amazon Web Services ListTemplateActions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listtemplateactions-api/) — The ListTemplateActions API from Amazon Web Services — 1 operation(s) for listtemplateactions.
+- [Amazon Web Services ListWaitingWorkflowSteps API](https://apis.io/apis/amazon-web-services/amazon-web-services-listwaitingworkflowsteps-api/) — The ListWaitingWorkflowSteps API from Amazon Web Services — 1 operation(s) for listwaitingworkflowsteps.
+- [Amazon Web Services ListWaves API](https://apis.io/apis/amazon-web-services/amazon-web-services-listwaves-api/) — The ListWaves API from Amazon Web Services — 1 operation(s) for listwaves.
+- [Amazon Web Services List Website Authorization Providers API](https://apis.io/apis/amazon-web-services/amazon-web-services-listwebsiteauthorizationproviders-api/) — The listWebsiteAuthorizationProviders API from Amazon Web Services — 1 operation(s) for listwebsiteauthorizationproviders.
+- [Amazon Web Services List Website Certificate Authorities API](https://apis.io/apis/amazon-web-services/amazon-web-services-listwebsitecertificateauthorities-api/) — The listWebsiteCertificateAuthorities API from Amazon Web Services — 1 operation(s) for listwebsitecertificateauthorities.
+- [Amazon Web Services List Worker Fleets API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkerfleets-api/) — The listWorkerFleets API from Amazon Web Services — 1 operation(s) for listworkerfleets.
+- [Amazon Web Services List Workers API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkers-api/) — The listWorkers API from Amazon Web Services — 1 operation(s) for listworkers.
+- [Amazon Web Services ListWorkflowBuildVersions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkflowbuildversions-api/) — The ListWorkflowBuildVersions API from Amazon Web Services — 1 operation(s) for listworkflowbuildversions.
+- [Amazon Web Services ListWorkflowExecutions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkflowexecutions-api/) — The ListWorkflowExecutions API from Amazon Web Services — 1 operation(s) for listworkflowexecutions.
+- [Amazon Web Services ListWorkflows API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkflows-api/) — The ListWorkflows API from Amazon Web Services — 1 operation(s) for listworkflows.
+- [Amazon Web Services ListWorkflowStepExecutions API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkflowstepexecutions-api/) — The ListWorkflowStepExecutions API from Amazon Web Services — 1 operation(s) for listworkflowstepexecutions.
+- [Amazon Web Services List Workload Deployment Patterns API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkloaddeploymentpatterns-api/) — The listWorkloadDeploymentPatterns API from Amazon Web Services — 1 operation(s) for listworkloaddeploymentpatterns.
+- [Amazon Web Services List Workloads API](https://apis.io/apis/amazon-web-services/amazon-web-services-listworkloads-api/) — The listWorkloads API from Amazon Web Services — 1 operation(s) for listworkloads.
+- [Amazon Web Services Loader API](https://apis.io/apis/amazon-web-services/amazon-web-services-loader-api/) — The Loader API from Amazon Web Services — 2 operation(s) for loader.
+- [Amazon Web Services Log Levels API](https://apis.io/apis/amazon-web-services/amazon-web-services-log-levels-api/) — The Log Levels API from Amazon Web Services — 2 operation(s) for log levels.
+- [Amazon Web Services Logging API](https://apis.io/apis/amazon-web-services/amazon-web-services-logging-api/) — The Logging API from Amazon Web Services — 2 operation(s) for logging.
+- [Amazon Web Services Logically Air Gapped Backup Vaults API](https://apis.io/apis/amazon-web-services/amazon-web-services-logically-air-gapped-backup-vaults-api/) — The Logically Air Gapped Backup Vaults API from Amazon Web Services — 1 operation(s) for logically air gapped backup vaults.
+- [Amazon Web Services Logout API](https://apis.io/apis/amazon-web-services/amazon-web-services-logout-api/) — The Logout API from Amazon Web Services — 1 operation(s) for logout.
+- [Amazon Web Services Mac API](https://apis.io/apis/amazon-web-services/amazon-web-services-mac-api/) — The Mac API from Amazon Web Services — 2 operation(s) for mac.
+- [Amazon Web Services Macie API](https://apis.io/apis/amazon-web-services/amazon-web-services-macie-api/) — The Macie API from Amazon Web Services — 2 operation(s) for macie.
+- [Amazon Web Services Malware Scan API](https://apis.io/apis/amazon-web-services/amazon-web-services-malware-scan-api/) — The Malware Scan API from Amazon Web Services — 1 operation(s) for malware scan.
+- [Amazon Web Services Managed Data Identifiers API](https://apis.io/apis/amazon-web-services/amazon-web-services-managed-data-identifiers-api/) — The Managed Data Identifiers API from Amazon Web Services — 1 operation(s) for managed data identifiers.
+- [Amazon Web Services Managed Device API](https://apis.io/apis/amazon-web-services/amazon-web-services-managed-device-api/) — The Managed Device API from Amazon Web Services — 3 operation(s) for managed device.
+- [Amazon Web Services Managed Devices API](https://apis.io/apis/amazon-web-services/amazon-web-services-managed-devices-api/) — The Managed Devices API from Amazon Web Services — 1 operation(s) for managed devices.
+- [Amazon Web Services Managed Job Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-managed-job-templates-api/) — The Managed Job Templates API from Amazon Web Services — 2 operation(s) for managed job templates.
+- [Amazon Web Services Managedresources API](https://apis.io/apis/amazon-web-services/amazon-web-services-managedresources-api/) — The Managedresources API from Amazon Web Services — 2 operation(s) for managedresources.
+- [Amazon Web Services Maps API](https://apis.io/apis/amazon-web-services/amazon-web-services-maps-api/) — The Maps API from Amazon Web Services — 7 operation(s) for maps.
+- [Amazon Web Services MarkAsArchived API](https://apis.io/apis/amazon-web-services/amazon-web-services-markasarchived-api/) — The MarkAsArchived API from Amazon Web Services — 1 operation(s) for markasarchived.
+- [Amazon Web Services Master API](https://apis.io/apis/amazon-web-services/amazon-web-services-master-api/) — The Master API from Amazon Web Services — 2 operation(s) for master.
+- [Amazon Web Services Matchingworkflows API](https://apis.io/apis/amazon-web-services/amazon-web-services-matchingworkflows-api/) — The Matchingworkflows API from Amazon Web Services — 5 operation(s) for matchingworkflows.
+- [Amazon Web Services Me API](https://apis.io/apis/amazon-web-services/amazon-web-services-me-api/) — The Me API from Amazon Web Services — 2 operation(s) for me.
+- [Amazon Web Services Media Capture Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-media-capture-pipelines-api/) — The Media Capture Pipelines API from Amazon Web Services — 2 operation(s) for media capture pipelines.
+- [Amazon Web Services Media Insights Pipeline Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-media-insights-pipeline-configurations-api/) — The Media Insights Pipeline Configurations API from Amazon Web Services — 2 operation(s) for media insights pipeline configurations.
+- [Amazon Web Services Media Insights Pipeline Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-media-insights-pipeline-status-api/) — The Media Insights Pipeline Status API from Amazon Web Services — 1 operation(s) for media insights pipeline status.
+- [Amazon Web Services Media Insights Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-media-insights-pipelines-api/) — The Media Insights Pipelines API from Amazon Web Services — 7 operation(s) for media insights pipelines.
+- [Amazon Web Services Media Pipeline Kinesis Video Stream Pools API](https://apis.io/apis/amazon-web-services/amazon-web-services-media-pipeline-kinesis-video-stream-pools-api/) — The Media Pipeline Kinesis Video Stream Pools API from Amazon Web Services — 2 operation(s) for media pipeline kinesis video stream pools.
+- [Amazon Web Services Medical Stream Transcription API](https://apis.io/apis/amazon-web-services/amazon-web-services-medical-stream-transcription-api/) — The Medical Stream Transcription API from Amazon Web Services — 1 operation(s) for medical stream transcription.
+- [Amazon Web Services Meetings API](https://apis.io/apis/amazon-web-services/amazon-web-services-meetings-api/) — The Meetings API from Amazon Web Services — 22 operation(s) for meetings.
+- [Amazon Web Services Meetings?operation=create Attendees API](https://apis.io/apis/amazon-web-services/amazon-web-services-meetings-operation-create-attendees-api/) — The Meetings?operation=create Attendees API from Amazon Web Services — 1 operation(s) for meetings?operation=create attendees.
+- [Amazon Web Services Members API](https://apis.io/apis/amazon-web-services/amazon-web-services-members-api/) — The Members API from Amazon Web Services — 9 operation(s) for members.
+- [Amazon Web Services Membership API](https://apis.io/apis/amazon-web-services/amazon-web-services-membership-api/) — The Membership API from Amazon Web Services — 2 operation(s) for membership.
+- [Amazon Web Services Memberships API](https://apis.io/apis/amazon-web-services/amazon-web-services-memberships-api/) — The Memberships API from Amazon Web Services — 14 operation(s) for memberships.
+- [Amazon Web Services Merged APIs API](https://apis.io/apis/amazon-web-services/amazon-web-services-mergedapis-api/) — The mergedApis API from Amazon Web Services — 4 operation(s) for mergedapis.
+- [Amazon Web Services Meshes API](https://apis.io/apis/amazon-web-services/amazon-web-services-meshes-api/) — The Meshes API from Amazon Web Services — 14 operation(s) for meshes.
+- [Amazon Web Services Messages API](https://apis.io/apis/amazon-web-services/amazon-web-services-messages-api/) — The Messages API from Amazon Web Services — 2 operation(s) for messages.
+- [Amazon Web Services Metadata API](https://apis.io/apis/amazon-web-services/amazon-web-services-metadata-api/) — The Metadata API from Amazon Web Services — 3 operation(s) for metadata.
+- [Amazon Web Services Metadata Transfer Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-metadata-transfer-jobs-api/) — The Metadata Transfer Jobs API from Amazon Web Services — 3 operation(s) for metadata transfer jobs.
+- [Amazon Web Services Metadata Transfer Jobs List API](https://apis.io/apis/amazon-web-services/amazon-web-services-metadata-transfer-jobs-list-api/) — The Metadata Transfer Jobs List API from Amazon Web Services — 1 operation(s) for metadata transfer jobs list.
+- [Amazon Web Services Metric Values API](https://apis.io/apis/amazon-web-services/amazon-web-services-metric-values-api/) — The Metric Values API from Amazon Web Services — 1 operation(s) for metric values.
+- [Amazon Web Services Metrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-metrics-api/) — The Metrics API from Amazon Web Services — 7 operation(s) for metrics.
+- [Amazon Web Services Migrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-migrations-api/) — The Migrations API from Amazon Web Services — 2 operation(s) for migrations.
+- [Amazon Web Services Migrationworkflow API](https://apis.io/apis/amazon-web-services/amazon-web-services-migrationworkflow-api/) — The Migrationworkflow API from Amazon Web Services — 4 operation(s) for migrationworkflow.
+- [Amazon Web Services Migrationworkflows API](https://apis.io/apis/amazon-web-services/amazon-web-services-migrationworkflows-api/) — The Migrationworkflows API from Amazon Web Services — 1 operation(s) for migrationworkflows.
+- [Amazon Web Services Migrationworkflowtemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-migrationworkflowtemplate-api/) — The Migrationworkflowtemplate API from Amazon Web Services — 1 operation(s) for migrationworkflowtemplate.
+- [Amazon Web Services Migrationworkflowtemplates API](https://apis.io/apis/amazon-web-services/amazon-web-services-migrationworkflowtemplates-api/) — The Migrationworkflowtemplates API from Amazon Web Services — 1 operation(s) for migrationworkflowtemplates.
+- [Amazon Web Services Minute Usage API](https://apis.io/apis/amazon-web-services/amazon-web-services-minute-usage-api/) — The Minute Usage API from Amazon Web Services — 1 operation(s) for minute usage.
+- [Amazon Web Services Missionprofile API](https://apis.io/apis/amazon-web-services/amazon-web-services-missionprofile-api/) — The Missionprofile API from Amazon Web Services — 2 operation(s) for missionprofile.
+- [Amazon Web Services Mitigationactions API](https://apis.io/apis/amazon-web-services/amazon-web-services-mitigationactions-api/) — The Mitigationactions API from Amazon Web Services — 2 operation(s) for mitigationactions.
+- [Amazon Web Services Ml API](https://apis.io/apis/amazon-web-services/amazon-web-services-ml-api/) — The Ml API from Amazon Web Services — 8 operation(s) for ml.
+- [Amazon Web Services Model API](https://apis.io/apis/amazon-web-services/amazon-web-services-model-api/) — The Model API from Amazon Web Services — 2 operation(s) for model.
+- [Amazon Web Services Model Customization Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-model-customization-jobs-api/) — The Model Customization Jobs API from Amazon Web Services — 3 operation(s) for model customization jobs.
+- [Amazon Web Services Models API](https://apis.io/apis/amazon-web-services/amazon-web-services-models-api/) — The Models API from Amazon Web Services — 3 operation(s) for models.
+- [Amazon Web Services Monitors API](https://apis.io/apis/amazon-web-services/amazon-web-services-monitors-api/) — The Monitors API from Amazon Web Services — 12 operation(s) for monitors.
+- [Amazon Web Services Mrap API](https://apis.io/apis/amazon-web-services/amazon-web-services-mrap-api/) — The Mrap API from Amazon Web Services — 5 operation(s) for mrap.
+- [Amazon Web Services Multicast Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-multicast-groups-api/) — The Multicast Groups API from Amazon Web Services — 7 operation(s) for multicast groups.
+- [Amazon Web Services Multipart Uploads API](https://apis.io/apis/amazon-web-services/amazon-web-services-multipart-uploads-api/) — The Multipart Uploads API from Amazon Web Services — 1 operation(s) for multipart uploads.
+- [Amazon Web Services Network Analyzer Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-network-analyzer-configurations-api/) — The Network Analyzer Configurations API from Amazon Web Services — 2 operation(s) for network analyzer configurations.
+- [Amazon Web Services Network Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-network-resources-api/) — The Network Resources API from Amazon Web Services — 4 operation(s) for network resources.
+- [Amazon Web Services Network Sites API](https://apis.io/apis/amazon-web-services/amazon-web-services-network-sites-api/) — The Network Sites API from Amazon Web Services — 6 operation(s) for network sites.
+- [Amazon Web Services Networks API](https://apis.io/apis/amazon-web-services/amazon-web-services-networks-api/) — The Networks API from Amazon Web Services — 12 operation(s) for networks.
+- [Amazon Web Services Nodes API](https://apis.io/apis/amazon-web-services/amazon-web-services-nodes-api/) — The Nodes API from Amazon Web Services — 2 operation(s) for nodes.
+- [Amazon Web Services Notifications API](https://apis.io/apis/amazon-web-services/amazon-web-services-notifications-api/) — The Notifications API from Amazon Web Services — 1 operation(s) for notifications.
+- [Amazon Web Services Object ACL API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-acl-api/) — The Object ACL API from Amazon Web Services — 1 operation(s) for object acl.
+- [Amazon Web Services Object Attributes API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-attributes-api/) — The Object Attributes API from Amazon Web Services — 1 operation(s) for object attributes.
+- [Amazon Web Services Object Legal Hold API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-legal-hold-api/) — The Object Legal Hold API from Amazon Web Services — 1 operation(s) for object legal hold.
+- [Amazon Web Services Object Lock Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-lock-configuration-api/) — The Object Lock Configuration API from Amazon Web Services — 1 operation(s) for object lock configuration.
+- [Amazon Web Services Object Retention API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-retention-api/) — The Object Retention API from Amazon Web Services — 1 operation(s) for object retention.
+- [Amazon Web Services Object Tagging API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-tagging-api/) — The Object Tagging API from Amazon Web Services — 1 operation(s) for object tagging.
+- [Amazon Web Services Object Torrent API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-torrent-api/) — The Object Torrent API from Amazon Web Services — 1 operation(s) for object torrent.
+- [Amazon Web Services Object Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-object-versions-api/) — The Object Versions API from Amazon Web Services — 1 operation(s) for object versions.
+- [Amazon Web Services Objects API](https://apis.io/apis/amazon-web-services/amazon-web-services-objects-api/) — The Objects API from Amazon Web Services — 1 operation(s) for objects.
+- [Amazon Web Services Objects V 2 API](https://apis.io/apis/amazon-web-services/amazon-web-services-objects-v-2-api/) — The Objects V 2 API from Amazon Web Services — 1 operation(s) for objects v 2.
+- [Amazon Web Services Offerings API](https://apis.io/apis/amazon-web-services/amazon-web-services-offerings-api/) — The Offerings API from Amazon Web Services — 2 operation(s) for offerings.
+- [Amazon Web Services Operations API](https://apis.io/apis/amazon-web-services/amazon-web-services-operations-api/) — The Operations API from Amazon Web Services — 2 operation(s) for operations.
+- [Amazon Web Services Orders API](https://apis.io/apis/amazon-web-services/amazon-web-services-orders-api/) — The Orders API from Amazon Web Services — 6 operation(s) for orders.
+- [Amazon Web Services Organization API](https://apis.io/apis/amazon-web-services/amazon-web-services-organization-api/) — The Organization API from Amazon Web Services — 10 operation(s) for organization.
+- [Amazon Web Services Organization Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-organization-recommendations-api/) — The Organization Recommendations API from Amazon Web Services — 5 operation(s) for organization recommendations.
+- [Amazon Web Services Organizations API](https://apis.io/apis/amazon-web-services/amazon-web-services-organizations-api/) — The Organizations API from Amazon Web Services — 3 operation(s) for organizations.
+- [Amazon Web Services Orgs API](https://apis.io/apis/amazon-web-services/amazon-web-services-orgs-api/) — The Orgs API from Amazon Web Services — 5 operation(s) for orgs.
+- [Amazon Web Services Origin Endpoints API](https://apis.io/apis/amazon-web-services/amazon-web-services-origin-endpoints-api/) — The Origin Endpoints API from Amazon Web Services — 2 operation(s) for origin endpoints.
+- [Amazon Web Services Outposts API](https://apis.io/apis/amazon-web-services/amazon-web-services-outposts-api/) — The Outposts API from Amazon Web Services — 4 operation(s) for outposts.
+- [Amazon Web Services Package API](https://apis.io/apis/amazon-web-services/amazon-web-services-package-api/) — The Package API from Amazon Web Services — 12 operation(s) for package.
+- [Amazon Web Services Package Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-package-configuration-api/) — The Package Configuration API from Amazon Web Services — 1 operation(s) for package configuration.
+- [Amazon Web Services Packages API](https://apis.io/apis/amazon-web-services/amazon-web-services-packages-api/) — The Packages API from Amazon Web Services — 13 operation(s) for packages.
+- [Amazon Web Services Packaging Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-packaging-configurations-api/) — The Packaging Configurations API from Amazon Web Services — 2 operation(s) for packaging configurations.
+- [Amazon Web Services Packaging Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-packaging-groups-api/) — The Packaging Groups API from Amazon Web Services — 3 operation(s) for packaging groups.
+- [Amazon Web Services Participant API](https://apis.io/apis/amazon-web-services/amazon-web-services-participant-api/) — The Participant API from Amazon Web Services — 9 operation(s) for participant.
+- [Amazon Web Services Partner Accounts API](https://apis.io/apis/amazon-web-services/amazon-web-services-partner-accounts-api/) — The Partner Accounts API from Amazon Web Services — 2 operation(s) for partner accounts.
+- [Amazon Web Services PauseReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-pausereplication-api/) — The PauseReplication API from Amazon Web Services — 1 operation(s) for pausereplication.
+- [Amazon Web Services Peerings API](https://apis.io/apis/amazon-web-services/amazon-web-services-peerings-api/) — The Peerings API from Amazon Web Services — 2 operation(s) for peerings.
+- [Amazon Web Services Permission Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-permission-group-api/) — The Permission Group API from Amazon Web Services — 4 operation(s) for permission group.
+- [Amazon Web Services Personalize Ranking API](https://apis.io/apis/amazon-web-services/amazon-web-services-personalize-ranking-api/) — The Personalize Ranking API from Amazon Web Services — 1 operation(s) for personalize ranking.
+- [Amazon Web Services Phone API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-api/) — The Phone API from Amazon Web Services — 1 operation(s) for phone.
+- [Amazon Web Services Phone Number API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-number-api/) — The Phone Number API from Amazon Web Services — 7 operation(s) for phone number.
+- [Amazon Web Services Phone Number Countries API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-number-countries-api/) — The Phone Number Countries API from Amazon Web Services — 1 operation(s) for phone number countries.
+- [Amazon Web Services Phone Number Orders API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-number-orders-api/) — The Phone Number Orders API from Amazon Web Services — 2 operation(s) for phone number orders.
+- [Amazon Web Services Phone Numbers API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-numbers-api/) — The Phone Numbers API from Amazon Web Services — 3 operation(s) for phone numbers.
+- [Amazon Web Services Phone Numbers?operation=batch Delete API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-numbers-operation-batch-delete-api/) — The Phone Numbers?operation=batch Delete API from Amazon Web Services — 1 operation(s) for phone numbers?operation=batch delete.
+- [Amazon Web Services Phone Numbers?operation=batch Update API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-numbers-operation-batch-update-api/) — The Phone Numbers?operation=batch Update API from Amazon Web Services — 1 operation(s) for phone numbers?operation=batch update.
+- [Amazon Web Services Phone Numbers Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-phone-numbers-summary-api/) — The Phone Numbers Summary API from Amazon Web Services — 1 operation(s) for phone numbers summary.
+- [Amazon Web Services Pindata API](https://apis.io/apis/amazon-web-services/amazon-web-services-pindata-api/) — The Pindata API from Amazon Web Services — 3 operation(s) for pindata.
+- [Amazon Web Services Ping API](https://apis.io/apis/amazon-web-services/amazon-web-services-ping-api/) — The Ping API from Amazon Web Services — 1 operation(s) for ping.
+- [Amazon Web Services Pipelineactivities API](https://apis.io/apis/amazon-web-services/amazon-web-services-pipelineactivities-api/) — The Pipelineactivities API from Amazon Web Services — 1 operation(s) for pipelineactivities.
+- [Amazon Web Services Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-pipelines-api/) — The Pipelines API from Amazon Web Services — 4 operation(s) for pipelines.
+- [Amazon Web Services Pipes API](https://apis.io/apis/amazon-web-services/amazon-web-services-pipes-api/) — The Pipes API from Amazon Web Services — 4 operation(s) for pipes.
+- [Amazon Web Services Places API](https://apis.io/apis/amazon-web-services/amazon-web-services-places-api/) — The Places API from Amazon Web Services — 7 operation(s) for places.
+- [Amazon Web Services Plugins API](https://apis.io/apis/amazon-web-services/amazon-web-services-plugins-api/) — The Plugins API from Amazon Web Services — 1 operation(s) for plugins.
+- [Amazon Web Services Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-policies-api/) — The Policies API from Amazon Web Services — 6 operation(s) for policies.
+- [Amazon Web Services Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-policy-api/) — The Policy API from Amazon Web Services — 9 operation(s) for policy.
+- [Amazon Web Services Policy Principals API](https://apis.io/apis/amazon-web-services/amazon-web-services-policy-principals-api/) — The Policy Principals API from Amazon Web Services — 1 operation(s) for policy principals.
+- [Amazon Web Services Policy Targets API](https://apis.io/apis/amazon-web-services/amazon-web-services-policy-targets-api/) — The Policy Targets API from Amazon Web Services — 1 operation(s) for policy targets.
+- [Amazon Web Services Portals API](https://apis.io/apis/amazon-web-services/amazon-web-services-portals-api/) — The Portals API from Amazon Web Services — 10 operation(s) for portals.
+- [Amazon Web Services Position Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-position-configurations-api/) — The Position Configurations API from Amazon Web Services — 2 operation(s) for position configurations.
+- [Amazon Web Services Position Estimate API](https://apis.io/apis/amazon-web-services/amazon-web-services-position-estimate-api/) — The Position Estimate API from Amazon Web Services — 1 operation(s) for position estimate.
+- [Amazon Web Services Positions API](https://apis.io/apis/amazon-web-services/amazon-web-services-positions-api/) — The Positions API from Amazon Web Services — 1 operation(s) for positions.
+- [Amazon Web Services Predefined Attributes API](https://apis.io/apis/amazon-web-services/amazon-web-services-predefined-attributes-api/) — The Predefined Attributes API from Amazon Web Services — 2 operation(s) for predefined attributes.
+- [Amazon Web Services Pricingplan API](https://apis.io/apis/amazon-web-services/amazon-web-services-pricingplan-api/) — The Pricingplan API from Amazon Web Services — 1 operation(s) for pricingplan.
+- [Amazon Web Services Principal Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-principal-policies-api/) — The Principal Policies API from Amazon Web Services — 2 operation(s) for principal policies.
+- [Amazon Web Services Principals API](https://apis.io/apis/amazon-web-services/amazon-web-services-principals-api/) — The Principals API from Amazon Web Services — 1 operation(s) for principals.
+- [Amazon Web Services Prod API](https://apis.io/apis/amazon-web-services/amazon-web-services-prod-api/) — The Prod API from Amazon Web Services — 41 operation(s) for prod.
+- [Amazon Web Services Products API](https://apis.io/apis/amazon-web-services/amazon-web-services-products-api/) — The Products API from Amazon Web Services — 1 operation(s) for products.
+- [Amazon Web Services Profile API](https://apis.io/apis/amazon-web-services/amazon-web-services-profile-api/) — The Profile API from Amazon Web Services — 3 operation(s) for profile.
+- [Amazon Web Services Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-profiles-api/) — The Profiles API from Amazon Web Services — 4 operation(s) for profiles.
+- [Amazon Web Services Project API](https://apis.io/apis/amazon-web-services/amazon-web-services-project-api/) — The Project API from Amazon Web Services — 1 operation(s) for project.
+- [Amazon Web Services Projects API](https://apis.io/apis/amazon-web-services/amazon-web-services-projects-api/) — The Projects API from Amazon Web Services — 28 operation(s) for projects.
+- [Amazon Web Services Promotepermissioncreatedfrompolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-promotepermissioncreatedfrompolicy-api/) — The Promotepermissioncreatedfrompolicy API from Amazon Web Services — 1 operation(s) for promotepermissioncreatedfrompolicy.
+- [Amazon Web Services Promoteresourcesharecreatedfrompolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-promoteresourcesharecreatedfrompolicy-api/) — The Promoteresourcesharecreatedfrompolicy API from Amazon Web Services — 1 operation(s) for promoteresourcesharecreatedfrompolicy.
+- [Amazon Web Services Prompts API](https://apis.io/apis/amazon-web-services/amazon-web-services-prompts-api/) — The Prompts API from Amazon Web Services — 3 operation(s) for prompts.
+- [Amazon Web Services Prompts Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-prompts-summary-api/) — The Prompts Summary API from Amazon Web Services — 1 operation(s) for prompts summary.
+- [Amazon Web Services Properties API](https://apis.io/apis/amazon-web-services/amazon-web-services-properties-api/) — The Properties API from Amazon Web Services — 8 operation(s) for properties.
+- [Amazon Web Services Propertygraph API](https://apis.io/apis/amazon-web-services/amazon-web-services-propertygraph-api/) — The Propertygraph API from Amazon Web Services — 3 operation(s) for propertygraph.
+- [Amazon Web Services Providerservices API](https://apis.io/apis/amazon-web-services/amazon-web-services-providerservices-api/) — The Providerservices API from Amazon Web Services — 2 operation(s) for providerservices.
+- [Amazon Web Services Provisioned Capacity API](https://apis.io/apis/amazon-web-services/amazon-web-services-provisioned-capacity-api/) — The Provisioned Capacity API from Amazon Web Services — 1 operation(s) for provisioned capacity.
+- [Amazon Web Services Provisioned Model Throughput API](https://apis.io/apis/amazon-web-services/amazon-web-services-provisioned-model-throughput-api/) — The Provisioned Model Throughput API from Amazon Web Services — 2 operation(s) for provisioned model throughput.
+- [Amazon Web Services Provisioned Model Throughputs API](https://apis.io/apis/amazon-web-services/amazon-web-services-provisioned-model-throughputs-api/) — The Provisioned Model Throughputs API from Amazon Web Services — 1 operation(s) for provisioned model throughputs.
+- [Amazon Web Services Provisioning Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-provisioning-templates-api/) — The Provisioning Templates API from Amazon Web Services — 5 operation(s) for provisioning templates.
+- [Amazon Web Services Public Access Block API](https://apis.io/apis/amazon-web-services/amazon-web-services-public-access-block-api/) — The Public Access Block API from Amazon Web Services — 1 operation(s) for public access block.
+- [Amazon Web Services Publish App Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-publish-app-version-api/) — The Publish App Version API from Amazon Web Services — 1 operation(s) for publish app version.
+- [Amazon Web Services Put Draft App Version Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-put-draft-app-version-template-api/) — The Put Draft App Version Template API from Amazon Web Services — 1 operation(s) for put draft app version template.
+- [Amazon Web Services Put Group Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-put-group-configuration-api/) — The Put Group Configuration API from Amazon Web Services — 1 operation(s) for put group configuration.
+- [Amazon Web Services Put Notifications Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-put-notifications-settings-api/) — The Put Notifications Settings API from Amazon Web Services — 1 operation(s) for put notifications settings.
+- [Amazon Web Services Put Portfolio Preferences API](https://apis.io/apis/amazon-web-services/amazon-web-services-put-portfolio-preferences-api/) — The Put Portfolio Preferences API from Amazon Web Services — 1 operation(s) for put portfolio preferences.
+- [Amazon Web Services Put Resource Permission API](https://apis.io/apis/amazon-web-services/amazon-web-services-put-resource-permission-api/) — The Put Resource Permission API from Amazon Web Services — 1 operation(s) for put resource permission.
+- [Amazon Web Services Put Alternate Contact API](https://apis.io/apis/amazon-web-services/amazon-web-services-putalternatecontact-api/) — The putAlternateContact API from Amazon Web Services — 1 operation(s) for putalternatecontact.
+- [Amazon Web Services PutAuditEvents API](https://apis.io/apis/amazon-web-services/amazon-web-services-putauditevents-api/) — The PutAuditEvents API from Amazon Web Services — 1 operation(s) for putauditevents.
+- [Amazon Web Services PutComponentPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putcomponentpolicy-api/) — The PutComponentPolicy API from Amazon Web Services — 1 operation(s) for putcomponentpolicy.
+- [Amazon Web Services Put Contact Information API](https://apis.io/apis/amazon-web-services/amazon-web-services-putcontactinformation-api/) — The putContactInformation API from Amazon Web Services — 1 operation(s) for putcontactinformation.
+- [Amazon Web Services PutContainerRecipePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putcontainerrecipepolicy-api/) — The PutContainerRecipePolicy API from Amazon Web Services — 1 operation(s) for putcontainerrecipepolicy.
+- [Amazon Web Services PutDataLakeSettings API](https://apis.io/apis/amazon-web-services/amazon-web-services-putdatalakesettings-api/) — The PutDataLakeSettings API from Amazon Web Services — 1 operation(s) for putdatalakesettings.
+- [Amazon Web Services PutEncryptionConfig API](https://apis.io/apis/amazon-web-services/amazon-web-services-putencryptionconfig-api/) — The PutEncryptionConfig API from Amazon Web Services — 1 operation(s) for putencryptionconfig.
+- [Amazon Web Services PutFeedback API](https://apis.io/apis/amazon-web-services/amazon-web-services-putfeedback-api/) — The PutFeedback API from Amazon Web Services — 1 operation(s) for putfeedback.
+- [Amazon Web Services PutImagePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putimagepolicy-api/) — The PutImagePolicy API from Amazon Web Services — 1 operation(s) for putimagepolicy.
+- [Amazon Web Services PutImageRecipePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putimagerecipepolicy-api/) — The PutImageRecipePolicy API from Amazon Web Services — 1 operation(s) for putimagerecipepolicy.
+- [Amazon Web Services PutLaunchAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-putlaunchaction-api/) — The PutLaunchAction API from Amazon Web Services — 1 operation(s) for putlaunchaction.
+- [Amazon Web Services PutMetadata API](https://apis.io/apis/amazon-web-services/amazon-web-services-putmetadata-api/) — The PutMetadata API from Amazon Web Services — 1 operation(s) for putmetadata.
+- [Amazon Web Services PutResourcePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putresourcepolicy-api/) — The PutResourcePolicy API from Amazon Web Services — 2 operation(s) for putresourcepolicy.
+- [Amazon Web Services PutSinkPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-putsinkpolicy-api/) — The PutSinkPolicy API from Amazon Web Services — 1 operation(s) for putsinkpolicy.
+- [Amazon Web Services PutSourceServerAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-putsourceserveraction-api/) — The PutSourceServerAction API from Amazon Web Services — 1 operation(s) for putsourceserveraction.
+- [Amazon Web Services PutTemplateAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-puttemplateaction-api/) — The PutTemplateAction API from Amazon Web Services — 1 operation(s) for puttemplateaction.
+- [Amazon Web Services Quantum Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-quantum-task-api/) — The Quantum Task API from Amazon Web Services — 3 operation(s) for quantum task.
+- [Amazon Web Services Quantum Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-quantum-tasks-api/) — The Quantum Tasks API from Amazon Web Services — 1 operation(s) for quantum tasks.
+- [Amazon Web Services Queries API](https://apis.io/apis/amazon-web-services/amazon-web-services-queries-api/) — The Queries API from Amazon Web Services — 3 operation(s) for queries.
+- [Amazon Web Services Queues API](https://apis.io/apis/amazon-web-services/amazon-web-services-queues-api/) — The Queues API from Amazon Web Services — 10 operation(s) for queues.
+- [Amazon Web Services Queues Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-queues-summary-api/) — The Queues Summary API from Amazon Web Services — 1 operation(s) for queues summary.
+- [Amazon Web Services Quick Connects API](https://apis.io/apis/amazon-web-services/amazon-web-services-quick-connects-api/) — The Quick Connects API from Amazon Web Services — 4 operation(s) for quick connects.
+- [Amazon Web Services Raster Data Collection API](https://apis.io/apis/amazon-web-services/amazon-web-services-raster-data-collection-api/) — The Raster Data Collection API from Amazon Web Services — 1 operation(s) for raster data collection.
+- [Amazon Web Services Raster Data Collections API](https://apis.io/apis/amazon-web-services/amazon-web-services-raster-data-collections-api/) — The Raster Data Collections API from Amazon Web Services — 1 operation(s) for raster data collections.
+- [Amazon Web Services Rdf API](https://apis.io/apis/amazon-web-services/amazon-web-services-rdf-api/) — The Rdf API from Amazon Web Services — 1 operation(s) for rdf.
+- [Amazon Web Services Readinesschecks API](https://apis.io/apis/amazon-web-services/amazon-web-services-readinesschecks-api/) — The Readinesschecks API from Amazon Web Services — 4 operation(s) for readinesschecks.
+- [Amazon Web Services Realtime Contact Analysis API](https://apis.io/apis/amazon-web-services/amazon-web-services-realtime-contact-analysis-api/) — The Realtime Contact Analysis API from Amazon Web Services — 1 operation(s) for realtime contact analysis.
+- [Amazon Web Services Recipes API](https://apis.io/apis/amazon-web-services/amazon-web-services-recipes-api/) — The Recipes API from Amazon Web Services — 5 operation(s) for recipes.
+- [Amazon Web Services Recipe Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-recipeversions-api/) — The recipeVersions API from Amazon Web Services — 1 operation(s) for recipeversions.
+- [Amazon Web Services Recommendations API](https://apis.io/apis/amazon-web-services/amazon-web-services-recommendations-api/) — The Recommendations API from Amazon Web Services — 5 operation(s) for recommendations.
+- [Amazon Web Services Recommenders API](https://apis.io/apis/amazon-web-services/amazon-web-services-recommenders-api/) — The Recommenders API from Amazon Web Services — 2 operation(s) for recommenders.
+- [Amazon Web Services Recoverygroupreadiness API](https://apis.io/apis/amazon-web-services/amazon-web-services-recoverygroupreadiness-api/) — The Recoverygroupreadiness API from Amazon Web Services — 1 operation(s) for recoverygroupreadiness.
+- [Amazon Web Services Recoverygroups API](https://apis.io/apis/amazon-web-services/amazon-web-services-recoverygroups-api/) — The Recoverygroups API from Amazon Web Services — 3 operation(s) for recoverygroups.
+- [Amazon Web Services Referencestore API](https://apis.io/apis/amazon-web-services/amazon-web-services-referencestore-api/) — The Referencestore API from Amazon Web Services — 8 operation(s) for referencestore.
+- [Amazon Web Services Referencestores API](https://apis.io/apis/amazon-web-services/amazon-web-services-referencestores-api/) — The Referencestores API from Amazon Web Services — 1 operation(s) for referencestores.
+- [Amazon Web Services Register Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-register-application-api/) — The Register Application API from Amazon Web Services — 1 operation(s) for register application.
+- [Amazon Web Services Register Connector API](https://apis.io/apis/amazon-web-services/amazon-web-services-register-connector-api/) — The Register Connector API from Amazon Web Services — 1 operation(s) for register connector.
+- [Amazon Web Services Registerjobdefinition API](https://apis.io/apis/amazon-web-services/amazon-web-services-registerjobdefinition-api/) — The Registerjobdefinition API from Amazon Web Services — 1 operation(s) for registerjobdefinition.
+- [Amazon Web Services RegisterResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-registerresource-api/) — The RegisterResource API from Amazon Web Services — 1 operation(s) for registerresource.
+- [Amazon Web Services Registrationcode API](https://apis.io/apis/amazon-web-services/amazon-web-services-registrationcode-api/) — The Registrationcode API from Amazon Web Services — 1 operation(s) for registrationcode.
+- [Amazon Web Services Registries API](https://apis.io/apis/amazon-web-services/amazon-web-services-registries-api/) — The Registries API from Amazon Web Services — 10 operation(s) for registries.
+- [Amazon Web Services Reject Certificate Transfer API](https://apis.io/apis/amazon-web-services/amazon-web-services-reject-certificate-transfer-api/) — The Reject Certificate Transfer API from Amazon Web Services — 1 operation(s) for reject certificate transfer.
+- [Amazon Web Services Rejectresourceshareinvitation API](https://apis.io/apis/amazon-web-services/amazon-web-services-rejectresourceshareinvitation-api/) — The Rejectresourceshareinvitation API from Amazon Web Services — 1 operation(s) for rejectresourceshareinvitation.
+- [Amazon Web Services Remove Draft App Version Resource Mappings API](https://apis.io/apis/amazon-web-services/amazon-web-services-remove-draft-app-version-resource-mappings-api/) — The Remove Draft App Version Resource Mappings API from Amazon Web Services — 1 operation(s) for remove draft app version resource mappings.
+- [Amazon Web Services RemoveLFTagsFromResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-removelftagsfromresource-api/) — The RemoveLFTagsFromResource API from Amazon Web Services — 1 operation(s) for removelftagsfromresource.
+- [Amazon Web Services RemoveSourceServerAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-removesourceserveraction-api/) — The RemoveSourceServerAction API from Amazon Web Services — 1 operation(s) for removesourceserveraction.
+- [Amazon Web Services RemoveTemplateAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-removetemplateaction-api/) — The RemoveTemplateAction API from Amazon Web Services — 1 operation(s) for removetemplateaction.
+- [Amazon Web Services Replacepermissionassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-replacepermissionassociations-api/) — The Replacepermissionassociations API from Amazon Web Services — 1 operation(s) for replacepermissionassociations.
+- [Amazon Web Services Replication API](https://apis.io/apis/amazon-web-services/amazon-web-services-replication-api/) — The Replication API from Amazon Web Services — 3 operation(s) for replication.
+- [Amazon Web Services Report Definition API](https://apis.io/apis/amazon-web-services/amazon-web-services-reportdefinition-api/) — The reportDefinition API from Amazon Web Services — 2 operation(s) for reportdefinition.
+- [Amazon Web Services Reporting API](https://apis.io/apis/amazon-web-services/amazon-web-services-reporting-api/) — The Reporting API from Amazon Web Services — 3 operation(s) for reporting.
+- [Amazon Web Services Repositories API](https://apis.io/apis/amazon-web-services/amazon-web-services-repositories-api/) — The Repositories API from Amazon Web Services — 1 operation(s) for repositories.
+- [Amazon Web Services Repository API](https://apis.io/apis/amazon-web-services/amazon-web-services-repository-api/) — The Repository API from Amazon Web Services — 5 operation(s) for repository.
+- [Amazon Web Services Reservations API](https://apis.io/apis/amazon-web-services/amazon-web-services-reservations-api/) — The Reservations API from Amazon Web Services — 2 operation(s) for reservations.
+- [Amazon Web Services Reset Connector Metadata Cache API](https://apis.io/apis/amazon-web-services/amazon-web-services-reset-connector-metadata-cache-api/) — The Reset Connector Metadata Cache API from Amazon Web Services — 1 operation(s) for reset connector metadata cache.
+- [Amazon Web Services Reset Enabled Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-reset-enabled-baseline-api/) — The Reset Enabled Baseline API from Amazon Web Services — 1 operation(s) for reset enabled baseline.
+- [Amazon Web Services Reset Landingzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-reset-landingzone-api/) — The Reset Landingzone API from Amazon Web Services — 1 operation(s) for reset landingzone.
+- [Amazon Web Services Reset Notifications Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-reset-notifications-settings-api/) — The Reset Notifications Settings API from Amazon Web Services — 1 operation(s) for reset notifications settings.
+- [Amazon Web Services Resolve App Version Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-resolve-app-version-resources-api/) — The Resolve App Version Resources API from Amazon Web Services — 1 operation(s) for resolve app version resources.
+- [Amazon Web Services Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-api/) — The Resource API from Amazon Web Services — 2 operation(s) for resource.
+- [Amazon Web Services Resource Collections API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-collections-api/) — The Resource Collections API from Amazon Web Services — 2 operation(s) for resource collections.
+- [Amazon Web Services Resource Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-policy-api/) — The Resource Policy API from Amazon Web Services — 1 operation(s) for resource policy.
+- [Amazon Web Services Resource Positions API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-positions-api/) — The Resource Positions API from Amazon Web Services — 1 operation(s) for resource positions.
+- [Amazon Web Services Resource Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-profiles-api/) — The Resource Profiles API from Amazon Web Services — 3 operation(s) for resource profiles.
+- [Amazon Web Services Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-resources-api/) — The Resources API from Amazon Web Services — 12 operation(s) for resources.
+- [Amazon Web Services Restapis?mode=import API](https://apis.io/apis/amazon-web-services/amazon-web-services-restapis-mode-import-api/) — The Restapis?mode=import API from Amazon Web Services — 1 operation(s) for restapis?mode=import.
+- [Amazon Web Services Restore Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-restore-jobs-api/) — The Restore Jobs API from Amazon Web Services — 9 operation(s) for restore jobs.
+- [Amazon Web Services Restore Object. API](https://apis.io/apis/amazon-web-services/amazon-web-services-restore-object-api/) — The Restore Object. API from Amazon Web Services — 1 operation(s) for restore object..
+- [Amazon Web Services Restore Testing API](https://apis.io/apis/amazon-web-services/amazon-web-services-restore-testing-api/) — The Restore Testing API from Amazon Web Services — 5 operation(s) for restore testing.
+- [Amazon Web Services Restore Domain Access API](https://apis.io/apis/amazon-web-services/amazon-web-services-restoredomainaccess-api/) — The restoreDomainAccess API from Amazon Web Services — 1 operation(s) for restoredomainaccess.
+- [Amazon Web Services ResumeReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-resumereplication-api/) — The ResumeReplication API from Amazon Web Services — 1 operation(s) for resumereplication.
+- [Amazon Web Services Retained Message API](https://apis.io/apis/amazon-web-services/amazon-web-services-retainedmessage-api/) — The retainedMessage API from Amazon Web Services — 2 operation(s) for retainedmessage.
+- [Amazon Web Services Retrieve And Generate API](https://apis.io/apis/amazon-web-services/amazon-web-services-retrieveandgenerate-api/) — The retrieveAndGenerate API from Amazon Web Services — 1 operation(s) for retrieveandgenerate.
+- [Amazon Web Services RetryDataReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-retrydatareplication-api/) — The RetryDataReplication API from Amazon Web Services — 1 operation(s) for retrydatareplication.
+- [Amazon Web Services Retryworkflowstep API](https://apis.io/apis/amazon-web-services/amazon-web-services-retryworkflowstep-api/) — The Retryworkflowstep API from Amazon Web Services — 1 operation(s) for retryworkflowstep.
+- [Amazon Web Services Reveal Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-reveal-configuration-api/) — The Reveal Configuration API from Amazon Web Services — 1 operation(s) for reveal configuration.
+- [Amazon Web Services ReverseReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-reversereplication-api/) — The ReverseReplication API from Amazon Web Services — 1 operation(s) for reversereplication.
+- [Amazon Web Services Review Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-reviewtemplates-api/) — The reviewTemplates API from Amazon Web Services — 6 operation(s) for reviewtemplates.
+- [Amazon Web Services Revocations API](https://apis.io/apis/amazon-web-services/amazon-web-services-revocations-api/) — The Revocations API from Amazon Web Services — 1 operation(s) for revocations.
+- [Amazon Web Services Revoke Domain Access API](https://apis.io/apis/amazon-web-services/amazon-web-services-revokedomainaccess-api/) — The revokeDomainAccess API from Amazon Web Services — 1 operation(s) for revokedomainaccess.
+- [Amazon Web Services RevokePermissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-revokepermissions-api/) — The RevokePermissions API from Amazon Web Services — 1 operation(s) for revokepermissions.
+- [Amazon Web Services Role Aliases API](https://apis.io/apis/amazon-web-services/amazon-web-services-role-aliases-api/) — The Role Aliases API from Amazon Web Services — 2 operation(s) for role aliases.
+- [Amazon Web Services RollbackTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-rollbacktransaction-api/) — The RollbackTransaction API from Amazon Web Services — 1 operation(s) for rollbacktransaction.
+- [Amazon Web Services Routes API](https://apis.io/apis/amazon-web-services/amazon-web-services-routes-api/) — The Routes API from Amazon Web Services — 10 operation(s) for routes.
+- [Amazon Web Services Routing Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-routing-profiles-api/) — The Routing Profiles API from Amazon Web Services — 9 operation(s) for routing profiles.
+- [Amazon Web Services Routing Profiles Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-routing-profiles-summary-api/) — The Routing Profiles Summary API from Amazon Web Services — 1 operation(s) for routing profiles summary.
+- [Amazon Web Services Routingcontrol API](https://apis.io/apis/amazon-web-services/amazon-web-services-routingcontrol-api/) — The Routingcontrol API from Amazon Web Services — 3 operation(s) for routingcontrol.
+- [Amazon Web Services Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-rules-api/) — The Rules API from Amazon Web Services — 9 operation(s) for rules.
+- [Amazon Web Services Rulesets API](https://apis.io/apis/amazon-web-services/amazon-web-services-rulesets-api/) — The Rulesets API from Amazon Web Services — 2 operation(s) for rulesets.
+- [Amazon Web Services Rummetrics API](https://apis.io/apis/amazon-web-services/amazon-web-services-rummetrics-api/) — The Rummetrics API from Amazon Web Services — 2 operation(s) for rummetrics.
+- [Amazon Web Services Run API](https://apis.io/apis/amazon-web-services/amazon-web-services-run-api/) — The Run API from Amazon Web Services — 5 operation(s) for run.
+- [Amazon Web Services Runtime Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-runtime-versions-api/) — The Runtime Versions API from Amazon Web Services — 1 operation(s) for runtime versions.
+- [Amazon Web Services S3Outposts API](https://apis.io/apis/amazon-web-services/amazon-web-services-s3outposts-api/) — The S3Outposts API from Amazon Web Services — 5 operation(s) for s3outposts.
+- [Amazon Web Services Safetyrule API](https://apis.io/apis/amazon-web-services/amazon-web-services-safetyrule-api/) — The Safetyrule API from Amazon Web Services — 2 operation(s) for safetyrule.
+- [Amazon Web Services SamplingStatisticSummaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-samplingstatisticsummaries-api/) — The SamplingStatisticSummaries API from Amazon Web Services — 1 operation(s) for samplingstatisticsummaries.
+- [Amazon Web Services SamplingTargets API](https://apis.io/apis/amazon-web-services/amazon-web-services-samplingtargets-api/) — The SamplingTargets API from Amazon Web Services — 1 operation(s) for samplingtargets.
+- [Amazon Web Services Satellite API](https://apis.io/apis/amazon-web-services/amazon-web-services-satellite-api/) — The Satellite API from Amazon Web Services — 2 operation(s) for satellite.
+- [Amazon Web Services Sbomexport API](https://apis.io/apis/amazon-web-services/amazon-web-services-sbomexport-api/) — The Sbomexport API from Amazon Web Services — 3 operation(s) for sbomexport.
+- [Amazon Web Services Scan API](https://apis.io/apis/amazon-web-services/amazon-web-services-scan-api/) — The Scan API from Amazon Web Services — 1 operation(s) for scan.
+- [Amazon Web Services Scans API](https://apis.io/apis/amazon-web-services/amazon-web-services-scans-api/) — The Scans API from Amazon Web Services — 2 operation(s) for scans.
+- [Amazon Web Services Schedule Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-schedule-groups-api/) — The Schedule Groups API from Amazon Web Services — 2 operation(s) for schedule groups.
+- [Amazon Web Services Schedules API](https://apis.io/apis/amazon-web-services/amazon-web-services-schedules-api/) — The Schedules API from Amazon Web Services — 3 operation(s) for schedules.
+- [Amazon Web Services Schema API](https://apis.io/apis/amazon-web-services/amazon-web-services-schema-api/) — The Schema API from Amazon Web Services — 1 operation(s) for schema.
+- [Amazon Web Services Schemacreation API](https://apis.io/apis/amazon-web-services/amazon-web-services-schemacreation-api/) — The Schemacreation API from Amazon Web Services — 1 operation(s) for schemacreation.
+- [Amazon Web Services Schemas API](https://apis.io/apis/amazon-web-services/amazon-web-services-schemas-api/) — The Schemas API from Amazon Web Services — 2 operation(s) for schemas.
+- [Amazon Web Services Scraperconfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-scraperconfiguration-api/) — The Scraperconfiguration API from Amazon Web Services — 1 operation(s) for scraperconfiguration.
+- [Amazon Web Services Scrapers API](https://apis.io/apis/amazon-web-services/amazon-web-services-scrapers-api/) — The Scrapers API from Amazon Web Services — 2 operation(s) for scrapers.
+- [Amazon Web Services Screendata API](https://apis.io/apis/amazon-web-services/amazon-web-services-screendata-api/) — The Screendata API from Amazon Web Services — 1 operation(s) for screendata.
+- [Amazon Web Services Sdk Media Capture Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdk-media-capture-pipelines-api/) — The Sdk Media Capture Pipelines API from Amazon Web Services — 2 operation(s) for sdk media capture pipelines.
+- [Amazon Web Services Sdk Media Concatenation Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdk-media-concatenation-pipelines-api/) — The Sdk Media Concatenation Pipelines API from Amazon Web Services — 1 operation(s) for sdk media concatenation pipelines.
+- [Amazon Web Services Sdk Media Live Connector Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdk-media-live-connector-pipelines-api/) — The Sdk Media Live Connector Pipelines API from Amazon Web Services — 1 operation(s) for sdk media live connector pipelines.
+- [Amazon Web Services Sdk Media Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdk-media-pipelines-api/) — The Sdk Media Pipelines API from Amazon Web Services — 2 operation(s) for sdk media pipelines.
+- [Amazon Web Services Sdk Media Stream Pipelines API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdk-media-stream-pipelines-api/) — The Sdk Media Stream Pipelines API from Amazon Web Services — 1 operation(s) for sdk media stream pipelines.
+- [Amazon Web Services Sdktypes API](https://apis.io/apis/amazon-web-services/amazon-web-services-sdktypes-api/) — The Sdktypes API from Amazon Web Services — 2 operation(s) for sdktypes.
+- [Amazon Web Services Search API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-api/) — The Search API from Amazon Web Services — 2 operation(s) for search.
+- [Amazon Web Services Search Contacts API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-contacts-api/) — The Search Contacts API from Amazon Web Services — 1 operation(s) for search contacts.
+- [Amazon Web Services Search Hours of Operations API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-hours-of-operations-api/) — The Search Hours of Operations API from Amazon Web Services — 1 operation(s) for search hours of operations.
+- [Amazon Web Services Search Predefined Attributes API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-predefined-attributes-api/) — The Search Predefined Attributes API from Amazon Web Services — 1 operation(s) for search predefined attributes.
+- [Amazon Web Services Search Prompts API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-prompts-api/) — The Search Prompts API from Amazon Web Services — 1 operation(s) for search prompts.
+- [Amazon Web Services Search Queues API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-queues-api/) — The Search Queues API from Amazon Web Services — 1 operation(s) for search queues.
+- [Amazon Web Services Search Quick Connects API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-quick-connects-api/) — The Search Quick Connects API from Amazon Web Services — 1 operation(s) for search quick connects.
+- [Amazon Web Services Search Raster Data Collection API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-raster-data-collection-api/) — The Search Raster Data Collection API from Amazon Web Services — 1 operation(s) for search raster data collection.
+- [Amazon Web Services Search Resource Tags API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-resource-tags-api/) — The Search Resource Tags API from Amazon Web Services — 1 operation(s) for search resource tags.
+- [Amazon Web Services Search Routing Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-routing-profiles-api/) — The Search Routing Profiles API from Amazon Web Services — 1 operation(s) for search routing profiles.
+- [Amazon Web Services Search Security Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-security-profiles-api/) — The Search Security Profiles API from Amazon Web Services — 1 operation(s) for search security profiles.
+- [Amazon Web Services Search?type=phone Numbers API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-type-phone-numbers-api/) — The Search?type=phone Numbers API from Amazon Web Services — 1 operation(s) for search?type=phone numbers.
+- [Amazon Web Services Search Users API](https://apis.io/apis/amazon-web-services/amazon-web-services-search-users-api/) — The Search Users API from Amazon Web Services — 1 operation(s) for search users.
+- [Amazon Web Services SearchDatabasesByLFTags API](https://apis.io/apis/amazon-web-services/amazon-web-services-searchdatabasesbylftags-api/) — The SearchDatabasesByLFTags API from Amazon Web Services — 1 operation(s) for searchdatabasesbylftags.
+- [Amazon Web Services SearchTablesByLFTags API](https://apis.io/apis/amazon-web-services/amazon-web-services-searchtablesbylftags-api/) — The SearchTablesByLFTags API from Amazon Web Services — 1 operation(s) for searchtablesbylftags.
+- [Amazon Web Services Security Profile Behaviors API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profile-behaviors-api/) — The Security Profile Behaviors API from Amazon Web Services — 1 operation(s) for security profile behaviors.
+- [Amazon Web Services Security Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profiles-api/) — The Security Profiles API from Amazon Web Services — 5 operation(s) for security profiles.
+- [Amazon Web Services Security Profiles Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profiles-applications-api/) — The Security Profiles Applications API from Amazon Web Services — 1 operation(s) for security profiles applications.
+- [Amazon Web Services Security Profiles for Target API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profiles-for-target-api/) — The Security Profiles for Target API from Amazon Web Services — 1 operation(s) for security profiles for target.
+- [Amazon Web Services Security Profiles Permissions API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profiles-permissions-api/) — The Security Profiles Permissions API from Amazon Web Services — 1 operation(s) for security profiles permissions.
+- [Amazon Web Services Security Profiles Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-security-profiles-summary-api/) — The Security Profiles Summary API from Amazon Web Services — 1 operation(s) for security profiles summary.
+- [Amazon Web Services Security Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-securitycontrol-api/) — The securityControl API from Amazon Web Services — 2 operation(s) for securitycontrol.
+- [Amazon Web Services Security Controls API](https://apis.io/apis/amazon-web-services/amazon-web-services-securitycontrols-api/) — The securityControls API from Amazon Web Services — 2 operation(s) for securitycontrols.
+- [Amazon Web Services Segments API](https://apis.io/apis/amazon-web-services/amazon-web-services-segments-api/) — The Segments API from Amazon Web Services — 3 operation(s) for segments.
+- [Amazon Web Services Select Object Content. API](https://apis.io/apis/amazon-web-services/amazon-web-services-select-object-content-api/) — The Select Object Content. API from Amazon Web Services — 1 operation(s) for select object content..
+- [Amazon Web Services Send Alexa Offer to Master API](https://apis.io/apis/amazon-web-services/amazon-web-services-send-alexa-offer-to-master-api/) — The Send Alexa Offer to Master API from Amazon Web Services — 1 operation(s) for send alexa offer to master.
+- [Amazon Web Services SendHeartbeat API](https://apis.io/apis/amazon-web-services/amazon-web-services-sendheartbeat-api/) — The SendHeartbeat API from Amazon Web Services — 1 operation(s) for sendheartbeat.
+- [Amazon Web Services SendWorkflowStepAction API](https://apis.io/apis/amazon-web-services/amazon-web-services-sendworkflowstepaction-api/) — The SendWorkflowStepAction API from Amazon Web Services — 1 operation(s) for sendworkflowstepaction.
+- [Amazon Web Services Sequencestore API](https://apis.io/apis/amazon-web-services/amazon-web-services-sequencestore-api/) — The Sequencestore API from Amazon Web Services — 21 operation(s) for sequencestore.
+- [Amazon Web Services Sequencestores API](https://apis.io/apis/amazon-web-services/amazon-web-services-sequencestores-api/) — The Sequencestores API from Amazon Web Services — 1 operation(s) for sequencestores.
+- [Amazon Web Services Service Endpoint API](https://apis.io/apis/amazon-web-services/amazon-web-services-service-endpoint-api/) — The Service Endpoint API from Amazon Web Services — 1 operation(s) for service endpoint.
+- [Amazon Web Services Service Integrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-service-integrations-api/) — The Service Integrations API from Amazon Web Services — 1 operation(s) for service integrations.
+- [Amazon Web Services Service Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-service-profiles-api/) — The Service Profiles API from Amazon Web Services — 2 operation(s) for service profiles.
+- [Amazon Web Services Servicenetworkserviceassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-servicenetworkserviceassociations-api/) — The Servicenetworkserviceassociations API from Amazon Web Services — 2 operation(s) for servicenetworkserviceassociations.
+- [Amazon Web Services Servicenetworkvpcassociations API](https://apis.io/apis/amazon-web-services/amazon-web-services-servicenetworkvpcassociations-api/) — The Servicenetworkvpcassociations API from Amazon Web Services — 2 operation(s) for servicenetworkvpcassociations.
+- [Amazon Web Services API](https://apis.io/apis/amazon-web-services/amazon-web-services-services-api/) — The Services API from Amazon Web Services — 6 operation(s) for services.
+- [Amazon Web Services Session API](https://apis.io/apis/amazon-web-services/amazon-web-services-session-api/) — The Session API from Amazon Web Services — 1 operation(s) for session.
+- [Amazon Web Services Setdefaultpermissionversion API](https://apis.io/apis/amazon-web-services/amazon-web-services-setdefaultpermissionversion-api/) — The Setdefaultpermissionversion API from Amazon Web Services — 1 operation(s) for setdefaultpermissionversion.
+- [Amazon Web Services Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-settings-api/) — The Settings API from Amazon Web Services — 3 operation(s) for settings.
+- [Amazon Web Services Share API](https://apis.io/apis/amazon-web-services/amazon-web-services-share-api/) — The Share API from Amazon Web Services — 2 operation(s) for share.
+- [Amazon Web Services Shares API](https://apis.io/apis/amazon-web-services/amazon-web-services-shares-api/) — The Shares API from Amazon Web Services — 1 operation(s) for shares.
+- [Amazon Web Services Signed Bi Url API](https://apis.io/apis/amazon-web-services/amazon-web-services-signed-bi-url-api/) — The Signed Bi Url API from Amazon Web Services — 1 operation(s) for signed bi url.
+- [Amazon Web Services Signing Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-signing-jobs-api/) — The Signing Jobs API from Amazon Web Services — 4 operation(s) for signing jobs.
+- [Amazon Web Services Signing Platforms API](https://apis.io/apis/amazon-web-services/amazon-web-services-signing-platforms-api/) — The Signing Platforms API from Amazon Web Services — 2 operation(s) for signing platforms.
+- [Amazon Web Services Signing Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-signing-profiles-api/) — The Signing Profiles API from Amazon Web Services — 5 operation(s) for signing profiles.
+- [Amazon Web Services Sign Out User API](https://apis.io/apis/amazon-web-services/amazon-web-services-signoutuser-api/) — The signOutUser API from Amazon Web Services — 1 operation(s) for signoutuser.
+- [Amazon Web Services Sip Media Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-sip-media-applications-api/) — The Sip Media Applications API from Amazon Web Services — 6 operation(s) for sip media applications.
+- [Amazon Web Services Sip Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-sip-rules-api/) — The Sip Rules API from Amazon Web Services — 2 operation(s) for sip rules.
+- [Amazon Web Services Site to Site Vpn Attachments API](https://apis.io/apis/amazon-web-services/amazon-web-services-site-to-site-vpn-attachments-api/) — The Site to Site Vpn Attachments API from Amazon Web Services — 2 operation(s) for site to site vpn attachments.
+- [Amazon Web Services Sites API](https://apis.io/apis/amazon-web-services/amazon-web-services-sites-api/) — The Sites API from Amazon Web Services — 4 operation(s) for sites.
+- [Amazon Web Services Slottypes API](https://apis.io/apis/amazon-web-services/amazon-web-services-slottypes-api/) — The Slottypes API from Amazon Web Services — 7 operation(s) for slottypes.
+- [Amazon Web Services Sms Voice API](https://apis.io/apis/amazon-web-services/amazon-web-services-sms-voice-api/) — The Sms Voice API from Amazon Web Services — 5 operation(s) for sms voice.
+- [Amazon Web Services Snapshots API](https://apis.io/apis/amazon-web-services/amazon-web-services-snapshots-api/) — The Snapshots API from Amazon Web Services — 7 operation(s) for snapshots.
+- [Amazon Web Services Softwaresets API](https://apis.io/apis/amazon-web-services/amazon-web-services-softwaresets-api/) — The Softwaresets API from Amazon Web Services — 2 operation(s) for softwaresets.
+- [Amazon Web Services Sol API](https://apis.io/apis/amazon-web-services/amazon-web-services-sol-api/) — The Sol API from Amazon Web Services — 20 operation(s) for sol.
+- [Amazon Web Services Source API Associations API](https://apis.io/apis/amazon-web-services/amazon-web-services-sourceapiassociations-api/) — The sourceApiAssociations API from Amazon Web Services — 1 operation(s) for sourceapiassociations.
+- [Amazon Web Services Source APIs API](https://apis.io/apis/amazon-web-services/amazon-web-services-sourceapis-api/) — The sourceApis API from Amazon Web Services — 2 operation(s) for sourceapis.
+- [Amazon Web Services Spaces API](https://apis.io/apis/amazon-web-services/amazon-web-services-spaces-api/) — The Spaces API from Amazon Web Services — 27 operation(s) for spaces.
+- [Amazon Web Services Sparql API](https://apis.io/apis/amazon-web-services/amazon-web-services-sparql-api/) — The Sparql API from Amazon Web Services — 2 operation(s) for sparql.
+- [Amazon Web Services Speech API](https://apis.io/apis/amazon-web-services/amazon-web-services-speech-api/) — The Speech API from Amazon Web Services — 1 operation(s) for speech.
+- [Amazon Web Services Stages API](https://apis.io/apis/amazon-web-services/amazon-web-services-stages-api/) — The Stages API from Amazon Web Services — 5 operation(s) for stages.
+- [Amazon Web Services Standards API](https://apis.io/apis/amazon-web-services/amazon-web-services-standards-api/) — The Standards API from Amazon Web Services — 6 operation(s) for standards.
+- [Amazon Web Services Start App Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-app-assessment-api/) — The Start App Assessment API from Amazon Web Services — 1 operation(s) for start app assessment.
+- [Amazon Web Services Start Application Refresh API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-application-refresh-api/) — The Start Application Refresh API from Amazon Web Services — 1 operation(s) for start application refresh.
+- [Amazon Web Services Start Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-assessment-api/) — The Start Assessment API from Amazon Web Services — 1 operation(s) for start assessment.
+- [Amazon Web Services Start Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-flow-api/) — The Start Flow API from Amazon Web Services — 1 operation(s) for start flow.
+- [Amazon Web Services Start Import File Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-import-file-task-api/) — The Start Import File Task API from Amazon Web Services — 1 operation(s) for start import file task.
+- [Amazon Web Services Start Recommendation Report Generation API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-recommendation-report-generation-api/) — The Start Recommendation Report Generation API from Amazon Web Services — 1 operation(s) for start recommendation report generation.
+- [Amazon Web Services Startapp API](https://apis.io/apis/amazon-web-services/amazon-web-services-startapp-api/) — The Startapp API from Amazon Web Services — 1 operation(s) for startapp.
+- [Amazon Web Services StartChangeSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-startchangeset-api/) — The StartChangeSet API from Amazon Web Services — 1 operation(s) for startchangeset.
+- [Amazon Web Services Startclock API](https://apis.io/apis/amazon-web-services/amazon-web-services-startclock-api/) — The Startclock API from Amazon Web Services — 1 operation(s) for startclock.
+- [Amazon Web Services StartComposition API](https://apis.io/apis/amazon-web-services/amazon-web-services-startcomposition-api/) — The StartComposition API from Amazon Web Services — 1 operation(s) for startcomposition.
+- [Amazon Web Services StartCutover API](https://apis.io/apis/amazon-web-services/amazon-web-services-startcutover-api/) — The StartCutover API from Amazon Web Services — 1 operation(s) for startcutover.
+- [Amazon Web Services StartExport API](https://apis.io/apis/amazon-web-services/amazon-web-services-startexport-api/) — The StartExport API from Amazon Web Services — 1 operation(s) for startexport.
+- [Amazon Web Services StartFailbackLaunch API](https://apis.io/apis/amazon-web-services/amazon-web-services-startfailbacklaunch-api/) — The StartFailbackLaunch API from Amazon Web Services — 1 operation(s) for startfailbacklaunch.
+- [Amazon Web Services StartImagePipelineExecution API](https://apis.io/apis/amazon-web-services/amazon-web-services-startimagepipelineexecution-api/) — The StartImagePipelineExecution API from Amazon Web Services — 1 operation(s) for startimagepipelineexecution.
+- [Amazon Web Services StartImport API](https://apis.io/apis/amazon-web-services/amazon-web-services-startimport-api/) — The StartImport API from Amazon Web Services — 1 operation(s) for startimport.
+- [Amazon Web Services StartQueryPlanning API](https://apis.io/apis/amazon-web-services/amazon-web-services-startqueryplanning-api/) — The StartQueryPlanning API from Amazon Web Services — 1 operation(s) for startqueryplanning.
+- [Amazon Web Services StartRecovery API](https://apis.io/apis/amazon-web-services/amazon-web-services-startrecovery-api/) — The StartRecovery API from Amazon Web Services — 1 operation(s) for startrecovery.
+- [Amazon Web Services StartReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-startreplication-api/) — The StartReplication API from Amazon Web Services — 1 operation(s) for startreplication.
+- [Amazon Web Services StartResourceStateUpdate API](https://apis.io/apis/amazon-web-services/amazon-web-services-startresourcestateupdate-api/) — The StartResourceStateUpdate API from Amazon Web Services — 1 operation(s) for startresourcestateupdate.
+- [Amazon Web Services Startsimulation API](https://apis.io/apis/amazon-web-services/amazon-web-services-startsimulation-api/) — The Startsimulation API from Amazon Web Services — 1 operation(s) for startsimulation.
+- [Amazon Web Services StartSourceNetworkRecovery API](https://apis.io/apis/amazon-web-services/amazon-web-services-startsourcenetworkrecovery-api/) — The StartSourceNetworkRecovery API from Amazon Web Services — 1 operation(s) for startsourcenetworkrecovery.
+- [Amazon Web Services StartSourceNetworkReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-startsourcenetworkreplication-api/) — The StartSourceNetworkReplication API from Amazon Web Services — 1 operation(s) for startsourcenetworkreplication.
+- [Amazon Web Services StartTest API](https://apis.io/apis/amazon-web-services/amazon-web-services-starttest-api/) — The StartTest API from Amazon Web Services — 1 operation(s) for starttest.
+- [Amazon Web Services StartTransaction API](https://apis.io/apis/amazon-web-services/amazon-web-services-starttransaction-api/) — The StartTransaction API from Amazon Web Services — 1 operation(s) for starttransaction.
+- [Amazon Web Services StartViewerSessionRevocation API](https://apis.io/apis/amazon-web-services/amazon-web-services-startviewersessionrevocation-api/) — The StartViewerSessionRevocation API from Amazon Web Services — 1 operation(s) for startviewersessionrevocation.
+- [Amazon Web Services Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-status-api/) — The Status API from Amazon Web Services — 2 operation(s) for status.
+- [Amazon Web Services Stop Assessment API](https://apis.io/apis/amazon-web-services/amazon-web-services-stop-assessment-api/) — The Stop Assessment API from Amazon Web Services — 1 operation(s) for stop assessment.
+- [Amazon Web Services Stop Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-stop-flow-api/) — The Stop Flow API from Amazon Web Services — 1 operation(s) for stop flow.
+- [Amazon Web Services Stopapp API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopapp-api/) — The Stopapp API from Amazon Web Services — 1 operation(s) for stopapp.
+- [Amazon Web Services Stopclock API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopclock-api/) — The Stopclock API from Amazon Web Services — 1 operation(s) for stopclock.
+- [Amazon Web Services StopComposition API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopcomposition-api/) — The StopComposition API from Amazon Web Services — 1 operation(s) for stopcomposition.
+- [Amazon Web Services StopFailback API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopfailback-api/) — The StopFailback API from Amazon Web Services — 1 operation(s) for stopfailback.
+- [Amazon Web Services StopReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopreplication-api/) — The StopReplication API from Amazon Web Services — 1 operation(s) for stopreplication.
+- [Amazon Web Services Stopsimulation API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopsimulation-api/) — The Stopsimulation API from Amazon Web Services — 1 operation(s) for stopsimulation.
+- [Amazon Web Services StopSourceNetworkReplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopsourcenetworkreplication-api/) — The StopSourceNetworkReplication API from Amazon Web Services — 1 operation(s) for stopsourcenetworkreplication.
+- [Amazon Web Services StopStream API](https://apis.io/apis/amazon-web-services/amazon-web-services-stopstream-api/) — The StopStream API from Amazon Web Services — 1 operation(s) for stopstream.
+- [Amazon Web Services Storagelensgroup API](https://apis.io/apis/amazon-web-services/amazon-web-services-storagelensgroup-api/) — The Storagelensgroup API from Amazon Web Services — 2 operation(s) for storagelensgroup.
+- [Amazon Web Services Stream Transcription API](https://apis.io/apis/amazon-web-services/amazon-web-services-stream-transcription-api/) — The Stream Transcription API from Amazon Web Services — 1 operation(s) for stream transcription.
+- [Amazon Web Services Streams API](https://apis.io/apis/amazon-web-services/amazon-web-services-streams-api/) — The Streams API from Amazon Web Services — 2 operation(s) for streams.
+- [Amazon Web Services Subject API](https://apis.io/apis/amazon-web-services/amazon-web-services-subject-api/) — The Subject API from Amazon Web Services — 1 operation(s) for subject.
+- [Amazon Web Services Subjects API](https://apis.io/apis/amazon-web-services/amazon-web-services-subjects-api/) — The Subjects API from Amazon Web Services — 1 operation(s) for subjects.
+- [Amazon Web Services Submitjob API](https://apis.io/apis/amazon-web-services/amazon-web-services-submitjob-api/) — The Submitjob API from Amazon Web Services — 1 operation(s) for submitjob.
+- [Amazon Web Services Subscribe API](https://apis.io/apis/amazon-web-services/amazon-web-services-subscribe-api/) — The Subscribe API from Amazon Web Services — 1 operation(s) for subscribe.
+- [Amazon Web Services Subscribers API](https://apis.io/apis/amazon-web-services/amazon-web-services-subscribers-api/) — The Subscribers API from Amazon Web Services — 3 operation(s) for subscribers.
+- [Amazon Web Services Subscription API](https://apis.io/apis/amazon-web-services/amazon-web-services-subscription-api/) — The Subscription API from Amazon Web Services — 4 operation(s) for subscription.
+- [Amazon Web Services Suite Definitions API](https://apis.io/apis/amazon-web-services/amazon-web-services-suitedefinitions-api/) — The suiteDefinitions API from Amazon Web Services — 6 operation(s) for suitedefinitions.
+- [Amazon Web Services Suite Runs API](https://apis.io/apis/amazon-web-services/amazon-web-services-suiteruns-api/) — The suiteRuns API from Amazon Web Services — 1 operation(s) for suiteruns.
+- [Amazon Web Services Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-summary-api/) — The Summary API from Amazon Web Services — 1 operation(s) for summary.
+- [Amazon Web Services Supported Resource Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-supported-resource-types-api/) — The Supported Resource Types API from Amazon Web Services — 1 operation(s) for supported resource types.
+- [Amazon Web Services Sync API](https://apis.io/apis/amazon-web-services/amazon-web-services-sync-api/) — The Sync API from Amazon Web Services — 1 operation(s) for sync.
+- [Amazon Web Services Sync Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-sync-jobs-api/) — The Sync Jobs API from Amazon Web Services — 1 operation(s) for sync jobs.
+- [Amazon Web Services System API](https://apis.io/apis/amazon-web-services/amazon-web-services-system-api/) — The System API from Amazon Web Services — 1 operation(s) for system.
+- [Amazon Web Services Tag API](https://apis.io/apis/amazon-web-services/amazon-web-services-tag-api/) — The Tag API from Amazon Web Services — 2 operation(s) for tag.
+- [Amazon Web Services Tags API](https://apis.io/apis/amazon-web-services/amazon-web-services-tags-api/) — The Tags API from Amazon Web Services — 17 operation(s) for tags.
+- [Amazon Web Services Tags List API](https://apis.io/apis/amazon-web-services/amazon-web-services-tags-list-api/) — The Tags List API from Amazon Web Services — 1 operation(s) for tags list.
+- [Amazon Web Services Tags?operation=tag Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-tags-operation-tag-resource-api/) — The Tags?operation=tag Resource API from Amazon Web Services — 1 operation(s) for tags?operation=tag resource.
+- [Amazon Web Services Tags?operation=untag Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-tags-operation-untag-resource-api/) — The Tags?operation=untag Resource API from Amazon Web Services — 1 operation(s) for tags?operation=untag resource.
+- [Amazon Web Services Target Policies API](https://apis.io/apis/amazon-web-services/amazon-web-services-target-policies-api/) — The Target Policies API from Amazon Web Services — 1 operation(s) for target policies.
+- [Amazon Web Services Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-task-api/) — The Task API from Amazon Web Services — 4 operation(s) for task.
+- [Amazon Web Services Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-tasks-api/) — The Tasks API from Amazon Web Services — 1 operation(s) for tasks.
+- [Amazon Web Services TelemetryRecords API](https://apis.io/apis/amazon-web-services/amazon-web-services-telemetryrecords-api/) — The TelemetryRecords API from Amazon Web Services — 1 operation(s) for telemetryrecords.
+- [Amazon Web Services Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-templates-api/) — The Templates API from Amazon Web Services — 18 operation(s) for templates.
+- [Amazon Web Services Templatestep API](https://apis.io/apis/amazon-web-services/amazon-web-services-templatestep-api/) — The Templatestep API from Amazon Web Services — 1 operation(s) for templatestep.
+- [Amazon Web Services Templatestepgroups API](https://apis.io/apis/amazon-web-services/amazon-web-services-templatestepgroups-api/) — The Templatestepgroups API from Amazon Web Services — 1 operation(s) for templatestepgroups.
+- [Amazon Web Services Templatesteps API](https://apis.io/apis/amazon-web-services/amazon-web-services-templatesteps-api/) — The Templatesteps API from Amazon Web Services — 1 operation(s) for templatesteps.
+- [Amazon Web Services Terminatejob API](https://apis.io/apis/amazon-web-services/amazon-web-services-terminatejob-api/) — The Terminatejob API from Amazon Web Services — 1 operation(s) for terminatejob.
+- [Amazon Web Services TerminateRecoveryInstances API](https://apis.io/apis/amazon-web-services/amazon-web-services-terminaterecoveryinstances-api/) — The TerminateRecoveryInstances API from Amazon Web Services — 1 operation(s) for terminaterecoveryinstances.
+- [Amazon Web Services TerminateTargetInstances API](https://apis.io/apis/amazon-web-services/amazon-web-services-terminatetargetinstances-api/) — The TerminateTargetInstances API from Amazon Web Services — 1 operation(s) for terminatetargetinstances.
+- [Amazon Web Services Test Authorization API](https://apis.io/apis/amazon-web-services/amazon-web-services-test-authorization-api/) — The Test Authorization API from Amazon Web Services — 1 operation(s) for test authorization.
+- [Amazon Web Services Test Segment Pattern API](https://apis.io/apis/amazon-web-services/amazon-web-services-test-segment-pattern-api/) — The Test Segment Pattern API from Amazon Web Services — 1 operation(s) for test segment pattern.
+- [Amazon Web Services Testsetdiscrepancy API](https://apis.io/apis/amazon-web-services/amazon-web-services-testsetdiscrepancy-api/) — The Testsetdiscrepancy API from Amazon Web Services — 1 operation(s) for testsetdiscrepancy.
+- [Amazon Web Services Testsetgenerations API](https://apis.io/apis/amazon-web-services/amazon-web-services-testsetgenerations-api/) — The Testsetgenerations API from Amazon Web Services — 2 operation(s) for testsetgenerations.
+- [Amazon Web Services Thing Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-thing-groups-api/) — The Thing Groups API from Amazon Web Services — 6 operation(s) for thing groups.
+- [Amazon Web Services Thing Registration Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-thing-registration-tasks-api/) — The Thing Registration Tasks API from Amazon Web Services — 4 operation(s) for thing registration tasks.
+- [Amazon Web Services Thing Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-thing-types-api/) — The Thing Types API from Amazon Web Services — 3 operation(s) for thing types.
+- [Amazon Web Services Things API](https://apis.io/apis/amazon-web-services/amazon-web-services-things-api/) — The Things API from Amazon Web Services — 11 operation(s) for things.
+- [Amazon Web Services Tile API](https://apis.io/apis/amazon-web-services/amazon-web-services-tile-api/) — The Tile API from Amazon Web Services — 1 operation(s) for tile.
+- [Amazon Web Services TimeSeriesServiceStatistics API](https://apis.io/apis/amazon-web-services/amazon-web-services-timeseriesservicestatistics-api/) — The TimeSeriesServiceStatistics API from Amazon Web Services — 1 operation(s) for timeseriesservicestatistics.
+- [Amazon Web Services Token API](https://apis.io/apis/amazon-web-services/amazon-web-services-token-api/) — The Token API from Amazon Web Services — 1 operation(s) for token.
+- [Amazon Web Services Token?aws Iam=t API](https://apis.io/apis/amazon-web-services/amazon-web-services-token-aws-iam-t-api/) — The Token?aws Iam=t API from Amazon Web Services — 1 operation(s) for token?aws iam=t.
+- [Amazon Web Services Tokens API](https://apis.io/apis/amazon-web-services/amazon-web-services-tokens-api/) — The Tokens API from Amazon Web Services — 2 operation(s) for tokens.
+- [Amazon Web Services Topics API](https://apis.io/apis/amazon-web-services/amazon-web-services-topics-api/) — The Topics API from Amazon Web Services — 1 operation(s) for topics.
+- [Amazon Web Services TraceGraph API](https://apis.io/apis/amazon-web-services/amazon-web-services-tracegraph-api/) — The TraceGraph API from Amazon Web Services — 1 operation(s) for tracegraph.
+- [Amazon Web Services Traces API](https://apis.io/apis/amazon-web-services/amazon-web-services-traces-api/) — The Traces API from Amazon Web Services — 1 operation(s) for traces.
+- [Amazon Web Services TraceSegments API](https://apis.io/apis/amazon-web-services/amazon-web-services-tracesegments-api/) — The TraceSegments API from Amazon Web Services — 1 operation(s) for tracesegments.
+- [Amazon Web Services TraceSummaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-tracesummaries-api/) — The TraceSummaries API from Amazon Web Services — 1 operation(s) for tracesummaries.
+- [Amazon Web Services Tracking API](https://apis.io/apis/amazon-web-services/amazon-web-services-tracking-api/) — The Tracking API from Amazon Web Services — 12 operation(s) for tracking.
+- [Amazon Web Services Traffic Distribution API](https://apis.io/apis/amazon-web-services/amazon-web-services-traffic-distribution-api/) — The Traffic Distribution API from Amazon Web Services — 1 operation(s) for traffic distribution.
+- [Amazon Web Services Traffic Distribution Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-traffic-distribution-group-api/) — The Traffic Distribution Group API from Amazon Web Services — 3 operation(s) for traffic distribution group.
+- [Amazon Web Services Traffic Distribution Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-traffic-distribution-groups-api/) — The Traffic Distribution Groups API from Amazon Web Services — 1 operation(s) for traffic distribution groups.
+- [Amazon Web Services Training Dataset API](https://apis.io/apis/amazon-web-services/amazon-web-services-training-dataset-api/) — The Training Dataset API from Amazon Web Services — 2 operation(s) for training dataset.
+- [Amazon Web Services Transfer Certificate API](https://apis.io/apis/amazon-web-services/amazon-web-services-transfer-certificate-api/) — The Transfer Certificate API from Amazon Web Services — 1 operation(s) for transfer certificate.
+- [Amazon Web Services Transit Gateway Peerings API](https://apis.io/apis/amazon-web-services/amazon-web-services-transit-gateway-peerings-api/) — The Transit Gateway Peerings API from Amazon Web Services — 2 operation(s) for transit gateway peerings.
+- [Amazon Web Services Transit Gateway Route Table Attachments API](https://apis.io/apis/amazon-web-services/amazon-web-services-transit-gateway-route-table-attachments-api/) — The Transit Gateway Route Table Attachments API from Amazon Web Services — 2 operation(s) for transit gateway route table attachments.
+- [Amazon Web Services Trustanchor API](https://apis.io/apis/amazon-web-services/amazon-web-services-trustanchor-api/) — The Trustanchor API from Amazon Web Services — 3 operation(s) for trustanchor.
+- [Amazon Web Services Trustanchors API](https://apis.io/apis/amazon-web-services/amazon-web-services-trustanchors-api/) — The Trustanchors API from Amazon Web Services — 1 operation(s) for trustanchors.
+- [Amazon Web Services Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-types-api/) — The Types API from Amazon Web Services — 4 operation(s) for types.
+- [Amazon Web Services UnarchiveApplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-unarchiveapplication-api/) — The UnarchiveApplication API from Amazon Web Services — 1 operation(s) for unarchiveapplication.
+- [Amazon Web Services UnarchiveWave API](https://apis.io/apis/amazon-web-services/amazon-web-services-unarchivewave-api/) — The UnarchiveWave API from Amazon Web Services — 1 operation(s) for unarchivewave.
+- [Amazon Web Services Ungroup Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-ungroup-resources-api/) — The Ungroup Resources API from Amazon Web Services — 1 operation(s) for ungroup resources.
+- [Amazon Web Services Unregister Connector API](https://apis.io/apis/amazon-web-services/amazon-web-services-unregister-connector-api/) — The Unregister Connector API from Amazon Web Services — 1 operation(s) for unregister connector.
+- [Amazon Web Services Unsubscribe API](https://apis.io/apis/amazon-web-services/amazon-web-services-unsubscribe-api/) — The Unsubscribe API from Amazon Web Services — 1 operation(s) for unsubscribe.
+- [Amazon Web Services Untag API](https://apis.io/apis/amazon-web-services/amazon-web-services-untag-api/) — The Untag API from Amazon Web Services — 4 operation(s) for untag.
+- [Amazon Web Services Update Account Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-account-settings-api/) — The Update Account Settings API from Amazon Web Services — 1 operation(s) for update account settings.
+- [Amazon Web Services Update API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-api/) — The Update API from Amazon Web Services — 1 operation(s) for update.
+- [Amazon Web Services Update App API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-app-api/) — The Update App API from Amazon Web Services — 1 operation(s) for update app.
+- [Amazon Web Services Update App Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-app-version-api/) — The Update App Version API from Amazon Web Services — 1 operation(s) for update app version.
+- [Amazon Web Services Update App Version App Component API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-app-version-app-component-api/) — The Update App Version App Component API from Amazon Web Services — 1 operation(s) for update app version app component.
+- [Amazon Web Services Update App Version Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-app-version-resource-api/) — The Update App Version Resource API from Amazon Web Services — 1 operation(s) for update app version resource.
+- [Amazon Web Services Update Application Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-application-settings-api/) — The Update Application Settings API from Amazon Web Services — 1 operation(s) for update application settings.
+- [Amazon Web Services Update Applicationcomponent Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-applicationcomponent-config-api/) — The Update Applicationcomponent Config API from Amazon Web Services — 1 operation(s) for update applicationcomponent config.
+- [Amazon Web Services Update Billing Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-billing-group-api/) — The Update Billing Group API from Amazon Web Services — 1 operation(s) for update billing group.
+- [Amazon Web Services Update Connector Profile API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-connector-profile-api/) — The Update Connector Profile API from Amazon Web Services — 1 operation(s) for update connector profile.
+- [Amazon Web Services Update Connector Registration API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-connector-registration-api/) — The Update Connector Registration API from Amazon Web Services — 1 operation(s) for update connector registration.
+- [Amazon Web Services Update Custom Line Item API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-custom-line-item-api/) — The Update Custom Line Item API from Amazon Web Services — 1 operation(s) for update custom line item.
+- [Amazon Web Services Update Enabled Baseline API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-enabled-baseline-api/) — The Update Enabled Baseline API from Amazon Web Services — 1 operation(s) for update enabled baseline.
+- [Amazon Web Services Update Enabled Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-enabled-control-api/) — The Update Enabled Control API from Amazon Web Services — 1 operation(s) for update enabled control.
+- [Amazon Web Services Update Flow API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-flow-api/) — The Update Flow API from Amazon Web Services — 1 operation(s) for update flow.
+- [Amazon Web Services Update Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-group-api/) — The Update Group API from Amazon Web Services — 1 operation(s) for update group.
+- [Amazon Web Services Update Group Query API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-group-query-api/) — The Update Group Query API from Amazon Web Services — 1 operation(s) for update group query.
+- [Amazon Web Services Update Landingzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-landingzone-api/) — The Update Landingzone API from Amazon Web Services — 1 operation(s) for update landingzone.
+- [Amazon Web Services Update Pricing Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-pricing-plan-api/) — The Update Pricing Plan API from Amazon Web Services — 1 operation(s) for update pricing plan.
+- [Amazon Web Services Update Pricing Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-pricing-rule-api/) — The Update Pricing Rule API from Amazon Web Services — 1 operation(s) for update pricing rule.
+- [Amazon Web Services Update Resiliency Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-resiliency-policy-api/) — The Update Resiliency Policy API from Amazon Web Services — 1 operation(s) for update resiliency policy.
+- [Amazon Web Services Update Server Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-server-config-api/) — The Update Server Config API from Amazon Web Services — 1 operation(s) for update server config.
+- [Amazon Web Services UpdateAlert API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatealert-api/) — The UpdateAlert API from Amazon Web Services — 1 operation(s) for updatealert.
+- [Amazon Web Services UpdateAnomalyDetector API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateanomalydetector-api/) — The UpdateAnomalyDetector API from Amazon Web Services — 1 operation(s) for updateanomalydetector.
+- [Amazon Web Services UpdateApplication API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateapplication-api/) — The UpdateApplication API from Amazon Web Services — 1 operation(s) for updateapplication.
+- [Amazon Web Services Update Audit Stream Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateauditstreamconfiguration-api/) — The updateAuditStreamConfiguration API from Amazon Web Services — 1 operation(s) for updateauditstreamconfiguration.
+- [Amazon Web Services UpdateChannel API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatechannel-api/) — The UpdateChannel API from Amazon Web Services — 1 operation(s) for updatechannel.
+- [Amazon Web Services Update Company Network Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatecompanynetworkconfiguration-api/) — The updateCompanyNetworkConfiguration API from Amazon Web Services — 1 operation(s) for updatecompanynetworkconfiguration.
+- [Amazon Web Services Updatecomputeenvironment API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatecomputeenvironment-api/) — The Updatecomputeenvironment API from Amazon Web Services — 1 operation(s) for updatecomputeenvironment.
+- [Amazon Web Services UpdateConnector API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateconnector-api/) — The UpdateConnector API from Amazon Web Services — 1 operation(s) for updateconnector.
+- [Amazon Web Services UpdateDataCellsFilter API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatedatacellsfilter-api/) — The UpdateDataCellsFilter API from Amazon Web Services — 1 operation(s) for updatedatacellsfilter.
+- [Amazon Web Services Update Destination API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatedestination-api/) — The updateDestination API from Amazon Web Services — 1 operation(s) for updatedestination.
+- [Amazon Web Services Update Device Policy Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatedevicepolicyconfiguration-api/) — The updateDevicePolicyConfiguration API from Amazon Web Services — 1 operation(s) for updatedevicepolicyconfiguration.
+- [Amazon Web Services UpdateDistributionConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatedistributionconfiguration-api/) — The UpdateDistributionConfiguration API from Amazon Web Services — 1 operation(s) for updatedistributionconfiguration.
+- [Amazon Web Services Update Domain Metadata API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatedomainmetadata-api/) — The updateDomainMetadata API from Amazon Web Services — 1 operation(s) for updatedomainmetadata.
+- [Amazon Web Services UpdateFailbackReplicationConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatefailbackreplicationconfiguration-api/) — The UpdateFailbackReplicationConfiguration API from Amazon Web Services — 1 operation(s) for updatefailbackreplicationconfiguration.
+- [Amazon Web Services UpdateFleetMetadata API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatefleetmetadata-api/) — The UpdateFleetMetadata API from Amazon Web Services — 1 operation(s) for updatefleetmetadata.
+- [Amazon Web Services Update Identity Provider Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateidentityproviderconfiguration-api/) — The updateIdentityProviderConfiguration API from Amazon Web Services — 1 operation(s) for updateidentityproviderconfiguration.
+- [Amazon Web Services UpdateImagePipeline API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateimagepipeline-api/) — The UpdateImagePipeline API from Amazon Web Services — 1 operation(s) for updateimagepipeline.
+- [Amazon Web Services UpdateIndexType API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateindextype-api/) — The UpdateIndexType API from Amazon Web Services — 1 operation(s) for updateindextype.
+- [Amazon Web Services UpdateInfrastructureConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateinfrastructureconfiguration-api/) — The UpdateInfrastructureConfiguration API from Amazon Web Services — 1 operation(s) for updateinfrastructureconfiguration.
+- [Amazon Web Services Updatejobqueue API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatejobqueue-api/) — The Updatejobqueue API from Amazon Web Services — 1 operation(s) for updatejobqueue.
+- [Amazon Web Services UpdateLakeFormationIdentityCenterConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelakeformationidentitycenterconfiguration-api/) — The UpdateLakeFormationIdentityCenterConfiguration API from Amazon Web Services — 1 operation(s) for updatelakeformationidentitycenterconfiguration.
+- [Amazon Web Services UpdateLaunchConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelaunchconfiguration-api/) — The UpdateLaunchConfiguration API from Amazon Web Services — 1 operation(s) for updatelaunchconfiguration.
+- [Amazon Web Services UpdateLaunchConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelaunchconfigurationtemplate-api/) — The UpdateLaunchConfigurationTemplate API from Amazon Web Services — 1 operation(s) for updatelaunchconfigurationtemplate.
+- [Amazon Web Services UpdateLFTag API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelftag-api/) — The UpdateLFTag API from Amazon Web Services — 1 operation(s) for updatelftag.
+- [Amazon Web Services UpdateLifecyclePolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelifecyclepolicy-api/) — The UpdateLifecyclePolicy API from Amazon Web Services — 1 operation(s) for updatelifecyclepolicy.
+- [Amazon Web Services UpdateLink API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatelink-api/) — The UpdateLink API from Amazon Web Services — 1 operation(s) for updatelink.
+- [Amazon Web Services UpdateLoggingConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateloggingconfiguration-api/) — The UpdateLoggingConfiguration API from Amazon Web Services — 1 operation(s) for updateloggingconfiguration.
+- [Amazon Web Services UpdateMetricSet API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatemetricset-api/) — The UpdateMetricSet API from Amazon Web Services — 1 operation(s) for updatemetricset.
+- [Amazon Web Services Update Notification Rule API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatenotificationrule-api/) — The updateNotificationRule API from Amazon Web Services — 1 operation(s) for updatenotificationrule.
+- [Amazon Web Services UpdatePlaybackRestrictionPolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateplaybackrestrictionpolicy-api/) — The UpdatePlaybackRestrictionPolicy API from Amazon Web Services — 1 operation(s) for updateplaybackrestrictionpolicy.
+- [Amazon Web Services UpdateReplicationConfiguration API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatereplicationconfiguration-api/) — The UpdateReplicationConfiguration API from Amazon Web Services — 1 operation(s) for updatereplicationconfiguration.
+- [Amazon Web Services UpdateReplicationConfigurationTemplate API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatereplicationconfigurationtemplate-api/) — The UpdateReplicationConfigurationTemplate API from Amazon Web Services — 1 operation(s) for updatereplicationconfigurationtemplate.
+- [Amazon Web Services UpdateResource API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateresource-api/) — The UpdateResource API from Amazon Web Services — 1 operation(s) for updateresource.
+- [Amazon Web Services Updateresourceshare API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateresourceshare-api/) — The Updateresourceshare API from Amazon Web Services — 1 operation(s) for updateresourceshare.
+- [Amazon Web Services UpdateRoom API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateroom-api/) — The UpdateRoom API from Amazon Web Services — 1 operation(s) for updateroom.
+- [Amazon Web Services UpdateSamplingRule API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatesamplingrule-api/) — The UpdateSamplingRule API from Amazon Web Services — 1 operation(s) for updatesamplingrule.
+- [Amazon Web Services Updateschedulingpolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateschedulingpolicy-api/) — The Updateschedulingpolicy API from Amazon Web Services — 1 operation(s) for updateschedulingpolicy.
+- [Amazon Web Services Update Site API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatesite-api/) — The updateSite API from Amazon Web Services — 1 operation(s) for updatesite.
+- [Amazon Web Services UpdateSourceServer API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatesourceserver-api/) — The UpdateSourceServer API from Amazon Web Services — 1 operation(s) for updatesourceserver.
+- [Amazon Web Services UpdateSourceServerReplicationType API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatesourceserverreplicationtype-api/) — The UpdateSourceServerReplicationType API from Amazon Web Services — 1 operation(s) for updatesourceserverreplicationtype.
+- [Amazon Web Services UpdateStage API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatestage-api/) — The UpdateStage API from Amazon Web Services — 1 operation(s) for updatestage.
+- [Amazon Web Services UpdateTableObjects API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatetableobjects-api/) — The UpdateTableObjects API from Amazon Web Services — 1 operation(s) for updatetableobjects.
+- [Amazon Web Services UpdateTableStorageOptimizer API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatetablestorageoptimizer-api/) — The UpdateTableStorageOptimizer API from Amazon Web Services — 1 operation(s) for updatetablestorageoptimizer.
+- [Amazon Web Services UpdateView API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateview-api/) — The UpdateView API from Amazon Web Services — 1 operation(s) for updateview.
+- [Amazon Web Services UpdateWave API](https://apis.io/apis/amazon-web-services/amazon-web-services-updatewave-api/) — The UpdateWave API from Amazon Web Services — 1 operation(s) for updatewave.
+- [Amazon Web Services Update Worker API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateworker-api/) — The updateWorker API from Amazon Web Services — 1 operation(s) for updateworker.
+- [Amazon Web Services Update Worker Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-updateworkerfleet-api/) — The updateWorkerFleet API from Amazon Web Services — 1 operation(s) for updateworkerfleet.
+- [Amazon Web Services Upload Part API](https://apis.io/apis/amazon-web-services/amazon-web-services-upload-part-api/) — The Upload Part API from Amazon Web Services — 1 operation(s) for upload part.
+- [Amazon Web Services Usage API](https://apis.io/apis/amazon-web-services/amazon-web-services-usage-api/) — The Usage API from Amazon Web Services — 3 operation(s) for usage.
+- [Amazon Web Services User API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-api/) — The User API from Amazon Web Services — 13 operation(s) for user.
+- [Amazon Web Services User Hierarchy Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-hierarchy-groups-api/) — The User Hierarchy Groups API from Amazon Web Services — 3 operation(s) for user hierarchy groups.
+- [Amazon Web Services User Hierarchy Groups Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-hierarchy-groups-summary-api/) — The User Hierarchy Groups Summary API from Amazon Web Services — 1 operation(s) for user hierarchy groups summary.
+- [Amazon Web Services User Hierarchy Structure API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-hierarchy-structure-api/) — The User Hierarchy Structure API from Amazon Web Services — 1 operation(s) for user hierarchy structure.
+- [Amazon Web Services Users API](https://apis.io/apis/amazon-web-services/amazon-web-services-users-api/) — The Users API from Amazon Web Services — 16 operation(s) for users.
+- [Amazon Web Services Users Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-users-summary-api/) — The Users Summary API from Amazon Web Services — 1 operation(s) for users summary.
+- [Amazon Web Services Vaults API](https://apis.io/apis/amazon-web-services/amazon-web-services-vaults-api/) — The Vaults API from Amazon Web Services — 16 operation(s) for vaults.
+- [Amazon Web Services Vector Enrichment Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-vector-enrichment-jobs-api/) — The Vector Enrichment Jobs API from Amazon Web Services — 3 operation(s) for vector enrichment jobs.
+- [Amazon Web Services Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-versions-api/) — The Versions API from Amazon Web Services — 1 operation(s) for versions.
+- [Amazon Web Services Views API](https://apis.io/apis/amazon-web-services/amazon-web-services-views-api/) — The Views API from Amazon Web Services — 5 operation(s) for views.
+- [Amazon Web Services Violation Events API](https://apis.io/apis/amazon-web-services/amazon-web-services-violation-events-api/) — The Violation Events API from Amazon Web Services — 1 operation(s) for violation events.
+- [Amazon Web Services Violations API](https://apis.io/apis/amazon-web-services/amazon-web-services-violations-api/) — The Violations API from Amazon Web Services — 1 operation(s) for violations.
+- [Amazon Web Services Vocabulary API](https://apis.io/apis/amazon-web-services/amazon-web-services-vocabulary-api/) — The Vocabulary API from Amazon Web Services — 2 operation(s) for vocabulary.
+- [Amazon Web Services Vocabulary Remove API](https://apis.io/apis/amazon-web-services/amazon-web-services-vocabulary-remove-api/) — The Vocabulary Remove API from Amazon Web Services — 1 operation(s) for vocabulary remove.
+- [Amazon Web Services Vocabulary Summary API](https://apis.io/apis/amazon-web-services/amazon-web-services-vocabulary-summary-api/) — The Vocabulary Summary API from Amazon Web Services — 1 operation(s) for vocabulary summary.
+- [Amazon Web Services Voice Connector Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-voice-connector-groups-api/) — The Voice Connector Groups API from Amazon Web Services — 4 operation(s) for voice connector groups.
+- [Amazon Web Services Voice Connector Regions API](https://apis.io/apis/amazon-web-services/amazon-web-services-voice-connector-regions-api/) — The Voice Connector Regions API from Amazon Web Services — 1 operation(s) for voice connector regions.
+- [Amazon Web Services Voice Connectors API](https://apis.io/apis/amazon-web-services/amazon-web-services-voice-connectors-api/) — The Voice Connectors API from Amazon Web Services — 22 operation(s) for voice connectors.
+- [Amazon Web Services Voice Profile Domains API](https://apis.io/apis/amazon-web-services/amazon-web-services-voice-profile-domains-api/) — The Voice Profile Domains API from Amazon Web Services — 2 operation(s) for voice profile domains.
+- [Amazon Web Services Voice Profiles API](https://apis.io/apis/amazon-web-services/amazon-web-services-voice-profiles-api/) — The Voice Profiles API from Amazon Web Services — 2 operation(s) for voice profiles.
+- [Amazon Web Services Voices API](https://apis.io/apis/amazon-web-services/amazon-web-services-voices-api/) — The Voices API from Amazon Web Services — 1 operation(s) for voices.
+- [Amazon Web Services Vpc Attachments API](https://apis.io/apis/amazon-web-services/amazon-web-services-vpc-attachments-api/) — The Vpc Attachments API from Amazon Web Services — 2 operation(s) for vpc attachments.
+- [Amazon Web Services Vpc Connection API](https://apis.io/apis/amazon-web-services/amazon-web-services-vpc-connection-api/) — The Vpc Connection API from Amazon Web Services — 2 operation(s) for vpc connection.
+- [Amazon Web Services Vpc Connections API](https://apis.io/apis/amazon-web-services/amazon-web-services-vpc-connections-api/) — The Vpc Connections API from Amazon Web Services — 1 operation(s) for vpc connections.
+- [Amazon Web Services Vpclinks API](https://apis.io/apis/amazon-web-services/amazon-web-services-vpclinks-api/) — The Vpclinks API from Amazon Web Services — 4 operation(s) for vpclinks.
+- [Amazon Web Services Vulnerabilities API](https://apis.io/apis/amazon-web-services/amazon-web-services-vulnerabilities-api/) — The Vulnerabilities API from Amazon Web Services — 1 operation(s) for vulnerabilities.
+- [Amazon Web Services Webhooks API](https://apis.io/apis/amazon-web-services/amazon-web-services-webhooks-api/) — The Webhooks API from Amazon Web Services — 1 operation(s) for webhooks.
+- [Amazon Web Services Webtoken API](https://apis.io/apis/amazon-web-services/amazon-web-services-webtoken-api/) — The Webtoken API from Amazon Web Services — 1 operation(s) for webtoken.
+- [Amazon Web Services Wireless Device Import Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-device-import-task-api/) — The Wireless Device Import Task API from Amazon Web Services — 2 operation(s) for wireless device import task.
+- [Amazon Web Services Wireless Device Import Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-device-import-tasks-api/) — The Wireless Device Import Tasks API from Amazon Web Services — 1 operation(s) for wireless device import tasks.
+- [Amazon Web Services Wireless Devices API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-devices-api/) — The Wireless Devices API from Amazon Web Services — 8 operation(s) for wireless devices.
+- [Amazon Web Services Wireless Gateway Task Definitions API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-gateway-task-definitions-api/) — The Wireless Gateway Task Definitions API from Amazon Web Services — 2 operation(s) for wireless gateway task definitions.
+- [Amazon Web Services Wireless Gateways API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-gateways-api/) — The Wireless Gateways API from Amazon Web Services — 8 operation(s) for wireless gateways.
+- [Amazon Web Services Wireless Single Device Import Task API](https://apis.io/apis/amazon-web-services/amazon-web-services-wireless-single-device-import-task-api/) — The Wireless Single Device Import Task API from Amazon Web Services — 1 operation(s) for wireless single device import task.
+- [Amazon Web Services Workbooks API](https://apis.io/apis/amazon-web-services/amazon-web-services-workbooks-api/) — The Workbooks API from Amazon Web Services — 11 operation(s) for workbooks.
+- [Amazon Web Services Worker Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-worker-configurations-api/) — The Worker Configurations API from Amazon Web Services — 2 operation(s) for worker configurations.
+- [Amazon Web Services Workflow API](https://apis.io/apis/amazon-web-services/amazon-web-services-workflow-api/) — The Workflow API from Amazon Web Services — 3 operation(s) for workflow.
+- [Amazon Web Services Workflowstep API](https://apis.io/apis/amazon-web-services/amazon-web-services-workflowstep-api/) — The Workflowstep API from Amazon Web Services — 2 operation(s) for workflowstep.
+- [Amazon Web Services Workflowstepgroup API](https://apis.io/apis/amazon-web-services/amazon-web-services-workflowstepgroup-api/) — The Workflowstepgroup API from Amazon Web Services — 1 operation(s) for workflowstepgroup.
+- [Amazon Web Services Workflowstepgroups API](https://apis.io/apis/amazon-web-services/amazon-web-services-workflowstepgroups-api/) — The Workflowstepgroups API from Amazon Web Services — 1 operation(s) for workflowstepgroups.
+- [Amazon Web Services Working Location V1 API](https://apis.io/apis/amazon-web-services/amazon-web-services-workinglocationv1-api/) — The workingLocationV1 API from Amazon Web Services — 1 operation(s) for workinglocationv1.
+- [Amazon Web Services Workloads API](https://apis.io/apis/amazon-web-services/amazon-web-services-workloads-api/) — The Workloads API from Amazon Web Services — 21 operation(s) for workloads.
+- [Amazon Web Services Workspaces API](https://apis.io/apis/amazon-web-services/amazon-web-services-workspaces-api/) — The Workspaces API from Amazon Web Services — 29 operation(s) for workspaces.
+- [Amazon Web Services Workspaces List API](https://apis.io/apis/amazon-web-services/amazon-web-services-workspaces-list-api/) — The Workspaces List API from Amazon Web Services — 1 operation(s) for workspaces list.
+- [Amazon Web Services Write  Object Response. API](https://apis.io/apis/amazon-web-services/amazon-web-services-write-object-response-api/) — The Write Object Response. API from Amazon Web Services — 1 operation(s) for write object response..
+- [Amazon Web Services Zonalshifts API](https://apis.io/apis/amazon-web-services/amazon-web-services-zonalshifts-api/) — The Zonalshifts API from Amazon Web Services — 2 operation(s) for zonalshifts.
+- [Amazon Web Services APIS API](https://apis.io/apis/amazon-web-services/amazon-web-services-apis-api/) — The Apis API from Amazon Web Services — 4 operation(s) for apis.
+- [Amazon Web Services Cis API](https://apis.io/apis/amazon-web-services/amazon-web-services-cis-api/) — The Cis API from Amazon Web Services — 9 operation(s) for cis.
+- [Amazon Bedrock API](https://apis.io/apis/amazon-web-services/amazon-bedrock-api/) — Amazon Bedrock is a fully managed service that provides access to foundation models from leading AI companies for building generative AI applications.
+- [Amazon VPC API](https://apis.io/apis/amazon-web-services/amazon-vpc-api/) — Amazon Virtual Private Cloud lets you define and launch AWS resources in a logically isolated virtual network with full control over your networking…
+- [Amazon Aurora API](https://apis.io/apis/amazon-web-services/amazon-aurora-api/) — Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud that combines the performance and availability of traditional…
+- [Amazon EBS API](https://apis.io/apis/amazon-web-services/amazon-ebs-api/) — Amazon Elastic Block Store provides persistent block storage volumes for use with Amazon EC2 instances in the AWS Cloud.
+- [AWS Fargate API](https://apis.io/apis/amazon-web-services/aws-fargate-api/) — AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS and Amazon EKS removing the need to manage servers.
+- [Amazon Keyspaces API](https://apis.io/apis/amazon-web-services/amazon-keyspaces-api/) — Amazon Keyspaces is a scalable, highly available, and managed Apache Cassandra-compatible database service for running Cassandra workloads in the cloud.
+- [AWS Transit Gateway API](https://apis.io/apis/amazon-web-services/aws-transit-gateway-api/) — AWS Transit Gateway connects VPCs and on-premises networks through a central hub simplifying your network and putting an end to complex peering relationships.
+- [Amazon Web Services Access Points API](https://apis.io/apis/amazon-web-services/amazon-web-services-access-points-api/) — The Access Points API from Amazon Web Services — 2 operation(s) for access points.
+- [Amazon Web Services Account Preferences API](https://apis.io/apis/amazon-web-services/amazon-web-services-account-preferences-api/) — The Account Preferences API from Amazon Web Services — 1 operation(s) for account preferences.
+- [Amazon Web Services Accountlimit API](https://apis.io/apis/amazon-web-services/amazon-web-services-accountlimit-api/) — The Accountlimit API from Amazon Web Services — 1 operation(s) for accountlimit.
+- [Amazon Web Services Amazon Web Services Importexport API](https://apis.io/apis/amazon-web-services/amazon-web-services-amazon-web-services-importexport-api/) — The Amazon Web Services Importexport API from Amazon Web Services — 6 operation(s) for amazon web services importexport.
+- [Amazon Web Services Cache Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-cache-policy-api/) — The Cache Policy API from Amazon Web Services — 3 operation(s) for cache policy.
+- [Amazon Web Services Change API](https://apis.io/apis/amazon-web-services/amazon-web-services-change-api/) — The Change API from Amazon Web Services — 1 operation(s) for change.
+- [Amazon Web Services Checkeripranges API](https://apis.io/apis/amazon-web-services/amazon-web-services-checkeripranges-api/) — The Checkeripranges API from Amazon Web Services — 1 operation(s) for checkeripranges.
+- [Amazon Web Services Cidrcollection API](https://apis.io/apis/amazon-web-services/amazon-web-services-cidrcollection-api/) — The Cidrcollection API from Amazon Web Services — 3 operation(s) for cidrcollection.
+- [Amazon Web Services Code Signing Configs API](https://apis.io/apis/amazon-web-services/amazon-web-services-code-signing-configs-api/) — The Code Signing Configs API from Amazon Web Services — 3 operation(s) for code signing configs.
+- [Amazon Web Services Conflicting Alias API](https://apis.io/apis/amazon-web-services/amazon-web-services-conflicting-alias-api/) — The Conflicting Alias API from Amazon Web Services — 1 operation(s) for conflicting alias.
+- [Amazon Web Services Continuous Deployment Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-continuous-deployment-policy-api/) — The Continuous Deployment Policy API from Amazon Web Services — 3 operation(s) for continuous deployment policy.
+- [Amazon Web Services Create Tags API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-tags-api/) — The Create Tags API from Amazon Web Services — 1 operation(s) for create tags.
+- [Amazon Web Services Delegationset API](https://apis.io/apis/amazon-web-services/amazon-web-services-delegationset-api/) — The Delegationset API from Amazon Web Services — 2 operation(s) for delegationset.
+- [Amazon Web Services Delete Realtime Log Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-realtime-log-config-api/) — The Delete Realtime Log Config API from Amazon Web Services — 1 operation(s) for delete realtime log config.
+- [Amazon Web Services Delete Tags API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-tags-api/) — The Delete Tags API from Amazon Web Services — 1 operation(s) for delete tags.
+- [Amazon Web Services Distribution API](https://apis.io/apis/amazon-web-services/amazon-web-services-distribution-api/) — The Distribution API from Amazon Web Services — 9 operation(s) for distribution.
+- [Amazon Web Services Distributions API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributions-api/) — The Distributions API from Amazon Web Services — 1 operation(s) for distributions.
+- [Amazon Web Services Distributions By Cache Policy ID API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbycachepolicyid-api/) — The DistributionsByCachePolicyId API from Amazon Web Services — 1 operation(s) for distributionsbycachepolicyid.
+- [Amazon Web Services Distributions By Key Group ID API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbykeygroupid-api/) — The DistributionsByKeyGroupId API from Amazon Web Services — 1 operation(s) for distributionsbykeygroupid.
+- [Amazon Web Services Distributions By Origin Request Policy ID API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbyoriginrequestpolicyid-api/) — The DistributionsByOriginRequestPolicyId API from Amazon Web Services — 1 operation(s) for distributionsbyoriginrequestpolicyid.
+- [Amazon Web Services Distributions By Realtime Log Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbyrealtimelogconfig-api/) — The DistributionsByRealtimeLogConfig API from Amazon Web Services — 1 operation(s) for distributionsbyrealtimelogconfig.
+- [Amazon Web Services Distributions By Response Headers Policy ID API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbyresponseheaderspolicyid-api/) — The DistributionsByResponseHeadersPolicyId API from Amazon Web Services — 1 operation(s) for distributionsbyresponseheaderspolicyid.
+- [Amazon Web Services Distributions By Web ACL ID API](https://apis.io/apis/amazon-web-services/amazon-web-services-distributionsbywebaclid-api/) — The DistributionsByWebACLId API from Amazon Web Services — 1 operation(s) for distributionsbywebaclid.
+- [Amazon Web Services Es API](https://apis.io/apis/amazon-web-services/amazon-web-services-es-api/) — The Es API from Amazon Web Services — 35 operation(s) for es.
+- [Amazon Web Services Eulas API](https://apis.io/apis/amazon-web-services/amazon-web-services-eulas-api/) — The Eulas API from Amazon Web Services — 2 operation(s) for eulas.
+- [Amazon Web Services Event Source Mappings API](https://apis.io/apis/amazon-web-services/amazon-web-services-event-source-mappings-api/) — The Event Source Mappings API from Amazon Web Services — 2 operation(s) for event source mappings.
+- [Amazon Web Services Field Level Encryption API](https://apis.io/apis/amazon-web-services/amazon-web-services-field-level-encryption-api/) — The Field Level Encryption API from Amazon Web Services — 3 operation(s) for field level encryption.
+- [Amazon Web Services Field Level Encryption Profile API](https://apis.io/apis/amazon-web-services/amazon-web-services-field-level-encryption-profile-api/) — The Field Level Encryption Profile API from Amazon Web Services — 3 operation(s) for field level encryption profile.
+- [Amazon Web Services Function API](https://apis.io/apis/amazon-web-services/amazon-web-services-function-api/) — The Function API from Amazon Web Services — 5 operation(s) for function.
+- [Amazon Web Services Geolocation API](https://apis.io/apis/amazon-web-services/amazon-web-services-geolocation-api/) — The Geolocation API from Amazon Web Services — 1 operation(s) for geolocation.
+- [Amazon Web Services Geolocations API](https://apis.io/apis/amazon-web-services/amazon-web-services-geolocations-api/) — The Geolocations API from Amazon Web Services — 1 operation(s) for geolocations.
+- [Amazon Web Services Get Realtime Log Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-realtime-log-config-api/) — The Get Realtime Log Config API from Amazon Web Services — 1 operation(s) for get realtime log config.
+- [Amazon Web Services Healthcheckcount API](https://apis.io/apis/amazon-web-services/amazon-web-services-healthcheckcount-api/) — The Healthcheckcount API from Amazon Web Services — 1 operation(s) for healthcheckcount.
+- [Amazon Web Services Hostedzone API](https://apis.io/apis/amazon-web-services/amazon-web-services-hostedzone-api/) — The Hostedzone API from Amazon Web Services — 11 operation(s) for hostedzone.
+- [Amazon Web Services Hostedzonecount API](https://apis.io/apis/amazon-web-services/amazon-web-services-hostedzonecount-api/) — The Hostedzonecount API from Amazon Web Services — 1 operation(s) for hostedzonecount.
+- [Amazon Web Services Hostedzonelimit API](https://apis.io/apis/amazon-web-services/amazon-web-services-hostedzonelimit-api/) — The Hostedzonelimit API from Amazon Web Services — 1 operation(s) for hostedzonelimit.
+- [Amazon Web Services Hostedzonesbyname API](https://apis.io/apis/amazon-web-services/amazon-web-services-hostedzonesbyname-api/) — The Hostedzonesbyname API from Amazon Web Services — 1 operation(s) for hostedzonesbyname.
+- [Amazon Web Services Hostedzonesbyvpc API](https://apis.io/apis/amazon-web-services/amazon-web-services-hostedzonesbyvpc-api/) — The Hostedzonesbyvpc API from Amazon Web Services — 1 operation(s) for hostedzonesbyvpc.
+- [Amazon Web Services Jobs By Pipeline API](https://apis.io/apis/amazon-web-services/amazon-web-services-jobsbypipeline-api/) — The JobsByPipeline API from Amazon Web Services — 1 operation(s) for jobsbypipeline.
+- [Amazon Web Services Jobs By Status API](https://apis.io/apis/amazon-web-services/amazon-web-services-jobsbystatus-api/) — The JobsByStatus API from Amazon Web Services — 1 operation(s) for jobsbystatus.
+- [Amazon Web Services Key Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-key-group-api/) — The Key Group API from Amazon Web Services — 3 operation(s) for key group.
+- [Amazon Web Services Key Value Store API](https://apis.io/apis/amazon-web-services/amazon-web-services-key-value-store-api/) — The Key Value Store API from Amazon Web Services — 3 operation(s) for key value store.
+- [Amazon Web Services Keysigningkey API](https://apis.io/apis/amazon-web-services/amazon-web-services-keysigningkey-api/) — The Keysigningkey API from Amazon Web Services — 4 operation(s) for keysigningkey.
+- [Amazon Web Services Layers API](https://apis.io/apis/amazon-web-services/amazon-web-services-layers-api/) — The Layers API from Amazon Web Services — 6 operation(s) for layers.
+- [Amazon Web Services Mount Targets API](https://apis.io/apis/amazon-web-services/amazon-web-services-mount-targets-api/) — The Mount Targets API from Amazon Web Services — 3 operation(s) for mount targets.
+- [Amazon Web Services Origin Access Control API](https://apis.io/apis/amazon-web-services/amazon-web-services-origin-access-control-api/) — The Origin Access Control API from Amazon Web Services — 3 operation(s) for origin access control.
+- [Amazon Web Services Origin Access Identity API](https://apis.io/apis/amazon-web-services/amazon-web-services-origin-access-identity-api/) — The Origin Access Identity API from Amazon Web Services — 3 operation(s) for origin access identity.
+- [Amazon Web Services Origin Request Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-origin-request-policy-api/) — The Origin Request Policy API from Amazon Web Services — 3 operation(s) for origin request policy.
+- [Amazon Web Services Osis API](https://apis.io/apis/amazon-web-services/amazon-web-services-osis-api/) — The Osis API from Amazon Web Services — 14 operation(s) for osis.
+- [Amazon Web Services Presets API](https://apis.io/apis/amazon-web-services/amazon-web-services-presets-api/) — The Presets API from Amazon Web Services — 4 operation(s) for presets.
+- [Amazon Web Services Public Key API](https://apis.io/apis/amazon-web-services/amazon-web-services-public-key-api/) — The Public Key API from Amazon Web Services — 3 operation(s) for public key.
+- [Amazon Web Services Queryloggingconfig API](https://apis.io/apis/amazon-web-services/amazon-web-services-queryloggingconfig-api/) — The Queryloggingconfig API from Amazon Web Services — 2 operation(s) for queryloggingconfig.
+- [Amazon Web Services Realtime Log Config API](https://apis.io/apis/amazon-web-services/amazon-web-services-realtime-log-config-api/) — The Realtime Log Config API from Amazon Web Services — 2 operation(s) for realtime log config.
+- [Amazon Web Services Resource Tags API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-tags-api/) — The Resource Tags API from Amazon Web Services — 1 operation(s) for resource tags.
+- [Amazon Web Services Response Headers Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-response-headers-policy-api/) — The Response Headers Policy API from Amazon Web Services — 3 operation(s) for response headers policy.
+- [Amazon Web Services Reusabledelegationsetlimit API](https://apis.io/apis/amazon-web-services/amazon-web-services-reusabledelegationsetlimit-api/) — The Reusabledelegationsetlimit API from Amazon Web Services — 1 operation(s) for reusabledelegationsetlimit.
+- [Amazon Web Services Role Tests API](https://apis.io/apis/amazon-web-services/amazon-web-services-roletests-api/) — The RoleTests API from Amazon Web Services — 1 operation(s) for roletests.
+- [Amazon Web Services Streaming Distribution API](https://apis.io/apis/amazon-web-services/amazon-web-services-streaming-distribution-api/) — The Streaming Distribution API from Amazon Web Services — 4 operation(s) for streaming distribution.
+- [Amazon Web Services Studios API](https://apis.io/apis/amazon-web-services/amazon-web-services-studios-api/) — The Studios API from Amazon Web Services — 24 operation(s) for studios.
+- [Amazon Web Services Suggest API](https://apis.io/apis/amazon-web-services/amazon-web-services-suggest-api/) — The Suggest API from Amazon Web Services — 1 operation(s) for suggest.
+- [Amazon Web Services Tagging API](https://apis.io/apis/amazon-web-services/amazon-web-services-tagging-api/) — The Tagging API from Amazon Web Services — 3 operation(s) for tagging.
+- [Amazon Web Services Tags Removal API](https://apis.io/apis/amazon-web-services/amazon-web-services-tags-removal-api/) — The Tags Removal API from Amazon Web Services — 2 operation(s) for tags removal.
+- [Amazon Web Services Testdnsanswer API](https://apis.io/apis/amazon-web-services/amazon-web-services-testdnsanswer-api/) — The Testdnsanswer API from Amazon Web Services — 1 operation(s) for testdnsanswer.
+- [Amazon Web Services Trafficpolicies API](https://apis.io/apis/amazon-web-services/amazon-web-services-trafficpolicies-api/) — The Trafficpolicies API from Amazon Web Services — 2 operation(s) for trafficpolicies.
+- [Amazon Web Services Trafficpolicy API](https://apis.io/apis/amazon-web-services/amazon-web-services-trafficpolicy-api/) — The Trafficpolicy API from Amazon Web Services — 3 operation(s) for trafficpolicy.
+- [Amazon Web Services Trafficpolicyinstance API](https://apis.io/apis/amazon-web-services/amazon-web-services-trafficpolicyinstance-api/) — The Trafficpolicyinstance API from Amazon Web Services — 2 operation(s) for trafficpolicyinstance.
+- [Amazon Web Services Trafficpolicyinstancecount API](https://apis.io/apis/amazon-web-services/amazon-web-services-trafficpolicyinstancecount-api/) — The Trafficpolicyinstancecount API from Amazon Web Services — 1 operation(s) for trafficpolicyinstancecount.
+- [Amazon Web Services Trafficpolicyinstances API](https://apis.io/apis/amazon-web-services/amazon-web-services-trafficpolicyinstances-api/) — The Trafficpolicyinstances API from Amazon Web Services — 3 operation(s) for trafficpolicyinstances.
+- [Amazon Web Services Health API](https://apis.io/apis/amazon-web-services/amazon-web-services-health-api/) — The Health API from Amazon Web Services — 1 operation(s) for health.
+- [Amazon Web Services Systemone API](https://apis.io/apis/amazon-web-services/amazon-web-services-systemone-api/) — The Systemone API from Amazon Web Services — 1 operation(s) for systemone.
+- [Amazon Web Services Access Point API](https://apis.io/apis/amazon-web-services/amazon-web-services-access-point-api/) — The Access Point API from Amazon Web Services — 4 operation(s) for access point.
+- [Amazon Web Services Access Tokens API](https://apis.io/apis/amazon-web-services/amazon-web-services-access-tokens-api/) — The Access Tokens API from Amazon Web Services — 2 operation(s) for access tokens.
+- [Amazon Web Services Account Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-account-configuration-api/) — The Account Configuration API from Amazon Web Services — 1 operation(s) for account configuration.
+- [Amazon Web Services Action Targets API](https://apis.io/apis/amazon-web-services/amazon-web-services-action-targets-api/) — The Action Targets API from Amazon Web Services — 3 operation(s) for action targets.
+- [Amazon Web Services Add Ons API](https://apis.io/apis/amazon-web-services/amazon-web-services-add-ons-api/) — The Add Ons API from Amazon Web Services — 2 operation(s) for add ons.
+- [Amazon Web Services Annotation Store API](https://apis.io/apis/amazon-web-services/amazon-web-services-annotation-store-api/) — The Annotation Store API from Amazon Web Services — 6 operation(s) for annotation store.
+- [Amazon Web Services Annotation Stores API](https://apis.io/apis/amazon-web-services/amazon-web-services-annotation-stores-api/) — The Annotation Stores API from Amazon Web Services — 1 operation(s) for annotation stores.
+- [Amazon Web Services API Keys API](https://apis.io/apis/amazon-web-services/amazon-web-services-api-keys-api/) — The API Keys API from Amazon Web Services — 4 operation(s) for api keys.
+- [Amazon Web Services App Bundles API](https://apis.io/apis/amazon-web-services/amazon-web-services-app-bundles-api/) — The App Bundles API from Amazon Web Services — 11 operation(s) for app bundles.
+- [Amazon Web Services Automation Rules API](https://apis.io/apis/amazon-web-services/amazon-web-services-automation-rules-api/) — The Automation Rules API from Amazon Web Services — 5 operation(s) for automation rules.
+- [Amazon Web Services Batch Delete Worlds API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-delete-worlds-api/) — The Batch Delete Worlds API from Amazon Web Services — 1 operation(s) for batch delete worlds.
+- [Amazon Web Services Batch Describe Simulation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-describe-simulation-job-api/) — The Batch Describe Simulation Job API from Amazon Web Services — 1 operation(s) for batch describe simulation job.
+- [Amazon Web Services Batch Get Findings API](https://apis.io/apis/amazon-web-services/amazon-web-services-batch-get-findings-api/) — The Batch Get Findings API from Amazon Web Services — 1 operation(s) for batch get findings.
+- [Amazon Web Services Browser Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-browser-settings-api/) — The Browser Settings API from Amazon Web Services — 2 operation(s) for browser settings.
+- [Amazon Web Services Cancel Deployment Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-deployment-job-api/) — The Cancel Deployment Job API from Amazon Web Services — 1 operation(s) for cancel deployment job.
+- [Amazon Web Services Cancel Simulation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-simulation-job-api/) — The Cancel Simulation Job API from Amazon Web Services — 1 operation(s) for cancel simulation job.
+- [Amazon Web Services Cancel Simulation Job Batch API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-simulation-job-batch-api/) — The Cancel Simulation Job Batch API from Amazon Web Services — 1 operation(s) for cancel simulation job batch.
+- [Amazon Web Services Cancel World Export Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-world-export-job-api/) — The Cancel World Export Job API from Amazon Web Services — 1 operation(s) for cancel world export job.
+- [Amazon Web Services Cancel World Generation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-cancel-world-generation-job-api/) — The Cancel World Generation Job API from Amazon Web Services — 1 operation(s) for cancel world generation job.
+- [Amazon Web Services Configuration - Policy API](https://apis.io/apis/amazon-web-services/amazon-web-services-configuration-policy-api/) — The Configuration - Policy API from Amazon Web Services — 4 operation(s) for configuration - policy.
+- [Amazon Web Services Configure Logs API](https://apis.io/apis/amazon-web-services/amazon-web-services-configure-logs-api/) — The Configure Logs API from Amazon Web Services — 2 operation(s) for configure logs.
+- [Amazon Web Services Configured Tables API](https://apis.io/apis/amazon-web-services/amazon-web-services-configured-tables-api/) — The Configured Tables API from Amazon Web Services — 4 operation(s) for configured tables.
+- [Amazon Web Services Create Deployment Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-deployment-job-api/) — The Create Deployment Job API from Amazon Web Services — 1 operation(s) for create deployment job.
+- [Amazon Web Services Create Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-fleet-api/) — The Create Fleet API from Amazon Web Services — 1 operation(s) for create fleet.
+- [Amazon Web Services Create Image API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-image-api/) — The Create Image API from Amazon Web Services — 1 operation(s) for create image.
+- [Amazon Web Services Create Replication Set API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-replication-set-api/) — The Create Replication Set API from Amazon Web Services — 1 operation(s) for create replication set.
+- [Amazon Web Services Create Response Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-response-plan-api/) — The Create Response Plan API from Amazon Web Services — 1 operation(s) for create response plan.
+- [Amazon Web Services Create Robot API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-robot-api/) — The Create Robot API from Amazon Web Services — 1 operation(s) for create robot.
+- [Amazon Web Services Create Robot Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-robot-application-api/) — The Create Robot Application API from Amazon Web Services — 1 operation(s) for create robot application.
+- [Amazon Web Services Create Robot Application Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-robot-application-version-api/) — The Create Robot Application Version API from Amazon Web Services — 1 operation(s) for create robot application version.
+- [Amazon Web Services Create Signaling Channel API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-signaling-channel-api/) — The Create Signaling Channel API from Amazon Web Services — 1 operation(s) for create signaling channel.
+- [Amazon Web Services Create Simulation Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-simulation-application-api/) — The Create Simulation Application API from Amazon Web Services — 1 operation(s) for create simulation application.
+- [Amazon Web Services Create Simulation Application Version API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-simulation-application-version-api/) — The Create Simulation Application Version API from Amazon Web Services — 1 operation(s) for create simulation application version.
+- [Amazon Web Services Create Simulation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-simulation-job-api/) — The Create Simulation Job API from Amazon Web Services — 1 operation(s) for create simulation job.
+- [Amazon Web Services Create Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-stream-api/) — The Create Stream API from Amazon Web Services — 1 operation(s) for create stream.
+- [Amazon Web Services Create Timeline Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-timeline-event-api/) — The Create Timeline Event API from Amazon Web Services — 1 operation(s) for create timeline event.
+- [Amazon Web Services Create World Export Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-world-export-job-api/) — The Create World Export Job API from Amazon Web Services — 1 operation(s) for create world export job.
+- [Amazon Web Services Create World Generation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-world-generation-job-api/) — The Create World Generation Job API from Amazon Web Services — 1 operation(s) for create world generation job.
+- [Amazon Web Services Create World Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-create-world-template-api/) — The Create World Template API from Amazon Web Services — 1 operation(s) for create world template.
+- [Amazon Web Services Data Integrations API](https://apis.io/apis/amazon-web-services/amazon-web-services-data-integrations-api/) — The Data Integrations API from Amazon Web Services — 3 operation(s) for data integrations.
+- [Amazon Web Services Data Lakes API](https://apis.io/apis/amazon-web-services/amazon-web-services-data-lakes-api/) — The Data Lakes API from Amazon Web Services — 1 operation(s) for data lakes.
+- [Amazon Web Services Data Sources API](https://apis.io/apis/amazon-web-services/amazon-web-services-data-sources-api/) — The Data Sources API from Amazon Web Services — 7 operation(s) for data sources.
+- [Amazon Web Services Dataflow Endpoint Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-dataflow-endpoint-group-api/) — The Dataflow Endpoint Group API from Amazon Web Services — 2 operation(s) for dataflow endpoint group.
+- [Amazon Web Services Datasets V2 API](https://apis.io/apis/amazon-web-services/amazon-web-services-datasets-v2-api/) — The Datasets V2 API from Amazon Web Services — 2 operation(s) for datasets v2.
+- [Amazon Web Services Delete Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-fleet-api/) — The Delete Fleet API from Amazon Web Services — 1 operation(s) for delete fleet.
+- [Amazon Web Services Delete Incident Record API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-incident-record-api/) — The Delete Incident Record API from Amazon Web Services — 1 operation(s) for delete incident record.
+- [Amazon Web Services Delete Response Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-response-plan-api/) — The Delete Response Plan API from Amazon Web Services — 1 operation(s) for delete response plan.
+- [Amazon Web Services Delete Robot API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-robot-api/) — The Delete Robot API from Amazon Web Services — 1 operation(s) for delete robot.
+- [Amazon Web Services Delete Robot Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-robot-application-api/) — The Delete Robot Application API from Amazon Web Services — 1 operation(s) for delete robot application.
+- [Amazon Web Services Delete Signaling Channel API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-signaling-channel-api/) — The Delete Signaling Channel API from Amazon Web Services — 1 operation(s) for delete signaling channel.
+- [Amazon Web Services Delete Simulation Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-simulation-application-api/) — The Delete Simulation Application API from Amazon Web Services — 1 operation(s) for delete simulation application.
+- [Amazon Web Services Delete Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-stream-api/) — The Delete Stream API from Amazon Web Services — 1 operation(s) for delete stream.
+- [Amazon Web Services Delete Timeline Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-timeline-event-api/) — The Delete Timeline Event API from Amazon Web Services — 1 operation(s) for delete timeline event.
+- [Amazon Web Services Delete World Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-delete-world-template-api/) — The Delete World Template API from Amazon Web Services — 1 operation(s) for delete world template.
+- [Amazon Web Services Deregister Robot API](https://apis.io/apis/amazon-web-services/amazon-web-services-deregister-robot-api/) — The Deregister Robot API from Amazon Web Services — 1 operation(s) for deregister robot.
+- [Amazon Web Services Describe Deployment Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-deployment-job-api/) — The Describe Deployment Job API from Amazon Web Services — 1 operation(s) for describe deployment job.
+- [Amazon Web Services Describe Edge Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-edge-configuration-api/) — The Describe Edge Configuration API from Amazon Web Services — 1 operation(s) for describe edge configuration.
+- [Amazon Web Services Describe Fleet API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-fleet-api/) — The Describe Fleet API from Amazon Web Services — 1 operation(s) for describe fleet.
+- [Amazon Web Services Describe Image Generation Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-image-generation-configuration-api/) — The Describe Image Generation Configuration API from Amazon Web Services — 1 operation(s) for describe image generation configuration.
+- [Amazon Web Services Describe Mapped Resource Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-mapped-resource-configuration-api/) — The Describe Mapped Resource Configuration API from Amazon Web Services — 1 operation(s) for describe mapped resource configuration.
+- [Amazon Web Services Describe Media Storage Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-media-storage-configuration-api/) — The Describe Media Storage Configuration API from Amazon Web Services — 1 operation(s) for describe media storage configuration.
+- [Amazon Web Services Describe Notification Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-notification-configuration-api/) — The Describe Notification Configuration API from Amazon Web Services — 1 operation(s) for describe notification configuration.
+- [Amazon Web Services Describe Robot API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-robot-api/) — The Describe Robot API from Amazon Web Services — 1 operation(s) for describe robot.
+- [Amazon Web Services Describe Robot Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-robot-application-api/) — The Describe Robot Application API from Amazon Web Services — 1 operation(s) for describe robot application.
+- [Amazon Web Services Describe Signaling Channel API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-signaling-channel-api/) — The Describe Signaling Channel API from Amazon Web Services — 1 operation(s) for describe signaling channel.
+- [Amazon Web Services Describe Simulation Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-simulation-application-api/) — The Describe Simulation Application API from Amazon Web Services — 1 operation(s) for describe simulation application.
+- [Amazon Web Services Describe Simulation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-simulation-job-api/) — The Describe Simulation Job API from Amazon Web Services — 1 operation(s) for describe simulation job.
+- [Amazon Web Services Describe Simulation Job Batch API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-simulation-job-batch-api/) — The Describe Simulation Job Batch API from Amazon Web Services — 1 operation(s) for describe simulation job batch.
+- [Amazon Web Services Describe Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-stream-api/) — The Describe Stream API from Amazon Web Services — 1 operation(s) for describe stream.
+- [Amazon Web Services Describe World API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-world-api/) — The Describe World API from Amazon Web Services — 1 operation(s) for describe world.
+- [Amazon Web Services Describe World Export Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-world-export-job-api/) — The Describe World Export Job API from Amazon Web Services — 1 operation(s) for describe world export job.
+- [Amazon Web Services Describe World Generation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-world-generation-job-api/) — The Describe World Generation Job API from Amazon Web Services — 1 operation(s) for describe world generation job.
+- [Amazon Web Services Describe World Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-describe-world-template-api/) — The Describe World Template API from Amazon Web Services — 1 operation(s) for describe world template.
+- [Amazon Web Services Document Versions API](https://apis.io/apis/amazon-web-services/amazon-web-services-document-versions-api/) — The Document Versions API from Amazon Web Services — 2 operation(s) for document versions.
+- [Amazon Web Services Domain Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-domain-configurations-api/) — The Domain Configurations API from Amazon Web Services — 2 operation(s) for domain configurations.
+- [Amazon Web Services Domain Names API](https://apis.io/apis/amazon-web-services/amazon-web-services-domain-names-api/) — The Domain Names API from Amazon Web Services — 11 operation(s) for domain names.
+- [Amazon Web Services Environment Variables API](https://apis.io/apis/amazon-web-services/amazon-web-services-environment-variables-api/) — The Environment Variables API from Amazon Web Services — 1 operation(s) for environment variables.
+- [Amazon Web Services Experiment Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-experiment-templates-api/) — The Experiment Templates API from Amazon Web Services — 4 operation(s) for experiment templates.
+- [Amazon Web Services Filesystems API](https://apis.io/apis/amazon-web-services/amazon-web-services-filesystems-api/) — The Filesystems API from Amazon Web Services — 8 operation(s) for filesystems.
+- [Amazon Web Services Flush Cache API](https://apis.io/apis/amazon-web-services/amazon-web-services-flush-cache-api/) — The Flush Cache API from Amazon Web Services — 1 operation(s) for flush cache.
+- [Amazon Web Services Get Data Endpoint API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-data-endpoint-api/) — The Get Data Endpoint API from Amazon Web Services — 1 operation(s) for get data endpoint.
+- [Amazon Web Services Get DICOM Import Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-dicom-import-job-api/) — The Get DICOM Import Job API from Amazon Web Services — 1 operation(s) for get dicom import job.
+- [Amazon Web Services Get Images API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-images-api/) — The Get Images API from Amazon Web Services — 1 operation(s) for get images.
+- [Amazon Web Services Get Signaling Channel Endpoint API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-signaling-channel-endpoint-api/) — The Get Signaling Channel Endpoint API from Amazon Web Services — 1 operation(s) for get signaling channel endpoint.
+- [Amazon Web Services Get World Template Body API](https://apis.io/apis/amazon-web-services/amazon-web-services-get-world-template-body-api/) — The Get World Template Body API from Amazon Web Services — 1 operation(s) for get world template body.
+- [Amazon Web Services Health Check API](https://apis.io/apis/amazon-web-services/amazon-web-services-health-check-api/) — The Health Check API from Amazon Web Services — 4 operation(s) for health check.
+- [Amazon Web Services Identity Providers API](https://apis.io/apis/amazon-web-services/amazon-web-services-identity-providers-api/) — The Identity Providers API from Amazon Web Services — 2 operation(s) for identity providers.
+- [Amazon Web Services Import Lens API](https://apis.io/apis/amazon-web-services/amazon-web-services-import-lens-api/) — The Import Lens API from Amazon Web Services — 1 operation(s) for import lens.
+- [Amazon Web Services Import Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-import-tasks-api/) — The Import Tasks API from Amazon Web Services — 2 operation(s) for import tasks.
+- [Amazon Web Services Ip Access Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-ip-access-settings-api/) — The Ip Access Settings API from Amazon Web Services — 2 operation(s) for ip access settings.
+- [Amazon Web Services Knowledge Bases API](https://apis.io/apis/amazon-web-services/amazon-web-services-knowledge-bases-api/) — The Knowledge Bases API from Amazon Web Services — 20 operation(s) for knowledge bases.
+- [Amazon Web Services List Deployment Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-deployment-jobs-api/) — The List Deployment Jobs API from Amazon Web Services — 1 operation(s) for list deployment jobs.
+- [Amazon Web Services List DICOM Import Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-dicom-import-jobs-api/) — The List DICOM Import Jobs API from Amazon Web Services — 1 operation(s) for list dicom import jobs.
+- [Amazon Web Services List Fleets API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-fleets-api/) — The List Fleets API from Amazon Web Services — 1 operation(s) for list fleets.
+- [Amazon Web Services List Images API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-images-api/) — The List Images API from Amazon Web Services — 1 operation(s) for list images.
+- [Amazon Web Services List Incident Records API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-incident-records-api/) — The List Incident Records API from Amazon Web Services — 1 operation(s) for list incident records.
+- [Amazon Web Services List Related Items API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-related-items-api/) — The List Related Items API from Amazon Web Services — 1 operation(s) for list related items.
+- [Amazon Web Services List Replication Sets API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-replication-sets-api/) — The List Replication Sets API from Amazon Web Services — 1 operation(s) for list replication sets.
+- [Amazon Web Services List Response Plans API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-response-plans-api/) — The List Response Plans API from Amazon Web Services — 1 operation(s) for list response plans.
+- [Amazon Web Services List Robot Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-robot-applications-api/) — The List Robot Applications API from Amazon Web Services — 1 operation(s) for list robot applications.
+- [Amazon Web Services List Robots API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-robots-api/) — The List Robots API from Amazon Web Services — 1 operation(s) for list robots.
+- [Amazon Web Services List Signaling Channels API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-signaling-channels-api/) — The List Signaling Channels API from Amazon Web Services — 1 operation(s) for list signaling channels.
+- [Amazon Web Services List Simulation Applications API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-simulation-applications-api/) — The List Simulation Applications API from Amazon Web Services — 1 operation(s) for list simulation applications.
+- [Amazon Web Services List Simulation Job Batches API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-simulation-job-batches-api/) — The List Simulation Job Batches API from Amazon Web Services — 1 operation(s) for list simulation job batches.
+- [Amazon Web Services List Simulation Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-simulation-jobs-api/) — The List Simulation Jobs API from Amazon Web Services — 1 operation(s) for list simulation jobs.
+- [Amazon Web Services List Tags For Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-tags-for-resource-api/) — The List Tags For Resource API from Amazon Web Services — 2 operation(s) for list tags for resource.
+- [Amazon Web Services List Tags For Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-tags-for-stream-api/) — The List Tags For Stream API from Amazon Web Services — 1 operation(s) for list tags for stream.
+- [Amazon Web Services List Targets API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-targets-api/) — The List Targets API from Amazon Web Services — 1 operation(s) for list targets.
+- [Amazon Web Services List Timeline Events API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-timeline-events-api/) — The List Timeline Events API from Amazon Web Services — 1 operation(s) for list timeline events.
+- [Amazon Web Services List Views API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-views-api/) — The List Views API from Amazon Web Services — 1 operation(s) for list views.
+- [Amazon Web Services List World Export Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-world-export-jobs-api/) — The List World Export Jobs API from Amazon Web Services — 1 operation(s) for list world export jobs.
+- [Amazon Web Services List World Generation Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-world-generation-jobs-api/) — The List World Generation Jobs API from Amazon Web Services — 1 operation(s) for list world generation jobs.
+- [Amazon Web Services List World Templates API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-world-templates-api/) — The List World Templates API from Amazon Web Services — 1 operation(s) for list world templates.
+- [Amazon Web Services List Worlds API](https://apis.io/apis/amazon-web-services/amazon-web-services-list-worlds-api/) — The List Worlds API from Amazon Web Services — 1 operation(s) for list worlds.
+- [Amazon Web Services Logging Options API](https://apis.io/apis/amazon-web-services/amazon-web-services-logging-options-api/) — The Logging Options API from Amazon Web Services — 1 operation(s) for logging options.
+- [Amazon Web Services Monitored Resources API](https://apis.io/apis/amazon-web-services/amazon-web-services-monitored-resources-api/) — The Monitored Resources API from Amazon Web Services — 1 operation(s) for monitored resources.
+- [Amazon Web Services Network Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-network-settings-api/) — The Network Settings API from Amazon Web Services — 2 operation(s) for network settings.
+- [Amazon Web Services open Cypher API](https://apis.io/apis/amazon-web-services/amazon-web-services-open-cypher-api/) — The open Cypher API from Amazon Web Services — 4 operation(s) for open cypher.
+- [Amazon Web Services Open Search API](https://apis.io/apis/amazon-web-services/amazon-web-services-open-search-api/) — The Open Search API from Amazon Web Services — 43 operation(s) for open search.
+- [Amazon Web Services Organization Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-organization-configuration-api/) — The Organization Configuration API from Amazon Web Services — 2 operation(s) for organization configuration.
+- [Amazon Web Services OTA Updates API](https://apis.io/apis/amazon-web-services/amazon-web-services-ota-updates-api/) — The OTA Updates API from Amazon Web Services — 2 operation(s) for ota updates.
+- [Amazon Web Services Playback Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-playback-configuration-api/) — The Playback Configuration API from Amazon Web Services — 2 operation(s) for playback configuration.
+- [Amazon Web Services Playback Configurations API](https://apis.io/apis/amazon-web-services/amazon-web-services-playback-configurations-api/) — The Playback Configurations API from Amazon Web Services — 1 operation(s) for playback configurations.
+- [Amazon Web Services Portal Idp API](https://apis.io/apis/amazon-web-services/amazon-web-services-portal-idp-api/) — The Portal Idp API from Amazon Web Services — 1 operation(s) for portal idp.
+- [Amazon Web Services Prefetch Schedule API](https://apis.io/apis/amazon-web-services/amazon-web-services-prefetch-schedule-api/) — The Prefetch Schedule API from Amazon Web Services — 2 operation(s) for prefetch schedule.
+- [Amazon Web Services Product Subscriptions API](https://apis.io/apis/amazon-web-services/amazon-web-services-product-subscriptions-api/) — The Product Subscriptions API from Amazon Web Services — 2 operation(s) for product subscriptions.
+- [Amazon Web Services Profile Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-profile-jobs-api/) — The Profile Jobs API from Amazon Web Services — 2 operation(s) for profile jobs.
+- [Amazon Web Services Profile Notifications API](https://apis.io/apis/amazon-web-services/amazon-web-services-profile-notifications-api/) — The Profile Notifications API from Amazon Web Services — 1 operation(s) for profile notifications.
+- [Amazon Web Services Profile Summaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-profile-summaries-api/) — The Profile Summaries API from Amazon Web Services — 1 operation(s) for profile summaries.
+- [Amazon Web Services Profile Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-profile-template-api/) — The Profile Template API from Amazon Web Services — 1 operation(s) for profile template.
+- [Amazon Web Services Profiling Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-profiling-groups-api/) — The Profiling Groups API from Amazon Web Services — 11 operation(s) for profiling groups.
+- [Amazon Web Services Recipe Jobs API](https://apis.io/apis/amazon-web-services/amazon-web-services-recipe-jobs-api/) — The Recipe Jobs API from Amazon Web Services — 2 operation(s) for recipe jobs.
+- [Amazon Web Services Register Robot API](https://apis.io/apis/amazon-web-services/amazon-web-services-register-robot-api/) — The Register Robot API from Amazon Web Services — 1 operation(s) for register robot.
+- [Amazon Web Services Resource Sets API](https://apis.io/apis/amazon-web-services/amazon-web-services-resource-sets-api/) — The Resource Sets API from Amazon Web Services — 2 operation(s) for resource sets.
+- [Amazon Web Services REST APIs API](https://apis.io/apis/amazon-web-services/amazon-web-services-rest-apis-api/) — The REST APIs API from Amazon Web Services — 30 operation(s) for rest apis.
+- [Amazon Web Services Restart Simulation Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-restart-simulation-job-api/) — The Restart Simulation Job API from Amazon Web Services — 1 operation(s) for restart simulation job.
+- [Amazon Web Services Run Group API](https://apis.io/apis/amazon-web-services/amazon-web-services-run-group-api/) — The Run Group API from Amazon Web Services — 2 operation(s) for run group.
+- [Amazon Web Services S3 Buckets API](https://apis.io/apis/amazon-web-services/amazon-web-services-s3-buckets-api/) — The S3 Buckets API from Amazon Web Services — 1 operation(s) for s3 buckets.
+- [Amazon Web Services Send Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-send-event-api/) — The Send Event API from Amazon Web Services — 1 operation(s) for send event.
+- [Amazon Web Services Service Graph API](https://apis.io/apis/amazon-web-services/amazon-web-services-service-graph-api/) — The Service Graph API from Amazon Web Services — 1 operation(s) for service graph.
+- [Amazon Web Services Service Networks API](https://apis.io/apis/amazon-web-services/amazon-web-services-service-networks-api/) — The Service Networks API from Amazon Web Services — 2 operation(s) for service networks.
+- [Amazon Web Services Share Invitations API](https://apis.io/apis/amazon-web-services/amazon-web-services-share-invitations-api/) — The Share Invitations API from Amazon Web Services — 2 operation(s) for share invitations.
+- [Amazon Web Services Source Location API](https://apis.io/apis/amazon-web-services/amazon-web-services-source-location-api/) — The Source Location API from Amazon Web Services — 5 operation(s) for source location.
+- [Amazon Web Services Source Locations API](https://apis.io/apis/amazon-web-services/amazon-web-services-source-locations-api/) — The Source Locations API from Amazon Web Services — 1 operation(s) for source locations.
+- [Amazon Web Services Start DICOM Import Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-dicom-import-job-api/) — The Start DICOM Import Job API from Amazon Web Services — 1 operation(s) for start dicom import job.
+- [Amazon Web Services Start Edge Configuration Update API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-edge-configuration-update-api/) — The Start Edge Configuration Update API from Amazon Web Services — 1 operation(s) for start edge configuration update.
+- [Amazon Web Services Start Incident API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-incident-api/) — The Start Incident API from Amazon Web Services — 1 operation(s) for start incident.
+- [Amazon Web Services Start Simulation Job Batch API](https://apis.io/apis/amazon-web-services/amazon-web-services-start-simulation-job-batch-api/) — The Start Simulation Job Batch API from Amazon Web Services — 1 operation(s) for start simulation job batch.
+- [Amazon Web Services Storage Lens API](https://apis.io/apis/amazon-web-services/amazon-web-services-storage-lens-api/) — The Storage Lens API from Amazon Web Services — 3 operation(s) for storage lens.
+- [Amazon Web Services Sync Deployment Job API](https://apis.io/apis/amazon-web-services/amazon-web-services-sync-deployment-job-api/) — The Sync Deployment Job API from Amazon Web Services — 1 operation(s) for sync deployment job.
+- [Amazon Web Services Synthesis Tasks API](https://apis.io/apis/amazon-web-services/amazon-web-services-synthesis-tasks-api/) — The Synthesis Tasks API from Amazon Web Services — 2 operation(s) for synthesis tasks.
+- [Amazon Web Services Tag Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-tag-resource-api/) — The Tag Resource API from Amazon Web Services — 3 operation(s) for tag resource.
+- [Amazon Web Services Tag Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-tag-stream-api/) — The Tag Stream API from Amazon Web Services — 1 operation(s) for tag stream.
+- [Amazon Web Services Target Groups API](https://apis.io/apis/amazon-web-services/amazon-web-services-target-groups-api/) — The Target Groups API from Amazon Web Services — 5 operation(s) for target groups.
+- [Amazon Web Services Target Resource Types API](https://apis.io/apis/amazon-web-services/amazon-web-services-target-resource-types-api/) — The Target Resource Types API from Amazon Web Services — 2 operation(s) for target resource types.
+- [Amazon Web Services Test Executions API](https://apis.io/apis/amazon-web-services/amazon-web-services-test-executions-api/) — The Test Executions API from Amazon Web Services — 4 operation(s) for test executions.
+- [Amazon Web Services Test Sets API](https://apis.io/apis/amazon-web-services/amazon-web-services-test-sets-api/) — The Test Sets API from Amazon Web Services — 5 operation(s) for test sets.
+- [Amazon Web Services Time Series API](https://apis.io/apis/amazon-web-services/amazon-web-services-time-series-api/) — The Time Series API from Amazon Web Services — 5 operation(s) for time series.
+- [Amazon Web Services Trust Stores API](https://apis.io/apis/amazon-web-services/amazon-web-services-trust-stores-api/) — The Trust Stores API from Amazon Web Services — 4 operation(s) for trust stores.
+- [Amazon Web Services Untag Resource API](https://apis.io/apis/amazon-web-services/amazon-web-services-untag-resource-api/) — The Untag Resource API from Amazon Web Services — 4 operation(s) for untag resource.
+- [Amazon Web Services Untag Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-untag-stream-api/) — The Untag Stream API from Amazon Web Services — 1 operation(s) for untag stream.
+- [Amazon Web Services Update Account Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-account-configuration-api/) — The Update Account Configuration API from Amazon Web Services — 1 operation(s) for update account configuration.
+- [Amazon Web Services Update Data Retention API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-data-retention-api/) — The Update Data Retention API from Amazon Web Services — 1 operation(s) for update data retention.
+- [Amazon Web Services Update Deletion Protection API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-deletion-protection-api/) — The Update Deletion Protection API from Amazon Web Services — 1 operation(s) for update deletion protection.
+- [Amazon Web Services Update Image Generation Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-image-generation-configuration-api/) — The Update Image Generation Configuration API from Amazon Web Services — 1 operation(s) for update image generation configuration.
+- [Amazon Web Services Update Incident Record API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-incident-record-api/) — The Update Incident Record API from Amazon Web Services — 1 operation(s) for update incident record.
+- [Amazon Web Services Update Media Storage Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-media-storage-configuration-api/) — The Update Media Storage Configuration API from Amazon Web Services — 1 operation(s) for update media storage configuration.
+- [Amazon Web Services update Notification Configuration API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-notification-configuration-api/) — The update Notification Configuration API from Amazon Web Services — 1 operation(s) for update notification configuration.
+- [Amazon Web Services Update Related Items API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-related-items-api/) — The Update Related Items API from Amazon Web Services — 1 operation(s) for update related items.
+- [Amazon Web Services Update Replication Set API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-replication-set-api/) — The Update Replication Set API from Amazon Web Services — 1 operation(s) for update replication set.
+- [Amazon Web Services Update Response Plan API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-response-plan-api/) — The Update Response Plan API from Amazon Web Services — 1 operation(s) for update response plan.
+- [Amazon Web Services Update Robot Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-robot-application-api/) — The Update Robot Application API from Amazon Web Services — 1 operation(s) for update robot application.
+- [Amazon Web Services Update Signaling Channel API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-signaling-channel-api/) — The Update Signaling Channel API from Amazon Web Services — 1 operation(s) for update signaling channel.
+- [Amazon Web Services Update Simulation Application API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-simulation-application-api/) — The Update Simulation Application API from Amazon Web Services — 1 operation(s) for update simulation application.
+- [Amazon Web Services Update Stream API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-stream-api/) — The Update Stream API from Amazon Web Services — 1 operation(s) for update stream.
+- [Amazon Web Services Update Timeline Event API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-timeline-event-api/) — The Update Timeline Event API from Amazon Web Services — 1 operation(s) for update timeline event.
+- [Amazon Web Services Update World Template API](https://apis.io/apis/amazon-web-services/amazon-web-services-update-world-template-api/) — The Update World Template API from Amazon Web Services — 1 operation(s) for update world template.
+- [Amazon Web Services Upload URL API](https://apis.io/apis/amazon-web-services/amazon-web-services-upload-url-api/) — The Upload URL API from Amazon Web Services — 1 operation(s) for upload url.
+- [Amazon Web Services Usage Plans API](https://apis.io/apis/amazon-web-services/amazon-web-services-usage-plans-api/) — The Usage Plans API from Amazon Web Services — 6 operation(s) for usage plans.
+- [Amazon Web Services User Access API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-access-api/) — The User Access API from Amazon Web Services — 2 operation(s) for user access.
+- [Amazon Web Services User Access Logging Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-access-logging-settings-api/) — The User Access Logging Settings API from Amazon Web Services — 2 operation(s) for user access logging settings.
+- [Amazon Web Services User Details API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-details-api/) — The User Details API from Amazon Web Services — 1 operation(s) for user details.
+- [Amazon Web Services User Settings API](https://apis.io/apis/amazon-web-services/amazon-web-services-user-settings-api/) — The User Settings API from Amazon Web Services — 2 operation(s) for user settings.
+- [Amazon Web Services V2 Logging Level API](https://apis.io/apis/amazon-web-services/amazon-web-services-v2-logging-level-api/) — The V2 Logging Level API from Amazon Web Services — 1 operation(s) for v2 logging level.
+- [Amazon Web Services V2 Logging Options API](https://apis.io/apis/amazon-web-services/amazon-web-services-v2-logging-options-api/) — The V2 Logging Options API from Amazon Web Services — 1 operation(s) for v2 logging options.
+- [Amazon Web Services Variant Store API](https://apis.io/apis/amazon-web-services/amazon-web-services-variant-store-api/) — The Variant Store API from Amazon Web Services — 2 operation(s) for variant store.
+- [Amazon Web Services Variant Stores API](https://apis.io/apis/amazon-web-services/amazon-web-services-variant-stores-api/) — The Variant Stores API from Amazon Web Services — 1 operation(s) for variant stores.
+- [Amazon Web Services Virtual Clusters API](https://apis.io/apis/amazon-web-services/amazon-web-services-virtual-clusters-api/) — The Virtual Clusters API from Amazon Web Services — 7 operation(s) for virtual clusters.
+- [Amazon Web Services Workloads Summaries API](https://apis.io/apis/amazon-web-services/amazon-web-services-workloads-summaries-api/) — The Workloads Summaries API from Amazon Web Services — 1 operation(s) for workloads summaries.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [MCP Server](https://apis.io/servers/amazon-web-services/mcp-server/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Amazon Web Services Agentic Access](https://apis.io/agentic-access/amazon-web-services/amazon-web-services-agentic-access/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Web Services Context](https://apis.io/jsonld/amazon-web-services/amazon-web-services-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Web Services Vocabulary](https://apis.io/vocabularies/amazon-web-services/amazon-web-services-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Amazon Web Services Example](https://apis.io/examples/amazon-web-services/amazon-web-services-example/)
+
+#### Collections (1801)
+
+Postman and Open Collection request collections.
+
+- [Open Amazon Web Services 2012 09 25 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2012-09-25-api/)
+- [Open Amazon Web Services 2013 01 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2013-01-01-api/)
+- [Open Amazon Web Services 2013 04 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2013-04-01-api/)
+- [Open Amazon Web Services 2014 11 13 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2014-11-13-api/)
+- [Open Amazon Web Services 2015 01 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2015-01-01-api/)
+- [Open Amazon Web Services 2015 02 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2015-02-01-api/)
+- [Open Amazon Web Services 2015 03 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2015-03-31-api/)
+- [Open Amazon Web Services 2016 08 19 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2016-08-19-api/)
+- [Open Amazon Web Services 2017 03 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2017-03-31-api/)
+- [Open Amazon Web Services 2017 08 29 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2017-08-29-api/)
+- [Open Amazon Web Services 2017 10 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2017-10-31-api/)
+- [Open Amazon Web Services 2018 10 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2018-10-31-api/)
+- [Open Amazon Web Services 2019 09 25 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2019-09-25-api/)
+- [Open Amazon Web Services 2019 09 30 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2019-09-30-api/)
+- [Open Amazon Web Services 2020 04 22 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2020-04-22-api/)
+- [Open Amazon Web Services 2020 05 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2020-05-31-api/)
+- [Open Amazon Web Services 2020 06 30 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2020-06-30-api/)
+- [Open Amazon Web Services 2020 08 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2020-08-01-api/)
+- [Open Amazon Web Services 2020 11 20 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2020-11-20-api/)
+- [Open Amazon Web Services 20200301 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-20200301-api/)
+- [Open Amazon Web Services 2021 01 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2021-01-01-api/)
+- [Open Amazon Web Services 2021 07 20 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2021-07-20-api/)
+- [Open Amazon Web Services 2021 10 31 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2021-10-31-api/)
+- [Open Amazon Web Services 2021 11 15 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2021-11-15-api/)
+- [Open Amazon Web Services 2022 01 01 Api](https://apis.io/collections/amazon-web-services/open-amazon-web-services-2022-01-01-api/)
+- …and 1776 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Web Services Spectral Rules](https://apis.io/rules/amazon-web-services/amazon-web-services-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Web Services Domain Security](https://apis.io/security/amazon-web-services/amazon-web-services-domain-security/)
+- [Amazon Web Services Trust Center](https://apis.io/security/amazon-web-services/amazon-web-services-trust-center/)
+- [Amazon Web Services Vulnerability Disclosure](https://apis.io/security/amazon-web-services/amazon-web-services-vulnerability-disclosure/)
+
+#### Plans and pricing (2)
+
+Published plans, tiers and prices.
+
+- [Amazon Web Services Plans Pricing](https://apis.io/plans/amazon-web-services/amazon-web-services-plans-pricing/)
+- [Amazon Web Services Price Estimates](https://apis.io/plans/amazon-web-services/amazon-web-services-price-estimates/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Web Services Rate Limits](https://apis.io/rate-limits/amazon-web-services/amazon-web-services-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Web Services Finops](https://apis.io/finops/amazon-web-services/amazon-web-services-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/)
+- [Documentation](https://docs.aws.amazon.com/)
+- [Pricing](https://aws.amazon.com/api-gateway/pricing/)
+- [Support](https://aws.amazon.com/support/)
+- [Changelog](https://aws.amazon.com/new/)
+- [Blog](https://aws.amazon.com/blogs/aws/feed/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
+
+## API Evangelist rating
+
+**Kin Score 58.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 50.0 |
+| Contract quality | 38.9 |
+| Contract governance | 29.5 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 78.6 |
+| Access clarity | 71.1 |
+
+**Agent readiness 38.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | verified |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-web-services/](https://apis.io/providers/amazon-web-services/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Web Services: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-web-services/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
