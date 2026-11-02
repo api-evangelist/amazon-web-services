@@ -1,0 +1,162 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://aws.amazon.com/api-gateway/pricing/
+name: Amazon Web Services API Plans
+sources:
+- https://aws.amazon.com/api-gateway/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T130003
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+  managed_tier: HTTP APIs
+published: true
+note: The live rate tables render via pricing tokens ({priceOf!...}) and show no numbers in the extracted
+  text; the numeric rates captured here come from the page's worked pricing examples (US regions) and
+  the Portals section.
+plan_count: 8
+currency: USD
+plans:
+- name: Free Tier
+  price_text: up to $200 in AWS Free Tier credits
+  price: 200
+  currency: USD
+  period: none
+  unit: credits
+  included_quota: one million API calls received for REST APIs, one million API calls received for HTTP
+    APIs, and one million messages and 750,000 connection minutes for WebSocket APIs per month for up
+    to 12 months
+  overage: If you exceed this number of calls per month, you will be charged the API Gateway usage rates.
+- name: HTTP APIs (first 300 million requests/month, from pricing example)
+  price_text: $1.00/million
+  price: 1
+  currency: USD
+  period: per-use
+  unit: per million requests
+  overage: 132 million * $0.90/million (over 300 million)
+- name: REST APIs (from pricing example)
+  price_text: $3.50/million
+  price: 3.5
+  currency: USD
+  period: per-use
+  unit: per million API calls
+  overage: $2.80/million next 667 million; $2.38/million next 19 billion
+- name: REST API data transfer out (from pricing example)
+  price_text: $0.09 per GB
+  price: 0.09
+  currency: USD
+  period: per-use
+  unit: per GB
+- name: Caching 1.6 GB (from pricing example)
+  price_text: $0.038/hr
+  price: 0.038
+  currency: USD
+  period: per-use
+  unit: per hour
+- name: WebSocket messages (from pricing example)
+  price_text: $1.00 (per million)
+  price: 1
+  currency: USD
+  period: per-use
+  unit: per million messages
+- name: WebSocket connection minutes (from pricing example)
+  price_text: 0.25 (cost per million)
+  price: 0.25
+  currency: USD
+  period: per-use
+  unit: per million connection minutes
+- name: API Gateway Portals
+  price_text: monthly Portal charge of $125
+  price: 125
+  currency: USD
+  period: month
+  unit: per Portal
+  included_quota: first 10 PortalProducts, each with up to 40 ProductRestEndpoints
+  overage: Each additional PortalProduct is charged at $12.50 per month
+rate_limit_statements:
+- You may send and receive messages up to 128 Kilobytes (KB) in size. Messages are metered in 32KB increments,
+  so a 33KB message is metered as two messages.
+- '*HTTP APIs are metered in 512 KB increments.'
+- '* Streaming enabled REST APIs are metered in 10MB response payload increments.'
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - credit
+  - data
+  - message
+  - request
+  plans:
+  - name: Free Tier
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - none
+  - name: HTTP APIs (first 300 million requests/month, from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: REST APIs (from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: REST API data transfer out (from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Caching 1.6 GB (from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: WebSocket messages (from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - message
+    periods:
+    - other
+  - name: WebSocket connection minutes (from pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: API Gateway Portals
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
